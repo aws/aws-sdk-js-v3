@@ -8,6 +8,7 @@ import { HealthServiceException as __BaseException } from "./HealthServiceExcept
  * @public
  */
 export class InvalidPaginationToken extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.health#InvalidPaginationToken";
   readonly name = "InvalidPaginationToken" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class InvalidPaginationToken extends __BaseException {
  * @public
  */
 export class UnsupportedLocale extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.health#UnsupportedLocale";
   readonly name = "UnsupportedLocale" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class UnsupportedLocale extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.health#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**

@@ -157,6 +157,10 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *   eksConfiguration: { // EksConfiguration
  *     eksClusterArn: "STRING_VALUE", // required
  *     kubernetesNamespace: "STRING_VALUE", // required
+ *     accessEntry: { // EksAccessEntry
+ *       desiredState: "ENABLED" || "DISABLED" || "INHERIT_FROM_CLUSTER", // required
+ *       status: "ACTIVE" || "INACTIVE",
+ *     },
  *   },
  *   context: "STRING_VALUE",
  *   ecsSettings: { // EcsSettings

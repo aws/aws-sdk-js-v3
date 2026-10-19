@@ -869,6 +869,20 @@ export type SheetControlSliderType = (typeof SheetControlSliderType)[keyof typeo
  * @public
  * @enum
  */
+export const HierarchyFilterMatchOperator = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+/**
+ * @public
+ */
+export type HierarchyFilterMatchOperator =
+  (typeof HierarchyFilterMatchOperator)[keyof typeof HierarchyFilterMatchOperator];
+
+/**
+ * @public
+ * @enum
+ */
 export const NumericEqualityMatchOperator = {
   DOES_NOT_EQUAL: "DOES_NOT_EQUAL",
   EQUALS: "EQUALS",
@@ -2582,20 +2596,6 @@ export type LookbackWindowSizeUnit = (typeof LookbackWindowSizeUnit)[keyof typeo
  * @public
  * @enum
  */
-export const AuthType = {
-  SERVICE_ACCOUNT: "SERVICE_ACCOUNT",
-  THREE_LEGGED_OAUTH: "THREE_LEGGED_OAUTH",
-  TWO_LEGGED_OAUTH: "TWO_LEGGED_OAUTH",
-} as const;
-/**
- * @public
- */
-export type AuthType = (typeof AuthType)[keyof typeof AuthType];
-
-/**
- * @public
- * @enum
- */
 export const AuthenticationType = {
   KEYPAIR: "KEYPAIR",
   PASSWORD: "PASSWORD",
@@ -2606,6 +2606,20 @@ export const AuthenticationType = {
  * @public
  */
 export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthType = {
+  SERVICE_ACCOUNT: "SERVICE_ACCOUNT",
+  THREE_LEGGED_OAUTH: "THREE_LEGGED_OAUTH",
+  TWO_LEGGED_OAUTH: "TWO_LEGGED_OAUTH",
+} as const;
+/**
+ * @public
+ */
+export type AuthType = (typeof AuthType)[keyof typeof AuthType];
 
 /**
  * @public

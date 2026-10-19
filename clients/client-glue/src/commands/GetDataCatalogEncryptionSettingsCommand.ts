@@ -2,8 +2,10 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetDataCatalogEncryptionSettingsRequest } from "../models/models_1";
-import type { GetDataCatalogEncryptionSettingsResponse } from "../models/models_2";
+import type {
+  GetDataCatalogEncryptionSettingsRequest,
+  GetDataCatalogEncryptionSettingsResponse,
+} from "../models/models_2";
 import { GetDataCatalogEncryptionSettings$ } from "../schemas/schemas_0";
 
 /**

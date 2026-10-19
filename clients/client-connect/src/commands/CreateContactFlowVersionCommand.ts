@@ -25,8 +25,7 @@ export interface CreateContactFlowVersionCommandOutput extends CreateContactFlow
 /**
  * <p>Publishes a new version of the flow provided. Versions are immutable and monotonically increasing. If the
  *     <code>FlowContentSha256</code> provided is different from the <code>FlowContentSha256</code> of the
- *     <code>$LATEST</code> published flow content, then an error is returned. This API only supports creating versions for
- *    flows of type <code>Campaign</code>.</p>
+ *     <code>$LATEST</code> published flow content, then an error is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

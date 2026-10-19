@@ -28,9 +28,12 @@ import type {
   ResourceWarningStatus,
   Route53HealthCheckStatus,
   RoutingControlStateChange,
+  ServiceQuotaWarningStatus,
+  SsmSendCommandUngracefulBehavior,
   StepStatus,
   UpdatePlanExecutionAction,
   UpdatePlanExecutionStepAction,
+  WaitELBTargetGroupHealthy,
   WorkflowTargetAction,
 } from "./enums";
 
@@ -837,6 +840,12 @@ export interface Lambdas {
    * @public
    */
   arn?: string | undefined;
+
+  /**
+   * <p>The JSON payload to send to the Lambda function invocation. If you don't specify a payload, Region switch invokes the function with only the execution metadata.</p> <p>If you provide a JSON object, Region switch merges execution metadata keys (<code>InvokedBy</code>, <code>PlanArn</code>, <code>ExecutionId</code>, <code>StepName</code>) into the top level. If one of your keys has the same name as a metadata key, your key takes precedence.</p> <p>If you provide any other JSON type (string, number, boolean, or array), Region switch forwards it to the Lambda function unchanged, without adding metadata.</p>
+   * @public
+   */
+  payload?: string | undefined;
 }
 
 /**
@@ -1017,6 +1026,12 @@ export interface Ec2AsgCapacityIncreaseConfiguration {
    * @public
    */
   capacityMonitoringApproach?: Ec2AsgCapacityMonitoringApproach | undefined;
+
+  /**
+   * <p>If enabled, the step completes only after each attached ELB target group reports a healthy target count that matches the group's new desired capacity calculated in the step.</p>
+   * @public
+   */
+  waitELBTargetGroupHealthy?: WaitELBTargetGroupHealthy | undefined;
 }
 
 /**
@@ -1095,6 +1110,12 @@ export interface EcsCapacityIncreaseConfiguration {
    * @public
    */
   capacityMonitoringApproach?: EcsCapacityMonitoringApproach | undefined;
+
+  /**
+   * <p>If enabled, the step completes only after each attached ELB target group reports a healthy target count that matches the service's new desired task count calculated in the step.</p>
+   * @public
+   */
+  waitELBTargetGroupHealthy?: WaitELBTargetGroupHealthy | undefined;
 }
 
 /**
@@ -1242,12 +1263,12 @@ export interface ExecutionApprovalConfiguration {
 }
 
 /**
- * <p>Configuration for handling failures when performing operations on Aurora global databases.</p>
+ * <p>Configuration for an Aurora global database execution block in ungraceful mode.</p>
  * @public
  */
 export interface GlobalAuroraUngraceful {
   /**
-   * <p>The settings for ungraceful execution.</p>
+   * <p>The ungraceful behavior. The only valid value is <code>failover</code>, which calls <code>FailoverGlobalCluster</code> with <code>AllowDataLoss</code> set to <code>true</code> and might cause data loss.</p>
    * @public
    */
   ungraceful?: GlobalAuroraUngracefulBehavior | undefined;
@@ -1277,13 +1298,13 @@ export interface GlobalAuroraConfiguration {
   externalId?: string | undefined;
 
   /**
-   * <p>The behavior for a global database, that is, only allow switchover or also allow failover.</p>
+   * <p>The default behavior for the Aurora global database execution block. Valid values:</p> <ul> <li> <p> <code>switchoverOnly</code> - Calls <code>SwitchoverGlobalCluster</code> for a zero-data-loss switchover during graceful execution.</p> </li> <li> <p> <code>failover</code> - Calls <code>FailoverGlobalCluster</code> with <code>AllowDataLoss</code> set to <code>true</code>. This operation might cause data loss, including during graceful execution.</p> </li> </ul>
    * @public
    */
   behavior: GlobalAuroraDefaultBehavior | undefined;
 
   /**
-   * <p>The settings for ungraceful execution.</p>
+   * <p>The behavior to use when the plan runs in ungraceful mode. If you omit this value, Region switch uses the value of <code>behavior</code>.</p>
    * @public
    */
   ungraceful?: GlobalAuroraUngraceful | undefined;
@@ -1617,6 +1638,108 @@ export interface Route53HealthCheckConfiguration {
    * @public
    */
   recordSets?: Route53ResourceRecordSet[] | undefined;
+}
+
+/**
+ * <p>A single <code>SendCommand</code> target filter, consisting of a target key and the values matched by that key.</p>
+ * @public
+ */
+export interface SsmTarget {
+  /**
+   * <p>The target key, such as <code>tag:Environment</code> or <code>InstanceIds</code>.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The values matched by this target key. Multiple values combine with a logical OR.</p>
+   * @public
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * <p>The Systems Manager document to run and the managed nodes to target for a single Amazon Web Services Region.</p>
+ * @public
+ */
+export interface SsmDocumentConfig {
+  /**
+   * <p>The cross-account role for the configuration.</p>
+   * @public
+   */
+  crossAccountRole?: string | undefined;
+
+  /**
+   * <p>The external ID (secret key) for the configuration.</p>
+   * @public
+   */
+  externalId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Systems Manager document to run.</p>
+   * @public
+   */
+  documentArn: string | undefined;
+
+  /**
+   * <p>The target filters that Systems Manager resolves to managed nodes when the command runs. To target specific managed nodes, use the <code>InstanceIds</code> key. You can specify up to five target filters.</p>
+   * @public
+   */
+  targets: SsmTarget[] | undefined;
+
+  /**
+   * <p>The parameters that are passed to this Region's Systems Manager document. You set parameters for each document, so each Region can run its document with its own parameters.</p>
+   * @public
+   */
+  parameters?: Record<string, string[]> | undefined;
+
+  /**
+   * <p>The version of the Systems Manager document to run for this Region. When you omit it, Systems Manager runs the document's default version.</p>
+   * @public
+   */
+  documentVersion?: string | undefined;
+}
+
+/**
+ * <p>The ungraceful execution settings for an AWS Systems Manager <code>SendCommand</code> execution block.</p>
+ * @public
+ */
+export interface SsmSendCommandUngraceful {
+  /**
+   * <p>Specifies whether to skip running this command during an ungraceful execution. Set to <code>skip</code> to skip the command.</p>
+   * @public
+   */
+  behavior?: SsmSendCommandUngracefulBehavior | undefined;
+}
+
+/**
+ * <p>Configuration for an AWS Systems Manager <code>SendCommand</code> execution block in a Region switch plan. This execution block runs a Systems Manager document on the managed nodes that you target in each Amazon Web Services Region of the plan.</p>
+ * @public
+ */
+export interface SsmSendCommandConfiguration {
+  /**
+   * <p>The timeout value specified for the configuration.</p>
+   * @public
+   */
+  timeoutMinutes?: number | undefined;
+
+  /**
+   * <p>The Systems Manager document and target configuration for each Amazon Web Services Region in the plan. Provide an entry for each Amazon Web Services Region that you want the command to run in.</p>
+   * @public
+   */
+  regionDocuments: Record<string, SsmDocumentConfig> | undefined;
+
+  /**
+   * <p>How often, in minutes, Region switch retries the command if it returns a failure.</p>
+   * @public
+   */
+  retryIntervalMinutes: number | undefined;
+
+  /**
+   * <p>Specifies the settings that determine how the execution block behaves when the plan runs ungracefully, such as whether to skip the command.</p>
+   * @public
+   */
+  ungraceful?: SsmSendCommandUngraceful | undefined;
 }
 
 /**
@@ -2001,6 +2124,124 @@ export interface ListRoute53HealthChecksInRegionResponse {
 /**
  * @public
  */
+export interface ListServiceQuotaWarningsRequest {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the plans to return service quota warnings for. You can specify up to 100 plan ARNs. Region switch ignores any plan ARN that you can't access. If you omit this parameter, Region switch returns the warnings for all of your accessible plans.</p>
+   * @public
+   */
+  planArns?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with this call. Valid values are <code>1</code> to <code>100</code>. If you don't specify a value, the operation returns up to the maximum number of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A service quota warning for a plan. Region switch creates a warning when the applied quota value in one Region of a plan is lower than the value for the matching resource in another Region or account in the plan, or when it can't complete a service quota check.</p>
+ * @public
+ */
+export interface ServiceQuotaWarningSummary {
+  /**
+   * <p>The Amazon Web Services account ID that owns the plan that the warning applies to.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region that the quota applies to.</p>
+   * @public
+   */
+  quotaRegion: string | undefined;
+
+  /**
+   * <p>The service code of the service that the quota belongs to, as defined in Service Quotas. For example, <code>ec2</code>.</p>
+   * @public
+   */
+  serviceCode?: string | undefined;
+
+  /**
+   * <p>The quota code of the quota that the warning applies to, as defined in Service Quotas.</p>
+   * @public
+   */
+  quotaCode?: string | undefined;
+
+  /**
+   * <p>The name of the quota that the warning applies to, as defined in Service Quotas.</p>
+   * @public
+   */
+  quotaName?: string | undefined;
+
+  /**
+   * <p>The status of the service quota warning.</p>
+   * @public
+   */
+  status: ServiceQuotaWarningStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the plan that the warning applies to.</p>
+   * @public
+   */
+  planArn: string | undefined;
+
+  /**
+   * <p>The ID of the quota increase request that Region switch submitted, if it submitted one for this quota.</p>
+   * @public
+   */
+  requestId?: string | undefined;
+
+  /**
+   * <p>The ID of the support case associated with the quota increase request, if Region switch submitted one for this quota.</p>
+   * @public
+   */
+  caseId?: string | undefined;
+
+  /**
+   * <p>A message that describes the service quota warning.</p>
+   * @public
+   */
+  warningMessage?: string | undefined;
+
+  /**
+   * <p>The time (UTC) when Region switch last checked this quota.</p>
+   * @public
+   */
+  lastCheckedAt?: Date | undefined;
+
+  /**
+   * <p>The time (UTC) when Region switch created this warning.</p>
+   * @public
+   */
+  warningCreatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListServiceQuotaWarningsResponse {
+  /**
+   * <p>The service quota warnings for the plans that you can access.</p>
+   * @public
+   */
+  serviceQuotaWarningSummaries: ServiceQuotaWarningSummary[] | undefined;
+
+  /**
+   * <p>A pagination token. A response may contain no results while still including a <code>nextToken</code>. Continue paginating until <code>nextToken</code> is null to retrieve all results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeletePlanRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the plan.</p>
@@ -2310,6 +2551,7 @@ export type ExecutionBlockConfiguration =
   | ExecutionBlockConfiguration.RdsSwitchoverReadReplicaConfigMember
   | ExecutionBlockConfiguration.RegionSwitchPlanConfigMember
   | ExecutionBlockConfiguration.Route53HealthCheckConfigMember
+  | ExecutionBlockConfiguration.SsmSendCommandConfigMember
   | ExecutionBlockConfiguration.$UnknownMember;
 
 /**
@@ -2339,6 +2581,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2365,6 +2608,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2391,6 +2635,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2417,6 +2662,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2443,6 +2689,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2469,6 +2716,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2495,6 +2743,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2521,6 +2770,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2547,6 +2797,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2573,6 +2824,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2599,6 +2851,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2625,6 +2878,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2651,6 +2905,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2677,6 +2932,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2703,6 +2959,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2729,6 +2986,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig: AuroraProvisionedScalingConfiguration;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2755,6 +3013,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig: NeptuneGlobalDatabaseConfiguration;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2781,6 +3040,34 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig: RdsSwitchoverReadReplicaConfiguration;
+    ssmSendCommandConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specifies an AWS Systems Manager <code>SendCommand</code> execution block.</p>
+   * @public
+   */
+  export interface SsmSendCommandConfigMember {
+    customActionLambdaConfig?: never;
+    ec2AsgCapacityIncreaseConfig?: never;
+    executionApprovalConfig?: never;
+    arcRoutingControlConfig?: never;
+    globalAuroraConfig?: never;
+    parallelConfig?: never;
+    regionSwitchPlanConfig?: never;
+    ecsCapacityIncreaseConfig?: never;
+    eksResourceScalingConfig?: never;
+    route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig: SsmSendCommandConfiguration;
     $unknown?: never;
   }
 
@@ -2806,6 +3093,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown: [string, any];
   }
 
@@ -2832,6 +3120,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig: (value: AuroraProvisionedScalingConfiguration) => T;
     neptuneGlobalDatabaseConfig: (value: NeptuneGlobalDatabaseConfiguration) => T;
     rdsSwitchoverReadReplicaConfig: (value: RdsSwitchoverReadReplicaConfiguration) => T;
+    ssmSendCommandConfig: (value: SsmSendCommandConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2955,6 +3244,12 @@ export interface CreatePlanRequest {
   reportConfiguration?: ReportConfiguration | undefined;
 
   /**
+   * <p>Specifies whether to enable service quota checks for the Region switch plan.</p>
+   * @public
+   */
+  serviceQuotaChecksEnabled?: boolean | undefined;
+
+  /**
    * <p>The name of a Region switch plan.</p>
    * @public
    */
@@ -3037,6 +3332,12 @@ export interface Plan {
    * @public
    */
   reportConfiguration?: ReportConfiguration | undefined;
+
+  /**
+   * <p>Indicates whether service quota checks are enabled for the Region switch plan. When enabled, Region switch compares the applied service quota values across the plan's Amazon Web Services Regions and creates a warning when a quota in one Region is lower than the value required for the matching resource in another Region. Service quota checks are advisory and don't prevent you from creating, evaluating, or executing a plan.</p>
+   * @public
+   */
+  serviceQuotaChecksEnabled?: boolean | undefined;
 
   /**
    * <p>The name for a plan.</p>
@@ -3132,6 +3433,12 @@ export interface UpdatePlanRequest {
    * @public
    */
   reportConfiguration?: ReportConfiguration | undefined;
+
+  /**
+   * <p>Specifies whether service quota checks are enabled for the Region switch plan.</p>
+   * @public
+   */
+  serviceQuotaChecksEnabled?: boolean | undefined;
 }
 
 /**

@@ -316,6 +316,7 @@ export type {
   ExportTableToPointInTimeInput,
   ExportTableToPointInTimeOutput,
   FailureException,
+  FilterSpecification,
   Get,
   GetItemInput,
   GetItemOutput,

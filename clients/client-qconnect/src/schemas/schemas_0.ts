@@ -425,6 +425,7 @@ const _PFR = "PutFeedbackRequest";
 const _PFRu = "PutFeedbackResponse";
 const _PMTC = "PushMessageTemplateContent";
 const _PP = "ParsingPrompt";
+const _PRDD = "ProactiveRecommendationDataDetails";
 const _QA = "QueryAssistant";
 const _QAR = "QueryAssistantRequest";
 const _QARu = "QueryAssistantResponse";
@@ -460,6 +461,8 @@ const _RCe = "RetrievalConfiguration";
 const _RD = "RankingData";
 const _RDe = "RecommendationData";
 const _RDes = "ResultData";
+const _RE = "RetrieveError";
+const _REL = "RetrieveErrorList";
 const _RFC = "RetrievalFilterConfiguration";
 const _RFL = "RetrievalFilterList";
 const _RKBTU = "RemoveKnowledgeBaseTemplateUri";
@@ -767,6 +770,7 @@ const _cha = "channel";
 const _ci = "city";
 const _cit = "citations";
 const _co = "configuration";
+const _cod = "code";
 const _com = "completion";
 const _comp = "comparator";
 const _compo = "components";
@@ -806,6 +810,7 @@ const _eSC = "externalSourceConfiguration";
 const _eT = "endTimestamp";
 const _eTr = "errorType";
 const _em = "email";
+const _en = "enabled";
 const _eq = "equals";
 const _er = "errors";
 const _ex = "excerpt";
@@ -987,6 +992,7 @@ const _pNr = "providerName";
 const _pNro = "promptName";
 const _pP = "parsingPrompt";
 const _pPT = "parsingPromptText";
+const _pRD = "proactiveRecommendationData";
 const _pS = "parsingStrategy";
 const _pSI = "parentSpanId";
 const _pT = "partyType";
@@ -1330,8 +1336,8 @@ export var AgentAttributes$: StaticStructureSchema = [3, n0, _AA,
 ];
 export var AIAgentConfigurationData$: StaticStructureSchema = [3, n0, _AIACD,
   0,
-  [_aAI],
-  [0], 1
+  [_aAI, _en],
+  [0, 2], 1
 ];
 export var AIAgentData$: StaticStructureSchema = [3, n0, _AIAD,
   0,
@@ -2563,6 +2569,11 @@ export var ParsingPrompt$: StaticStructureSchema = [3, n0, _PP,
   [_pPT],
   [0], 1
 ];
+export var ProactiveRecommendationDataDetails$: StaticStructureSchema = [3, n0, _PRDD,
+  0,
+  [_nMT],
+  [0], 1
+];
 export var PushADMMessageTemplateContent$: StaticStructureSchema = [3, n0, _PADMMTC,
   0,
   [_ti, _bo, _ac, _sou, _u, _iU, _iIU, _sIIU, _rCa],
@@ -2723,6 +2734,11 @@ export var RetrievalConfiguration$: StaticStructureSchema = [3, n0, _RCe,
   [_kS, _fi, _nOR, _oKBST],
   [() => KnowledgeSource$, () => RetrievalFilterConfiguration$, 1, 0], 1
 ];
+export var RetrieveError$: StaticStructureSchema = [3, n0, _RE,
+  0,
+  [_aIs, _cod, _m],
+  [0, 0, 0], 3
+];
 export var RetrieveRequest$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_aI, _rCet, _rQ],
@@ -2730,8 +2746,8 @@ export var RetrieveRequest$: StaticStructureSchema = [3, n0, _RR,
 ];
 export var RetrieveResponse$: StaticStructureSchema = [3, n0, _RRe,
   0,
-  [_resu],
-  [[() => RetrieveResultList, 0]], 1
+  [_resu, _er],
+  [[() => RetrieveResultList, 0], () => RetrieveErrorList], 1
 ];
 export var RetrieveResult$: StaticStructureSchema = [3, n0, _RRet,
   0,
@@ -3369,6 +3385,9 @@ var RecommendationTriggerList: StaticListSchema = [1, n0, _RTL,
 var RetrievalFilterList: StaticListSchema = [1, n0, _RFL,
   0, () => RetrievalFilterConfiguration$
 ];
+var RetrieveErrorList: StaticListSchema = [1, n0, _REL,
+  0, () => RetrieveError$
+];
 var RetrieveResultList: StaticListSchema = [1, n0, _RRL,
   0, [() => RetrieveResult$,
     0]
@@ -3492,8 +3511,8 @@ export var ContentFeedbackData$: StaticUnionSchema = [4, n0, _CFD,
 ];
 export var DataDetails$: StaticUnionSchema = [4, n0, _DD,
   0,
-  [_cDo, _gD, _iDD, _sCD, _gCD, _eRCD, _eOCD, _eGACD, _cSCD, _sMD, _nD, _nCD],
-  [[() => ContentDataDetails$, 0], [() => GenerativeDataDetails$, 0], [() => IntentDetectedDataDetails$, 0], [() => SourceContentDataDetails$, 0], [() => GenerativeChunkDataDetails$, 0], [() => EmailResponseChunkDataDetails$, 0], [() => EmailOverviewChunkDataDetails$, 0], [() => EmailGenerativeAnswerChunkDataDetails$, 0], [() => CaseSummarizationChunkDataDetails$, 0], [() => SuggestedMessageDataDetails$, 0], [() => NotesDataDetails$, 0], [() => NotesChunkDataDetails$, 0]]
+  [_cDo, _gD, _iDD, _sCD, _gCD, _eRCD, _eOCD, _eGACD, _cSCD, _sMD, _nD, _nCD, _pRD],
+  [[() => ContentDataDetails$, 0], [() => GenerativeDataDetails$, 0], [() => IntentDetectedDataDetails$, 0], [() => SourceContentDataDetails$, 0], [() => GenerativeChunkDataDetails$, 0], [() => EmailResponseChunkDataDetails$, 0], [() => EmailOverviewChunkDataDetails$, 0], [() => EmailGenerativeAnswerChunkDataDetails$, 0], [() => CaseSummarizationChunkDataDetails$, 0], [() => SuggestedMessageDataDetails$, 0], [() => NotesDataDetails$, 0], [() => NotesChunkDataDetails$, 0], () => ProactiveRecommendationDataDetails$]
 ];
 export var DataReference$: StaticUnionSchema = [4, n0, _DR,
   0,

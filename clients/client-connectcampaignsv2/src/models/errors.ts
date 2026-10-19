@@ -9,6 +9,7 @@ import type { CampaignState } from "./enums";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connectcampaignsv2#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -36,6 +37,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connectcampaignsv2#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -63,6 +65,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connectcampaignsv2#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -91,6 +94,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connectcampaignsv2#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -118,6 +122,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connectcampaignsv2#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -145,6 +150,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connectcampaignsv2#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -173,6 +179,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connectcampaignsv2#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -200,6 +207,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class InvalidCampaignStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connectcampaignsv2#InvalidCampaignStateException";
   readonly name = "InvalidCampaignStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -234,6 +242,7 @@ export class InvalidCampaignStateException extends __BaseException {
  * @public
  */
 export class InvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connectcampaignsv2#InvalidStateException";
   readonly name = "InvalidStateException" as const;
   readonly $fault = "client" as const;
   /**

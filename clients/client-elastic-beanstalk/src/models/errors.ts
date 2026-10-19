@@ -10,6 +10,7 @@ import {
  * @public
  */
 export class InsufficientPrivilegesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException";
   readonly name = "InsufficientPrivilegesException" as const;
   readonly $fault = "client" as const;
   /**
@@ -30,6 +31,7 @@ export class InsufficientPrivilegesException extends __BaseException {
  * @public
  */
 export class ElasticBeanstalkServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException";
   readonly name = "ElasticBeanstalkServiceException" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class ElasticBeanstalkServiceException extends __BaseException {
  * @public
  */
 export class ManagedActionInvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#ManagedActionInvalidStateException";
   readonly name = "ManagedActionInvalidStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -70,6 +73,7 @@ export class ManagedActionInvalidStateException extends __BaseException {
  * @public
  */
 export class TooManyEnvironmentsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#TooManyEnvironmentsException";
   readonly name = "TooManyEnvironmentsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -90,6 +94,7 @@ export class TooManyEnvironmentsException extends __BaseException {
  * @public
  */
 export class TooManyApplicationsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#TooManyApplicationsException";
   readonly name = "TooManyApplicationsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -110,6 +115,7 @@ export class TooManyApplicationsException extends __BaseException {
  * @public
  */
 export class CodeBuildNotInServiceRegionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#CodeBuildNotInServiceRegionException";
   readonly name = "CodeBuildNotInServiceRegionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -142,6 +148,7 @@ export class CodeBuildNotInServiceRegionException extends __BaseException {
  * @public
  */
 export class S3LocationNotInServiceRegionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#S3LocationNotInServiceRegionException";
   readonly name = "S3LocationNotInServiceRegionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -162,6 +169,7 @@ export class S3LocationNotInServiceRegionException extends __BaseException {
  * @public
  */
 export class TooManyApplicationVersionsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#TooManyApplicationVersionsException";
   readonly name = "TooManyApplicationVersionsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -182,6 +190,7 @@ export class TooManyApplicationVersionsException extends __BaseException {
  * @public
  */
 export class TooManyBucketsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#TooManyBucketsException";
   readonly name = "TooManyBucketsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -202,6 +211,7 @@ export class TooManyBucketsException extends __BaseException {
  * @public
  */
 export class TooManyConfigurationTemplatesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#TooManyConfigurationTemplatesException";
   readonly name = "TooManyConfigurationTemplatesException" as const;
   readonly $fault = "client" as const;
   /**
@@ -222,6 +232,7 @@ export class TooManyConfigurationTemplatesException extends __BaseException {
  * @public
  */
 export class TooManyPlatformsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#TooManyPlatformsException";
   readonly name = "TooManyPlatformsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -242,6 +253,7 @@ export class TooManyPlatformsException extends __BaseException {
  * @public
  */
 export class S3SubscriptionRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#S3SubscriptionRequiredException";
   readonly name = "S3SubscriptionRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -263,6 +275,7 @@ export class S3SubscriptionRequiredException extends __BaseException {
  * @public
  */
 export class OperationInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#OperationInProgressException";
   readonly name = "OperationInProgressException" as const;
   readonly $fault = "client" as const;
   /**
@@ -284,6 +297,7 @@ export class OperationInProgressException extends __BaseException {
  * @public
  */
 export class SourceBundleDeletionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#SourceBundleDeletionException";
   readonly name = "SourceBundleDeletionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -304,6 +318,7 @@ export class SourceBundleDeletionException extends __BaseException {
  * @public
  */
 export class PlatformVersionStillReferencedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#PlatformVersionStillReferencedException";
   readonly name = "PlatformVersionStillReferencedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -325,6 +340,7 @@ export class PlatformVersionStillReferencedException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -345,6 +361,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -365,6 +382,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ResourceTypeNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#ResourceTypeNotSupportedException";
   readonly name = "ResourceTypeNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -388,6 +406,7 @@ export class ResourceTypeNotSupportedException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticbeanstalk#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**

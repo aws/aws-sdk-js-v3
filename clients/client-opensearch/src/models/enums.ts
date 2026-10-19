@@ -437,6 +437,19 @@ export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];
  * @public
  * @enum
  */
+export const EncryptionMode = {
+  Disk: "DISK",
+  Native: "NATIVE",
+} as const;
+/**
+ * @public
+ */
+export type EncryptionMode = (typeof EncryptionMode)[keyof typeof EncryptionMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const EngineMode = {
   GENERAL: "GENERAL",
   OPTIMIZED: "OPTIMIZED",
@@ -787,6 +800,19 @@ export const OverallChangeStatus = {
  * @public
  */
 export type OverallChangeStatus = (typeof OverallChangeStatus)[keyof typeof OverallChangeStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationFailureSeverity = {
+  CRITICAL: "Critical",
+  WARNING: "Warning",
+} as const;
+/**
+ * @public
+ */
+export type ValidationFailureSeverity = (typeof ValidationFailureSeverity)[keyof typeof ValidationFailureSeverity];
 
 /**
  * @public

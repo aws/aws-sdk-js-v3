@@ -10,6 +10,7 @@ import type { ValidationExceptionField } from "./models_0";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.billingconductor#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -32,6 +33,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.billingconductor#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -74,6 +76,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.billingconductor#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   Message: string | undefined;
@@ -102,6 +105,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.billingconductor#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -137,6 +141,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.billingconductor#ServiceLimitExceededException";
   readonly name = "ServiceLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -186,6 +191,7 @@ export class ServiceLimitExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.billingconductor#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -214,6 +220,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.billingconductor#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;

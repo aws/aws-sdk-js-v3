@@ -132,6 +132,22 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  * @see {@link AdminInitiateAuthCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
+ * @throws {@link FeatureUnavailableInTierException} (client fault)
+ *  <p>This exception is thrown when a feature that you attempted to use or configure
+ *             isn't included in your user pool's current feature plan. This can occur
+ *             when:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You configure a feature that your feature plan doesn't support.</p>
+ *             </li>
+ *             <li>
+ *                <p>You make a request that uses a feature that requires a higher feature
+ *                     plan.</p>
+ *             </li>
+ *          </ul>
+ *          <p>To resolve this issue, upgrade your user pool to a feature plan that includes the
+ *             feature.</p>
+ *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
  *

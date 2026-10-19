@@ -17,6 +17,7 @@ import { OrganizationsServiceException as __BaseException } from "./Organization
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -42,6 +43,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class AccessDeniedForDependencyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#AccessDeniedForDependencyException";
   readonly name = "AccessDeniedForDependencyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -67,6 +69,7 @@ export class AccessDeniedForDependencyException extends __BaseException {
  * @public
  */
 export class AWSOrganizationsNotInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#AWSOrganizationsNotInUseException";
   readonly name = "AWSOrganizationsNotInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -90,6 +93,7 @@ export class AWSOrganizationsNotInUseException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -372,6 +376,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class ConstraintViolationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#ConstraintViolationException";
   readonly name = "ConstraintViolationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -397,6 +402,7 @@ export class ConstraintViolationException extends __BaseException {
  * @public
  */
 export class HandshakeAlreadyInStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#HandshakeAlreadyInStateException";
   readonly name = "HandshakeAlreadyInStateException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -495,6 +501,7 @@ export class HandshakeAlreadyInStateException extends __BaseException {
  * @public
  */
 export class HandshakeConstraintViolationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#HandshakeConstraintViolationException";
   readonly name = "HandshakeConstraintViolationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -519,6 +526,7 @@ export class HandshakeConstraintViolationException extends __BaseException {
  * @public
  */
 export class HandshakeNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#HandshakeNotFoundException";
   readonly name = "HandshakeNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -543,6 +551,7 @@ export class HandshakeNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidHandshakeTransitionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#InvalidHandshakeTransitionException";
   readonly name = "InvalidHandshakeTransitionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -714,6 +723,7 @@ export class InvalidHandshakeTransitionException extends __BaseException {
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -740,6 +750,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class MasterCannotLeaveOrganizationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#MasterCannotLeaveOrganizationException";
   readonly name = "MasterCannotLeaveOrganizationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -763,6 +774,7 @@ export class MasterCannotLeaveOrganizationException extends __BaseException {
  * @public
  */
 export class ServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#ServiceException";
   readonly name = "ServiceException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -788,6 +800,7 @@ export class ServiceException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -812,6 +825,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class AccountAlreadyClosedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#AccountAlreadyClosedException";
   readonly name = "AccountAlreadyClosedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -835,6 +849,7 @@ export class AccountAlreadyClosedException extends __BaseException {
  * @public
  */
 export class AccountAlreadyRegisteredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#AccountAlreadyRegisteredException";
   readonly name = "AccountAlreadyRegisteredException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -859,6 +874,7 @@ export class AccountAlreadyRegisteredException extends __BaseException {
  * @public
  */
 export class AccountNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#AccountNotFoundException";
   readonly name = "AccountNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -881,6 +897,7 @@ export class AccountNotFoundException extends __BaseException {
  * @public
  */
 export class AccountNotRegisteredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#AccountNotRegisteredException";
   readonly name = "AccountNotRegisteredException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -906,6 +923,7 @@ export class AccountNotRegisteredException extends __BaseException {
  * @public
  */
 export class AccountOwnerNotVerifiedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#AccountOwnerNotVerifiedException";
   readonly name = "AccountOwnerNotVerifiedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -929,6 +947,7 @@ export class AccountOwnerNotVerifiedException extends __BaseException {
  * @public
  */
 export class AlreadyInOrganizationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#AlreadyInOrganizationException";
   readonly name = "AlreadyInOrganizationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -951,6 +970,7 @@ export class AlreadyInOrganizationException extends __BaseException {
  * @public
  */
 export class DuplicatePolicyAttachmentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#DuplicatePolicyAttachmentException";
   readonly name = "DuplicatePolicyAttachmentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -974,6 +994,7 @@ export class DuplicatePolicyAttachmentException extends __BaseException {
  * @public
  */
 export class PolicyChangesInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#PolicyChangesInProgressException";
   readonly name = "PolicyChangesInProgressException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -996,6 +1017,7 @@ export class PolicyChangesInProgressException extends __BaseException {
  * @public
  */
 export class PolicyNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#PolicyNotFoundException";
   readonly name = "PolicyNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1021,6 +1043,7 @@ export class PolicyNotFoundException extends __BaseException {
  * @public
  */
 export class PolicyTypeNotEnabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#PolicyTypeNotEnabledException";
   readonly name = "PolicyTypeNotEnabledException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1044,6 +1067,7 @@ export class PolicyTypeNotEnabledException extends __BaseException {
  * @public
  */
 export class TargetNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#TargetNotFoundException";
   readonly name = "TargetNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1066,6 +1090,7 @@ export class TargetNotFoundException extends __BaseException {
  * @public
  */
 export class UnsupportedAPIEndpointException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#UnsupportedAPIEndpointException";
   readonly name = "UnsupportedAPIEndpointException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1089,6 +1114,7 @@ export class UnsupportedAPIEndpointException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1113,6 +1139,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class FinalizingOrganizationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#FinalizingOrganizationException";
   readonly name = "FinalizingOrganizationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1135,6 +1162,7 @@ export class FinalizingOrganizationException extends __BaseException {
  * @public
  */
 export class DuplicateOrganizationalUnitException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#DuplicateOrganizationalUnitException";
   readonly name = "DuplicateOrganizationalUnitException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1157,6 +1185,7 @@ export class DuplicateOrganizationalUnitException extends __BaseException {
  * @public
  */
 export class ParentNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#ParentNotFoundException";
   readonly name = "ParentNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1179,6 +1208,7 @@ export class ParentNotFoundException extends __BaseException {
  * @public
  */
 export class DuplicatePolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#DuplicatePolicyException";
   readonly name = "DuplicatePolicyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1204,6 +1234,7 @@ export class DuplicatePolicyException extends __BaseException {
  * @public
  */
 export class MalformedPolicyDocumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#MalformedPolicyDocumentException";
   readonly name = "MalformedPolicyDocumentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1229,6 +1260,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
  * @public
  */
 export class PolicyTypeNotAvailableForOrganizationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#PolicyTypeNotAvailableForOrganizationException";
   readonly name = "PolicyTypeNotAvailableForOrganizationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1252,6 +1284,7 @@ export class PolicyTypeNotAvailableForOrganizationException extends __BaseExcept
  * @public
  */
 export class OrganizationNotEmptyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#OrganizationNotEmptyException";
   readonly name = "OrganizationNotEmptyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1275,6 +1308,7 @@ export class OrganizationNotEmptyException extends __BaseException {
  * @public
  */
 export class OrganizationalUnitNotEmptyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#OrganizationalUnitNotEmptyException";
   readonly name = "OrganizationalUnitNotEmptyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1298,6 +1332,7 @@ export class OrganizationalUnitNotEmptyException extends __BaseException {
  * @public
  */
 export class OrganizationalUnitNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#OrganizationalUnitNotFoundException";
   readonly name = "OrganizationalUnitNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1321,6 +1356,7 @@ export class OrganizationalUnitNotFoundException extends __BaseException {
  * @public
  */
 export class PolicyInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#PolicyInUseException";
   readonly name = "PolicyInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1343,6 +1379,7 @@ export class PolicyInUseException extends __BaseException {
  * @public
  */
 export class ResourcePolicyNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#ResourcePolicyNotFoundException";
   readonly name = "ResourcePolicyNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1366,6 +1403,7 @@ export class ResourcePolicyNotFoundException extends __BaseException {
  * @public
  */
 export class CreateAccountStatusNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#CreateAccountStatusNotFoundException";
   readonly name = "CreateAccountStatusNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1391,6 +1429,7 @@ export class CreateAccountStatusNotFoundException extends __BaseException {
  * @public
  */
 export class EffectivePolicyNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#EffectivePolicyNotFoundException";
   readonly name = "EffectivePolicyNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1413,6 +1452,7 @@ export class EffectivePolicyNotFoundException extends __BaseException {
  * @public
  */
 export class ResponsibilityTransferNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#ResponsibilityTransferNotFoundException";
   readonly name = "ResponsibilityTransferNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1435,6 +1475,7 @@ export class ResponsibilityTransferNotFoundException extends __BaseException {
  * @public
  */
 export class PolicyNotAttachedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#PolicyNotAttachedException";
   readonly name = "PolicyNotAttachedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1457,6 +1498,7 @@ export class PolicyNotAttachedException extends __BaseException {
  * @public
  */
 export class RootNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#RootNotFoundException";
   readonly name = "RootNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1479,6 +1521,7 @@ export class RootNotFoundException extends __BaseException {
  * @public
  */
 export class PolicyTypeAlreadyEnabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#PolicyTypeAlreadyEnabledException";
   readonly name = "PolicyTypeAlreadyEnabledException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1505,6 +1548,7 @@ export class PolicyTypeAlreadyEnabledException extends __BaseException {
  * @public
  */
 export class DuplicateHandshakeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#DuplicateHandshakeException";
   readonly name = "DuplicateHandshakeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1528,6 +1572,7 @@ export class DuplicateHandshakeException extends __BaseException {
  * @public
  */
 export class ChildNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#ChildNotFoundException";
   readonly name = "ChildNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1551,6 +1596,7 @@ export class ChildNotFoundException extends __BaseException {
  * @public
  */
 export class DestinationParentNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#DestinationParentNotFoundException";
   readonly name = "DestinationParentNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1573,6 +1619,7 @@ export class DestinationParentNotFoundException extends __BaseException {
  * @public
  */
 export class DuplicateAccountException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#DuplicateAccountException";
   readonly name = "DuplicateAccountException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1596,6 +1643,7 @@ export class DuplicateAccountException extends __BaseException {
  * @public
  */
 export class SourceParentNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#SourceParentNotFoundException";
   readonly name = "SourceParentNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1619,6 +1667,7 @@ export class SourceParentNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidResponsibilityTransferTransitionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#InvalidResponsibilityTransferTransitionException";
   readonly name = "InvalidResponsibilityTransferTransitionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1641,6 +1690,7 @@ export class InvalidResponsibilityTransferTransitionException extends __BaseExce
  * @public
  */
 export class ResponsibilityTransferAlreadyInStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.organizations#ResponsibilityTransferAlreadyInStatusException";
   readonly name = "ResponsibilityTransferAlreadyInStatusException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

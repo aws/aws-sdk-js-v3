@@ -52,6 +52,8 @@ export interface DescribeHostKeyCommandOutput extends DescribeHostKeyResponse, _
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     StorageType: "SERVICE_MANAGED" || "SECRETS_MANAGER",
+ * //     SecretId: "STRING_VALUE",
  * //   },
  * // };
  *

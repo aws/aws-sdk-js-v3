@@ -48,6 +48,7 @@ import {
   ExportDictionaryEntriesCommand,
   ExportDictionaryEntriesRequest$,
   ExportDictionaryEntriesResponse$,
+  ExtendedAnalysisMode,
   FeedAssociation$,
   FeedStatus,
   FeedSummary$,
@@ -241,6 +242,7 @@ assert(typeof UpdateOutput$ === "object");
 assert(typeof DataSourceSport === "object");
 assert(typeof DictionaryLanguage === "object");
 assert(typeof DictionaryStatus === "object");
+assert(typeof ExtendedAnalysisMode === "object");
 assert(typeof FeedStatus === "object");
 assert(typeof FilterName === "object");
 assert(typeof OutputStatus === "object");

@@ -49,6 +49,7 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  *     ],
  *     AllColumnsRequested: true || false,
  *   },
+ *   ResourceShareType: "FEDERATED" || "ALL",
  *   IncludeStatusDetails: true || false,
  *   AttributesToGet: [ // TableAttributesList
  *     "NAME" || "TABLE_TYPE" || "DEFAULT" || "LATEST_ICEBERG_METADATA",
@@ -156,6 +157,7 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  * //       },
  * //       ViewDefinition: { // ViewDefinition
  * //         IsProtected: true || false,
+ * //         IsManaged: true || false,
  * //         Definer: "STRING_VALUE",
  * //         ViewVersionId: Number("long"),
  * //         ViewVersionToken: "STRING_VALUE",
@@ -339,6 +341,7 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  * //             },
  * //             ViewDefinition: {
  * //               IsProtected: true || false,
+ * //               IsManaged: true || false,
  * //               Definer: "STRING_VALUE",
  * //               ViewVersionId: Number("long"),
  * //               ViewVersionToken: "STRING_VALUE",
@@ -459,6 +462,9 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  * //                 ],
  * //               },
  * //             },
+ * //             RLSProperties: { // RLSProperties
+ * //               DefaultRLSPolicy: "STRING_VALUE",
+ * //             },
  * //           },
  * //           ViewValidations: [
  * //             {
@@ -471,6 +477,9 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  * //             },
  * //           ],
  * //         },
+ * //       },
+ * //       RLSProperties: {
+ * //         DefaultRLSPolicy: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

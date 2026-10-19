@@ -17,6 +17,7 @@ import type {
   EmotionName,
   FaceAttributes,
   FaceSearchSortBy,
+  FeedbackCode,
   GenderType,
   KnownGenderType,
   LabelDetectionAggregateBy,
@@ -35,7 +36,6 @@ import type {
   QualityFilter,
   Reason,
   SegmentType,
-  StreamProcessorParameterToDelete,
   StreamProcessorStatus,
   TechnicalCueType,
   TextTypes,
@@ -4683,6 +4683,27 @@ export interface FaceRecord {
 }
 
 /**
+ * <p>Describes a condition that was detected in the Face Liveness video and that contributed to
+ *       the confidence score returned for the session.</p>
+ * @public
+ */
+export interface FeedbackItem {
+  /**
+   * <p>A code identifying the condition that was detected during the Face Liveness session.</p>
+   * @public
+   */
+  Code: FeedbackCode | undefined;
+
+  /**
+   * <p>A human-readable description of the detected condition, suitable for displaying to an end
+   *       user before they retry a Face Liveness check. Use <code>Code</code> rather than this message
+   *       for programmatic decisions, because the message text can change.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetCelebrityInfoRequest {
@@ -5105,6 +5126,24 @@ export interface GetFaceLivenessSessionResultsRequest {
 }
 
 /**
+ * <p>Contains metadata about the client that streamed the video for a Face Liveness
+ *       session.</p>
+ * @public
+ */
+export interface SessionMetadata {
+  /**
+   * <p>The type of SDK that was used to stream the video for the Face Liveness session.</p>
+   *          <note>
+   *             <p>This value is self-reported by the client that streamed the session, and
+   *           Amazon Rekognition doesn't verify it. Don't rely on it for authentication, authorization, or any
+   *           other security decision.</p>
+   *          </note>
+   * @public
+   */
+  SDKType: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetFaceLivenessSessionResultsResponse {
@@ -5153,6 +5192,21 @@ export interface GetFaceLivenessSessionResultsResponse {
    * @public
    */
   Challenge?: Challenge | undefined;
+
+  /**
+   * <p>A list of conditions that were detected in the Face Liveness video and that contributed to
+   *       the returned <code>Confidence</code> score. Each item contains a code and a human-readable
+   *       message. Feedback is returned only for sessions with a <code>Status</code> of
+   *       <code>SUCCEEDED</code>, and the list is empty when no such conditions were detected.</p>
+   * @public
+   */
+  Feedback?: FeedbackItem[] | undefined;
+
+  /**
+   * <p>Metadata about the client that streamed the video for the Face Liveness session.</p>
+   * @public
+   */
+  Metadata?: SessionMetadata | undefined;
 }
 
 /**
@@ -8372,54 +8426,3 @@ export interface StreamProcessorSettingsForUpdate {
    */
   ConnectedHomeForUpdate?: ConnectedHomeSettingsForUpdate | undefined;
 }
-
-/**
- * @public
- */
-export interface UpdateStreamProcessorRequest {
-  /**
-   * <p>
-   *             Name of the stream processor that you want to update.
-   *         </p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>
-   *             The stream processor settings that you want to update. Label detection settings can be updated to detect different labels with a different minimum confidence.
-   *         </p>
-   * @public
-   */
-  SettingsForUpdate?: StreamProcessorSettingsForUpdate | undefined;
-
-  /**
-   * <p>
-   *             Specifies locations in the frames where Amazon Rekognition checks for objects or people. This is an optional parameter for label detection stream processors.
-   *         </p>
-   * @public
-   */
-  RegionsOfInterestForUpdate?: RegionOfInterest[] | undefined;
-
-  /**
-   * <p>
-   *             Shows whether you are sharing data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis.
-   *             Note that if you opt out at the account level this setting is ignored on individual streams.
-   *         </p>
-   * @public
-   */
-  DataSharingPreferenceForUpdate?: StreamProcessorDataSharingPreference | undefined;
-
-  /**
-   * <p>
-   *             A list of parameters you want to delete from the stream processor.
-   *         </p>
-   * @public
-   */
-  ParametersToDelete?: StreamProcessorParameterToDelete[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateStreamProcessorResponse {}

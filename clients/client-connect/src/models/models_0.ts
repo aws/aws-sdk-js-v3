@@ -3802,6 +3802,58 @@ export interface ProblemDetail {
 }
 
 /**
+ * @public
+ */
+export interface CreateContactFlowAliasRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The description of the alias.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>The version of the flow.</p>
+   * @public
+   */
+  ContactFlowVersion: number | undefined;
+
+  /**
+   * <p>The name of the alias.</p>
+   * @public
+   */
+  AliasName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContactFlowAliasResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow.</p>
+   * @public
+   */
+  ContactFlowArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the alias.</p>
+   * @public
+   */
+  Id?: string | undefined;
+}
+
+/**
  * <p>The external invocation configuration for the flow module</p>
  * @public
  */
@@ -7230,6 +7282,38 @@ export interface NotificationRecipientType {
 }
 
 /**
+ * <p>Information about the send in-app notification action.</p>
+ * @public
+ */
+export interface SendInAppNotificationActionDefinition {
+  /**
+   * <p>Notification content. Supports variable injection. For more information, see
+   * <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html">JSONPath reference</a>
+   * in the <i>Connect Customer Administrators Guide</i>.</p>
+   * @public
+   */
+  Content: Partial<Record<LocaleCode, string>> | undefined;
+
+  /**
+   * <p>Notification recipient.</p>
+   * @public
+   */
+  Recipient: NotificationRecipientType | undefined;
+
+  /**
+   * <p>Recipients to exclude from notification.</p>
+   * @public
+   */
+  Exclusion?: NotificationRecipientType | undefined;
+
+  /**
+   * <p>Notification priority.</p>
+   * @public
+   */
+  Priority?: ConfigurableNotificationPriority | undefined;
+}
+
+/**
  * <p>Information about the send notification action.</p>
  * @public
  */
@@ -7427,6 +7511,20 @@ export interface RuleAction {
    * @public
    */
   ExtractInformationAction?: ExtractInformationActionDefinition | undefined;
+
+  /**
+   * <p>Information about the send in-app notification action.</p>
+   *          <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> |
+   *     <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnRealTimeChatAnalysisAvailable</code> |
+   *     <code>OnPostChatAnalysisAvailable</code> | <code>OnAfterCallWorkAvailable</code> |
+   *     <code>OnAfterChatWorkAvailable</code> | <code>OnEmailAnalysisAvailable</code> |
+   *     <code>OnContactEvaluationSubmit</code> | <code>OnCaseCreate</code> | <code>OnCaseUpdate</code> |
+   *     <code>OnSlaBreach</code> | <code>OnSchedulePublish</code> | <code>OnScheduleUpdate</code> |
+   *    <code>OnScheduleTimeOffRequestActivity</code>
+   *          </p>
+   * @public
+   */
+  SendInAppNotificationAction?: SendInAppNotificationActionDefinition | undefined;
 }
 
 /**
@@ -7817,58 +7915,4 @@ export interface RequiredFieldInfo {
    * @public
    */
   Id?: TaskTemplateFieldIdentifier | undefined;
-}
-
-/**
- * <p>Describes constraints that apply to the template fields.</p>
- * @public
- */
-export interface TaskTemplateConstraints {
-  /**
-   * <p>Lists the fields that are required to be filled by agents.</p>
-   * @public
-   */
-  RequiredFields?: RequiredFieldInfo[] | undefined;
-
-  /**
-   * <p>Lists the fields that are read-only to agents, and cannot be edited.</p>
-   * @public
-   */
-  ReadOnlyFields?: ReadOnlyFieldInfo[] | undefined;
-
-  /**
-   * <p>Lists the fields that are invisible to agents.</p>
-   * @public
-   */
-  InvisibleFields?: InvisibleFieldInfo[] | undefined;
-}
-
-/**
- * <p>Describes a default field and its corresponding value.</p>
- * @public
- */
-export interface TaskTemplateDefaultFieldValue {
-  /**
-   * <p>Identifier of a field. </p>
-   * @public
-   */
-  Id?: TaskTemplateFieldIdentifier | undefined;
-
-  /**
-   * <p>Default value for the field.</p>
-   * @public
-   */
-  DefaultValue?: string | undefined;
-}
-
-/**
- * <p>Describes default values for fields on a template.</p>
- * @public
- */
-export interface TaskTemplateDefaults {
-  /**
-   * <p>Default value for the field.</p>
-   * @public
-   */
-  DefaultFieldValues?: TaskTemplateDefaultFieldValue[] | undefined;
 }

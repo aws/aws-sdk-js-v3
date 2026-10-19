@@ -1075,7 +1075,7 @@ export interface ListDatabasesRequest {
    * <p>The name of the database. This parameter is required when authenticating using either Secrets Manager or temporary credentials. </p>
    * @public
    */
-  Database: string | undefined;
+  Database?: string | undefined;
 
   /**
    * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>

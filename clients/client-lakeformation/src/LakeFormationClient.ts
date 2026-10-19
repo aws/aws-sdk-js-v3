@@ -63,6 +63,7 @@ import type {
   AssumeDecoratedRoleWithSAMLCommandInput,
   AssumeDecoratedRoleWithSAMLCommandOutput,
 } from "./commands/AssumeDecoratedRoleWithSAMLCommand";
+import type { AttachRLSPolicyCommandInput, AttachRLSPolicyCommandOutput } from "./commands/AttachRLSPolicyCommand";
 import type {
   BatchGrantPermissionsCommandInput,
   BatchGrantPermissionsCommandOutput,
@@ -96,6 +97,7 @@ import type {
   CreateLFTagExpressionCommandInput,
   CreateLFTagExpressionCommandOutput,
 } from "./commands/CreateLFTagExpressionCommand";
+import type { CreateRLSPolicyCommandInput, CreateRLSPolicyCommandOutput } from "./commands/CreateRLSPolicyCommand";
 import type {
   DeleteDataCellsFilterCommandInput,
   DeleteDataCellsFilterCommandOutput,
@@ -117,6 +119,7 @@ import type {
   DeleteObjectsOnCancelCommandInput,
   DeleteObjectsOnCancelCommandOutput,
 } from "./commands/DeleteObjectsOnCancelCommand";
+import type { DeleteRLSPolicyCommandInput, DeleteRLSPolicyCommandOutput } from "./commands/DeleteRLSPolicyCommand";
 import type {
   DeregisterResourceCommandInput,
   DeregisterResourceCommandOutput,
@@ -130,6 +133,7 @@ import type {
   DescribeTransactionCommandInput,
   DescribeTransactionCommandOutput,
 } from "./commands/DescribeTransactionCommand";
+import type { DetachRLSPolicyCommandInput, DetachRLSPolicyCommandOutput } from "./commands/DetachRLSPolicyCommand";
 import type {
   ExtendTransactionCommandInput,
   ExtendTransactionCommandOutput,
@@ -164,6 +168,7 @@ import type {
   GetResourceLFTagsCommandInput,
   GetResourceLFTagsCommandOutput,
 } from "./commands/GetResourceLFTagsCommand";
+import type { GetRLSPolicyCommandInput, GetRLSPolicyCommandOutput } from "./commands/GetRLSPolicyCommand";
 import type { GetTableObjectsCommandInput, GetTableObjectsCommandOutput } from "./commands/GetTableObjectsCommand";
 import type {
   GetTemporaryDataLocationCredentialsCommandInput,
@@ -198,6 +203,11 @@ import type {
 import type { ListLFTagsCommandInput, ListLFTagsCommandOutput } from "./commands/ListLFTagsCommand";
 import type { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
 import type { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
+import type { ListRLSPoliciesCommandInput, ListRLSPoliciesCommandOutput } from "./commands/ListRLSPoliciesCommand";
+import type {
+  ListRLSPolicyAttachmentsCommandInput,
+  ListRLSPolicyAttachmentsCommandOutput,
+} from "./commands/ListRLSPolicyAttachmentsCommand";
 import type {
   ListTableStorageOptimizersCommandInput,
   ListTableStorageOptimizersCommandOutput,
@@ -243,6 +253,7 @@ import type {
   UpdateLFTagExpressionCommandOutput,
 } from "./commands/UpdateLFTagExpressionCommand";
 import type { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand";
+import type { UpdateRLSPolicyCommandInput, UpdateRLSPolicyCommandOutput } from "./commands/UpdateRLSPolicyCommand";
 import type {
   UpdateTableObjectsCommandInput,
   UpdateTableObjectsCommandOutput,
@@ -268,6 +279,7 @@ export { __Client };
 export type ServiceInputTypes =
   | AddLFTagsToResourceCommandInput
   | AssumeDecoratedRoleWithSAMLCommandInput
+  | AttachRLSPolicyCommandInput
   | BatchGrantPermissionsCommandInput
   | BatchRevokePermissionsCommandInput
   | CancelTransactionCommandInput
@@ -277,16 +289,19 @@ export type ServiceInputTypes =
   | CreateLFTagExpressionCommandInput
   | CreateLakeFormationIdentityCenterConfigurationCommandInput
   | CreateLakeFormationOptInCommandInput
+  | CreateRLSPolicyCommandInput
   | DeleteDataCellsFilterCommandInput
   | DeleteLFTagCommandInput
   | DeleteLFTagExpressionCommandInput
   | DeleteLakeFormationIdentityCenterConfigurationCommandInput
   | DeleteLakeFormationOptInCommandInput
   | DeleteObjectsOnCancelCommandInput
+  | DeleteRLSPolicyCommandInput
   | DeregisterResourceCommandInput
   | DescribeLakeFormationIdentityCenterConfigurationCommandInput
   | DescribeResourceCommandInput
   | DescribeTransactionCommandInput
+  | DetachRLSPolicyCommandInput
   | ExtendTransactionCommandInput
   | GetDataCellsFilterCommandInput
   | GetDataLakePrincipalCommandInput
@@ -296,6 +311,7 @@ export type ServiceInputTypes =
   | GetLFTagExpressionCommandInput
   | GetQueryStateCommandInput
   | GetQueryStatisticsCommandInput
+  | GetRLSPolicyCommandInput
   | GetResourceLFTagsCommandInput
   | GetTableObjectsCommandInput
   | GetTemporaryDataLocationCredentialsCommandInput
@@ -309,6 +325,8 @@ export type ServiceInputTypes =
   | ListLFTagsCommandInput
   | ListLakeFormationOptInsCommandInput
   | ListPermissionsCommandInput
+  | ListRLSPoliciesCommandInput
+  | ListRLSPolicyAttachmentsCommandInput
   | ListResourcesCommandInput
   | ListTableStorageOptimizersCommandInput
   | ListTransactionsCommandInput
@@ -324,6 +342,7 @@ export type ServiceInputTypes =
   | UpdateLFTagCommandInput
   | UpdateLFTagExpressionCommandInput
   | UpdateLakeFormationIdentityCenterConfigurationCommandInput
+  | UpdateRLSPolicyCommandInput
   | UpdateResourceCommandInput
   | UpdateTableObjectsCommandInput
   | UpdateTableStorageOptimizerCommandInput;
@@ -334,6 +353,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AddLFTagsToResourceCommandOutput
   | AssumeDecoratedRoleWithSAMLCommandOutput
+  | AttachRLSPolicyCommandOutput
   | BatchGrantPermissionsCommandOutput
   | BatchRevokePermissionsCommandOutput
   | CancelTransactionCommandOutput
@@ -343,16 +363,19 @@ export type ServiceOutputTypes =
   | CreateLFTagExpressionCommandOutput
   | CreateLakeFormationIdentityCenterConfigurationCommandOutput
   | CreateLakeFormationOptInCommandOutput
+  | CreateRLSPolicyCommandOutput
   | DeleteDataCellsFilterCommandOutput
   | DeleteLFTagCommandOutput
   | DeleteLFTagExpressionCommandOutput
   | DeleteLakeFormationIdentityCenterConfigurationCommandOutput
   | DeleteLakeFormationOptInCommandOutput
   | DeleteObjectsOnCancelCommandOutput
+  | DeleteRLSPolicyCommandOutput
   | DeregisterResourceCommandOutput
   | DescribeLakeFormationIdentityCenterConfigurationCommandOutput
   | DescribeResourceCommandOutput
   | DescribeTransactionCommandOutput
+  | DetachRLSPolicyCommandOutput
   | ExtendTransactionCommandOutput
   | GetDataCellsFilterCommandOutput
   | GetDataLakePrincipalCommandOutput
@@ -362,6 +385,7 @@ export type ServiceOutputTypes =
   | GetLFTagExpressionCommandOutput
   | GetQueryStateCommandOutput
   | GetQueryStatisticsCommandOutput
+  | GetRLSPolicyCommandOutput
   | GetResourceLFTagsCommandOutput
   | GetTableObjectsCommandOutput
   | GetTemporaryDataLocationCredentialsCommandOutput
@@ -375,6 +399,8 @@ export type ServiceOutputTypes =
   | ListLFTagsCommandOutput
   | ListLakeFormationOptInsCommandOutput
   | ListPermissionsCommandOutput
+  | ListRLSPoliciesCommandOutput
+  | ListRLSPolicyAttachmentsCommandOutput
   | ListResourcesCommandOutput
   | ListTableStorageOptimizersCommandOutput
   | ListTransactionsCommandOutput
@@ -390,6 +416,7 @@ export type ServiceOutputTypes =
   | UpdateLFTagCommandOutput
   | UpdateLFTagExpressionCommandOutput
   | UpdateLakeFormationIdentityCenterConfigurationCommandOutput
+  | UpdateRLSPolicyCommandOutput
   | UpdateResourceCommandOutput
   | UpdateTableObjectsCommandOutput
   | UpdateTableStorageOptimizerCommandOutput;

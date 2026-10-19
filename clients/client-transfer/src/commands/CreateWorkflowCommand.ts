@@ -152,6 +152,9 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   StructuredLogDestinations: [ // StructuredLogDestinations
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);

@@ -59,7 +59,7 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  *     responseDeliveryDelayInMilliseconds: Number("int"),
  *   },
  *   speechRecognitionSettings: { // SpeechRecognitionSettings
- *     speechModelPreference: "Standard" || "Neural" || "Deepgram",
+ *     speechModelPreference: "Standard" || "Neural" || "Deepgram" || "Advanced",
  *     speechModelConfig: { // SpeechModelConfig
  *       deepgramConfig: { // DeepgramSpeechModelConfig
  *         apiTokenSecretArn: "STRING_VALUE", // required
@@ -119,6 +119,9 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  *     },
  *   },
  *   speechDetectionSensitivity: "Default" || "HighNoiseTolerance" || "MaximumNoiseTolerance",
+ *   speakerDiarizationSettings: { // SpeakerDiarizationSettings
+ *     enabled: true || false, // required
+ *   },
  * };
  * const command = new CreateBotLocaleCommand(input);
  * const response = await client.send(command);
@@ -147,7 +150,7 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  * //     responseDeliveryDelayInMilliseconds: Number("int"),
  * //   },
  * //   speechRecognitionSettings: { // SpeechRecognitionSettings
- * //     speechModelPreference: "Standard" || "Neural" || "Deepgram",
+ * //     speechModelPreference: "Standard" || "Neural" || "Deepgram" || "Advanced",
  * //     speechModelConfig: { // SpeechModelConfig
  * //       deepgramConfig: { // DeepgramSpeechModelConfig
  * //         apiTokenSecretArn: "STRING_VALUE", // required
@@ -209,6 +212,9 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  * //     },
  * //   },
  * //   speechDetectionSensitivity: "Default" || "HighNoiseTolerance" || "MaximumNoiseTolerance",
+ * //   speakerDiarizationSettings: { // SpeakerDiarizationSettings
+ * //     enabled: true || false, // required
+ * //   },
  * // };
  *
  * ```

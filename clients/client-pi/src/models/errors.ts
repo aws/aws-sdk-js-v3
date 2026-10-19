@@ -8,6 +8,7 @@ import { PIServiceException as __BaseException } from "./PIServiceException";
  * @public
  */
 export class InternalServiceError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pi#InternalServiceError";
   readonly name = "InternalServiceError" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class InternalServiceError extends __BaseException {
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pi#InvalidArgumentException";
   readonly name = "InvalidArgumentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class InvalidArgumentException extends __BaseException {
  * @public
  */
 export class NotAuthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pi#NotAuthorizedException";
   readonly name = "NotAuthorizedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

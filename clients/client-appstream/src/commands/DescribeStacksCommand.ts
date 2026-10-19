@@ -116,6 +116,7 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * //         ScreenImageFormat: "PNG" || "JPEG", // required
  * //         UserControlMode: "VIEW_ONLY" || "VIEW_STOP" || "DISABLED",
  * //       },
+ * //       StorageConnectorAuthentication: "FORCE_REAUTHENTICATION" || "REUSE_CREDENTIALS",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

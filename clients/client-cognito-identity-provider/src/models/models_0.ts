@@ -283,6 +283,21 @@ export interface AccountTakeoverRiskConfigurationType {
 }
 
 /**
+ * <p>The configuration for a single authentication context class reference (ACR) level in a user pool. Each entry in an <code>AcrConfiguration</code> map associates a level (<code>Level1</code> through <code>Level4</code>) with this configuration, which provides the custom name that Amazon Cognito reports for that level in the <code>acr</code> token claim.</p>
+ * @public
+ */
+export interface AcrLevelConfigType {
+  /**
+   * <p>The custom name for this authentication context class reference (ACR) level. This
+   *             value is the URI that Amazon Cognito reports in the <code>acr</code> token claim when a
+   *             user meets this level. The name must be unique across all levels in the user pool,
+   *             including default names.</p>
+   * @public
+   */
+  AcrValue: string | undefined;
+}
+
+/**
  * <p>The minimum and maximum values of an attribute that is of the number type, for example
  *                 <code>custom:age</code>.</p>
  * @public
@@ -1634,6 +1649,38 @@ export interface AdminInitiateAuthRequest {
    *                                 value for <code>PREFERRED_CHALLENGE</code>, Amazon Cognito responds with the
    *                                     <code>AvailableChallenges</code> parameter that specifies the
    *                                 available sign-in methods.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>TARGET_ACR_VALUES</code>. An optional, space-separated list
+   *                                 of the authentication context class reference (ACR) level URIs that
+   *                                 you want the user to reach. List the levels in priority order, from
+   *                                 highest to lowest. Amazon Cognito attempts the highest-priority level that the
+   *                                 user can satisfy, and falls back through the list. Amazon Cognito ignores any
+   *                                 value that it doesn't recognize. If none of the requested values are
+   *                                 valid, Amazon Cognito returns an error.</p>
+   *                      <p>Requesting step-up authentication with this parameter requires the
+   *                                 Essentials or Plus feature plan. On a lower feature plan,
+   *                                 AdminInitiateAuth returns a FeatureUnavailableInTierException.
+   *                                 <code>USERNAME</code> is required. When you provide an
+   *                                 <code>ACCESS_TOKEN</code>, you must also provide
+   *                                 <code>TARGET_ACR_VALUES</code>. Amazon Cognito returns an error if you provide
+   *                                 an <code>ACCESS_TOKEN</code> without <code>TARGET_ACR_VALUES</code>.
+   *                                 The <code>USERNAME</code> that you provide must match the user that the
+   *                                 <code>ACCESS_TOKEN</code> was issued for.</p>
+   *                      <p>For more information about step-up authentication and how Amazon Cognito
+   *                                 handles multi-factor authentication requirements, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-step-up-authentication.html">Step-up
+   *                                 authentication with ACR and AMR</a> in the <i>Amazon Cognito
+   *                                 Developer Guide</i>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>MAX_AGE</code>. An optional integer that sets the maximum
+   *                                 number of seconds allowed since the user last authenticated. If the
+   *                                 user's most recent authentication is older than this value, Amazon Cognito
+   *                                 discards the authentication-methods credit from any access token that
+   *                                 you provide and processes the request as a fresh authentication toward
+   *                                 the target level. The access token itself remains valid.</p>
    *                   </li>
    *                </ul>
    *             </dd>
@@ -3371,6 +3418,15 @@ export interface AdminRespondToAuthChallengeResponse {
    * @public
    */
   AuthenticationResult?: AuthenticationResultType | undefined;
+
+  /**
+   * <p>This response parameter lists the available authentication challenges that users can
+   *             select from in <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice">choice-based authentication</a>. For example, they might be
+   *             able to choose between passkey authentication, a one-time password from an SMS message,
+   *             and a traditional password.</p>
+   * @public
+   */
+  AvailableChallenges?: ChallengeNameType[] | undefined;
 }
 
 /**
@@ -4553,6 +4609,21 @@ export interface CreateIdentityProviderRequest {
    * @public
    */
   IdpIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>A mapping between the authentication context class reference (ACR) levels of your user
+   *             pool and the ACR values of the external OpenID Connect (OIDC) identity provider (IdP).
+   *             The map is keyed by level, from <code>Level1</code> through <code>Level4</code>, and each
+   *             value is the ACR value that the IdP uses for the corresponding level. Amazon Cognito uses
+   *             this mapping to translate a requested user pool ACR level to the value that the IdP
+   *             expects, and to map an ACR value that the IdP returns back to a user pool level. When the
+   *             IdP returns an ACR value that isn't mapped, Amazon Cognito resolves it to the lowest
+   *             level. Only OIDC IdPs support ACR mapping.</p>
+   *          <p>Setting <code>AcrMapping</code> is available in all feature plans. It isn't restricted
+   *             to the Essentials or Plus feature plan.</p>
+   * @public
+   */
+  AcrMapping?: Record<string, string> | undefined;
 }
 
 /**
@@ -4719,6 +4790,16 @@ export interface IdentityProviderType {
    * @public
    */
   IdpIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>A mapping between the authentication context class reference (ACR) levels of your user
+   *             pool and the ACR values of the external OpenID Connect (OIDC) identity provider (IdP), so
+   *             that your application gets a consistent step-up experience regardless of which IdP
+   *             authenticated the user. The map is keyed by level, from <code>Level1</code> through
+   *             <code>Level4</code>.</p>
+   * @public
+   */
+  AcrMapping?: Record<string, string> | undefined;
 
   /**
    * <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a
@@ -6383,6 +6464,26 @@ export interface CreateUserPoolRequest {
    * @public
    */
   IssuerConfiguration?: IssuerConfigurationType | undefined;
+
+  /**
+   * <p>The custom names for the authentication context class reference
+   *             (ACR) levels in your user pool. Amazon Cognito defines four fixed ACR levels that
+   *             represent increasing authentication assurance. The combination of authentication factors
+   *             that satisfies each level is fixed and you can't change it. With this configuration, you
+   *             customize only the URI name that Amazon Cognito reports for each level in the
+   *             <code>acr</code> token claim.</p>
+   *          <p>You can override a subset of the levels. By default, the levels are named
+   *             <code>urn:cognito:loa:1</code> through <code>urn:cognito:loa:4</code>, and Amazon Cognito
+   *             applies the default name to any level that you don't specify. Each name must be
+   *             unique across all four levels, including any default names that apply to levels you
+   *             don't override. A name can contain any character
+   *             that is valid in a URL or a URN.</p>
+   *          <p>Configuring custom ACR level names requires the Essentials or Plus feature plan.
+   *             To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
+   *                      Essentials tier</a> or higher.</p>
+   * @public
+   */
+  AcrConfiguration?: Record<string, AcrLevelConfigType> | undefined;
 }
 
 /**
@@ -6702,6 +6803,17 @@ export interface UserPoolType {
    * @public
    */
   IssuerConfiguration?: IssuerConfigurationType | undefined;
+
+  /**
+   * <p>The names of the authentication context class reference (ACR) levels for the user
+   *             pool. Amazon Cognito always returns the effective configuration, with default names
+   *             merged in for any level that you haven't customized.</p>
+   *          <p>Configuring custom ACR level names requires the Essentials or Plus feature plan.
+   *             To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
+   *                      Essentials tier</a> or higher.</p>
+   * @public
+   */
+  AcrConfiguration?: Record<string, AcrLevelConfigType> | undefined;
 }
 
 /**
@@ -8448,7 +8560,7 @@ export interface DescribeTermsByClientRequest {
  */
 export interface DescribeTermsByClientResponse {
   /**
-   * <p>A summary of the requested terms documents. Includes a unique identifier for later
+   * <p>A summary of the requested terms documents, including a unique identifier for later
    *             changes to the terms documents.</p>
    * @public
    */
@@ -9870,6 +9982,38 @@ export interface InitiateAuthRequest {
    *                                 value for <code>PREFERRED_CHALLENGE</code>, Amazon Cognito responds with the
    *                                     <code>AvailableChallenges</code> parameter that specifies the
    *                                 available sign-in methods.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>TARGET_ACR_VALUES</code>. An optional, space-separated list
+   *                                 of the authentication context class reference (ACR) level URIs that
+   *                                 you want the user to reach. List the levels in priority order, from
+   *                                 highest to lowest. Amazon Cognito attempts the highest-priority level that the
+   *                                 user can satisfy, and falls back through the list. Amazon Cognito ignores any
+   *                                 value that it doesn't recognize. If none of the requested values are
+   *                                 valid, Amazon Cognito returns an error.</p>
+   *                      <p>Requesting step-up authentication with this parameter requires the
+   *                                 Essentials or Plus feature plan. On a lower feature plan, InitiateAuth
+   *                                 returns a FeatureUnavailableInTierException. <code>USERNAME</code> is
+   *                                 required. When you provide an <code>ACCESS_TOKEN</code>, you must also
+   *                                 provide <code>TARGET_ACR_VALUES</code>. Amazon Cognito returns an error if you
+   *                                 provide an <code>ACCESS_TOKEN</code> without
+   *                                 <code>TARGET_ACR_VALUES</code>. The <code>USERNAME</code> that you
+   *                                 provide must match the user that the <code>ACCESS_TOKEN</code> was
+   *                                 issued for.</p>
+   *                      <p>For more information about step-up authentication and how Amazon Cognito
+   *                                 handles multi-factor authentication requirements, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-step-up-authentication.html">Step-up
+   *                                 authentication with ACR and AMR</a> in the <i>Amazon Cognito
+   *                                 Developer Guide</i>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>MAX_AGE</code>. An optional integer that sets the maximum
+   *                                 number of seconds allowed since the user last authenticated. If the
+   *                                 user's most recent authentication is older than this value, Amazon Cognito
+   *                                 discards the authentication-methods credit from any access token that
+   *                                 you provide and processes the request as a fresh authentication toward
+   *                                 the target level. The access token itself remains valid.</p>
    *                   </li>
    *                </ul>
    *             </dd>
@@ -11802,6 +11946,15 @@ export interface RespondToAuthChallengeResponse {
    * @public
    */
   AuthenticationResult?: AuthenticationResultType | undefined;
+
+  /**
+   * <p>This response parameter lists the available authentication challenges that users can
+   *             select from in <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice">choice-based authentication</a>. For example, they might be
+   *             able to choose between passkey authentication, a one-time password from an SMS message,
+   *             and a traditional password.</p>
+   * @public
+   */
+  AvailableChallenges?: ChallengeNameType[] | undefined;
 }
 
 /**
@@ -12022,59 +12175,3 @@ export interface SetUserMFAPreferenceRequest {
  * @public
  */
 export interface SetUserMFAPreferenceResponse {}
-
-/**
- * @public
- */
-export interface SetUserPoolMfaConfigRequest {
-  /**
-   * <p>The user pool ID.</p>
-   * @public
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * <p>Configures user pool SMS messages for MFA. Sets the message template and the SMS
-   *             message sending configuration for Amazon SNS.</p>
-   * @public
-   */
-  SmsMfaConfiguration?: SmsMfaConfigType | undefined;
-
-  /**
-   * <p>Configures a user pool for time-based one-time password (TOTP) MFA. Enables or
-   *             disables TOTP.</p>
-   * @public
-   */
-  SoftwareTokenMfaConfiguration?: SoftwareTokenMfaConfigType | undefined;
-
-  /**
-   * <p>Sets configuration for user pool email message MFA and sign-in with one-time passwords
-   *             (OTPs). Includes the subject and body of the email message template for sign-in and MFA
-   *             messages. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
-   *                      Essentials tier</a> or higher.</p>
-   * @public
-   */
-  EmailMfaConfiguration?: EmailMfaConfigType | undefined;
-
-  /**
-   * <p>Sets multi-factor authentication (MFA) to be on, off, or optional. When
-   *                 <code>ON</code>, all users must set up MFA before they can sign in. When
-   *                 <code>OPTIONAL</code>, your application must make a client-side determination of
-   *             whether a user wants to register an MFA device. For user pools with adaptive
-   *             authentication with threat protection, choose <code>OPTIONAL</code>.</p>
-   *          <p>When <code>MfaConfiguration</code> is <code>OPTIONAL</code>, managed login
-   *             doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in
-   *             API responses and in managed login for users who have chosen and configured a preferred
-   *             MFA factor.</p>
-   * @public
-   */
-  MfaConfiguration?: UserPoolMfaType | undefined;
-
-  /**
-   * <p>The configuration of your user pool for passkey, or WebAuthn, authentication and
-   *             registration. Includes relying-party configuration, user-verification requirements,
-   *             and whether passkeys can satisfy MFA requirements.</p>
-   * @public
-   */
-  WebAuthnConfiguration?: WebAuthnConfigurationType | undefined;
-}

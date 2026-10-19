@@ -10,6 +10,7 @@ import { StorageGatewayServiceException as __BaseException } from "./StorageGate
  * @public
  */
 export class InternalServerError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.storagegateway#InternalServerError";
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   /**
@@ -39,6 +40,7 @@ export class InternalServerError extends __BaseException {
  * @public
  */
 export class InvalidGatewayRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.storagegateway#InvalidGatewayRequestException";
   readonly name = "InvalidGatewayRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +70,7 @@ export class InvalidGatewayRequestException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.storagegateway#ServiceUnavailableError";
   readonly name = "ServiceUnavailableError" as const;
   readonly $fault = "server" as const;
   /**

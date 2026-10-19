@@ -780,7 +780,7 @@ export interface ELBLoadBalancerLoggingParameters {
 }
 
 /**
- * <p>The configuration parameters for log delivery, including <code>logType</code> settings. Applies to resource types that support configurable log delivery, such as Amazon Bedrock Knowledge Bases and Elastic Load Balancing Application Load Balancers.</p>
+ * <p>The configuration parameters for log delivery, including <code>logType</code> settings. Applies to resource types that support configurable log delivery, such as Amazon Bedrock Knowledge Bases, Amazon Bedrock AgentCore payment managers, and Elastic Load Balancing Application Load Balancers.</p>
  * @public
  */
 export interface LogDeliveryParameters {
@@ -983,7 +983,7 @@ export interface TelemetryDestinationConfiguration {
   WAFLoggingParameters?: WAFLoggingParameters | undefined;
 
   /**
-   * <p>The configuration parameters for log delivery when the resource type supports configurable log types, such as Amazon Bedrock Knowledge Bases or Elastic Load Balancing Application Load Balancers.</p>
+   * <p>The configuration parameters for log delivery when the resource type supports configurable log types, such as Amazon Bedrock Knowledge Bases, Amazon Bedrock AgentCore payment managers, or Elastic Load Balancing Application Load Balancers.</p>
    * @public
    */
   LogDeliveryParameters?: LogDeliveryParameters | undefined;
@@ -1007,7 +1007,7 @@ export interface TelemetryDestinationConfiguration {
  */
 export interface TelemetryRule {
   /**
-   * <p> The type of Amazon Web Services resource to configure telemetry for (for example, <code>AWS::EC2::VPC</code>, <code>AWS::EKS::Cluster</code>, <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>, or <code>AWS::Bedrock::KnowledgeBase</code>). </p>
+   * <p> The type of Amazon Web Services resource to configure telemetry for (for example, <code>AWS::EC2::VPC</code>, <code>AWS::EKS::Cluster</code>, <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>, <code>AWS::Bedrock::KnowledgeBase</code>, or <code>AWS::BedrockAgentCore::PaymentManager</code>). </p>
    * @public
    */
   ResourceType?: ResourceType | undefined;

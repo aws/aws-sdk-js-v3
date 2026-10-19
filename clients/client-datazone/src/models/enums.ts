@@ -239,6 +239,18 @@ export type AuthType = (typeof AuthType)[keyof typeof AuthType];
  * @public
  * @enum
  */
+export const BlueprintCategory = {
+  TOOLING: "TOOLING",
+} as const;
+/**
+ * @public
+ */
+export type BlueprintCategory = (typeof BlueprintCategory)[keyof typeof BlueprintCategory];
+
+/**
+ * @public
+ * @enum
+ */
 export const SubscriptionStatus = {
   APPROVED: "APPROVED",
   CANCELLED: "CANCELLED",
@@ -1465,6 +1477,45 @@ export const NetworkAccessType = {
  * @public
  */
 export type NetworkAccessType = (typeof NetworkAccessType)[keyof typeof NetworkAccessType];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotifyOnState = {
+  /**
+   * <p>Notify when the notebook run fails.</p>
+   */
+  FAILED: "FAILED",
+  /**
+   * <p>Notify when the notebook run is queued.</p>
+   */
+  QUEUED: "QUEUED",
+  /**
+   * <p>Notify when the notebook run is running.</p>
+   */
+  RUNNING: "RUNNING",
+  /**
+   * <p>Notify when the notebook run is starting.</p>
+   */
+  STARTING: "STARTING",
+  /**
+   * <p>Notify when the notebook run is stopped.</p>
+   */
+  STOPPED: "STOPPED",
+  /**
+   * <p>Notify when the notebook run is stopping.</p>
+   */
+  STOPPING: "STOPPING",
+  /**
+   * <p>Notify when the notebook run succeeds.</p>
+   */
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type NotifyOnState = (typeof NotifyOnState)[keyof typeof NotifyOnState];
 
 /**
  * @public

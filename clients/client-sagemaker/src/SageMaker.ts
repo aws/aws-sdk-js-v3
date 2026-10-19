@@ -373,6 +373,11 @@ import {
   CreateTrainingPlanCommand,
 } from "./commands/CreateTrainingPlanCommand";
 import {
+  type CreateTrainingSessionCommandInput,
+  type CreateTrainingSessionCommandOutput,
+  CreateTrainingSessionCommand,
+} from "./commands/CreateTrainingSessionCommand";
+import {
   type CreateTransformJobCommandInput,
   type CreateTransformJobCommandOutput,
   CreateTransformJobCommand,
@@ -675,6 +680,11 @@ import {
   type DeleteTrainingJobCommandOutput,
   DeleteTrainingJobCommand,
 } from "./commands/DeleteTrainingJobCommand";
+import {
+  type DeleteTrainingSessionCommandInput,
+  type DeleteTrainingSessionCommandOutput,
+  DeleteTrainingSessionCommand,
+} from "./commands/DeleteTrainingSessionCommand";
 import {
   type DeleteTrialCommandInput,
   type DeleteTrialCommandOutput,
@@ -1055,6 +1065,11 @@ import {
   type DescribeTrainingPlanExtensionHistoryCommandOutput,
   DescribeTrainingPlanExtensionHistoryCommand,
 } from "./commands/DescribeTrainingPlanExtensionHistoryCommand";
+import {
+  type DescribeTrainingSessionCommandInput,
+  type DescribeTrainingSessionCommandOutput,
+  DescribeTrainingSessionCommand,
+} from "./commands/DescribeTrainingSessionCommand";
 import {
   type DescribeTransformJobCommandInput,
   type DescribeTransformJobCommandOutput,
@@ -1545,6 +1560,11 @@ import {
   ListTrainingPlansCommand,
 } from "./commands/ListTrainingPlansCommand";
 import {
+  type ListTrainingSessionsCommandInput,
+  type ListTrainingSessionsCommandOutput,
+  ListTrainingSessionsCommand,
+} from "./commands/ListTrainingSessionsCommand";
+import {
   type ListTransformJobsCommandInput,
   type ListTransformJobsCommandOutput,
   ListTransformJobsCommand,
@@ -1746,6 +1766,11 @@ import {
   type StopTrainingJobCommandOutput,
   StopTrainingJobCommand,
 } from "./commands/StopTrainingJobCommand";
+import {
+  type StopTrainingSessionCommandInput,
+  type StopTrainingSessionCommandOutput,
+  StopTrainingSessionCommand,
+} from "./commands/StopTrainingSessionCommand";
 import {
   type StopTransformJobCommandInput,
   type StopTransformJobCommandOutput,
@@ -2065,6 +2090,7 @@ import {
 } from "./pagination/ListTrainingJobsForHyperParameterTuningJobPaginator";
 import { paginateListTrainingJobs } from "./pagination/ListTrainingJobsPaginator";
 import { paginateListTrainingPlans } from "./pagination/ListTrainingPlansPaginator";
+import { paginateListTrainingSessions } from "./pagination/ListTrainingSessionsPaginator";
 import { paginateListTransformJobs } from "./pagination/ListTransformJobsPaginator";
 import { paginateListTrialComponents } from "./pagination/ListTrialComponentsPaginator";
 import { paginateListTrials } from "./pagination/ListTrialsPaginator";
@@ -2166,6 +2192,7 @@ const commands = {
   CreateStudioLifecycleConfigCommand,
   CreateTrainingJobCommand,
   CreateTrainingPlanCommand,
+  CreateTrainingSessionCommand,
   CreateTransformJobCommand,
   CreateTrialCommand,
   CreateTrialComponentCommand,
@@ -2229,6 +2256,7 @@ const commands = {
   DeleteStudioLifecycleConfigCommand,
   DeleteTagsCommand,
   DeleteTrainingJobCommand,
+  DeleteTrainingSessionCommand,
   DeleteTrialCommand,
   DeleteTrialComponentCommand,
   DeleteUserProfileCommand,
@@ -2305,6 +2333,7 @@ const commands = {
   DescribeTrainingJobCommand,
   DescribeTrainingPlanCommand,
   DescribeTrainingPlanExtensionHistoryCommand,
+  DescribeTrainingSessionCommand,
   DescribeTransformJobCommand,
   DescribeTrialCommand,
   DescribeTrialComponentCommand,
@@ -2406,6 +2435,7 @@ const commands = {
   ListTrainingJobsCommand,
   ListTrainingJobsForHyperParameterTuningJobCommand,
   ListTrainingPlansCommand,
+  ListTrainingSessionsCommand,
   ListTransformJobsCommand,
   ListTrialComponentsCommand,
   ListTrialsCommand,
@@ -2448,6 +2478,7 @@ const commands = {
   StopPipelineExecutionCommand,
   StopProcessingJobCommand,
   StopTrainingJobCommand,
+  StopTrainingSessionCommand,
   StopTransformJobCommand,
   UpdateActionCommand,
   UpdateAppImageConfigCommand,
@@ -2578,6 +2609,7 @@ const paginators = {
   paginateListTrainingJobs,
   paginateListTrainingJobsForHyperParameterTuningJob,
   paginateListTrainingPlans,
+  paginateListTrainingSessions,
   paginateListTransformJobs,
   paginateListTrialComponents,
   paginateListTrials,
@@ -3906,6 +3938,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link CreateTrainingSessionCommand}
+   */
+  createTrainingSession(
+    args: CreateTrainingSessionCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<CreateTrainingSessionCommandOutput>;
+  createTrainingSession(
+    args: CreateTrainingSessionCommandInput,
+    cb: (err: any, data?: CreateTrainingSessionCommandOutput) => void
+  ): void;
+  createTrainingSession(
+    args: CreateTrainingSessionCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: CreateTrainingSessionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateTransformJobCommand}
    */
   createTransformJob(
@@ -4975,6 +5024,23 @@ export interface SageMaker {
     args: DeleteTrainingJobCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteTrainingJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTrainingSessionCommand}
+   */
+  deleteTrainingSession(
+    args: DeleteTrainingSessionCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<DeleteTrainingSessionCommandOutput>;
+  deleteTrainingSession(
+    args: DeleteTrainingSessionCommandInput,
+    cb: (err: any, data?: DeleteTrainingSessionCommandOutput) => void
+  ): void;
+  deleteTrainingSession(
+    args: DeleteTrainingSessionCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: DeleteTrainingSessionCommandOutput) => void
   ): void;
 
   /**
@@ -6267,6 +6333,23 @@ export interface SageMaker {
     args: DescribeTrainingPlanExtensionHistoryCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeTrainingPlanExtensionHistoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTrainingSessionCommand}
+   */
+  describeTrainingSession(
+    args: DescribeTrainingSessionCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<DescribeTrainingSessionCommandOutput>;
+  describeTrainingSession(
+    args: DescribeTrainingSessionCommandInput,
+    cb: (err: any, data?: DescribeTrainingSessionCommandOutput) => void
+  ): void;
+  describeTrainingSession(
+    args: DescribeTrainingSessionCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: DescribeTrainingSessionCommandOutput) => void
   ): void;
 
   /**
@@ -8053,6 +8136,24 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link ListTrainingSessionsCommand}
+   */
+  listTrainingSessions(): Promise<ListTrainingSessionsCommandOutput>;
+  listTrainingSessions(
+    args: ListTrainingSessionsCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<ListTrainingSessionsCommandOutput>;
+  listTrainingSessions(
+    args: ListTrainingSessionsCommandInput,
+    cb: (err: any, data?: ListTrainingSessionsCommandOutput) => void
+  ): void;
+  listTrainingSessions(
+    args: ListTrainingSessionsCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: ListTrainingSessionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTransformJobsCommand}
    */
   listTransformJobs(): Promise<ListTransformJobsCommandOutput>;
@@ -8772,6 +8873,23 @@ export interface SageMaker {
     args: StopTrainingJobCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: StopTrainingJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopTrainingSessionCommand}
+   */
+  stopTrainingSession(
+    args: StopTrainingSessionCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<StopTrainingSessionCommandOutput>;
+  stopTrainingSession(
+    args: StopTrainingSessionCommandInput,
+    cb: (err: any, data?: StopTrainingSessionCommandOutput) => void
+  ): void;
+  stopTrainingSession(
+    args: StopTrainingSessionCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: StopTrainingSessionCommandOutput) => void
   ): void;
 
   /**
@@ -10457,6 +10575,17 @@ export interface SageMaker {
     args?: ListTrainingPlansCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListTrainingPlansCommandOutput>;
+
+  /**
+   * @see {@link ListTrainingSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrainingSessionsCommandOutput}.
+   */
+  paginateListTrainingSessions(
+    args?: ListTrainingSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrainingSessionsCommandOutput>;
 
   /**
    * @see {@link ListTransformJobsCommand}

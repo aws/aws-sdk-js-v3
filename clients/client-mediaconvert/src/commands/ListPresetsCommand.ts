@@ -705,6 +705,8 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * //             },
  * //             PassthroughSettings: { // PassthroughSettings
  * //               FrameControl: "NEAREST_IDRFRAME" || "NEAREST_IFRAME",
+ * //               GopsPerSegment: Number("int"),
+ * //               SegmentationMode: "AUTO" || "DURATION_BASED" || "GOP_COUNT",
  * //               VideoSelectorMode: "AUTO" || "REMUX_ALL",
  * //             },
  * //             ProresSettings: { // ProresSettings

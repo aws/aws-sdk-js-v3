@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from Resiliencehubv2 service.
  */
 export class Resiliencehubv2ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.resiliencehubv2#Resiliencehubv2ServiceException";
   /**
    * @internal
    */

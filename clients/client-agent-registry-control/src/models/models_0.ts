@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import type { DocumentType as __DocumentType } from "@smithy/types";
+
 import type {
   AgentCoreGatewayProtocolType,
   AgentCoreRuntimeServerProtocol,
@@ -6,6 +8,7 @@ import type {
   AutoDetectionScope,
   AutoDetectionStatus,
   ClaimMatchOperatorType,
+  CustomMetadataSchemaComplianceStatus,
   EndpointIpAddressType,
   InboundTokenClaimValueType,
   ProvenanceRelation,
@@ -534,7 +537,7 @@ export namespace AuthorizerConfiguration {
 }
 
 /**
- * Workload identity details associated with a source resource.
+ * <p>The workload identity details associated with a source resource. Present on the source details of a provenance entry when the upstream resource has a workload identity configured.</p>
  * @public
  */
 export interface WorkloadIdentityDetails {
@@ -546,12 +549,12 @@ export interface WorkloadIdentityDetails {
 }
 
 /**
- * Source details for a record auto-detected from an AgentCore Gateway resource.
+ * <p>The source details for a registry record that was auto-detected from an Amazon Bedrock AgentCore Gateway resource.</p>
  * @public
  */
 export interface AgentCoreGatewaySourceDetails {
   /**
-   * The protocol type of an AgentCore Gateway.
+   * <p>The protocol type of the AgentCore Gateway resource that the registry record was detected from, for example <code>MCP</code>.</p>
    * @public
    */
   protocolType?: AgentCoreGatewayProtocolType | undefined;
@@ -569,31 +572,31 @@ export interface AgentCoreGatewaySourceDetails {
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * Workload identity details associated with a source resource.
+   * <p>The workload identity details for the AgentCore Gateway resource. Present when the gateway has a workload identity configured.</p>
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 }
 
 /**
- * Protocol configuration for an AgentCore Runtime.
+ * <p>The protocol configuration of an AgentCore Runtime resource that a registry record was auto-detected from.</p>
  * @public
  */
 export interface AgentCoreRuntimeProtocolConfiguration {
   /**
-   * The server protocol used by an AgentCore Runtime.
+   * <p>The server protocol used by the AgentCore Runtime, such as <code>MCP</code>, <code>HTTP</code>, <code>A2A</code>, or <code>AGUI</code>.</p>
    * @public
    */
   serverProtocol?: AgentCoreRuntimeServerProtocol | undefined;
 }
 
 /**
- * Source details for a record auto-detected from an AgentCore Runtime resource.
+ * <p>The source details for a registry record that was auto-detected from an Amazon Bedrock AgentCore Runtime resource.</p>
  * @public
  */
 export interface AgentCoreRuntimeSourceDetails {
   /**
-   * Protocol configuration for an AgentCore Runtime.
+   * <p>The protocol configuration of the AgentCore Runtime resource that the registry record was detected from.</p>
    * @public
    */
   protocolConfiguration?: AgentCoreRuntimeProtocolConfiguration | undefined;
@@ -605,7 +608,7 @@ export interface AgentCoreRuntimeSourceDetails {
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * Workload identity details associated with a source resource.
+   * <p>The workload identity details for the AgentCore Runtime resource. Present when the runtime has a workload identity configured.</p>
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
@@ -863,7 +866,7 @@ export type SourceDetails =
  */
 export namespace SourceDetails {
   /**
-   * Source details for a record auto-detected from an AgentCore Runtime resource.
+   * <p>The source details for a registry record that was auto-detected from an Amazon Bedrock AgentCore Runtime resource. Populated when the source type is <code>AWS::BedrockAgentCore::Runtime</code>.</p>
    * @public
    */
   export interface AgentcoreRuntimeMember {
@@ -873,7 +876,7 @@ export namespace SourceDetails {
   }
 
   /**
-   * Source details for a record auto-detected from an AgentCore Gateway resource.
+   * <p>The source details for a registry record that was auto-detected from an Amazon Bedrock AgentCore Gateway resource. Populated when the source type is <code>AWS::BedrockAgentCore::Gateway</code>.</p>
    * @public
    */
   export interface AgentcoreGatewayMember {
@@ -903,12 +906,12 @@ export namespace SourceDetails {
 }
 
 /**
- * One provenance entry describing the lineage of a registry record.
+ * <p>A provenance entry that describes the lineage of a registry record. Records that were auto-detected by Amazon Web Services Agent Registry carry a provenance entry that links the record back to its upstream source.</p>
  * @public
  */
 export interface Provenance {
   /**
-   * The relationship between the registry record and its provenance source.
+   * <p>The relationship between the registry record and its upstream source. <code>DETECTED_FROM</code> indicates that the record was auto-detected from the source resource.</p>
    * @public
    */
   relation: ProvenanceRelation | undefined;
@@ -985,12 +988,16 @@ export interface CreateRegistryRecordRequest {
   clientToken?: string | undefined;
 
   /**
-   * List of provenance entries on a registry record. Capped at one entry today: a record carries a
-   * single DETECTED_FROM lineage. Modeled as a list so additional relations can be unlocked post-GA
-   * by raising this bound without a breaking shape change.
+   * <p>The provenance lineage entries for the registry record. This field is reserved for the Amazon Web Services Agent Registry auto-detection service principal. Requests that include this field from other callers are rejected.</p>
    * @public
    */
   provenance?: Provenance[] | undefined;
+
+  /**
+   * <p>The custom metadata for the record. Values are strings or JSON booleans.</p>
+   * @public
+   */
+  customMetadata?: __DocumentType | undefined;
 
   /**
    * <p>Tags to associate with the registry record</p>
@@ -1141,9 +1148,7 @@ export interface GetRegistryRecordResponse {
   statusReason?: string | undefined;
 
   /**
-   * List of provenance entries on a registry record. Capped at one entry today: a record carries a
-   * single DETECTED_FROM lineage. Modeled as a list so additional relations can be unlocked post-GA
-   * by raising this bound without a breaking shape change.
+   * <p>The provenance lineage entries for the registry record. Populated for records created by auto-detection; each entry identifies the upstream source that the record was detected from.</p>
    * @public
    */
   provenance?: Provenance[] | undefined;
@@ -1159,6 +1164,18 @@ export interface GetRegistryRecordResponse {
    * @public
    */
   createdBy?: string | undefined;
+
+  /**
+   * <p>The custom metadata attached to this registry record. Values are strings (maximum 128 characters) or booleans.</p>
+   * @public
+   */
+  customMetadata?: __DocumentType | undefined;
+
+  /**
+   * <p>Indicates whether this record's custom metadata conforms to the registry's current schema. This status is computed at read time against the latest schema.</p>
+   * @public
+   */
+  customMetadataSchemaComplianceStatus?: CustomMetadataSchemaComplianceStatus | undefined;
 }
 
 /**
@@ -1209,13 +1226,12 @@ export interface ListRegistryRecordsRequest {
 }
 
 /**
- * Condensed provenance entry for list results — the key triple only (no sourceDetails union).
- * Enough to display and client-side-filter lineage without the full-read config payload.
+ * <p>A condensed provenance entry surfaced in list results. Contains the source identity of a lineage entry without the source details returned by <code>GetRegistryRecord</code>.</p>
  * @public
  */
 export interface ProvenanceSummary {
   /**
-   * The relationship between the registry record and its provenance source.
+   * <p>The relationship between the registry record and its upstream source. <code>DETECTED_FROM</code> indicates that the record was auto-detected from the source resource.</p>
    * @public
    */
   relation: ProvenanceRelation | undefined;
@@ -1317,11 +1333,16 @@ export interface RegistryRecordSummary {
   createdBy?: string | undefined;
 
   /**
-   * List of condensed provenance entries surfaced on RegistryRecordSummary. Mirrors ProvenanceList's
-   * cardinality (one entry today); modeled as a list for forward-compatibility.
+   * <p>The condensed provenance lineage for the registry record. Each entry contains the source relation, source identifier, and source type of an auto-detection lineage entry. Populated for records created by auto-detection.</p>
    * @public
    */
   provenanceSummaryList?: ProvenanceSummary[] | undefined;
+
+  /**
+   * <p>Indicates whether this record's custom metadata conforms to the registry's current schema.</p>
+   * @public
+   */
+  customMetadataSchemaComplianceStatus?: CustomMetadataSchemaComplianceStatus | undefined;
 }
 
 /**
@@ -1393,6 +1414,18 @@ export interface SubmitRegistryRecordForApprovalResponse {
    * @public
    */
   updatedAt: Date | undefined;
+}
+
+/**
+ * <p>The custom metadata patch wrapper. Omit to leave the existing metadata unchanged; supply with a null value to clear all metadata; supply with key-value pairs to replace the existing metadata.</p>
+ * @public
+ */
+export interface UpdatedCustomMetadataMap {
+  /**
+   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * @public
+   */
+  optionalValue?: __DocumentType | undefined;
 }
 
 /**
@@ -1862,15 +1895,19 @@ export interface UpdateRegistryRecordRequest {
   recordVersion?: string | undefined;
 
   /**
+   * <p>The updated custom metadata for the registry record. Values can be strings (maximum 128 characters) or native JSON booleans (<code>true</code> or <code>false</code>). Omit to leave the existing metadata unchanged. Supply the wrapper with a full replacement set to update, or with a null value to clear all metadata.</p>
+   * @public
+   */
+  customMetadata?: UpdatedCustomMetadataMap | undefined;
+
+  /**
    * <p>Whether to trigger synchronization of the record's descriptor content from its source</p>
    * @public
    */
   triggerSynchronization?: boolean | undefined;
 
   /**
-   * List of provenance entries on a registry record. Capped at one entry today: a record carries a
-   * single DETECTED_FROM lineage. Modeled as a list so additional relations can be unlocked post-GA
-   * by raising this bound without a breaking shape change.
+   * <p>The provenance lineage re-assertion for the registry record. This field is reserved for the Amazon Web Services Agent Registry auto-detection service principal. Requests that include this field from other callers are rejected. The source identity of an existing lineage is immutable; a re-assertion may only refresh the source details.</p>
    * @public
    */
   provenance?: Provenance[] | undefined;
@@ -1960,9 +1997,7 @@ export interface UpdateRegistryRecordResponse {
   statusReason?: string | undefined;
 
   /**
-   * List of provenance entries on a registry record. Capped at one entry today: a record carries a
-   * single DETECTED_FROM lineage. Modeled as a list so additional relations can be unlocked post-GA
-   * by raising this bound without a breaking shape change.
+   * <p>The provenance lineage entries for the registry record. Populated for records created by auto-detection; each entry identifies the upstream source that the record was detected from.</p>
    * @public
    */
   provenance?: Provenance[] | undefined;
@@ -1978,6 +2013,18 @@ export interface UpdateRegistryRecordResponse {
    * @public
    */
   createdBy?: string | undefined;
+
+  /**
+   * <p>The custom metadata attached to this registry record. Values are strings (maximum 128 characters) or booleans.</p>
+   * @public
+   */
+  customMetadata?: __DocumentType | undefined;
+
+  /**
+   * <p>Indicates whether this record's custom metadata conforms to the registry's current schema. This status is computed at read time against the latest schema.</p>
+   * @public
+   */
+  customMetadataSchemaComplianceStatus?: CustomMetadataSchemaComplianceStatus | undefined;
 }
 
 /**
@@ -2082,6 +2129,42 @@ export interface AutoDetectionConfiguration {
 }
 
 /**
+ * <p>The custom metadata fields for one record type, in addition to the common attributes defined in <code>defaultSchema</code>.</p>
+ * @public
+ */
+export interface RecordTypeSchemaOverride {
+  /**
+   * <p>The record type these fields apply to.</p>
+   * @public
+   */
+  recordType: RecordType | undefined;
+
+  /**
+   * <p>A JSON Schema with the fields for this record type.</p>
+   * @public
+   */
+  schema: string | undefined;
+}
+
+/**
+ * <p>The custom metadata fields that records in the registry can carry. <code>defaultSchema</code> defines the common attributes for every record type, and <code>recordTypeSchemaOverrides</code> adds fields for individual record types.</p>
+ * @public
+ */
+export interface CustomMetadataSchemaConfiguration {
+  /**
+   * <p>A JSON Schema with the common attributes: fields that records of every record type can carry.</p>
+   * @public
+   */
+  defaultSchema?: string | undefined;
+
+  /**
+   * <p>The fields for individual record types. Records of a record type can carry the common attributes defined in <code>defaultSchema</code> plus that record type's fields.</p>
+   * @public
+   */
+  recordTypeSchemaOverrides?: RecordTypeSchemaOverride[] | undefined;
+}
+
+/**
  * <p>Discovery configuration for the registry. Controls how consumers are authorized to search the registry and invoke its MCP endpoint.</p>
  * @public
  */
@@ -2157,6 +2240,12 @@ export interface CreateRegistryRequest {
    * @public
    */
   approvalConfiguration?: ApprovalConfiguration | undefined;
+
+  /**
+   * <p>The optional custom metadata schema configuration for the registry. When provided, registry records can carry structured metadata validated against this schema.</p>
+   * @public
+   */
+  customMetadataSchemaConfiguration?: CustomMetadataSchemaConfiguration | undefined;
 
   /**
    * <p>The optional auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. Omit this field for registries whose records are managed exclusively through the Agent Registry Control API.</p>
@@ -2283,6 +2372,12 @@ export interface GetRegistryResponse {
    * @public
    */
   approvalConfiguration?: ApprovalConfiguration | undefined;
+
+  /**
+   * <p>The custom metadata schema configuration for this registry, if one has been defined.</p>
+   * @public
+   */
+  customMetadataSchemaConfiguration?: CustomMetadataSchemaConfiguration | undefined;
 
   /**
    * <p>Current status of the registry</p>
@@ -2466,6 +2561,18 @@ export interface UpdatedAutoDetectionConfiguration {
 }
 
 /**
+ * <p>The custom metadata schema configuration patch wrapper. Omit to leave the existing schema unchanged.</p>
+ * @public
+ */
+export interface UpdatedCustomMetadataSchemaConfiguration {
+  /**
+   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * @public
+   */
+  optionalValue?: CustomMetadataSchemaConfiguration | undefined;
+}
+
+/**
  * <p>Wrapper for updating an optional authorizer configuration with PATCH semantics.</p>
  * @public
  */
@@ -2525,6 +2632,12 @@ export interface UpdateRegistryRequest {
   approvalConfiguration?: UpdatedApprovalConfiguration | undefined;
 
   /**
+   * <p>The new custom metadata schema configuration, which replaces the current one. You can add fields and allowed values, but you can't remove a field or an allowed value, or change a field's type.</p>
+   * @public
+   */
+  customMetadataSchemaConfiguration?: UpdatedCustomMetadataSchemaConfiguration | undefined;
+
+  /**
    * <p>The updated auto-detection configuration for the registry, with PATCH semantics. Omit this field to leave the current configuration unchanged. Supply an empty wrapper to unset it. Supply <code>optionalValue</code> to replace it.</p>
    * @public
    */
@@ -2577,6 +2690,12 @@ export interface UpdateRegistryResponse {
    * @public
    */
   approvalConfiguration?: ApprovalConfiguration | undefined;
+
+  /**
+   * <p>The custom metadata schema configuration for this registry, if one has been defined.</p>
+   * @public
+   */
+  customMetadataSchemaConfiguration?: CustomMetadataSchemaConfiguration | undefined;
 
   /**
    * <p>Current status of the registry</p>

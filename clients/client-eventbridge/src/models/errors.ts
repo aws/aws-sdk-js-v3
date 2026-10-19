@@ -8,6 +8,7 @@ import { EventBridgeServiceException as __BaseException } from "./EventBridgeSer
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridge#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridge#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class InternalException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridge#InternalException";
   readonly name = "InternalException" as const;
   readonly $fault = "server" as const;
   /**
@@ -68,6 +71,7 @@ export class InternalException extends __BaseException {
  * @public
  */
 export class InvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridge#InvalidStateException";
   readonly name = "InvalidStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class InvalidStateException extends __BaseException {
  * @public
  */
 export class OperationDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridge#OperationDisabledException";
   readonly name = "OperationDisabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class OperationDisabledException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridge#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -129,6 +135,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class IllegalStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridge#IllegalStatusException";
   readonly name = "IllegalStatusException" as const;
   readonly $fault = "client" as const;
   /**
@@ -150,6 +157,7 @@ export class IllegalStatusException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridge#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -170,6 +178,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridge#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -190,6 +199,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class InvalidEventPatternException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridge#InvalidEventPatternException";
   readonly name = "InvalidEventPatternException" as const;
   readonly $fault = "client" as const;
   /**
@@ -210,6 +220,7 @@ export class InvalidEventPatternException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridge#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -235,6 +246,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ManagedRuleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridge#ManagedRuleException";
   readonly name = "ManagedRuleException" as const;
   readonly $fault = "client" as const;
   /**
@@ -255,6 +267,7 @@ export class ManagedRuleException extends __BaseException {
  * @public
  */
 export class PolicyLengthExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridge#PolicyLengthExceededException";
   readonly name = "PolicyLengthExceededException" as const;
   readonly $fault = "client" as const;
   /**

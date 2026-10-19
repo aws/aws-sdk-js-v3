@@ -2959,6 +2959,7 @@ export namespace OutgoingKeyMaterial {
  * @public
  */
 export type ReEncryptionAttributes =
+  | ReEncryptionAttributes.AsymmetricMember
   | ReEncryptionAttributes.DukptMember
   | ReEncryptionAttributes.SymmetricMember
   | ReEncryptionAttributes.$UnknownMember;
@@ -2968,21 +2969,34 @@ export type ReEncryptionAttributes =
  */
 export namespace ReEncryptionAttributes {
   /**
-   * <p>Parameters that are required to encrypt data using symmetric keys.</p>
+   * <p>Specifies the parameters required to encrypt data using symmetric keys.</p>
    * @public
    */
   export interface SymmetricMember {
     Symmetric: SymmetricEncryptionAttributes;
+    Asymmetric?: never;
     Dukpt?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Parameters that are required to encrypt plaintext data using DUKPT.</p>
+   * <p>Specifies the parameters required to encrypt data using an asymmetric key pair. You must specify a <code>PaddingType</code>.</p>
+   * @public
+   */
+  export interface AsymmetricMember {
+    Symmetric?: never;
+    Asymmetric: AsymmetricEncryptionAttributes;
+    Dukpt?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specifies the parameters required to encrypt data using DUKPT.</p>
    * @public
    */
   export interface DukptMember {
     Symmetric?: never;
+    Asymmetric?: never;
     Dukpt: DukptEncryptionAttributes;
     $unknown?: never;
   }
@@ -2992,6 +3006,7 @@ export namespace ReEncryptionAttributes {
    */
   export interface $UnknownMember {
     Symmetric?: never;
+    Asymmetric?: never;
     Dukpt?: never;
     $unknown: [string, any];
   }
@@ -3002,6 +3017,7 @@ export namespace ReEncryptionAttributes {
    */
   export interface Visitor<T> {
     Symmetric: (value: SymmetricEncryptionAttributes) => T;
+    Asymmetric: (value: AsymmetricEncryptionAttributes) => T;
     Dukpt: (value: DukptEncryptionAttributes) => T;
     _: (name: string, value: any) => T;
   }

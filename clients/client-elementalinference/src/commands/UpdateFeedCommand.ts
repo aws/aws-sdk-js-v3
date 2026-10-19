@@ -67,6 +67,7 @@ export interface UpdateFeedCommandOutput extends UpdateFeedResponse, __MetadataB
  *         },
  *         contextualMetadata: { // ContextualMetadataConfig
  *           summaryGeneration: "ENABLED" || "DISABLED",
+ *           extendedAnalysis: "ENABLED" || "DISABLED",
  *         },
  *       },
  *       status: "ENABLED" || "DISABLED", // required
@@ -115,6 +116,7 @@ export interface UpdateFeedCommandOutput extends UpdateFeedResponse, __MetadataB
  * //         },
  * //         contextualMetadata: { // ContextualMetadataConfig
  * //           summaryGeneration: "ENABLED" || "DISABLED",
+ * //           extendedAnalysis: "ENABLED" || "DISABLED",
  * //         },
  * //       },
  * //       status: "ENABLED" || "DISABLED", // required

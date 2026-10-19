@@ -8,6 +8,7 @@ import { LicenseManagerServiceException as __BaseException } from "./LicenseMana
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -31,6 +32,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class AuthorizationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#AuthorizationException";
   readonly name = "AuthorizationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -53,6 +55,7 @@ export class AuthorizationException extends __BaseException {
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -75,6 +78,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class RateLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#RateLimitExceededException";
   readonly name = "RateLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -97,6 +101,7 @@ export class RateLimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#ResourceLimitExceededException";
   readonly name = "ResourceLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -119,6 +124,7 @@ export class ResourceLimitExceededException extends __BaseException {
  * @public
  */
 export class ServerInternalException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#ServerInternalException";
   readonly name = "ServerInternalException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -141,6 +147,7 @@ export class ServerInternalException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -163,6 +170,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -185,6 +193,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -207,6 +216,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class EntitlementNotAllowedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#EntitlementNotAllowedException";
   readonly name = "EntitlementNotAllowedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -229,6 +239,7 @@ export class EntitlementNotAllowedException extends __BaseException {
  * @public
  */
 export class NoEntitlementsAllowedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#NoEntitlementsAllowedException";
   readonly name = "NoEntitlementsAllowedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -251,6 +262,7 @@ export class NoEntitlementsAllowedException extends __BaseException {
  * @public
  */
 export class RedirectException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#RedirectException";
   readonly name = "RedirectException" as const;
   readonly $fault = "client" as const;
   Location?: string | undefined;
@@ -275,6 +287,7 @@ export class RedirectException extends __BaseException {
  * @public
  */
 export class UnsupportedDigitalSignatureMethodException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#UnsupportedDigitalSignatureMethodException";
   readonly name = "UnsupportedDigitalSignatureMethodException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -297,6 +310,7 @@ export class UnsupportedDigitalSignatureMethodException extends __BaseException 
  * @public
  */
 export class FilterLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#FilterLimitExceededException";
   readonly name = "FilterLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -319,6 +333,7 @@ export class FilterLimitExceededException extends __BaseException {
  * @public
  */
 export class FailedDependencyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#FailedDependencyException";
   readonly name = "FailedDependencyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -345,6 +360,7 @@ export class FailedDependencyException extends __BaseException {
  * @public
  */
 export class InvalidResourceStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#InvalidResourceStateException";
   readonly name = "InvalidResourceStateException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -367,6 +383,7 @@ export class InvalidResourceStateException extends __BaseException {
  * @public
  */
 export class LicenseUsageException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.licensemanager#LicenseUsageException";
   readonly name = "LicenseUsageException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

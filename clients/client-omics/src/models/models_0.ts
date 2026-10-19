@@ -2107,6 +2107,12 @@ export interface VpcConfig {
    * @public
    */
   subnetIds?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.</p>
+   * @public
+   */
+  vpcOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -2178,6 +2184,12 @@ export interface VpcConfigResponse {
    * @public
    */
   vpcId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.</p>
+   * @public
+   */
+  vpcOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -2381,13 +2393,13 @@ export interface RegistryMapping {
    * <p>The URI of the upstream registry.</p>
    * @public
    */
-  upstreamRegistryUrl?: string | undefined;
+  upstreamRegistryUrl: string | undefined;
 
   /**
    * <p>The repository prefix to use in the ECR private repository.</p>
    * @public
    */
-  ecrRepositoryPrefix?: string | undefined;
+  ecrRepositoryPrefix: string | undefined;
 
   /**
    * <p>The repository prefix of the corresponding repository in the upstream registry.</p>
@@ -2400,6 +2412,12 @@ export interface RegistryMapping {
    * @public
    */
   ecrAccountId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that holds the credentials for the upstream registry. You must specify this value when Amazon Elastic Container Registry (Amazon ECR) doesn't support pull through cache for the upstream registry. HealthOmics supports only some of these registries. The workflow role must have permission to call the <code>secretsmanager:GetSecretValue</code> operation on the secret. For more information about the supported registries, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html">Container images</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * @public
+   */
+  credentialArn?: string | undefined;
 }
 
 /**
@@ -3590,7 +3608,7 @@ export interface DefaultRunSetting {
   configurationName?: string | undefined;
 
   /**
-   * Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+   * <p>Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.</p>
    * @public
    */
   sessionPolicy?: string | undefined;
@@ -5390,7 +5408,7 @@ export interface GetRunResponse {
   engineSettings?: __DocumentType | undefined;
 
   /**
-   * Inline policy json for scoping down permissions via a session policy on the IAM role.
+   * <p>Inline policy json for scoping down permissions via a session policy on the IAM role.</p>
    * @public
    */
   sessionPolicy?: string | undefined;
@@ -9193,7 +9211,7 @@ export interface StartRunRequest {
   configurationName?: string | undefined;
 
   /**
-   * Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+   * <p>Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.</p>
    * @public
    */
   sessionPolicy?: string | undefined;

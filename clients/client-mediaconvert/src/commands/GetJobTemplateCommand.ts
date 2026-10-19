@@ -135,6 +135,7 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //                 ChannelsOut: Number("int"),
  * //               },
  * //               SelectorType: "PID" || "TRACK" || "LANGUAGE_CODE" || "HLS_RENDITION_GROUP" || "ALL_PCM" || "STREAM",
+ * //               Smpte337Passthrough: "ENABLED" || "DISABLED",
  * //               Streams: [
  * //                 Number("int"),
  * //               ],
@@ -308,6 +309,7 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //                       ChannelsOut: Number("int"),
  * //                     },
  * //                     SelectorType: "PID" || "TRACK" || "LANGUAGE_CODE" || "HLS_RENDITION_GROUP" || "ALL_PCM" || "STREAM",
+ * //                     Smpte337Passthrough: "ENABLED" || "DISABLED",
  * //                     Streams: [
  * //                       Number("int"),
  * //                     ],
@@ -401,6 +403,22 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //         Playback: "ONCE" || "REPEAT",
  * //         StartTime: "STRING_VALUE",
  * //       },
+ * //       MotionImageInserters: [ // __listOfMotionImageInserter
+ * //         {
+ * //           Framerate: {
+ * //             FramerateDenominator: Number("int"),
+ * //             FramerateNumerator: Number("int"),
+ * //           },
+ * //           Input: "STRING_VALUE",
+ * //           InsertionMode: "MOV" || "PNG",
+ * //           Offset: {
+ * //             ImageX: Number("int"),
+ * //             ImageY: Number("int"),
+ * //           },
+ * //           Playback: "ONCE" || "REPEAT",
+ * //           StartTime: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //       NielsenConfiguration: { // NielsenConfiguration
  * //         BreakoutCode: Number("int"),
  * //         DistributorId: "STRING_VALUE",
@@ -1441,6 +1459,8 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //                   },
  * //                   PassthroughSettings: { // PassthroughSettings
  * //                     FrameControl: "NEAREST_IDRFRAME" || "NEAREST_IFRAME",
+ * //                     GopsPerSegment: Number("int"),
+ * //                     SegmentationMode: "AUTO" || "DURATION_BASED" || "GOP_COUNT",
  * //                     VideoSelectorMode: "AUTO" || "REMUX_ALL",
  * //                   },
  * //                   ProresSettings: { // ProresSettings

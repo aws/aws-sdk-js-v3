@@ -357,6 +357,7 @@ const _DIoc = "DocumentIdentifiers";
 const _DKVF = "DocumentKeyValuesFilter";
 const _DKVFL = "DocumentKeyValuesFilterList";
 const _DLE = "DocumentLimitExceeded";
+const _DM = "DeletionMode";
 const _DMI = "DeregisterManagedInstance";
 const _DMIR = "DeregisterManagedInstanceRequest";
 const _DMIRe = "DeregisterManagedInstanceResult";
@@ -3003,8 +3004,8 @@ export var DeleteResourceDataSyncResult$: StaticStructureSchema = [3, n0, _DRDSR
 ];
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
-  [_RAe, _PI, _PH],
-  [0, 0, 0], 3
+  [_RAe, _PI, _PH, _DM],
+  [0, 0, 0, 0], 3
 ];
 export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
   0,

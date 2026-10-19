@@ -16,7 +16,6 @@ import type {
   ConnectionType,
   CsvHeaderOption,
   CsvSerdeOption,
-  DatabaseAttributes,
   DataFormat,
   DataOperation,
   DataQualityEncryptionMode,
@@ -40,7 +39,6 @@ import type {
   PropertyLocation,
   PropertyType,
   RegistryStatus,
-  ResourceShareType,
   ResourceType,
   S3EncryptionMode,
   ScheduleType,
@@ -69,8 +67,6 @@ import type {
   ConnectionsList,
   Crawler,
   CrawlerTargets,
-  CreateCsvClassifierRequest,
-  CreateGrokClassifierRequest,
   ErrorDetail,
   EventBatchingCondition,
   FederatedCatalog,
@@ -89,6 +85,109 @@ import type {
   TableOptimizerConfiguration,
   TargetRedshiftCatalog,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateCatalogResponse {}
+
+/**
+ * <p>Specifies a custom CSV classifier for <code>CreateClassifier</code> to create.</p>
+ * @public
+ */
+export interface CreateCsvClassifierRequest {
+  /**
+   * <p>The name of the classifier.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A custom symbol to denote what separates each column entry in the row.</p>
+   * @public
+   */
+  Delimiter?: string | undefined;
+
+  /**
+   * <p>A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.</p>
+   * @public
+   */
+  QuoteSymbol?: string | undefined;
+
+  /**
+   * <p>Indicates whether the CSV file contains a header.</p>
+   * @public
+   */
+  ContainsHeader?: CsvHeaderOption | undefined;
+
+  /**
+   * <p>A list of strings representing column names.</p>
+   * @public
+   */
+  Header?: string[] | undefined;
+
+  /**
+   * <p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>
+   * @public
+   */
+  DisableValueTrimming?: boolean | undefined;
+
+  /**
+   * <p>Enables the processing of files that contain only one column.</p>
+   * @public
+   */
+  AllowSingleColumn?: boolean | undefined;
+
+  /**
+   * <p>Enables the configuration of custom datatypes.</p>
+   * @public
+   */
+  CustomDatatypeConfigured?: boolean | undefined;
+
+  /**
+   * <p>Creates a list of supported custom datatypes.</p>
+   * @public
+   */
+  CustomDatatypes?: string[] | undefined;
+
+  /**
+   * <p>Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>, and <code>None</code>. You can specify the <code>None</code> value when you want the crawler to do the detection.</p>
+   * @public
+   */
+  Serde?: CsvSerdeOption | undefined;
+}
+
+/**
+ * <p>Specifies a <code>grok</code> classifier for <code>CreateClassifier</code>
+ *       to create.</p>
+ * @public
+ */
+export interface CreateGrokClassifierRequest {
+  /**
+   * <p>An identifier of the data format that the classifier matches,
+   *       such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.</p>
+   * @public
+   */
+  Classification: string | undefined;
+
+  /**
+   * <p>The name of the new classifier.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The grok pattern used by this classifier.</p>
+   * @public
+   */
+  GrokPattern: string | undefined;
+
+  /**
+   * <p>Optional custom grok patterns used by this classifier.</p>
+   * @public
+   */
+  CustomPatterns?: string | undefined;
+}
 
 /**
  * <p>Specifies a JSON classifier for <code>CreateClassifier</code> to create.</p>
@@ -578,6 +677,12 @@ export interface CreateCrawlerRequest {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog in which to store the crawler's output. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
 }
 
 /**
@@ -1283,6 +1388,13 @@ export interface IntegrationConfig {
    * @public
    */
   ContinuousSync?: boolean | undefined;
+
+  /**
+   * <p>An optional custom namespace for the integration's target. Supply this parameter only when the target is an Amazon S3 Tables table bucket; it is not accepted for other target types. The integration replicates data into the namespace you specify, reusing it if it already exists. If you omit this parameter, the target namespace defaults to <code>zetl_</code> followed by the integration ID, with hyphens converted to underscores.</p>
+   *          <p>The value is immutable after the integration is created; <code>ModifyIntegration</code> rejects changes to it. It must be a valid Amazon S3 Tables namespace name: 1 to 255 characters using lowercase letters, numbers, and underscores, with no leading or trailing underscore and no reserved <code>aws</code> prefix.</p>
+   * @public
+   */
+  TargetNamespace?: string | undefined;
 }
 
 /**
@@ -3175,6 +3287,36 @@ export interface OpenTableFormatInput {
 }
 
 /**
+ * <p>A table that points to an entity outside the Glue Data Catalog.</p>
+ * @public
+ */
+export interface FederatedTable {
+  /**
+   * <p>A unique identifier for the federated table.</p>
+   * @public
+   */
+  Identifier?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the federated database.</p>
+   * @public
+   */
+  DatabaseIdentifier?: string | undefined;
+
+  /**
+   * <p>The name of the connection to the external metastore.</p>
+   * @public
+   */
+  ConnectionName?: string | undefined;
+
+  /**
+   * <p>The type of connection used to access the federated table, specifying the protocol or method for connecting to the external data source.</p>
+   * @public
+   */
+  ConnectionType?: string | undefined;
+}
+
+/**
  * <p>A structure that describes a target table for resource linking.</p>
  * @public
  */
@@ -3291,6 +3433,12 @@ export interface ViewDefinitionInput {
    * @public
    */
   IsProtected?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether the materialized view is managed by Glue.</p>
+   * @public
+   */
+  IsManaged?: boolean | undefined;
 
   /**
    * <p>The definer of a view in SQL.</p>
@@ -3465,6 +3613,12 @@ export interface TableInput {
    * @public
    */
   TargetTable?: TableIdentifier | undefined;
+
+  /**
+   * <p>A <code>FederatedTable</code> structure that references an entity outside the Glue Data Catalog. Specify this field to create a federated table, which points to a table in an external metastore instead of describing data managed in the Glue Data Catalog.</p>
+   * @public
+   */
+  FederatedTable?: FederatedTable | undefined;
 
   /**
    * <p>A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query.</p>
@@ -4107,6 +4261,12 @@ export interface DeleteColumnStatisticsTaskSettingsRequest {
    * @public
    */
   TableName: string | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogID?: string | undefined;
 }
 
 /**
@@ -7637,6 +7797,12 @@ export interface GetColumnStatisticsTaskRunsRequest {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogID?: string | undefined;
 }
 
 /**
@@ -7671,6 +7837,12 @@ export interface GetColumnStatisticsTaskSettingsRequest {
    * @public
    */
   TableName: string | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogID?: string | undefined;
 }
 
 /**
@@ -8539,112 +8711,4 @@ export interface GetDatabaseResponse {
    * @public
    */
   Database?: Database | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDatabasesRequest {
-  /**
-   * <p>The ID of the Data Catalog from which to retrieve <code>Databases</code>. If none is
-   *       provided, the Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of databases to return in one response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Allows you to specify that you want to list the databases shared with your account. The allowable values are <code>FEDERATED</code>, <code>FOREIGN</code> or <code>ALL</code>. </p>
-   *          <ul>
-   *             <li>
-   *                <p>If set to <code>FEDERATED</code>, will list the federated databases (referencing an external entity) shared with your account.</p>
-   *             </li>
-   *             <li>
-   *                <p>If set to <code>FOREIGN</code>, will list the databases shared with your account. </p>
-   *             </li>
-   *             <li>
-   *                <p>If set to <code>ALL</code>, will list the databases shared with your account, as well as the databases in yor local account. </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceShareType?: ResourceShareType | undefined;
-
-  /**
-   * <p>Specifies the database fields returned by the <code>GetDatabases</code> call. This parameter doesn’t accept an empty list. The request must include the <code>NAME</code>.</p>
-   * @public
-   */
-  AttributesToGet?: DatabaseAttributes[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDatabasesResponse {
-  /**
-   * <p>A list of <code>Database</code> objects from the specified catalog.</p>
-   * @public
-   */
-  DatabaseList: Database[] | undefined;
-
-  /**
-   * <p>A continuation token for paginating the returned list of tokens,
-   *       returned if the current segment of the list is not the last.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataCatalogEncryptionSettingsRequest {
-  /**
-   * <p>The ID of the Data Catalog to retrieve the security configuration for. If none is
-   *       provided, the Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-}
-
-/**
- * <p>The data structure used by the Data Catalog to encrypt the password as part of
- *         <code>CreateConnection</code> or <code>UpdateConnection</code> and store it in the
- *         <code>ENCRYPTED_PASSWORD</code> field in the connection properties. You can enable catalog
- *       encryption or only password encryption.</p>
- *          <p>When a <code>CreationConnection</code> request arrives containing a password, the Data
- *       Catalog first encrypts the password using your KMS key. It then encrypts the whole
- *       connection object again if catalog encryption is also enabled.</p>
- *          <p>This encryption requires that you set KMS key permissions to enable or restrict access
- *       on the password key according to your security requirements. For example, you might want only
- *       administrators to have decrypt permission on the password key.</p>
- * @public
- */
-export interface ConnectionPasswordEncryption {
-  /**
-   * <p>When the <code>ReturnConnectionPasswordEncrypted</code> flag is set to "true", passwords remain encrypted in the responses of <code>GetConnection</code> and <code>GetConnections</code>. This encryption takes effect independently from catalog encryption. </p>
-   * @public
-   */
-  ReturnConnectionPasswordEncrypted: boolean | undefined;
-
-  /**
-   * <p>An KMS key that is used to encrypt the connection password. </p>
-   *          <p>If connection password protection is enabled, the caller of <code>CreateConnection</code>
-   *       and <code>UpdateConnection</code> needs at least <code>kms:Encrypt</code> permission on the
-   *       specified KMS key, to encrypt passwords before storing them in the Data Catalog. </p>
-   *          <p>You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.</p>
-   * @public
-   */
-  AwsKmsKeyId?: string | undefined;
 }

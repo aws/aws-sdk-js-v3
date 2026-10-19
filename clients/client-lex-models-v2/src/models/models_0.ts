@@ -59,8 +59,6 @@ import type {
   GenerationSortByAttribute,
   GenerationStatus,
   ImportExportFileFormat,
-  ImportFilterName,
-  ImportFilterOperator,
   ImportStatus,
   MergeStrategy,
   MessageSelectionStrategy,
@@ -3086,6 +3084,25 @@ export interface BotLocaleHistoryEvent {
 }
 
 /**
+ * <p>Specifies configuration that restricts speech detection to the
+ *          primary (loudest) speaker during streaming audio conversations, so that
+ *          speech from background speakers does not start a turn, interrupt the
+ *          bot, or reach speech recognition.</p>
+ * @public
+ */
+export interface SpeakerDiarizationSettings {
+  /**
+   * <p>Specifies whether speaker diarization is enabled for the bot locale.
+   *          Set to <code>true</code> to have Amazon Lex treat speech from speakers other
+   *          than the primary speaker as non-speech. Set to <code>false</code> to
+   *          disable speaker diarization and rely on voice activity detection
+   *          alone.</p>
+   * @public
+   */
+  enabled: boolean | undefined;
+}
+
+/**
  * <p>Configuration settings for integrating Deepgram speech-to-text models with Amazon Lex.</p>
  * @public
  */
@@ -3330,6 +3347,13 @@ export interface BotLocaleImportSpecification {
    * @public
    */
   audioFillerSettings?: AudioFillerSettings | undefined;
+
+  /**
+   * <p>The speaker diarization settings to apply when importing the bot
+   *          locale configuration.</p>
+   * @public
+   */
+  speakerDiarizationSettings?: SpeakerDiarizationSettings | undefined;
 }
 
 /**
@@ -5005,6 +5029,14 @@ export interface CreateBotLocaleRequest {
    * @public
    */
   speechDetectionSensitivity?: SpeechDetectionSensitivity | undefined;
+
+  /**
+   * <p>The speaker diarization settings to configure for the new bot
+   *          locale. When enabled, Amazon Lex restricts speech detection to the primary
+   *          (loudest) speaker during streaming audio conversations.</p>
+   * @public
+   */
+  speakerDiarizationSettings?: SpeakerDiarizationSettings | undefined;
 }
 
 /**
@@ -5108,6 +5140,13 @@ export interface CreateBotLocaleResponse {
    * @public
    */
   speechDetectionSensitivity?: SpeechDetectionSensitivity | undefined;
+
+  /**
+   * <p>The speaker diarization settings configured for the created bot
+   *          locale.</p>
+   * @public
+   */
+  speakerDiarizationSettings?: SpeakerDiarizationSettings | undefined;
 }
 
 /**
@@ -7789,6 +7828,13 @@ export interface DescribeBotLocaleResponse {
    * @public
    */
   speechDetectionSensitivity?: SpeechDetectionSensitivity | undefined;
+
+  /**
+   * <p>The speaker diarization settings configured for the bot
+   *          locale.</p>
+   * @public
+   */
+  speakerDiarizationSettings?: SpeakerDiarizationSettings | undefined;
 }
 
 /**
@@ -9525,34 +9571,4 @@ export interface GetTestExecutionArtifactsUrlResponse {
    * @public
    */
   downloadArtifactsUrl?: string | undefined;
-}
-
-/**
- * <p>Filters the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListImports.html">ListImports</a> operation.</p>
- * @public
- */
-export interface ImportFilter {
-  /**
-   * <p>The name of the field to use for filtering.</p>
-   * @public
-   */
-  name: ImportFilterName | undefined;
-
-  /**
-   * <p>The values to use to filter the response. The values must be
-   *          <code>Bot</code>, <code>BotLocale</code>, or
-   *          <code>CustomVocabulary</code>.</p>
-   * @public
-   */
-  values: string[] | undefined;
-
-  /**
-   * <p>The operator to use for the filter. Specify EQ when the
-   *          <code>ListImports</code> operation should return only resource types
-   *          that equal the specified value. Specify CO when the
-   *          <code>ListImports</code> operation should return resource types that
-   *          contain the specified value.</p>
-   * @public
-   */
-  operator: ImportFilterOperator | undefined;
 }

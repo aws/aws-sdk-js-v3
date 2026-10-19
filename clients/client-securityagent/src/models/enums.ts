@@ -69,6 +69,67 @@ export type ArtifactType = (typeof ArtifactType)[keyof typeof ArtifactType];
  * @public
  * @enum
  */
+export const TriggerEvent = {
+  /**
+   * <p>A draft pull request is opened or updated.</p>
+   */
+  PULL_REQUEST_DRAFT: "PULL_REQUEST_DRAFT",
+  /**
+   * <p>A label is added to a pull request. A filter group that selects this event must include a <code>LABEL</code> filter with the <code>INCLUDE</code> match mode, and a review starts only when the added label matches it.</p>
+   */
+  PULL_REQUEST_LABEL_ADDED: "PULL_REQUEST_LABEL_ADDED",
+  /**
+   * <p>A pull request that isn't a draft is opened, updated, or marked ready for review.</p>
+   */
+  PULL_REQUEST_READY_FOR_REVIEW: "PULL_REQUEST_READY_FOR_REVIEW",
+} as const;
+/**
+ * @public
+ */
+export type TriggerEvent = (typeof TriggerEvent)[keyof typeof TriggerEvent];
+
+/**
+ * @public
+ * @enum
+ */
+export const TriggerFilterMatchMode = {
+  /**
+   * <p>The filter passes when no value fully matches any pattern.</p>
+   */
+  EXCLUDE: "EXCLUDE",
+  /**
+   * <p>The filter passes when a value fully matches at least one pattern.</p>
+   */
+  INCLUDE: "INCLUDE",
+} as const;
+/**
+ * @public
+ */
+export type TriggerFilterMatchMode = (typeof TriggerFilterMatchMode)[keyof typeof TriggerFilterMatchMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const TriggerFilterType = {
+  /**
+   * <p>The labels on the pull request.</p>
+   */
+  LABEL: "LABEL",
+  /**
+   * <p>The name of the pull request's target branch, for example <code>main</code>.</p>
+   */
+  TARGET_BRANCH: "TARGET_BRANCH",
+} as const;
+/**
+ * @public
+ */
+export type TriggerFilterType = (typeof TriggerFilterType)[keyof typeof TriggerFilterType];
+
+/**
+ * @public
+ * @enum
+ */
 export const CleanUpStrategy = {
   /**
    * <p>Attempt to delete resources created during the pentest on a best-effort basis.</p>
@@ -283,6 +344,104 @@ export type NetworkTrafficRuleType = (typeof NetworkTrafficRuleType)[keyof typeo
  * @public
  * @enum
  */
+export const ConfidenceLevel = {
+  FALSE_POSITIVE: "FALSE_POSITIVE",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  UNCONFIRMED: "UNCONFIRMED",
+} as const;
+/**
+ * @public
+ */
+export type ConfidenceLevel = (typeof ConfidenceLevel)[keyof typeof ConfidenceLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const RiskLevel = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  INFORMATIONAL: "INFORMATIONAL",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  UNKNOWN: "UNKNOWN",
+} as const;
+/**
+ * @public
+ */
+export type RiskLevel = (typeof RiskLevel)[keyof typeof RiskLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingStatus = {
+  ACCEPTED: "ACCEPTED",
+  ACTIVE: "ACTIVE",
+  FALSE_POSITIVE: "FALSE_POSITIVE",
+  RESOLVED: "RESOLVED",
+} as const;
+/**
+ * @public
+ */
+export type FindingStatus = (typeof FindingStatus)[keyof typeof FindingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TaskExecutionStatus = {
+  /**
+   * <p>Task was aborted.</p>
+   */
+  ABORTED: "ABORTED",
+  /**
+   * <p>Task completed successfully.</p>
+   */
+  COMPLETED: "COMPLETED",
+  /**
+   * <p>Task failed during execution.</p>
+   */
+  FAILED: "FAILED",
+  /**
+   * <p>Task failed due to an internal error.</p>
+   */
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  /**
+   * <p>Task is currently running.</p>
+   */
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type TaskExecutionStatus = (typeof TaskExecutionStatus)[keyof typeof TaskExecutionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestScopeType = {
+  /**
+   * <p>A generative AI application.</p>
+   */
+  GENERATIVE_AI_APP: "GENERATIVE_AI_APP",
+  /**
+   * <p>A traditional web application.</p>
+   */
+  WEB_APP: "WEB_APP",
+} as const;
+/**
+ * @public
+ */
+export type TestScopeType = (typeof TestScopeType)[keyof typeof TestScopeType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ErrorCode = {
   /**
    * <p>Failure caused by a client-side error.</p>
@@ -301,6 +460,23 @@ export const ErrorCode = {
  * @public
  */
 export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Provider = {
+  AZURE_DEVOPS: "AZURE_DEVOPS",
+  BITBUCKET: "BITBUCKET",
+  CONFLUENCE: "CONFLUENCE",
+  GITHUB: "GITHUB",
+  GITLAB: "GITLAB",
+  JIRA: "JIRA",
+} as const;
+/**
+ * @public
+ */
+export type Provider = (typeof Provider)[keyof typeof Provider];
 
 /**
  * @public
@@ -426,37 +602,6 @@ export type StepStatus = (typeof StepStatus)[keyof typeof StepStatus];
  * @public
  * @enum
  */
-export const TaskExecutionStatus = {
-  /**
-   * <p>Task was aborted.</p>
-   */
-  ABORTED: "ABORTED",
-  /**
-   * <p>Task completed successfully.</p>
-   */
-  COMPLETED: "COMPLETED",
-  /**
-   * <p>Task failed during execution.</p>
-   */
-  FAILED: "FAILED",
-  /**
-   * <p>Task failed due to an internal error.</p>
-   */
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  /**
-   * <p>Task is currently running.</p>
-   */
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-/**
- * @public
- */
-export type TaskExecutionStatus = (typeof TaskExecutionStatus)[keyof typeof TaskExecutionStatus];
-
-/**
- * @public
- * @enum
- */
 export const LogType = {
   /**
    * <p>Logs stored in CloudWatch.</p>
@@ -499,54 +644,6 @@ export type CodeRemediationTaskStatus = (typeof CodeRemediationTaskStatus)[keyof
  * @public
  * @enum
  */
-export const ConfidenceLevel = {
-  FALSE_POSITIVE: "FALSE_POSITIVE",
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  UNCONFIRMED: "UNCONFIRMED",
-} as const;
-/**
- * @public
- */
-export type ConfidenceLevel = (typeof ConfidenceLevel)[keyof typeof ConfidenceLevel];
-
-/**
- * @public
- * @enum
- */
-export const RiskLevel = {
-  CRITICAL: "CRITICAL",
-  HIGH: "HIGH",
-  INFORMATIONAL: "INFORMATIONAL",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  UNKNOWN: "UNKNOWN",
-} as const;
-/**
- * @public
- */
-export type RiskLevel = (typeof RiskLevel)[keyof typeof RiskLevel];
-
-/**
- * @public
- * @enum
- */
-export const FindingStatus = {
-  ACCEPTED: "ACCEPTED",
-  ACTIVE: "ACTIVE",
-  FALSE_POSITIVE: "FALSE_POSITIVE",
-  RESOLVED: "RESOLVED",
-} as const;
-/**
- * @public
- */
-export type FindingStatus = (typeof FindingStatus)[keyof typeof FindingStatus];
-
-/**
- * @public
- * @enum
- */
 export const ValidationStatus = {
   CONFIRMED: "CONFIRMED",
   NOT_REPRODUCED: "NOT_REPRODUCED",
@@ -565,6 +662,10 @@ export type ValidationStatus = (typeof ValidationStatus)[keyof typeof Validation
  */
 export const JobType = {
   /**
+   * <p>A CI/CD pentest job that tests only the code changes in a single pipeline run, as determined by the scope changes supplied when the job is started.</p>
+   */
+  CICD: "CICD",
+  /**
    * <p>A full pentest job that executes all phases including scanning, managed execution, and guided exploration.</p>
    */
   FULL: "FULL",
@@ -577,6 +678,29 @@ export const JobType = {
  * @public
  */
 export type JobType = (typeof JobType)[keyof typeof JobType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScopeDecision = {
+  /**
+   * <p>The code changes are in scope and are tested by the pentest job.</p>
+   */
+  IN_SCOPE: "IN_SCOPE",
+  /**
+   * <p>The code changes are out of scope and are not tested. No pentest is run for the changes.</p>
+   */
+  SCOPED_OUT: "SCOPED_OUT",
+  /**
+   * <p>The code changes could not be conclusively scoped because of a conflict in the scoping inputs.</p>
+   */
+  SCOPE_CONFLICT: "SCOPE_CONFLICT",
+} as const;
+/**
+ * @public
+ */
+export type ScopeDecision = (typeof ScopeDecision)[keyof typeof ScopeDecision];
 
 /**
  * @public
@@ -726,21 +850,6 @@ export type GitLabTokenType = (typeof GitLabTokenType)[keyof typeof GitLabTokenT
  * @public
  * @enum
  */
-export const Provider = {
-  BITBUCKET: "BITBUCKET",
-  CONFLUENCE: "CONFLUENCE",
-  GITHUB: "GITHUB",
-  GITLAB: "GITLAB",
-} as const;
-/**
- * @public
- */
-export type Provider = (typeof Provider)[keyof typeof Provider];
-
-/**
- * @public
- * @enum
- */
 export const UserRole = {
   /**
    * <p>Default member role with standard permissions.</p>
@@ -844,6 +953,7 @@ export type SecurityRequirementPackStatus =
  */
 export const ProviderType = {
   DOCUMENTATION: "DOCUMENTATION",
+  ISSUE_TRACKING: "ISSUE_TRACKING",
   SOURCE_CODE: "SOURCE_CODE",
 } as const;
 /**
@@ -901,9 +1011,29 @@ export type SecurityRequirementArtifactFormat =
  * @public
  * @enum
  */
+export const WebhookAction = {
+  /**
+   * <p>Create the webhook if one does not already exist. Returns the payload URL and the signing secret.</p>
+   */
+  CREATE_IF_ABSENT: "CREATE_IF_ABSENT",
+  /**
+   * <p>Generate a new signing secret for the existing webhook, keeping the same payload URL. Returns the new secret.</p>
+   */
+  ROTATE: "ROTATE",
+} as const;
+/**
+ * @public
+ */
+export type WebhookAction = (typeof WebhookAction)[keyof typeof WebhookAction];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResourceType = {
   CODE_REPOSITORY: "CODE_REPOSITORY",
   DOCUMENT: "DOCUMENT",
+  PROJECT: "PROJECT",
 } as const;
 /**
  * @public

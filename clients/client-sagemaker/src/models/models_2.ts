@@ -32,22 +32,17 @@ import type {
   EnabledOrDisabled,
   EndpointStatus,
   EvaluationType,
-  FeatureGroupStatus,
   FeatureStatus,
-  FeatureType,
-  FlowDefinitionStatus,
   HomeEfsFileSystemCreation,
   HubContentType,
-  HubStatus,
   InputMode,
   IPAddressType,
   JobCategory,
   JoinSource,
-  LastUpdateStatusValue,
   ModelSpeculativeDecodingS3DataType,
   ModelSpeculativeDecodingTechnique,
+  MonitoringType,
   NotebookInstanceAcceleratorType,
-  OfflineStoreStatusValue,
   OptimizationJobDeploymentInstanceType,
   PartnerAppAuthType,
   PartnerAppType,
@@ -75,7 +70,6 @@ import type {
   Statistic,
   StudioLifecycleConfigAppType,
   TagPropagation,
-  ThroughputMode,
   TrialComponentPrimaryStatus,
   VariantStatus,
   WorkforceIpAddressType,
@@ -116,6 +110,7 @@ import type {
   AutoMLResolvedAttributes,
   AutoMLSecurityConfig,
   BatchDataCaptureConfig,
+  BatchTransformInput,
   CfnCreateTemplateProvider,
   Channel,
   CheckpointConfig,
@@ -126,7 +121,6 @@ import type {
   ClusterOrchestrator,
   ClusterRestrictedInstanceGroupDetails,
   ClusterRestrictedInstanceGroupsConfigOutput,
-  ClusterTieredStorageConfig,
   CodeEditorAppImageConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
@@ -143,6 +137,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  ClusterTieredStorageConfig,
   CodeRepository,
   CognitoConfig,
   CognitoMemberDefinition,
@@ -161,29 +156,22 @@ import type {
   EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
+  EndpointInput,
   ExplainerConfig,
-  FeatureDefinition,
-  FlowDefinitionOutputConfig,
   GitConfig,
-  HubS3StorageConfig,
-  HumanLoopActivationConfig,
-  HumanLoopConfig,
-  HumanLoopRequestSource,
   InputConfig,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
   MetricsConfig,
   ModelDeployConfig,
+  MonitoringConstraintsResource,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
-  MonitoringScheduleConfig,
+  MonitoringStatisticsResource,
   MonitoringStoppingCondition,
   NeoVpcConfig,
-  NetworkConfig,
-  OfflineStoreConfig,
-  OnlineStoreConfig,
   OutputConfig,
   ProductionVariant,
   ProductionVariantManagedInstanceScaling,
@@ -194,6 +182,222 @@ import type {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.</p>
+ * @public
+ */
+export interface MonitoringBaselineConfig {
+  /**
+   * <p>The name of the job that performs baselining for the monitoring job.</p>
+   * @public
+   */
+  BaseliningJobName?: string | undefined;
+
+  /**
+   * <p>The baseline constraint file in Amazon S3 that the current monitoring job should validated against.</p>
+   * @public
+   */
+  ConstraintsResource?: MonitoringConstraintsResource | undefined;
+
+  /**
+   * <p>The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.</p>
+   * @public
+   */
+  StatisticsResource?: MonitoringStatisticsResource | undefined;
+}
+
+/**
+ * <p>Container image configuration object for the monitoring job.</p>
+ * @public
+ */
+export interface MonitoringAppSpecification {
+  /**
+   * <p>The container image to be run by the monitoring job.</p>
+   * @public
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>Specifies the entrypoint for a container used to run the monitoring job.</p>
+   * @public
+   */
+  ContainerEntrypoint?: string[] | undefined;
+
+  /**
+   * <p>An array of arguments for the container used to run the monitoring job.</p>
+   * @public
+   */
+  ContainerArguments?: string[] | undefined;
+
+  /**
+   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flattened JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.</p>
+   * @public
+   */
+  RecordPreprocessorSourceUri?: string | undefined;
+
+  /**
+   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.</p>
+   * @public
+   */
+  PostAnalyticsProcessorSourceUri?: string | undefined;
+}
+
+/**
+ * <p>The inputs for a monitoring job.</p>
+ * @public
+ */
+export interface MonitoringInput {
+  /**
+   * <p>The endpoint for a monitoring job.</p>
+   * @public
+   */
+  EndpointInput?: EndpointInput | undefined;
+
+  /**
+   * <p>Input object for the batch transform job.</p>
+   * @public
+   */
+  BatchTransformInput?: BatchTransformInput | undefined;
+}
+
+/**
+ * <p>Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.</p>
+ * @public
+ */
+export interface NetworkConfig {
+  /**
+   * <p>Whether to encrypt all communications between distributed processing jobs. Choose <code>True</code> to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.</p>
+   * @public
+   */
+  EnableInterContainerTrafficEncryption?: boolean | undefined;
+
+  /**
+   * <p>Whether to allow inbound and outbound network calls to and from the containers used for the processing job.</p>
+   * @public
+   */
+  EnableNetworkIsolation?: boolean | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  VpcConfig?: VpcConfig | undefined;
+}
+
+/**
+ * <p>Defines the monitoring job.</p>
+ * @public
+ */
+export interface MonitoringJobDefinition {
+  /**
+   * <p>Baseline configuration used to validate that the data conforms to the specified constraints and statistics</p>
+   * @public
+   */
+  BaselineConfig?: MonitoringBaselineConfig | undefined;
+
+  /**
+   * <p>The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.</p>
+   * @public
+   */
+  MonitoringInputs: MonitoringInput[] | undefined;
+
+  /**
+   * <p>The array of outputs from the monitoring job to be uploaded to Amazon S3.</p>
+   * @public
+   */
+  MonitoringOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.</p>
+   * @public
+   */
+  MonitoringResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Configures the monitoring job to run a specified Docker container image.</p>
+   * @public
+   */
+  MonitoringAppSpecification: MonitoringAppSpecification | undefined;
+
+  /**
+   * <p>Specifies a time limit for how long the monitoring job is allowed to run.</p>
+   * @public
+   */
+  StoppingCondition?: MonitoringStoppingCondition | undefined;
+
+  /**
+   * <p>Sets the environment variables in the Docker container.</p>
+   * @public
+   */
+  Environment?: Record<string, string> | undefined;
+
+  /**
+   * <p>Specifies networking options for an monitoring job.</p>
+   * @public
+   */
+  NetworkConfig?: NetworkConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+}
+
+/**
+ * <p>Configuration details about the monitoring schedule.</p>
+ * @public
+ */
+export interface ScheduleConfig {
+  /**
+   * <p>A cron expression that describes details about the monitoring schedule.</p> <p>The supported cron expressions are:</p> <ul> <li> <p>If you want to set the job to start every hour, use the following:</p> <p> <code>Hourly: cron(0 * ? * * *)</code> </p> </li> <li> <p>If you want to start the job daily:</p> <p> <code>cron(0 [00-23] ? * * *)</code> </p> </li> <li> <p>If you want to run the job one time, immediately, use the following keyword:</p> <p> <code>NOW</code> </p> </li> </ul> <p>For example, the following are valid cron expressions:</p> <ul> <li> <p>Daily at noon UTC: <code>cron(0 12 ? * * *)</code> </p> </li> <li> <p>Daily at midnight UTC: <code>cron(0 0 ? * * *)</code> </p> </li> </ul> <p>To support running every 6, 12 hours, the following are also supported:</p> <p> <code>cron(0 [00-23]/[01-24] ? * * *)</code> </p> <p>For example, the following are valid cron expressions:</p> <ul> <li> <p>Every 12 hours, starting at 5pm UTC: <code>cron(0 17/12 ? * * *)</code> </p> </li> <li> <p>Every two hours starting at midnight: <code>cron(0 0/2 ? * * *)</code> </p> </li> </ul> <note> <ul> <li> <p>Even though the cron expression is set to start at 5PM UTC, note that there could be a delay of 0-20 minutes from the actual requested time to run the execution. </p> </li> <li> <p>We recommend that if you would like a daily schedule, you do not provide this parameter. Amazon SageMaker AI will pick a time for running every day.</p> </li> </ul> </note> <p>You can also specify the keyword <code>NOW</code> to run the monitoring job immediately, one time, without recurring.</p>
+   * @public
+   */
+  ScheduleExpression: string | undefined;
+
+  /**
+   * <p>Sets the start time for a monitoring job window. Express this time as an offset to the times that you schedule your monitoring jobs to run. You schedule monitoring jobs with the <code>ScheduleExpression</code> parameter. Specify this offset in ISO 8601 duration format. For example, if you want to monitor the five hours of data in your dataset that precede the start of each monitoring job, you would specify: <code>"-PT5H"</code>.</p> <p>The start time that you specify must not precede the end time that you specify by more than 24 hours. You specify the end time with the <code>DataAnalysisEndTime</code> parameter.</p> <p>If you set <code>ScheduleExpression</code> to <code>NOW</code>, this parameter is required.</p>
+   * @public
+   */
+  DataAnalysisStartTime?: string | undefined;
+
+  /**
+   * <p>Sets the end time for a monitoring job window. Express this time as an offset to the times that you schedule your monitoring jobs to run. You schedule monitoring jobs with the <code>ScheduleExpression</code> parameter. Specify this offset in ISO 8601 duration format. For example, if you want to end the window one hour before the start of each monitoring job, you would specify: <code>"-PT1H"</code>.</p> <p>The end time that you specify must not follow the start time that you specify by more than 24 hours. You specify the start time with the <code>DataAnalysisStartTime</code> parameter.</p> <p>If you set <code>ScheduleExpression</code> to <code>NOW</code>, this parameter is required.</p>
+   * @public
+   */
+  DataAnalysisEndTime?: string | undefined;
+}
+
+/**
+ * <p>Configures the monitoring schedule and defines the monitoring job.</p>
+ * @public
+ */
+export interface MonitoringScheduleConfig {
+  /**
+   * <p>Configures the monitoring schedule.</p>
+   * @public
+   */
+  ScheduleConfig?: ScheduleConfig | undefined;
+
+  /**
+   * <p>Defines the monitoring job.</p>
+   * @public
+   */
+  MonitoringJobDefinition?: MonitoringJobDefinition | undefined;
+
+  /**
+   * <p>The name of the monitoring job definition to schedule.</p>
+   * @public
+   */
+  MonitoringJobDefinitionName?: string | undefined;
+
+  /**
+   * <p>The type of the monitoring job definition to schedule.</p>
+   * @public
+   */
+  MonitoringType?: MonitoringType | undefined;
+}
 
 /**
  * @public
@@ -2706,6 +2910,136 @@ export interface CreateTrainingPlanResponse {
 }
 
 /**
+ * <p>The Low-Rank Adaptation (LoRA) configuration for a training session, including the rank and alpha parameters.</p>
+ * @public
+ */
+export interface LoraConfig {
+  /**
+   * <p>The rank of the Low-Rank Adaptation (LoRA) adapter matrices.</p>
+   * @public
+   */
+  Rank: number | undefined;
+
+  /**
+   * <p>The Low-Rank Adaptation (LoRA) scaling factor.</p>
+   * @public
+   */
+  Alpha: number | undefined;
+}
+
+/**
+ * <p>The configuration for the base model used in a training session.</p>
+ * @public
+ */
+export interface TrainingSessionModelConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the base foundation model from SageMaker Hub.</p>
+   * @public
+   */
+  BaseModelArn: string | undefined;
+
+  /**
+   * <p>Specifies whether you accept the end-user license agreement (EULA) for gated models.</p>
+   * @public
+   */
+  AcceptEula?: boolean | undefined;
+}
+
+/**
+ * <p>Specifies the Amazon S3 path and optional encryption settings for training session output data, including checkpoints, model artifacts, and invocation results.</p>
+ * @public
+ */
+export interface TrainingSessionS3Location {
+  /**
+   * <p>The Amazon S3 path where training session outputs are stored.</p>
+   * @public
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt output data. If not specified, the default Amazon S3 encryption is used.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+}
+
+/**
+ * <p>The output configuration for a training session, including the Amazon S3 location for checkpoints and model artifacts, and optional encryption settings.</p>
+ * @public
+ */
+export interface TrainingSessionOutputConfig {
+  /**
+   * <p>The Amazon S3 location where training session outputs, including checkpoints and model artifacts, are stored.</p>
+   * @public
+   */
+  S3Location: TrainingSessionS3Location | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrainingSessionRequest {
+  /**
+   * <p>The name of the training session.</p>
+   * @public
+   */
+  TrainingSessionName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model package group where checkpoints and fine-tuned model artifacts are published.</p>
+   * @public
+   */
+  ModelPackageGroupArn?: string | undefined;
+
+  /**
+   * <p>The Low-Rank Adaptation (LoRA) configuration for the training session, including the rank and alpha parameters.</p>
+   * @public
+   */
+  LoraConfig: LoraConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker assumes to access resources on your behalf. The role must have permissions to access the output S3 path and model package group.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The Virtual Private Cloud (VPC) configuration for the training session. Specify subnets and security groups to run the training session in your VPC.</p>
+   * @public
+   */
+  VpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The configuration for the base model, including the model ARN and end-user license agreement (EULA) acceptance.</p>
+   * @public
+   */
+  ModelConfig: TrainingSessionModelConfig | undefined;
+
+  /**
+   * <p>The output configuration for the training session, including the S3 location and optional encryption settings.</p>
+   * @public
+   */
+  OutputConfig: TrainingSessionOutputConfig | undefined;
+
+  /**
+   * <p>An array of key-value pairs to apply to the training session as tags. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrainingSessionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training session.</p>
+   * @public
+   */
+  TrainingSessionArn: string | undefined;
+}
+
+/**
  * <p>The data structure used to specify the data to be used for inference in a batch transform job and to associate the data that is relevant to the prediction results in the output. The input filter provided allows you to exclude input data that is not needed for inference in a batch transform job. The output filter provided allows you to include input data relevant to interpreting the predictions in the output from the job. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate Prediction Results with their Corresponding Input Records</a>.</p>
  * @public
  */
@@ -4480,6 +4814,22 @@ export interface DeleteTrainingJobRequest {
    */
   TrainingJobName: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteTrainingSessionRequest {
+  /**
+   * <p>The name of the training session to delete.</p>
+   * @public
+   */
+  TrainingSessionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTrainingSessionResponse {}
 
 /**
  * @public
@@ -7664,540 +8014,4 @@ export interface ExperimentSource {
    * @public
    */
   SourceType?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeExperimentResponse {
-  /**
-   * <p>The name of the experiment.</p>
-   * @public
-   */
-  ExperimentName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
-   * @public
-   */
-  ExperimentArn?: string | undefined;
-
-  /**
-   * <p>The name of the experiment as displayed. If <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the type.</p>
-   * @public
-   */
-  Source?: ExperimentSource | undefined;
-
-  /**
-   * <p>The description of the experiment.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>When the experiment was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>Who created the experiment.</p>
-   * @public
-   */
-  CreatedBy?: UserContext | undefined;
-
-  /**
-   * <p>When the experiment was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Who last modified the experiment.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFeatureGroupRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the <code>FeatureGroup</code> you want described. </p>
-   * @public
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>A token to resume pagination of the list of <code>Features</code> (<code>FeatureDefinitions</code>). 2,500 <code>Features</code> are returned by default.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>A value that indicates whether the update was successful.</p>
- * @public
- */
-export interface LastUpdateStatus {
-  /**
-   * <p>A value that indicates whether the update was made successful.</p>
-   * @public
-   */
-  Status: LastUpdateStatusValue | undefined;
-
-  /**
-   * <p>If the update wasn't successful, indicates the reason why it failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-}
-
-/**
- * <p>The status of <code>OfflineStore</code>.</p>
- * @public
- */
-export interface OfflineStoreStatus {
-  /**
-   * <p>An <code>OfflineStore</code> status.</p>
-   * @public
-   */
-  Status: OfflineStoreStatusValue | undefined;
-
-  /**
-   * <p>The justification for why the OfflineStoreStatus is Blocked (if applicable).</p>
-   * @public
-   */
-  BlockedReason?: string | undefined;
-}
-
-/**
- * <p>Active throughput configuration of the feature group. There are two modes: <code>ON_DEMAND</code> and <code>PROVISIONED</code>. With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled. </p> <p>Note: <code>PROVISIONED</code> throughput mode is supported only for feature groups that are offline-only, or use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType"> <code>Standard</code> </a> tier online store. </p>
- * @public
- */
-export interface ThroughputConfigDescription {
-  /**
-   * <p>The mode used for your feature group throughput: <code>ON_DEMAND</code> or <code>PROVISIONED</code>. </p>
-   * @public
-   */
-  ThroughputMode: ThroughputMode | undefined;
-
-  /**
-   * <p> For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling. </p> <p>This field is not applicable for on-demand feature groups. </p>
-   * @public
-   */
-  ProvisionedReadCapacityUnits?: number | undefined;
-
-  /**
-   * <p> For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling. </p> <p>This field is not applicable for on-demand feature groups. </p>
-   * @public
-   */
-  ProvisionedWriteCapacityUnits?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFeatureGroupResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the <code>FeatureGroup</code>. </p>
-   * @public
-   */
-  FeatureGroupArn: string | undefined;
-
-  /**
-   * <p>he name of the <code>FeatureGroup</code>.</p>
-   * @public
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>The name of the <code>Feature</code> used for <code>RecordIdentifier</code>, whose value uniquely identifies a record stored in the feature store.</p>
-   * @public
-   */
-  RecordIdentifierFeatureName: string | undefined;
-
-  /**
-   * <p>The name of the feature that stores the <code>EventTime</code> of a Record in a <code>FeatureGroup</code>.</p> <p> An <code>EventTime</code> is a point in time when a new event occurs that corresponds to the creation or update of a <code>Record</code> in a <code>FeatureGroup</code>. All <code>Records</code> in the <code>FeatureGroup</code> have a corresponding <code>EventTime</code>.</p>
-   * @public
-   */
-  EventTimeFeatureName: string | undefined;
-
-  /**
-   * <p>A list of the <code>Features</code> in the <code>FeatureGroup</code>. Each feature is defined by a <code>FeatureName</code> and <code>FeatureType</code>.</p>
-   * @public
-   */
-  FeatureDefinitions: FeatureDefinition[] | undefined;
-
-  /**
-   * <p>A timestamp indicating when SageMaker created the <code>FeatureGroup</code>.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>A timestamp indicating when the feature group was last updated.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The configuration for the <code>OnlineStore</code>.</p>
-   * @public
-   */
-  OnlineStoreConfig?: OnlineStoreConfig | undefined;
-
-  /**
-   * <p>The configuration of the offline store. It includes the following configurations:</p> <ul> <li> <p>Amazon S3 location of the offline store.</p> </li> <li> <p>Configuration of the Glue data catalog.</p> </li> <li> <p>Table format of the offline store.</p> </li> <li> <p>Option to disable the automatic creation of a Glue table for the offline store.</p> </li> <li> <p>Encryption configuration.</p> </li> </ul>
-   * @public
-   */
-  OfflineStoreConfig?: OfflineStoreConfig | undefined;
-
-  /**
-   * <p>Active throughput configuration of the feature group. There are two modes: <code>ON_DEMAND</code> and <code>PROVISIONED</code>. With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled. </p> <p>Note: <code>PROVISIONED</code> throughput mode is supported only for feature groups that are offline-only, or use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType"> <code>Standard</code> </a> tier online store. </p>
-   * @public
-   */
-  ThroughputConfig?: ThroughputConfigDescription | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the OfflineStore if an OfflineStoreConfig is provided.</p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p>The status of the feature group.</p>
-   * @public
-   */
-  FeatureGroupStatus?: FeatureGroupStatus | undefined;
-
-  /**
-   * <p>The status of the <code>OfflineStore</code>. Notifies you if replicating data into the <code>OfflineStore</code> has failed. Returns either: <code>Active</code> or <code>Blocked</code> </p>
-   * @public
-   */
-  OfflineStoreStatus?: OfflineStoreStatus | undefined;
-
-  /**
-   * <p>A value indicating whether the update made to the feature group was successful.</p>
-   * @public
-   */
-  LastUpdateStatus?: LastUpdateStatus | undefined;
-
-  /**
-   * <p>The reason that the <code>FeatureGroup</code> failed to be replicated in the <code>OfflineStore</code>. This is failure can occur because:</p> <ul> <li> <p>The <code>FeatureGroup</code> could not be created in the <code>OfflineStore</code>.</p> </li> <li> <p>The <code>FeatureGroup</code> could not be deleted from the <code>OfflineStore</code>.</p> </li> </ul>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>A free form description of the feature group.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A token to resume pagination of the list of <code>Features</code> (<code>FeatureDefinitions</code>).</p>
-   * @public
-   */
-  NextToken: string | undefined;
-
-  /**
-   * <p>The size of the <code>OnlineStore</code> in bytes.</p>
-   * @public
-   */
-  OnlineStoreTotalSizeBytes?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFeatureMetadataRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the feature group containing the feature.</p>
-   * @public
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>The name of the feature.</p>
-   * @public
-   */
-  FeatureName: string | undefined;
-}
-
-/**
- * <p>A key-value pair that you specify to describe the feature.</p>
- * @public
- */
-export interface FeatureParameter {
-  /**
-   * <p>A key that must contain a value to describe the feature.</p>
-   * @public
-   */
-  Key?: string | undefined;
-
-  /**
-   * <p>The value that belongs to a key.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFeatureMetadataResponse {
-  /**
-   * <p>The Amazon Resource Number (ARN) of the feature group that contains the feature.</p>
-   * @public
-   */
-  FeatureGroupArn: string | undefined;
-
-  /**
-   * <p>The name of the feature group that you've specified.</p>
-   * @public
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>The name of the feature that you've specified.</p>
-   * @public
-   */
-  FeatureName: string | undefined;
-
-  /**
-   * <p>The data type of the feature.</p>
-   * @public
-   */
-  FeatureType: FeatureType | undefined;
-
-  /**
-   * <p>A timestamp indicating when the feature was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>A timestamp indicating when the metadata for the feature group was modified. For example, if you add a parameter describing the feature, the timestamp changes to reflect the last time you </p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The description you added to describe the feature.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The key-value pairs that you added to describe the feature.</p>
-   * @public
-   */
-  Parameters?: FeatureParameter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFlowDefinitionRequest {
-  /**
-   * <p>The name of the flow definition.</p>
-   * @public
-   */
-  FlowDefinitionName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFlowDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow defintion.</p>
-   * @public
-   */
-  FlowDefinitionArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow definition.</p>
-   * @public
-   */
-  FlowDefinitionName: string | undefined;
-
-  /**
-   * <p>The status of the flow definition. Valid values are listed below.</p>
-   * @public
-   */
-  FlowDefinitionStatus: FlowDefinitionStatus | undefined;
-
-  /**
-   * <p>The timestamp when the flow definition was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Container for configuring the source of human task requests. Used to specify if Amazon Rekognition or Amazon Textract is used as an integration source.</p>
-   * @public
-   */
-  HumanLoopRequestSource?: HumanLoopRequestSource | undefined;
-
-  /**
-   * <p>An object containing information about what triggers a human review workflow.</p>
-   * @public
-   */
-  HumanLoopActivationConfig?: HumanLoopActivationConfig | undefined;
-
-  /**
-   * <p>An object containing information about who works on the task, the workforce task price, and other task details.</p>
-   * @public
-   */
-  HumanLoopConfig?: HumanLoopConfig | undefined;
-
-  /**
-   * <p>An object containing information about the output file.</p>
-   * @public
-   */
-  OutputConfig: FlowDefinitionOutputConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) execution role for the flow definition.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The reason your flow definition failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHubRequest {
-  /**
-   * <p>The name of the hub to describe.</p>
-   * @public
-   */
-  HubName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHubResponse {
-  /**
-   * <p>The name of the hub.</p>
-   * @public
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the hub.</p>
-   * @public
-   */
-  HubArn: string | undefined;
-
-  /**
-   * <p>The display name of the hub.</p>
-   * @public
-   */
-  HubDisplayName?: string | undefined;
-
-  /**
-   * <p>A description of the hub.</p>
-   * @public
-   */
-  HubDescription?: string | undefined;
-
-  /**
-   * <p>The searchable keywords for the hub.</p>
-   * @public
-   */
-  HubSearchKeywords?: string[] | undefined;
-
-  /**
-   * <p>The Amazon S3 storage configuration for the hub.</p>
-   * @public
-   */
-  S3StorageConfig?: HubS3StorageConfig | undefined;
-
-  /**
-   * <p>The status of the hub.</p>
-   * @public
-   */
-  HubStatus: HubStatus | undefined;
-
-  /**
-   * <p>The failure reason if importing hub content failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The date and time that the hub was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the hub was last modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHubContentRequest {
-  /**
-   * <p>The name of the hub that contains the content to describe.</p>
-   * @public
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>The type of content in the hub.</p>
-   * @public
-   */
-  HubContentType: HubContentType | undefined;
-
-  /**
-   * <p>The name of the content to describe.</p>
-   * @public
-   */
-  HubContentName: string | undefined;
-
-  /**
-   * <p>The version of the content to describe.</p>
-   * @public
-   */
-  HubContentVersion?: string | undefined;
-}
-
-/**
- * <p>Any dependencies related to hub content, such as scripts, model artifacts, datasets, or notebooks.</p>
- * @public
- */
-export interface HubContentDependency {
-  /**
-   * <p>The hub content dependency origin path.</p>
-   * @public
-   */
-  DependencyOriginPath?: string | undefined;
-
-  /**
-   * <p>The hub content dependency copy path.</p>
-   * @public
-   */
-  DependencyCopyPath?: string | undefined;
 }

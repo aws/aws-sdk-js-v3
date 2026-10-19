@@ -210,6 +210,7 @@ import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyRequest$,
   DeleteResourcePolicyResponse$,
+  DeletionMode,
   DeregisterManagedInstance$,
   DeregisterManagedInstanceCommand,
   DeregisterManagedInstanceRequest$,
@@ -2042,6 +2043,7 @@ assert(typeof ComplianceSeverity === "object");
 assert(typeof ComplianceStatus === "object");
 assert(typeof ComplianceUploadType === "object");
 assert(typeof ConnectionStatus === "object");
+assert(typeof DeletionMode === "object");
 assert(typeof DescribeActivationsFilterKeys === "object");
 assert(typeof DocumentFilterKey === "object");
 assert(typeof DocumentFormat === "object");

@@ -11,8 +11,6 @@ import type {
   CrawlerLineageSettings,
   CrawlerState,
   CrawlState,
-  CsvHeaderOption,
-  CsvSerdeOption,
   DataFormat,
   DataOperation,
   DataQualityRuleResultStatus,
@@ -863,7 +861,7 @@ export interface OAuth2ClientApplication {
  */
 export interface OAuth2Properties {
   /**
-   * <p>The OAuth2 grant type. For example, <code>AUTHORIZATION_CODE</code>, <code>JWT_BEARER</code>, or <code>CLIENT_CREDENTIALS</code>.</p>
+   * <p>The OAuth2 grant type. For example, <code>AUTHORIZATION_CODE</code>, <code>JWT_BEARER</code>, <code>REFRESH_TOKEN</code>, or <code>CLIENT_CREDENTIALS</code>.</p>
    * @public
    */
   OAuth2GrantType?: OAuth2GrantType | undefined;
@@ -990,7 +988,7 @@ export interface OAuth2Credentials {
  */
 export interface OAuth2PropertiesInput {
   /**
-   * <p>The OAuth2 grant type in the CreateConnection request. For example, <code>AUTHORIZATION_CODE</code>, <code>JWT_BEARER</code>, or <code>CLIENT_CREDENTIALS</code>.</p>
+   * <p>The OAuth2 grant type in the CreateConnection request. For example, <code>AUTHORIZATION_CODE</code>, <code>JWT_BEARER</code>, <code>REFRESH_TOKEN</code>, or <code>CLIENT_CREDENTIALS</code>.</p>
    * @public
    */
   OAuth2GrantType?: OAuth2GrantType | undefined;
@@ -2415,6 +2413,12 @@ export interface Crawler {
    * @public
    */
   LakeFormationConfiguration?: LakeFormationConfiguration | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog in which the crawler's output is stored.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
 }
 
 /**
@@ -2922,19 +2926,19 @@ export interface DataQualityResult {
   RulesetEvaluationRunId?: string | undefined;
 
   /**
-   * <p>A list of <code>DataQualityRuleResult</code> objects representing the results for each rule. </p>
+   * <p>A list of <code>DataQualityRuleResult</code> objects representing the results for each rule.</p>
    * @public
    */
   RuleResults?: DataQualityRuleResult[] | undefined;
 
   /**
-   * <p>A list of <code>DataQualityAnalyzerResult</code> objects representing the results for each analyzer. </p>
+   * <p>A list of <code>DataQualityAnalyzerResult</code> objects representing the results for each analyzer.</p>
    * @public
    */
   AnalyzerResults?: DataQualityAnalyzerResult[] | undefined;
 
   /**
-   * <p>A list of <code>DataQualityObservation</code> objects representing the observations generated after evaluating the rules and analyzers. </p>
+   * <p>A list of <code>DataQualityObservation</code> objects representing the anomaly detection observations generated after evaluating the rules and analyzers.</p>
    * @public
    */
   Observations?: DataQualityObservation[] | undefined;
@@ -2955,6 +2959,130 @@ export interface BatchGetDataQualityResultResponse {
    * @public
    */
   Results: DataQualityResult[] | undefined;
+
+  /**
+   * <p>A list of result IDs for which results were not found.</p>
+   * @public
+   */
+  ResultsNotFound?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetDataQualityResultV2Request {
+  /**
+   * <p>A list of unique result IDs for the data quality results.</p>
+   * @public
+   */
+  ResultIds: string[] | undefined;
+}
+
+/**
+ * <p>Describes a data quality result returned by <code>BatchGetDataQualityResultV2</code>.</p>
+ * @public
+ */
+export interface DataQualityResultV2Item {
+  /**
+   * <p>A unique result ID for the data quality result.</p>
+   * @public
+   */
+  ResultId: string | undefined;
+
+  /**
+   * <p>The table associated with the data quality result, if any.</p>
+   * @public
+   */
+  DataSource?: DataSource | undefined;
+
+  /**
+   * <p>A map of platform-specific identifiers, such as cluster, application, workgroup, or project IDs, that identify where the data quality evaluation ran.</p>
+   * @public
+   */
+  Dimensions?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map of tags associated with the data quality result.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The date and time when this data quality run started.</p>
+   * @public
+   */
+  ExecutionStartedOn?: Date | undefined;
+
+  /**
+   * <p>The date and time when this data quality run completed.</p>
+   * @public
+   */
+  ExecutionCompletedOn?: Date | undefined;
+
+  /**
+   * <p>The date and time when this data quality result was published.</p>
+   * @public
+   */
+  ResultPublishedOn?: Date | undefined;
+
+  /**
+   * <p>An aggregate data quality score. Represents the ratio of rules that passed to the total number of rules.</p>
+   * @public
+   */
+  Score?: number | undefined;
+
+  /**
+   * <p>A list of <code>DataQualityRuleResult</code> objects representing the results for each rule.</p>
+   * @public
+   */
+  RuleResults?: DataQualityRuleResult[] | undefined;
+
+  /**
+   * <p>A list of <code>DataQualityAnalyzerResult</code> objects representing the results for each analyzer.</p>
+   * @public
+   */
+  AnalyzerResults?: DataQualityAnalyzerResult[] | undefined;
+
+  /**
+   * <p>A list of <code>DataQualityObservation</code> objects representing the anomaly detection observations generated after evaluating the rules and analyzers.</p>
+   * @public
+   */
+  Observations?: DataQualityObservation[] | undefined;
+
+  /**
+   * <p>The evaluation context for the data quality result. This value identifies a specific data quality result, or a series of related results, within a run.</p>
+   * @public
+   */
+  EvaluationContext?: string | undefined;
+
+  /**
+   * <p>A map of user-provided descriptors that add contextual metadata and configuration to the data quality result, such as database name, table name, team, or environment.</p>
+   * @public
+   */
+  Descriptors?: Record<string, string> | undefined;
+
+  /**
+   * <p>A summary of <code>DataQualityAggregatedMetrics</code> objects showing the total counts of processed rows and rules, including their pass/fail statistics based on row-level results.</p>
+   * @public
+   */
+  AggregatedMetrics?: DataQualityAggregatedMetrics | undefined;
+
+  /**
+   * <p>The name of the ruleset associated with the data quality result.</p>
+   * @public
+   */
+  RulesetName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetDataQualityResultV2Response {
+  /**
+   * <p>A list of <code>DataQualityResultV2Item</code> objects representing the data quality results.</p>
+   * @public
+   */
+  Results: DataQualityResultV2Item[] | undefined;
 
   /**
    * <p>A list of result IDs for which results were not found.</p>
@@ -7946,6 +8074,8 @@ export interface SourceControlDetails {
 
 /**
  * <p>A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.</p>
+ *          <p>For more information about how to utilize QuerySessionContext, see
+ *           <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/api-overview.html">Lake Formation workflow for application integration API operations</a> in the developer guide.</p>
  * @public
  */
 export interface QuerySessionContext {
@@ -8017,6 +8147,8 @@ export interface BatchGetPartitionRequest {
 
   /**
    * <p>A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.</p>
+   *          <p>For more information about how to utilize QuerySessionContext, see
+   *           <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/api-overview.html">Lake Formation workflow for application integration API operations</a> in the developer guide.</p>
    * @public
    */
   QuerySessionContext?: QuerySessionContext | undefined;
@@ -10281,107 +10413,4 @@ export interface CreateCatalogRequest {
    * @public
    */
   Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCatalogResponse {}
-
-/**
- * <p>Specifies a custom CSV classifier for <code>CreateClassifier</code> to create.</p>
- * @public
- */
-export interface CreateCsvClassifierRequest {
-  /**
-   * <p>The name of the classifier.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A custom symbol to denote what separates each column entry in the row.</p>
-   * @public
-   */
-  Delimiter?: string | undefined;
-
-  /**
-   * <p>A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.</p>
-   * @public
-   */
-  QuoteSymbol?: string | undefined;
-
-  /**
-   * <p>Indicates whether the CSV file contains a header.</p>
-   * @public
-   */
-  ContainsHeader?: CsvHeaderOption | undefined;
-
-  /**
-   * <p>A list of strings representing column names.</p>
-   * @public
-   */
-  Header?: string[] | undefined;
-
-  /**
-   * <p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>
-   * @public
-   */
-  DisableValueTrimming?: boolean | undefined;
-
-  /**
-   * <p>Enables the processing of files that contain only one column.</p>
-   * @public
-   */
-  AllowSingleColumn?: boolean | undefined;
-
-  /**
-   * <p>Enables the configuration of custom datatypes.</p>
-   * @public
-   */
-  CustomDatatypeConfigured?: boolean | undefined;
-
-  /**
-   * <p>Creates a list of supported custom datatypes.</p>
-   * @public
-   */
-  CustomDatatypes?: string[] | undefined;
-
-  /**
-   * <p>Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>, and <code>None</code>. You can specify the <code>None</code> value when you want the crawler to do the detection.</p>
-   * @public
-   */
-  Serde?: CsvSerdeOption | undefined;
-}
-
-/**
- * <p>Specifies a <code>grok</code> classifier for <code>CreateClassifier</code>
- *       to create.</p>
- * @public
- */
-export interface CreateGrokClassifierRequest {
-  /**
-   * <p>An identifier of the data format that the classifier matches,
-   *       such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.</p>
-   * @public
-   */
-  Classification: string | undefined;
-
-  /**
-   * <p>The name of the new classifier.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The grok pattern used by this classifier.</p>
-   * @public
-   */
-  GrokPattern: string | undefined;
-
-  /**
-   * <p>Optional custom grok patterns used by this classifier.</p>
-   * @public
-   */
-  CustomPatterns?: string | undefined;
 }

@@ -21,7 +21,7 @@ describe("BedrockRuntime", () => {
     });
 
     const response = await client.invokeModelWithBidirectionalStream({
-      modelId: "amazon.nova-sonic-v1:0",
+      modelId: "amazon.nova-2-sonic-v1:0",
       body: {
         async *[Symbol.asyncIterator]() {
           yield chunk({ sessionStart: {} });

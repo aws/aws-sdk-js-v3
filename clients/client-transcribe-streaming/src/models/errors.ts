@@ -11,6 +11,7 @@ import { TranscribeStreamingServiceException as __BaseException } from "./Transc
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.transcribestreaming#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -33,6 +34,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.transcribestreaming#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -56,6 +58,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.transcribestreaming#InternalFailureException";
   readonly name = "InternalFailureException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -82,6 +85,7 @@ export class InternalFailureException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.transcribestreaming#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -104,6 +108,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.transcribestreaming#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -126,6 +131,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.transcribestreaming#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

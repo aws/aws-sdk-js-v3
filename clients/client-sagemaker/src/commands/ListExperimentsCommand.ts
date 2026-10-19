@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListExperimentsRequest, ListExperimentsResponse } from "../models/models_3";
+import type { ListExperimentsRequest, ListExperimentsResponse } from "../models/models_4";
 import { ListExperiments$ } from "../schemas/schemas_0";
 
 /**

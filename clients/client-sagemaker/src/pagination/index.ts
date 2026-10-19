@@ -82,6 +82,7 @@ export * from "./ListTagsPaginator";
 export * from "./ListTrainingJobsPaginator";
 export * from "./ListTrainingJobsForHyperParameterTuningJobPaginator";
 export * from "./ListTrainingPlansPaginator";
+export * from "./ListTrainingSessionsPaginator";
 export * from "./ListTransformJobsPaginator";
 export * from "./ListTrialComponentsPaginator";
 export * from "./ListTrialsPaginator";

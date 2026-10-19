@@ -73,6 +73,10 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *         RoleArn: "STRING_VALUE", // required
  *         Url: "STRING_VALUE", // required
  *         CertificateArn: "STRING_VALUE",
+ *         SpekeVersion: "V2_0" || "V2_1",
+ *         ContentKeyPeriodConfiguration: { // ContentKeyPeriodConfiguration
+ *           ContentKeyPeriodTiming: "INDEX_ONLY" || "START_END_ONLY" || "INDEX_WITH_START_END",
+ *         },
  *       },
  *     },
  *     OutputTimestampMode: "PASSTHROUGH" || "REBASED_TO_CHANNEL_START",
@@ -101,6 +105,12 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *         End: new Date("TIMESTAMP"),
  *         TimeDelaySeconds: Number("int"),
  *         ClipStartTime: new Date("TIMESTAMP"),
+ *         Multiview: { // MultiviewFilterConfiguration
+ *           Layout: "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL", // required
+ *           Sources: [ // MultiviewSourceList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
  *       },
  *       UrlEncodeChildManifest: true || false,
  *       UriPathType: "LEAF" || "ROOT",
@@ -127,6 +137,12 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *         End: new Date("TIMESTAMP"),
  *         TimeDelaySeconds: Number("int"),
  *         ClipStartTime: new Date("TIMESTAMP"),
+ *         Multiview: {
+ *           Layout: "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL", // required
+ *           Sources: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
  *       },
  *       UrlEncodeChildManifest: true || false,
  *       UriPathType: "LEAF" || "ROOT",
@@ -143,6 +159,12 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *         End: new Date("TIMESTAMP"),
  *         TimeDelaySeconds: Number("int"),
  *         ClipStartTime: new Date("TIMESTAMP"),
+ *         Multiview: {
+ *           Layout: "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL", // required
+ *           Sources: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
  *       },
  *       MinUpdatePeriodSeconds: Number("int"),
  *       MinBufferTimeSeconds: Number("int"),
@@ -215,6 +237,12 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *         End: new Date("TIMESTAMP"),
  *         TimeDelaySeconds: Number("int"),
  *         ClipStartTime: new Date("TIMESTAMP"),
+ *         Multiview: {
+ *           Layout: "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL", // required
+ *           Sources: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
  *       },
  *       ManifestLayout: "FULL" || "COMPACT",
  *     },
@@ -274,6 +302,10 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //         RoleArn: "STRING_VALUE", // required
  * //         Url: "STRING_VALUE", // required
  * //         CertificateArn: "STRING_VALUE",
+ * //         SpekeVersion: "V2_0" || "V2_1",
+ * //         ContentKeyPeriodConfiguration: { // ContentKeyPeriodConfiguration
+ * //           ContentKeyPeriodTiming: "INDEX_ONLY" || "START_END_ONLY" || "INDEX_WITH_START_END",
+ * //         },
  * //       },
  * //     },
  * //     OutputTimestampMode: "PASSTHROUGH" || "REBASED_TO_CHANNEL_START",
@@ -300,6 +332,12 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
  * //         ClipStartTime: new Date("TIMESTAMP"),
+ * //         Multiview: { // MultiviewFilterConfiguration
+ * //           Layout: "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL", // required
+ * //           Sources: [ // MultiviewSourceList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       StartTag: { // StartTag
  * //         TimeOffset: Number("float"), // required
@@ -327,6 +365,12 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
  * //         ClipStartTime: new Date("TIMESTAMP"),
+ * //         Multiview: {
+ * //           Layout: "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL", // required
+ * //           Sources: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       StartTag: {
  * //         TimeOffset: Number("float"), // required
@@ -348,6 +392,12 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
  * //         ClipStartTime: new Date("TIMESTAMP"),
+ * //         Multiview: {
+ * //           Layout: "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL", // required
+ * //           Sources: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       MinUpdatePeriodSeconds: Number("int"),
  * //       MinBufferTimeSeconds: Number("int"),
@@ -420,6 +470,12 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
  * //         ClipStartTime: new Date("TIMESTAMP"),
+ * //         Multiview: {
+ * //           Layout: "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL", // required
+ * //           Sources: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       ManifestWindowSeconds: Number("int"),
  * //       ManifestLayout: "FULL" || "COMPACT",

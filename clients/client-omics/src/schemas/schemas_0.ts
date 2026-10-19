@@ -481,6 +481,7 @@ const _c = "client";
 const _cA = "createdAfter";
 const _cAo = "connectionArn";
 const _cAr = "createdAt";
+const _cAre = "credentialArn";
 const _cB = "createdBefore";
 const _cBOI = "cacheBucketOwnerId";
 const _cBa = "cacheBehavior";
@@ -739,6 +740,7 @@ const _vI = "vpcId";
 const _vIJ = "variantImportJobs";
 const _vN = "versionName";
 const _vO = "versionOptions";
+const _vOAI = "vpcOwnerAccountId";
 const _vOc = "vcfOptions";
 const _vS = "variantStores";
 const _vSB = "versionSizeBytes";
@@ -1954,8 +1956,8 @@ export var ReferenceStoreFilter$: StaticStructureSchema = [3, n0, _RSFef,
 ];
 export var RegistryMapping$: StaticStructureSchema = [3, n0, _RMe,
   0,
-  [_uRU, _eRP, _uRP, _eAI],
-  [0, 0, 0, 0]
+  [_uRU, _eRP, _uRP, _eAI, _cAre],
+  [0, 0, 0, 0, 0], 2
 ];
 export var RunBatchListItem$: StaticStructureSchema = [3, n0, _RBLI,
   0,
@@ -2284,13 +2286,13 @@ export var VersionDeleteError$: StaticStructureSchema = [3, n0, _VDE,
 ];
 export var VpcConfig$: StaticStructureSchema = [3, n0, _VC,
   0,
-  [_sGI, _sIub],
-  [64 | 0, 64 | 0]
+  [_sGI, _sIub, _vOAI],
+  [64 | 0, 64 | 0, 0]
 ];
 export var VpcConfigResponse$: StaticStructureSchema = [3, n0, _VCR,
   0,
-  [_sGI, _sIub, _vI],
-  [64 | 0, 64 | 0, 0]
+  [_sGI, _sIub, _vI, _vOAI],
+  [64 | 0, 64 | 0, 0, 0]
 ];
 export var WorkflowListItem$: StaticStructureSchema = [3, n0, _WLI,
   0,

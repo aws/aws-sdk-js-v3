@@ -8,6 +8,7 @@ import { IoTDataPlaneServiceException as __BaseException } from "./IoTDataPlaneS
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotdataplane#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class ForbiddenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotdataplane#ForbiddenException";
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class ForbiddenException extends __BaseException {
  * @public
  */
 export class InternalFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotdataplane#InternalFailureException";
   readonly name = "InternalFailureException" as const;
   readonly $fault = "server" as const;
   /**
@@ -68,6 +71,7 @@ export class InternalFailureException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotdataplane#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotdataplane#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotdataplane#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -128,6 +134,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class MethodNotAllowedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotdataplane#MethodNotAllowedException";
   readonly name = "MethodNotAllowedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -148,6 +155,7 @@ export class MethodNotAllowedException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotdataplane#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -168,6 +176,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class UnauthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotdataplane#UnauthorizedException";
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -188,6 +197,7 @@ export class UnauthorizedException extends __BaseException {
  * @public
  */
 export class UnsupportedDocumentEncodingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotdataplane#UnsupportedDocumentEncodingException";
   readonly name = "UnsupportedDocumentEncodingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -208,6 +218,7 @@ export class UnsupportedDocumentEncodingException extends __BaseException {
  * @public
  */
 export class GatewayTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotdataplane#GatewayTimeoutException";
   readonly name = "GatewayTimeoutException" as const;
   readonly $fault = "server" as const;
   /**
@@ -228,6 +239,7 @@ export class GatewayTimeoutException extends __BaseException {
  * @public
  */
 export class RequestEntityTooLargeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotdataplane#RequestEntityTooLargeException";
   readonly name = "RequestEntityTooLargeException" as const;
   readonly $fault = "client" as const;
   /**

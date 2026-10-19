@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetResourcesStatisticsV2Response } from "../models/models_2";
-import type { GetResourcesStatisticsV2Request } from "../models/models_3";
+import type { GetResourcesStatisticsV2Request, GetResourcesStatisticsV2Response } from "../models/models_3";
 import { GetResourcesStatisticsV2$ } from "../schemas/schemas_0";
 
 /**
@@ -38,13 +37,13 @@ export interface GetResourcesStatisticsV2CommandOutput extends GetResourcesStati
  * const input = { // GetResourcesStatisticsV2Request
  *   GroupByRules: [ // ResourceGroupByRules // required
  *     { // ResourceGroupByRule
- *       GroupByField: "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId", // required
+ *       GroupByField: "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId" || "ResourceCriticality", // required
  *       Filters: { // ResourcesFilters
  *         CompositeFilters: [ // ResourcesCompositeFilterList
  *           { // ResourcesCompositeFilter
  *             StringFilters: [ // ResourcesStringFilterList
  *               { // ResourcesStringFilter
- *                 FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceGuid" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId",
+ *                 FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceGuid" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId" || "ResourceCriticality",
  *                 Filter: { // StringFilter
  *                   Value: "STRING_VALUE",
  *                   Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
@@ -91,7 +90,7 @@ export interface GetResourcesStatisticsV2CommandOutput extends GetResourcesStati
  *               {
  *                 StringFilters: [
  *                   {
- *                     FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceGuid" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId",
+ *                     FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceGuid" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId" || "ResourceCriticality",
  *                     Filter: {
  *                       Value: "STRING_VALUE",
  *                       Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",

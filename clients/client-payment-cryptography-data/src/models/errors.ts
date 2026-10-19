@@ -10,6 +10,7 @@ import { PaymentCryptographyDataServiceException as __BaseException } from "./Pa
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.paymentcryptographydata#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -32,6 +33,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.paymentcryptographydata#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -54,6 +56,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.paymentcryptographydata#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -80,6 +83,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.paymentcryptographydata#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -102,6 +106,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.paymentcryptographydata#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -129,6 +134,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class VerificationFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.paymentcryptographydata#VerificationFailedException";
   readonly name = "VerificationFailedException" as const;
   readonly $fault = "client" as const;
   /**

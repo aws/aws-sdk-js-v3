@@ -8,6 +8,7 @@ import { SocialMessagingServiceException as __BaseException } from "./SocialMess
  * @public
  */
 export class AccessDeniedByMetaException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.socialmessaging#AccessDeniedByMetaException";
   readonly name = "AccessDeniedByMetaException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AccessDeniedByMetaException extends __BaseException {
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.socialmessaging#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class DependencyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.socialmessaging#DependencyException";
   readonly name = "DependencyException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -69,6 +72,7 @@ export class DependencyException extends __BaseException {
  * @public
  */
 export class InvalidParametersException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.socialmessaging#InvalidParametersException";
   readonly name = "InvalidParametersException" as const;
   readonly $fault = "client" as const;
   /**
@@ -89,6 +93,7 @@ export class InvalidParametersException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.socialmessaging#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +114,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ThrottledRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.socialmessaging#ThrottledRequestException";
   readonly name = "ThrottledRequestException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -130,6 +136,7 @@ export class ThrottledRequestException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.socialmessaging#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -150,6 +157,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.socialmessaging#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -171,6 +179,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.socialmessaging#InternalServiceException";
   readonly name = "InternalServiceException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -192,6 +201,7 @@ export class InternalServiceException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.socialmessaging#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**

@@ -216,10 +216,15 @@ import {
   Detection$,
   DetectionRuleConfigurationStatus,
   DetectionRuleDataSource,
+  DetectionRuleEc2Requirements$,
+  DetectionRuleEcsFargateRequirements$,
+  DetectionRuleEksRequirements$,
   DetectionRuleFilter$,
   DetectionRuleFilterCondition,
   DetectionRuleOrgConfiguration$,
   DetectionRuleOrgConfigurationSummary$,
+  DetectionRuleRuntimeMonitoringDetails$,
+  DetectionRuleRuntimePlatforms$,
   DetectionRuleSeverity,
   DetectionSource,
   DetectorAdditionalConfiguration$,
@@ -534,6 +539,7 @@ import {
   MalwareProtectionScanType,
   MalwareScan$,
   MalwareScanDetails$,
+  ManagedBy,
   ManagementType,
   Master$,
   Member$,
@@ -1135,9 +1141,14 @@ assert(typeof DescribePublishingDestinationResponse$ === "object");
 assert(typeof Destination$ === "object");
 assert(typeof DestinationProperties$ === "object");
 assert(typeof Detection$ === "object");
+assert(typeof DetectionRuleEc2Requirements$ === "object");
+assert(typeof DetectionRuleEcsFargateRequirements$ === "object");
+assert(typeof DetectionRuleEksRequirements$ === "object");
 assert(typeof DetectionRuleFilter$ === "object");
 assert(typeof DetectionRuleOrgConfiguration$ === "object");
 assert(typeof DetectionRuleOrgConfigurationSummary$ === "object");
+assert(typeof DetectionRuleRuntimeMonitoringDetails$ === "object");
+assert(typeof DetectionRuleRuntimePlatforms$ === "object");
 assert(typeof DetectorAdditionalConfiguration$ === "object");
 assert(typeof DetectorAdditionalConfigurationResult$ === "object");
 assert(typeof DetectorFeatureConfiguration$ === "object");
@@ -1536,6 +1547,7 @@ assert(typeof MalwareProtectionPlanTaggingActionStatus === "object");
 assert(typeof MalwareProtectionResourceType === "object");
 assert(typeof MalwareProtectionScanStatus === "object");
 assert(typeof MalwareProtectionScanType === "object");
+assert(typeof ManagedBy === "object");
 assert(typeof ManagementType === "object");
 assert(typeof MfaStatus === "object");
 assert(typeof NetworkDirection === "object");

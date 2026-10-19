@@ -12,6 +12,8 @@ import type {
   CapacityReservationAdjustmentStatus,
   CapacityReservationInstancePlatform,
   CapacityReservationPreference,
+  ClientVpnAuthorizationPolicyShadowMode,
+  ClientVpnAuthorizationPolicyStatus,
   CurrencyCodeValues,
   DefaultHttpTokensEnforcedState,
   DefaultInstanceMetadataEndpointState,
@@ -126,6 +128,7 @@ import type {
   ClientRouteEnforcementOptions,
   ConnectionLogOptions,
   ConnectionTrackingSpecificationRequest,
+  DevicePostureOptions,
   ExternalAuthorityConfiguration,
   FleetLaunchTemplateConfigRequest,
   InstanceEventWindowTimeRangeRequest,
@@ -203,16 +206,217 @@ import type {
   VpcBlockPublicAccessOptions,
 } from "./models_5";
 import type {
-  ClientData,
-  ImageDiskContainer,
-  ImportImageLicenseConfigurationRequest,
   InstanceFamilyCreditSpecification,
   IpamPolicyDocument,
   IpamResourceCidr,
   ManagedResourceVisibilitySettings,
   Purchase,
-  UserBucket,
 } from "./models_6";
+
+/**
+ * <p>Details for Site-to-Site VPN tunnel endpoint maintenance events.</p>
+ * @public
+ */
+export interface MaintenanceDetails {
+  /**
+   * <p>Verify existence of a pending maintenance.</p>
+   * @public
+   */
+  PendingMaintenance?: string | undefined;
+
+  /**
+   * <p>The timestamp after which Amazon Web Services will automatically apply maintenance.</p>
+   * @public
+   */
+  MaintenanceAutoAppliedAfter?: Date | undefined;
+
+  /**
+   * <p>Timestamp of last applied maintenance.</p>
+   * @public
+   */
+  LastMaintenanceApplied?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpnTunnelReplacementStatusResult {
+  /**
+   * <p>The ID of the Site-to-Site VPN connection. </p>
+   * @public
+   */
+  VpnConnectionId?: string | undefined;
+
+  /**
+   * <p>The ID of the transit gateway associated with the VPN connection.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the customer gateway.</p>
+   * @public
+   */
+  CustomerGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the virtual private gateway.</p>
+   * @public
+   */
+  VpnGatewayId?: string | undefined;
+
+  /**
+   * <p>The external IP address of the VPN tunnel.</p>
+   * @public
+   */
+  VpnTunnelOutsideIpAddress?: string | undefined;
+
+  /**
+   * <p>Get details of pending tunnel endpoint maintenance.</p>
+   * @public
+   */
+  MaintenanceDetails?: MaintenanceDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportClientVpnClientCertificateRevocationListRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint to which the client certificate revocation list applies.</p>
+   * @public
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>The client certificate revocation list file. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate">Generate a Client Certificate Revocation List</a> in the
+   * 				<i>Client VPN Administrator Guide</i>.</p>
+   * @public
+   */
+  CertificateRevocationList: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportClientVpnClientCertificateRevocationListResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the client-specific data.</p>
+ * @public
+ */
+export interface ClientData {
+  /**
+   * <p>A user-defined comment about the disk upload.</p>
+   * @public
+   */
+  Comment?: string | undefined;
+
+  /**
+   * <p>The time that the disk upload ends.</p>
+   * @public
+   */
+  UploadEnd?: Date | undefined;
+
+  /**
+   * <p>The size of the uploaded disk image, in GiB.</p>
+   * @public
+   */
+  UploadSize?: number | undefined;
+
+  /**
+   * <p>The time that the disk upload starts.</p>
+   * @public
+   */
+  UploadStart?: Date | undefined;
+}
+
+/**
+ * <p>Describes the Amazon S3 bucket for the disk image.</p>
+ * @public
+ */
+export interface UserBucket {
+  /**
+   * <p>The name of the Amazon S3 bucket where the disk image is located.</p>
+   * @public
+   */
+  S3Bucket?: string | undefined;
+
+  /**
+   * <p>The file name of the disk image.</p>
+   * @public
+   */
+  S3Key?: string | undefined;
+}
+
+/**
+ * <p>Describes the disk container object for an import image task.</p>
+ * @public
+ */
+export interface ImageDiskContainer {
+  /**
+   * <p>The description of the disk image.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The block device mapping for the disk.</p>
+   * @public
+   */
+  DeviceName?: string | undefined;
+
+  /**
+   * <p>The format of the disk image being imported.</p>
+   *          <p>Valid values: <code>OVA</code> | <code>VHD</code> | <code>VHDX</code> | <code>VMDK</code> | <code>RAW</code>
+   *          </p>
+   * @public
+   */
+  Format?: string | undefined;
+
+  /**
+   * <p>The ID of the EBS snapshot to be used for importing the snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The URL to the Amazon S3-based disk image being imported. The URL can either be a https URL (https://..) or an
+   *    Amazon S3 URL (s3://..)</p>
+   * @public
+   */
+  Url?: string | undefined;
+
+  /**
+   * <p>The S3 bucket for the disk image.</p>
+   * @public
+   */
+  UserBucket?: UserBucket | undefined;
+}
+
+/**
+ * <p>The request information of license configurations.</p>
+ * @public
+ */
+export interface ImportImageLicenseConfigurationRequest {
+  /**
+   * <p>The ARN of a license configuration.</p>
+   * @public
+   */
+  LicenseConfigurationArn?: string | undefined;
+}
 
 /**
  * @public
@@ -2065,6 +2269,12 @@ export interface ModifyClientVpnEndpointRequest {
    * @public
    */
   TransitGatewayConfiguration?: TransitGatewayConfigurationInputStructure | undefined;
+
+  /**
+   * <p>The device posture options for the Client VPN endpoint. Specifying this parameter replaces the entire device posture configuration for the endpoint. To remove all device trust providers, specify an empty list.</p>
+   * @public
+   */
+  DevicePostureOptions?: DevicePostureOptions | undefined;
 }
 
 /**
@@ -2076,6 +2286,70 @@ export interface ModifyClientVpnEndpointResult {
    * @public
    */
   Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyClientVpnEndpointAuthorizationPolicyRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   * @public
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>The authorization policy document, written in the Cedar policy language. This parameter is required when you create the authorization policy for a Client VPN endpoint that does not already have one.</p>
+   * @public
+   */
+  PolicyDocument?: string | undefined;
+
+  /**
+   * <p>A brief description of the authorization policy.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Specifies whether the authorization policy is evaluated in shadow mode. Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>enabled</code> - The authorization policy is evaluated and the results are logged, but access is not enforced.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disabled</code> - The authorization policy is enforced.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The default value is <code>disabled</code>.</p>
+   * @public
+   */
+  ShadowMode?: ClientVpnAuthorizationPolicyShadowMode | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyClientVpnEndpointAuthorizationPolicyResult {
+  /**
+   * <p>The current state of the authorization policy.</p>
+   * @public
+   */
+  Status?: ClientVpnAuthorizationPolicyStatus | undefined;
 }
 
 /**
@@ -9555,310 +9829,4 @@ export interface CreationDateConditionRequest {
    * @public
    */
   MaximumDaysSinceCreated?: number | undefined;
-}
-
-/**
- * <p>The maximum period since deprecation for allowed images.</p>
- * @public
- */
-export interface DeprecationTimeConditionRequest {
-  /**
-   * <p>The maximum number of days that have elapsed since the image was deprecated. Set to
-   *       <code>0</code> to exclude all deprecated images.</p>
-   * @public
-   */
-  MaximumDaysSinceDeprecated?: number | undefined;
-}
-
-/**
- * <p>The watermark filter criteria for an allowed image. Each entry can specify one or more
- *       fields. All specified fields must match the same watermark on the image.</p>
- * @public
- */
-export interface ImageWatermarkFilterRequest {
-  /**
-   * <p>The <code>accountId:name</code> of the watermark. Supports wildcards (<code>*</code>,
-   *       <code>?</code>).</p>
-   * @public
-   */
-  WatermarkKey?: string | undefined;
-
-  /**
-   * <p>The Region where the watermark was originally created. Supports wildcards (<code>*</code>,
-   *       <code>?</code>).</p>
-   * @public
-   */
-  SourceImageRegion?: string | undefined;
-
-  /**
-   * <p>The maximum number of days that have elapsed since the source image was
-   *       created.</p>
-   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
-   * @public
-   */
-  MaximumDaysSinceSourceImageCreated?: number | undefined;
-
-  /**
-   * <p>The maximum number of days that have elapsed since the watermark was attached to the
-   *       image.</p>
-   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
-   * @public
-   */
-  MaximumDaysSinceWatermarkCreated?: number | undefined;
-}
-
-/**
- * <p>The criteria that are evaluated to determine which AMIs are discoverable and usable in
- *       your account for the specified Amazon Web Services Region.</p>
- *          <p>The <code>ImageCriteria</code> can include up to:</p>
- *          <ul>
- *             <li>
- *                <p>10 <code>ImageCriterion</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>Each <code>ImageCriterion</code> can include up to:</p>
- *          <ul>
- *             <li>
- *                <p>200 values for <code>ImageProviders</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>50 values for <code>ImageNames</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>50 values for <code>MarketplaceProductCodes</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>50 values for <code>ImageWatermarks</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#how-allowed-amis-works">How Allowed AMIs
- *         works</a> in the <i>Amazon EC2 User Guide</i>.</p>
- * @public
- */
-export interface ImageCriterionRequest {
-  /**
-   * <p>The image providers whose images are allowed.</p>
-   *          <p>Possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>amazon</code>: Allow AMIs created by Amazon or verified providers.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-marketplace</code>: Allow AMIs created by verified providers in the Amazon Web Services
-   *           Marketplace.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-backup-vault</code>: Allow AMIs created by Amazon Web Services Backup. </p>
-   *             </li>
-   *             <li>
-   *                <p>12-digit account ID: Allow AMIs created by the specified accounts. One or more account IDs can be
-   *           specified.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>none</code>: Allow AMIs created by your own account only. When <code>none</code> is
-   *           specified, no other values can be specified.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Maximum: 200 values</p>
-   * @public
-   */
-  ImageProviders?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services Marketplace product codes for allowed images.</p>
-   *          <p>Length: 1-25 characters</p>
-   *          <p>Valid characters: Letters (<code>A–Z, a–z</code>) and numbers (<code>0–9</code>)</p>
-   *          <p>Maximum: 50 values</p>
-   * @public
-   */
-  MarketplaceProductCodes?: string[] | undefined;
-
-  /**
-   * <p>The names of allowed images. Names can include wildcards (<code>?</code> and
-   *         <code>*</code>).</p>
-   *          <p>Length: 1–128 characters. With <code>?</code>, the minimum is 3 characters.</p>
-   *          <p>Valid characters:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Letters: <code>A–Z, a–z</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Numbers: <code>0–9</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Special characters: <code>( ) [ ] . / - ' @ _ * ?</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Spaces</p>
-   *             </li>
-   *          </ul>
-   *          <p>Maximum: 50 values</p>
-   * @public
-   */
-  ImageNames?: string[] | undefined;
-
-  /**
-   * <p>The maximum period since deprecation for allowed images.</p>
-   * @public
-   */
-  DeprecationTimeCondition?: DeprecationTimeConditionRequest | undefined;
-
-  /**
-   * <p>The maximum age for allowed images.</p>
-   * @public
-   */
-  CreationDateCondition?: CreationDateConditionRequest | undefined;
-
-  /**
-   * <p>The watermark criteria that an AMI must match to be allowed. An AMI is allowed if it
-   *       carries at least one watermark that satisfies an ImageWatermarkFilter. A watermark satisfies a
-   *       filter when all specified fields in the ImageWatermarkFilter match the corresponding values on
-   *       the watermark of the AMI.</p>
-   *          <p>Maximum: 50 values</p>
-   * @public
-   */
-  ImageWatermarks?: ImageWatermarkFilterRequest[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceImageCriteriaInAllowedImagesSettingsRequest {
-  /**
-   * <p>The list of criteria that are evaluated to determine whether AMIs are discoverable and
-   *       usable in the account in the specified Amazon Web Services Region.</p>
-   * @public
-   */
-  ImageCriteria?: ImageCriterionRequest[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceImageCriteriaInAllowedImagesSettingsResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  ReturnValue?: boolean | undefined;
-}
-
-/**
- * <p>The instance type specification for an AMI, which contains lists of supported and
- *       unsupported instance types that define which instance types are compatible with the AMI.</p>
- * @public
- */
-export interface InstanceTypeSpecificationRequest {
-  /**
-   * <p>The instance types that the AMI supports. You can specify instance type names or use
-   *       wildcard patterns (for example, <code>t3.*</code>).</p>
-   *          <p>Constraints: Maximum 100 entries. Each entry must be 1-24 characters and match the pattern
-   *         <code>^[A-Za-z0-9_.*-]+$</code>. Consecutive wildcard characters (<code>**</code>) are not
-   *       allowed. Entries must be unique within each list and across both lists; duplicate entries cause the request to fail.</p>
-   * @public
-   */
-  SupportedInstanceTypes?: string[] | undefined;
-
-  /**
-   * <p>The instance types that the AMI does not support. You can specify instance type names or
-   *       use wildcard patterns (for example, <code>t3.*</code>).</p>
-   *          <p>Constraints: Maximum 100 entries. Each entry must be 1-24 characters and match the pattern
-   *         <code>^[A-Za-z0-9_.*-]+$</code>. Consecutive wildcard characters (<code>**</code>) are not
-   *       allowed. Entries must be unique within each list and across both lists; duplicate entries cause the request to fail.</p>
-   * @public
-   */
-  UnsupportedInstanceTypes?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceImageInstanceTypeSpecificationRequest {
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>The instance type specification to set on the AMI. Omit this parameter to remove the
-   *       existing instance type specification.</p>
-   * @public
-   */
-  InstanceTypeSpecification?: InstanceTypeSpecificationRequest | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceImageInstanceTypeSpecificationResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  ReturnValue?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceNetworkAclAssociationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the current association between the original network ACL and the subnet.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>The ID of the new network ACL to associate with the subnet.</p>
-   * @public
-   */
-  NetworkAclId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceNetworkAclAssociationResult {
-  /**
-   * <p>The ID of the new association.</p>
-   * @public
-   */
-  NewAssociationId?: string | undefined;
 }

@@ -332,6 +332,7 @@ import {
   ImageBuilderStateChangeReasonCode,
   ImagePermissions$,
   ImageSharedWithOthers,
+  ImageSoftwareMetadata$,
   ImageState,
   ImageStateChangeReason$,
   ImageStateChangeReasonCode,
@@ -437,6 +438,7 @@ import {
   StopImageBuilderRequest$,
   StopImageBuilderResult$,
   StorageConnector$,
+  StorageConnectorAuthentication,
   StorageConnectorType,
   StreamingExperienceSettings$,
   StreamView,
@@ -853,6 +855,7 @@ assert(typeof Image$ === "object");
 assert(typeof ImageBuilder$ === "object");
 assert(typeof ImageBuilderStateChangeReason$ === "object");
 assert(typeof ImagePermissions$ === "object");
+assert(typeof ImageSoftwareMetadata$ === "object");
 assert(typeof ImageStateChangeReason$ === "object");
 assert(typeof LastReportGenerationExecutionError$ === "object");
 assert(typeof ListAssociatedFleetsRequest$ === "object");
@@ -962,6 +965,7 @@ assert(typeof SessionState === "object");
 assert(typeof SoftwareDeploymentStatus === "object");
 assert(typeof StackAttribute === "object");
 assert(typeof StackErrorCode === "object");
+assert(typeof StorageConnectorAuthentication === "object");
 assert(typeof StorageConnectorType === "object");
 assert(typeof StreamView === "object");
 assert(typeof ThemeAttribute === "object");

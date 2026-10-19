@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from ElasticBeanstalk service.
  */
 export class ElasticBeanstalkSyntheticServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.elasticbeanstalk#ElasticBeanstalkSyntheticServiceException";
   /**
    * @internal
    */

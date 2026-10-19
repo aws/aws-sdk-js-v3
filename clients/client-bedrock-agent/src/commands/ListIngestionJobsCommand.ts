@@ -63,6 +63,7 @@ export interface ListIngestionJobsCommandOutput extends ListIngestionJobsRespons
  * //       status: "STARTING" || "IN_PROGRESS" || "COMPLETE" || "FAILED" || "STOPPING" || "STOPPED", // required
  * //       startedAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //       textReadyAt: new Date("TIMESTAMP"),
  * //       statistics: { // IngestionJobStatistics
  * //         numberOfDocumentsScanned: Number("long"),
  * //         numberOfMetadataDocumentsScanned: Number("long"),

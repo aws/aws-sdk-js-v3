@@ -16,6 +16,19 @@ export type AccessDeniedExceptionReason =
  * @public
  * @enum
  */
+export const ConflictExceptionReason = {
+  CONCURRENT_MODIFICATION: "CONCURRENT_MODIFICATION",
+  UNIQUENESS_CONSTRAINT_VIOLATION: "UNIQUENESS_CONSTRAINT_VIOLATION",
+} as const;
+/**
+ * @public
+ */
+export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResourceNotFoundExceptionReason = {
   KMS_KEY_NOT_FOUND: "KMS_KEY_NOT_FOUND",
 } as const;
@@ -67,19 +80,6 @@ export const ValidationExceptionReason = {
  * @public
  */
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * @public
- * @enum
- */
-export const ConflictExceptionReason = {
-  CONCURRENT_MODIFICATION: "CONCURRENT_MODIFICATION",
-  UNIQUENESS_CONSTRAINT_VIOLATION: "UNIQUENESS_CONSTRAINT_VIOLATION",
-} as const;
-/**
- * @public
- */
-export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
 
 /**
  * @public

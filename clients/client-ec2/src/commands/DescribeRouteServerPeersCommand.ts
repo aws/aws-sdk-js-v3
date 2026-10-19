@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeRouteServerPeersRequest } from "../models/models_4";
-import type { DescribeRouteServerPeersResult } from "../models/models_5";
+import type { DescribeRouteServerPeersRequest, DescribeRouteServerPeersResult } from "../models/models_5";
 import { DescribeRouteServerPeers$ } from "../schemas/schemas_0";
 
 /**

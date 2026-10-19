@@ -9,6 +9,7 @@ import { SSOOIDCServiceException as __BaseException } from "./SSOOIDCServiceExce
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssooidc#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -51,6 +52,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class AuthorizationPendingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssooidc#AuthorizationPendingException";
   readonly name = "AuthorizationPendingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -86,6 +88,7 @@ export class AuthorizationPendingException extends __BaseException {
  * @public
  */
 export class ExpiredTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssooidc#ExpiredTokenException";
   readonly name = "ExpiredTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -121,6 +124,7 @@ export class ExpiredTokenException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssooidc#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -157,6 +161,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class InvalidClientException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssooidc#InvalidClientException";
   readonly name = "InvalidClientException" as const;
   readonly $fault = "client" as const;
   /**
@@ -193,6 +198,7 @@ export class InvalidClientException extends __BaseException {
  * @public
  */
 export class InvalidGrantException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssooidc#InvalidGrantException";
   readonly name = "InvalidGrantException" as const;
   readonly $fault = "client" as const;
   /**
@@ -228,6 +234,7 @@ export class InvalidGrantException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssooidc#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -270,6 +277,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class InvalidScopeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssooidc#InvalidScopeException";
   readonly name = "InvalidScopeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -305,6 +313,7 @@ export class InvalidScopeException extends __BaseException {
  * @public
  */
 export class SlowDownException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssooidc#SlowDownException";
   readonly name = "SlowDownException" as const;
   readonly $fault = "client" as const;
   /**
@@ -340,6 +349,7 @@ export class SlowDownException extends __BaseException {
  * @public
  */
 export class UnauthorizedClientException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssooidc#UnauthorizedClientException";
   readonly name = "UnauthorizedClientException" as const;
   readonly $fault = "client" as const;
   /**
@@ -375,6 +385,7 @@ export class UnauthorizedClientException extends __BaseException {
  * @public
  */
 export class UnsupportedGrantTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssooidc#UnsupportedGrantTypeException";
   readonly name = "UnsupportedGrantTypeException" as const;
   readonly $fault = "client" as const;
   /**

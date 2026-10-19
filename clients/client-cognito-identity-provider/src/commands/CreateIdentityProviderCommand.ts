@@ -67,6 +67,9 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  *   IdpIdentifiers: [ // IdpIdentifiersListType
  *     "STRING_VALUE",
  *   ],
+ *   AcrMapping: { // AcrMappingType
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateIdentityProviderCommand(input);
  * const response = await client.send(command);
@@ -84,6 +87,9 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  * //     IdpIdentifiers: [ // IdpIdentifiersListType
  * //       "STRING_VALUE",
  * //     ],
+ * //     AcrMapping: { // AcrMappingType
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //     LastModifiedDate: new Date("TIMESTAMP"),
  * //     CreationDate: new Date("TIMESTAMP"),
  * //   },

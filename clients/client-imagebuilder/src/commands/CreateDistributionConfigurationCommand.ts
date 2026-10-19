@@ -26,8 +26,9 @@ export interface CreateDistributionConfigurationCommandInput extends CreateDistr
 export interface CreateDistributionConfigurationCommandOutput extends CreateDistributionConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new distribution configuration. Distribution configurations define and
- * 			configure the outputs of your pipeline.</p>
+ * <p>Creates a new distribution configuration. Distribution configurations define
+ * 			and configure the outputs for your images, including the target Regions,
+ * 			accounts, and settings for each Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -140,12 +141,14 @@ export interface CreateDistributionConfigurationCommandOutput extends CreateDist
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
+ * 			calls on your behalf. Retry with an increasing or variable delay between
+ * 			requests.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
+ *  <p>A generic client error. This error usually indicates that the request
+ * 			failed a validation check, such as when a downstream service rejects a
+ * 			configured value.</p>
  *
  * @throws {@link DryRunOperationException} (client fault)
  *  <p>The dry run operation of the resource was successful, and no resources or mutations were actually performed due to the dry run flag in the request.</p>
@@ -158,11 +161,13 @@ export interface CreateDistributionConfigurationCommandOutput extends CreateDist
  * 			from a previous request that used the same client token.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>You have specified two or more mutually exclusive parameters. Review the error message
- * 			for details.</p>
+ *  <p>You have specified a combination of parameters that isn't valid. For
+ * 			example, two mutually exclusive parameters, or a parameter without its
+ * 			required companion parameter. Review the error message for details.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have requested an action that that the service doesn't support.</p>
+ *  <p>The request is malformed or otherwise invalid. Verify the request and try
+ * 			again.</p>
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The resource that you are trying to create already exists.</p>
@@ -172,8 +177,8 @@ export interface CreateDistributionConfigurationCommandOutput extends CreateDist
  * 			details and retry later.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the number of permitted resources or operations for this service.
@@ -186,6 +191,83 @@ export interface CreateDistributionConfigurationCommandOutput extends CreateDist
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example Create a distribution configuration
+ * ```javascript
+ * // The following example creates a distribution configuration that distributes the output AMI to two Regions. The AMI name includes the build date, so that repeated builds create unique AMI names.
+ * const input = {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+ *   description: "Copies the output AMI to a second Region",
+ *   distributions: [
+ *     {
+ *       amiDistributionConfiguration: {
+ *         name: "my-example-image-{{ imagebuilder:buildDate }}"
+ *       },
+ *       region: "us-west-2"
+ *     },
+ *     {
+ *       amiDistributionConfiguration: {
+ *         name: "my-example-image-{{ imagebuilder:buildDate }}"
+ *       },
+ *       region: "us-east-1"
+ *     }
+ *   ],
+ *   name: "my-example-distribution"
+ * };
+ * const command = new CreateDistributionConfigurationCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+ *   distributionConfigurationArn: "arn:aws:imagebuilder:us-west-2:111122223333:distribution-configuration/my-example-distribution",
+ *   requestId: "ca5312ad-a273-4c8c-817e-042941a5762d"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Create a distribution configuration with launch permissions and a launch template update
+ * ```javascript
+ * // The following example creates a distribution configuration that distributes the output AMI to two Regions. In us-east-1, it shares the AMI with another AWS account. In us-west-2, it sets the new AMI as the default version of your launch template.
+ * const input = {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE56789",
+ *   description: "Distributes the output AMI to two Regions and shares it with another account",
+ *   distributions: [
+ *     {
+ *       amiDistributionConfiguration: {
+ *         name: "my-example-image-{{ imagebuilder:buildDate }}"
+ *       },
+ *       launchTemplateConfigurations: [
+ *         {
+ *           launchTemplateId: "lt-1234567890abcdef0",
+ *           setDefaultVersion: true
+ *         }
+ *       ],
+ *       region: "us-west-2"
+ *     },
+ *     {
+ *       amiDistributionConfiguration: {
+ *         launchPermission: {
+ *           userIds: [
+ *             "444455556666"
+ *           ]
+ *         },
+ *         name: "my-example-image-{{ imagebuilder:buildDate }}"
+ *       },
+ *       region: "us-east-1"
+ *     }
+ *   ],
+ *   name: "my-example-distribution"
+ * };
+ * const command = new CreateDistributionConfigurationCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE56789",
+ *   distributionConfigurationArn: "arn:aws:imagebuilder:us-west-2:111122223333:distribution-configuration/my-example-distribution",
+ *   requestId: "13c97ae8-8e39-4e12-af78-25e70def0933"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

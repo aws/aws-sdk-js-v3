@@ -89,8 +89,9 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //   },
  * //   ApplicationType: "STANDARD" || "SERVICE" || "MCP_SERVER" || "A2A_SERVER",
  * //   AuthConfig: { // AuthConfig
- * //     AuthType: "API_KEY",
+ * //     AuthType: "API_KEY" || "CONNECT_JWT",
  * //     CredentialProviderIdentifier: "STRING_VALUE",
+ * //     AudienceOverride: "STRING_VALUE",
  * //   },
  * // };
  *

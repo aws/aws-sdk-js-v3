@@ -96,6 +96,12 @@ export interface BatchGetCodeReviewJobsCommandOutput extends BatchGetCodeReviewJ
  * //       ],
  * //       codeRemediationStrategy: "AUTOMATIC" || "DISABLED",
  * //       maxTaskHours: Number("double"),
+ * //       reportDestination: { // ReportDestination
+ * //         integrationId: "STRING_VALUE", // required
+ * //         containerId: "STRING_VALUE", // required
+ * //         parentId: "STRING_VALUE",
+ * //         documentId: "STRING_VALUE",
+ * //       },
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },

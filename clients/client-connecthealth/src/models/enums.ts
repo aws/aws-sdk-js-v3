@@ -110,6 +110,7 @@ export type MedicalScribeParticipantRole =
  */
 export const MedicalScribeLanguageCode = {
   EN_US: "en-US",
+  MULTI: "multi",
 } as const;
 /**
  * @public

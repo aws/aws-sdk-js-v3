@@ -37,9 +37,18 @@ export interface StartNotebookImportCommandOutput extends StartNotebookImportOut
  *   owningProjectIdentifier: "STRING_VALUE", // required
  *   sourceLocation: { // SourceLocation Union: only one key present
  *     s3: "STRING_VALUE",
+ *     s3Files: { // S3FilesLocation
+ *       bucket: "STRING_VALUE", // required
+ *       fileList: [ // S3FileList // required
+ *         { // S3File
+ *           key: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
  *   },
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
+ *   type: "DATA" || "SQL",
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new StartNotebookImportCommand(input);
@@ -51,8 +60,17 @@ export interface StartNotebookImportCommandOutput extends StartNotebookImportOut
  * //   owningProjectId: "STRING_VALUE",
  * //   name: "STRING_VALUE",
  * //   description: "STRING_VALUE",
+ * //   type: "DATA" || "SQL",
  * //   sourceLocation: { // SourceLocation Union: only one key present
  * //     s3: "STRING_VALUE",
+ * //     s3Files: { // S3FilesLocation
+ * //       bucket: "STRING_VALUE", // required
+ * //       fileList: [ // S3FileList // required
+ * //         { // S3File
+ * //           key: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   createdAt: new Date("TIMESTAMP"),
  * //   createdBy: "STRING_VALUE",

@@ -82,6 +82,11 @@ export interface GetNotebookRunCommandOutput extends GetNotebookRunOutput, __Met
  * //     projectS3Path: "STRING_VALUE",
  * //     kmsKeyArn: "STRING_VALUE",
  * //   },
+ * //   notificationConfiguration: { // NotificationConfig
+ * //     notifyOn: [ // NotifyOnStates // required
+ * //       "SUCCEEDED" || "FAILED" || "STOPPED" || "QUEUED" || "STARTING" || "RUNNING" || "STOPPING",
+ * //     ],
+ * //   },
  * //   triggerSource: { // TriggerSource
  * //     type: "MANUAL" || "SCHEDULED" || "WORKFLOW",
  * //     name: "STRING_VALUE",

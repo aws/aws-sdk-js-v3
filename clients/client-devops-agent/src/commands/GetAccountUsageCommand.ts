@@ -52,6 +52,10 @@ export interface GetAccountUsageCommandOutput extends GetAccountUsageOutput, __M
  * //     limit: Number("int"), // required
  * //     usage: Number("double"), // required
  * //   },
+ * //   monthlyAccountGraderHours: {
+ * //     limit: Number("int"), // required
+ * //     usage: Number("double"), // required
+ * //   },
  * //   usagePeriodStartTime: new Date("TIMESTAMP"), // required
  * //   usagePeriodEndTime: new Date("TIMESTAMP"), // required
  * // };

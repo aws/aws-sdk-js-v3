@@ -58,7 +58,7 @@ export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetector
  *       Status: "ENABLED" || "DISABLED",
  *       AdditionalConfiguration: [ // MemberAdditionalConfigurations
  *         { // MemberAdditionalConfiguration
- *           Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT" || "EC2_AGENT_MANAGEMENT",
+ *           Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT" || "EC2_AGENT_MANAGEMENT" || "RDS_DATA_RISK",
  *           Status: "ENABLED" || "DISABLED",
  *         },
  *       ],

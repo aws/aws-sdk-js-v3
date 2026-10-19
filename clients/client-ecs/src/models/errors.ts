@@ -8,6 +8,7 @@ import { ECSServiceException as __BaseException } from "./ECSServiceException";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ClientException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#ClientException";
   readonly name = "ClientException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class ClientException extends __BaseException {
  * @public
  */
 export class ClusterNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#ClusterNotFoundException";
   readonly name = "ClusterNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class ClusterNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#ServerException";
   readonly name = "ServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -128,6 +134,7 @@ export class ServerException extends __BaseException {
  * @public
  */
 export class UnsupportedFeatureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#UnsupportedFeatureException";
   readonly name = "UnsupportedFeatureException" as const;
   readonly $fault = "client" as const;
   /**
@@ -148,6 +155,7 @@ export class UnsupportedFeatureException extends __BaseException {
  * @public
  */
 export class UpdateInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#UpdateInProgressException";
   readonly name = "UpdateInProgressException" as const;
   readonly $fault = "client" as const;
   /**
@@ -168,6 +176,7 @@ export class UpdateInProgressException extends __BaseException {
  * @public
  */
 export class NamespaceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#NamespaceNotFoundException";
   readonly name = "NamespaceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -188,6 +197,7 @@ export class NamespaceNotFoundException extends __BaseException {
  * @public
  */
 export class ClusterContainsCapacityProviderException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#ClusterContainsCapacityProviderException";
   readonly name = "ClusterContainsCapacityProviderException" as const;
   readonly $fault = "client" as const;
   /**
@@ -208,6 +218,7 @@ export class ClusterContainsCapacityProviderException extends __BaseException {
  * @public
  */
 export class ClusterContainsContainerInstancesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#ClusterContainsContainerInstancesException";
   readonly name = "ClusterContainsContainerInstancesException" as const;
   readonly $fault = "client" as const;
   /**
@@ -228,6 +239,7 @@ export class ClusterContainsContainerInstancesException extends __BaseException 
  * @public
  */
 export class ClusterContainsServicesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#ClusterContainsServicesException";
   readonly name = "ClusterContainsServicesException" as const;
   readonly $fault = "client" as const;
   /**
@@ -248,6 +260,7 @@ export class ClusterContainsServicesException extends __BaseException {
  * @public
  */
 export class ClusterContainsTasksException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#ClusterContainsTasksException";
   readonly name = "ClusterContainsTasksException" as const;
   readonly $fault = "client" as const;
   /**
@@ -268,6 +281,7 @@ export class ClusterContainsTasksException extends __BaseException {
  * @public
  */
 export class TargetNotConnectedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#TargetNotConnectedException";
   readonly name = "TargetNotConnectedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -288,6 +302,7 @@ export class TargetNotConnectedException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -308,6 +323,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class TargetNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#TargetNotFoundException";
   readonly name = "TargetNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -328,6 +344,7 @@ export class TargetNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#ServiceNotFoundException";
   readonly name = "ServiceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -348,6 +365,7 @@ export class ServiceNotFoundException extends __BaseException {
  * @public
  */
 export class AttributeLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#AttributeLimitExceededException";
   readonly name = "AttributeLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -368,6 +386,7 @@ export class AttributeLimitExceededException extends __BaseException {
  * @public
  */
 export class MissingVersionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#MissingVersionException";
   readonly name = "MissingVersionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -388,6 +407,7 @@ export class MissingVersionException extends __BaseException {
  * @public
  */
 export class NoUpdateAvailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#NoUpdateAvailableException";
   readonly name = "NoUpdateAvailableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -408,6 +428,7 @@ export class NoUpdateAvailableException extends __BaseException {
  * @public
  */
 export class ServiceDeploymentNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#ServiceDeploymentNotFoundException";
   readonly name = "ServiceDeploymentNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -428,6 +449,7 @@ export class ServiceDeploymentNotFoundException extends __BaseException {
  * @public
  */
 export class PlatformUnknownException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#PlatformUnknownException";
   readonly name = "PlatformUnknownException" as const;
   readonly $fault = "client" as const;
   /**
@@ -448,6 +470,7 @@ export class PlatformUnknownException extends __BaseException {
  * @public
  */
 export class DaemonNotActiveException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#DaemonNotActiveException";
   readonly name = "DaemonNotActiveException" as const;
   readonly $fault = "client" as const;
   /**
@@ -468,6 +491,7 @@ export class DaemonNotActiveException extends __BaseException {
  * @public
  */
 export class DaemonNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#DaemonNotFoundException";
   readonly name = "DaemonNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -488,6 +512,7 @@ export class DaemonNotFoundException extends __BaseException {
  * @public
  */
 export class PlatformTaskDefinitionIncompatibilityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#PlatformTaskDefinitionIncompatibilityException";
   readonly name = "PlatformTaskDefinitionIncompatibilityException" as const;
   readonly $fault = "client" as const;
   /**
@@ -508,6 +533,7 @@ export class PlatformTaskDefinitionIncompatibilityException extends __BaseExcept
  * @public
  */
 export class ServiceNotActiveException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#ServiceNotActiveException";
   readonly name = "ServiceNotActiveException" as const;
   readonly $fault = "client" as const;
   /**
@@ -528,6 +554,7 @@ export class ServiceNotActiveException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -548,6 +575,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -575,6 +603,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class TaskSetNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#TaskSetNotFoundException";
   readonly name = "TaskSetNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -595,6 +624,7 @@ export class TaskSetNotFoundException extends __BaseException {
  * @public
  */
 export class BlockedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#BlockedException";
   readonly name = "BlockedException" as const;
   readonly $fault = "client" as const;
   /**

@@ -8,6 +8,7 @@ import { DirectConnectServiceException as __BaseException } from "./DirectConnec
  * @public
  */
 export class DirectConnectClientException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directconnect#DirectConnectClientException";
   readonly name = "DirectConnectClientException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class DirectConnectClientException extends __BaseException {
  * @public
  */
 export class DirectConnectServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directconnect#DirectConnectServerException";
   readonly name = "DirectConnectServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -48,6 +50,7 @@ export class DirectConnectServerException extends __BaseException {
  * @public
  */
 export class DuplicateTagKeysException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directconnect#DuplicateTagKeysException";
   readonly name = "DuplicateTagKeysException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class DuplicateTagKeysException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directconnect#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class TooManyTagsException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directconnect#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**

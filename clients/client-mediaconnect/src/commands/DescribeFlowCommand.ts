@@ -152,8 +152,10 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //           NdiProgramName: "STRING_VALUE",
  * //           NdiSourceSettings: { // NdiSourceSettings
  * //             SourceName: "STRING_VALUE",
+ * //             AudioReferenceLevel: Number("int"),
  * //           },
  * //           NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
+ * //           NdiAudioReferenceLevel: Number("int"),
  * //         },
  * //         VpcInterfaceAttachment: { // VpcInterfaceAttachment
  * //           VpcInterfaceName: "STRING_VALUE",
@@ -234,8 +236,10 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //         NdiProgramName: "STRING_VALUE",
  * //         NdiSourceSettings: {
  * //           SourceName: "STRING_VALUE",
+ * //           AudioReferenceLevel: Number("int"),
  * //         },
  * //         NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
+ * //         NdiAudioReferenceLevel: Number("int"),
  * //       },
  * //       VpcInterfaceName: "STRING_VALUE",
  * //       WhitelistCidr: "STRING_VALUE",
@@ -324,8 +328,10 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //           NdiProgramName: "STRING_VALUE",
  * //           NdiSourceSettings: {
  * //             SourceName: "STRING_VALUE",
+ * //             AudioReferenceLevel: Number("int"),
  * //           },
  * //           NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
+ * //           NdiAudioReferenceLevel: Number("int"),
  * //         },
  * //         VpcInterfaceName: "STRING_VALUE",
  * //         WhitelistCidr: "STRING_VALUE",

@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from ConnectContactLens service.
  */
 export class ConnectContactLensServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.connectcontactlens#ConnectContactLensServiceException";
   /**
    * @internal
    */

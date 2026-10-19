@@ -230,6 +230,10 @@ export interface IpAddressUpdate {
   /**
    * <p>The ID of the subnet that includes the IP address that you want to update. To get this ID, use
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html">GetResolverEndpoint</a>.</p>
+   *          <p>We recommend using <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/outpost-resolver-getting-started.html">VPC Resolver on Outposts</a> to create endpoints on Outposts Racks.</p>
+   *          <important>
+   *             <p>Outposts subnets with <a href="https://docs.aws.amazon.com/outposts/latest/server-userguide/local-network-interface.html">Local Network Interface (LNI)</a> enabled are not compatible with Route 53 Resolver endpoints. If you enable LNI on a subnet that contains Route 53 Resolver endpoint elastic network interfaces (ENIs), those ENIs will stop functioning. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/best-practices-resolver.html#best-practices-resolver-subnet-compatibility">Subnet compatibility for Resolver endpoints</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
+   *          </important>
    * @public
    */
   SubnetId?: string | undefined;
@@ -796,12 +800,12 @@ export interface FirewallAdvancedThreatCategoryConfig {
 }
 
 /**
- * <p>The configuration for a partner threat-protection rule. To enumerate the partners available in your account, call <a>ListFirewallRuleTypes</a> with <code>RuleType</code> set to <code>PartnerThreatProtection</code> — each returned <a>FirewallRuleTypeDefinition</a> includes a <a>SubscriptionInfo</a> identifying the AWS Marketplace product that backs it.</p>
+ * <p>The configuration for a partner threat-protection rule. To enumerate the partners available in your account, call <a>ListFirewallRuleTypes</a> with <code>RuleType</code> set to <code>PartnerThreatProtection</code> — each returned <a>FirewallRuleTypeDefinition</a> includes a <a>SubscriptionInfo</a> identifying the Amazon Web Services Marketplace product that backs it.</p>
  * @public
  */
 export interface PartnerThreatProtectionConfig {
   /**
-   * <p>The identifier of the partner threat-protection product, exactly as returned in the <code>Value</code> field of a <a>FirewallRuleTypeDefinition</a> with <code>RuleType</code> set to <code>PartnerThreatProtection</code>. The calling account must hold an active AWS Marketplace subscription to this product.</p>
+   * <p>The identifier of the partner threat-protection product, exactly as returned in the <code>Value</code> field of a <a>FirewallRuleTypeDefinition</a> with <code>RuleType</code> set to <code>PartnerThreatProtection</code>. The calling account must hold an active Amazon Web Services Marketplace subscription to this product.</p>
    * @public
    */
   Partner: string | undefined;
@@ -814,20 +818,20 @@ export interface PartnerThreatProtectionConfig {
  */
 export interface FirewallRuleType {
   /**
-   * <p>Configures the rule to match a third-party threat feed delivered through AWS Marketplace. The calling account must hold an active subscription to the partner product named in <code>Partner</code>; if the subscription is missing or revoked, the rule is created with <code>Status</code>
+   * <p>Configures the rule to match a third-party threat feed delivered through Amazon Web Services Marketplace. The calling account must hold an active subscription to the partner product named in <code>Partner</code>; if the subscription is missing or revoked, the rule is created with <code>Status</code>
    *             <code>CREATION_FAILED</code> and cannot be modified — only deleted. See <a>PartnerThreatProtectionConfig</a>.</p>
    * @public
    */
   PartnerThreatProtection?: PartnerThreatProtectionConfig | undefined;
 
   /**
-   * <p>Configures the rule to match an AWS-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>). See <a>FirewallAdvancedContentCategoryConfig</a>.</p>
+   * <p>Configures the rule to match an Amazon Web Services-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>). See <a>FirewallAdvancedContentCategoryConfig</a>.</p>
    * @public
    */
   FirewallAdvancedContentCategory?: FirewallAdvancedContentCategoryConfig | undefined;
 
   /**
-   * <p>Configures the rule to match an AWS-managed advanced threat category (for example, <code>PHISHING</code>). See <a>FirewallAdvancedThreatCategoryConfig</a>.</p>
+   * <p>Configures the rule to match an Amazon Web Services-managed advanced threat category (for example, <code>PHISHING</code>). See <a>FirewallAdvancedThreatCategoryConfig</a>.</p>
    * @public
    */
   FirewallAdvancedThreatCategory?: FirewallAdvancedThreatCategoryConfig | undefined;
@@ -1038,11 +1042,11 @@ export interface CreateFirewallRuleEntry {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>FirewallAdvancedContentCategory</code> — match an AWS-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>).</p>
+   *                   <code>FirewallAdvancedContentCategory</code> — match an Amazon Web Services-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FirewallAdvancedThreatCategory</code> — match an AWS-managed advanced threat category (for example, <code>PHISHING</code>).</p>
+   *                   <code>FirewallAdvancedThreatCategory</code> — match an Amazon Web Services-managed advanced threat category (for example, <code>PHISHING</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1050,7 +1054,7 @@ export interface CreateFirewallRuleEntry {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PartnerThreatProtection</code> — match a third-party threat feed delivered through AWS Marketplace. The selected partner must be an active subscription on the calling account.</p>
+   *                   <code>PartnerThreatProtection</code> — match a third-party threat feed delivered through Amazon Web Services Marketplace. The selected partner must be an active subscription on the calling account.</p>
    *             </li>
    *          </ul>
    *          <p>To enumerate the values supported in your account, call <a>ListFirewallRuleTypes</a>.</p>
@@ -1307,11 +1311,11 @@ export interface FirewallRule {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>FirewallAdvancedContentCategory</code> — an AWS-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>).</p>
+   *                   <code>FirewallAdvancedContentCategory</code> — an Amazon Web Services-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FirewallAdvancedThreatCategory</code> — an AWS-managed advanced threat category (for example, <code>PHISHING</code>).</p>
+   *                   <code>FirewallAdvancedThreatCategory</code> — an Amazon Web Services-managed advanced threat category (for example, <code>PHISHING</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1319,7 +1323,7 @@ export interface FirewallRule {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PartnerThreatProtection</code> — a third-party threat feed delivered through AWS Marketplace.</p>
+   *                   <code>PartnerThreatProtection</code> — a third-party threat feed delivered through Amazon Web Services Marketplace.</p>
    *             </li>
    *          </ul>
    *          <p>To enumerate the values supported in your account, call <a>ListFirewallRuleTypes</a>.</p>
@@ -1332,7 +1336,7 @@ export interface FirewallRule {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATING</code> — DNS Firewall is provisioning the rule. Rules created with the <code>PartnerThreatProtection</code> rule type begin in this state while DNS Firewall verifies the calling account's AWS Marketplace entitlement.</p>
+   *                   <code>CREATING</code> — DNS Firewall is provisioning the rule. Rules created with the <code>PartnerThreatProtection</code> rule type begin in this state while DNS Firewall verifies the calling account's Amazon Web Services Marketplace entitlement.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1677,11 +1681,11 @@ export interface UpdateFirewallRuleEntry {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>FirewallAdvancedContentCategory</code> — match an AWS-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>).</p>
+   *                   <code>FirewallAdvancedContentCategory</code> — match an Amazon Web Services-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FirewallAdvancedThreatCategory</code> — match an AWS-managed advanced threat category (for example, <code>PHISHING</code>).</p>
+   *                   <code>FirewallAdvancedThreatCategory</code> — match an Amazon Web Services-managed advanced threat category (for example, <code>PHISHING</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1689,7 +1693,7 @@ export interface UpdateFirewallRuleEntry {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PartnerThreatProtection</code> — match a third-party threat feed delivered through AWS Marketplace. The selected partner must be an active subscription on the calling account.</p>
+   *                   <code>PartnerThreatProtection</code> — match a third-party threat feed delivered through Amazon Web Services Marketplace. The selected partner must be an active subscription on the calling account.</p>
    *             </li>
    *          </ul>
    *          <p>To enumerate the values supported in your account, call <a>ListFirewallRuleTypes</a>.</p>
@@ -2091,11 +2095,11 @@ export interface CreateFirewallRuleRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>FirewallAdvancedContentCategory</code> — match an AWS-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>).</p>
+   *                   <code>FirewallAdvancedContentCategory</code> — match an Amazon Web Services-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FirewallAdvancedThreatCategory</code> — match an AWS-managed advanced threat category (for example, <code>PHISHING</code>).</p>
+   *                   <code>FirewallAdvancedThreatCategory</code> — match an Amazon Web Services-managed advanced threat category (for example, <code>PHISHING</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2103,7 +2107,7 @@ export interface CreateFirewallRuleRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PartnerThreatProtection</code> — match a third-party threat feed delivered through AWS Marketplace. The selected partner must be an active subscription on the calling account.</p>
+   *                   <code>PartnerThreatProtection</code> — match a third-party threat feed delivered through Amazon Web Services Marketplace. The selected partner must be an active subscription on the calling account.</p>
    *             </li>
    *          </ul>
    *          <p>To enumerate the values supported in your account, call <a>ListFirewallRuleTypes</a>.</p>
@@ -2383,6 +2387,10 @@ export interface CreateOutpostResolverResponse {
 export interface IpAddressRequest {
   /**
    * <p>The ID of the subnet that contains the IP address. </p>
+   *          <p>We recommend using <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/outpost-resolver-getting-started.html">VPC Resolver on Outposts</a> to create endpoints on Outposts Racks.</p>
+   *          <important>
+   *             <p>Outposts subnets with <a href="https://docs.aws.amazon.com/outposts/latest/server-userguide/local-network-interface.html">Local Network Interface (LNI)</a> enabled are not compatible with Route 53 Resolver endpoints. If you enable LNI on a subnet that contains Route 53 Resolver endpoint elastic network interfaces (ENIs), those ENIs will stop functioning. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/best-practices-resolver.html#best-practices-resolver-subnet-compatibility">Subnet compatibility for Resolver endpoints</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
+   *          </important>
    * @public
    */
   SubnetId: string | undefined;
@@ -2459,6 +2467,10 @@ export interface CreateResolverEndpointRequest {
    *          <note>
    *             <p>Even though the minimum is 1, Route 53 requires that you create at least two.</p>
    *          </note>
+   *          <p>We recommend using <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/outpost-resolver-getting-started.html">VPC Resolver on Outposts</a> to create endpoints on Outposts Racks.</p>
+   *          <important>
+   *             <p>Outposts subnets with <a href="https://docs.aws.amazon.com/outposts/latest/server-userguide/local-network-interface.html">Local Network Interface (LNI)</a> enabled are not compatible with Route 53 Resolver endpoints. If you enable LNI on a subnet that contains Route 53 Resolver endpoint elastic network interfaces (ENIs), those ENIs will stop functioning. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/best-practices-resolver.html#best-practices-resolver-subnet-compatibility">Subnet compatibility for Resolver endpoints</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
+   *          </important>
    * @public
    */
   IpAddresses: IpAddressRequest[] | undefined;
@@ -2466,6 +2478,10 @@ export interface CreateResolverEndpointRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Outpost. If you specify this, you must also specify a
    * 			value for the <code>PreferredInstanceType</code>. </p>
+   *          <note>
+   *             <p>Resolver endpoints on Outposts are supported on first-generation Outposts only. Inbound and outbound
+   * 				Resolver endpoints aren't supported on second-generation Outposts.</p>
+   *          </note>
    * @public
    */
   OutpostArn?: string | undefined;
@@ -3758,18 +3774,18 @@ export interface FirewallRuleGroupMetadata {
 }
 
 /**
- * <p>Identifies the AWS Marketplace product that backs a partner-managed rule type. Returned as part of <a>FirewallRuleTypeDefinition</a> when the rule type variant requires an active customer subscription to the named product.</p>
+ * <p>Identifies the Amazon Web Services Marketplace product that backs a partner-managed rule type. Returned as part of <a>FirewallRuleTypeDefinition</a> when the rule type variant requires an active customer subscription to the named product.</p>
  * @public
  */
 export interface SubscriptionInfo {
   /**
-   * <p>The name of the AWS Marketplace seller (vendor) that publishes the partner threat-protection product (for example, <code>Palo Alto Networks</code>).</p>
+   * <p>The name of the Amazon Web Services Marketplace seller (vendor) that publishes the partner threat-protection product (for example, <code>Palo Alto Networks</code>).</p>
    * @public
    */
   VendorName?: string | undefined;
 
   /**
-   * <p>The AWS Marketplace product identifier of the partner threat-protection product. Use this value to verify or manage the calling account's subscription in AWS Marketplace.</p>
+   * <p>The Amazon Web Services Marketplace product identifier of the partner threat-protection product. Use this value to verify or manage the calling account's subscription in Amazon Web Services Marketplace.</p>
    * @public
    */
   ProductId?: string | undefined;
@@ -3805,7 +3821,7 @@ export interface FirewallRuleTypeDefinition {
   Description?: string | undefined;
 
   /**
-   * <p>For rule types that require an external subscription (today, only the <code>PartnerThreatProtection</code> variant), describes the AWS Marketplace product that backs the rule type. Absent for rule types that are managed by AWS and do not require a separate subscription. See <a>SubscriptionInfo</a>.</p>
+   * <p>For rule types that require an external subscription (today, only the <code>PartnerThreatProtection</code> variant), describes the Amazon Web Services Marketplace product that backs the rule type. Absent for rule types that are managed by Amazon Web Services and do not require a separate subscription. See <a>SubscriptionInfo</a>.</p>
    * @public
    */
   SubscriptionInfo?: SubscriptionInfo | undefined;
@@ -6075,11 +6091,11 @@ export interface UpdateFirewallRuleRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>FirewallAdvancedContentCategory</code> — match an AWS-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>).</p>
+   *                   <code>FirewallAdvancedContentCategory</code> — match an Amazon Web Services-managed content category (for example, <code>VIOLENCE_AND_HATE_SPEECH</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FirewallAdvancedThreatCategory</code> — match an AWS-managed advanced threat category (for example, <code>PHISHING</code>).</p>
+   *                   <code>FirewallAdvancedThreatCategory</code> — match an Amazon Web Services-managed advanced threat category (for example, <code>PHISHING</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6087,7 +6103,7 @@ export interface UpdateFirewallRuleRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PartnerThreatProtection</code> — match a third-party threat feed delivered through AWS Marketplace. The selected partner must be an active subscription on the calling account.</p>
+   *                   <code>PartnerThreatProtection</code> — match a third-party threat feed delivered through Amazon Web Services Marketplace. The selected partner must be an active subscription on the calling account.</p>
    *             </li>
    *          </ul>
    *          <p>To enumerate the values supported in your account, call <a>ListFirewallRuleTypes</a>.</p>

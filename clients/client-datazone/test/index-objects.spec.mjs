@@ -84,6 +84,7 @@ import {
   BatchPutAttributesMetadataCommand,
   BatchPutAttributesMetadataInput$,
   BatchPutAttributesMetadataOutput$,
+  BlueprintCategory,
   BusinessNameGenerationConfiguration$,
   CancelMetadataGenerationRun$,
   CancelMetadataGenerationRunCommand,
@@ -850,11 +851,13 @@ import {
   NotebookSummary$,
   NotebookType,
   NotEqualToExpression$,
+  NotificationConfig$,
   NotificationOutput$,
   NotificationResource$,
   NotificationResourceType,
   NotificationRole,
   NotificationType,
+  NotifyOnState,
   NotInExpression$,
   NotLikeExpression$,
   OAuth2ClientApplication$,
@@ -1020,6 +1023,8 @@ import {
   RuleType,
   RunStatisticsForAssets$,
   S3Destination$,
+  S3File$,
+  S3FilesLocation$,
   S3Permission,
   S3PropertiesInput$,
   S3PropertiesOutput$,
@@ -2148,6 +2153,7 @@ assert(typeof NotebookRunError$ === "object");
 assert(typeof NotebookRunSummary$ === "object");
 assert(typeof NotebookSummary$ === "object");
 assert(typeof NotEqualToExpression$ === "object");
+assert(typeof NotificationConfig$ === "object");
 assert(typeof NotificationOutput$ === "object");
 assert(typeof NotificationResource$ === "object");
 assert(typeof NotInExpression$ === "object");
@@ -2237,6 +2243,8 @@ assert(typeof RuleSummary$ === "object");
 assert(typeof RuleTarget$ === "object");
 assert(typeof RunStatisticsForAssets$ === "object");
 assert(typeof S3Destination$ === "object");
+assert(typeof S3File$ === "object");
+assert(typeof S3FilesLocation$ === "object");
 assert(typeof S3PropertiesInput$ === "object");
 assert(typeof S3PropertiesOutput$ === "object");
 assert(typeof S3PropertiesPatch$ === "object");
@@ -2383,6 +2391,7 @@ assert(typeof AcceptRuleBehavior === "object");
 assert(typeof AttributeEntityType === "object");
 assert(typeof AuthenticationType === "object");
 assert(typeof AuthType === "object");
+assert(typeof BlueprintCategory === "object");
 assert(typeof ChangeAction === "object");
 assert(typeof ComputeEnvironments === "object");
 assert(typeof ConfigurableActionTypeAuthorization === "object");
@@ -2442,6 +2451,7 @@ assert(typeof NotebookType === "object");
 assert(typeof NotificationResourceType === "object");
 assert(typeof NotificationRole === "object");
 assert(typeof NotificationType === "object");
+assert(typeof NotifyOnState === "object");
 assert(typeof OAuth2GrantType === "object");
 assert(typeof OpenLineageRunState === "object");
 assert(typeof OverallDeploymentStatus === "object");

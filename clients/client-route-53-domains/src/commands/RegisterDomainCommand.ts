@@ -159,6 +159,10 @@ export interface RegisterDomainCommandOutput extends RegisterDomainResponse, __M
  *     ],
  *   },
  *   PrivacyProtectBillingContact: true || false,
+ *   Consent: { // Consent
+ *     MaxPrice: Number("double"), // required
+ *     Currency: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new RegisterDomainCommand(input);
  * const response = await client.send(command);

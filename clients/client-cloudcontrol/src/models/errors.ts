@@ -8,6 +8,7 @@ import { CloudControlServiceException as __BaseException } from "./CloudControlS
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#AlreadyExistsException";
   readonly name = "AlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class AlreadyExistsException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class RequestTokenNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#RequestTokenNotFoundException";
   readonly name = "RequestTokenNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -76,6 +79,7 @@ export class RequestTokenNotFoundException extends __BaseException {
  * @public
  */
 export class ClientTokenConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#ClientTokenConflictException";
   readonly name = "ClientTokenConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -98,6 +102,7 @@ export class ClientTokenConflictException extends __BaseException {
  * @public
  */
 export class ConcurrentOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#ConcurrentOperationException";
   readonly name = "ConcurrentOperationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -121,6 +126,7 @@ export class ConcurrentOperationException extends __BaseException {
  * @public
  */
 export class GeneralServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#GeneralServiceException";
   readonly name = "GeneralServiceException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -144,6 +150,7 @@ export class GeneralServiceException extends __BaseException {
  * @public
  */
 export class HandlerFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#HandlerFailureException";
   readonly name = "HandlerFailureException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -167,6 +174,7 @@ export class HandlerFailureException extends __BaseException {
  * @public
  */
 export class HandlerInternalFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#HandlerInternalFailureException";
   readonly name = "HandlerInternalFailureException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -190,6 +198,7 @@ export class HandlerInternalFailureException extends __BaseException {
  * @public
  */
 export class InvalidCredentialsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#InvalidCredentialsException";
   readonly name = "InvalidCredentialsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -213,6 +222,7 @@ export class InvalidCredentialsException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -236,6 +246,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class NetworkFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#NetworkFailureException";
   readonly name = "NetworkFailureException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -259,6 +270,7 @@ export class NetworkFailureException extends __BaseException {
  * @public
  */
 export class NotStabilizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#NotStabilizedException";
   readonly name = "NotStabilizedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -282,6 +294,7 @@ export class NotStabilizedException extends __BaseException {
  * @public
  */
 export class NotUpdatableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#NotUpdatableException";
   readonly name = "NotUpdatableException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -306,6 +319,7 @@ export class NotUpdatableException extends __BaseException {
  * @public
  */
 export class PrivateTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#PrivateTypeException";
   readonly name = "PrivateTypeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -330,6 +344,7 @@ export class PrivateTypeException extends __BaseException {
  * @public
  */
 export class ResourceConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#ResourceConflictException";
   readonly name = "ResourceConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -352,6 +367,7 @@ export class ResourceConflictException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -375,6 +391,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceInternalErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#ServiceInternalErrorException";
   readonly name = "ServiceInternalErrorException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -398,6 +415,7 @@ export class ServiceInternalErrorException extends __BaseException {
  * @public
  */
 export class ServiceLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#ServiceLimitExceededException";
   readonly name = "ServiceLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -420,6 +438,7 @@ export class ServiceLimitExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -442,6 +461,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class TypeNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#TypeNotFoundException";
   readonly name = "TypeNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -464,6 +484,7 @@ export class TypeNotFoundException extends __BaseException {
  * @public
  */
 export class UnsupportedActionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudcontrol#UnsupportedActionException";
   readonly name = "UnsupportedActionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

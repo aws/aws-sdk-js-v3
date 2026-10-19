@@ -2,15 +2,14 @@
 import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
-  AuthenticationType,
   BackfillErrorCode,
   CatalogEncryptionMode,
   Compatibility,
   ConnectionType,
-  ConnectorOAuth2GrantType,
-  ContentType,
   CrawlerHistoryState,
+  DatabaseAttributes,
   DataFormat,
+  DataQualityEngine,
   DataQualityModelStatus,
   EnableHybridValues,
   ExistCondition,
@@ -19,20 +18,21 @@ import type {
   FieldName,
   FilterOperator,
   FunctionType,
-  HTTPMethod,
   InclusionAnnotationValue,
   IntegrationStatus,
-  IntegrationType,
   Language,
   LastRefreshType,
   MaterializedViewRefreshState,
   MaterializedViewRefreshType,
+  ObservationConfiguration,
+  ObservationMode,
   PartitionIndexStatus,
   Permission,
   PermissionType,
   PrincipalType,
   RecommendationMode,
   RegistryStatus,
+  ResourceShareType,
   ResourceState,
   SchemaDiffType,
   SchemaStatus,
@@ -42,6 +42,7 @@ import type {
   StatisticEvaluationLevel,
   TableAttributes,
   TableOptimizerType,
+  TableResourceShareType,
   TaskRunSortColumnType,
   TaskStatusType,
   TaskType,
@@ -85,8 +86,7 @@ import type {
   CodeGenEdge,
   CodeGenNode,
   CodeGenNodeArg,
-  ConnectionPasswordEncryption,
-  ConnectorProperty,
+  Database,
   DataQualityTargetTable,
   EncryptionConfiguration,
   IcebergPartitionSpec,
@@ -97,7 +97,6 @@ import type {
   ProfileConfiguration,
   RegistryId,
   ResourceUri,
-  RestConfiguration,
   Session,
   SourceProcessingProperties,
   SourceTableConfig,
@@ -108,6 +107,114 @@ import type {
   TransformEncryption,
   TransformParameters,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetDatabasesRequest {
+  /**
+   * <p>The ID of the Data Catalog from which to retrieve <code>Databases</code>. If none is
+   *       provided, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of databases to return in one response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Allows you to specify that you want to list the databases shared with your account. The allowable values are <code>FEDERATED</code>, <code>FOREIGN</code> or <code>ALL</code>. </p>
+   *          <ul>
+   *             <li>
+   *                <p>If set to <code>FEDERATED</code>, will list the federated databases (referencing an external entity) shared with your account.</p>
+   *             </li>
+   *             <li>
+   *                <p>If set to <code>FOREIGN</code>, will list the databases shared with your account. </p>
+   *             </li>
+   *             <li>
+   *                <p>If set to <code>ALL</code>, will list the databases shared with your account, as well as the databases in yor local account. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceShareType?: ResourceShareType | undefined;
+
+  /**
+   * <p>Specifies the database fields returned by the <code>GetDatabases</code> call. This parameter doesn’t accept an empty list. The request must include the <code>NAME</code>.</p>
+   * @public
+   */
+  AttributesToGet?: DatabaseAttributes[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDatabasesResponse {
+  /**
+   * <p>A list of <code>Database</code> objects from the specified catalog.</p>
+   * @public
+   */
+  DatabaseList: Database[] | undefined;
+
+  /**
+   * <p>A continuation token for paginating the returned list of tokens,
+   *       returned if the current segment of the list is not the last.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataCatalogEncryptionSettingsRequest {
+  /**
+   * <p>The ID of the Data Catalog to retrieve the security configuration for. If none is
+   *       provided, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+}
+
+/**
+ * <p>The data structure used by the Data Catalog to encrypt the password as part of
+ *         <code>CreateConnection</code> or <code>UpdateConnection</code> and store it in the
+ *         <code>ENCRYPTED_PASSWORD</code> field in the connection properties. You can enable catalog
+ *       encryption or only password encryption.</p>
+ *          <p>When a <code>CreationConnection</code> request arrives containing a password, the Data
+ *       Catalog first encrypts the password using your KMS key. It then encrypts the whole
+ *       connection object again if catalog encryption is also enabled.</p>
+ *          <p>This encryption requires that you set KMS key permissions to enable or restrict access
+ *       on the password key according to your security requirements. For example, you might want only
+ *       administrators to have decrypt permission on the password key.</p>
+ * @public
+ */
+export interface ConnectionPasswordEncryption {
+  /**
+   * <p>When the <code>ReturnConnectionPasswordEncrypted</code> flag is set to "true", passwords remain encrypted in the responses of <code>GetConnection</code> and <code>GetConnections</code>. This encryption takes effect independently from catalog encryption. </p>
+   * @public
+   */
+  ReturnConnectionPasswordEncrypted: boolean | undefined;
+
+  /**
+   * <p>An KMS key that is used to encrypt the connection password. </p>
+   *          <p>If connection password protection is enabled, the caller of <code>CreateConnection</code>
+   *       and <code>UpdateConnection</code> needs at least <code>kms:Encrypt</code> permission on the
+   *       specified KMS key, to encrypt passwords before storing them in the Data Catalog. </p>
+   *          <p>You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.</p>
+   * @public
+   */
+  AwsKmsKeyId?: string | undefined;
+}
 
 /**
  * <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
@@ -465,19 +572,19 @@ export interface GetDataQualityResultResponse {
   RulesetEvaluationRunId?: string | undefined;
 
   /**
-   * <p>A list of <code>DataQualityRuleResult</code> objects representing the results for each rule. </p>
+   * <p>A list of <code>DataQualityRuleResult</code> objects representing the results for each rule.</p>
    * @public
    */
   RuleResults?: DataQualityRuleResult[] | undefined;
 
   /**
-   * <p>A list of <code>DataQualityAnalyzerResult</code> objects representing the results for each analyzer. </p>
+   * <p>A list of <code>DataQualityAnalyzerResult</code> objects representing the results for each analyzer.</p>
    * @public
    */
   AnalyzerResults?: DataQualityAnalyzerResult[] | undefined;
 
   /**
-   * <p>A list of <code>DataQualityObservation</code> objects representing the observations generated after evaluating the rules and analyzers. </p>
+   * <p>A list of <code>DataQualityObservation</code> objects representing the anomaly detection observations generated after evaluating the rules and analyzers.</p>
    * @public
    */
   Observations?: DataQualityObservation[] | undefined;
@@ -487,6 +594,118 @@ export interface GetDataQualityResultResponse {
    * @public
    */
   AggregatedMetrics?: DataQualityAggregatedMetrics | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataQualityResultV2Request {
+  /**
+   * <p>A unique result ID for the data quality result.</p>
+   * @public
+   */
+  ResultId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataQualityResultV2Response {
+  /**
+   * <p>A unique result ID for the data quality result.</p>
+   * @public
+   */
+  ResultId?: string | undefined;
+
+  /**
+   * <p>The table associated with the data quality result, if any.</p>
+   * @public
+   */
+  DataSource?: DataSource | undefined;
+
+  /**
+   * <p>The Profile ID for the data quality result.</p>
+   * @public
+   */
+  ProfileId?: string | undefined;
+
+  /**
+   * <p>A map of platform-specific identifiers, such as cluster, application, workgroup, or project IDs, that identify where the data quality evaluation ran.</p>
+   * @public
+   */
+  Dimensions?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map of tags associated with the data quality result.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The date and time when this data quality run started.</p>
+   * @public
+   */
+  ExecutionStartedOn?: Date | undefined;
+
+  /**
+   * <p>The date and time when this data quality run completed.</p>
+   * @public
+   */
+  ExecutionCompletedOn?: Date | undefined;
+
+  /**
+   * <p>The date and time when this data quality result was published.</p>
+   * @public
+   */
+  ResultPublishedOn?: Date | undefined;
+
+  /**
+   * <p>An aggregate data quality score. Represents the ratio of rules that passed to the total number of rules.</p>
+   * @public
+   */
+  Score?: number | undefined;
+
+  /**
+   * <p>A list of <code>DataQualityRuleResult</code> objects representing the results for each rule.</p>
+   * @public
+   */
+  RuleResults?: DataQualityRuleResult[] | undefined;
+
+  /**
+   * <p>A list of <code>DataQualityAnalyzerResult</code> objects representing the results for each analyzer.</p>
+   * @public
+   */
+  AnalyzerResults?: DataQualityAnalyzerResult[] | undefined;
+
+  /**
+   * <p>A list of <code>DataQualityObservation</code> objects representing the anomaly detection observations generated after evaluating the rules and analyzers.</p>
+   * @public
+   */
+  Observations?: DataQualityObservation[] | undefined;
+
+  /**
+   * <p>The evaluation context for the data quality result. This value identifies a specific data quality result, or a series of related results, within a run.</p>
+   * @public
+   */
+  EvaluationContext?: string | undefined;
+
+  /**
+   * <p>A map of user-provided descriptors that add contextual metadata and configuration to the data quality result, such as database name, table name, team, or environment.</p>
+   * @public
+   */
+  Descriptors?: Record<string, string> | undefined;
+
+  /**
+   * <p>A summary of <code>DataQualityAggregatedMetrics</code> objects showing the total counts of processed rows and rules, including their pass/fail statistics based on row-level results.</p>
+   * @public
+   */
+  AggregatedMetrics?: DataQualityAggregatedMetrics | undefined;
+
+  /**
+   * <p>The name of the ruleset associated with the data quality result.</p>
+   * @public
+   */
+  RulesetName?: string | undefined;
 }
 
 /**
@@ -3786,6 +4005,56 @@ export interface GetStatementResponse {
 /**
  * @public
  */
+export interface GetSystemLogsForJobRunRequest {
+  /**
+   * <p>The name of the job.</p>
+   * @public
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The ID of the job run.</p>
+   * @public
+   */
+  RunId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSystemLogsForJobRunResponse {
+  /**
+   * <p>The URL to download the system logs for the job run.</p>
+   * @public
+   */
+  SystemLogsUrl?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSystemLogsForSessionRequest {
+  /**
+   * <p>The ID of the session.</p>
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSystemLogsForSessionResponse {
+  /**
+   * <p>The URL to download the system logs for the session.</p>
+   * @public
+   */
+  SystemLogsUrl?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetTableRequest {
   /**
    * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
@@ -3852,36 +4121,6 @@ export interface GetTableRequest {
    * @public
    */
   AttributesToGet?: TableAttributes[] | undefined;
-}
-
-/**
- * <p>A table that points to an entity outside the Glue Data Catalog.</p>
- * @public
- */
-export interface FederatedTable {
-  /**
-   * <p>A unique identifier for the federated table.</p>
-   * @public
-   */
-  Identifier?: string | undefined;
-
-  /**
-   * <p>A unique identifier for the federated database.</p>
-   * @public
-   */
-  DatabaseIdentifier?: string | undefined;
-
-  /**
-   * <p>The name of the connection to the external metastore.</p>
-   * @public
-   */
-  ConnectionName?: string | undefined;
-
-  /**
-   * <p>The type of connection used to access the federated table, specifying the protocol or method for connecting to the external data source.</p>
-   * @public
-   */
-  ConnectionType?: string | undefined;
 }
 
 /**
@@ -3960,6 +4199,18 @@ export interface IcebergTableMetadata {
    * @public
    */
   DefaultSortOrderId?: number | undefined;
+}
+
+/**
+ * <p>A structure that describes the default row-level security policy of a table.</p>
+ * @public
+ */
+export interface RLSProperties {
+  /**
+   * <p>The name of the default row-level security policy applied to the table.</p>
+   * @public
+   */
+  DefaultRLSPolicy?: string | undefined;
 }
 
 /**
@@ -4062,6 +4313,12 @@ export interface ViewDefinition {
    * @public
    */
   IsProtected?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether the materialized view is managed by Glue.</p>
+   * @public
+   */
+  IsManaged?: boolean | undefined;
 
   /**
    * <p>The definer of a view in SQL.</p>
@@ -4240,6 +4497,20 @@ export interface GetTablesRequest {
    * @public
    */
   AuditContext?: AuditContext | undefined;
+
+  /**
+   * <p>Specifies which tables the <code>GetTables</code> call returns. The allowable values are <code>FEDERATED</code> or <code>ALL</code>. </p>
+   *          <ul>
+   *             <li>
+   *                <p>If set to <code>FEDERATED</code>, returns only federated tables, which reference an entity outside the Glue Data Catalog.</p>
+   *             </li>
+   *             <li>
+   *                <p>If set to <code>ALL</code>, returns all tables in the database, both federated and non-federated. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceShareType?: TableResourceShareType | undefined;
 
   /**
    * <p>Specifies whether to include status details related to a request to create or update an Glue Data Catalog view.</p>
@@ -5807,6 +6078,125 @@ export interface ListDataQualityResultsResponse {
    * @public
    */
   Results: DataQualityResultDescription[] | undefined;
+
+  /**
+   * <p>A pagination token, if more results are available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Describes the criteria used to filter the data quality results returned by <code>ListDataQualityResultsV2</code>.</p>
+ * @public
+ */
+export interface DataQualityResultsV2FilterCriteria {
+  /**
+   * <p>The data source used to filter the results. For example, you can retrieve all results for an Glue table. <code>DatabaseName</code> and <code>TableName</code> are required. If you omit <code>CatalogId</code>, the catalog of the calling account is used.</p>
+   *          <p>When you filter by data source, a page of results can be empty but still include a <code>NextToken</code>. Keep requesting pages until <code>NextToken</code> is absent.</p>
+   * @public
+   */
+  DataSource?: DataSource | undefined;
+
+  /**
+   * <p>The time after which to include published results.</p>
+   * @public
+   */
+  PublishedAfter?: Date | undefined;
+
+  /**
+   * <p>The time before which to include published results.</p>
+   * @public
+   */
+  PublishedBefore?: Date | undefined;
+
+  /**
+   * <p>The platform dimensions to filter results by.</p>
+   * @public
+   */
+  Dimensions?: Record<string, string> | undefined;
+
+  /**
+   * <p>The evaluation context to filter results by.</p>
+   * @public
+   */
+  EvaluationContext?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDataQualityResultsV2Request {
+  /**
+   * <p>The filter criteria.</p>
+   * @public
+   */
+  Filter?: DataQualityResultsV2FilterCriteria | undefined;
+
+  /**
+   * <p>A pagination token to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. If you don't specify a value, the operation uses the default number of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Describes a data quality result returned by <code>ListDataQualityResultsV2</code>.</p>
+ * @public
+ */
+export interface DataQualityResultsV2Description {
+  /**
+   * <p>The unique result ID for this data quality result.</p>
+   * @public
+   */
+  ResultId?: string | undefined;
+
+  /**
+   * <p>The table associated with the data quality result, if any.</p>
+   * @public
+   */
+  DataSource?: DataSource | undefined;
+
+  /**
+   * <p>The date and time when this data quality result was published.</p>
+   * @public
+   */
+  ResultPublishedOn?: Date | undefined;
+
+  /**
+   * <p>A map of platform-specific identifiers, such as cluster, application, workgroup, or project IDs, that identify where the data quality evaluation ran.</p>
+   * @public
+   */
+  Dimensions?: Record<string, string> | undefined;
+
+  /**
+   * <p>The evaluation context for the data quality result. This value identifies a specific data quality result, or a series of related results, within a run.</p>
+   * @public
+   */
+  EvaluationContext?: string | undefined;
+
+  /**
+   * <p>A map of user-provided descriptors that add contextual metadata and configuration to the data quality result, such as database name, table name, team, or environment.</p>
+   * @public
+   */
+  Descriptors?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDataQualityResultsV2Response {
+  /**
+   * <p>A list of <code>DataQualityResultsV2Description</code> objects.</p>
+   * @public
+   */
+  Results: DataQualityResultsV2Description[] | undefined;
 
   /**
    * <p>A pagination token, if more results are available.</p>
@@ -7803,6 +8193,174 @@ export interface ModifyIntegrationResponse {
 }
 
 /**
+ * <p>The run configuration for a data quality result.</p>
+ * @public
+ */
+export interface DataQualityConfigurationV2 {
+  /**
+   * <p>Whether observations are enabled for the run. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ObservationsEnabled?: ObservationConfiguration | undefined;
+
+  /**
+   * <p>The observation mode for the run. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SCHEDULED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FIXED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ObservationMode?: ObservationMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DataQualityTelemetry {
+  VcpuHours?: number | undefined;
+  FlagsEnabled?: Record<string, string> | undefined;
+  LibraryVersion?: string | undefined;
+  SparkVersion?: string | undefined;
+  HostRuntimeVersion?: string | undefined;
+  Engine?: DataQualityEngine | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PublishDataQualityResultV2Request {
+  /**
+   * <p>The dimensions for the result.</p>
+   * @public
+   */
+  Dimensions: Record<string, string> | undefined;
+
+  /**
+   * <p>The tags for the result.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The time execution started for the result.</p>
+   * @public
+   */
+  ExecutionStartedOn?: Date | undefined;
+
+  /**
+   * <p>The time execution completed for the result.</p>
+   * @public
+   */
+  ExecutionCompletedOn?: Date | undefined;
+
+  /**
+   * <p>The score for the result.</p>
+   * @public
+   */
+  Score: number | undefined;
+
+  /**
+   * <p>The rule level results.</p>
+   * @public
+   */
+  RuleResults: DataQualityRuleResult[] | undefined;
+
+  /**
+   * <p>The analyzer level results.</p>
+   * @public
+   */
+  AnalyzerResults?: DataQualityAnalyzerResult[] | undefined;
+
+  /**
+   * <p>The observations for the result.</p>
+   * @public
+   */
+  Observations?: DataQualityObservation[] | undefined;
+
+  /**
+   * <p>The aggregated metrics for the result.</p>
+   * @public
+   */
+  AggregatedMetrics?: DataQualityAggregatedMetrics | undefined;
+
+  /**
+   * <p>The statistics for the result.</p>
+   * @public
+   */
+  Statistics?: StatisticSummary[] | undefined;
+
+  /**
+   * <p>The run configuration for the result.</p>
+   * @public
+   */
+  RunConfiguration?: DataQualityConfigurationV2 | undefined;
+
+  /**
+   * <p>The client token for the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The evaluation context for the result.</p>
+   * @public
+   */
+  EvaluationContext: string | undefined;
+
+  /**
+   * <p>The descriptors for the result.</p>
+   * @public
+   */
+  Descriptors?: Record<string, string> | undefined;
+
+  /**
+   * <p>The ruleset name for the result.</p>
+   * @public
+   */
+  RulesetName?: string | undefined;
+
+  /**
+   * <p>The security configuration for the result.</p>
+   * @public
+   */
+  DataQualitySecurityConfiguration?: string | undefined;
+
+  Telemetry?: DataQualityTelemetry | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PublishDataQualityResultV2Response {
+  /**
+   * <p>The ID of the result.</p>
+   * @public
+   */
+  ResultId: string | undefined;
+}
+
+/**
  * @public
  */
 export interface PutAssetRequest {
@@ -8325,515 +8883,4 @@ export interface PutWorkflowRunPropertiesRequest {
    * @public
    */
   RunProperties: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface PutWorkflowRunPropertiesResponse {}
-
-/**
- * @public
- */
-export interface QuerySchemaVersionMetadataInput {
-  /**
-   * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  SchemaId?: SchemaId | undefined;
-
-  /**
-   * <p>The version number of the schema.</p>
-   * @public
-   */
-  SchemaVersionNumber?: SchemaVersionNumber | undefined;
-
-  /**
-   * <p>The unique version ID of the schema version.</p>
-   * @public
-   */
-  SchemaVersionId?: string | undefined;
-
-  /**
-   * <p>Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.</p>
-   * @public
-   */
-  MetadataList?: MetadataKeyValuePair[] | undefined;
-
-  /**
-   * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>A structure containing other metadata for a schema version belonging to the same metadata key.</p>
- * @public
- */
-export interface OtherMetadataValueListItem {
-  /**
-   * <p>The metadata key’s corresponding value for the other metadata belonging to the same metadata key.</p>
-   * @public
-   */
-  MetadataValue?: string | undefined;
-
-  /**
-   * <p>The time at which the entry was created.</p>
-   * @public
-   */
-  CreatedTime?: string | undefined;
-}
-
-/**
- * <p>A structure containing metadata information for a schema version.</p>
- * @public
- */
-export interface MetadataInfo {
-  /**
-   * <p>The metadata key’s corresponding value.</p>
-   * @public
-   */
-  MetadataValue?: string | undefined;
-
-  /**
-   * <p>The time at which the entry was created.</p>
-   * @public
-   */
-  CreatedTime?: string | undefined;
-
-  /**
-   * <p>Other metadata belonging to the same metadata key.</p>
-   * @public
-   */
-  OtherMetadataValueList?: OtherMetadataValueListItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface QuerySchemaVersionMetadataResponse {
-  /**
-   * <p>A map of a metadata key and associated values.</p>
-   * @public
-   */
-  MetadataInfoMap?: Record<string, MetadataInfo> | undefined;
-
-  /**
-   * <p>The unique version ID of the schema version.</p>
-   * @public
-   */
-  SchemaVersionId?: string | undefined;
-
-  /**
-   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Configuration that defines the base URL and additional request parameters needed during connection creation.</p>
- * @public
- */
-export interface ConnectionPropertiesConfiguration {
-  /**
-   * <p>The base instance URL for the endpoint that this connection type will connect to.</p>
-   * @public
-   */
-  Url?: ConnectorProperty | undefined;
-
-  /**
-   * <p>Key-value pairs of additional request parameters that may be needed during connection creation, such as API versions or service-specific configuration options.</p>
-   * @public
-   */
-  AdditionalRequestParameters?: ConnectorProperty[] | undefined;
-}
-
-/**
- * <p>Basic authentication configuration that defines the username and password properties for HTTP Basic authentication.</p>
- * @public
- */
-export interface BasicAuthenticationProperties {
-  /**
-   * <p>The username property name to use for Basic authentication credentials.</p>
-   * @public
-   */
-  Username?: ConnectorProperty | undefined;
-
-  /**
-   * <p>The password property name to use for Basic authentication credentials.</p>
-   * @public
-   */
-  Password?: ConnectorProperty | undefined;
-}
-
-/**
- * <p>Custom authentication configuration that allows for flexible authentication mechanisms beyond standard Basic and OAuth2 flows.</p>
- * @public
- */
-export interface CustomAuthenticationProperties {
-  /**
-   * <p>A map of custom authentication parameters that define the specific authentication mechanism and required properties.</p>
-   * @public
-   */
-  AuthenticationParameters: ConnectorProperty[] | undefined;
-}
-
-/**
- * <p>OAuth2 authorization code configuration that defines the properties needed for the Authorization Code grant type flow.</p>
- * @public
- */
-export interface ConnectorAuthorizationCodeProperties {
-  /**
-   * <p>The authorization endpoint URL where users will be redirected to grant authorization.</p>
-   * @public
-   */
-  AuthorizationCodeUrl?: ConnectorProperty | undefined;
-
-  /**
-   * <p>The authorization code received from the authorization server after user consent.</p>
-   * @public
-   */
-  AuthorizationCode?: ConnectorProperty | undefined;
-
-  /**
-   * <p>The redirect URI that must match the URI registered with the authorization server.</p>
-   * @public
-   */
-  RedirectUri?: ConnectorProperty | undefined;
-
-  /**
-   * <p>The token endpoint URL where the authorization code will be exchanged for an access token.</p>
-   * @public
-   */
-  TokenUrl?: ConnectorProperty | undefined;
-
-  /**
-   * <p>The HTTP method to use when making token exchange requests, typically POST.</p>
-   * @public
-   */
-  RequestMethod?: HTTPMethod | undefined;
-
-  /**
-   * <p>The content type to use for token exchange requests, such as application/x-www-form-urlencoded or application/json.</p>
-   * @public
-   */
-  ContentType?: ContentType | undefined;
-
-  /**
-   * <p>The OAuth2 client identifier provided by the authorization server.</p>
-   * @public
-   */
-  ClientId?: ConnectorProperty | undefined;
-
-  /**
-   * <p>The OAuth2 client secret provided by the authorization server.</p>
-   * @public
-   */
-  ClientSecret?: ConnectorProperty | undefined;
-
-  /**
-   * <p>The OAuth2 scope that defines the level of access requested for the authorization code flow.</p>
-   * @public
-   */
-  Scope?: ConnectorProperty | undefined;
-
-  /**
-   * <p>The OAuth2 prompt parameter that controls the authorization server's behavior during user authentication.</p>
-   * @public
-   */
-  Prompt?: ConnectorProperty | undefined;
-
-  /**
-   * <p>Additional parameters to include in token URL requests as key-value pairs.</p>
-   * @public
-   */
-  TokenUrlParameters?: ConnectorProperty[] | undefined;
-}
-
-/**
- * <p>OAuth2 client credentials configuration that defines the properties needed for the Client Credentials grant type flow.</p>
- * @public
- */
-export interface ClientCredentialsProperties {
-  /**
-   * <p>The token endpoint URL where the client will request access tokens using client credentials.</p>
-   * @public
-   */
-  TokenUrl?: ConnectorProperty | undefined;
-
-  /**
-   * <p>The HTTP method to use when making token requests, typically POST.</p>
-   * @public
-   */
-  RequestMethod?: HTTPMethod | undefined;
-
-  /**
-   * <p>The content type to use for token requests, such as application/x-www-form-urlencoded or application/json.</p>
-   * @public
-   */
-  ContentType?: ContentType | undefined;
-
-  /**
-   * <p>The OAuth2 client identifier provided by the authorization server.</p>
-   * @public
-   */
-  ClientId?: ConnectorProperty | undefined;
-
-  /**
-   * <p>The OAuth2 client secret provided by the authorization server.</p>
-   * @public
-   */
-  ClientSecret?: ConnectorProperty | undefined;
-
-  /**
-   * <p>The OAuth2 scope that defines the level of access requested for the client credentials flow.</p>
-   * @public
-   */
-  Scope?: ConnectorProperty | undefined;
-
-  /**
-   * <p>Additional parameters to include in token URL requests as key-value pairs.</p>
-   * @public
-   */
-  TokenUrlParameters?: ConnectorProperty[] | undefined;
-}
-
-/**
- * <p>JWT bearer token configuration that defines the properties needed for the JWT Bearer grant type flow.</p>
- * @public
- */
-export interface JWTBearerProperties {
-  /**
-   * <p>The token endpoint URL where the JWT bearer token will be exchanged for an access token.</p>
-   * @public
-   */
-  TokenUrl?: ConnectorProperty | undefined;
-
-  /**
-   * <p>The HTTP method to use when making JWT bearer token requests, typically POST.</p>
-   * @public
-   */
-  RequestMethod?: HTTPMethod | undefined;
-
-  /**
-   * <p>The content type to use for JWT bearer token requests, such as application/x-www-form-urlencoded or application/json.</p>
-   * @public
-   */
-  ContentType?: ContentType | undefined;
-
-  /**
-   * <p>The JWT token to be used in the bearer token grant flow for authentication.</p>
-   * @public
-   */
-  JwtToken?: ConnectorProperty | undefined;
-
-  /**
-   * <p>Additional parameters to include in token URL requests as key-value pairs.</p>
-   * @public
-   */
-  TokenUrlParameters?: ConnectorProperty[] | undefined;
-}
-
-/**
- * <p>OAuth2 configuration container that defines the authentication properties and flow-specific configurations for OAuth2-based connections.</p>
- * @public
- */
-export interface ConnectorOAuth2Properties {
-  /**
-   * <p>The OAuth2 grant type to use for authentication, such as CLIENT_CREDENTIALS, JWT_BEARER, or AUTHORIZATION_CODE.</p>
-   * @public
-   */
-  OAuth2GrantType: ConnectorOAuth2GrantType | undefined;
-
-  /**
-   * <p>Configuration properties specific to the OAuth2 Client Credentials grant type flow.</p>
-   * @public
-   */
-  ClientCredentialsProperties?: ClientCredentialsProperties | undefined;
-
-  /**
-   * <p>Configuration properties specific to the OAuth2 JWT Bearer grant type flow.</p>
-   * @public
-   */
-  JWTBearerProperties?: JWTBearerProperties | undefined;
-
-  /**
-   * <p>Configuration properties specific to the OAuth2 Authorization Code grant type flow.</p>
-   * @public
-   */
-  AuthorizationCodeProperties?: ConnectorAuthorizationCodeProperties | undefined;
-}
-
-/**
- * <p>Configuration that defines the supported authentication types and required properties for the connection type.</p>
- * @public
- */
-export interface ConnectorAuthenticationConfiguration {
-  /**
-   * <p>A list of authentication types supported by this connection type, such as Basic, OAuth2, or Custom authentication methods.</p>
-   * @public
-   */
-  AuthenticationTypes: AuthenticationType[] | undefined;
-
-  /**
-   * <p>OAuth2 configuration container that defines the authentication properties and flow-specific configurations for OAuth2-based connections.</p>
-   * @public
-   */
-  OAuth2Properties?: ConnectorOAuth2Properties | undefined;
-
-  /**
-   * <p>Basic authentication configuration that defines the username and password properties for HTTP Basic authentication.</p>
-   * @public
-   */
-  BasicAuthenticationProperties?: BasicAuthenticationProperties | undefined;
-
-  /**
-   * <p>Custom authentication configuration that allows for flexible authentication mechanisms beyond standard Basic and OAuth2 flows.</p>
-   * @public
-   */
-  CustomAuthenticationProperties?: CustomAuthenticationProperties | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterConnectionTypeRequest {
-  /**
-   * <p>The name of the connection type. Must be between 1 and 255 characters and must be prefixed with "REST-" to indicate it is a REST-based connector.</p>
-   * @public
-   */
-  ConnectionType: string | undefined;
-
-  /**
-   * <p>The integration type for the connection. Currently only "REST" protocol is supported.</p>
-   * @public
-   */
-  IntegrationType: IntegrationType | undefined;
-
-  /**
-   * <p>A description of the connection type. Can be up to 2048 characters and provides details about the purpose and functionality of the connection type.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Defines the base URL and additional request parameters needed during connection creation for this connection type.</p>
-   * @public
-   */
-  ConnectionProperties: ConnectionPropertiesConfiguration | undefined;
-
-  /**
-   * <p>Defines the supported authentication types and required properties for this connection type, including Basic, OAuth2, and Custom authentication methods.</p>
-   * @public
-   */
-  ConnectorAuthenticationConfiguration: ConnectorAuthenticationConfiguration | undefined;
-
-  /**
-   * <p>Defines the HTTP request and response configuration, validation endpoint, and entity configurations for REST API interactions.</p>
-   * @public
-   */
-  RestConfiguration: RestConfiguration | undefined;
-
-  /**
-   * <p>The tags you assign to the connection type.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Contains the Amazon Resource Name (ARN) of the newly registered connection type.</p>
- * @public
- */
-export interface RegisterConnectionTypeResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registered connection type. This unique identifier can be used to reference the connection type in other Glue operations.</p>
-   * @public
-   */
-  ConnectionTypeArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterSchemaVersionInput {
-  /**
-   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   *          <ul>
-   *             <li>
-   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
-   *             </li>
-   *             <li>
-   *                <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SchemaId: SchemaId | undefined;
-
-  /**
-   * <p>The schema definition using the <code>DataFormat</code> setting for the <code>SchemaName</code>.</p>
-   * @public
-   */
-  SchemaDefinition: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterSchemaVersionResponse {
-  /**
-   * <p>The unique ID that represents the version of this schema.</p>
-   * @public
-   */
-  SchemaVersionId?: string | undefined;
-
-  /**
-   * <p>The version of this schema (for sync flow only, in case this is the first version).</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The status of the schema version.</p>
-   * @public
-   */
-  Status?: SchemaVersionStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveSchemaVersionMetadataInput {
-  /**
-   * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  SchemaId?: SchemaId | undefined;
-
-  /**
-   * <p>The version number of the schema.</p>
-   * @public
-   */
-  SchemaVersionNumber?: SchemaVersionNumber | undefined;
-
-  /**
-   * <p>The unique version ID of the schema version.</p>
-   * @public
-   */
-  SchemaVersionId?: string | undefined;
-
-  /**
-   * <p>The value of the metadata key.</p>
-   * @public
-   */
-  MetadataKeyValue: MetadataKeyValuePair | undefined;
 }

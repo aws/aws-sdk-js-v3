@@ -846,6 +846,7 @@ const _iVA = "ipV4Addresses";
 const _iVAp = "ipV6Addresses";
 const _id = "id";
 const _im = "image";
+const _in = "informational";
 const _it = "items";
 const _k = "key";
 const _kKA = "kmsKeyArn";
@@ -887,6 +888,7 @@ const _lUA = "lastUpdatedAt";
 const _lUO = "lastUpdateOn";
 const _la = "layers";
 const _le = "level";
+const _lo = "low";
 const _m = "message";
 const _mALR = "maxAccountLimitReached";
 const _mR = "maxResults";
@@ -1101,6 +1103,7 @@ const _uA = "updatedAt";
 const _uC = "unknownChecks";
 const _uCI = "updateConfigurationInheritance";
 const _uI = "upperInclusive";
+const _un = "untriaged";
 const _us = "usage";
 const _v = "value";
 const _vC = "vpcConfig";
@@ -2761,8 +2764,8 @@ export var ServerlessFunctionMetadata$: StaticStructureSchema = [3, n0, _SFM,
 ];
 export var SeverityCounts$: StaticStructureSchema = [3, n0, _SCe,
   0,
-  [_al, _med, _hi, _cri],
-  [1, 1, 1, 1]
+  [_al, _med, _hi, _cri, _lo, _in, _un],
+  [1, 1, 1, 1, 1, 1, 1]
 ];
 export var SortCriteria$: StaticStructureSchema = [3, n0, _SCo,
   0,

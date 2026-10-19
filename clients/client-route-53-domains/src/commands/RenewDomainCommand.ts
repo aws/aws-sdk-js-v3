@@ -42,6 +42,10 @@ export interface RenewDomainCommandOutput extends RenewDomainResponse, __Metadat
  *   DomainName: "STRING_VALUE", // required
  *   DurationInYears: Number("int"),
  *   CurrentExpiryYear: Number("int"), // required
+ *   Consent: { // Consent
+ *     MaxPrice: Number("double"), // required
+ *     Currency: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new RenewDomainCommand(input);
  * const response = await client.send(command);

@@ -2227,7 +2227,7 @@ export interface CreateGraphUsingImportTaskInput {
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
 
   /**
-   * <p>The number of replicas in other AZs to provision on the new graph after import. Default = 0, Min = 0, Max = 2.</p> <important> <p> Additional charges equivalent to the m-NCUs selected for the graph apply for each replica. </p> </important>
+   * <p>The number of replicas in other AZs to provision on the new graph after import. Default = 1, Min = 0, Max = 2.</p> <important> <p> Additional charges equivalent to the m-NCUs selected for the graph apply for each replica. </p> </important>
    * @public
    */
   replicaCount?: number | undefined;
@@ -2758,6 +2758,12 @@ export interface ListExportTasksOutput {
  * @public
  */
 export interface ListImportTasksInput {
+  /**
+   * <p>The unique identifier of the Neptune Analytics graph. When provided, the service returns only import tasks associated with this graph. If not specified, the service returns all import tasks.</p>
+   * @public
+   */
+  graphIdentifier?: string | undefined;
+
   /**
    * <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
    * @public

@@ -16,6 +16,7 @@ import type {
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotfleetwise#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -36,6 +37,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotfleetwise#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -63,6 +65,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotfleetwise#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -97,6 +100,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotfleetwise#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -131,6 +135,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotfleetwise#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -172,6 +177,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotfleetwise#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -209,6 +215,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotfleetwise#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -244,6 +251,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class DecoderManifestValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotfleetwise#DecoderManifestValidationException";
   readonly name = "DecoderManifestValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -280,6 +288,7 @@ export class DecoderManifestValidationException extends __BaseException {
  * @public
  */
 export class InvalidSignalsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotfleetwise#InvalidSignalsException";
   readonly name = "InvalidSignalsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -308,6 +317,7 @@ export class InvalidSignalsException extends __BaseException {
  * @public
  */
 export class InvalidNodeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotfleetwise#InvalidNodeException";
   readonly name = "InvalidNodeException" as const;
   readonly $fault = "client" as const;
   /**

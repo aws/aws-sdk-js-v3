@@ -4840,8 +4840,8 @@ export var VpcOriginConfig$: StaticStructureSchema = [3, n0, _VOC,
 ];
 export var VpcOriginEndpointConfig$: StaticStructureSchema = [3, n0, _VOEC,
   0,
-  [_N, _Ar, _HTTPP, _HTTPSP, _OPP, _OSP],
-  [0, 0, 1, 1, 0, [() => OriginSslProtocols$, 0]], 5
+  [_N, _Ar, _HTTPP, _HTTPSP, _OPP, _OSP, _IAT],
+  [0, 0, 1, 1, 0, [() => OriginSslProtocols$, 0], 0], 5
 ];
 export var VpcOriginList$: StaticStructureSchema = [3, n0, _VOL,
   0,
@@ -4850,8 +4850,8 @@ export var VpcOriginList$: StaticStructureSchema = [3, n0, _VOL,
 ];
 export var VpcOriginSummary$: StaticStructureSchema = [3, n0, _VOS,
   0,
-  [_Id, _N, _S, _CTr, _LMT, _Ar, _OEA, _AIc],
-  [0, 0, 0, 4, 4, 0, 0, 0], 7
+  [_Id, _N, _S, _CTr, _LMT, _Ar, _OEA, _AIc, _IAT],
+  [0, 0, 0, 4, 4, 0, 0, 0, 0], 7
 ];
 export var WebAclCustomization$: StaticStructureSchema = [3, n0, _WAC,
   0,

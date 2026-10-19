@@ -42,6 +42,8 @@ export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __Met
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   StorageType: "SERVICE_MANAGED" || "SECRETS_MANAGER",
+ *   KmsKey: "STRING_VALUE",
  * };
  * const command = new ImportHostKeyCommand(input);
  * const response = await client.send(command);

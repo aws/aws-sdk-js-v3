@@ -97,6 +97,10 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  *       CatalogId: "STRING_VALUE",
  *       Name: "STRING_VALUE", // required
  *     },
+ *     RLSPolicy: { // RLSPolicyResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
+ *     },
  *   },
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
@@ -164,6 +168,10 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  * //           ExpressionName: "STRING_VALUE",
  * //         },
  * //         LFTagExpression: { // LFTagExpressionResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           Name: "STRING_VALUE", // required
+ * //         },
+ * //         RLSPolicy: { // RLSPolicyResource
  * //           CatalogId: "STRING_VALUE",
  * //           Name: "STRING_VALUE", // required
  * //         },

@@ -48,6 +48,11 @@ import {
   DescribeGroupMembershipCommand,
 } from "./commands/DescribeGroupMembershipCommand";
 import {
+  type DescribeIdentityStoreCommandInput,
+  type DescribeIdentityStoreCommandOutput,
+  DescribeIdentityStoreCommand,
+} from "./commands/DescribeIdentityStoreCommand";
+import {
   type DescribeUserCommandInput,
   type DescribeUserCommandOutput,
   DescribeUserCommand,
@@ -83,12 +88,22 @@ import {
   type ListGroupsCommandOutput,
   ListGroupsCommand,
 } from "./commands/ListGroupsCommand";
+import {
+  type ListIdentityStoresCommandInput,
+  type ListIdentityStoresCommandOutput,
+  ListIdentityStoresCommand,
+} from "./commands/ListIdentityStoresCommand";
 import { type ListUsersCommandInput, type ListUsersCommandOutput, ListUsersCommand } from "./commands/ListUsersCommand";
 import {
   type UpdateGroupCommandInput,
   type UpdateGroupCommandOutput,
   UpdateGroupCommand,
 } from "./commands/UpdateGroupCommand";
+import {
+  type UpdateIdentityStoreCommandInput,
+  type UpdateIdentityStoreCommandOutput,
+  UpdateIdentityStoreCommand,
+} from "./commands/UpdateIdentityStoreCommand";
 import {
   type UpdateUserCommandInput,
   type UpdateUserCommandOutput,
@@ -98,6 +113,7 @@ import { IdentitystoreClient } from "./IdentitystoreClient";
 import { paginateListGroupMembershipsForMember } from "./pagination/ListGroupMembershipsForMemberPaginator";
 import { paginateListGroupMemberships } from "./pagination/ListGroupMembershipsPaginator";
 import { paginateListGroups } from "./pagination/ListGroupsPaginator";
+import { paginateListIdentityStores } from "./pagination/ListIdentityStoresPaginator";
 import { paginateListUsers } from "./pagination/ListUsersPaginator";
 
 const commands = {
@@ -109,6 +125,7 @@ const commands = {
   DeleteUserCommand,
   DescribeGroupCommand,
   DescribeGroupMembershipCommand,
+  DescribeIdentityStoreCommand,
   DescribeUserCommand,
   GetGroupIdCommand,
   GetGroupMembershipIdCommand,
@@ -117,14 +134,17 @@ const commands = {
   ListGroupMembershipsCommand,
   ListGroupMembershipsForMemberCommand,
   ListGroupsCommand,
+  ListIdentityStoresCommand,
   ListUsersCommand,
   UpdateGroupCommand,
+  UpdateIdentityStoreCommand,
   UpdateUserCommand,
 };
 const paginators = {
   paginateListGroupMemberships,
   paginateListGroupMembershipsForMember,
   paginateListGroups,
+  paginateListIdentityStores,
   paginateListUsers,
 };
 
@@ -273,6 +293,23 @@ export interface Identitystore {
   ): void;
 
   /**
+   * @see {@link DescribeIdentityStoreCommand}
+   */
+  describeIdentityStore(
+    args: DescribeIdentityStoreCommandInput,
+    options?: IdentitystoreRequestOptions
+  ): Promise<DescribeIdentityStoreCommandOutput>;
+  describeIdentityStore(
+    args: DescribeIdentityStoreCommandInput,
+    cb: (err: any, data?: DescribeIdentityStoreCommandOutput) => void
+  ): void;
+  describeIdentityStore(
+    args: DescribeIdentityStoreCommandInput,
+    options: IdentitystoreRequestOptions,
+    cb: (err: any, data?: DescribeIdentityStoreCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeUserCommand}
    */
   describeUser(
@@ -409,6 +446,24 @@ export interface Identitystore {
   ): void;
 
   /**
+   * @see {@link ListIdentityStoresCommand}
+   */
+  listIdentityStores(): Promise<ListIdentityStoresCommandOutput>;
+  listIdentityStores(
+    args: ListIdentityStoresCommandInput,
+    options?: IdentitystoreRequestOptions
+  ): Promise<ListIdentityStoresCommandOutput>;
+  listIdentityStores(
+    args: ListIdentityStoresCommandInput,
+    cb: (err: any, data?: ListIdentityStoresCommandOutput) => void
+  ): void;
+  listIdentityStores(
+    args: ListIdentityStoresCommandInput,
+    options: IdentitystoreRequestOptions,
+    cb: (err: any, data?: ListIdentityStoresCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListUsersCommand}
    */
   listUsers(
@@ -440,6 +495,23 @@ export interface Identitystore {
     args: UpdateGroupCommandInput,
     options: IdentitystoreRequestOptions,
     cb: (err: any, data?: UpdateGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateIdentityStoreCommand}
+   */
+  updateIdentityStore(
+    args: UpdateIdentityStoreCommandInput,
+    options?: IdentitystoreRequestOptions
+  ): Promise<UpdateIdentityStoreCommandOutput>;
+  updateIdentityStore(
+    args: UpdateIdentityStoreCommandInput,
+    cb: (err: any, data?: UpdateIdentityStoreCommandOutput) => void
+  ): void;
+  updateIdentityStore(
+    args: UpdateIdentityStoreCommandInput,
+    options: IdentitystoreRequestOptions,
+    cb: (err: any, data?: UpdateIdentityStoreCommandOutput) => void
   ): void;
 
   /**
@@ -493,6 +565,17 @@ export interface Identitystore {
   ): Paginator<ListGroupsCommandOutput>;
 
   /**
+   * @see {@link ListIdentityStoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIdentityStoresCommandOutput}.
+   */
+  paginateListIdentityStores(
+    args?: ListIdentityStoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIdentityStoresCommandOutput>;
+
+  /**
    * @see {@link ListUsersCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -505,7 +588,7 @@ export interface Identitystore {
 }
 
 /**
- * <p>The Identity Store service used by IAM Identity Center provides a single place to retrieve all of your identities (users and groups). For more information, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html"> IAM Identity Center User Guide</a>.</p> <p>This reference guide describes the identity store operations that you can call programmatically and includes detailed information about data types and errors.</p> <note> <p> IAM Identity Center uses the <code>sso</code>, <code>sso-directory</code>, and <code>identitystore</code> API namespaces. The <code>sso-directory</code> and <code>identitystore</code> namespaces authorize access to data in the Identity Store. Make sure your policies with IAM actions from these two namespaces are consistent to avoid conflicting authorization to the same data.</p> </note>
+ * <note> <p> IAM Identity Center uses the <code>sso</code>, <code>sso-directory</code>, and <code>identitystore</code> API namespaces. The <code>sso-directory</code> and <code>identitystore</code> namespaces authorize access to data in the Identity Store. Make sure your policies with IAM actions from these two namespaces are consistent to avoid conflicting authorization to the same data.</p> </note> <p>The Identity Store service used by IAM Identity Center provides a single place to retrieve all of your identities (users and groups). You can use the identity store API operations in this guide to manage your identity data programmatically. The scope of these APIs allows you to create, read, update, delete, and list users, groups, and memberships.</p> <p>This guide also describes identity store operations that you can call and includes detailed information about data types and errors.</p> <important> <p>If you use an external identity provider or Active Directory as your identity source, we recommend that you use the <code>Create</code>, <code>Update</code>, and <code>Delete</code> APIs with caution. Because IAM Identity Center doesn't support outbound synchronization, your identity source won't automatically update with the changes that you make to users or groups using these APIs.</p> </important> <p>Amazon Web Services provides SDKs that consist of libraries and sample code for various programming languages and platforms (Java, Ruby, .Net, iOS, Android, and more). The SDKs provide a convenient way to programmatically access the identity store and other Amazon Web Services services. For more information about the Amazon Web Services SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Amazon Web Services Builder Center Toolbox</a>.</p>
  * @public
  */
 export class Identitystore extends IdentitystoreClient implements Identitystore {}

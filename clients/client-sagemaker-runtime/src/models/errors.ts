@@ -9,6 +9,7 @@ import { SageMakerRuntimeServiceException as __BaseException } from "./SageMaker
  * @public
  */
 export class InternalDependencyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerruntime#InternalDependencyException";
   readonly name = "InternalDependencyException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -31,6 +32,7 @@ export class InternalDependencyException extends __BaseException {
  * @public
  */
 export class InternalFailure extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerruntime#InternalFailure";
   readonly name = "InternalFailure" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -54,6 +56,7 @@ export class InternalFailure extends __BaseException {
  * @public
  */
 export class ModelError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerruntime#ModelError";
   readonly name = "ModelError" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -98,6 +101,7 @@ export class ModelError extends __BaseException {
  * @public
  */
 export class ModelNotReadyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerruntime#ModelNotReadyException";
   readonly name = "ModelNotReadyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -120,6 +124,7 @@ export class ModelNotReadyException extends __BaseException {
  * @public
  */
 export class ServiceUnavailable extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerruntime#ServiceUnavailable";
   readonly name = "ServiceUnavailable" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -142,6 +147,7 @@ export class ServiceUnavailable extends __BaseException {
  * @public
  */
 export class ValidationError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerruntime#ValidationError";
   readonly name = "ValidationError" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -164,6 +170,7 @@ export class ValidationError extends __BaseException {
  * @public
  */
 export class InternalStreamFailure extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerruntime#InternalStreamFailure";
   readonly name = "InternalStreamFailure" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -198,6 +205,7 @@ export class InternalStreamFailure extends __BaseException {
  * @public
  */
 export class ModelStreamError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerruntime#ModelStreamError";
   readonly name = "ModelStreamError" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

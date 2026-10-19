@@ -75,7 +75,6 @@ const _P = "Pronouns";
 const _PIEC = "PatientInsightsEncounterContext";
 const _PIPC = "PatientInsightsPatientContext";
 const _RNFE = "ResourceNotFoundException";
-const _SAS = "SensitiveAlphanumericString";
 const _SD = "SubscriptionDescription";
 const _SIDS = "SensitiveIsoDateString";
 const _SL = "SubscriptionList";
@@ -89,6 +88,7 @@ const _SPIJR = "StartPatientInsightsJobRequest";
 const _SPIJRt = "StartPatientInsightsJobResponse";
 const _SQEE = "ServiceQuotaExceededException";
 const _SS = "S3Source";
+const _SSHS = "SensitiveSectionHeaderString";
 const _SSo = "S3Sources";
 const _TE = "ThrottlingException";
 const _TI = "TemplateInstructions";
@@ -304,10 +304,10 @@ export const errorTypeRegistries = [
   n0_registry,
 ]
 var Pronouns: StaticSimpleSchema = [0, n0, _P, 8, 0];
-var SensitiveAlphanumericString: StaticSimpleSchema = [0, n0, _SAS, 8, 0];
 var SensitiveIsoDateString: StaticSimpleSchema = [0, n0, _SIDS, 8, 0];
 var SensitiveMarkdownString: StaticSimpleSchema = [0, n0, _SMS, 8, 0];
 var SensitiveNonEmptyString: StaticSimpleSchema = [0, n0, _SNES, 8, 0];
+var SensitiveSectionHeaderString: StaticSimpleSchema = [0, n0, _SSHS, 8, 0];
 export var ActivateSubscriptionInput$: StaticStructureSchema = [3, n0, _ASI,
   0,
   [_dI, _sI],
@@ -616,7 +616,7 @@ export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
 export var TemplateSectionInstruction$: StaticStructureSchema = [3, n0, _TSI,
   0,
   [_sH, _sIec],
-  [[() => SensitiveAlphanumericString, 0], [() => SensitiveMarkdownString, 0]], 2
+  [[() => SensitiveSectionHeaderString, 0], [() => SensitiveMarkdownString, 0]], 2
 ];
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,

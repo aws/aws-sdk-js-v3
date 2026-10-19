@@ -104,6 +104,7 @@ import type {
   GetContactReachabilityStatusCommandOutput,
 } from "./commands/GetContactReachabilityStatusCommand";
 import type { GetDomainDetailCommandInput, GetDomainDetailCommandOutput } from "./commands/GetDomainDetailCommand";
+import type { GetDomainPricesCommandInput, GetDomainPricesCommandOutput } from "./commands/GetDomainPricesCommand";
 import type {
   GetDomainSuggestionsCommandInput,
   GetDomainSuggestionsCommandOutput,
@@ -189,6 +190,7 @@ export type ServiceInputTypes =
   | EnableDomainTransferLockCommandInput
   | GetContactReachabilityStatusCommandInput
   | GetDomainDetailCommandInput
+  | GetDomainPricesCommandInput
   | GetDomainSuggestionsCommandInput
   | GetOperationDetailCommandInput
   | ListDomainsCommandInput
@@ -228,6 +230,7 @@ export type ServiceOutputTypes =
   | EnableDomainTransferLockCommandOutput
   | GetContactReachabilityStatusCommandOutput
   | GetDomainDetailCommandOutput
+  | GetDomainPricesCommandOutput
   | GetDomainSuggestionsCommandOutput
   | GetOperationDetailCommandOutput
   | ListDomainsCommandOutput

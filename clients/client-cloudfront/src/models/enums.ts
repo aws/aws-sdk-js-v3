@@ -503,6 +503,7 @@ export type OriginAccessControlOriginTypes =
  */
 export const OriginAccessControlSigningBehaviors = {
   always: "always",
+  always_amz_auth: "always-amz-auth",
   never: "never",
   no_override: "no-override",
 } as const;
@@ -620,6 +621,19 @@ export const TrustStoreStatus = {
  * @public
  */
 export type TrustStoreStatus = (typeof TrustStoreStatus)[keyof typeof TrustStoreStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcIpAddressType = {
+  DualStack: "dualstack",
+  Ipv4: "ipv4",
+} as const;
+/**
+ * @public
+ */
+export type VpcIpAddressType = (typeof VpcIpAddressType)[keyof typeof VpcIpAddressType];
 
 /**
  * @public

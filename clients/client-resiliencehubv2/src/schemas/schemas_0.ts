@@ -54,6 +54,9 @@ const _DIL = "DependencyInsightsList";
 const _DIS = "DeleteInputSource";
 const _DISR = "DeleteInputSourceRequest";
 const _DISRe = "DeleteInputSourceResponse";
+const _DOAC = "DevOpsAgentConfiguration";
+const _DOACV = "DevOpsAgentConfigurationView";
+const _DOAI = "DevOpsAgentInvestigation";
 const _DP = "DeletePolicy";
 const _DPR = "DeletePolicyRequest";
 const _DPRe = "DeletePolicyResponse";
@@ -414,10 +417,12 @@ const _aN = "assertionName";
 const _aNl = "alarmName";
 const _aR = "awsRegion";
 const _aS = "availabilitySlo";
+const _aSA = "agentSpaceArn";
 const _aSAD = "associatedServicesAtDeletion";
 const _aSC = "associatedServiceCount";
 const _aSCf = "affectedServiceCount";
 const _aSCl = "alarmStateChange";
+const _aSI = "agentSpaceId";
 const _aSs = "assessmentStatus";
 const _aSss = "assessmentStep";
 const _aSsse = "assessmentStatuses";
@@ -426,6 +431,8 @@ const _aSsso = "associatedSystems";
 const _aSssoc = "associatedServices";
 const _aT = "accountTargeting";
 const _aU = "assertionUpdated";
+const _aZI = "availabilityZoneId";
+const _aZN = "availabilityZoneName";
 const _ac = "achievability";
 const _act = "actor";
 const _acti = "actions";
@@ -442,6 +449,8 @@ const _cA = "createdAt";
 const _cAR = "crossAccountRoles";
 const _cARA = "crossAccountRoleArn";
 const _cAl = "clusterArn";
+const _cAo = "connectedAt";
+const _cPI = "containmentParentId";
 const _cSA = "cfnStackArn";
 const _cT = "clientToken";
 const _cTr = "creationTime";
@@ -449,6 +458,7 @@ const _cWLGA = "cloudWatchLogGroupArn";
 const _ca = "category";
 const _ch = "changes";
 const _co = "comment";
+const _con = "confidence";
 const _cr = "criticality";
 const _cu = "currency";
 const _d = "description";
@@ -456,8 +466,13 @@ const _dA = "destinationAccount";
 const _dD = "dependencyDiscovery";
 const _dFSU = "designFileS3Url";
 const _dI = "dependencyId";
+const _dL = "deepLink";
 const _dN = "dependencyName";
 const _dNn = "dnsName";
+const _dOAC = "devOpsAgentConfiguration";
+const _dOAI = "devOpsAgentInvestigation";
+const _dOAS = "devOpsAgentStatus";
+const _dOASA = "devOpsAgentSpaceArn";
 const _dP = "dataPoints";
 const _dR = "dataRecovery";
 const _dRA = "disasterRecoveryApproach";
@@ -502,6 +517,7 @@ const _hE = "httpError";
 const _hQ = "httpQuery";
 const _i = "insights";
 const _iACR = "infrastructureAndCodeRecommendations";
+const _iDL = "investigationDeepLink";
 const _iRN = "invokerRoleName";
 const _iS = "inputSource";
 const _iSI = "inputSourceId";
@@ -514,6 +530,7 @@ const _l = "location";
 const _lC = "loggingConfiguration";
 const _lDT = "lastDetectedTime";
 const _lRA = "lastRunAt";
+const _lRGI = "logicalResourceGroupId";
 const _lS = "labelSelector";
 const _lSV = "logSchemaVersion";
 const _la = "label";
@@ -540,6 +557,7 @@ const _nV = "newValue";
 const _na = "namespaces";
 const _o = "operator";
 const _oA = "observabilityAlarm";
+const _oAU = "operatorAppUrl";
 const _oFC = "openFindingsCount";
 const _oI = "ouId";
 const _oIr = "organizationId";
@@ -651,6 +669,7 @@ const _sRI = "sourceResourceIdentifier";
 const _sRO = "s3ReportOutput";
 const _sRe = "serviceResources";
 const _sRo = "sourceRegion";
+const _sRt = "statusReason";
 const _sS = "serviceSummaries";
 const _sSA = "serviceSystemAssociated";
 const _sSAy = "systemServiceAssociated";
@@ -671,6 +690,7 @@ const _sev = "severity";
 const _so = "source";
 const _st = "state";
 const _sta = "status";
+const _su = "summary";
 const _sy = "system";
 const _t = "text";
 const _tBBIM = "timeBetweenBackupsInMinutes";
@@ -709,10 +729,11 @@ const _uJN = "userJourneyName";
 const _uJS = "userJourneySummaries";
 const _uJs = "userJourneys";
 const _uN = "userName";
-const _v = "value";
+const _v = "verdict";
 const _vAA = "v1AppArn";
 const _vPA = "v1PolicyArn";
-const _va = "values";
+const _va = "value";
+const _val = "values";
 const n0 = "com.amazonaws.resiliencehubv2";
 
 // smithy-typescript generated code
@@ -905,8 +926,8 @@ export var CreateServiceFunctionResponse$: StaticStructureSchema = [3, n0, _CSFR
 ];
 export var CreateServiceRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_n, _reg, _pM, _d, _aSsso, _pA, _dD, _rCe, _kKI, _tag, _cT],
-  [0, 64 | 0, () => PermissionModel$, 0, () => AssociatedSystemList, 0, 0, () => ServiceReportConfiguration$, 0, [() => TagMap, 0], [0, 4]], 3
+  [_n, _reg, _pM, _d, _aSsso, _pA, _dD, _rCe, _kKI, _dOAC, _tag, _cT],
+  [0, 64 | 0, () => PermissionModel$, 0, () => AssociatedSystemList, 0, 0, () => ServiceReportConfiguration$, 0, () => DevOpsAgentConfiguration$, [() => TagMap, 0], [0, 4]], 3
 ];
 export var CreateServiceResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -1068,9 +1089,24 @@ export var DependencySummary$: StaticStructureSchema = [3, n0, _DS,
   [_dI, _sA, _dN, _dNn, _l, _lDT, _sR, _qR, _cr, _pr, _co],
   [0, 0, 0, 0, 0, 4, 64 | 0, () => QueryRange$, 0, 0, 0], 9
 ];
+export var DevOpsAgentConfiguration$: StaticStructureSchema = [3, n0, _DOAC,
+  0,
+  [_aSA],
+  [0]
+];
+export var DevOpsAgentConfigurationView$: StaticStructureSchema = [3, n0, _DOACV,
+  0,
+  [_aSA, _aSI, _regi, _sta, _oAU, _cAo, _sRt],
+  [0, 0, 0, 0, 0, 4, 0]
+];
+export var DevOpsAgentInvestigation$: StaticStructureSchema = [3, n0, _DOAI,
+  0,
+  [_v, _con, _dL, _sta, _su],
+  [0, 0, 0, 0, 0]
+];
 export var DisasterRecoverySource$: StaticStructureSchema = [3, n0, _DRS,
   0,
-  [_v, _pN, _so],
+  [_va, _pN, _so],
   [0, 0, 0]
 ];
 export var EdgePropertySummary$: StaticStructureSchema = [3, n0, _EPS,
@@ -1090,7 +1126,7 @@ export var EksLabelSelector$: StaticStructureSchema = [3, n0, _ELS,
 ];
 export var EksLabelSelectorRequirement$: StaticStructureSchema = [3, n0, _ELSR,
   0,
-  [_k, _o, _va],
+  [_k, _o, _val],
   [0, 0, 64 | 0], 2
 ];
 export var EksSource$: StaticStructureSchema = [3, n0, _ES,
@@ -1115,13 +1151,13 @@ export var FailedReportOutput$: StaticStructureSchema = [3, n0, _FRO,
 ];
 export var Finding$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_fI, _n, _d, _fC, _sta, _rea, _co, _sev, _sFe, _pC, _iACR, _oR, _tR, _uA],
-  [0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, () => InfrastructureAndCodeRecommendationsList, () => ObservabilityRecommendationsList, () => TestingRecommendationsList, 4]
+  [_fI, _n, _d, _fC, _sta, _rea, _co, _sev, _sFe, _pC, _iACR, _oR, _tR, _uA, _iDL],
+  [0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, () => InfrastructureAndCodeRecommendationsList, () => ObservabilityRecommendationsList, () => TestingRecommendationsList, 4, 0]
 ];
 export var FindingSummary$: StaticStructureSchema = [3, n0, _FS,
   0,
-  [_sA, _fI, _n, _d, _fC, _sev, _sta, _pC, _uA],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4]
+  [_sA, _fI, _n, _d, _fC, _sev, _sta, _pC, _uA, _iDL],
+  [0, 0, 0, 0, 0, 0, 0, 0, 4, 0]
 ];
 export var GetDependencyInsightsRequest$: StaticStructureSchema = [3, n0, _GDIR,
   0,
@@ -1615,8 +1651,8 @@ export var ResolvedTargetResource$: StaticStructureSchema = [3, n0, _RTR,
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_id, _aR, _aAI, _rT],
-  [0, 0, 0, 0], 1
+  [_id, _aR, _aAI, _rT, _aZI, _aZN, _cPI, _lRGI],
+  [0, 0, 0, 0, 0, 0, 0, 0], 1
 ];
 export var ResourceDiscoveryStatus$: StaticStructureSchema = [3, n0, _RDS,
   0,
@@ -1625,7 +1661,7 @@ export var ResourceDiscoveryStatus$: StaticStructureSchema = [3, n0, _RDS,
 ];
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RT,
   0,
-  [_k, _va],
+  [_k, _val],
   [0, 64 | 0], 2
 ];
 export var S3ReportOutput$: StaticStructureSchema = [3, n0, _SRO,
@@ -1640,8 +1676,8 @@ export var S3ReportOutputConfiguration$: StaticStructureSchema = [3, n0, _SROC,
 ];
 export var Service$: StaticStructureSchema = [3, n0, _S,
   0,
-  [_sA, _n, _d, _aSsso, _pA, _reg, _pM, _dD, _ePV, _ac, _rCe, _kKI, _tag, _eAC, _rD, _aSs, _rAe, _oFC, _rFC, _oIr, _oI, _aIc, _cA, _uA],
-  [0, 0, 0, () => AssociatedSystemList, 0, 64 | 0, () => PermissionModel$, () => DependencyDiscoveryConfig$, () => EffectivePolicyValues$, () => Achievability$, () => ServiceReportConfiguration$, 0, [() => TagMap, 0], () => AssessmentCost$, () => ResourceDiscoveryStatus$, 0, 2, 1, 1, 0, 0, 0, 4, 4], 2
+  [_sA, _n, _d, _aSsso, _pA, _reg, _pM, _dD, _ePV, _ac, _rCe, _kKI, _tag, _eAC, _rD, _aSs, _rAe, _oFC, _rFC, _oIr, _oI, _aIc, _dOAC, _cA, _uA],
+  [0, 0, 0, () => AssociatedSystemList, 0, 64 | 0, () => PermissionModel$, () => DependencyDiscoveryConfig$, () => EffectivePolicyValues$, () => Achievability$, () => ServiceReportConfiguration$, 0, [() => TagMap, 0], () => AssessmentCost$, () => ResourceDiscoveryStatus$, 0, 2, 1, 1, 0, 0, 0, () => DevOpsAgentConfigurationView$, 4, 4], 2
 ];
 export var ServiceAchievabilityUpdatedMetadata$: StaticStructureSchema = [3, n0, _SAUM,
   0,
@@ -1745,8 +1781,8 @@ export var ServiceResourcesDisassociatedMetadata$: StaticStructureSchema = [3, n
 ];
 export var ServiceSummary$: StaticStructureSchema = [3, n0, _SS,
   0,
-  [_sA, _n, _aSsso, _reg, _pA, _aSs, _oFC, _rFC, _dD, _ac, _oIr, _oI, _aIc, _cA, _uA],
-  [0, 0, () => AssociatedSystemList, 64 | 0, 0, 0, 1, 1, () => DependencyDiscoveryConfig$, () => Achievability$, 0, 0, 0, 4, 4], 2
+  [_sA, _n, _aSsso, _reg, _pA, _aSs, _dOAS, _dOASA, _oFC, _rFC, _dD, _ac, _oIr, _oI, _aIc, _cA, _uA],
+  [0, 0, () => AssociatedSystemList, 64 | 0, 0, 0, 0, 0, 1, 1, () => DependencyDiscoveryConfig$, () => Achievability$, 0, 0, 0, 4, 4], 2
 ];
 export var ServiceSystemAssociatedMetadata$: StaticStructureSchema = [3, n0, _SSAM,
   0,
@@ -1770,7 +1806,7 @@ export var ServiceWorkflowUpdatedMetadata$: StaticStructureSchema = [3, n0, _SWU
 ];
 export var SloSource$: StaticStructureSchema = [3, n0, _SSl,
   0,
-  [_v, _pN, _so],
+  [_va, _pN, _so],
   [1, 0, 0]
 ];
 export var StartDependencyInsightsRequest$: StaticStructureSchema = [3, n0, _SDIR,
@@ -1805,7 +1841,7 @@ export var StartTestRunResponse$: StaticStructureSchema = [3, n0, _STRRt,
 ];
 export var StopCondition$: StaticStructureSchema = [3, n0, _SC,
   0,
-  [_so, _v],
+  [_so, _va],
   [0, 0], 2
 ];
 export var StopTestRunRequest$: StaticStructureSchema = [3, n0, _STRRto,
@@ -1910,7 +1946,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TargetSource$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_v, _pN, _so],
+  [_va, _pN, _so],
   [1, 0, 0]
 ];
 export var Test$: StaticStructureSchema = [3, n0, _T,
@@ -1930,8 +1966,8 @@ export var TestingRecommendation$: StaticStructureSchema = [3, n0, _TR,
 ];
 export var TestRun$: StaticStructureSchema = [3, n0, _TRe,
   0,
-  [_tRI, _tI, _sta, _sAt, _tTA, _sA, _eA, _ex, _eCv, _pa, _eM, _sC, _lC, _rN, _rCe, _p, _rO, _rSPA, _rSEI, _pM, _reg, _aT],
-  [0, 0, 0, 4, 0, 0, 4, () => ExperimentDetailsList, 1, [2, n0, _TP, 0, 0, 64 | 0], 0, () => StopConditionList, () => LoggingConfiguration$, 0, () => TestRunReportConfiguration$, () => TestRunPolicySnapshot$, () => ReportGenerationResult$, 0, 0, () => PermissionModel$, 64 | 0, 0], 5
+  [_tRI, _tI, _sta, _sAt, _tTA, _sA, _eA, _ex, _eCv, _pa, _eM, _sC, _lC, _rN, _rCe, _p, _rO, _rSPA, _rSEI, _pM, _reg, _aT, _dOAI],
+  [0, 0, 0, 4, 0, 0, 4, () => ExperimentDetailsList, 1, [2, n0, _TP, 0, 0, 64 | 0], 0, () => StopConditionList, () => LoggingConfiguration$, 0, () => TestRunReportConfiguration$, () => TestRunPolicySnapshot$, () => ReportGenerationResult$, 0, 0, () => PermissionModel$, 64 | 0, 0, () => DevOpsAgentInvestigation$], 5
 ];
 export var TestRunDependencySummary$: StaticStructureSchema = [3, n0, _TRDS,
   0,
@@ -2060,8 +2096,8 @@ export var UpdateServiceFunctionResponse$: StaticStructureSchema = [3, n0, _USFR
 ];
 export var UpdateServiceRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_sA, _d, _aSsso, _pA, _reg, _pM, _dD, _rCe],
-  [0, 0, () => AssociatedSystemList, 0, 64 | 0, () => PermissionModel$, 0, () => ServiceReportConfiguration$], 1
+  [_sA, _d, _aSsso, _pA, _reg, _pM, _dD, _rCe, _dOAC],
+  [0, 0, () => AssociatedSystemList, 0, 64 | 0, () => PermissionModel$, 0, () => ServiceReportConfiguration$, () => DevOpsAgentConfiguration$], 1
 ];
 export var UpdateServiceResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,

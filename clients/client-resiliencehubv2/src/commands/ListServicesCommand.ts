@@ -63,6 +63,8 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * //       ],
  * //       policyArn: "STRING_VALUE",
  * //       assessmentStatus: "NOT_STARTED" || "PENDING" || "IN_PROGRESS" || "FAILED" || "SUCCESS",
+ * //       devOpsAgentStatus: "CONNECTING" || "CONNECTED" || "DISCONNECTED" || "FAILED",
+ * //       devOpsAgentSpaceArn: "STRING_VALUE",
  * //       openFindingsCount: Number("int"),
  * //       resolvedFindingsCount: Number("int"),
  * //       dependencyDiscovery: { // DependencyDiscoveryConfig

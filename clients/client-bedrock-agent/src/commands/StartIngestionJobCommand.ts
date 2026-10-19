@@ -62,6 +62,7 @@ export interface StartIngestionJobCommandOutput extends StartIngestionJobRespons
  * //     ],
  * //     startedAt: new Date("TIMESTAMP"), // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
+ * //     textReadyAt: new Date("TIMESTAMP"),
  * //   },
  * // };
  *

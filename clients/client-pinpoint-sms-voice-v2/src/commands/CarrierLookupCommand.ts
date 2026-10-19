@@ -34,6 +34,7 @@ export interface CarrierLookupCommandOutput extends CarrierLookupResult, __Metad
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // CarrierLookupRequest
  *   PhoneNumber: "STRING_VALUE", // required
+ *   EnableCleansing: true || false,
  * };
  * const command = new CarrierLookupCommand(input);
  * const response = await client.send(command);
@@ -46,6 +47,7 @@ export interface CarrierLookupCommandOutput extends CarrierLookupResult, __Metad
  * //   MNC: "STRING_VALUE",
  * //   Carrier: "STRING_VALUE",
  * //   PhoneNumberType: "STRING_VALUE", // required
+ * //   OriginalPhoneNumber: "STRING_VALUE",
  * // };
  *
  * ```

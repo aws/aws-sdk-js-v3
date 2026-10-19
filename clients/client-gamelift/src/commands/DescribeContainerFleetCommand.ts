@@ -42,7 +42,7 @@ export interface DescribeContainerFleetCommandOutput extends DescribeContainerFl
  *          <p>If successful, a <code>ContainerFleet</code> object is returned. This object includes
  *             the fleet properties, including information about the most recent deployment.</p>
  *          <note>
- *             <p>Some API operations limit the number of fleet IDs that allowed in one request. If
+ *             <p>Some API operations limit the number of fleet IDs that are allowed in one request. If
  *                 a request exceeds this limit, the request fails and the error message contains the
  *                 maximum allowed number.</p>
  *          </note>

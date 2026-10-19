@@ -8,6 +8,7 @@ import { RedshiftServerlessServiceException as __BaseException } from "./Redshif
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftserverless#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -30,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftserverless#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftserverless#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -71,6 +74,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftserverless#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -98,6 +102,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftserverless#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -118,6 +123,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftserverless#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -145,6 +151,7 @@ export class TooManyTagsException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftserverless#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -165,6 +172,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftserverless#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -188,6 +196,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class InsufficientCapacityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftserverless#InsufficientCapacityException";
   readonly name = "InsufficientCapacityException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -209,6 +218,7 @@ export class InsufficientCapacityException extends __BaseException {
  * @public
  */
 export class Ipv6CidrBlockNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftserverless#Ipv6CidrBlockNotFoundException";
   readonly name = "Ipv6CidrBlockNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -229,6 +239,7 @@ export class Ipv6CidrBlockNotFoundException extends __BaseException {
  * @public
  */
 export class DryRunException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftserverless#DryRunException";
   readonly name = "DryRunException" as const;
   readonly $fault = "client" as const;
   /**
@@ -249,6 +260,7 @@ export class DryRunException extends __BaseException {
  * @public
  */
 export class InvalidPaginationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftserverless#InvalidPaginationException";
   readonly name = "InvalidPaginationException" as const;
   readonly $fault = "client" as const;
   /**

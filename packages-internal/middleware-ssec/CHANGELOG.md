@@ -46,6 +46,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+
+# 3.972.45 (2026-10-12)
+### Chores
+* **middleware-ssec:** update dependencies.
+
+
+
+# 3.972.44 (2026-10-09)
+### Chores
+* **middleware-ssec:** update dependencies.
+
+
+
 # 3.972.43 (2026-09-22)
 ### Chores
 * **middleware-ssec:** update dependencies.

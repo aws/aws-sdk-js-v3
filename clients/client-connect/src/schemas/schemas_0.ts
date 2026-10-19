@@ -347,6 +347,9 @@ const _CCA = "CreateCaseAction";
 const _CCAD = "CreateCaseActionDefinition";
 const _CCB = "CrossChannelBehavior";
 const _CCF = "CreateContactFlow";
+const _CCFA = "CreateContactFlowAlias";
+const _CCFAR = "CreateContactFlowAliasRequest";
+const _CCFARr = "CreateContactFlowAliasResponse";
 const _CCFM = "CreateContactFlowModule";
 const _CCFMA = "CreateContactFlowModuleAlias";
 const _CCFMAR = "CreateContactFlowModuleAliasRequest";
@@ -369,7 +372,8 @@ const _CCTIM = "ConversationCloseTimeInMillis";
 const _CCWB = "CrossChannelWorkloadBehavior";
 const _CCa = "CalculationComponents";
 const _CCh = "ChannelConfiguration";
-const _CCo = "ContactConfiguration";
+const _CCo = "ConnectionCredentials";
+const _CCon = "ContactConfiguration";
 const _CCr = "CreateContact";
 const _CD = "ConnectionData";
 const _CDIM = "ChatDurationInMinutes";
@@ -403,12 +407,17 @@ const _CEPP = "ChatEntryPointParameters";
 const _CEh = "ChatEvent";
 const _CEo = "ContactEvaluations";
 const _CEon = "ContactEvaluation";
+const _CEonn = "ConnectionExpiry";
 const _CEu = "CustomerEndpoint";
 const _CF = "ContactFilter";
 const _CFA = "ContactFlowArn";
 const _CFAAC = "ContactFlowAttributeAndCondition";
 const _CFAF = "ContactFlowAttributeFilter";
+const _CFAI = "ContactFlowAliasInfo";
 const _CFAOCL = "ContactFlowAttributeOrConditionList";
+const _CFAS = "ContactFlowAliasSummary";
+const _CFASL = "ContactFlowAliasSummaryList";
+const _CFAo = "ContactFlowAlias";
 const _CFCI = "ContinuedFromContactId";
 const _CFI = "ContactFlowId";
 const _CFM = "ContactFlowModule";
@@ -569,6 +578,8 @@ const _CTTRr = "CreateTaskTemplateResponse";
 const _CTo = "ComparisonType";
 const _CTon = "ContentType";
 const _CTond = "ConditionType";
+const _CTonn = "ConnectionToken";
+const _CTonne = "ConnectionTypes";
 const _CTont = "ContrastText";
 const _CTonta = "ContactTags";
 const _CTr = "CreationTime";
@@ -660,6 +671,12 @@ const _DCERe = "DescribeContactEvaluationRequest";
 const _DCERes = "DescribeContactEvaluationResponse";
 const _DCEe = "DescribeContactEvaluation";
 const _DCF = "DeleteContactFlow";
+const _DCFA = "DeleteContactFlowAlias";
+const _DCFAR = "DeleteContactFlowAliasRequest";
+const _DCFARe = "DeleteContactFlowAliasResponse";
+const _DCFARes = "DescribeContactFlowAliasRequest";
+const _DCFAResc = "DescribeContactFlowAliasResponse";
+const _DCFAe = "DescribeContactFlowAlias";
 const _DCFM = "DeleteContactFlowModule";
 const _DCFMA = "DeleteContactFlowModuleAlias";
 const _DCFMAR = "DeleteContactFlowModuleAliasRequest";
@@ -1475,6 +1492,9 @@ const _LCE = "ListContactEvaluations";
 const _LCER = "ListContactEvaluationsRequest";
 const _LCERi = "ListContactEvaluationsResponse";
 const _LCF = "ListContactFlows";
+const _LCFA = "ListContactFlowAliases";
+const _LCFAR = "ListContactFlowAliasesRequest";
+const _LCFARi = "ListContactFlowAliasesResponse";
 const _LCFM = "ListContactFlowModules";
 const _LCFMA = "ListContactFlowModuleAliases";
 const _LCFMAR = "ListContactFlowModuleAliasesRequest";
@@ -2373,6 +2393,8 @@ const _SHOOORe = "SearchHoursOfOperationOverridesResponse";
 const _SHOOR = "SearchHoursOfOperationsRequest";
 const _SHOORe = "SearchHoursOfOperationsResponse";
 const _SI = "SessionId";
+const _SIANA = "SendInAppNotificationAction";
+const _SIANAD = "SendInAppNotificationActionDefinition";
 const _SIC = "SignInConfig";
 const _SID = "SessionInactivityDuration";
 const _SIDL = "SignInDistributionList";
@@ -2705,6 +2727,9 @@ const _UCApd = "UpdateContactAttributes";
 const _UCE = "UpdateContactEvaluation";
 const _UCER = "UpdateContactEvaluationRequest";
 const _UCERp = "UpdateContactEvaluationResponse";
+const _UCFA = "UpdateContactFlowAlias";
+const _UCFAR = "UpdateContactFlowAliasRequest";
+const _UCFARp = "UpdateContactFlowAliasResponse";
 const _UCFC = "UpdateContactFlowContent";
 const _UCFCR = "UpdateContactFlowContentRequest";
 const _UCFCRp = "UpdateContactFlowContentResponse";
@@ -3004,6 +3029,7 @@ const _WTP = "WorkspaceThemePalette";
 const _WTT = "WorkspaceThemeTypography";
 const _WTo = "WorkspaceTheme";
 const _We = "Weight";
+const _Web = "Websocket";
 const _Wo = "Workspaces";
 const _aQE = "awsQueryError";
 const _aRA = "associatedResourceArn";
@@ -3973,6 +3999,11 @@ export var Condition$: StaticStructureSchema = [3, n0, _Con,
   [_SC, _NC],
   [() => StringCondition$, () => NumberCondition$]
 ];
+export var ConnectionCredentials$: StaticStructureSchema = [3, n0, _CCo,
+  0,
+  [_CTonn, _Exp],
+  [0, 0]
+];
 export var ConnectionData$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_At, _Me],
@@ -3993,7 +4024,7 @@ export var ContactAnalysisReference$: StaticStructureSchema = [3, n0, _CAR,
   [_N, _V, _St, _A, _AMn, _IR],
   [0, 0, 0, 0, 0, 2]
 ];
-export var ContactConfiguration$: StaticStructureSchema = [3, n0, _CCo,
+export var ContactConfiguration$: StaticStructureSchema = [3, n0, _CCon,
   0,
   [_CI, _PR, _IRM],
   [0, 0, 2], 1
@@ -4042,6 +4073,16 @@ export var ContactFlow$: StaticStructureSchema = [3, n0, _CFo,
   0,
   [_A, _I, _N, _T, _S, _St, _D, _Co, _Ta, _FCS, _Ve, _VD, _LMT, _LMR],
   [0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 0, 1, 0, 4, 0]
+];
+export var ContactFlowAliasInfo$: StaticStructureSchema = [3, n0, _CFAI,
+  0,
+  [_CFI, _CFA, _AIli, _Ve, _N, _D, _LMR, _LMT],
+  [0, 0, 0, 1, 0, 0, 0, 4]
+];
+export var ContactFlowAliasSummary$: StaticStructureSchema = [3, n0, _CFAS,
+  0,
+  [_A, _AIli, _Ve, _ANl, _AD, _LMT, _LMR],
+  [0, 0, 1, 0, 0, 4, 0]
 ];
 export var ContactFlowAttributeAndCondition$: StaticStructureSchema = [3, n0, _CFAAC,
   0,
@@ -4110,8 +4151,8 @@ export var ContactFlowTypeCondition$: StaticStructureSchema = [3, n0, _CFTC,
 ];
 export var ContactFlowVersionSummary$: StaticStructureSchema = [3, n0, _CFVS,
   0,
-  [_A, _VD, _Ve],
-  [0, 0, 1]
+  [_A, _VD, _Ve, _LMT, _LMR],
+  [0, 0, 1, 4, 0]
 ];
 export var ContactMetricInfo$: StaticStructureSchema = [3, n0, _CMI,
   0,
@@ -4202,6 +4243,16 @@ export var CreateCaseActionDefinition$: StaticStructureSchema = [3, n0, _CCAD,
   0,
   [_Fie, _TI],
   [() => FieldValues, 0], 2
+];
+export var CreateContactFlowAliasRequest$: StaticStructureSchema = [3, n0, _CCFAR,
+  0,
+  [_II, _CFI, _CFV, _ANl, _D],
+  [[0, 1], [0, 1], 1, 0, 0], 4
+];
+export var CreateContactFlowAliasResponse$: StaticStructureSchema = [3, n0, _CCFARr,
+  0,
+  [_CFA, _I],
+  [0, 0]
 ];
 export var CreateContactFlowModuleAliasRequest$: StaticStructureSchema = [3, n0, _CCFMAR,
   0,
@@ -4410,7 +4461,7 @@ export var CreatePromptResponse$: StaticStructureSchema = [3, n0, _CPRrea,
 ];
 export var CreatePushNotificationRegistrationRequest$: StaticStructureSchema = [3, n0, _CPNRR,
   0,
-  [_II, _PAA, _DTev, _DTevi, _CCo, _CT],
+  [_II, _PAA, _DTev, _DTevi, _CCon, _CT],
   [[0, 1], 0, 0, 0, () => ContactConfiguration$, [0, 4]], 5
 ];
 export var CreatePushNotificationRegistrationResponse$: StaticStructureSchema = [3, n0, _CPNRRr,
@@ -4753,6 +4804,16 @@ export var DeleteContactEvaluationRequest$: StaticStructureSchema = [3, n0, _DCE
   [_II, _EIv],
   [[0, 1], [0, 1]], 2
 ];
+export var DeleteContactFlowAliasRequest$: StaticStructureSchema = [3, n0, _DCFAR,
+  0,
+  [_II, _CFI, _AIli],
+  [[0, 1], [0, 1], [0, 1]], 3
+];
+export var DeleteContactFlowAliasResponse$: StaticStructureSchema = [3, n0, _DCFARe,
+  0,
+  [],
+  []
+];
 export var DeleteContactFlowModuleAliasRequest$: StaticStructureSchema = [3, n0, _DCFMAR,
   0,
   [_II, _CFMI, _AIli],
@@ -5087,6 +5148,16 @@ export var DescribeContactEvaluationResponse$: StaticStructureSchema = [3, n0, _
   0,
   [_Ev, _EFv],
   [() => Evaluation$, () => EvaluationFormContent$], 2
+];
+export var DescribeContactFlowAliasRequest$: StaticStructureSchema = [3, n0, _DCFARes,
+  0,
+  [_II, _CFI, _AIli],
+  [[0, 1], [0, 1], [0, 1]], 3
+];
+export var DescribeContactFlowAliasResponse$: StaticStructureSchema = [3, n0, _DCFAResc,
+  0,
+  [_CFAo],
+  [() => ContactFlowAliasInfo$]
 ];
 export var DescribeContactFlowModuleAliasRequest$: StaticStructureSchema = [3, n0, _DCFMARes,
   0,
@@ -6593,6 +6664,16 @@ export var ListContactEvaluationsResponse$: StaticStructureSchema = [3, n0, _LCE
   [_ESL, _NT],
   [() => EvaluationSummaryList, 0], 1
 ];
+export var ListContactFlowAliasesRequest$: StaticStructureSchema = [3, n0, _LCFAR,
+  0,
+  [_II, _CFI, _NT, _MR],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
+];
+export var ListContactFlowAliasesResponse$: StaticStructureSchema = [3, n0, _LCFARi,
+  0,
+  [_CFASL, _NT],
+  [() => ContactFlowAliasSummaryList, 0]
+];
 export var ListContactFlowModuleAliasesRequest$: StaticStructureSchema = [3, n0, _LCFMAR,
   0,
   [_II, _CFMI, _NT, _MR],
@@ -8000,8 +8081,8 @@ export var Rule$: StaticStructureSchema = [3, n0, _Ru,
 ];
 export var RuleAction$: StaticStructureSchema = [3, n0, _RAul,
   0,
-  [_AT, _TAa, _EBA, _ACCA, _SNAe, _CCA, _UCAp, _ASA, _EATA, _SAEA, _EIA],
-  [0, () => TaskActionDefinition$, () => EventBridgeActionDefinition$, () => AssignContactCategoryActionDefinition$, () => SendNotificationActionDefinition$, () => CreateCaseActionDefinition$, () => UpdateCaseActionDefinition$, () => AssignSlaActionDefinition$, () => EndAssociatedTasksActionDefinition$, () => SubmitAutoEvaluationActionDefinition$, () => ExtractInformationActionDefinition$], 1
+  [_AT, _TAa, _EBA, _ACCA, _SNAe, _CCA, _UCAp, _ASA, _EATA, _SAEA, _EIA, _SIANA],
+  [0, () => TaskActionDefinition$, () => EventBridgeActionDefinition$, () => AssignContactCategoryActionDefinition$, () => SendNotificationActionDefinition$, () => CreateCaseActionDefinition$, () => UpdateCaseActionDefinition$, () => AssignSlaActionDefinition$, () => EndAssociatedTasksActionDefinition$, () => SubmitAutoEvaluationActionDefinition$, () => ExtractInformationActionDefinition$, () => SendInAppNotificationActionDefinition$], 1
 ];
 export var RuleAttributeAndCondition$: StaticStructureSchema = [3, n0, _RAAC,
   0,
@@ -8443,6 +8524,11 @@ export var SendChatIntegrationEventResponse$: StaticStructureSchema = [3, n0, _S
   [_ICI, _NCC],
   [0, 2]
 ];
+export var SendInAppNotificationActionDefinition$: StaticStructureSchema = [3, n0, _SIANAD,
+  0,
+  [_Co, _Reci, _Exc, _Prio],
+  [128 | 0, () => NotificationRecipientType$, () => NotificationRecipientType$, 0], 2
+];
 export var SendNotificationActionDefinition$: StaticStructureSchema = [3, n0, _SNAD,
   0,
   [_DM, _Co, _CTon, _Reci, _Subj, _Exc],
@@ -8520,13 +8606,13 @@ export var StartAttachedFileUploadResponse$: StaticStructureSchema = [3, n0, _SA
 ];
 export var StartChatContactRequest$: StaticStructureSchema = [3, n0, _SCCR,
   0,
-  [_II, _CFI, _PD, _Attr, _PCart, _IMni, _CT, _CDIM, _SMCT, _PCer, _RCI, _SAe, _CIu, _DOCE],
-  [0, 0, () => ParticipantDetails$, 128 | 0, () => ParticipantConfiguration$, () => ChatMessage$, [0, 4], 1, 64 | 0, () => PersistentChat$, 0, () => SegmentAttributes, [() => CustomerIdNonEmpty, 0], 64 | 0], 3
+  [_II, _CFI, _PD, _Attr, _PCart, _IMni, _CT, _CDIM, _SMCT, _PCer, _RCI, _SAe, _CIu, _DOCE, _CTonne, _CSCh],
+  [0, 0, () => ParticipantDetails$, 128 | 0, () => ParticipantConfiguration$, () => ChatMessage$, [0, 4], 1, 64 | 0, () => PersistentChat$, 0, () => SegmentAttributes, [() => CustomerIdNonEmpty, 0], 64 | 0, 64 | 0, () => ChatStreamingConfiguration$], 3
 ];
 export var StartChatContactResponse$: StaticStructureSchema = [3, n0, _SCCRt,
   0,
-  [_CI, _PI, _PTa, _CFCI],
-  [0, 0, 0, 0]
+  [_CI, _PI, _PTa, _CFCI, _CCo, _Web, _SIt],
+  [0, 0, 0, 0, () => ConnectionCredentials$, () => Websocket$, 0]
 ];
 export var StartContactConversationalAnalyticsJobRequest$: StaticStructureSchema = [3, n0, _SCCAJR,
   0,
@@ -9002,6 +9088,16 @@ export var UpdateContactEvaluationResponse$: StaticStructureSchema = [3, n0, _UC
   0,
   [_EIv, _EAv],
   [0, 0], 2
+];
+export var UpdateContactFlowAliasRequest$: StaticStructureSchema = [3, n0, _UCFAR,
+  0,
+  [_II, _CFI, _AIli, _N, _D, _CFV],
+  [[0, 1], [0, 1], [0, 1], 0, 0, 1], 3
+];
+export var UpdateContactFlowAliasResponse$: StaticStructureSchema = [3, n0, _UCFARp,
+  0,
+  [],
+  []
 ];
 export var UpdateContactFlowContentRequest$: StaticStructureSchema = [3, n0, _UCFCR,
   0,
@@ -9678,6 +9774,11 @@ export var WebNotificationSource$: StaticStructureSchema = [3, n0, _WNS,
   [_SCou],
   [() => SourceCampaign$], 1
 ];
+export var Websocket$: StaticStructureSchema = [3, n0, _Web,
+  0,
+  [_Ur, _CEonn],
+  [0, 0]
+];
 export var WidgetDestination$: StaticStructureSchema = [3, n0, _WD,
   0,
   [_WIid, _PIro],
@@ -9893,6 +9994,7 @@ var CommonAttributeOrConditionList: StaticListSchema = [1, n0, _CAOCL,
 var Conditions: StaticListSchema = [1, n0, _Cond,
   0, () => Condition$
 ];
+var ConnectionTypeList = 64 | 0;
 var ContactDataRequestList: StaticListSchema = [1, n0, _CDRL,
   0, () => ContactDataRequest$
 ];
@@ -9903,6 +10005,9 @@ var ContactEvaluationAttributeOrConditionList: StaticListSchema = [1, n0, _CEAOC
   0, () => ContactEvaluationAttributeAndCondition$
 ];
 var ContactFields = 64 | 0;
+var ContactFlowAliasSummaryList: StaticListSchema = [1, n0, _CFASL,
+  0, () => ContactFlowAliasSummary$
+];
 var ContactFlowAttributeOrConditionList: StaticListSchema = [1, n0, _CFAOCL,
   0, () => ContactFlowAttributeAndCondition$
 ];
@@ -10888,6 +10993,9 @@ export var CreateContact$: StaticOperationSchema = [9, n0, _CCr,
 export var CreateContactFlow$: StaticOperationSchema = [9, n0, _CCF,
   { [_h]: ["PUT", "/contact-flows/{InstanceId}", 200] }, () => CreateContactFlowRequest$, () => CreateContactFlowResponse$
 ];
+export var CreateContactFlowAlias$: StaticOperationSchema = [9, n0, _CCFA,
+  { [_h]: ["PUT", "/contact-flows/{InstanceId}/{ContactFlowId}/alias", 200] }, () => CreateContactFlowAliasRequest$, () => CreateContactFlowAliasResponse$
+];
 export var CreateContactFlowModule$: StaticOperationSchema = [9, n0, _CCFM,
   { [_h]: ["PUT", "/contact-flow-modules/{InstanceId}", 200] }, () => CreateContactFlowModuleRequest$, () => CreateContactFlowModuleResponse$
 ];
@@ -11010,6 +11118,9 @@ export var DeleteContactEvaluation$: StaticOperationSchema = [9, n0, _DCE,
 ];
 export var DeleteContactFlow$: StaticOperationSchema = [9, n0, _DCF,
   { [_h]: ["DELETE", "/contact-flows/{InstanceId}/{ContactFlowId}", 200] }, () => DeleteContactFlowRequest$, () => DeleteContactFlowResponse$
+];
+export var DeleteContactFlowAlias$: StaticOperationSchema = [9, n0, _DCFA,
+  { [_h]: ["DELETE", "/contact-flows/{InstanceId}/{ContactFlowId}/alias/{AliasId}", 200] }, () => DeleteContactFlowAliasRequest$, () => DeleteContactFlowAliasResponse$
 ];
 export var DeleteContactFlowModule$: StaticOperationSchema = [9, n0, _DCFM,
   { [_h]: ["DELETE", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}", 200] }, () => DeleteContactFlowModuleRequest$, () => DeleteContactFlowModuleResponse$
@@ -11136,6 +11247,9 @@ export var DescribeContactEvaluation$: StaticOperationSchema = [9, n0, _DCEe,
 ];
 export var DescribeContactFlow$: StaticOperationSchema = [9, n0, _DCFe,
   { [_h]: ["GET", "/contact-flows/{InstanceId}/{ContactFlowId}", 200] }, () => DescribeContactFlowRequest$, () => DescribeContactFlowResponse$
+];
+export var DescribeContactFlowAlias$: StaticOperationSchema = [9, n0, _DCFAe,
+  { [_h]: ["GET", "/contact-flows/{InstanceId}/{ContactFlowId}/alias/{AliasId}", 200] }, () => DescribeContactFlowAliasRequest$, () => DescribeContactFlowAliasResponse$
 ];
 export var DescribeContactFlowModule$: StaticOperationSchema = [9, n0, _DCFMe,
   { [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}", 200] }, () => DescribeContactFlowModuleRequest$, () => DescribeContactFlowModuleResponse$
@@ -11370,6 +11484,9 @@ export var ListChildHoursOfOperations$: StaticOperationSchema = [9, n0, _LCHOO,
 ];
 export var ListContactEvaluations$: StaticOperationSchema = [9, n0, _LCE,
   { [_h]: ["GET", "/contact-evaluations/{InstanceId}", 200] }, () => ListContactEvaluationsRequest$, () => ListContactEvaluationsResponse$
+];
+export var ListContactFlowAliases$: StaticOperationSchema = [9, n0, _LCFA,
+  { [_h]: ["GET", "/contact-flows/{InstanceId}/{ContactFlowId}/aliases", 200] }, () => ListContactFlowAliasesRequest$, () => ListContactFlowAliasesResponse$
 ];
 export var ListContactFlowModuleAliases$: StaticOperationSchema = [9, n0, _LCFMA,
   { [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/aliases", 200] }, () => ListContactFlowModuleAliasesRequest$, () => ListContactFlowModuleAliasesResponse$
@@ -11778,6 +11895,9 @@ export var UpdateContactAttributes$: StaticOperationSchema = [9, n0, _UCApd,
 ];
 export var UpdateContactEvaluation$: StaticOperationSchema = [9, n0, _UCE,
   { [_h]: ["POST", "/contact-evaluations/{InstanceId}/{EvaluationId}", 200] }, () => UpdateContactEvaluationRequest$, () => UpdateContactEvaluationResponse$
+];
+export var UpdateContactFlowAlias$: StaticOperationSchema = [9, n0, _UCFA,
+  { [_h]: ["POST", "/contact-flows/{InstanceId}/{ContactFlowId}/alias/{AliasId}", 200] }, () => UpdateContactFlowAliasRequest$, () => UpdateContactFlowAliasResponse$
 ];
 export var UpdateContactFlowContent$: StaticOperationSchema = [9, n0, _UCFC,
   { [_h]: ["POST", "/contact-flows/{InstanceId}/{ContactFlowId}/content", 200] }, () => UpdateContactFlowContentRequest$, () => UpdateContactFlowContentResponse$

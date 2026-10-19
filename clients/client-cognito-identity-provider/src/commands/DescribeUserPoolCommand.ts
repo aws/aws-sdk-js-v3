@@ -224,6 +224,11 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  * //     IssuerConfiguration: { // IssuerConfigurationType
  * //       Type: "ORIGINAL" || "UPDATED",
  * //     },
+ * //     AcrConfiguration: { // AcrConfigurationType
+ * //       "<keys>": { // AcrLevelConfigType
+ * //         AcrValue: "STRING_VALUE", // required
+ * //       },
+ * //     },
  * //   },
  * // };
  *

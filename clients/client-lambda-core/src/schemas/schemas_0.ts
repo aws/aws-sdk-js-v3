@@ -18,9 +18,14 @@ const _LM = "LastModified";
 const _LNC = "ListNetworkConnectors";
 const _LNCR = "ListNetworkConnectorsRequest";
 const _LNCRi = "ListNetworkConnectorsResponse";
+const _LNCV = "ListNetworkConnectorVersions";
+const _LNCVR = "ListNetworkConnectorVersionsRequest";
+const _LNCVRi = "ListNetworkConnectorVersionsResponse";
 const _LUS = "LastUpdateStatus";
 const _LUSR = "LastUpdateStatusReason";
 const _LUSRC = "LastUpdateStatusReasonCode";
+const _LV = "LatestVersion";
+const _LVA = "LatestVersionArn";
 const _M = "Message";
 const _MI = "MaxItems";
 const _Ma = "Marker";
@@ -30,7 +35,10 @@ const _NCC = "NetworkConnectorConfiguration";
 const _NCL = "NetworkConnectorsList";
 const _NCLEE = "NetworkConnectorLimitExceededException";
 const _NCS = "NetworkConnectorSummary";
+const _NCV = "NetworkConnectorVersions";
 const _NCVEC = "NetworkConnectorVpcEgressConfiguration";
+const _NCVL = "NetworkConnectorVersionsList";
+const _NCVS = "NetworkConnectorVersionSummary";
 const _NM = "NextMarker";
 const _NP = "NetworkProtocol";
 const _OR = "OperatorRole";
@@ -51,6 +59,7 @@ const _UNC = "UpdateNetworkConnector";
 const _UNCR = "UpdateNetworkConnectorRequest";
 const _UNCRp = "UpdateNetworkConnectorResponse";
 const _V = "Version";
+const _VA = "VersionArn";
 const _VEC = "VpcEgressConfiguration";
 const _c = "client";
 const _e = "error";
@@ -142,8 +151,8 @@ export var CreateNetworkConnectorRequest$: StaticStructureSchema = [3, n0, _CNCR
 ];
 export var CreateNetworkConnectorResponse$: StaticStructureSchema = [3, n0, _CNCRr,
   0,
-  [_A, _N, _I, _C, _OR, _S],
-  [0, 0, 0, () => NetworkConnectorConfiguration$, 0, 0], 3
+  [_A, _N, _I, _VA, _V, _C, _OR, _S],
+  [0, 0, 0, 0, 1, () => NetworkConnectorConfiguration$, 0, 0], 3
 ];
 export var DeleteNetworkConnectorRequest$: StaticStructureSchema = [3, n0, _DNCR,
   0,
@@ -152,8 +161,8 @@ export var DeleteNetworkConnectorRequest$: StaticStructureSchema = [3, n0, _DNCR
 ];
 export var DeleteNetworkConnectorResponse$: StaticStructureSchema = [3, n0, _DNCRe,
   0,
-  [_A, _N, _I, _C, _OR, _S],
-  [0, 0, 0, () => NetworkConnectorConfiguration$, 0, 0], 3
+  [_A, _N, _I, _VA, _V, _C, _OR, _S],
+  [0, 0, 0, 0, 1, () => NetworkConnectorConfiguration$, 0, 0], 3
 ];
 export var GetNetworkConnectorRequest$: StaticStructureSchema = [3, n0, _GNCR,
   0,
@@ -162,8 +171,8 @@ export var GetNetworkConnectorRequest$: StaticStructureSchema = [3, n0, _GNCR,
 ];
 export var GetNetworkConnectorResponse$: StaticStructureSchema = [3, n0, _GNCRe,
   0,
-  [_A, _N, _I, _V, _C, _OR, _S, _SR, _SRC, _LUS, _LUSR, _LUSRC, _LM],
-  [0, 0, 0, 1, () => NetworkConnectorConfiguration$, 0, 0, 0, 0, 0, 0, 0, 5], 3
+  [_A, _N, _I, _VA, _V, _LVA, _LV, _C, _OR, _S, _SR, _SRC, _LUS, _LUSR, _LUSRC, _LM],
+  [0, 0, 0, 0, 1, 0, 1, () => NetworkConnectorConfiguration$, 0, 0, 0, 0, 0, 0, 0, 5], 3
 ];
 export var ListNetworkConnectorsRequest$: StaticStructureSchema = [3, n0, _LNCR,
   0,
@@ -175,10 +184,25 @@ export var ListNetworkConnectorsResponse$: StaticStructureSchema = [3, n0, _LNCR
   [_NC, _NM],
   [() => NetworkConnectorsList, 0], 1
 ];
+export var ListNetworkConnectorVersionsRequest$: StaticStructureSchema = [3, n0, _LNCVR,
+  0,
+  [_Id, _S, _Ma, _MI],
+  [[0, 1], [0, { [_hQ]: _S }], [0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]], 1
+];
+export var ListNetworkConnectorVersionsResponse$: StaticStructureSchema = [3, n0, _LNCVRi,
+  0,
+  [_NCV, _NM],
+  [() => NetworkConnectorVersionsList, 0], 1
+];
 export var NetworkConnectorSummary$: StaticStructureSchema = [3, n0, _NCS,
   0,
-  [_A, _N, _I, _T, _S, _LM],
-  [0, 0, 0, 0, 0, 5], 4
+  [_A, _N, _I, _T, _S, _LM, _LVA, _LV],
+  [0, 0, 0, 0, 0, 5, 0, 1], 4
+];
+export var NetworkConnectorVersionSummary$: StaticStructureSchema = [3, n0, _NCVS,
+  0,
+  [_A, _VA, _N, _I, _V, _S, _SR, _SRC, _LM],
+  [0, 0, 0, 0, 1, 0, 0, 0, 5], 6
 ];
 export var NetworkConnectorVpcEgressConfiguration$: StaticStructureSchema = [3, n0, _NCVEC,
   0,
@@ -192,8 +216,8 @@ export var UpdateNetworkConnectorRequest$: StaticStructureSchema = [3, n0, _UNCR
 ];
 export var UpdateNetworkConnectorResponse$: StaticStructureSchema = [3, n0, _UNCRp,
   0,
-  [_A, _N, _I, _OR, _C, _S, _LUS, _LUSR, _LM],
-  [0, 0, 0, 0, () => NetworkConnectorConfiguration$, 0, 0, 0, 5], 3
+  [_A, _N, _I, _VA, _V, _OR, _C, _S, _LUS, _LUSR, _LM],
+  [0, 0, 0, 0, 1, 0, () => NetworkConnectorConfiguration$, 0, 0, 0, 5], 3
 ];
 var AssociatedComputeResourceTypesList = 64 | 0;
 var NetworkConnectorSecurityGroupIds = 64 | 0;
@@ -201,6 +225,9 @@ var NetworkConnectorsList: StaticListSchema = [1, n0, _NCL,
   0, () => NetworkConnectorSummary$
 ];
 var NetworkConnectorSubnetIds = 64 | 0;
+var NetworkConnectorVersionsList: StaticListSchema = [1, n0, _NCVL,
+  0, () => NetworkConnectorVersionSummary$
+];
 var NetworkConnectorTags = 128 | 0;
 export var NetworkConnectorConfiguration$: StaticUnionSchema = [4, n0, _NCC,
   0,
@@ -218,6 +245,9 @@ export var GetNetworkConnector$: StaticOperationSchema = [9, n0, _GNC,
 ];
 export var ListNetworkConnectors$: StaticOperationSchema = [9, n0, _LNC,
   { [_h]: ["GET", "/2026-04-04/network-connectors", 200] }, () => ListNetworkConnectorsRequest$, () => ListNetworkConnectorsResponse$
+];
+export var ListNetworkConnectorVersions$: StaticOperationSchema = [9, n0, _LNCV,
+  { [_h]: ["GET", "/2026-04-04/network-connectors/{Identifier}/versions", 200] }, () => ListNetworkConnectorVersionsRequest$, () => ListNetworkConnectorVersionsResponse$
 ];
 export var UpdateNetworkConnector$: StaticOperationSchema = [9, n0, _UNC,
   { [_h]: ["PUT", "/2026-04-04/network-connectors/{Identifier}", 202] }, () => UpdateNetworkConnectorRequest$, () => UpdateNetworkConnectorResponse$

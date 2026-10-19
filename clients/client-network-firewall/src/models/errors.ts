@@ -9,6 +9,7 @@ import { NetworkFirewallServiceException as __BaseException } from "./NetworkFir
  * @public
  */
 export class InternalServerError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.networkfirewall#InternalServerError";
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -44,6 +45,7 @@ export class InternalServerError extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.networkfirewall#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -66,6 +68,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.networkfirewall#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -88,6 +91,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.networkfirewall#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -111,6 +115,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class InsufficientCapacityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.networkfirewall#InsufficientCapacityException";
   readonly name = "InsufficientCapacityException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -134,6 +139,7 @@ export class InsufficientCapacityException extends __BaseException {
  * @public
  */
 export class InvalidOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.networkfirewall#InvalidOperationException";
   readonly name = "InvalidOperationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -156,6 +162,7 @@ export class InvalidOperationException extends __BaseException {
  * @public
  */
 export class InvalidTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.networkfirewall#InvalidTokenException";
   readonly name = "InvalidTokenException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -178,6 +185,7 @@ export class InvalidTokenException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.networkfirewall#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -200,6 +208,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.networkfirewall#UnsupportedOperationException";
   readonly name = "UnsupportedOperationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -222,6 +231,7 @@ export class UnsupportedOperationException extends __BaseException {
  * @public
  */
 export class InvalidResourcePolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.networkfirewall#InvalidResourcePolicyException";
   readonly name = "InvalidResourcePolicyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -244,6 +254,7 @@ export class InvalidResourcePolicyException extends __BaseException {
  * @public
  */
 export class LogDestinationPermissionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.networkfirewall#LogDestinationPermissionException";
   readonly name = "LogDestinationPermissionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -266,6 +277,7 @@ export class LogDestinationPermissionException extends __BaseException {
  * @public
  */
 export class ResourceOwnerCheckException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.networkfirewall#ResourceOwnerCheckException";
   readonly name = "ResourceOwnerCheckException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

@@ -729,8 +729,8 @@ const _XAFE = "X-Amz-Function-Error";
 const _XAIT = "X-Amz-Invocation-Type";
 const _XALR = "X-Amz-Log-Result";
 const _XALT = "X-Amz-Log-Type";
-const _XATI = "X-Amz-Tenant-Id";
-const _XATIm = "XAmznTraceId";
+const _XATI = "XAmznTraceId";
+const _XATI_ = "X-Amz-Tenant-Id";
 const _ZF = "ZipFile";
 const _c = "client";
 const _e = "error";
@@ -1310,8 +1310,8 @@ export var ChainedInvokeFailedDetails$: StaticStructureSchema = [3, n0, _CIFD,
 ];
 export var ChainedInvokeOptions$: StaticStructureSchema = [3, n0, _CIO,
   0,
-  [_FN, _TI],
-  [0, 0], 1
+  [_FN, _TI, _XATI],
+  [0, 0, 0], 1
 ];
 export var ChainedInvokeStartedDetails$: StaticStructureSchema = [3, n0, _CISD,
   0,
@@ -1921,7 +1921,7 @@ export var InvocationCompletedDetails$: StaticStructureSchema = [3, n0, _ICD,
 export var InvocationRequest$: StaticStructureSchema = [3, n0, _IRn,
   0,
   [_FN, _IT, _LT, _CC, _DEN, _Pa, _Q, _TI],
-  [[0, 1], [0, { [_hH]: _XAIT }], [0, { [_hH]: _XALT }], [0, { [_hH]: _XACC }], [0, { [_hH]: _XADEN }], [() => _Blob, 16], [0, { [_hQ]: _Q }], [0, { [_hH]: _XATI }]], 1
+  [[0, 1], [0, { [_hH]: _XAIT }], [0, { [_hH]: _XALT }], [0, { [_hH]: _XACC }], [0, { [_hH]: _XADEN }], [() => _Blob, 16], [0, { [_hQ]: _Q }], [0, { [_hH]: _XATI_ }]], 1
 ];
 export var InvocationResponse$: StaticStructureSchema = [3, n0, _IRnv,
   0,
@@ -1951,7 +1951,7 @@ export var InvokeWithResponseStreamCompleteEvent$: StaticStructureSchema = [3, n
 export var InvokeWithResponseStreamRequest$: StaticStructureSchema = [3, n0, _IWRSR,
   0,
   [_FN, _LT, _CC, _Q, _Pa, _TI, _IT],
-  [[0, 1], [0, { [_hH]: _XALT }], [0, { [_hH]: _XACC }], [0, { [_hQ]: _Q }], [() => _Blob, 16], [0, { [_hH]: _XATI }], [0, { [_hH]: _XAIT }]], 1
+  [[0, 1], [0, { [_hH]: _XALT }], [0, { [_hH]: _XACC }], [0, { [_hQ]: _Q }], [() => _Blob, 16], [0, { [_hH]: _XATI_ }], [0, { [_hH]: _XAIT }]], 1
 ];
 export var InvokeWithResponseStreamResponse$: StaticStructureSchema = [3, n0, _IWRSRn,
   0,
@@ -2430,7 +2430,7 @@ export var TenancyConfig$: StaticStructureSchema = [3, n0, _TCe,
 ];
 export var TraceHeader$: StaticStructureSchema = [3, n0, _TH,
   0,
-  [_XATIm],
+  [_XATI],
   [0]
 ];
 export var TracingConfig$: StaticStructureSchema = [3, n0, _TCr,

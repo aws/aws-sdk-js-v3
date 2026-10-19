@@ -50,6 +50,7 @@ export const MCPServerAuthorizationMethod = {
    * <p>Bearer token authentication (RFC 6750).</p>
    */
   BEARER_TOKEN: "bearer-token",
+  CUSTOM_HEADERS: "custom-headers",
   /**
    * <p>OAuth 2.0 three-legged authorization flow.</p>
    */
@@ -269,6 +270,19 @@ export const AuthFlow = {
  * @public
  */
 export type AuthFlow = (typeof AuthFlow)[keyof typeof AuthFlow];
+
+/**
+ * @public
+ * @enum
+ */
+export const IncludedData = {
+  ALL_DATA: "ALL_DATA",
+  METADATA_ONLY: "METADATA_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type IncludedData = (typeof IncludedData)[keyof typeof IncludedData];
 
 /**
  * @public
@@ -515,6 +529,24 @@ export const PrivateConnectionType = {
  * @public
  */
 export type PrivateConnectionType = (typeof PrivateConnectionType)[keyof typeof PrivateConnectionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DayOfWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
+/**
+ * @public
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
 /**
  * @public

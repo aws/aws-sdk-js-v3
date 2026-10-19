@@ -54,6 +54,7 @@ export interface DescribeInboundIntegrationsCommandOutput extends DescribeInboun
  * //           "<keys>": "STRING_VALUE",
  * //         },
  * //         ContinuousSync: true || false,
+ * //         TargetNamespace: "STRING_VALUE",
  * //       },
  * //       Errors: [ // IntegrationErrorList
  * //         { // IntegrationError

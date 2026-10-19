@@ -148,6 +148,7 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
  * //       },
  * //       ViewDefinition: { // ViewDefinition
  * //         IsProtected: true || false,
+ * //         IsManaged: true || false,
  * //         Definer: "STRING_VALUE",
  * //         ViewVersionId: Number("long"),
  * //         ViewVersionToken: "STRING_VALUE",
@@ -331,6 +332,7 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
  * //             },
  * //             ViewDefinition: {
  * //               IsProtected: true || false,
+ * //               IsManaged: true || false,
  * //               Definer: "STRING_VALUE",
  * //               ViewVersionId: Number("long"),
  * //               ViewVersionToken: "STRING_VALUE",
@@ -451,6 +453,9 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
  * //                 ],
  * //               },
  * //             },
+ * //             RLSProperties: { // RLSProperties
+ * //               DefaultRLSPolicy: "STRING_VALUE",
+ * //             },
  * //           },
  * //           ViewValidations: [
  * //             {
@@ -463,6 +468,9 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
  * //             },
  * //           ],
  * //         },
+ * //       },
+ * //       RLSProperties: {
+ * //         DefaultRLSPolicy: "STRING_VALUE",
  * //       },
  * //     },
  * //     VersionId: "STRING_VALUE",

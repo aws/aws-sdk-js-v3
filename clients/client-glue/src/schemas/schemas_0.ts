@@ -149,6 +149,9 @@ const _BGDQRERR = "BatchGetDataQualityRulesetEvaluationRunRequest";
 const _BGDQRERRa = "BatchGetDataQualityRulesetEvaluationRunResponse";
 const _BGDQRR = "BatchGetDataQualityResultRequest";
 const _BGDQRRa = "BatchGetDataQualityResultResponse";
+const _BGDQRV = "BatchGetDataQualityResultV2";
+const _BGDQRVR = "BatchGetDataQualityResultV2Request";
+const _BGDQRVRa = "BatchGetDataQualityResultV2Response";
 const _BGIF = "BatchGetIterableForms";
 const _BGIFR = "BatchGetIterableFormsRequest";
 const _BGIFRa = "BatchGetIterableFormsResponse";
@@ -689,6 +692,7 @@ const _DPe = "DeletePartition";
 const _DQAM = "DataQualityAggregatedMetrics";
 const _DQAR = "DataQualityAnalyzerResult";
 const _DQARa = "DataQualityAnalyzerResults";
+const _DQCV = "DataQualityConfigurationV2";
 const _DQE = "DataQualityEncryption";
 const _DQEM = "DataQualityEncryptionMode";
 const _DQERARO = "DataQualityEvaluationRunAdditionalRunOptions";
@@ -719,11 +723,18 @@ const _DQRRRD = "DataQualityRuleRecommendationRunDescription";
 const _DQRRRF = "DataQualityRuleRecommendationRunFilter";
 const _DQRRRL = "DataQualityRuleRecommendationRunList";
 const _DQRRa = "DataQualityRuleResult";
+const _DQRVD = "DataQualityResultsV2Description";
+const _DQRVDL = "DataQualityResultsV2DescriptionList";
+const _DQRVFC = "DataQualityResultsV2FilterCriteria";
+const _DQRVI = "DataQualityResultV2Item";
+const _DQRVL = "DataQualityResultV2List";
 const _DQSC = "DataQualitySecurityConfiguration";
 const _DQSJOFO = "DQStopJobOnFailureOptions";
+const _DQT = "DataQualityTelemetry";
 const _DQTT = "DataQualityTargetTable";
 const _DR = "DistributionResults";
 const _DRI = "DeleteRegistryInput";
+const _DRLSP = "DefaultRLSPolicy";
 const _DRO = "DistributionResultsOptions";
 const _DRP = "DefaultRunProperties";
 const _DRPR = "DeleteResourcePolicyRequest";
@@ -799,9 +810,11 @@ const _Data = "Datatype";
 const _Date = "Date";
 const _De = "Delimiter";
 const _Def = "Definer";
+const _Des = "Descriptors";
 const _Det = "Details";
-const _Di = "Diff";
+const _Di = "Dimensions";
 const _Dia = "Dialect";
+const _Dif = "Diff";
 const _Dir = "Direction";
 const _Do = "Doc";
 const _Dr = "Dropped";
@@ -817,6 +830,7 @@ const _EBN = "ErrorByName";
 const _EC = "EvaluationContext";
 const _ECLM = "EmitConsumerLagMetrics";
 const _ECM = "EntityConfigurationMap";
+const _ECO = "ExecutionCompletedOn";
 const _ECS = "ExcludeColumnSchema";
 const _ECn = "EncryptionConfiguration";
 const _ECnt = "EntityConfiguration";
@@ -858,6 +872,7 @@ const _EQA = "EventQueueArn";
 const _ER = "EvaluatedRule";
 const _ERSP = "ExecutionRoleSessionPolicy";
 const _ES = "ErrorString";
+const _ESO = "ExecutionStartedOn";
 const _ESP = "EnableSamplePath";
 const _ESx = "ExportSetting";
 const _ET = "EndTime";
@@ -871,6 +886,7 @@ const _EVr = "ErrorValue";
 const _Ed = "Edge";
 const _Edg = "Edges";
 const _En = "Entries";
+const _Eng = "Engine";
 const _Ent = "Entity";
 const _Enti = "Entities";
 const _Er = "Error";
@@ -888,8 +904,9 @@ const _FD = "FederatedDatabase";
 const _FDM = "FieldDefinitionMap";
 const _FDT = "FieldDataType";
 const _FDi = "FieldDefinition";
-const _FE = "FilterExpression";
-const _FEi = "FilterExpressions";
+const _FE = "FlagsEnabled";
+const _FEi = "FilterExpression";
+const _FEil = "FilterExpressions";
 const _FFS = "FromFederationSource";
 const _FI = "FunctionInput";
 const _FIA = "FailedInclusionAnnotations";
@@ -1039,6 +1056,9 @@ const _GDQRRRRe = "GetDataQualityRuleRecommendationRunResponse";
 const _GDQRRe = "GetDataQualityResultResponse";
 const _GDQRRet = "GetDataQualityRulesetRequest";
 const _GDQRReta = "GetDataQualityRulesetResponse";
+const _GDQRV = "GetDataQualityResultV2";
+const _GDQRVR = "GetDataQualityResultV2Request";
+const _GDQRVRe = "GetDataQualityResultV2Response";
 const _GDQRe = "GetDataQualityRuleset";
 const _GDR = "GetDatabaseRequest";
 const _GDRe = "GetDatabaseResponse";
@@ -1150,6 +1170,12 @@ const _GSE = "GetSessionEndpoint";
 const _GSER = "GetSessionEndpointRequest";
 const _GSERe = "GetSessionEndpointResponse";
 const _GSI = "GetSchemaInput";
+const _GSLFJR = "GetSystemLogsForJobRun";
+const _GSLFJRR = "GetSystemLogsForJobRunRequest";
+const _GSLFJRRe = "GetSystemLogsForJobRunResponse";
+const _GSLFS = "GetSystemLogsForSession";
+const _GSLFSR = "GetSystemLogsForSessionRequest";
+const _GSLFSRe = "GetSystemLogsForSessionResponse";
 const _GSPL = "GlueStudioPathList";
 const _GSR = "GetSchemaResponse";
 const _GSRe = "GetSessionRequest";
@@ -1239,6 +1265,7 @@ const _HBK = "HighBoundKey";
 const _HD = "HasDatabases";
 const _HK = "HeaderKey";
 const _HP = "HidePassword";
+const _HRV = "HostRuntimeVersion";
 const _HT = "HudiTargets";
 const _HTL = "HudiTargetList";
 const _HTu = "HudiTarget";
@@ -1299,6 +1326,7 @@ const _ILTRP = "ImportLabelsTaskRunProperties";
 const _IM = "IcebergMetrics";
 const _IMDV = "IsMultiDialectView";
 const _IMV = "IsMaterializedView";
+const _IMs = "IsManaged";
 const _IN = "IntegrationName";
 const _INFF = "IntegrationNotFoundFault";
 const _INO = "IsNegOne";
@@ -1486,6 +1514,9 @@ const _LDQRRRRi = "ListDataQualityRuleRecommendationRunsResponse";
 const _LDQRRi = "ListDataQualityResultsResponse";
 const _LDQRRis = "ListDataQualityRulesetsRequest";
 const _LDQRRist = "ListDataQualityRulesetsResponse";
+const _LDQRV = "ListDataQualityResultsV2";
+const _LDQRVR = "ListDataQualityResultsV2Request";
+const _LDQRVRi = "ListDataQualityResultsV2Response";
 const _LDQRi = "ListDataQualityRulesets";
 const _LDQS = "ListDataQualityStatistics";
 const _LDQSA = "ListDataQualityStatisticAnnotations";
@@ -1575,7 +1606,8 @@ const _LUT = "LastUpdatedTime";
 const _LUo = "LogoUrl";
 const _LUoc = "LocationUri";
 const _LUog = "LogUri";
-const _LV = "LatestVersion";
+const _LV = "LibraryVersion";
+const _LVa = "LatestVersion";
 const _LVo = "LongValue";
 const _LW = "ListWorkflows";
 const _LWR = "ListWorkflowsRequest";
@@ -1719,6 +1751,7 @@ const _OB = "OrderBy";
 const _OC = "OffsetConfiguration";
 const _OCN = "OutputColumnName";
 const _OCRPWD = "OverwriteChildResourcePermissionsWithDefault";
+const _OE = "ObservationsEnabled";
 const _OF = "OutputFormat";
 const _OFD = "OrphanFileDeletion";
 const _OFDC = "OrphanFileDeletionConfiguration";
@@ -1761,10 +1794,12 @@ const _PATR = "PutAssetTypeRequest";
 const _PATRu = "PutAssetTypeResponse";
 const _PAo = "PostAction";
 const _PAr = "PrivateAddress";
-const _PAu = "PublicAddress";
+const _PAu = "PublishedAfter";
+const _PAub = "PublicAddress";
 const _PAut = "PutAsset";
 const _PAutt = "PutAttachment";
-const _PB = "ProcessedBytes";
+const _PB = "PublishedBefore";
+const _PBr = "ProcessedBytes";
 const _PC = "PartitionColumn";
 const _PCI = "ParentCatalogId";
 const _PCP = "PythonConnectionProperties";
@@ -1782,6 +1817,9 @@ const _PDCESRu = "PutDataCatalogEncryptionSettingsResponse";
 const _PDQPA = "PutDataQualityProfileAnnotation";
 const _PDQPAR = "PutDataQualityProfileAnnotationRequest";
 const _PDQPARu = "PutDataQualityProfileAnnotationResponse";
+const _PDQRV = "PublishDataQualityResultV2";
+const _PDQRVR = "PublishDataQualityResultV2Request";
+const _PDQRVRu = "PublishDataQualityResultV2Response";
 const _PE = "PitrEnabled";
 const _PEC = "PolicyExistsCondition";
 const _PEN = "ParentEntityName";
@@ -1912,6 +1950,7 @@ const _RCeq = "RequestedChange";
 const _RCes = "ResponseConfiguration";
 const _RCet = "RetentionConfiguration";
 const _RCu = "RuleCount";
+const _RCun = "RunConfiguration";
 const _RD = "ReferencedDatasets";
 const _RDF = "ResponseDateFormat";
 const _RDN = "RedshiftDatabaseName";
@@ -1937,6 +1976,7 @@ const _RLD = "RegistryListDefinition";
 const _RLI = "RegistryListItem";
 const _RLR = "RowLevelResults";
 const _RLRO = "RowLevelResultsOptions";
+const _RLSP = "RLSProperties";
 const _RM = "RequestMethod";
 const _RMM = "RuleMetricsMap";
 const _RMe = "RecommendationMode";
@@ -1959,6 +1999,7 @@ const _RP = "RecrawlPolicy";
 const _RPA = "ResourcePropertyArn";
 const _RPE = "ResultsPublishingEnabled";
 const _RPL = "RecordPollingLimit";
+const _RPO = "ResultPublishedOn";
 const _RPe = "ResultPath";
 const _RPeq = "RequestPath";
 const _RPequ = "RequestParameters";
@@ -2179,6 +2220,7 @@ const _SJS = "S3JsonSource";
 const _SL = "S3Location";
 const _SLD = "SchemaListDefinition";
 const _SLI = "SchemaListItem";
+const _SLU = "SystemLogsUrl";
 const _SLc = "ScriptLocation";
 const _SLe = "SerializationLibrary";
 const _SLes = "SessionList";
@@ -2282,7 +2324,7 @@ const _STtar = "StartingTimestamp";
 const _STtart = "StartTrigger";
 const _STto = "StopTrigger";
 const _SU = "SensitiveUrl";
-const _SV = "SupportedValues";
+const _SV = "SparkVersion";
 const _SVE = "SchemaVersionErrors";
 const _SVEI = "SchemaVersionErrorItem";
 const _SVEL = "SchemaVersionErrorList";
@@ -2292,6 +2334,7 @@ const _SVLI = "SchemaVersionListItem";
 const _SVN = "SchemaVersionNumber";
 const _SVS = "SchemaVersionStatus";
 const _SVt = "StringValue";
+const _SVu = "SupportedValues";
 const _SWR = "StartWorkflowRun";
 const _SWRR = "StartWorkflowRunRequest";
 const _SWRRt = "StartWorkflowRunResponse";
@@ -2361,6 +2404,7 @@ const _TLri = "TriggerList";
 const _TN = "TableName";
 const _TND = "TriggerNodeDetails";
 const _TNF = "TriggersNotFound";
+const _TNa = "TargetNamespace";
 const _TNo = "TopicName";
 const _TNr = "TriggerNames";
 const _TNra = "TransformName";
@@ -2430,6 +2474,7 @@ const _Tag_ = "Tag";
 const _Tar = "Target";
 const _Targ = "Targets";
 const _Te = "Template";
+const _Tel = "Telemetry";
 const _To = "Topk";
 const _Tr = "Triggers";
 const _Tra = "Transforms";
@@ -2585,6 +2630,7 @@ const _VE = "ValidationException";
 const _VEC = "ValidationEndpointConfiguration";
 const _VET = "ViewExpandedText";
 const _VFCE = "ValidateForComputeEnvironments";
+const _VH = "VcpuHours";
 const _VI = "VersionIds";
 const _VIe = "VersionId";
 const _VIp = "VpcId";
@@ -3289,6 +3335,16 @@ export var BatchGetDataQualityResultResponse$: StaticStructureSchema = [3, n0, _
   [_Re, _RNF],
   [[() => DataQualityResultsList, 0], 64 | 0], 1
 ];
+export var BatchGetDataQualityResultV2Request$: StaticStructureSchema = [3, n0, _BGDQRVR,
+  0,
+  [_RI],
+  [64 | 0], 1
+];
+export var BatchGetDataQualityResultV2Response$: StaticStructureSchema = [3, n0, _BGDQRVRa,
+  0,
+  [_Re, _RNF],
+  [[() => DataQualityResultV2List, 0], 64 | 0], 1
+];
 export var BatchGetDataQualityRulesetEvaluationRunRequest$: StaticStructureSchema = [3, n0, _BGDQRERR,
   0,
   [_RIu],
@@ -3781,8 +3837,8 @@ export var Crawl$: StaticStructureSchema = [3, n0, _Cra,
 ];
 export var Crawler$: StaticStructureSchema = [3, n0, _Craw,
   0,
-  [_N, _Rol, _Targ, _DN, _D, _Cla, _RP, _SCP, _LC, _Sta, _TP, _Sch, _CETr, _CTre, _LU, _LCa, _Ver, _Conf, _CSC, _LFC],
-  [0, 0, () => CrawlerTargets$, 0, 0, 64 | 0, () => RecrawlPolicy$, () => SchemaChangePolicy$, () => LineageConfiguration$, 0, 0, () => Schedule$, 1, 4, 4, () => LastCrawlInfo$, 1, 0, 0, () => LakeFormationConfiguration$]
+  [_N, _Rol, _Targ, _DN, _D, _Cla, _RP, _SCP, _LC, _Sta, _TP, _Sch, _CETr, _CTre, _LU, _LCa, _Ver, _Conf, _CSC, _LFC, _CI],
+  [0, 0, () => CrawlerTargets$, 0, 0, 64 | 0, () => RecrawlPolicy$, () => SchemaChangePolicy$, () => LineageConfiguration$, 0, 0, () => Schedule$, 1, 4, 4, () => LastCrawlInfo$, 1, 0, 0, () => LakeFormationConfiguration$, 0]
 ];
 export var CrawlerHistory$: StaticStructureSchema = [3, n0, _CH,
   0,
@@ -3861,8 +3917,8 @@ export var CreateConnectionResponse$: StaticStructureSchema = [3, n0, _CCRreate,
 ];
 export var CreateCrawlerRequest$: StaticStructureSchema = [3, n0, _CCRreater,
   0,
-  [_N, _Rol, _Targ, _DN, _D, _Sch, _Cla, _TP, _SCP, _RP, _LC, _LFC, _Conf, _CSC, _Tag],
-  [0, 0, () => CrawlerTargets$, 0, 0, 0, 64 | 0, 0, () => SchemaChangePolicy$, () => RecrawlPolicy$, () => LineageConfiguration$, () => LakeFormationConfiguration$, 0, 0, 128 | 0], 3
+  [_N, _Rol, _Targ, _DN, _D, _Sch, _Cla, _TP, _SCP, _RP, _LC, _LFC, _Conf, _CSC, _Tag, _CI],
+  [0, 0, () => CrawlerTargets$, 0, 0, 0, 64 | 0, 0, () => SchemaChangePolicy$, () => RecrawlPolicy$, () => LineageConfiguration$, () => LakeFormationConfiguration$, 0, 0, 128 | 0, 0], 3
 ];
 export var CreateCrawlerResponse$: StaticStructureSchema = [3, n0, _CCRreatera,
   0,
@@ -4219,6 +4275,11 @@ export var DataQualityAnalyzerResult$: StaticStructureSchema = [3, n0, _DQAR,
   [_N, _D, _EMv, _EMva, _EDv],
   [0, [() => DataQualityRuleResultDescription, 0], [() => DataQualityRuleResultDescription, 0], [() => EvaluatedMetricsMap, 0], [() => EvaluatedDistributionsMap, 0]]
 ];
+export var DataQualityConfigurationV2$: StaticStructureSchema = [3, n0, _DQCV,
+  0,
+  [_OE, _OM],
+  [0, 0]
+];
 export var DataQualityEncryption$: StaticStructureSchema = [3, n0, _DQE,
   0,
   [_DQEM, _KKA],
@@ -4258,6 +4319,21 @@ export var DataQualityResultFilterCriteria$: StaticStructureSchema = [3, n0, _DQ
   0,
   [_DSa, _JN, _JRI, _SAt, _SB],
   [() => DataSource$, 0, 0, 4, 4]
+];
+export var DataQualityResultsV2Description$: StaticStructureSchema = [3, n0, _DQRVD,
+  0,
+  [_RIes, _DSa, _RPO, _Di, _EC, _Des],
+  [0, () => DataSource$, 4, 128 | 0, 0, 128 | 0]
+];
+export var DataQualityResultsV2FilterCriteria$: StaticStructureSchema = [3, n0, _DQRVFC,
+  0,
+  [_DSa, _PAu, _PB, _Di, _EC],
+  [() => DataSource$, 4, 4, 128 | 0, 0]
+];
+export var DataQualityResultV2Item$: StaticStructureSchema = [3, n0, _DQRVI,
+  0,
+  [_RIes, _DSa, _Di, _Tag, _ESO, _ECO, _RPO, _Scor, _RR, _AR, _O, _EC, _Des, _AMg, _RNu],
+  [0, () => DataSource$, 128 | 0, 128 | 0, 4, 4, 4, 1, [() => DataQualityRuleResults, 0], [() => DataQualityAnalyzerResults, 0], [() => DataQualityObservations, 0], 0, 128 | 0, () => DataQualityAggregatedMetrics$, 0], 1
 ];
 export var DataQualityRuleRecommendationRunAdditionalRunOptions$: StaticStructureSchema = [3, n0, _DQRRRARO,
   0,
@@ -4313,6 +4389,11 @@ export var DataQualityTargetTable$: StaticStructureSchema = [3, n0, _DQTT,
   0,
   [_TN, _DN, _CI],
   [0, 0, 0], 2
+];
+export var DataQualityTelemetry$: StaticStructureSchema = [3, n0, _DQT,
+  0,
+  [_VH, _FE, _LV, _SV, _HRV, _Eng],
+  [1, 128 | 0, 0, 0, 0, 0]
 ];
 export var DataSource$: StaticStructureSchema = [3, n0, _DSa,
   0,
@@ -4431,8 +4512,8 @@ export var DeleteColumnStatisticsForTableResponse$: StaticStructureSchema = [3, 
 ];
 export var DeleteColumnStatisticsTaskSettingsRequest$: StaticStructureSchema = [3, n0, _DCSTSR,
   0,
-  [_DN, _TN],
-  [0, 0], 2
+  [_DN, _TN, _CID],
+  [0, 0, 0], 2
 ];
 export var DeleteColumnStatisticsTaskSettingsResponse$: StaticStructureSchema = [3, n0, _DCSTSRe,
   0,
@@ -4796,7 +4877,7 @@ export var DescribeIntegrationsResponse$: StaticStructureSchema = [3, n0, _DIRes
 ];
 export var DevEndpoint$: StaticStructureSchema = [3, n0, _DEe,
   0,
-  [_EN, _RA, _SGI, _SIu, _YEA, _PAr, _ZRSIP, _PAu, _St, _WT, _GV, _NOW, _NONu, _AZ, _VIp, _EPLSP, _EJSP, _FR, _LUS, _CTrea, _LMT, _PKu, _PKub, _SC, _Ar],
+  [_EN, _RA, _SGI, _SIu, _YEA, _PAr, _ZRSIP, _PAub, _St, _WT, _GV, _NOW, _NONu, _AZ, _VIp, _EPLSP, _EJSP, _FR, _LUS, _CTrea, _LMT, _PKu, _PKub, _SC, _Ar],
   [0, 0, 64 | 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 0, 64 | 0, 0, 128 | 0]
 ];
 export var DevEndpointCustomLibraries$: StaticStructureSchema = [3, n0, _DECL,
@@ -4991,7 +5072,7 @@ export var FederatedTable$: StaticStructureSchema = [3, n0, _FT,
 ];
 export var Field$: StaticStructureSchema = [3, n0, _Fiel,
   0,
-  [_FN, _Labe, _D, _FTi, _IPK, _INs, _IRs, _IF, _IP, _ICs, _IU, _IUs, _IDOC, _SV, _SFO, _PF, _NDT, _CPu],
+  [_FN, _Labe, _D, _FTi, _IPK, _INs, _IRs, _IF, _IP, _ICs, _IU, _IUs, _IDOC, _SVu, _SFO, _PF, _NDT, _CPu],
   [0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 64 | 0, 64 | 0, 0, 0, 128 | 0]
 ];
 export var FieldDefinition$: StaticStructureSchema = [3, n0, _FDi,
@@ -5014,7 +5095,7 @@ export var FilterConfiguration$: StaticStructureSchema = [3, n0, _FCi,
   [_FM, _OMp, _DTF, _SQt, _BC, _FSC],
   [0, 128 | 0, 0, 2, () => BetweenConfiguration$, () => FilterStringConfiguration$], 1
 ];
-export var FilterExpression$: StaticStructureSchema = [3, n0, _FE,
+export var FilterExpression$: StaticStructureSchema = [3, n0, _FEi,
   0,
   [_Op, _Val, _Ne],
   [0, () => FilterValues, 2], 2
@@ -5186,8 +5267,8 @@ export var GetColumnStatisticsTaskRunResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var GetColumnStatisticsTaskRunsRequest$: StaticStructureSchema = [3, n0, _GCSTRRet,
   0,
-  [_DN, _TN, _MRax, _NTe],
-  [0, 0, 1, 0], 2
+  [_DN, _TN, _MRax, _NTe, _CID],
+  [0, 0, 1, 0, 0], 2
 ];
 export var GetColumnStatisticsTaskRunsResponse$: StaticStructureSchema = [3, n0, _GCSTRReto,
   0,
@@ -5196,8 +5277,8 @@ export var GetColumnStatisticsTaskRunsResponse$: StaticStructureSchema = [3, n0,
 ];
 export var GetColumnStatisticsTaskSettingsRequest$: StaticStructureSchema = [3, n0, _GCSTSR,
   0,
-  [_DN, _TN],
-  [0, 0], 2
+  [_DN, _TN, _CID],
+  [0, 0, 0], 2
 ];
 export var GetColumnStatisticsTaskSettingsResponse$: StaticStructureSchema = [3, n0, _GCSTSRe,
   0,
@@ -5358,6 +5439,16 @@ export var GetDataQualityResultResponse$: StaticStructureSchema = [3, n0, _GDQRR
   0,
   [_RIes, _PI, _Scor, _DSa, _RNu, _EC, _SO, _COo, _JN, _JRI, _RERI, _RR, _AR, _O, _AMg],
   [0, 0, 1, () => DataSource$, 0, 0, 4, 4, 0, 0, 0, [() => DataQualityRuleResults, 0], [() => DataQualityAnalyzerResults, 0], [() => DataQualityObservations, 0], () => DataQualityAggregatedMetrics$]
+];
+export var GetDataQualityResultV2Request$: StaticStructureSchema = [3, n0, _GDQRVR,
+  0,
+  [_RIes],
+  [0], 1
+];
+export var GetDataQualityResultV2Response$: StaticStructureSchema = [3, n0, _GDQRVRe,
+  0,
+  [_RIes, _DSa, _PI, _Di, _Tag, _ESO, _ECO, _RPO, _Scor, _RR, _AR, _O, _EC, _Des, _AMg, _RNu],
+  [0, () => DataSource$, 0, 128 | 0, 128 | 0, 4, 4, 4, 1, [() => DataQualityRuleResults, 0], [() => DataQualityAnalyzerResults, 0], [() => DataQualityObservations, 0], 0, 128 | 0, () => DataQualityAggregatedMetrics$, 0]
 ];
 export var GetDataQualityRuleRecommendationRunRequest$: StaticStructureSchema = [3, n0, _GDQRRRR,
   0,
@@ -5696,7 +5787,7 @@ export var GetSchemaVersionsDiffInput$: StaticStructureSchema = [3, n0, _GSVDI,
 ];
 export var GetSchemaVersionsDiffResponse$: StaticStructureSchema = [3, n0, _GSVDR,
   0,
-  [_Di],
+  [_Dif],
   [0]
 ];
 export var GetSecurityConfigurationRequest$: StaticStructureSchema = [3, n0, _GSCR,
@@ -5749,6 +5840,26 @@ export var GetStatementResponse$: StaticStructureSchema = [3, n0, _GSRetta,
   [_Stat],
   [() => Statement$]
 ];
+export var GetSystemLogsForJobRunRequest$: StaticStructureSchema = [3, n0, _GSLFJRR,
+  0,
+  [_JN, _RIun],
+  [0, 0], 2
+];
+export var GetSystemLogsForJobRunResponse$: StaticStructureSchema = [3, n0, _GSLFJRRe,
+  0,
+  [_SLU],
+  [0]
+];
+export var GetSystemLogsForSessionRequest$: StaticStructureSchema = [3, n0, _GSLFSR,
+  0,
+  [_Id],
+  [0], 1
+];
+export var GetSystemLogsForSessionResponse$: StaticStructureSchema = [3, n0, _GSLFSRe,
+  0,
+  [_SLU],
+  [0]
+];
 export var GetTableOptimizerRequest$: StaticStructureSchema = [3, n0, _GTOR,
   0,
   [_CI, _DN, _TN, _Ty],
@@ -5771,8 +5882,8 @@ export var GetTableResponse$: StaticStructureSchema = [3, n0, _GTRe,
 ];
 export var GetTablesRequest$: StaticStructureSchema = [3, n0, _GTRet,
   0,
-  [_DN, _CI, _Ex, _NTe, _MRax, _TI, _QAOT, _ACu, _ISD, _ATG],
-  [0, 0, 0, 0, 1, 0, 4, () => AuditContext$, 2, 64 | 0], 1
+  [_DN, _CI, _Ex, _NTe, _MRax, _TI, _QAOT, _ACu, _RST, _ISD, _ATG],
+  [0, 0, 0, 0, 1, 0, 4, () => AuditContext$, 0, 2, 64 | 0], 1
 ];
 export var GetTablesResponse$: StaticStructureSchema = [3, n0, _GTReta,
   0,
@@ -6106,8 +6217,8 @@ export var Integration$: StaticStructureSchema = [3, n0, _Int,
 ];
 export var IntegrationConfig$: StaticStructureSchema = [3, n0, _ICn,
   0,
-  [_RIef, _SPo, _CSon],
-  [0, 128 | 0, 2]
+  [_RIef, _SPo, _CSon, _TNa],
+  [0, 128 | 0, 2, 0]
 ];
 export var IntegrationError$: StaticStructureSchema = [3, n0, _IEn,
   0,
@@ -6358,6 +6469,16 @@ export var ListDataQualityResultsResponse$: StaticStructureSchema = [3, n0, _LDQ
   0,
   [_Re, _NTe],
   [() => DataQualityResultDescriptionList, 0], 1
+];
+export var ListDataQualityResultsV2Request$: StaticStructureSchema = [3, n0, _LDQRVR,
+  0,
+  [_Fi, _NTe, _MRax],
+  [() => DataQualityResultsV2FilterCriteria$, 0, 1]
+];
+export var ListDataQualityResultsV2Response$: StaticStructureSchema = [3, n0, _LDQRVRi,
+  0,
+  [_Re, _NTe],
+  [() => DataQualityResultsV2DescriptionList, 0], 1
 ];
 export var ListDataQualityRuleRecommendationRunsRequest$: StaticStructureSchema = [3, n0, _LDQRRRR,
   0,
@@ -6631,7 +6752,7 @@ export var MappingEntry$: StaticStructureSchema = [3, n0, _ME,
 ];
 export var MaterializedViewRefreshTaskRun$: StaticStructureSchema = [3, n0, _MVRTR,
   0,
-  [_CIu, _MVRTRI, _DN, _TN, _CI, _Rol, _St, _CTre, _LU, _STta, _ET, _EM, _DPUS, _RTef, _PB],
+  [_CIu, _MVRTRI, _DN, _TN, _CI, _Rol, _St, _CTre, _LU, _STta, _ET, _EM, _DPUS, _RTef, _PBr],
   [0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 1, 0, 1]
 ];
 export var Merge$: StaticStructureSchema = [3, n0, _Me,
@@ -6879,6 +7000,16 @@ export var PropertyPredicate$: StaticStructureSchema = [3, n0, _PPro,
   [_K, _V, _Compar],
   [0, 0, 0]
 ];
+export var PublishDataQualityResultV2Request$: StaticStructureSchema = [3, n0, _PDQRVR,
+  0,
+  [_Di, _Scor, _RR, _EC, _Tag, _ESO, _ECO, _AR, _O, _AMg, _Stati, _RCun, _CTl, _Des, _RNu, _DQSC, _Tel],
+  [128 | 0, 1, [() => DataQualityRuleResults, 0], 0, 128 | 0, 4, 4, [() => DataQualityAnalyzerResults, 0], [() => DataQualityObservations, 0], () => DataQualityAggregatedMetrics$, [() => StatisticSummaryList, 0], () => DataQualityConfigurationV2$, [0, 4], 128 | 0, 0, 0, () => DataQualityTelemetry$], 4
+];
+export var PublishDataQualityResultV2Response$: StaticStructureSchema = [3, n0, _PDQRVRu,
+  0,
+  [_RIes],
+  [0], 1
+];
 export var PutAssetRequest$: StaticStructureSchema = [3, n0, _PAR,
   0,
   [_ATIs, _Ide, _N, _For, _D, _CTl],
@@ -6966,7 +7097,7 @@ export var PutSchemaVersionMetadataInput$: StaticStructureSchema = [3, n0, _PSVM
 ];
 export var PutSchemaVersionMetadataResponse$: StaticStructureSchema = [3, n0, _PSVMR,
   0,
-  [_SAc, _SN, _RN, _LV, _VN, _SVI, _MK, _MVe],
+  [_SAc, _SN, _RN, _LVa, _VN, _SVI, _MK, _MVe],
   [0, 0, 0, 2, 1, 0, 0, 0]
 ];
 export var PutWorkflowRunPropertiesRequest$: StaticStructureSchema = [3, n0, _PWRPR,
@@ -7071,7 +7202,7 @@ export var RemoveSchemaVersionMetadataInput$: StaticStructureSchema = [3, n0, _R
 ];
 export var RemoveSchemaVersionMetadataResponse$: StaticStructureSchema = [3, n0, _RSVMR,
   0,
-  [_SAc, _SN, _RN, _LV, _VN, _SVI, _MK, _MVe],
+  [_SAc, _SN, _RN, _LVa, _VN, _SVI, _MK, _MVe],
   [0, 0, 0, 2, 1, 0, 0, 0]
 ];
 export var RenameField$: StaticStructureSchema = [3, n0, _RF,
@@ -7128,6 +7259,11 @@ export var RetentionMetrics$: StaticStructureSchema = [3, n0, _RMet,
   0,
   [_IM],
   [() => IcebergRetentionMetrics$]
+];
+export var RLSProperties$: StaticStructureSchema = [3, n0, _RLSP,
+  0,
+  [_DRLSP],
+  [0]
 ];
 export var Route$: StaticStructureSchema = [3, n0, _Ro,
   0,
@@ -7321,7 +7457,7 @@ export var SchemaVersionListItem$: StaticStructureSchema = [3, n0, _SVLI,
 ];
 export var SchemaVersionNumber$: StaticStructureSchema = [3, n0, _SVN,
   0,
-  [_LV, _VN],
+  [_LVa, _VN],
   [2, 1]
 ];
 export var SearchAssetsInput$: StaticStructureSchema = [3, n0, _SAI,
@@ -7501,8 +7637,8 @@ export var StartColumnStatisticsTaskRunResponse$: StaticStructureSchema = [3, n0
 ];
 export var StartColumnStatisticsTaskRunScheduleRequest$: StaticStructureSchema = [3, n0, _SCSTRSR,
   0,
-  [_DN, _TN],
-  [0, 0], 2
+  [_DN, _TN, _CID],
+  [0, 0, 0], 2
 ];
 export var StartColumnStatisticsTaskRunScheduleResponse$: StaticStructureSchema = [3, n0, _SCSTRSRt,
   0,
@@ -7671,8 +7807,8 @@ export var StatusDetails$: StaticStructureSchema = [3, n0, _SDtat,
 ];
 export var StopColumnStatisticsTaskRunRequest$: StaticStructureSchema = [3, n0, _SCSTRRto,
   0,
-  [_DN, _TN],
-  [0, 0], 2
+  [_DN, _TN, _CID],
+  [0, 0, 0], 2
 ];
 export var StopColumnStatisticsTaskRunResponse$: StaticStructureSchema = [3, n0, _SCSTRRtop,
   0,
@@ -7681,8 +7817,8 @@ export var StopColumnStatisticsTaskRunResponse$: StaticStructureSchema = [3, n0,
 ];
 export var StopColumnStatisticsTaskRunScheduleRequest$: StaticStructureSchema = [3, n0, _SCSTRSRto,
   0,
-  [_DN, _TN],
-  [0, 0], 2
+  [_DN, _TN, _CID],
+  [0, 0, 0], 2
 ];
 export var StopColumnStatisticsTaskRunScheduleResponse$: StaticStructureSchema = [3, n0, _SCSTRSRtop,
   0,
@@ -7776,8 +7912,8 @@ export var SupportedDialect$: StaticStructureSchema = [3, n0, _SDu,
 ];
 export var Table$: StaticStructureSchema = [3, n0, _Ta,
   0,
-  [_N, _DN, _D, _Ow, _CTr, _UT, _LAT, _LATa, _Ret, _SDto, _PK, _VOT, _VET, _TTab, _Par, _CBr, _IRWLF, _TT, _CI, _VIe, _FT, _VD, _IMDV, _IMV, _ITM, _St],
-  [0, 0, 0, 0, 4, 4, 4, 4, 1, () => StorageDescriptor$, () => ColumnList, 0, 0, 0, 128 | 0, 0, 2, () => TableIdentifier$, 0, 0, () => FederatedTable$, () => ViewDefinition$, 2, 2, () => IcebergTableMetadata$, () => TableStatus$], 1
+  [_N, _DN, _D, _Ow, _CTr, _UT, _LAT, _LATa, _Ret, _SDto, _PK, _VOT, _VET, _TTab, _Par, _CBr, _IRWLF, _TT, _CI, _VIe, _FT, _VD, _IMDV, _IMV, _ITM, _St, _RLSP],
+  [0, 0, 0, 0, 4, 4, 4, 4, 1, () => StorageDescriptor$, () => ColumnList, 0, 0, 0, 128 | 0, 0, 2, () => TableIdentifier$, 0, 0, () => FederatedTable$, () => ViewDefinition$, 2, 2, () => IcebergTableMetadata$, () => TableStatus$, () => RLSProperties$], 1
 ];
 export var TableError$: StaticStructureSchema = [3, n0, _TEa,
   0,
@@ -7791,8 +7927,8 @@ export var TableIdentifier$: StaticStructureSchema = [3, n0, _TIab,
 ];
 export var TableInput$: StaticStructureSchema = [3, n0, _TIa,
   0,
-  [_N, _D, _Ow, _LAT, _LATa, _Ret, _SDto, _PK, _VOT, _VET, _TTab, _Par, _TT, _VD],
-  [0, 0, 0, 4, 4, 1, () => StorageDescriptor$, () => ColumnList, 0, 0, 0, 128 | 0, () => TableIdentifier$, () => ViewDefinitionInput$], 1
+  [_N, _D, _Ow, _LAT, _LATa, _Ret, _SDto, _PK, _VOT, _VET, _TTab, _Par, _TT, _FT, _VD],
+  [0, 0, 0, 4, 4, 1, () => StorageDescriptor$, () => ColumnList, 0, 0, 0, 128 | 0, () => TableIdentifier$, () => FederatedTable$, () => ViewDefinitionInput$], 1
 ];
 export var TableOptimizer$: StaticStructureSchema = [3, n0, _TOa,
   0,
@@ -8041,8 +8177,8 @@ export var UpdateConnectionResponse$: StaticStructureSchema = [3, n0, _UCRpdate,
 ];
 export var UpdateCrawlerRequest$: StaticStructureSchema = [3, n0, _UCRpdater,
   0,
-  [_N, _Rol, _DN, _D, _Targ, _Sch, _Cla, _TP, _SCP, _RP, _LC, _LFC, _Conf, _CSC],
-  [0, 0, 0, 0, () => CrawlerTargets$, 0, 64 | 0, 0, () => SchemaChangePolicy$, () => RecrawlPolicy$, () => LineageConfiguration$, () => LakeFormationConfiguration$, 0, 0], 1
+  [_N, _Rol, _DN, _D, _Targ, _Sch, _Cla, _TP, _SCP, _RP, _LC, _LFC, _Conf, _CSC, _CI],
+  [0, 0, 0, 0, () => CrawlerTargets$, 0, 64 | 0, 0, () => SchemaChangePolicy$, () => RecrawlPolicy$, () => LineageConfiguration$, () => LakeFormationConfiguration$, 0, 0, 0], 1
 ];
 export var UpdateCrawlerResponse$: StaticStructureSchema = [3, n0, _UCRpdatera,
   0,
@@ -8326,13 +8462,13 @@ export var UserDefinedFunctionInput$: StaticStructureSchema = [3, n0, _UDFI,
 ];
 export var ViewDefinition$: StaticStructureSchema = [3, n0, _VD,
   0,
-  [_IPs, _Def, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI, _SOSu, _Repr, _SPI],
-  [2, 0, 1, 0, 1, 0, 64 | 0, 64 | 1, () => SubObjectsStatisticsList, () => ViewRepresentationList, 128 | 0]
+  [_IPs, _IMs, _Def, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI, _SOSu, _Repr, _SPI],
+  [2, 2, 0, 1, 0, 1, 0, 64 | 0, 64 | 1, () => SubObjectsStatisticsList, () => ViewRepresentationList, 128 | 0]
 ];
 export var ViewDefinitionInput$: StaticStructureSchema = [3, n0, _VDI,
   0,
-  [_IPs, _Def, _Repr, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI, _SOSu, _SPI],
-  [2, 0, () => ViewRepresentationInputList, 1, 0, 1, 0, 64 | 0, 64 | 1, () => SubObjectsStatisticsList, 128 | 0]
+  [_IPs, _IMs, _Def, _Repr, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI, _SOSu, _SPI],
+  [2, 2, 0, () => ViewRepresentationInputList, 1, 0, 1, 0, 64 | 0, 64 | 1, () => SubObjectsStatisticsList, 128 | 0]
 ];
 export var ViewRepresentation$: StaticStructureSchema = [3, n0, _VRi,
   0,
@@ -8558,6 +8694,14 @@ var DataQualityResultsList: StaticListSchema = [1, n0, _DQRL,
   0, [() => DataQualityResult$,
     0]
 ];
+var DataQualityResultsV2DescriptionList: StaticListSchema = [1, n0, _DQRVDL,
+  0, () => DataQualityResultsV2Description$
+];
+var DataQualityResultV2IdList = 64 | 0;
+var DataQualityResultV2List: StaticListSchema = [1, n0, _DQRVL,
+  0, [() => DataQualityResultV2Item$,
+    0]
+];
 var DataQualityRuleRecommendationRunList: StaticListSchema = [1, n0, _DQRRRL,
   0, () => DataQualityRuleRecommendationRunDescription$
 ];
@@ -8600,7 +8744,7 @@ var FieldFilterOperatorsList = 64 | 0;
 var FieldsList: StaticListSchema = [1, n0, _FL,
   0, () => Field$
 ];
-var FilterExpressions: StaticListSchema = [1, n0, _FEi,
+var FilterExpressions: StaticListSchema = [1, n0, _FEil,
   0, () => FilterExpression$
 ];
 var FilterValues: StaticListSchema = [1, n0, _FVil,
@@ -8959,6 +9103,7 @@ var CredentialMap: StaticMapSchema = [2, n0, _CMre,
   8, 0, 0
 ];
 var CustomProperties = 128 | 0;
+var DataQualityFlagsEnabled = 128 | 0;
 var DataSourceMap: StaticMapSchema = [2, n0, _DSM,
   0, 0, () => DataSource$
 ];
@@ -9001,6 +9146,9 @@ var PropertiesMap: StaticMapSchema = [2, n0, _PM,
 ];
 var PropertyMap = 128 | 0;
 var PropertyNameOverrides = 128 | 0;
+var PublishDataQualityResultDescriptors = 128 | 0;
+var PublishDataQualityResultDimensions = 128 | 0;
+var PublishDataQualityResultTags = 128 | 0;
 var RuleMetricsMap: StaticMapSchema = [2, n0, _RMM,
   8, 0, 1
 ];
@@ -9061,6 +9209,9 @@ export var BatchGetCustomEntityTypes$: StaticOperationSchema = [9, n0, _BGCET,
 ];
 export var BatchGetDataQualityResult$: StaticOperationSchema = [9, n0, _BGDQR,
   0, () => BatchGetDataQualityResultRequest$, () => BatchGetDataQualityResultResponse$
+];
+export var BatchGetDataQualityResultV2$: StaticOperationSchema = [9, n0, _BGDQRV,
+  0, () => BatchGetDataQualityResultV2Request$, () => BatchGetDataQualityResultV2Response$
 ];
 export var BatchGetDataQualityRulesetEvaluationRun$: StaticOperationSchema = [9, n0, _BGDQRER,
   0, () => BatchGetDataQualityRulesetEvaluationRunRequest$, () => BatchGetDataQualityRulesetEvaluationRunResponse$
@@ -9428,6 +9579,9 @@ export var GetDataQualityModelResult$: StaticOperationSchema = [9, n0, _GDQMRet,
 export var GetDataQualityResult$: StaticOperationSchema = [9, n0, _GDQR,
   0, () => GetDataQualityResultRequest$, () => GetDataQualityResultResponse$
 ];
+export var GetDataQualityResultV2$: StaticOperationSchema = [9, n0, _GDQRV,
+  0, () => GetDataQualityResultV2Request$, () => GetDataQualityResultV2Response$
+];
 export var GetDataQualityRuleRecommendationRun$: StaticOperationSchema = [9, n0, _GDQRRR,
   0, () => GetDataQualityRuleRecommendationRunRequest$, () => GetDataQualityRuleRecommendationRunResponse$
 ];
@@ -9545,6 +9699,12 @@ export var GetSessionEndpoint$: StaticOperationSchema = [9, n0, _GSE,
 export var GetStatement$: StaticOperationSchema = [9, n0, _GSett,
   0, () => GetStatementRequest$, () => GetStatementResponse$
 ];
+export var GetSystemLogsForJobRun$: StaticOperationSchema = [9, n0, _GSLFJR,
+  0, () => GetSystemLogsForJobRunRequest$, () => GetSystemLogsForJobRunResponse$
+];
+export var GetSystemLogsForSession$: StaticOperationSchema = [9, n0, _GSLFS,
+  0, () => GetSystemLogsForSessionRequest$, () => GetSystemLogsForSessionResponse$
+];
 export var GetTable$: StaticOperationSchema = [9, n0, _GTe,
   0, () => GetTableRequest$, () => GetTableResponse$
 ];
@@ -9626,6 +9786,9 @@ export var ListCustomEntityTypes$: StaticOperationSchema = [9, n0, _LCET,
 export var ListDataQualityResults$: StaticOperationSchema = [9, n0, _LDQR,
   0, () => ListDataQualityResultsRequest$, () => ListDataQualityResultsResponse$
 ];
+export var ListDataQualityResultsV2$: StaticOperationSchema = [9, n0, _LDQRV,
+  0, () => ListDataQualityResultsV2Request$, () => ListDataQualityResultsV2Response$
+];
 export var ListDataQualityRuleRecommendationRuns$: StaticOperationSchema = [9, n0, _LDQRRR,
   0, () => ListDataQualityRuleRecommendationRunsRequest$, () => ListDataQualityRuleRecommendationRunsResponse$
 ];
@@ -9703,6 +9866,9 @@ export var ListWorkflows$: StaticOperationSchema = [9, n0, _LW,
 ];
 export var ModifyIntegration$: StaticOperationSchema = [9, n0, _MIo,
   0, () => ModifyIntegrationRequest$, () => ModifyIntegrationResponse$
+];
+export var PublishDataQualityResultV2$: StaticOperationSchema = [9, n0, _PDQRV,
+  2, () => PublishDataQualityResultV2Request$, () => PublishDataQualityResultV2Response$
 ];
 export var PutAsset$: StaticOperationSchema = [9, n0, _PAut,
   { [_h]: ["PUT", "/assets", 200] }, () => PutAssetRequest$, () => PutAssetResponse$

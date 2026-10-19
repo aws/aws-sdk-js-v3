@@ -112,6 +112,9 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
  * //     ImageSharedWithOthers: "TRUE" || "FALSE",
  * //     ManagedSoftwareIncluded: true || false,
  * //     ImageType: "CUSTOM" || "NATIVE" || "BYOL",
+ * //     ImageSoftwareMetadata: { // ImageSoftwareMetadata
+ * //       nvidiaGridDriverVersion: "STRING_VALUE",
+ * //     },
  * //   },
  * //   canUpdateImage: true || false,
  * // };

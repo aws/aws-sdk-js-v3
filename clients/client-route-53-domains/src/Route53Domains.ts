@@ -78,6 +78,11 @@ import {
   GetDomainDetailCommand,
 } from "./commands/GetDomainDetailCommand";
 import {
+  type GetDomainPricesCommandInput,
+  type GetDomainPricesCommandOutput,
+  GetDomainPricesCommand,
+} from "./commands/GetDomainPricesCommand";
+import {
   type GetDomainSuggestionsCommandInput,
   type GetDomainSuggestionsCommandOutput,
   GetDomainSuggestionsCommand,
@@ -198,6 +203,7 @@ const commands = {
   EnableDomainTransferLockCommand,
   GetContactReachabilityStatusCommand,
   GetDomainDetailCommand,
+  GetDomainPricesCommand,
   GetDomainSuggestionsCommand,
   GetOperationDetailCommand,
   ListDomainsCommand,
@@ -471,6 +477,23 @@ export interface Route53Domains {
     args: GetDomainDetailCommandInput,
     options: Route53DomainsRequestOptions,
     cb: (err: any, data?: GetDomainDetailCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDomainPricesCommand}
+   */
+  getDomainPrices(
+    args: GetDomainPricesCommandInput,
+    options?: Route53DomainsRequestOptions
+  ): Promise<GetDomainPricesCommandOutput>;
+  getDomainPrices(
+    args: GetDomainPricesCommandInput,
+    cb: (err: any, data?: GetDomainPricesCommandOutput) => void
+  ): void;
+  getDomainPrices(
+    args: GetDomainPricesCommandInput,
+    options: Route53DomainsRequestOptions,
+    cb: (err: any, data?: GetDomainPricesCommandOutput) => void
   ): void;
 
   /**

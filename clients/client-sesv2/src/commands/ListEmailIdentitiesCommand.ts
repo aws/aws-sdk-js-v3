@@ -36,6 +36,9 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  * const config = {}; // type is SESv2ClientConfig
  * const client = new SESv2Client(config);
  * const input = { // ListEmailIdentitiesRequest
+ *   Filter: { // IdentityFilter
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   NextToken: "STRING_VALUE",
  *   PageSize: Number("int"),
  * };

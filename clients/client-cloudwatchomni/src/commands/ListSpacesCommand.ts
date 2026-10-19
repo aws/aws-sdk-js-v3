@@ -71,6 +71,9 @@ export interface ListSpacesCommandOutput extends ListSpacesOutput, __MetadataBea
  * @throws {@link InternalServerException} (server fault)
  *  An unexpected error occurred while processing the request.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  The specified resource does not exist.
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  The request was throttled due to exceeding the allowed request rate.
  *

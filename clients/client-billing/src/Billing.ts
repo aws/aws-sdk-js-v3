@@ -69,6 +69,21 @@ import {
   ListBillingViewsCommand,
 } from "./commands/ListBillingViewsCommand";
 import {
+  type ListBillingViewSegmentsCommandInput,
+  type ListBillingViewSegmentsCommandOutput,
+  ListBillingViewSegmentsCommand,
+} from "./commands/ListBillingViewSegmentsCommand";
+import {
+  type ListBusinessSupportAccountChargesCommandInput,
+  type ListBusinessSupportAccountChargesCommandOutput,
+  ListBusinessSupportAccountChargesCommand,
+} from "./commands/ListBusinessSupportAccountChargesCommand";
+import {
+  type ListBusinessSupportSubscriptionHistoryCommandInput,
+  type ListBusinessSupportSubscriptionHistoryCommandOutput,
+  ListBusinessSupportSubscriptionHistoryCommand,
+} from "./commands/ListBusinessSupportSubscriptionHistoryCommand";
+import {
   type ListEnterpriseSupportLinkedAccountChargesCommandInput,
   type ListEnterpriseSupportLinkedAccountChargesCommandOutput,
   ListEnterpriseSupportLinkedAccountChargesCommand,
@@ -109,7 +124,12 @@ import {
   UpdateBillingViewCommand,
 } from "./commands/UpdateBillingViewCommand";
 import { paginateGetCreditAllocationHistory } from "./pagination/GetCreditAllocationHistoryPaginator";
+import { paginateListBillingViewSegments } from "./pagination/ListBillingViewSegmentsPaginator";
 import { paginateListBillingViews } from "./pagination/ListBillingViewsPaginator";
+import { paginateListBusinessSupportAccountCharges } from "./pagination/ListBusinessSupportAccountChargesPaginator";
+import {
+  paginateListBusinessSupportSubscriptionHistory,
+} from "./pagination/ListBusinessSupportSubscriptionHistoryPaginator";
 import {
   paginateListEnterpriseSupportLinkedAccountCharges,
 } from "./pagination/ListEnterpriseSupportLinkedAccountChargesPaginator";
@@ -128,6 +148,9 @@ const commands = {
   GetEnterpriseSupportContractDetailsCommand,
   GetResourcePolicyCommand,
   ListBillingViewsCommand,
+  ListBillingViewSegmentsCommand,
+  ListBusinessSupportAccountChargesCommand,
+  ListBusinessSupportSubscriptionHistoryCommand,
   ListEnterpriseSupportLinkedAccountChargesCommand,
   ListSourceViewsForBillingViewCommand,
   ListTagsForResourceCommand,
@@ -140,6 +163,9 @@ const commands = {
 const paginators = {
   paginateGetCreditAllocationHistory,
   paginateListBillingViews,
+  paginateListBillingViewSegments,
+  paginateListBusinessSupportAccountCharges,
+  paginateListBusinessSupportSubscriptionHistory,
   paginateListEnterpriseSupportLinkedAccountCharges,
   paginateListSourceViewsForBillingView,
 };
@@ -358,6 +384,59 @@ export interface Billing {
   ): void;
 
   /**
+   * @see {@link ListBillingViewSegmentsCommand}
+   */
+  listBillingViewSegments(): Promise<ListBillingViewSegmentsCommandOutput>;
+  listBillingViewSegments(
+    args: ListBillingViewSegmentsCommandInput,
+    options?: BillingRequestOptions
+  ): Promise<ListBillingViewSegmentsCommandOutput>;
+  listBillingViewSegments(
+    args: ListBillingViewSegmentsCommandInput,
+    cb: (err: any, data?: ListBillingViewSegmentsCommandOutput) => void
+  ): void;
+  listBillingViewSegments(
+    args: ListBillingViewSegmentsCommandInput,
+    options: BillingRequestOptions,
+    cb: (err: any, data?: ListBillingViewSegmentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBusinessSupportAccountChargesCommand}
+   */
+  listBusinessSupportAccountCharges(
+    args: ListBusinessSupportAccountChargesCommandInput,
+    options?: BillingRequestOptions
+  ): Promise<ListBusinessSupportAccountChargesCommandOutput>;
+  listBusinessSupportAccountCharges(
+    args: ListBusinessSupportAccountChargesCommandInput,
+    cb: (err: any, data?: ListBusinessSupportAccountChargesCommandOutput) => void
+  ): void;
+  listBusinessSupportAccountCharges(
+    args: ListBusinessSupportAccountChargesCommandInput,
+    options: BillingRequestOptions,
+    cb: (err: any, data?: ListBusinessSupportAccountChargesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBusinessSupportSubscriptionHistoryCommand}
+   */
+  listBusinessSupportSubscriptionHistory(): Promise<ListBusinessSupportSubscriptionHistoryCommandOutput>;
+  listBusinessSupportSubscriptionHistory(
+    args: ListBusinessSupportSubscriptionHistoryCommandInput,
+    options?: BillingRequestOptions
+  ): Promise<ListBusinessSupportSubscriptionHistoryCommandOutput>;
+  listBusinessSupportSubscriptionHistory(
+    args: ListBusinessSupportSubscriptionHistoryCommandInput,
+    cb: (err: any, data?: ListBusinessSupportSubscriptionHistoryCommandOutput) => void
+  ): void;
+  listBusinessSupportSubscriptionHistory(
+    args: ListBusinessSupportSubscriptionHistoryCommandInput,
+    options: BillingRequestOptions,
+    cb: (err: any, data?: ListBusinessSupportSubscriptionHistoryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListEnterpriseSupportLinkedAccountChargesCommand}
    */
   listEnterpriseSupportLinkedAccountCharges(
@@ -514,6 +593,39 @@ export interface Billing {
     args?: ListBillingViewsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListBillingViewsCommandOutput>;
+
+  /**
+   * @see {@link ListBillingViewSegmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBillingViewSegmentsCommandOutput}.
+   */
+  paginateListBillingViewSegments(
+    args?: ListBillingViewSegmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBillingViewSegmentsCommandOutput>;
+
+  /**
+   * @see {@link ListBusinessSupportAccountChargesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBusinessSupportAccountChargesCommandOutput}.
+   */
+  paginateListBusinessSupportAccountCharges(
+    args: ListBusinessSupportAccountChargesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBusinessSupportAccountChargesCommandOutput>;
+
+  /**
+   * @see {@link ListBusinessSupportSubscriptionHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBusinessSupportSubscriptionHistoryCommandOutput}.
+   */
+  paginateListBusinessSupportSubscriptionHistory(
+    args?: ListBusinessSupportSubscriptionHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBusinessSupportSubscriptionHistoryCommandOutput>;
 
   /**
    * @see {@link ListEnterpriseSupportLinkedAccountChargesCommand}

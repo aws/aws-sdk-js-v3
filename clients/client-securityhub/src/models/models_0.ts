@@ -11,6 +11,7 @@ import type {
   FreeTrialStatusValue,
   FreeTrialType,
   MapFilterComparison,
+  ResourceCriticality,
   RuleStatus,
   RuleStatusV2,
   SeverityLabel,
@@ -103,7 +104,7 @@ export interface FreeTrialStatus {
   FeatureType: FreeTrialType | undefined;
 
   /**
-   * <p>Whether the free trial period is currently active. Valid values:</p>
+   * <p>Specifies whether the free trial period is currently active. Valid values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1323,6 +1324,18 @@ export interface AutomationRulesFindingFieldsUpdateV2 {
 }
 
 /**
+ * <p>Allows you to define the structure for modifying specific fields of resources.</p>
+ * @public
+ */
+export interface AutomationRulesResourceFieldsUpdateV2 {
+  /**
+   * <p>The criticality level to be assigned to resources that match the automation rule criteria.</p>
+   * @public
+   */
+  Criticality: ResourceCriticality | undefined;
+}
+
+/**
  * <p>Allows you to configure automated responses.</p>
  * @public
  */
@@ -1344,6 +1357,12 @@ export interface AutomationRulesActionV2 {
    * @public
    */
   ExternalIntegrationConfiguration?: ExternalIntegrationConfiguration | undefined;
+
+  /**
+   * <p>The changes to be applied to resource fields when an automation rule is triggered.</p>
+   * @public
+   */
+  ResourceFieldsUpdate?: AutomationRulesResourceFieldsUpdateV2 | undefined;
 }
 
 /**
@@ -1378,7 +1397,12 @@ export interface StringFilter {
    *             <li>
    *                <p>To search for values that include the filter value, use <code>CONTAINS</code>. For example, the
    *                filter <code>Title CONTAINS CloudFront</code> matches findings that have a <code>Title</code> that
-   *                includes the string CloudFront.</p>
+   *                includes the string <code>CloudFront</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To search for values that contain a word matching the filter value, regardless of case, use <code>CONTAINS_WORD</code>. For example,
+   *                the filter <code>Title CONTAINS_WORD lambda</code> matches a finding whose <code>Title</code> is <code>GuardDuty Lambda Protection</code>, because
+   *                the <code>Title</code> contains the word Lambda. Including special characters in the filter value might produce unexpected search results.</p>
    *             </li>
    *             <li>
    *                <p>To search for values that exactly match the filter value, use <code>EQUALS</code>. For example,
@@ -13101,29 +13125,4 @@ export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropert
    * @public
    */
   Value?: string | undefined;
-}
-
-/**
- * <p>The configuration details for the App Mesh
- *          proxy.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
-  /**
-   * <p>The name of the container that will serve as the App Mesh proxy.</p>
-   * @public
-   */
-  ContainerName?: string | undefined;
-
-  /**
-   * <p>The set of network configuration parameters to provide to the Container Network Interface (CNI) plugin, specified as key-value pairs.</p>
-   * @public
-   */
-  ProxyConfigurationProperties?: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails[] | undefined;
-
-  /**
-   * <p>The proxy type.</p>
-   * @public
-   */
-  Type?: string | undefined;
 }

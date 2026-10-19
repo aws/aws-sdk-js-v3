@@ -574,6 +574,77 @@ export interface ExpressionDimensionValues {
 }
 
 /**
+ * <p>The product attribute values used for filtering the costs by key and value pairs.
+ * 			Product attributes are supported for Amazon Bedrock only.</p>
+ * @public
+ */
+export interface ProductAttributeValues {
+  /**
+   * <p>The name of the product attribute to filter on. Valid values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>feature</code> – The feature that was used, such as
+   * 					<code>On-demand Inference</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>inferenceType</code> – The type of inference usage, such as
+   * 					<code>Input tokens</code> or <code>Output tokens</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>model</code> – The model, such as <code>Claude Sonnet 5</code> or
+   * 					<code>Claude Haiku 4.5</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>provider</code> – The model provider, such as <code>Anthropic</code>,
+   * 					<code>Cohere</code>, or <code>Amazon</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Keys are case-sensitive.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The specific values of the product attribute, such as <code>Claude Sonnet 5</code> for
+   * 			the <code>model</code> key. Values are matched exactly.</p>
+   *          <p>
+   *             <code>Values</code> is required unless <code>MatchOptions</code> is
+   * 			<code>ABSENT</code>. To match costs that have no value for the key, set
+   * 			<code>MatchOptions</code> to <code>ABSENT</code> and omit <code>Values</code>.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+
+  /**
+   * <p>The match options for the <code>ProductAttributes</code> filter. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ABSENT</code> – Matches costs that have no value for the attribute.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CASE_SENSITIVE</code> – Requires an exact case match.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EQUALS</code> – Matches costs where the attribute equals the specified
+   * 					value.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Specify either <code>EQUALS</code> or <code>ABSENT</code>. You can add
+   * 			<code>CASE_SENSITIVE</code> to <code>EQUALS</code>, but you can't use it by itself or
+   * 			with <code>ABSENT</code>.</p>
+   * @public
+   */
+  MatchOptions?: MatchOption[] | undefined;
+}
+
+/**
  * <p>The values that are available for a tag.</p>
  * @public
  */
@@ -1984,6 +2055,12 @@ export interface Expression {
    * @public
    */
   CostCategories?: CostCategoryValues | undefined;
+
+  /**
+   * <p>The filter that limits results based on the values of specific product attributes.</p>
+   * @public
+   */
+  ProductAttributes?: ProductAttributeValues | undefined;
 }
 
 /**

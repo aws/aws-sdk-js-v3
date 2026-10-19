@@ -115,6 +115,12 @@ export interface BatchGetThreatModelsCommandOutput extends BatchGetThreatModelsO
  * //         logGroup: "STRING_VALUE",
  * //         logStream: "STRING_VALUE",
  * //       },
+ * //       reportDestination: { // ReportDestination
+ * //         integrationId: "STRING_VALUE", // required
+ * //         containerId: "STRING_VALUE", // required
+ * //         parentId: "STRING_VALUE",
+ * //         documentId: "STRING_VALUE",
+ * //       },
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },

@@ -46,7 +46,7 @@ export interface CreateLocationNfsCommandOutput extends CreateLocationNfsRespons
  *     ],
  *   },
  *   MountOptions: { // NfsMountOptions
- *     Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1",
+ *     Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1" || "NFS4_2",
  *   },
  *   Tags: [ // InputTagList
  *     { // TagListEntry

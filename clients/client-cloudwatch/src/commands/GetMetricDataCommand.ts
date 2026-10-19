@@ -36,8 +36,10 @@ export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __Metad
  *                 Guide</i>.</p>
  *          <p>If you include a Metrics Insights query, each <code>GetMetricData</code> operation can
  *             include only one query. But the same <code>GetMetricData</code> operation can also
- *             retrieve other metrics. Metrics Insights queries can query only the most recent three
- *             hours of metric data. For more information about Metrics Insights, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html">Query your metrics with CloudWatch Metrics Insights</a>.</p>
+ *             retrieve other metrics. Metrics Insights queries can query the most recent two weeks of
+ *             metric data. For alarm condition evaluations, Metrics Insights queries can query only
+ *             the most recent three hours of metric data. For more information about Metrics Insights,
+ *             see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html">Query your metrics with CloudWatch Metrics Insights</a>.</p>
  *          <p>Calls to the <code>GetMetricData</code> API have a different pricing structure than
  *             calls to <code>GetMetricStatistics</code>. For more information about pricing, see
  *                 <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch

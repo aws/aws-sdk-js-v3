@@ -198,6 +198,8 @@ import {
   FaceRecord$,
   FaceSearchSettings$,
   FaceSearchSortBy,
+  FeedbackCode,
+  FeedbackItem$,
   Gender$,
   GenderType,
   GeneralLabelsSettings$,
@@ -440,6 +442,7 @@ import {
   SegmentTypeInfo$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  SessionMetadata$,
   SessionNotFoundException,
   SessionNotFoundException$,
   ShotSegment$,
@@ -839,6 +842,7 @@ assert(typeof FaceMatch$ === "object");
 assert(typeof FaceOccluded$ === "object");
 assert(typeof FaceRecord$ === "object");
 assert(typeof FaceSearchSettings$ === "object");
+assert(typeof FeedbackItem$ === "object");
 assert(typeof Gender$ === "object");
 assert(typeof GeneralLabelsSettings$ === "object");
 assert(typeof Geometry$ === "object");
@@ -952,6 +956,7 @@ assert(typeof SearchUsersRequest$ === "object");
 assert(typeof SearchUsersResponse$ === "object");
 assert(typeof SegmentDetection$ === "object");
 assert(typeof SegmentTypeInfo$ === "object");
+assert(typeof SessionMetadata$ === "object");
 assert(typeof ShotSegment$ === "object");
 assert(typeof Smile$ === "object");
 assert(typeof StartCelebrityRecognitionRequest$ === "object");
@@ -1037,6 +1042,7 @@ assert(typeof DetectLabelsFeatureName === "object");
 assert(typeof EmotionName === "object");
 assert(typeof FaceAttributes === "object");
 assert(typeof FaceSearchSortBy === "object");
+assert(typeof FeedbackCode === "object");
 assert(typeof GenderType === "object");
 assert(typeof KnownGenderType === "object");
 assert(typeof LabelDetectionAggregateBy === "object");

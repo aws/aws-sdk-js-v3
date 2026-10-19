@@ -1100,6 +1100,18 @@ export type ExtractionType = (typeof ExtractionType)[keyof typeof ExtractionType
  * @public
  * @enum
  */
+export const RecordExpiryAction = {
+  REMOVE: "REMOVE",
+} as const;
+/**
+ * @public
+ */
+export type RecordExpiryAction = (typeof RecordExpiryAction)[keyof typeof RecordExpiryAction];
+
+/**
+ * @public
+ * @enum
+ */
 export const ContentLevel = {
   FULL_CONTENT: "FULL_CONTENT",
   METADATA_ONLY: "METADATA_ONLY",
@@ -1481,6 +1493,19 @@ export const PaymentConnectorStatus = {
  * @public
  */
 export type PaymentConnectorStatus = (typeof PaymentConnectorStatus)[keyof typeof PaymentConnectorStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CoinbaseCdpSecret = {
+  API_KEY: "API_KEY",
+  WALLET_SECRET: "WALLET_SECRET",
+} as const;
+/**
+ * @public
+ */
+export type CoinbaseCdpSecret = (typeof CoinbaseCdpSecret)[keyof typeof CoinbaseCdpSecret];
 
 /**
  * @public

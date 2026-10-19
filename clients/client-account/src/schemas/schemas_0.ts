@@ -81,6 +81,9 @@ const _SOR = "StateOrRegion";
 const _SPEU = "StartPrimaryEmailUpdate";
 const _SPEUR = "StartPrimaryEmailUpdateRequest";
 const _SPEURt = "StartPrimaryEmailUpdateResponse";
+const _SPNV = "SendPhoneNumberVerification";
+const _SPNVR = "SendPhoneNumberVerificationRequest";
+const _SPNVRe = "SendPhoneNumberVerificationResponse";
 const _SS = "SensitiveString";
 const _T = "Title";
 const _TMRE = "TooManyRequestsException";
@@ -88,6 +91,10 @@ const _UA = "UpdatedAt";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
+const _VPN = "VerifyPhoneNumber";
+const _VPNR = "VerifyPhoneNumberRequest";
+const _VPNRe = "VerifyPhoneNumberResponse";
+const _VS = "VerificationStatus";
 const _WU = "WebsiteUrl";
 const _c = "client";
 const _e = "error";
@@ -261,8 +268,8 @@ export var GetContactInformationRequest$: StaticStructureSchema = [3, n0, _GCIR,
 ];
 export var GetContactInformationResponse$: StaticStructureSchema = [3, n0, _GCIRe,
   0,
-  [_CI],
-  [[() => ContactInformation$, 0]]
+  [_CI, _VS],
+  [[() => ContactInformation$, 0], 0]
 ];
 export var GetGovCloudAccountInformationRequest$: StaticStructureSchema = [3, n0, _GGCAIR,
   0,
@@ -334,6 +341,16 @@ export var Region$: StaticStructureSchema = [3, n0, _Re,
   [_RN, _ROS],
   [0, 0]
 ];
+export var SendPhoneNumberVerificationRequest$: StaticStructureSchema = [3, n0, _SPNVR,
+  0,
+  [_AI],
+  [0]
+];
+export var SendPhoneNumberVerificationResponse$: StaticStructureSchema = [3, n0, _SPNVRe,
+  0,
+  [_S],
+  [0]
+];
 export var StartPrimaryEmailUpdateRequest$: StaticStructureSchema = [3, n0, _SPEUR,
   0,
   [_AI, _PE],
@@ -348,6 +365,16 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, [() => SensitiveString, 0]], 2
+];
+export var VerifyPhoneNumberRequest$: StaticStructureSchema = [3, n0, _VPNR,
+  0,
+  [_O, _AI],
+  [[() => Otp, 0], 0], 1
+];
+export var VerifyPhoneNumberResponse$: StaticStructureSchema = [3, n0, _VPNRe,
+  0,
+  [_S],
+  [0]
 ];
 var __Unit = "unit" as const;
 var RegionOptList: StaticListSchema = [1, n0, _ROL,
@@ -403,6 +430,12 @@ export var PutAlternateContact$: StaticOperationSchema = [9, n0, _PAC,
 export var PutContactInformation$: StaticOperationSchema = [9, n0, _PCI,
   { [_h]: ["POST", "/putContactInformation", 200] }, () => PutContactInformationRequest$, () => __Unit
 ];
+export var SendPhoneNumberVerification$: StaticOperationSchema = [9, n0, _SPNV,
+  { [_h]: ["POST", "/sendPhoneNumberVerification", 200] }, () => SendPhoneNumberVerificationRequest$, () => SendPhoneNumberVerificationResponse$
+];
 export var StartPrimaryEmailUpdate$: StaticOperationSchema = [9, n0, _SPEU,
   { [_h]: ["POST", "/startPrimaryEmailUpdate", 200] }, () => StartPrimaryEmailUpdateRequest$, () => StartPrimaryEmailUpdateResponse$
+];
+export var VerifyPhoneNumber$: StaticOperationSchema = [9, n0, _VPN,
+  { [_h]: ["POST", "/verifyPhoneNumber", 200] }, () => VerifyPhoneNumberRequest$, () => VerifyPhoneNumberResponse$
 ];

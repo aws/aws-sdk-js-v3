@@ -7,12 +7,14 @@ import type {
   ApprovalStatus,
   AuthFlow,
   CapabilityType,
+  DayOfWeek,
   EventChannelType,
   ExecutionStatus,
   GithubRepoOwnerType,
   GitLabTokenType,
   GoalStatus,
   GoalType,
+  IncludedData,
   IpAddressType,
   MCPServerAuthorizationMethod,
   MonitorAccountType,
@@ -164,6 +166,12 @@ export interface RegisteredMCPServerDetails {
    * @public
    */
   apiKeyHeader?: string | undefined;
+
+  /**
+   * <p>The configured custom authentication header names when the MCP server uses custom-header authentication. Secret values are not returned.</p>
+   * @public
+   */
+  customHeaderNames?: string[] | undefined;
 }
 
 /**
@@ -1092,6 +1100,12 @@ export interface GitHubConfiguration {
    * @public
    */
   runtimeRoleArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the release management association that this repository maps to for automatic verification testing.</p>
+   * @public
+   */
+  releaseManagementAssociationId?: string | undefined;
 }
 
 /**
@@ -1124,6 +1138,12 @@ export interface GitLabConfiguration {
    * @public
    */
   runtimeRoleArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the release management association that this project maps to for automatic verification testing.</p>
+   * @public
+   */
+  releaseManagementAssociationId?: string | undefined;
 }
 
 /**
@@ -1262,6 +1282,81 @@ export interface PagerDutyConfiguration {
    * @public
    */
   customerEmail: string | undefined;
+}
+
+/**
+ * <p>Private network access to the resource inside a VPC, using a private connection.</p>
+ * @public
+ */
+export interface PrivateNetworkAccess {
+  /**
+   * <p>Name of the private connection that supplies the VPC configuration for this release management environment.</p>
+   * @public
+   */
+  privateConnectionName: string | undefined;
+
+  /**
+   * <p>Role ARN that AWS DevOps Agent assumes at runtime to connect to your VPC.</p>
+   * @public
+   */
+  runtimeRoleArn: string | undefined;
+}
+
+/**
+ * <p>Specifies how AWS DevOps Agent reaches your application using a Release Management Environment</p>
+ * @public
+ */
+export type NetworkAccessConfiguration =
+  | NetworkAccessConfiguration.PrivateAccessMember
+  | NetworkAccessConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace NetworkAccessConfiguration {
+  /**
+   * <p>Private network access to the resource inside a VPC, using a private connection.</p>
+   * @public
+   */
+  export interface PrivateAccessMember {
+    privateAccess: PrivateNetworkAccess;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    privateAccess?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    privateAccess: (value: PrivateNetworkAccess) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for a release management environment.</p>
+ * @public
+ */
+export interface ReleaseManagementConfiguration {
+  /**
+   * <p>The name for this release management environment.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Specifies how AWS DevOps Agent reaches your application using a Release Management Environment</p>
+   * @public
+   */
+  networkAccess: NetworkAccessConfiguration | undefined;
 }
 
 /**
@@ -1439,6 +1534,7 @@ export type ServiceConfiguration =
   | ServiceConfiguration.Mcpserversigv4Member
   | ServiceConfiguration.McpserversplunkMember
   | ServiceConfiguration.PagerdutyMember
+  | ServiceConfiguration.ReleaseManagementMember
   | ServiceConfiguration.RemoteagentMember
   | ServiceConfiguration.Remoteagentsigv4Member
   | ServiceConfiguration.ServicenowMember
@@ -1474,6 +1570,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1501,6 +1598,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1528,6 +1626,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1555,6 +1654,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1582,6 +1682,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1609,6 +1710,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1636,6 +1738,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1663,6 +1766,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1690,6 +1794,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1717,6 +1822,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1744,6 +1850,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1771,6 +1878,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1798,6 +1906,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1825,6 +1934,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1852,6 +1962,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1879,6 +1990,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1906,6 +2018,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4: MCPServerSigV4Configuration;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1933,6 +2046,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent: RemoteAgentConfiguration;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown?: never;
   }
 
@@ -1960,6 +2074,35 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4: RemoteAgentSigV4Configuration;
+    releaseManagement?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Release management network environment configuration</p>
+   * @public
+   */
+  export interface ReleaseManagementMember {
+    sourceAws?: never;
+    aws?: never;
+    github?: never;
+    slack?: never;
+    dynatrace?: never;
+    servicenow?: never;
+    mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
+    gitlab?: never;
+    mcpserversplunk?: never;
+    eventChannel?: never;
+    azure?: never;
+    azuredevops?: never;
+    mcpservergrafana?: never;
+    pagerduty?: never;
+    mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
+    releaseManagement: ReleaseManagementConfiguration;
     $unknown?: never;
   }
 
@@ -1986,6 +2129,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    releaseManagement?: never;
     $unknown: [string, any];
   }
 
@@ -2013,6 +2157,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4: (value: MCPServerSigV4Configuration) => T;
     remoteagent: (value: RemoteAgentConfiguration) => T;
     remoteagentsigv4: (value: RemoteAgentSigV4Configuration) => T;
+    releaseManagement: (value: ReleaseManagementConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2699,6 +2844,12 @@ export interface GetAgentSpaceInput {
    * @public
    */
   agentSpaceId: string | undefined;
+
+  /**
+   * <p>How much data to include in the response.</p>
+   * @public
+   */
+  includedData?: IncludedData | undefined;
 }
 
 /**
@@ -2777,6 +2928,12 @@ export interface ListAgentSpacesInput {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p>How much data to include in the response.</p>
+   * @public
+   */
+  includedData?: IncludedData | undefined;
 }
 
 /**
@@ -3964,19 +4121,213 @@ export interface CreatePrivateConnectionOutput {
 }
 
 /**
- * <p>Schedule-based condition that fires the Trigger</p>
+ * <p>Cron or rate schedule. Trigger-created custom-agent schedules use an EventBridge flexible window of up to 30 minutes for load distribution.</p>
  * @public
  */
-export interface ScheduleCondition {
+export interface CronSchedule {
   /**
-   * <p>The schedule expression</p>
+   * <p>EventBridge cron or rate expression that anchors the flexible window</p>
    * @public
    */
   expression: string | undefined;
 }
 
 /**
- * <p>Defines the firing condition for a Trigger</p>
+ * <p>Daily recurrence</p>
+ * @public
+ */
+export interface DailyRecurrence {}
+
+/**
+ * <p>Monthly recurrence</p>
+ * @public
+ */
+export interface MonthlyRecurrence {
+  /**
+   * <p>Day of month the window recurs on</p>
+   * @public
+   */
+  dayOfMonth: number | undefined;
+}
+
+/**
+ * <p>Weekly recurrence</p>
+ * @public
+ */
+export interface WeeklyRecurrence {
+  /**
+   * <p>Day of week the window recurs on</p>
+   * @public
+   */
+  dayOfWeek: DayOfWeek | undefined;
+}
+
+/**
+ * <p>Recurrence cadence for a time-range schedule</p>
+ * @public
+ */
+export type Recurrence =
+  | Recurrence.DailyMember
+  | Recurrence.MonthlyMember
+  | Recurrence.WeeklyMember
+  | Recurrence.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Recurrence {
+  /**
+   * <p>The window recurs every day</p>
+   * @public
+   */
+  export interface DailyMember {
+    daily: DailyRecurrence;
+    weekly?: never;
+    monthly?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The window recurs once per week</p>
+   * @public
+   */
+  export interface WeeklyMember {
+    daily?: never;
+    weekly: WeeklyRecurrence;
+    monthly?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The window recurs once per month</p>
+   * @public
+   */
+  export interface MonthlyMember {
+    daily?: never;
+    weekly?: never;
+    monthly: MonthlyRecurrence;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    daily?: never;
+    weekly?: never;
+    monthly?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    daily: (value: DailyRecurrence) => T;
+    weekly: (value: WeeklyRecurrence) => T;
+    monthly: (value: MonthlyRecurrence) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Recurring time-of-day window in UTC. The service derives an EventBridge expression anchored at startAfter and a flexible-window width from the interval to startBefore. A startBefore earlier than startAfter wraps past midnight.</p>
+ * @public
+ */
+export interface TimeRangeSchedule {
+  /**
+   * <p>Earliest time of day the trigger may fire</p>
+   * @public
+   */
+  startAfter: string | undefined;
+
+  /**
+   * <p>Latest time of day the trigger may fire</p>
+   * @public
+   */
+  startBefore: string | undefined;
+
+  /**
+   * <p>How the window recurs</p>
+   * @public
+   */
+  recurrence: Recurrence | undefined;
+}
+
+/**
+ * <p>Structured schedule specification. Select exactly one schedule form.</p>
+ * @public
+ */
+export type ScheduleSpec =
+  | ScheduleSpec.CronMember
+  | ScheduleSpec.TimeRangeMember
+  | ScheduleSpec.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ScheduleSpec {
+  /**
+   * <p>Runs on an EventBridge cron or rate cadence</p>
+   * @public
+   */
+  export interface CronMember {
+    cron: CronSchedule;
+    timeRange?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Runs within a recurring time-of-day window</p>
+   * @public
+   */
+  export interface TimeRangeMember {
+    cron?: never;
+    timeRange: TimeRangeSchedule;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    cron?: never;
+    timeRange?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    cron: (value: CronSchedule) => T;
+    timeRange: (value: TimeRangeSchedule) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Expression-based schedule condition. CreateTrigger callers using this condition supply expression and omit spec. Trigger responses always use this condition, include the persisted or derived expression, and also include spec when the trigger was created from a structured schedule.</p>
+ * @public
+ */
+export interface ScheduleCondition {
+  /**
+   * <p>EventBridge cron or rate expression. Required for existing request and response compatibility. For a structured schedule response, this is the expression derived by Backlog.</p>
+   * @public
+   */
+  expression?: string | undefined;
+
+  /**
+   * <p>Structured schedule source of truth (cron | timeRange). On CreateTrigger supply exactly one of spec or expression. Present in responses together with the derived expression for structured triggers.</p>
+   * @public
+   */
+  spec?: ScheduleSpec | undefined;
+}
+
+/**
+ * <p>Defines how a Trigger fires.</p>
  * @public
  */
 export type TriggerCondition =
@@ -3988,7 +4339,7 @@ export type TriggerCondition =
  */
 export namespace TriggerCondition {
   /**
-   * <p>Time-based firing condition</p>
+   * <p>Schedule-based firing condition. On CreateTrigger supply exactly one of the schedule condition's expression or spec.</p>
    * @public
    */
   export interface ScheduleMember {
@@ -4463,6 +4814,12 @@ export interface GetAccountUsageOutput {
    * @public
    */
   monthlyAccountOnDemandHours?: UsageMetric | undefined;
+
+  /**
+   * <p>Represents a usage metric with its configured limit and current usage value.</p>
+   * @public
+   */
+  monthlyAccountGraderHours?: UsageMetric | undefined;
 
   /**
    * <p>The start time of the usage tracking period</p>
@@ -6961,6 +7318,18 @@ export interface MCPServerBearerTokenConfig {
 }
 
 /**
+ * <p>Configuration for authenticating to an MCP server with custom HTTP headers.</p>
+ * @public
+ */
+export interface MCPServerCustomHeadersConfig {
+  /**
+   * <p>Custom headers map.</p>
+   * @public
+   */
+  headers: Record<string, string> | undefined;
+}
+
+/**
  * <p>OAuth 3-legged authorization configuration for MCP server.</p>
  * @public
  */
@@ -7070,6 +7439,7 @@ export type MCPServerAuthorizationConfig =
   | MCPServerAuthorizationConfig.ApiKeyMember
   | MCPServerAuthorizationConfig.AuthorizationDiscoveryMember
   | MCPServerAuthorizationConfig.BearerTokenMember
+  | MCPServerAuthorizationConfig.CustomHeadersMember
   | MCPServerAuthorizationConfig.OAuth3LOMember
   | MCPServerAuthorizationConfig.OAuthClientCredentialsMember
   | MCPServerAuthorizationConfig.$UnknownMember;
@@ -7087,6 +7457,7 @@ export namespace MCPServerAuthorizationConfig {
     oAuth3LO?: never;
     apiKey?: never;
     bearerToken?: never;
+    customHeaders?: never;
     authorizationDiscovery?: never;
     $unknown?: never;
   }
@@ -7100,6 +7471,7 @@ export namespace MCPServerAuthorizationConfig {
     oAuth3LO: MCPServerOAuth3LOConfig;
     apiKey?: never;
     bearerToken?: never;
+    customHeaders?: never;
     authorizationDiscovery?: never;
     $unknown?: never;
   }
@@ -7113,6 +7485,7 @@ export namespace MCPServerAuthorizationConfig {
     oAuth3LO?: never;
     apiKey: MCPServerAPIKeyConfig;
     bearerToken?: never;
+    customHeaders?: never;
     authorizationDiscovery?: never;
     $unknown?: never;
   }
@@ -7126,6 +7499,21 @@ export namespace MCPServerAuthorizationConfig {
     oAuth3LO?: never;
     apiKey?: never;
     bearerToken: MCPServerBearerTokenConfig;
+    customHeaders?: never;
+    authorizationDiscovery?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>MCP server configuration with one or more custom authentication headers.</p>
+   * @public
+   */
+  export interface CustomHeadersMember {
+    oAuthClientCredentials?: never;
+    oAuth3LO?: never;
+    apiKey?: never;
+    bearerToken?: never;
+    customHeaders: MCPServerCustomHeadersConfig;
     authorizationDiscovery?: never;
     $unknown?: never;
   }
@@ -7139,6 +7527,7 @@ export namespace MCPServerAuthorizationConfig {
     oAuth3LO?: never;
     apiKey?: never;
     bearerToken?: never;
+    customHeaders?: never;
     authorizationDiscovery: MCPServerAuthorizationDiscoveryConfig;
     $unknown?: never;
   }
@@ -7151,6 +7540,7 @@ export namespace MCPServerAuthorizationConfig {
     oAuth3LO?: never;
     apiKey?: never;
     bearerToken?: never;
+    customHeaders?: never;
     authorizationDiscovery?: never;
     $unknown: [string, any];
   }
@@ -7164,6 +7554,7 @@ export namespace MCPServerAuthorizationConfig {
     oAuth3LO: (value: MCPServerOAuth3LOConfig) => T;
     apiKey: (value: MCPServerAPIKeyConfig) => T;
     bearerToken: (value: MCPServerBearerTokenConfig) => T;
+    customHeaders: (value: MCPServerCustomHeadersConfig) => T;
     authorizationDiscovery: (value: MCPServerAuthorizationDiscoveryConfig) => T;
     _: (name: string, value: any) => T;
   }

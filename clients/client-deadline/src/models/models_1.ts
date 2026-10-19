@@ -10,6 +10,7 @@ import type {
   LicenseEndpointStatus,
   LogicalOperator,
   MembershipLevel,
+  MembershipResourceType,
   Period,
   QueueBlockedReason,
   QueueFleetAssociationStatus,
@@ -35,9 +36,12 @@ import type {
 import type {
   DateTimeFilterExpression,
   DependencyCounts,
+  FarmMember,
   FileSystemLocation,
+  FleetMember,
   HostPropertiesResponse,
   JobAttachmentSettings,
+  JobMember,
   JobParameter,
   JobRunAsUser,
   ParameterSpace,
@@ -45,6 +49,47 @@ import type {
   StorageProfileSummary,
   TaskParameterValue,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListStepConsumersRequest {
+  /**
+   * <p>The farm ID for the list of step consumers.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID for the step consumer.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The job ID for the step consumer.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The step ID to include on the list.</p>
+   * @public
+   */
+  stepId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
 
 /**
  * <p>The details of a step consumer.</p>
@@ -1891,6 +1936,153 @@ export interface ListAvailableMeteredProductsResponse {
  * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
+export interface ListMembershipsRequest {
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The ID of the IAM Identity Center principal whose Deadline Cloud resource memberships you want to list.</p>
+   * @public
+   */
+  principalId: string | undefined;
+
+  /**
+   * <p>The identity store ID that contains the principal. This parameter is required for callers that do not use a monitor session.</p>
+   * @public
+   */
+  identityStoreId?: string | undefined;
+
+  /**
+   * <p>The Region of the IAM Identity Center instance. If not provided, the service defaults to the Amazon Web Services Region in which you make the request.</p>
+   * @public
+   */
+  identityCenterRegion?: string | undefined;
+
+  /**
+   * <p>The resource types to include when listing the principal's memberships. If not specified, memberships for all supported resource types are returned.</p>
+   * @public
+   */
+  resourceTypes?: MembershipResourceType[] | undefined;
+}
+
+/**
+ * <p>A membership record for a principal on a single Deadline Cloud resource. The summary identifies the resource that the principal is a member of and the principal's membership level for that resource.</p>
+ * @public
+ */
+export type MembershipSummary =
+  | MembershipSummary._FarmMember
+  | MembershipSummary._FleetMember
+  | MembershipSummary._JobMember
+  | MembershipSummary._QueueMember
+  | MembershipSummary.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MembershipSummary {
+  /**
+   * <p>A membership on a farm.</p>
+   * @public
+   */
+  export interface _FarmMember {
+    farm: FarmMember;
+    queue?: never;
+    fleet?: never;
+    job?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A membership on a queue.</p>
+   * @public
+   */
+  export interface _QueueMember {
+    farm?: never;
+    queue: QueueMember;
+    fleet?: never;
+    job?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A membership on a fleet.</p>
+   * @public
+   */
+  export interface _FleetMember {
+    farm?: never;
+    queue?: never;
+    fleet: FleetMember;
+    job?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A membership on a job.</p>
+   * @public
+   */
+  export interface _JobMember {
+    farm?: never;
+    queue?: never;
+    fleet?: never;
+    job: JobMember;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    farm?: never;
+    queue?: never;
+    fleet?: never;
+    job?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    farm: (value: FarmMember) => T;
+    queue: (value: QueueMember) => T;
+    fleet: (value: FleetMember) => T;
+    job: (value: JobMember) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * Shared pagination field for List operation outputs (nextToken).
+ * @public
+ */
+export interface ListMembershipsResponse {
+  /**
+   * <p>The memberships associated with the specified principal.</p>
+   * @public
+   */
+  memberships: MembershipSummary[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
+ * @public
+ */
 export interface ListQueueFleetAssociationsRequest {
   /**
    * <p>The farm ID for the queue-fleet association list.</p>
@@ -3174,7 +3366,7 @@ export interface StartSessionsStatisticsAggregationRequest {
   endTime: Date | undefined;
 
   /**
-   * <p>The timezone to use for the statistics. Use UTC notation such as "UTC+8."</p>
+   * <p>The time zone to use for the statistics. Use UTC notation such as "UTC+8."</p>
    * @public
    */
   timezone?: string | undefined;

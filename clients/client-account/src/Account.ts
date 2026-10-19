@@ -84,10 +84,20 @@ import {
   PutContactInformationCommand,
 } from "./commands/PutContactInformationCommand";
 import {
+  type SendPhoneNumberVerificationCommandInput,
+  type SendPhoneNumberVerificationCommandOutput,
+  SendPhoneNumberVerificationCommand,
+} from "./commands/SendPhoneNumberVerificationCommand";
+import {
   type StartPrimaryEmailUpdateCommandInput,
   type StartPrimaryEmailUpdateCommandOutput,
   StartPrimaryEmailUpdateCommand,
 } from "./commands/StartPrimaryEmailUpdateCommand";
+import {
+  type VerifyPhoneNumberCommandInput,
+  type VerifyPhoneNumberCommandOutput,
+  VerifyPhoneNumberCommand,
+} from "./commands/VerifyPhoneNumberCommand";
 import { paginateListRegions } from "./pagination/ListRegionsPaginator";
 
 const commands = {
@@ -106,7 +116,9 @@ const commands = {
   PutAccountNameCommand,
   PutAlternateContactCommand,
   PutContactInformationCommand,
+  SendPhoneNumberVerificationCommand,
   StartPrimaryEmailUpdateCommand,
+  VerifyPhoneNumberCommand,
 };
 const paginators = {
   paginateListRegions,
@@ -381,6 +393,24 @@ export interface Account {
   ): void;
 
   /**
+   * @see {@link SendPhoneNumberVerificationCommand}
+   */
+  sendPhoneNumberVerification(): Promise<SendPhoneNumberVerificationCommandOutput>;
+  sendPhoneNumberVerification(
+    args: SendPhoneNumberVerificationCommandInput,
+    options?: AccountRequestOptions
+  ): Promise<SendPhoneNumberVerificationCommandOutput>;
+  sendPhoneNumberVerification(
+    args: SendPhoneNumberVerificationCommandInput,
+    cb: (err: any, data?: SendPhoneNumberVerificationCommandOutput) => void
+  ): void;
+  sendPhoneNumberVerification(
+    args: SendPhoneNumberVerificationCommandInput,
+    options: AccountRequestOptions,
+    cb: (err: any, data?: SendPhoneNumberVerificationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartPrimaryEmailUpdateCommand}
    */
   startPrimaryEmailUpdate(
@@ -395,6 +425,23 @@ export interface Account {
     args: StartPrimaryEmailUpdateCommandInput,
     options: AccountRequestOptions,
     cb: (err: any, data?: StartPrimaryEmailUpdateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link VerifyPhoneNumberCommand}
+   */
+  verifyPhoneNumber(
+    args: VerifyPhoneNumberCommandInput,
+    options?: AccountRequestOptions
+  ): Promise<VerifyPhoneNumberCommandOutput>;
+  verifyPhoneNumber(
+    args: VerifyPhoneNumberCommandInput,
+    cb: (err: any, data?: VerifyPhoneNumberCommandOutput) => void
+  ): void;
+  verifyPhoneNumber(
+    args: VerifyPhoneNumberCommandInput,
+    options: AccountRequestOptions,
+    cb: (err: any, data?: VerifyPhoneNumberCommandOutput) => void
   ): void;
 
   /**

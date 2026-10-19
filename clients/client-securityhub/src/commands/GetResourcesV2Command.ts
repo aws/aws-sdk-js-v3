@@ -42,7 +42,7 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  *       { // ResourcesCompositeFilter
  *         StringFilters: [ // ResourcesStringFilterList
  *           { // ResourcesStringFilter
- *             FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceGuid" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId",
+ *             FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceGuid" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId" || "ResourceCriticality",
  *             Filter: { // StringFilter
  *               Value: "STRING_VALUE",
  *               Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
@@ -89,7 +89,7 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  *           {
  *             StringFilters: [
  *               {
- *                 FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceGuid" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId",
+ *                 FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceGuid" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId" || "ResourceCriticality",
  *                 Filter: {
  *                   Value: "STRING_VALUE",
  *                   Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
@@ -219,6 +219,13 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  * //           SelfHostedTotalAIResourceCount: Number("int"),
  * //         },
  * //       },
+ * //       ResourceCriticality: "Very High" || "High" || "Medium" || "Low" || "Unknown",
+ * //       CriticalitySources: [ // CriticalitySourceList
+ * //         { // CriticalitySource
+ * //           Source: "AutomationRule" || "ResourceName" || "TagInference", // required
+ * //           Reason: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -1,9 +1,11 @@
 // smithy-typescript generated code
 import type {
   ApplianceModeSupportValue,
+  AttachmentStatus,
   AutoAcceptSharedAssociationsValue,
   AutoAcceptSharedAttachmentsValue,
   BgpStatus,
+  ClientVpnAuthorizationPolicyStatus,
   ConnectionNotificationState,
   ConnectionNotificationType,
   CopyTagsFromSource,
@@ -27,7 +29,6 @@ import type {
   InternetGatewayExclusionMode,
   IpAddressType,
   Ipv6SupportValue,
-  LaunchTemplateErrorCode,
   MulticastSupportValue,
   NetworkInterfacePermissionStateCode,
   NetworkInterfaceStatus,
@@ -127,11 +128,11 @@ import type {
   VpcPeeringConnection,
 } from "./models_0";
 import type {
+  AttachmentEnaSrdSpecification,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipCidr,
   CoipPool,
-  ConnectionTrackingConfiguration,
   Ec2InstanceConnectEndpoint,
   Ipam,
   IpamExternalResourceVerificationToken,
@@ -144,12 +145,115 @@ import type {
   IpamScope,
   LaunchTemplate,
   NetworkInterfaceAssociation,
-  NetworkInterfaceAttachment,
   OperatorRequest,
   Subnet,
   Vpc,
   VpcEncryptionControl,
 } from "./models_1";
+
+/**
+ * <p>Describes a network interface attachment.</p>
+ * @public
+ */
+export interface NetworkInterfaceAttachment {
+  /**
+   * <p>The timestamp indicating when the attachment initiated.</p>
+   * @public
+   */
+  AttachTime?: Date | undefined;
+
+  /**
+   * <p>The ID of the network interface attachment.</p>
+   * @public
+   */
+  AttachmentId?: string | undefined;
+
+  /**
+   * <p>Indicates whether the network interface is deleted when the instance is
+   *             terminated.</p>
+   * @public
+   */
+  DeleteOnTermination?: boolean | undefined;
+
+  /**
+   * <p>The device index of the network interface attachment on the instance.</p>
+   * @public
+   */
+  DeviceIndex?: number | undefined;
+
+  /**
+   * <p>The index of the network card.</p>
+   * @public
+   */
+  NetworkCardIndex?: number | undefined;
+
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the instance.</p>
+   * @public
+   */
+  InstanceOwnerId?: string | undefined;
+
+  /**
+   * <p>The attachment state.</p>
+   * @public
+   */
+  Status?: AttachmentStatus | undefined;
+
+  /**
+   * <p>Configures ENA Express for the network interface that this action attaches to the
+   *             instance.</p>
+   * @public
+   */
+  EnaSrdSpecification?: AttachmentEnaSrdSpecification | undefined;
+
+  /**
+   * <p>The number of ENA queues created with the instance.</p>
+   * @public
+   */
+  EnaQueueCount?: number | undefined;
+}
+
+/**
+ * <p>A security group connection tracking configuration that enables you to set the idle
+ *             timeout for connection tracking on an Elastic network interface. For more information,
+ *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the
+ *             <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface ConnectionTrackingConfiguration {
+  /**
+   * <p>Timeout (in seconds) for idle TCP
+   * 						connections in an established state. Min: 60 seconds. Max: 432000 seconds (5
+   * 						days). Default: 350 seconds for Nitro v6 instance types (excluding
+   * 						P6e-GB200); 432000 seconds for all other instance types (including
+   * 						P6e-GB200). Recommended: Less than 432000 seconds.</p>
+   * @public
+   */
+  TcpEstablishedTimeout?: number | undefined;
+
+  /**
+   * <p>Timeout (in seconds) for idle UDP
+   * 						flows classified as streams which have seen more than one request-response
+   * 						transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180
+   * 						seconds.</p>
+   * @public
+   */
+  UdpStreamTimeout?: number | undefined;
+
+  /**
+   * <p>Timeout (in seconds) for idle UDP flows that
+   * 						have seen traffic only in a single direction or a single request-response
+   * 						transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.</p>
+   * @public
+   */
+  UdpTimeout?: number | undefined;
+}
 
 /**
  * <p>Describes a security group.</p>
@@ -7431,6 +7535,7 @@ export interface CreateVpcEndpointRequest {
 
   /**
    * <p>The type of endpoint.</p>
+   *          <p>For more information about the types of VPC endpoints, see <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/concepts.html#concepts-vpc-endpoints">VPC endpoints</a> in the <i>Amazon Web Services PrivateLink User Guide</i>.</p>
    *          <p>Default: Gateway</p>
    * @public
    */
@@ -7463,16 +7568,20 @@ export interface CreateVpcEndpointRequest {
   RouteTableIds?: string[] | undefined;
 
   /**
-   * <p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to create endpoint
-   *             network interfaces. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
+   * <p>(Interface, Gateway Load Balancer endpoints, Resource, ServiceNetwork, and Tunnel endpoints only) The IDs of the
+   *             subnets in which to create endpoint network interfaces. For a Gateway Load Balancer endpoint, you can
+   *             specify only one subnet. For a <code>Tunnel</code> endpoint, the subnets must be in the
+   *             Availability Zones of the resource gateway associated with the shared resource
+   *             configuration. An endpoint network interface is created only in an Availability Zone
+   *             that the resource gateway is also in.</p>
    * @public
    */
   SubnetIds?: string[] | undefined;
 
   /**
-   * <p>(Interface endpoint) The IDs of the security groups to associate with the
-   *             endpoint network interfaces. If this parameter is not specified, we use the default
-   *             security group for the VPC.</p>
+   * <p>(Interface, Resource, ServiceNetwork, and Tunnel endpoints only) The IDs of the security groups
+   *             to associate with the endpoint network interfaces. If this parameter is not specified,
+   *             we use the default security group for the VPC.</p>
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
@@ -7533,8 +7642,25 @@ export interface CreateVpcEndpointRequest {
   ServiceNetworkArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a resource configuration that will be associated with
-   *          the VPC endpoint of type resource.</p>
+   * <p>(Resource and Tunnel endpoints only) The Amazon Resource Name (ARN) of a resource
+   *          configuration associated with the VPC endpoint. The type of resource configuration depends
+   *          on the endpoint type:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For a Resource endpoint, you can specify a resource configuration that is of type
+   *                <code>SINGLE</code>, <code>GROUP</code>, or <code>ARN</code>. To reach a resource
+   *                that belongs to a group, specify the parent <code>GROUP</code> resource
+   *                configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>For a Tunnel endpoint, you can specify a resource configuration that is of type
+   *                <code>CIDR</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about the types of resource configurations, see <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/resource-configuration.html">Types of resource configurations</a> in the <i>Amazon Web Services PrivateLink User Guide</i>.</p>
+   *          <p>This request fails if a VPC endpoint owned by a different Amazon Web Services account
+   *          already exists on a resource gateway that is enabled for <code>ResourceGatewayCharges</code>
+   *          payer responsibility.</p>
    * @public
    */
   ResourceConfigurationArn?: string | undefined;
@@ -7701,6 +7827,7 @@ export interface VpcEndpoint {
 
   /**
    * <p>The type of endpoint.</p>
+   *          <p>For more information about the types of VPC endpoints, see <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/concepts.html#concepts-vpc-endpoints">VPC endpoints</a> in the <i>Amazon Web Services PrivateLink User Guide</i>.</p>
    * @public
    */
   VpcEndpointType?: VpcEndpointType | undefined;
@@ -7736,13 +7863,13 @@ export interface VpcEndpoint {
   RouteTableIds?: string[] | undefined;
 
   /**
-   * <p>(Interface endpoint) The subnets for the endpoint.</p>
+   * <p>(Interface, Gateway Load Balancer endpoints, Resource, ServiceNetwork, and Tunnel endpoints only) The subnets for the endpoint.</p>
    * @public
    */
   SubnetIds?: string[] | undefined;
 
   /**
-   * <p>(Interface endpoint) Information about the security groups that are associated with
+   * <p>(Interface, Resource, ServiceNetwork, and Tunnel endpoints only) Information about the security groups that are associated with
    *             the network interface.</p>
    * @public
    */
@@ -7773,7 +7900,7 @@ export interface VpcEndpoint {
   RequesterManaged?: boolean | undefined;
 
   /**
-   * <p>(Interface endpoint) The network interfaces for the endpoint.</p>
+   * <p>(Interface, Gateway Load Balancer endpoints, Resource, ServiceNetwork, and Tunnel endpoints only) The network interfaces for the endpoint.</p>
    * @public
    */
   NetworkInterfaceIds?: string[] | undefined;
@@ -9760,6 +9887,34 @@ export interface DeleteClientVpnEndpointResult {
 /**
  * @public
  */
+export interface DeleteClientVpnEndpointAuthorizationPolicyRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   * @public
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteClientVpnEndpointAuthorizationPolicyResult {
+  /**
+   * <p>The current state of the authorization policy.</p>
+   * @public
+   */
+  Status?: ClientVpnAuthorizationPolicyStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteClientVpnRouteRequest {
   /**
    * <p>The ID of the Client VPN endpoint from which the route is to be deleted.</p>
@@ -10675,114 +10830,4 @@ export interface DeleteLaunchTemplateResult {
    * @public
    */
   LaunchTemplate?: LaunchTemplate | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLaunchTemplateVersionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the launch template name, but not
-   *             both.</p>
-   * @public
-   */
-  LaunchTemplateId?: string | undefined;
-
-  /**
-   * <p>The name of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the launch template name, but not
-   *             both.</p>
-   * @public
-   */
-  LaunchTemplateName?: string | undefined;
-
-  /**
-   * <p>The version numbers of one or more launch template versions to delete. You can specify
-   *             up to 200 launch template version numbers.</p>
-   * @public
-   */
-  Versions: string[] | undefined;
-}
-
-/**
- * <p>Describes a launch template version that was successfully deleted.</p>
- * @public
- */
-export interface DeleteLaunchTemplateVersionsResponseSuccessItem {
-  /**
-   * <p>The ID of the launch template.</p>
-   * @public
-   */
-  LaunchTemplateId?: string | undefined;
-
-  /**
-   * <p>The name of the launch template.</p>
-   * @public
-   */
-  LaunchTemplateName?: string | undefined;
-
-  /**
-   * <p>The version number of the launch template.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-}
-
-/**
- * <p>Describes the error that's returned when you cannot delete a launch template
- *             version.</p>
- * @public
- */
-export interface ResponseError {
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code?: LaunchTemplateErrorCode | undefined;
-
-  /**
-   * <p>The error message, if applicable.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>Describes a launch template version that could not be deleted.</p>
- * @public
- */
-export interface DeleteLaunchTemplateVersionsResponseErrorItem {
-  /**
-   * <p>The ID of the launch template.</p>
-   * @public
-   */
-  LaunchTemplateId?: string | undefined;
-
-  /**
-   * <p>The name of the launch template.</p>
-   * @public
-   */
-  LaunchTemplateName?: string | undefined;
-
-  /**
-   * <p>The version number of the launch template.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>Information about the error.</p>
-   * @public
-   */
-  ResponseError?: ResponseError | undefined;
 }

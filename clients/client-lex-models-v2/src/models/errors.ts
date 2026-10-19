@@ -9,6 +9,7 @@ import { LexModelsV2ServiceException as __BaseException } from "./LexModelsV2Ser
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexmodelsv2#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -30,6 +31,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexmodelsv2#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -71,6 +74,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexmodelsv2#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -99,6 +103,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexmodelsv2#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -121,6 +126,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexmodelsv2#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -143,6 +149,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class PreconditionFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexmodelsv2#PreconditionFailedException";
   readonly name = "PreconditionFailedException" as const;
   readonly $fault = "client" as const;
   /**

@@ -60,6 +60,11 @@ export interface GetRouterInputSourceMetadataCommandOutput extends GetRouterInpu
  * //               { // TransportStream
  * //                 Channels: Number("int"),
  * //                 Codec: "STRING_VALUE",
+ * //                 Color: { // ColorInformation
+ * //                   Colorimetry: "BT709" || "BT470M" || "BT470BG" || "BT601" || "SMPTE240M" || "GENERIC_FILM" || "BT2020" || "SMPTE428" || "SMPTE431" || "SMPTE432",
+ * //                   TransferCharacteristics: "BT709" || "BT470M" || "BT470BG" || "BT601" || "SMPTE240M" || "LINEAR" || "LOG100" || "LOG316" || "IEC61966_2_4" || "BT1361_ECG" || "IEC61966_2_1" || "BT2020_10" || "BT2020_12" || "BT2100_PQ" || "SMPTE428" || "BT2100_HLG",
+ * //                   MatrixCoefficients: "IDENTITY" || "BT709" || "FCC" || "BT470BG" || "BT601" || "SMPTE240M" || "YCGCO" || "BT2020_NCL" || "BT2020_CL" || "SMPTE2085" || "CHROMATICITY_DERIVED_NCL" || "CHROMATICITY_DERIVED_CL" || "BT2100_ICTCP" || "IPT_C2",
+ * //                 },
  * //                 FrameRate: "STRING_VALUE",
  * //                 FrameResolution: { // FrameResolution
  * //                   FrameHeight: Number("int"), // required
@@ -73,6 +78,7 @@ export interface GetRouterInputSourceMetadataCommandOutput extends GetRouterInpu
  * //             ],
  * //           },
  * //         ],
+ * //         TsId: Number("int"),
  * //       },
  * //     },
  * //   },

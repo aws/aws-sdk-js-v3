@@ -63,6 +63,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *   aiAgentConfiguration: { // AIAgentConfigurationMap
  *     "<keys>": { // AIAgentConfigurationData
  *       aiAgentId: "STRING_VALUE", // required
+ *       enabled: true || false,
  *     },
  *   },
  *   contactArn: "STRING_VALUE",
@@ -111,6 +112,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * //     aiAgentConfiguration: { // AIAgentConfigurationMap
  * //       "<keys>": { // AIAgentConfigurationData
  * //         aiAgentId: "STRING_VALUE", // required
+ * //         enabled: true || false,
  * //       },
  * //     },
  * //     origin: "STRING_VALUE",

@@ -196,6 +196,13 @@ AssumeDecoratedRoleWithSAML
 </details>
 <details>
 <summary>
+AttachRLSPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/AttachRLSPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/AttachRLSPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/AttachRLSPolicyCommandOutput/)
+</details>
+<details>
+<summary>
 BatchGrantPermissions
 </summary>
 
@@ -259,6 +266,13 @@ CreateLFTagExpression
 </details>
 <details>
 <summary>
+CreateRLSPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/CreateRLSPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CreateRLSPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CreateRLSPolicyCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteDataCellsFilter
 </summary>
 
@@ -301,6 +315,13 @@ DeleteObjectsOnCancel
 </details>
 <details>
 <summary>
+DeleteRLSPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DeleteRLSPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteRLSPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteRLSPolicyCommandOutput/)
+</details>
+<details>
+<summary>
 DeregisterResource
 </summary>
 
@@ -326,6 +347,13 @@ DescribeTransaction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DescribeTransactionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DescribeTransactionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DescribeTransactionCommandOutput/)
+</details>
+<details>
+<summary>
+DetachRLSPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DetachRLSPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DetachRLSPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DetachRLSPolicyCommandOutput/)
 </details>
 <details>
 <summary>
@@ -396,6 +424,13 @@ GetResourceLFTags
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetResourceLFTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetResourceLFTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetResourceLFTagsCommandOutput/)
+</details>
+<details>
+<summary>
+GetRLSPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetRLSPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetRLSPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetRLSPolicyCommandOutput/)
 </details>
 <details>
 <summary>
@@ -487,6 +522,20 @@ ListResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/ListResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListResourcesCommandOutput/)
+</details>
+<details>
+<summary>
+ListRLSPolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/ListRLSPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListRLSPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListRLSPoliciesCommandOutput/)
+</details>
+<details>
+<summary>
+ListRLSPolicyAttachments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/ListRLSPolicyAttachmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListRLSPolicyAttachmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListRLSPolicyAttachmentsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -592,6 +641,13 @@ UpdateResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/UpdateResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateResourceCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateRLSPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/UpdateRLSPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateRLSPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateRLSPolicyCommandOutput/)
 </details>
 <details>
 <summary>

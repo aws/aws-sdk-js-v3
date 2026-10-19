@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateThreatModelInput, UpdateThreatModelOutput } from "../models/models_0";
+import type { UpdateThreatModelInput, UpdateThreatModelOutput } from "../models/models_1";
 import { UpdateThreatModel$ } from "../schemas/schemas_0";
 
 /**
@@ -105,6 +105,12 @@ export interface UpdateThreatModelCommandOutput extends UpdateThreatModelOutput,
  *     logGroup: "STRING_VALUE",
  *     logStream: "STRING_VALUE",
  *   },
+ *   reportDestination: { // ReportDestination
+ *     integrationId: "STRING_VALUE", // required
+ *     containerId: "STRING_VALUE", // required
+ *     parentId: "STRING_VALUE",
+ *     documentId: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateThreatModelCommand(input);
  * const response = await client.send(command);
@@ -183,6 +189,12 @@ export interface UpdateThreatModelCommandOutput extends UpdateThreatModelOutput,
  * //   },
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
+ * //   reportDestination: { // ReportDestination
+ * //     integrationId: "STRING_VALUE", // required
+ * //     containerId: "STRING_VALUE", // required
+ * //     parentId: "STRING_VALUE",
+ * //     documentId: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

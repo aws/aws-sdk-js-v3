@@ -9,6 +9,8 @@ export * from "./ListLFTagExpressionsPaginator";
 export * from "./ListLFTagsPaginator";
 export * from "./ListPermissionsPaginator";
 export * from "./ListResourcesPaginator";
+export * from "./ListRLSPoliciesPaginator";
+export * from "./ListRLSPolicyAttachmentsPaginator";
 export * from "./ListTableStorageOptimizersPaginator";
 export * from "./ListTransactionsPaginator";
 export * from "./SearchDatabasesByLFTagsPaginator";

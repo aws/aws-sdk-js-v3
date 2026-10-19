@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from Imagebuilder service.
  */
 export class ImagebuilderServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.imagebuilder#ImagebuilderServiceException";
   /**
    * @internal
    */

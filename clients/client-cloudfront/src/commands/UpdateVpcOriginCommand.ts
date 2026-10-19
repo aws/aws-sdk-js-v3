@@ -45,6 +45,7 @@ export interface UpdateVpcOriginCommandOutput extends UpdateVpcOriginResult, __M
  *         "SSLv3" || "TLSv1" || "TLSv1.1" || "TLSv1.2",
  *       ],
  *     },
+ *     IpAddressType: "ipv4" || "dualstack",
  *   },
  *   Id: "STRING_VALUE", // required
  *   IfMatch: "STRING_VALUE", // required
@@ -71,6 +72,7 @@ export interface UpdateVpcOriginCommandOutput extends UpdateVpcOriginResult, __M
  * //           "SSLv3" || "TLSv1" || "TLSv1.1" || "TLSv1.2",
  * //         ],
  * //       },
+ * //       IpAddressType: "ipv4" || "dualstack",
  * //     },
  * //   },
  * //   ETag: "STRING_VALUE",

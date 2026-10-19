@@ -23,7 +23,14 @@ export interface StartMediaAnalysisJobCommandInput extends StartMediaAnalysisJob
 export interface StartMediaAnalysisJobCommandOutput extends StartMediaAnalysisJobResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates a new media analysis job. Accepts a manifest file in an Amazon S3 bucket. The
+ * <important>
+ *             <p>Service availability notice: Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see
+ * <a href="https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html">Rekognition feature availability changes</a>.</p>
+ *             <p>
+ *                <b>This change does not impact the availability of other Amazon Rekognition features.</b>
+ *             </p>
+ *          </important>
+ *          <p>Initiates a new media analysis job. Accepts a manifest file in an Amazon S3 bucket. The
  *             output is a manifest file and a summary of the manifest stored in the Amazon S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -162,12 +162,14 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
+ * 			calls on your behalf. Retry with an increasing or variable delay between
+ * 			requests.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
+ *  <p>A generic client error. This error usually indicates that the request
+ * 			failed a validation check, such as when a downstream service rejects a
+ * 			configured value.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
@@ -176,11 +178,12 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  *  <p>You have provided an invalid pagination token in your request.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have requested an action that that the service doesn't support.</p>
+ *  <p>The request is malformed or otherwise invalid. Verify the request and try
+ * 			again.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -188,6 +191,47 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example List the build versions of an image
+ * ```javascript
+ * // The following example lists the build versions that exist for version 1.0.0 of the specified image, with the output AMI that each build produced.
+ * const input = {
+ *   imageVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.0"
+ * };
+ * const command = new ListImageBuildVersionsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   imageSummaryList: [
+ *     {
+ *       arn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.0/1",
+ *       buildType: "USER_INITIATED",
+ *       dateCreated: "2026-09-09T19:12:18.677Z",
+ *       name: "my-example-recipe",
+ *       osVersion: "Amazon Linux 2023",
+ *       outputResources: {
+ *         amis: [
+ *           {
+ *             accountId: "111122223333",
+ *             image: "ami-1234567890abcdef0",
+ *             name: "my-example-recipe 2026-09-09T19-19-08.103311Z",
+ *             region: "us-west-2"
+ *           }
+ *         ]
+ *       },
+ *       owner: "111122223333",
+ *       platform: "Linux",
+ *       state: {
+ *         status: "AVAILABLE"
+ *       },
+ *       type: "AMI",
+ *       version: "1.0.0/1"
+ *     }
+ *   ],
+ *   requestId: "b4808907-dcad-4951-ada5-dd151e93135a"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

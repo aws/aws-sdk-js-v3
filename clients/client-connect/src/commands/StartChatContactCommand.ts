@@ -28,6 +28,9 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *    credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Connect Customer Participant Service.</p>
  *          <p>When a new chat contact is successfully created, clients must subscribe to the participant’s connection for the
  *    created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
+ *          <p>To receive connection information directly in the response, set <code>ConnectionTypes</code> on the request. To
+ *    initiate real-time message streaming when the chat is created, set <code>ChatStreamingConfiguration</code> on the
+ *    request. Both parameters are optional.</p>
  *          <p>A 429 error occurs in the following situations:</p>
  *          <ul>
  *             <li>
@@ -116,6 +119,12 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *   DisconnectOnCustomerExit: [ // DisconnectOnCustomerExit
  *     "AGENT",
  *   ],
+ *   ConnectionTypes: [ // ConnectionTypeList
+ *     "WEBSOCKET" || "CONNECTION_CREDENTIALS" || "AUTHENTICATION_SESSION" || "WEBRTC_CONNECTION",
+ *   ],
+ *   ChatStreamingConfiguration: { // ChatStreamingConfiguration
+ *     StreamingEndpointArn: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new StartChatContactCommand(input);
  * const response = await client.send(command);
@@ -124,6 +133,15 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  * //   ParticipantId: "STRING_VALUE",
  * //   ParticipantToken: "STRING_VALUE",
  * //   ContinuedFromContactId: "STRING_VALUE",
+ * //   ConnectionCredentials: { // ConnectionCredentials
+ * //     ConnectionToken: "STRING_VALUE",
+ * //     Expiry: "STRING_VALUE",
+ * //   },
+ * //   Websocket: { // Websocket
+ * //     Url: "STRING_VALUE",
+ * //     ConnectionExpiry: "STRING_VALUE",
+ * //   },
+ * //   StreamingId: "STRING_VALUE",
  * // };
  *
  * ```

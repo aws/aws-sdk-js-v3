@@ -79,6 +79,7 @@ export interface GetPlanExecutionCommandOutput extends GetPlanExecutionResponse,
  * //                     crossAccountRole: "STRING_VALUE",
  * //                     externalId: "STRING_VALUE",
  * //                     arn: "STRING_VALUE",
+ * //                     payload: "STRING_VALUE",
  * //                   },
  * //                 ],
  * //                 retryIntervalMinutes: Number("float"), // required
@@ -101,6 +102,7 @@ export interface GetPlanExecutionCommandOutput extends GetPlanExecutionResponse,
  * //                 },
  * //                 targetPercent: Number("int"),
  * //                 capacityMonitoringApproach: "sampledMaxInLast24Hours" || "autoscalingMaxInLast24Hours",
+ * //                 waitELBTargetGroupHealthy: "enabled" || "disabled",
  * //               },
  * //               executionApprovalConfig: { // ExecutionApprovalConfiguration
  * //                 timeoutMinutes: Number("int"),
@@ -145,6 +147,7 @@ export interface GetPlanExecutionCommandOutput extends GetPlanExecutionResponse,
  * //                             crossAccountRole: "STRING_VALUE",
  * //                             externalId: "STRING_VALUE",
  * //                             arn: "STRING_VALUE",
+ * //                             payload: "STRING_VALUE",
  * //                           },
  * //                         ],
  * //                         retryIntervalMinutes: Number("float"), // required
@@ -167,6 +170,7 @@ export interface GetPlanExecutionCommandOutput extends GetPlanExecutionResponse,
  * //                         },
  * //                         targetPercent: Number("int"),
  * //                         capacityMonitoringApproach: "sampledMaxInLast24Hours" || "autoscalingMaxInLast24Hours",
+ * //                         waitELBTargetGroupHealthy: "enabled" || "disabled",
  * //                       },
  * //                       executionApprovalConfig: {
  * //                         timeoutMinutes: Number("int"),
@@ -221,6 +225,7 @@ export interface GetPlanExecutionCommandOutput extends GetPlanExecutionResponse,
  * //                         },
  * //                         targetPercent: Number("int"),
  * //                         capacityMonitoringApproach: "sampledMaxInLast24Hours" || "containerInsightsMaxInLast24Hours",
+ * //                         waitELBTargetGroupHealthy: "enabled" || "disabled",
  * //                       },
  * //                       eksResourceScalingConfig: { // EksResourceScalingConfiguration
  * //                         timeoutMinutes: Number("int"),
@@ -354,8 +359,36 @@ export interface GetPlanExecutionCommandOutput extends GetPlanExecutionResponse,
  * //                           ungraceful: "promoteReadReplica",
  * //                         },
  * //                       },
+ * //                       ssmSendCommandConfig: { // SsmSendCommandConfiguration
+ * //                         timeoutMinutes: Number("int"),
+ * //                         regionDocuments: { // RegionSsmDocumentMap // required
+ * //                           "<keys>": { // SsmDocumentConfig
+ * //                             crossAccountRole: "STRING_VALUE",
+ * //                             externalId: "STRING_VALUE",
+ * //                             documentArn: "STRING_VALUE", // required
+ * //                             targets: [ // SsmTargetList // required
+ * //                               { // SsmTarget
+ * //                                 key: "STRING_VALUE", // required
+ * //                                 values: [ // SsmTargetValueList // required
+ * //                                   "STRING_VALUE",
+ * //                                 ],
+ * //                               },
+ * //                             ],
+ * //                             parameters: { // SsmDocumentParameters
+ * //                               "<keys>": [ // SsmParameterValues
+ * //                                 "STRING_VALUE",
+ * //                               ],
+ * //                             },
+ * //                             documentVersion: "STRING_VALUE",
+ * //                           },
+ * //                         },
+ * //                         retryIntervalMinutes: Number("float"), // required
+ * //                         ungraceful: { // SsmSendCommandUngraceful
+ * //                           behavior: "skip",
+ * //                         },
+ * //                       },
  * //                     },
- * //                     executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping" || "AuroraServerlessScaling" || "AuroraProvisionedScaling" || "NeptuneGlobalDatabase" || "RdsSwitchoverReadReplica", // required
+ * //                     executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping" || "AuroraServerlessScaling" || "AuroraProvisionedScaling" || "NeptuneGlobalDatabase" || "RdsSwitchoverReadReplica" || "SSMSendCommand", // required
  * //                   },
  * //                 ],
  * //               },
@@ -379,6 +412,7 @@ export interface GetPlanExecutionCommandOutput extends GetPlanExecutionResponse,
  * //                 },
  * //                 targetPercent: Number("int"),
  * //                 capacityMonitoringApproach: "sampledMaxInLast24Hours" || "containerInsightsMaxInLast24Hours",
+ * //                 waitELBTargetGroupHealthy: "enabled" || "disabled",
  * //               },
  * //               eksResourceScalingConfig: {
  * //                 timeoutMinutes: Number("int"),
@@ -510,8 +544,36 @@ export interface GetPlanExecutionCommandOutput extends GetPlanExecutionResponse,
  * //                   ungraceful: "promoteReadReplica",
  * //                 },
  * //               },
+ * //               ssmSendCommandConfig: {
+ * //                 timeoutMinutes: Number("int"),
+ * //                 regionDocuments: { // required
+ * //                   "<keys>": {
+ * //                     crossAccountRole: "STRING_VALUE",
+ * //                     externalId: "STRING_VALUE",
+ * //                     documentArn: "STRING_VALUE", // required
+ * //                     targets: [ // required
+ * //                       {
+ * //                         key: "STRING_VALUE", // required
+ * //                         values: [ // required
+ * //                           "STRING_VALUE",
+ * //                         ],
+ * //                       },
+ * //                     ],
+ * //                     parameters: {
+ * //                       "<keys>": [
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                     documentVersion: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //                 retryIntervalMinutes: Number("float"), // required
+ * //                 ungraceful: {
+ * //                   behavior: "skip",
+ * //                 },
+ * //               },
  * //             },
- * //             executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping" || "AuroraServerlessScaling" || "AuroraProvisionedScaling" || "NeptuneGlobalDatabase" || "RdsSwitchoverReadReplica", // required
+ * //             executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping" || "AuroraServerlessScaling" || "AuroraProvisionedScaling" || "NeptuneGlobalDatabase" || "RdsSwitchoverReadReplica" || "SSMSendCommand", // required
  * //           },
  * //         ],
  * //         workflowTargetAction: "activate" || "deactivate" || "postRecovery", // required
@@ -553,6 +615,7 @@ export interface GetPlanExecutionCommandOutput extends GetPlanExecutionResponse,
  * //         },
  * //       ],
  * //     },
+ * //     serviceQuotaChecksEnabled: true || false,
  * //     name: "STRING_VALUE", // required
  * //     regions: [ // RegionList // required
  * //       "STRING_VALUE",

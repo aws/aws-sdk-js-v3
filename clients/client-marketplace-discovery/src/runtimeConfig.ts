@@ -7,7 +7,7 @@ import {
   emitWarningIfUnsupportedVersion as awsCheckVersion,
   NODE_APP_ID_CONFIG_OPTIONS,
 } from "@aws-sdk/core/client";
-import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core/httpAuthSchemes";
+import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, NODE_SIGV4A_CONFIG_OPTIONS } from "@aws-sdk/core/httpAuthSchemes";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode } from "@smithy/core/client";
 import {
@@ -66,6 +66,7 @@ export const getRuntimeConfig = (config: MarketplaceDiscoveryClientConfig) => {
         },
         config
       ),
+    sigv4aSigningRegionSet: config?.sigv4aSigningRegionSet ?? loadNodeConfig(NODE_SIGV4A_CONFIG_OPTIONS, loaderConfig),
     streamCollector: config?.streamCollector ?? streamCollector,
     useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
     useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, loaderConfig),

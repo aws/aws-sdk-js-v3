@@ -16,6 +16,7 @@ import type {
   ResponseHeadersPolicyType,
   TrustStoreStatus,
   ValidationTokenHost,
+  VpcIpAddressType,
 } from "./enums";
 import type {
   Aliases,
@@ -2677,7 +2678,7 @@ export interface OriginAccessControlSummary {
   SigningProtocol: OriginAccessControlSigningProtocols | undefined;
 
   /**
-   * <p>A value that specifies which requests CloudFront signs (adds authentication information to). This field can have one of the following values:</p> <ul> <li> <p> <code>never</code> – CloudFront doesn't sign any origin requests.</p> </li> <li> <p> <code>always</code> – CloudFront signs all origin requests, overwriting the <code>Authorization</code> header from the viewer request if necessary.</p> </li> <li> <p> <code>no-override</code> – If the viewer request doesn't contain the <code>Authorization</code> header, CloudFront signs the origin request. If the viewer request contains the <code>Authorization</code> header, CloudFront doesn't sign the origin request, but instead passes along the <code>Authorization</code> header that it received in the viewer request.</p> </li> </ul>
+   * <p>A value that specifies which requests CloudFront signs (adds authentication information to). This field can have one of the following values:</p> <ul> <li> <p> <code>never</code> – CloudFront doesn't sign any origin requests.</p> </li> <li> <p> <code>always</code> – CloudFront signs all origin requests, overwriting the <code>Authorization</code> header from the viewer request if necessary.</p> </li> <li> <p> <code>no-override</code> – If the viewer request doesn't contain the <code>Authorization</code> header, CloudFront signs the origin request. If the viewer request contains the <code>Authorization</code> header, CloudFront doesn't sign the origin request, but instead passes along the <code>Authorization</code> header that it received in the viewer request.</p> </li> <li> <p> <code>always-amz-auth</code> – CloudFront signs all origin requests with Amazon authentication headers, and forwards the viewer's <code>Authorization</code> header to the origin if one is present. This value is only valid with Lambda-Web origins.</p> </li> </ul>
    * @public
    */
   SigningBehavior: OriginAccessControlSigningBehaviors | undefined;
@@ -3389,6 +3390,12 @@ export interface VpcOriginSummary {
    * @public
    */
   OriginEndpointArn: string | undefined;
+
+  /**
+   * <p>The IP address type of the CloudFront VPC origin. Valid values are <code>ipv4</code> and <code>dualstack</code>. IPv6-only is not supported for VPC origins.</p>
+   * @public
+   */
+  IpAddressType?: VpcIpAddressType | undefined;
 }
 
 /**

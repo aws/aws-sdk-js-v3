@@ -10,6 +10,7 @@ import { KinesisAnalyticsV2ServiceException as __BaseException } from "./Kinesis
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -32,6 +33,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class InvalidApplicationConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException";
   readonly name = "InvalidApplicationConfigurationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -54,6 +56,7 @@ export class InvalidApplicationConfigurationException extends __BaseException {
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException";
   readonly name = "InvalidArgumentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -76,6 +79,7 @@ export class InvalidArgumentException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisanalyticsv2#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -98,6 +102,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisanalyticsv2#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -120,6 +125,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -143,6 +149,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class CodeValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisanalyticsv2#CodeValidationException";
   readonly name = "CodeValidationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -165,6 +172,7 @@ export class CodeValidationException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisanalyticsv2#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -188,6 +196,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisanalyticsv2#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -209,6 +218,7 @@ export class TooManyTagsException extends __BaseException {
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException";
   readonly name = "UnsupportedOperationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -232,6 +242,7 @@ export class UnsupportedOperationException extends __BaseException {
  * @public
  */
 export class ResourceProvisionedThroughputExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisanalyticsv2#ResourceProvisionedThroughputExceededException";
   readonly name = "ResourceProvisionedThroughputExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -254,6 +265,7 @@ export class ResourceProvisionedThroughputExceededException extends __BaseExcept
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisanalyticsv2#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -277,6 +289,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class UnableToDetectSchemaException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisanalyticsv2#UnableToDetectSchemaException";
   readonly name = "UnableToDetectSchemaException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

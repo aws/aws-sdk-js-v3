@@ -100,6 +100,9 @@ export interface UpdateWorkerScheduleCommandOutput extends UpdateWorkerScheduleR
  * //         },
  * //         error: "STRING_VALUE",
  * //       },
+ * //       metadata: { // SessionMetadata
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   },
  * //   cancelSessionActions: { // CancelSessionActions // required

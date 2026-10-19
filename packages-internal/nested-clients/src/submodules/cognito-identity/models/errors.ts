@@ -9,6 +9,7 @@ import { CognitoIdentityServiceException as __BaseException } from "./CognitoIde
  * @public
  */
 export class ExternalServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentity#ExternalServiceException";
   readonly name = "ExternalServiceException" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class ExternalServiceException extends __BaseException {
  * @public
  */
 export class InternalErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentity#InternalErrorException";
   readonly name = "InternalErrorException" as const;
   readonly $fault = "server" as const;
   /**
@@ -55,6 +57,7 @@ export class InternalErrorException extends __BaseException {
  * @public
  */
 export class InvalidIdentityPoolConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentity#InvalidIdentityPoolConfigurationException";
   readonly name = "InvalidIdentityPoolConfigurationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -75,6 +78,7 @@ export class InvalidIdentityPoolConfigurationException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentity#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -95,6 +99,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class NotAuthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentity#NotAuthorizedException";
   readonly name = "NotAuthorizedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -116,6 +121,7 @@ export class NotAuthorizedException extends __BaseException {
  * @public
  */
 export class ResourceConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentity#ResourceConflictException";
   readonly name = "ResourceConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -137,6 +143,7 @@ export class ResourceConflictException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentity#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -157,6 +164,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentity#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -177,6 +185,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentity#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**

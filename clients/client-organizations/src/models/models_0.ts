@@ -953,6 +953,11 @@ export interface CreatePolicyRequest {
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_network_security_director.html">NETWORK_SECURITY_DIRECTOR_POLICY</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_guardduty.html">GUARDDUTY_POLICY</a>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -1241,6 +1246,11 @@ export interface DescribeEffectivePolicyRequest {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_network_security_director.html">NETWORK_SECURITY_DIRECTOR_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_guardduty.html">GUARDDUTY_POLICY</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -1679,6 +1689,11 @@ export interface DisablePolicyTypeRequest {
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_network_security_director.html">NETWORK_SECURITY_DIRECTOR_POLICY</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_guardduty.html">GUARDDUTY_POLICY</a>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -1842,6 +1857,11 @@ export interface EnablePolicyTypeRequest {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_network_security_director.html">NETWORK_SECURITY_DIRECTOR_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_guardduty.html">GUARDDUTY_POLICY</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -2150,6 +2170,11 @@ export interface ListAccountsWithInvalidEffectivePolicyRequest {
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_network_security_director.html">NETWORK_SECURITY_DIRECTOR_POLICY</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_guardduty.html">GUARDDUTY_POLICY</a>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -2239,6 +2264,11 @@ export interface ListAccountsWithInvalidEffectivePolicyResponse {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_network_security_director.html">NETWORK_SECURITY_DIRECTOR_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_guardduty.html">GUARDDUTY_POLICY</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -2728,6 +2758,11 @@ export interface ListEffectivePolicyValidationErrorsRequest {
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_network_security_director.html">NETWORK_SECURITY_DIRECTOR_POLICY</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_guardduty.html">GUARDDUTY_POLICY</a>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -2851,6 +2886,11 @@ export interface ListEffectivePolicyValidationErrorsResponse {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_network_security_director.html">NETWORK_SECURITY_DIRECTOR_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_guardduty.html">GUARDDUTY_POLICY</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -3303,6 +3343,11 @@ export interface ListPoliciesRequest {
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_network_security_director.html">NETWORK_SECURITY_DIRECTOR_POLICY</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_guardduty.html">GUARDDUTY_POLICY</a>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -3443,6 +3488,11 @@ export interface ListPoliciesForTargetRequest {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_network_security_director.html">NETWORK_SECURITY_DIRECTOR_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_guardduty.html">GUARDDUTY_POLICY</a>
    *                </p>
    *             </li>
    *          </ul>

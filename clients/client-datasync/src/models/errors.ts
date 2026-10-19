@@ -9,6 +9,7 @@ import { DataSyncServiceException as __BaseException } from "./DataSyncServiceEx
  * @public
  */
 export class InternalException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.datasync#InternalException";
   readonly name = "InternalException" as const;
   readonly $fault = "server" as const;
   errorCode?: string | undefined;
@@ -31,6 +32,7 @@ export class InternalException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.datasync#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   errorCode?: string | undefined;

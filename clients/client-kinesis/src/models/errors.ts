@@ -9,6 +9,7 @@ import { KinesisServiceException as __BaseException } from "./KinesisServiceExce
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -30,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#InvalidArgumentException";
   readonly name = "InvalidArgumentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -51,6 +53,7 @@ export class InvalidArgumentException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -72,6 +75,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -93,6 +97,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -114,6 +119,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class KMSAccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#KMSAccessDeniedException";
   readonly name = "KMSAccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -135,6 +141,7 @@ export class KMSAccessDeniedException extends __BaseException {
  * @public
  */
 export class KMSDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#KMSDisabledException";
   readonly name = "KMSDisabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -158,6 +165,7 @@ export class KMSDisabledException extends __BaseException {
  * @public
  */
 export class KMSInvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#KMSInvalidStateException";
   readonly name = "KMSInvalidStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -179,6 +187,7 @@ export class KMSInvalidStateException extends __BaseException {
  * @public
  */
 export class KMSNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#KMSNotFoundException";
   readonly name = "KMSNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -199,6 +208,7 @@ export class KMSNotFoundException extends __BaseException {
  * @public
  */
 export class KMSOptInRequired extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#KMSOptInRequired";
   readonly name = "KMSOptInRequired" as const;
   readonly $fault = "client" as const;
   /**
@@ -222,6 +232,7 @@ export class KMSOptInRequired extends __BaseException {
  * @public
  */
 export class KMSThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#KMSThrottlingException";
   readonly name = "KMSThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -244,6 +255,7 @@ export class KMSThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -264,6 +276,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class DryRunOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#DryRunOperationException";
   readonly name = "DryRunOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -284,6 +297,7 @@ export class DryRunOperationException extends __BaseException {
  * @public
  */
 export class ExpiredIteratorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#ExpiredIteratorException";
   readonly name = "ExpiredIteratorException" as const;
   readonly $fault = "client" as const;
   /**
@@ -304,6 +318,7 @@ export class ExpiredIteratorException extends __BaseException {
  * @public
  */
 export class ExpiredNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#ExpiredNextTokenException";
   readonly name = "ExpiredNextTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -325,6 +340,7 @@ export class ExpiredNextTokenException extends __BaseException {
  * @public
  */
 export class InternalFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#InternalFailureException";
   readonly name = "InternalFailureException" as const;
   readonly $fault = "server" as const;
   /**
@@ -349,6 +365,7 @@ export class InternalFailureException extends __BaseException {
  * @public
  */
 export class ProvisionedThroughputExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesis#ProvisionedThroughputExceededException";
   readonly name = "ProvisionedThroughputExceededException" as const;
   readonly $fault = "client" as const;
   /**

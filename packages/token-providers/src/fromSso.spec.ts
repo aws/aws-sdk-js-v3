@@ -70,6 +70,7 @@ describe(fromSso.name, () => {
     vi.mocked(getNewSsoOidcToken).mockResolvedValue(mockNewTokenFromService);
     vi.mocked(validateTokenKey).mockImplementation(() => {});
     vi.mocked(validateTokenExpiry).mockImplementation(() => {});
+    vi.mocked(writeSSOTokenToFile).mockResolvedValue(undefined);
     vi.spyOn(Date, "now").mockReturnValue(mockDateNow);
   });
 
@@ -360,6 +361,183 @@ describe(fromSso.name, () => {
       accessToken: mockNewTokenFromService.accessToken,
       expiresAt: mockNewToken.expiration.toISOString(),
       refreshToken: mockNewTokenFromService.refreshToken,
+    });
+  });
+  describe("awaits refresh in progress for the same SSO session", () => {
+    it("waits for a refresh before reading a token file being replaced", async () => {
+      let resolveWrite: () => void;
+      let signalWriteStarted: () => void;
+      const writeStarted = new Promise<void>((resolve) => {
+        signalWriteStarted = resolve;
+      });
+      vi.mocked(writeSSOTokenToFile).mockImplementation(
+        () =>
+          new Promise<void>((resolve) => {
+            resolveWrite = resolve;
+            signalWriteStarted();
+          })
+      );
+
+      const { fromSso } = await import("./fromSso");
+      const firstCall = fromSso(mockInit)();
+      await writeStarted;
+
+      // A joining caller must not read the file while the first caller rewrites it.
+      vi.mocked(getSSOTokenFromFile).mockRejectedValue(new Error("cache file is being replaced"));
+      const secondCall = fromSso(mockInit)();
+      await new Promise((resolve) => setImmediate(resolve));
+      resolveWrite!();
+
+      await expect(Promise.all([firstCall, secondCall])).resolves.toStrictEqual([mockNewToken, mockNewToken]);
+      expect(getSSOTokenFromFile).toHaveBeenCalledTimes(1);
+    });
+
+    it("resolves concurrent callers with the new token", async () => {
+      // Hold the refresh pending, so both callers are in progress at the same time.
+      let resolveNewToken: (newToken: any) => void;
+      vi.mocked(getNewSsoOidcToken).mockReturnValue(
+        new Promise((resolve) => {
+          resolveNewToken = resolve;
+        }) as any
+      );
+
+      const { fromSso } = await import("./fromSso");
+      const tokens = Promise.all([fromSso(mockInit)(), fromSso(mockInit)()]);
+      // Let both callers reach the in-progress refresh check.
+      await new Promise((resolve) => setImmediate(resolve));
+      resolveNewToken!(mockNewTokenFromService);
+
+      await expect(tokens).resolves.toStrictEqual([mockNewToken, mockNewToken]);
+      // Verify that getNewSsoOidcToken is called once for the session, not once per caller.
+      expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
+      expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region, mockInit, undefined);
+    });
+
+    it("does not throw expired token error for concurrent callers", async () => {
+      const ssoTokenExpiryError = new TokenProviderError(`Token is expired. ${REFRESH_MESSAGE}`, false);
+      vi.mocked(validateTokenExpiry).mockImplementation(() => {
+        throw ssoTokenExpiryError;
+      });
+
+      let resolveNewToken: (newToken: any) => void;
+      vi.mocked(getNewSsoOidcToken).mockReturnValue(
+        new Promise((resolve) => {
+          resolveNewToken = resolve;
+        }) as any
+      );
+
+      const { fromSso } = await import("./fromSso");
+      const tokens = Promise.all([fromSso(mockInit)(), fromSso(mockInit)(), fromSso(mockInit)()]);
+      await new Promise((resolve) => setImmediate(resolve));
+      resolveNewToken!(mockNewTokenFromService);
+
+      await expect(tokens).resolves.toStrictEqual([mockNewToken, mockNewToken, mockNewToken]);
+      expect(validateTokenExpiry).not.toHaveBeenCalled();
+      expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
+    });
+
+    it("returns existing token to concurrent callers if refresh fails and token is not expired", async () => {
+      // Return a token which is within the expiry window, but not expired.
+      const mockValidSsoToken = {
+        ...mockSsoToken,
+        expiresAt: new Date(mockDateNow + EXPIRE_WINDOW_MS - 1000).toISOString(),
+      };
+      vi.mocked(getSSOTokenFromFile).mockResolvedValue(mockValidSsoToken);
+
+      let rejectNewToken: (error: Error) => void;
+      vi.mocked(getNewSsoOidcToken).mockReturnValue(
+        new Promise((resolve, reject) => {
+          rejectNewToken = reject;
+        }) as any
+      );
+
+      const { fromSso } = await import("./fromSso");
+      const tokens = Promise.all([fromSso(mockInit)(), fromSso(mockInit)()]);
+      await new Promise((resolve) => setImmediate(resolve));
+      rejectNewToken!(new Error("mockError"));
+
+      const existingToken = {
+        token: mockValidSsoToken.accessToken,
+        expiration: new Date(mockValidSsoToken.expiresAt),
+      };
+      await expect(tokens).resolves.toStrictEqual([existingToken, existingToken]);
+      expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
+    });
+
+    it("throws for concurrent callers if refresh fails and existing token is expired", async () => {
+      const ssoTokenExpiryError = new TokenProviderError(`Token is expired. ${REFRESH_MESSAGE}`, false);
+      vi.mocked(validateTokenExpiry).mockImplementation(() => {
+        throw ssoTokenExpiryError;
+      });
+
+      let rejectNewToken: (error: Error) => void;
+      vi.mocked(getNewSsoOidcToken).mockReturnValue(
+        new Promise((resolve, reject) => {
+          rejectNewToken = reject;
+        }) as any
+      );
+
+      const { fromSso } = await import("./fromSso");
+      const firstCall = fromSso(mockInit)();
+      const secondCall = fromSso(mockInit)();
+      await new Promise((resolve) => setImmediate(resolve));
+      rejectNewToken!(new Error("mockError"));
+
+      await expect(firstCall).rejects.toStrictEqual(ssoTokenExpiryError);
+      await expect(secondCall).rejects.toStrictEqual(ssoTokenExpiryError);
+      expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
+    });
+
+    it("attempts a new refresh after the refresh in progress settles", async () => {
+      const { fromSso } = await import("./fromSso");
+      await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
+      expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
+
+      // Move past the 30 second throttle, so a new refresh is allowed.
+      const mockLaterDateNow = mockDateNow + 31 * 1000;
+      vi.spyOn(Date, "now").mockReturnValue(mockLaterDateNow);
+
+      await expect(fromSso(mockInit)()).resolves.toStrictEqual({
+        token: mockNewTokenFromService.accessToken,
+        expiration: new Date(mockLaterDateNow + mockNewTokenFromService.expiresIn * 1000),
+      });
+      // Verify that the settled refresh is not awaited again.
+      expect(getNewSsoOidcToken).toHaveBeenCalledTimes(2);
+    });
+
+    it("does not share refresh across different SSO sessions", async () => {
+      const mockProfileNameB = "mockProfileNameB";
+      const mockSsoSessionNameB = "mock_sso_session_name_b";
+      const mockInitB = { profile: mockProfileNameB };
+      const mockSsoSessionB = {
+        sso_start_url: "mock_sso_start_url_b",
+        sso_region: "mock_sso_region_b",
+      };
+      vi.mocked(parseKnownFiles).mockResolvedValue({
+        [mockProfileName]: mockSsoProfile,
+        [mockProfileNameB]: { sso_session: mockSsoSessionNameB },
+      });
+      vi.mocked(loadSsoSessionData).mockResolvedValue({
+        [mockSsoSessionName]: mockSsoSession,
+        [mockSsoSessionNameB]: mockSsoSessionB,
+      });
+      vi.mocked(getProfileName).mockImplementation(({ profile }: any) => profile);
+
+      let resolveNewToken: (newToken: any) => void;
+      vi.mocked(getNewSsoOidcToken).mockReturnValue(
+        new Promise((resolve) => {
+          resolveNewToken = resolve;
+        }) as any
+      );
+
+      const { fromSso } = await import("./fromSso");
+      const tokens = Promise.all([fromSso(mockInit)(), fromSso(mockInitB)()]);
+      await new Promise((resolve) => setImmediate(resolve));
+      resolveNewToken!(mockNewTokenFromService);
+
+      await expect(tokens).resolves.toStrictEqual([mockNewToken, mockNewToken]);
+      // Verify that each session is refreshed on its own.
+      expect(getNewSsoOidcToken).toHaveBeenCalledTimes(2);
     });
   });
 });

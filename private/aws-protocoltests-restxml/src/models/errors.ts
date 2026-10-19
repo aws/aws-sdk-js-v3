@@ -9,6 +9,7 @@ import { RestXmlProtocolServiceException as __BaseException } from "./RestXmlPro
  * @public
  */
 export class ComplexError extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.restxml#ComplexError";
   readonly name = "ComplexError" as const;
   readonly $fault = "client" as const;
   Header?: string | undefined;
@@ -35,6 +36,7 @@ export class ComplexError extends __BaseException {
  * @public
  */
 export class InvalidGreeting extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.restxml#InvalidGreeting";
   readonly name = "InvalidGreeting" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

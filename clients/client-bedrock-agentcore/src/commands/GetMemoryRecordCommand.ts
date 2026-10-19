@@ -50,6 +50,7 @@ export interface GetMemoryRecordCommandOutput extends GetMemoryRecordOutput, __M
  * //       "STRING_VALUE",
  * //     ],
  * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     timestamp: new Date("TIMESTAMP"),
  * //     metadata: { // MemoryRecordMetadataMap
  * //       "<keys>": { // MemoryRecordMetadataValue Union: only one key present
  * //         stringValue: "STRING_VALUE",
@@ -60,6 +61,7 @@ export interface GetMemoryRecordCommandOutput extends GetMemoryRecordOutput, __M
  * //         dateTimeValue: new Date("TIMESTAMP"),
  * //       },
  * //     },
+ * //     expiresAt: new Date("TIMESTAMP"),
  * //   },
  * // };
  *

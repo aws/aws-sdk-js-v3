@@ -73,12 +73,14 @@ export interface ListWorkflowExecutionsCommandOutput extends ListWorkflowExecuti
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
+ * 			calls on your behalf. Retry with an increasing or variable delay between
+ * 			requests.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
+ *  <p>A generic client error. This error usually indicates that the request
+ * 			failed a validation check, such as when a downstream service rejects a
+ * 			configured value.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
@@ -87,11 +89,12 @@ export interface ListWorkflowExecutionsCommandOutput extends ListWorkflowExecuti
  *  <p>You have provided an invalid pagination token in your request.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have requested an action that that the service doesn't support.</p>
+ *  <p>The request is malformed or otherwise invalid. Verify the request and try
+ * 			again.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -99,6 +102,50 @@ export interface ListWorkflowExecutionsCommandOutput extends ListWorkflowExecuti
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example List the workflow runtime instances for an image build version
+ * ```javascript
+ * // The following example lists the workflow runtime instances that ran for the specified image build version, which was built with the Image Builder default build and test workflows.
+ * const input = {
+ *   imageBuildVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.0/1"
+ * };
+ * const command = new ListWorkflowExecutionsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   imageBuildVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.0/1",
+ *   requestId: "c78ef9a3-cce8-4e7d-ae96-426fb7e59f5d",
+ *   workflowExecutions: [
+ *     {
+ *       endTime: "2026-09-09T19:19:06.158Z",
+ *       retried: false,
+ *       startTime: "2026-09-09T19:12:23.175Z",
+ *       status: "COMPLETED",
+ *       totalStepCount: 7,
+ *       totalStepsFailed: 0,
+ *       totalStepsSkipped: 2,
+ *       totalStepsSucceeded: 5,
+ *       type: "BUILD",
+ *       workflowBuildVersionArn: "arn:aws:imagebuilder:us-west-2:aws:workflow/build/build-image/1.0.3/1",
+ *       workflowExecutionId: "wf-165b1cb6-3a62-4618-a021-94ddcbe32908"
+ *     },
+ *     {
+ *       endTime: "2026-09-09T19:21:47.830Z",
+ *       retried: false,
+ *       startTime: "2026-09-09T19:19:11.709Z",
+ *       status: "COMPLETED",
+ *       totalStepCount: 4,
+ *       totalStepsFailed: 0,
+ *       totalStepsSkipped: 2,
+ *       totalStepsSucceeded: 2,
+ *       type: "TEST",
+ *       workflowBuildVersionArn: "arn:aws:imagebuilder:us-west-2:aws:workflow/test/test-image/1.0.3/1",
+ *       workflowExecutionId: "wf-1a3639b8-1366-4b73-8347-706874020dad"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

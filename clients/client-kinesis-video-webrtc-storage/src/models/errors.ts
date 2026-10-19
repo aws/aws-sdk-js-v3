@@ -10,6 +10,7 @@ import {
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideowebrtcstorage#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -32,6 +33,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ClientLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideowebrtcstorage#ClientLimitExceededException";
   readonly name = "ClientLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -52,6 +54,7 @@ export class ClientLimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideowebrtcstorage#InvalidArgumentException";
   readonly name = "InvalidArgumentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -72,6 +75,7 @@ export class InvalidArgumentException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideowebrtcstorage#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**

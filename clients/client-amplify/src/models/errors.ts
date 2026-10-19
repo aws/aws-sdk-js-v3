@@ -8,6 +8,7 @@ import { AmplifyServiceException as __BaseException } from "./AmplifyServiceExce
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplify#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class DependentServiceFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplify#DependentServiceFailureException";
   readonly name = "DependentServiceFailureException" as const;
   readonly $fault = "server" as const;
   /**
@@ -48,6 +50,7 @@ export class DependentServiceFailureException extends __BaseException {
  * @public
  */
 export class InternalFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplify#InternalFailureException";
   readonly name = "InternalFailureException" as const;
   readonly $fault = "server" as const;
   /**
@@ -68,6 +71,7 @@ export class InternalFailureException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplify#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class UnauthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplify#UnauthorizedException";
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class UnauthorizedException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplify#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -128,6 +134,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplify#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   code: string | undefined;

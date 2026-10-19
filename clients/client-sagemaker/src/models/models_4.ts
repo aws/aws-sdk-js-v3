@@ -4,20 +4,22 @@ import type {
   AccountDefaultStatus,
   ActionStatus,
   ActivationState,
-  AppNetworkAccessType,
-  AppSecurityGroupManagement,
   AppType,
   BatchStrategy,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
   CrossAccountFilterOption,
   Direction,
+  EdgePackagingJobStatus,
+  EndpointConfigSortKey,
+  EndpointSortKey,
   EndpointStatus,
   ExecutionStatus,
+  FeatureGroupSortBy,
+  FeatureGroupSortOrder,
+  FeatureGroupStatus,
   FeatureStatus,
-  HomeEfsFileSystemCreation,
   HubContentSortBy,
-  HubContentSupportStatus,
   HubContentType,
   HubSortBy,
   HyperParameterTuningJobSortByOptions,
@@ -34,9 +36,11 @@ import type {
   IsTrackingServerActive,
   JobCategory,
   JobStatus,
-  JobType,
   LabelingJobStatus,
   LineageType,
+  ListDeviceFleetsSortBy,
+  ListEdgeDeploymentPlansSortBy,
+  ListEdgePackagingJobsSortBy,
   ListInferenceRecommendationsJobsSortBy,
   ListLabelingJobsForWorkteamSortByOptions,
   ListOptimizationJobsSortBy,
@@ -71,6 +75,7 @@ import type {
   NotebookInstanceSortKey,
   NotebookInstanceSortOrder,
   NotebookInstanceStatus,
+  OfflineStoreStatusValue,
   OptimizationJobDeploymentInstanceType,
   OptimizationJobStatus,
   OrderKey,
@@ -79,7 +84,6 @@ import type {
   PipelineExecutionStatus,
   PipelineStatus,
   ProcessingJobStatus,
-  Processor,
   ProjectSortBy,
   ProjectSortOrder,
   ProjectStatus,
@@ -96,6 +100,7 @@ import type {
   SharingType,
   SkipModelValidation,
   SortBy,
+  SortExperimentsBy,
   SortInferenceExperimentsBy,
   SortLineageGroupsBy,
   SortMlflowAppBy,
@@ -111,8 +116,6 @@ import type {
   StorageType,
   StudioLifecycleConfigAppType,
   StudioLifecycleConfigSortKey,
-  TagPropagation,
-  ThroughputMode,
   TrackingServerStatus,
   TrainingJobSortByOptions,
   TrainingJobStatus,
@@ -120,18 +123,18 @@ import type {
   TrainingPlanSortBy,
   TrainingPlanSortOrder,
   TrainingPlanStatus,
+  TrainingSessionStatus,
   TransformJobStatus,
   UltraServerHealthStatus,
   UserProfileSortKey,
   UserProfileStatus,
-  VariantPropertyType,
-  VendorGuidance,
   WarmPoolResourceStatus,
 } from "./enums";
 import type {
   AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
   AppSpecification,
+  AthenaStepMetadata,
   AutoMLJobStepMetadata,
   BatchDataCaptureConfig,
   BatchTransformInput,
@@ -144,12 +147,11 @@ import type {
   Channel,
   CheckpointConfig,
   ClarifyCheckStepMetadata,
+  CleanupStepMetadata,
   ClusterAutoScalingConfig,
   ClusterInstanceGroupSpecification,
   ClusterOrchestrator,
   ClusterRestrictedInstanceGroupsConfig,
-  ClusterRestrictedInstanceGroupSpecification,
-  ClusterTieredStorageConfig,
   CodeEditorAppImageConfig,
   DeploymentConfiguration,
   InferenceSpecification,
@@ -167,17 +169,13 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  ClusterRestrictedInstanceGroupSpecification,
+  ClusterTieredStorageConfig,
   ComputeQuotaConfig,
   ComputeQuotaTarget,
   ConditionStepMetadata,
   ContainerDefinition,
-  DefaultSpaceSettings,
-  DeploymentConfig,
   DriftCheckBaselines,
-  EdgeOutputConfig,
-  FeatureDefinition,
-  InferenceComponentRuntimeConfig,
-  InferenceComponentSpecification,
   InferenceExecutionConfig,
   ManagedConfiguration,
   MetadataProperties,
@@ -188,14 +186,11 @@ import type {
   ModelPackageSecurityConfig,
   ModelPackageValidationSpecification,
   ModelVariantConfig,
-  MonitoringScheduleConfig,
-  NetworkConfig,
   RetryStrategy,
   SchedulerConfig,
   SourceAlgorithmSpecification,
   TtlDuration,
   UiTemplate,
-  UserSettings,
 } from "./models_1";
 import type {
   DataProcessing,
@@ -204,11 +199,12 @@ import type {
   DebugRuleEvaluationStatus,
   DeploymentRecommendation,
   ExperimentConfig,
-  FeatureParameter,
   InstanceGroupHealthCheckConfiguration,
   ModelArtifacts,
   ModelClientConfig,
   ModelPackageConfig,
+  MonitoringScheduleConfig,
+  NetworkConfig,
   ParallelismConfiguration,
   ProcessingInput,
   ProcessingOutputConfig,
@@ -223,20 +219,30 @@ import type {
   TrialComponentStatus,
 } from "./models_2";
 import type {
-  DesiredWeightAndCapacity,
   Device,
   DeviceDeploymentSummary,
-  DomainSettingsForUpdate,
+  DeviceFleetSummary,
+  DeviceSummary,
+  DomainDetails,
   Edge,
+  EdgeDeploymentPlanSummary,
+  EdgePackagingJobSummary,
+  EMRServerlessStepMetadata,
   EMRStepMetadata,
   Endpoint,
   EndpointConfigStepMetadata,
+  EndpointConfigSummary,
   EndpointStepMetadata,
+  EndpointSummary,
   Experiment,
+  ExperimentSummary,
   FailStepMetadata,
   FeatureGroup,
+  FeatureGroupSummary,
   FeatureMetadata,
   Filter,
+  FlowDefinitionSummary,
+  ForEachStepMetadata,
   GitConfigForUpdate,
   HubContent,
   HubContentInfo,
@@ -247,12 +253,12 @@ import type {
   HyperParameterTuningJobSummary,
   Image,
   ImageVersion,
-  InferenceComponentDeploymentConfig,
   InferenceComponentMetadata,
   InferenceComponentSummary,
   InferenceExperimentSummary,
   InferenceRecommendationsJob,
   InferenceRecommendationsJobStep,
+  IterationContext,
   Job,
   JobConfigSchemaVersionSummary,
   JobStepMetadata,
@@ -280,6 +286,752 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListDeviceFleetsRequest {
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to select.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filter fleets where packaging job was created after specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Filter fleets where the edge packaging job was created before specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Select fleets where the job was updated after X</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Select fleets where the job was updated before X</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Filter for fleets containing this name in their fleet device name.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>The column to sort by.</p>
+   * @public
+   */
+  SortBy?: ListDeviceFleetsSortBy | undefined;
+
+  /**
+   * <p>What direction to sort in.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDeviceFleetsResponse {
+  /**
+   * <p>Summary of the device fleet.</p>
+   * @public
+   */
+  DeviceFleetSummaries: DeviceFleetSummary[] | undefined;
+
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDevicesRequest {
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Maximum number of results to select.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Select fleets where the job was updated after X</p>
+   * @public
+   */
+  LatestHeartbeatAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that searches devices that contains this name in any of their models.</p>
+   * @public
+   */
+  ModelName?: string | undefined;
+
+  /**
+   * <p>Filter for fleets containing this name in their device fleet name.</p>
+   * @public
+   */
+  DeviceFleetName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDevicesResponse {
+  /**
+   * <p>Summary of devices.</p>
+   * @public
+   */
+  DeviceSummaries: DeviceSummary[] | undefined;
+
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDomainsRequest {
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>This parameter defines the maximum number of results that can be return in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are more results available than the value specified, a <code>NextToken</code> is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDomainsResponse {
+  /**
+   * <p>The list of domains.</p>
+   * @public
+   */
+  Domains?: DomainDetails[] | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEdgeDeploymentPlansRequest {
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to select (50 by default).</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Selects edge deployment plans created after this time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Selects edge deployment plans created before this time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Selects edge deployment plans that were last updated after this time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Selects edge deployment plans that were last updated before this time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Selects edge deployment plans with names containing this name.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>Selects edge deployment plans with a device fleet name containing this name.</p>
+   * @public
+   */
+  DeviceFleetNameContains?: string | undefined;
+
+  /**
+   * <p>The column by which to sort the edge deployment plans. Can be one of <code>NAME</code>, <code>DEVICEFLEETNAME</code>, <code>CREATIONTIME</code>, <code>LASTMODIFIEDTIME</code>.</p>
+   * @public
+   */
+  SortBy?: ListEdgeDeploymentPlansSortBy | undefined;
+
+  /**
+   * <p>The direction of the sorting (ascending or descending).</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEdgeDeploymentPlansResponse {
+  /**
+   * <p>List of summaries of edge deployment plans.</p>
+   * @public
+   */
+  EdgeDeploymentPlanSummaries: EdgeDeploymentPlanSummary[] | undefined;
+
+  /**
+   * <p>The token to use when calling the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEdgePackagingJobsRequest {
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Maximum number of results to select.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Select jobs where the job was created after specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Select jobs where the job was created before specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Select jobs where the job was updated after specified time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Select jobs where the job was updated before specified time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Filter for jobs containing this name in their packaging job name.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>Filter for jobs where the model name contains this string.</p>
+   * @public
+   */
+  ModelNameContains?: string | undefined;
+
+  /**
+   * <p>The job status to filter for.</p>
+   * @public
+   */
+  StatusEquals?: EdgePackagingJobStatus | undefined;
+
+  /**
+   * <p>Use to specify what column to sort by.</p>
+   * @public
+   */
+  SortBy?: ListEdgePackagingJobsSortBy | undefined;
+
+  /**
+   * <p>What direction to sort by.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEdgePackagingJobsResponse {
+  /**
+   * <p>Summaries of edge packaging jobs.</p>
+   * @public
+   */
+  EdgePackagingJobSummaries: EdgePackagingJobSummary[] | undefined;
+
+  /**
+   * <p>Token to use when calling the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEndpointConfigsInput {
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: EndpointConfigSortKey | undefined;
+
+  /**
+   * <p>The sort order for results. The default is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: OrderKey | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListEndpointConfig</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of endpoint configurations, use the token in the next request. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of training jobs to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A string in the endpoint configuration name. This filter returns only endpoint configurations whose name contains the specified string. </p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A filter that returns only endpoint configurations created before the specified time (timestamp).</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only endpoint configurations with a creation time greater than or equal to the specified time (timestamp).</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEndpointConfigsOutput {
+  /**
+   * <p>An array of endpoint configurations.</p>
+   * @public
+   */
+  EndpointConfigs: EndpointConfigSummary[] | undefined;
+
+  /**
+   * <p> If the response is truncated, SageMaker returns this token. To retrieve the next set of endpoint configurations, use it in the subsequent request </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEndpointsInput {
+  /**
+   * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: EndpointSortKey | undefined;
+
+  /**
+   * <p>The sort order for results. The default is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: OrderKey | undefined;
+
+  /**
+   * <p>If the result of a <code>ListEndpoints</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of endpoints, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of endpoints to return in the response. This value defaults to 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A string in endpoint names. This filter returns only endpoints whose name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A filter that returns only endpoints that were created before the specified time (timestamp).</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only endpoints with a creation time greater than or equal to the specified time (timestamp).</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p> A filter that returns only endpoints that were modified before the specified timestamp. </p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p> A filter that returns only endpoints that were modified after the specified timestamp. </p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p> A filter that returns only endpoints with the specified status.</p>
+   * @public
+   */
+  StatusEquals?: EndpointStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEndpointsOutput {
+  /**
+   * <p> An array or endpoint objects. </p>
+   * @public
+   */
+  Endpoints: EndpointSummary[] | undefined;
+
+  /**
+   * <p> If the response is truncated, SageMaker returns this token. To retrieve the next set of training jobs, use it in the subsequent request. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListExperimentsRequest {
+  /**
+   * <p>A filter that returns only experiments created after the specified time.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only experiments created before the specified time.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: SortExperimentsBy | undefined;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the previous call to <code>ListExperiments</code> didn't return the full set of experiments, the call returns a token for getting the next set of experiments.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of experiments to return in the response. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListExperimentsResponse {
+  /**
+   * <p>A list of the summaries of your experiments.</p>
+   * @public
+   */
+  ExperimentSummaries?: ExperimentSummary[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of experiments, if there are any.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFeatureGroupsRequest {
+  /**
+   * <p>A string that partially matches one or more <code>FeatureGroup</code>s names. Filters <code>FeatureGroup</code>s by name. </p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A <code>FeatureGroup</code> status. Filters by <code>FeatureGroup</code> status. </p>
+   * @public
+   */
+  FeatureGroupStatusEquals?: FeatureGroupStatus | undefined;
+
+  /**
+   * <p>An <code>OfflineStore</code> status. Filters by <code>OfflineStore</code> status. </p>
+   * @public
+   */
+  OfflineStoreStatusEquals?: OfflineStoreStatusValue | undefined;
+
+  /**
+   * <p>Use this parameter to search for <code>FeatureGroups</code>s created after a specific date and time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Use this parameter to search for <code>FeatureGroups</code>s created before a specific date and time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>The order in which feature groups are listed.</p>
+   * @public
+   */
+  SortOrder?: FeatureGroupSortOrder | undefined;
+
+  /**
+   * <p>The value on which the feature group list is sorted.</p>
+   * @public
+   */
+  SortBy?: FeatureGroupSortBy | undefined;
+
+  /**
+   * <p>The maximum number of results returned by <code>ListFeatureGroups</code>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token to resume pagination of <code>ListFeatureGroups</code> results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFeatureGroupsResponse {
+  /**
+   * <p>A summary of feature groups.</p>
+   * @public
+   */
+  FeatureGroupSummaries: FeatureGroupSummary[] | undefined;
+
+  /**
+   * <p>A token to resume pagination of <code>ListFeatureGroups</code> results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFlowDefinitionsRequest {
+  /**
+   * <p>A filter that returns only flow definitions with a creation time greater than or equal to the specified timestamp.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only flow definitions that were created before the specified timestamp.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>A token to resume pagination.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> will be provided in the output that you can use to resume pagination.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFlowDefinitionsResponse {
+  /**
+   * <p>An array of objects describing the flow definitions.</p>
+   * @public
+   */
+  FlowDefinitionSummaries: FlowDefinitionSummary[] | undefined;
+
+  /**
+   * <p>A token to resume pagination.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHubContentsRequest {
+  /**
+   * <p>The name of the hub to list the contents of.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The type of hub content to list.</p>
+   * @public
+   */
+  HubContentType: HubContentType | undefined;
+
+  /**
+   * <p>Only list hub content if the name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>The upper bound of the hub content schema verion.</p>
+   * @public
+   */
+  MaxSchemaVersion?: string | undefined;
+
+  /**
+   * <p>Only list hub content that was created before the time specified.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Only list hub content that was created after the time specified.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Sort hub content versions by either name or creation time.</p>
+   * @public
+   */
+  SortBy?: HubContentSortBy | undefined;
+
+  /**
+   * <p>Sort hubs by ascending or descending order.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The maximum amount of hub content to list.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the response to a previous <code>ListHubContents</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of hub content, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHubContentsResponse {
+  /**
+   * <p>The summaries of the listed hub content.</p>
+   * @public
+   */
+  HubContentSummaries: HubContentInfo[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of hub content, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -3970,6 +4722,12 @@ export interface PipelineExecutionStepMetadata {
   EMR?: EMRStepMetadata | undefined;
 
   /**
+   * <p>The configurations and outcomes of an Amazon EMR Serverless step execution.</p>
+   * @public
+   */
+  EMRServerless?: EMRServerlessStepMetadata | undefined;
+
+  /**
    * <p>The configurations and outcomes of the check step execution. This includes: </p> <ul> <li> <p>The type of the check conducted.</p> </li> <li> <p>The Amazon S3 URIs of baseline constraints and statistics files to be used for the drift check.</p> </li> <li> <p>The Amazon S3 URIs of newly calculated baseline constraints and statistics.</p> </li> <li> <p>The model package group name provided.</p> </li> <li> <p>The Amazon S3 URI of the violation report if violations detected.</p> </li> <li> <p>The Amazon Resource Name (ARN) of check processing job initiated by the step execution.</p> </li> <li> <p>The Boolean flags indicating if the drift check is skipped.</p> </li> <li> <p>If step property <code>BaselineUsedForDriftCheck</code> is set the same as <code>CalculatedBaseline</code>.</p> </li> </ul>
    * @public
    */
@@ -4046,6 +4804,24 @@ export interface PipelineExecutionStepMetadata {
    * @public
    */
   Job?: JobStepMetadata | undefined;
+
+  /**
+   * <p>The metadata for the Athena step execution.</p>
+   * @public
+   */
+  Athena?: AthenaStepMetadata | undefined;
+
+  /**
+   * <p>The metadata for the cleanup step execution.</p>
+   * @public
+   */
+  Cleanup?: CleanupStepMetadata | undefined;
+
+  /**
+   * <p>The metadata for the ForEach step execution.</p>
+   * @public
+   */
+  ForEach?: ForEachStepMetadata | undefined;
 }
 
 /**
@@ -4130,6 +4906,12 @@ export interface PipelineExecutionStep {
    * @public
    */
   SelectiveExecutionResult?: SelectiveExecutionResult | undefined;
+
+  /**
+   * <p>The context for the iteration of a ForEach step that generated this step execution.</p>
+   * @public
+   */
+  IterationContext?: IterationContext | undefined;
 }
 
 /**
@@ -5571,6 +6353,94 @@ export interface ListTrainingPlansResponse {
    * @public
    */
   TrainingPlanSummaries: TrainingPlanSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTrainingSessionsRequest {
+  /**
+   * <p>If the response was truncated, use the token returned in the previous response to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of training sessions to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A filter that returns only training sessions created after the specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only training sessions created before the specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A string in the training session name to filter results. Only sessions whose name contains the specified string are returned.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A filter that returns only training sessions with the specified status.</p>
+   * @public
+   */
+  StatusEquals?: TrainingSessionStatus | undefined;
+}
+
+/**
+ * <p>Contains summary information about a training session.</p>
+ * @public
+ */
+export interface TrainingSessionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training session.</p>
+   * @public
+   */
+  TrainingSessionArn: string | undefined;
+
+  /**
+   * <p>The current status of the training session.</p>
+   * @public
+   */
+  TrainingSessionStatus: TrainingSessionStatus | undefined;
+
+  /**
+   * <p>The date and time that the training session was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the training session was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTrainingSessionsResponse {
+  /**
+   * <p>If the response is truncated, this token retrieves the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>An array of <code>TrainingSessionSummary</code> objects that provide summary information about the training sessions.</p>
+   * @public
+   */
+  TrainingSessionSummaries?: TrainingSessionSummary[] | undefined;
 }
 
 /**
@@ -9487,6 +10357,22 @@ export interface StopTrainingJobRequest {
 /**
  * @public
  */
+export interface StopTrainingSessionRequest {
+  /**
+   * <p>The name of the training session to stop.</p>
+   * @public
+   */
+  TrainingSessionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTrainingSessionResponse {}
+
+/**
+ * @public
+ */
 export interface StopTransformJobRequest {
   /**
    * <p>The name of the batch transform job to stop.</p>
@@ -9920,699 +10806,4 @@ export interface UpdateContextRequest {
    * @public
    */
   PropertiesToRemove?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateContextResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the context.</p>
-   * @public
-   */
-  ContextArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDeviceFleetRequest {
-  /**
-   * <p>The name of the fleet.</p>
-   * @public
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the device.</p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p>Description of the fleet.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Output configuration for storing sample data collected by the fleet.</p>
-   * @public
-   */
-  OutputConfig: EdgeOutputConfig | undefined;
-
-  /**
-   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-\{DeviceFleetName\}".</p> <p>For example, if your device fleet is called "demo-fleet", the name of the role alias will be "SageMakerEdge-demo-fleet".</p>
-   * @public
-   */
-  EnableIotRoleAlias?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDevicesRequest {
-  /**
-   * <p>The name of the fleet the devices belong to.</p>
-   * @public
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>List of devices to register with Edge Manager agent.</p>
-   * @public
-   */
-  Devices: Device[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDomainRequest {
-  /**
-   * <p>The ID of the domain to be updated.</p>
-   * @public
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>A collection of settings.</p>
-   * @public
-   */
-  DefaultUserSettings?: UserSettings | undefined;
-
-  /**
-   * <p>A collection of <code>DomainSettings</code> configuration values to update.</p>
-   * @public
-   */
-  DomainSettingsForUpdate?: DomainSettingsForUpdate | undefined;
-
-  /**
-   * <p>The entity that creates and manages the required security groups for inter-app communication in <code>VPCOnly</code> mode. Required when <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is provided. If setting up the domain for use with RStudio, this value must be set to <code>Service</code>.</p>
-   * @public
-   */
-  AppSecurityGroupManagement?: AppSecurityGroupManagement | undefined;
-
-  /**
-   * <p>The default settings for shared spaces that users create in the domain.</p>
-   * @public
-   */
-  DefaultSpaceSettings?: DefaultSpaceSettings | undefined;
-
-  /**
-   * <p>The VPC subnets that Studio uses for communication.</p> <p>If removing subnets, ensure there are no apps in the <code>InService</code>, <code>Pending</code>, or <code>Deleting</code> state.</p>
-   * @public
-   */
-  SubnetIds?: string[] | undefined;
-
-  /**
-   * <p>Specifies the VPC used for non-EFS traffic.</p> <ul> <li> <p> <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon SageMaker AI, which allows direct internet access.</p> </li> <li> <p> <code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets.</p> </li> </ul> <p>This configuration can only be modified if there are no apps in the <code>InService</code>, <code>Pending</code>, or <code>Deleting</code> state. The configuration cannot be updated if <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is already set or <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is provided as part of the same request.</p>
-   * @public
-   */
-  AppNetworkAccessType?: AppNetworkAccessType | undefined;
-
-  /**
-   * <p>Indicates whether custom tag propagation is supported for the domain. Defaults to <code>DISABLED</code>.</p>
-   * @public
-   */
-  TagPropagation?: TagPropagation | undefined;
-
-  /**
-   * <p>Indicates whether to create a home EFS file system for the domain. You can change from <code>Disabled</code> to <code>Enabled</code> to provision EFS on demand, but you cannot change from <code>Enabled</code> to <code>Disabled</code>.</p>
-   * @public
-   */
-  HomeEfsFileSystemCreation?: HomeEfsFileSystemCreation | undefined;
-
-  /**
-   * <p>The identifier for the VPC used by the domain for network communication. Use this field only when adding VPC configuration to a SageMaker AI domain used in Amazon SageMaker Unified Studio that was created without VPC settings. SageMaker AI doesn't automatically apply VPC updates to existing applications. Stop and restart your applications to apply the changes.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDomainResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the domain.</p>
-   * @public
-   */
-  DomainArn?: string | undefined;
-}
-
-/**
- * <p>Specifies a production variant property type for an Endpoint.</p> <p>If you are updating an endpoint with the <code>RetainAllVariantProperties</code> option of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpointInput</a> set to <code>true</code>, the <code>VariantProperty</code> objects listed in the <code>ExcludeRetainedVariantProperties</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpointInput</a> override the existing variant properties of the endpoint.</p>
- * @public
- */
-export interface VariantProperty {
-  /**
-   * <p>The type of variant property. The supported values are:</p> <ul> <li> <p> <code>DesiredInstanceCount</code>: Overrides the existing variant instance counts using the <code>InitialInstanceCount</code> values in the <code>ProductionVariants</code> of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>.</p> </li> <li> <p> <code>DesiredWeight</code>: Overrides the existing variant weights using the <code>InitialVariantWeight</code> values in the <code>ProductionVariants</code> of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>.</p> </li> <li> <p> <code>DataCaptureConfig</code>: (Not currently supported.)</p> </li> </ul>
-   * @public
-   */
-  VariantPropertyType: VariantPropertyType | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEndpointInput {
-  /**
-   * <p>The name of the endpoint whose configuration you want to update.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The name of the new endpoint configuration.</p>
-   * @public
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p>When updating endpoint resources, enables or disables the retention of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">variant properties</a>, such as the instance count or the variant weight. To retain the variant properties of an endpoint when updating it, set <code>RetainAllVariantProperties</code> to <code>true</code>. To use the variant properties specified in a new <code>EndpointConfig</code> call when updating an endpoint, set <code>RetainAllVariantProperties</code> to <code>false</code>. The default is <code>false</code>.</p>
-   * @public
-   */
-  RetainAllVariantProperties?: boolean | undefined;
-
-  /**
-   * <p>When you are updating endpoint resources with <code>RetainAllVariantProperties</code>, whose value is set to <code>true</code>, <code>ExcludeRetainedVariantProperties</code> specifies the list of type <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">VariantProperty</a> to override with the values provided by <code>EndpointConfig</code>. If you don't specify a value for <code>ExcludeRetainedVariantProperties</code>, no variant properties are overridden. </p>
-   * @public
-   */
-  ExcludeRetainedVariantProperties?: VariantProperty[] | undefined;
-
-  /**
-   * <p>The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.</p>
-   * @public
-   */
-  DeploymentConfig?: DeploymentConfig | undefined;
-
-  /**
-   * <p>Specifies whether to reuse the last deployment configuration. The default value is false (the configuration is not reused).</p>
-   * @public
-   */
-  RetainDeploymentConfig?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEndpointOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
-   * @public
-   */
-  EndpointArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEndpointWeightsAndCapacitiesInput {
-  /**
-   * <p>The name of an existing SageMaker endpoint.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>An object that provides new capacity and weight values for a variant.</p>
-   * @public
-   */
-  DesiredWeightsAndCapacities: DesiredWeightAndCapacity[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEndpointWeightsAndCapacitiesOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the updated endpoint.</p>
-   * @public
-   */
-  EndpointArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateExperimentRequest {
-  /**
-   * <p>The name of the experiment to update.</p>
-   * @public
-   */
-  ExperimentName: string | undefined;
-
-  /**
-   * <p>The name of the experiment as displayed. The name doesn't need to be unique. If <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The description of the experiment.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateExperimentResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
-   * @public
-   */
-  ExperimentArn?: string | undefined;
-}
-
-/**
- * <p>The new throughput configuration for the feature group. You can switch between on-demand and provisioned modes or update the read / write capacity of provisioned feature groups. You can switch a feature group to on-demand only once in a 24 hour period. </p>
- * @public
- */
-export interface ThroughputConfigUpdate {
-  /**
-   * <p>Target throughput mode of the feature group. Throughput update is an asynchronous operation, and the outcome should be monitored by polling <code>LastUpdateStatus</code> field in <code>DescribeFeatureGroup</code> response. You cannot update a feature group's throughput while another update is in progress. </p>
-   * @public
-   */
-  ThroughputMode?: ThroughputMode | undefined;
-
-  /**
-   * <p>For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling. </p>
-   * @public
-   */
-  ProvisionedReadCapacityUnits?: number | undefined;
-
-  /**
-   * <p>For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling. </p>
-   * @public
-   */
-  ProvisionedWriteCapacityUnits?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFeatureGroupRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the feature group that you're updating.</p>
-   * @public
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>Updates the feature group. Updating a feature group is an asynchronous operation. When you get an HTTP 200 response, you've made a valid request. It takes some time after you've made a valid request for Feature Store to update the feature group.</p>
-   * @public
-   */
-  FeatureAdditions?: FeatureDefinition[] | undefined;
-
-  /**
-   * <p>Updates the feature group online store configuration.</p>
-   * @public
-   */
-  OnlineStoreConfig?: OnlineStoreConfigUpdate | undefined;
-
-  /**
-   * <p>The new throughput configuration for the feature group. You can switch between on-demand and provisioned modes or update the read / write capacity of provisioned feature groups. You can switch a feature group to on-demand only once in a 24 hour period. </p>
-   * @public
-   */
-  ThroughputConfig?: ThroughputConfigUpdate | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFeatureGroupResponse {
-  /**
-   * <p>The Amazon Resource Number (ARN) of the feature group that you're updating.</p>
-   * @public
-   */
-  FeatureGroupArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFeatureMetadataRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the feature group containing the feature that you're updating.</p>
-   * @public
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>The name of the feature that you're updating.</p>
-   * @public
-   */
-  FeatureName: string | undefined;
-
-  /**
-   * <p>A description that you can write to better describe the feature.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A list of key-value pairs that you can add to better describe the feature.</p>
-   * @public
-   */
-  ParameterAdditions?: FeatureParameter[] | undefined;
-
-  /**
-   * <p>A list of parameter keys that you can specify to remove parameters that describe your feature.</p>
-   * @public
-   */
-  ParameterRemovals?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateHubRequest {
-  /**
-   * <p>The name of the hub to update.</p>
-   * @public
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>A description of the updated hub.</p>
-   * @public
-   */
-  HubDescription?: string | undefined;
-
-  /**
-   * <p>The display name of the hub.</p>
-   * @public
-   */
-  HubDisplayName?: string | undefined;
-
-  /**
-   * <p>The searchable keywords for the hub.</p>
-   * @public
-   */
-  HubSearchKeywords?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateHubResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the updated hub.</p>
-   * @public
-   */
-  HubArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateHubContentRequest {
-  /**
-   * <p>The name of the SageMaker hub that contains the hub content you want to update. You can optionally use the hub ARN instead.</p>
-   * @public
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>The name of the hub content resource that you want to update.</p>
-   * @public
-   */
-  HubContentName: string | undefined;
-
-  /**
-   * <p>The content type of the resource that you want to update. Only specify a <code>Model</code> or <code>Notebook</code> resource for this API. To update a <code>ModelReference</code>, use the <code>UpdateHubContentReference</code> API instead.</p>
-   * @public
-   */
-  HubContentType: HubContentType | undefined;
-
-  /**
-   * <p>The hub content version that you want to update. For example, if you have two versions of a resource in your hub, you can update the second version.</p>
-   * @public
-   */
-  HubContentVersion: string | undefined;
-
-  /**
-   * <p>The display name of the hub content.</p>
-   * @public
-   */
-  HubContentDisplayName?: string | undefined;
-
-  /**
-   * <p>The description of the hub content.</p>
-   * @public
-   */
-  HubContentDescription?: string | undefined;
-
-  /**
-   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formatting.</p>
-   * @public
-   */
-  HubContentMarkdown?: string | undefined;
-
-  /**
-   * <p>The searchable keywords of the hub content.</p>
-   * @public
-   */
-  HubContentSearchKeywords?: string[] | undefined;
-
-  /**
-   * <p>Indicates the current status of the hub content resource.</p>
-   * @public
-   */
-  SupportStatus?: HubContentSupportStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateHubContentResponse {
-  /**
-   * <p>The ARN of the private model hub that contains the updated hub content.</p>
-   * @public
-   */
-  HubArn: string | undefined;
-
-  /**
-   * <p>The ARN of the hub content resource that was updated.</p>
-   * @public
-   */
-  HubContentArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateHubContentReferenceRequest {
-  /**
-   * <p>The name of the SageMaker hub that contains the hub content you want to update. You can optionally use the hub ARN instead.</p>
-   * @public
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>The name of the hub content resource that you want to update.</p>
-   * @public
-   */
-  HubContentName: string | undefined;
-
-  /**
-   * <p>The content type of the resource that you want to update. Only specify a <code>ModelReference</code> resource for this API. To update a <code>Model</code> or <code>Notebook</code> resource, use the <code>UpdateHubContent</code> API instead.</p>
-   * @public
-   */
-  HubContentType: HubContentType | undefined;
-
-  /**
-   * <p>The minimum hub content version of the referenced model that you want to use. The minimum version must be older than the latest available version of the referenced model. To support all versions of a model, set the value to <code>1.0.0</code>.</p>
-   * @public
-   */
-  MinVersion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateHubContentReferenceResponse {
-  /**
-   * <p>The ARN of the private model hub that contains the updated hub content.</p>
-   * @public
-   */
-  HubArn: string | undefined;
-
-  /**
-   * <p>The ARN of the hub content resource that was updated.</p>
-   * @public
-   */
-  HubContentArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateImageRequest {
-  /**
-   * <p>A list of properties to delete. Only the <code>Description</code> and <code>DisplayName</code> properties can be deleted.</p>
-   * @public
-   */
-  DeleteProperties?: string[] | undefined;
-
-  /**
-   * <p>The new description for the image.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The new display name for the image.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The name of the image to update.</p>
-   * @public
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The new ARN for the IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.</p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateImageResponse {
-  /**
-   * <p>The ARN of the image.</p>
-   * @public
-   */
-  ImageArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateImageVersionRequest {
-  /**
-   * <p>The name of the image.</p>
-   * @public
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The alias of the image version.</p>
-   * @public
-   */
-  Alias?: string | undefined;
-
-  /**
-   * <p>The version of the image.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>A list of aliases to add.</p>
-   * @public
-   */
-  AliasesToAdd?: string[] | undefined;
-
-  /**
-   * <p>A list of aliases to delete.</p>
-   * @public
-   */
-  AliasesToDelete?: string[] | undefined;
-
-  /**
-   * <p>The availability of the image version specified by the maintainer.</p> <ul> <li> <p> <code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version stability.</p> </li> <li> <p> <code>STABLE</code>: The image version is stable.</p> </li> <li> <p> <code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image versions that are set to be archived are automatically archived after three months.</p> </li> <li> <p> <code>ARCHIVED</code>: The image version is archived. Archived image versions are not searchable and are no longer actively supported. </p> </li> </ul>
-   * @public
-   */
-  VendorGuidance?: VendorGuidance | undefined;
-
-  /**
-   * <p>Indicates SageMaker AI job type compatibility.</p> <ul> <li> <p> <code>TRAINING</code>: The image version is compatible with SageMaker AI training jobs.</p> </li> <li> <p> <code>INFERENCE</code>: The image version is compatible with SageMaker AI inference jobs.</p> </li> <li> <p> <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker AI notebook kernels.</p> </li> </ul>
-   * @public
-   */
-  JobType?: JobType | undefined;
-
-  /**
-   * <p>The machine learning framework vended in the image version.</p>
-   * @public
-   */
-  MLFramework?: string | undefined;
-
-  /**
-   * <p>The supported programming language and its version.</p>
-   * @public
-   */
-  ProgrammingLang?: string | undefined;
-
-  /**
-   * <p>Indicates CPU or GPU compatibility.</p> <ul> <li> <p> <code>CPU</code>: The image version is compatible with CPU.</p> </li> <li> <p> <code>GPU</code>: The image version is compatible with GPU.</p> </li> </ul>
-   * @public
-   */
-  Processor?: Processor | undefined;
-
-  /**
-   * <p>Indicates Horovod compatibility.</p>
-   * @public
-   */
-  Horovod?: boolean | undefined;
-
-  /**
-   * <p>The maintainer description of the image version.</p>
-   * @public
-   */
-  ReleaseNotes?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateImageVersionResponse {
-  /**
-   * <p>The ARN of the image version.</p>
-   * @public
-   */
-  ImageVersionArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateInferenceComponentInput {
-  /**
-   * <p>The name of the inference component.</p>
-   * @public
-   */
-  InferenceComponentName: string | undefined;
-
-  /**
-   * <p>Details about the resources to deploy with this inference component, including the model, container, and compute resources.</p>
-   * @public
-   */
-  Specification?: InferenceComponentSpecification | undefined;
-
-  /**
-   * <p>A list of specification objects for the inference component, one per instance type. Use this parameter when you want to specify different model or resource configurations for the inference component on each instance type. You can use either this parameter or the singular <code>Specification</code> parameter, but not both.</p>
-   * @public
-   */
-  Specifications?: InferenceComponentSpecification[] | undefined;
-
-  /**
-   * <p>Runtime settings for a model that is deployed with an inference component.</p>
-   * @public
-   */
-  RuntimeConfig?: InferenceComponentRuntimeConfig | undefined;
-
-  /**
-   * <p>The deployment configuration for the inference component. The configuration contains the desired deployment strategy and rollback settings.</p>
-   * @public
-   */
-  DeploymentConfig?: InferenceComponentDeploymentConfig | undefined;
 }

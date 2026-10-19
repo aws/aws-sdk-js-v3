@@ -87,6 +87,7 @@ export const NfsVersion = {
   NFS3: "NFS3",
   NFS4_0: "NFS4_0",
   NFS4_1: "NFS4_1",
+  NFS4_2: "NFS4_2",
 } as const;
 /**
  * @public
@@ -275,6 +276,19 @@ export const Mtime = {
  * @public
  */
 export type Mtime = (typeof Mtime)[keyof typeof Mtime];
+
+/**
+ * @public
+ * @enum
+ */
+export const ObjectMetadata = {
+  NONE: "NONE",
+  PRESERVE: "PRESERVE",
+} as const;
+/**
+ * @public
+ */
+export type ObjectMetadata = (typeof ObjectMetadata)[keyof typeof ObjectMetadata];
 
 /**
  * @public

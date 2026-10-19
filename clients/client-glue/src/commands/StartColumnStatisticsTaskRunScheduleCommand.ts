@@ -38,6 +38,7 @@ export interface StartColumnStatisticsTaskRunScheduleCommandOutput extends Start
  * const input = { // StartColumnStatisticsTaskRunScheduleRequest
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
+ *   CatalogID: "STRING_VALUE",
  * };
  * const command = new StartColumnStatisticsTaskRunScheduleCommand(input);
  * const response = await client.send(command);

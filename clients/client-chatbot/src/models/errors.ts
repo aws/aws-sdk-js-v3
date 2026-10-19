@@ -8,6 +8,7 @@ import { ChatbotServiceException as __BaseException } from "./ChatbotServiceExce
  * @public
  */
 export class InternalServiceError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#InternalServiceError";
   readonly name = "InternalServiceError" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class InternalServiceError extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class UnauthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#UnauthorizedException";
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -70,6 +73,7 @@ export class UnauthorizedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -90,6 +94,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class CreateChimeWebhookConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#CreateChimeWebhookConfigurationException";
   readonly name = "CreateChimeWebhookConfigurationException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -112,6 +117,7 @@ export class CreateChimeWebhookConfigurationException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -132,6 +138,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -152,6 +159,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class CreateTeamsChannelConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#CreateTeamsChannelConfigurationException";
   readonly name = "CreateTeamsChannelConfigurationException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -174,6 +182,7 @@ export class CreateTeamsChannelConfigurationException extends __BaseException {
  * @public
  */
 export class CreateSlackChannelConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#CreateSlackChannelConfigurationException";
   readonly name = "CreateSlackChannelConfigurationException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -196,6 +205,7 @@ export class CreateSlackChannelConfigurationException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -218,6 +228,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class DeleteChimeWebhookConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#DeleteChimeWebhookConfigurationException";
   readonly name = "DeleteChimeWebhookConfigurationException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -240,6 +251,7 @@ export class DeleteChimeWebhookConfigurationException extends __BaseException {
  * @public
  */
 export class DeleteTeamsChannelConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#DeleteTeamsChannelConfigurationException";
   readonly name = "DeleteTeamsChannelConfigurationException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -262,6 +274,7 @@ export class DeleteTeamsChannelConfigurationException extends __BaseException {
  * @public
  */
 export class DeleteTeamsConfiguredTeamException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#DeleteTeamsConfiguredTeamException";
   readonly name = "DeleteTeamsConfiguredTeamException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -284,6 +297,7 @@ export class DeleteTeamsConfiguredTeamException extends __BaseException {
  * @public
  */
 export class DeleteMicrosoftTeamsUserIdentityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#DeleteMicrosoftTeamsUserIdentityException";
   readonly name = "DeleteMicrosoftTeamsUserIdentityException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -306,6 +320,7 @@ export class DeleteMicrosoftTeamsUserIdentityException extends __BaseException {
  * @public
  */
 export class DeleteSlackChannelConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#DeleteSlackChannelConfigurationException";
   readonly name = "DeleteSlackChannelConfigurationException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -328,6 +343,7 @@ export class DeleteSlackChannelConfigurationException extends __BaseException {
  * @public
  */
 export class DeleteSlackUserIdentityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#DeleteSlackUserIdentityException";
   readonly name = "DeleteSlackUserIdentityException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -350,6 +366,7 @@ export class DeleteSlackUserIdentityException extends __BaseException {
  * @public
  */
 export class DeleteSlackWorkspaceAuthorizationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#DeleteSlackWorkspaceAuthorizationFault";
   readonly name = "DeleteSlackWorkspaceAuthorizationFault" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -372,6 +389,7 @@ export class DeleteSlackWorkspaceAuthorizationFault extends __BaseException {
  * @public
  */
 export class DescribeChimeWebhookConfigurationsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#DescribeChimeWebhookConfigurationsException";
   readonly name = "DescribeChimeWebhookConfigurationsException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -394,6 +412,7 @@ export class DescribeChimeWebhookConfigurationsException extends __BaseException
  * @public
  */
 export class DescribeSlackChannelConfigurationsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#DescribeSlackChannelConfigurationsException";
   readonly name = "DescribeSlackChannelConfigurationsException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -416,6 +435,7 @@ export class DescribeSlackChannelConfigurationsException extends __BaseException
  * @public
  */
 export class DescribeSlackUserIdentitiesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#DescribeSlackUserIdentitiesException";
   readonly name = "DescribeSlackUserIdentitiesException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -438,6 +458,7 @@ export class DescribeSlackUserIdentitiesException extends __BaseException {
  * @public
  */
 export class DescribeSlackWorkspacesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#DescribeSlackWorkspacesException";
   readonly name = "DescribeSlackWorkspacesException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -460,6 +481,7 @@ export class DescribeSlackWorkspacesException extends __BaseException {
  * @public
  */
 export class GetAccountPreferencesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#GetAccountPreferencesException";
   readonly name = "GetAccountPreferencesException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -482,6 +504,7 @@ export class GetAccountPreferencesException extends __BaseException {
  * @public
  */
 export class GetTeamsChannelConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#GetTeamsChannelConfigurationException";
   readonly name = "GetTeamsChannelConfigurationException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -504,6 +527,7 @@ export class GetTeamsChannelConfigurationException extends __BaseException {
  * @public
  */
 export class ListTeamsChannelConfigurationsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#ListTeamsChannelConfigurationsException";
   readonly name = "ListTeamsChannelConfigurationsException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -526,6 +550,7 @@ export class ListTeamsChannelConfigurationsException extends __BaseException {
  * @public
  */
 export class ListMicrosoftTeamsConfiguredTeamsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#ListMicrosoftTeamsConfiguredTeamsException";
   readonly name = "ListMicrosoftTeamsConfiguredTeamsException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -548,6 +573,7 @@ export class ListMicrosoftTeamsConfiguredTeamsException extends __BaseException 
  * @public
  */
 export class ListMicrosoftTeamsUserIdentitiesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#ListMicrosoftTeamsUserIdentitiesException";
   readonly name = "ListMicrosoftTeamsUserIdentitiesException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -570,6 +596,7 @@ export class ListMicrosoftTeamsUserIdentitiesException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -590,6 +617,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -610,6 +638,7 @@ export class TooManyTagsException extends __BaseException {
  * @public
  */
 export class UpdateAccountPreferencesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#UpdateAccountPreferencesException";
   readonly name = "UpdateAccountPreferencesException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -632,6 +661,7 @@ export class UpdateAccountPreferencesException extends __BaseException {
  * @public
  */
 export class UpdateChimeWebhookConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#UpdateChimeWebhookConfigurationException";
   readonly name = "UpdateChimeWebhookConfigurationException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -654,6 +684,7 @@ export class UpdateChimeWebhookConfigurationException extends __BaseException {
  * @public
  */
 export class UpdateTeamsChannelConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#UpdateTeamsChannelConfigurationException";
   readonly name = "UpdateTeamsChannelConfigurationException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -676,6 +707,7 @@ export class UpdateTeamsChannelConfigurationException extends __BaseException {
  * @public
  */
 export class UpdateSlackChannelConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chatbot#UpdateSlackChannelConfigurationException";
   readonly name = "UpdateSlackChannelConfigurationException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;

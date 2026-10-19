@@ -237,6 +237,9 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //                     completion: "STRING_VALUE",
  * //                     nextChunkToken: "STRING_VALUE",
  * //                   },
+ * //                   proactiveRecommendationData: { // ProactiveRecommendationDataDetails
+ * //                     nextMessageToken: "STRING_VALUE", // required
+ * //                   },
  * //                 },
  * //               },
  * //             ],
@@ -296,6 +299,9 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //           notesChunkData: {
  * //             completion: "STRING_VALUE",
  * //             nextChunkToken: "STRING_VALUE",
+ * //           },
+ * //           proactiveRecommendationData: {
+ * //             nextMessageToken: "STRING_VALUE", // required
  * //           },
  * //         },
  * //       },

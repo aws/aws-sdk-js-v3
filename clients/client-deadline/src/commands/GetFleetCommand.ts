@@ -148,6 +148,11 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * //             ],
  * //           },
  * //         ],
+ * //         softwareAddOns: [ // FleetSoftwareAddOns
+ * //           { // FleetSoftwareAddOn
+ * //             name: "docker", // required
+ * //           },
+ * //         ],
  * //       },
  * //       instanceMarketOptions: { // ServiceManagedEc2InstanceMarketOptions
  * //         type: "on-demand" || "spot" || "wait-and-save", // required

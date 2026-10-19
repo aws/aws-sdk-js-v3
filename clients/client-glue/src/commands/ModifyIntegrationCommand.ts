@@ -42,6 +42,7 @@ export interface ModifyIntegrationCommandOutput extends ModifyIntegrationRespons
  *       "<keys>": "STRING_VALUE",
  *     },
  *     ContinuousSync: true || false,
+ *     TargetNamespace: "STRING_VALUE",
  *   },
  *   IntegrationName: "STRING_VALUE",
  * };
@@ -78,6 +79,7 @@ export interface ModifyIntegrationCommandOutput extends ModifyIntegrationRespons
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     ContinuousSync: true || false,
+ * //     TargetNamespace: "STRING_VALUE",
  * //   },
  * // };
  *

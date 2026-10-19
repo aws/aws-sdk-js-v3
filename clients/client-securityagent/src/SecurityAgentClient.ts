@@ -76,6 +76,14 @@ import type {
   BatchDeleteThreatModelsCommandOutput,
 } from "./commands/BatchDeleteThreatModelsCommand";
 import type {
+  BatchDisassociateFindingIssueCommandInput,
+  BatchDisassociateFindingIssueCommandOutput,
+} from "./commands/BatchDisassociateFindingIssueCommand";
+import type {
+  BatchExportFindingsCommandInput,
+  BatchExportFindingsCommandOutput,
+} from "./commands/BatchExportFindingsCommand";
+import type {
   BatchGetAgentSpacesCommandInput,
   BatchGetAgentSpacesCommandOutput,
 } from "./commands/BatchGetAgentSpacesCommand";
@@ -201,6 +209,10 @@ import type {
   InitiateProviderRegistrationCommandInput,
   InitiateProviderRegistrationCommandOutput,
 } from "./commands/InitiateProviderRegistrationCommand";
+import type {
+  ListActorMessagesCommandInput,
+  ListActorMessagesCommandOutput,
+} from "./commands/ListActorMessagesCommand";
 import type { ListAgentSpacesCommandInput, ListAgentSpacesCommandOutput } from "./commands/ListAgentSpacesCommand";
 import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import type { ListArtifactsCommandInput, ListArtifactsCommandOutput } from "./commands/ListArtifactsCommand";
@@ -298,6 +310,10 @@ import type {
   UpdateIntegratedResourcesCommandInput,
   UpdateIntegratedResourcesCommandOutput,
 } from "./commands/UpdateIntegratedResourcesCommand";
+import type {
+  UpdateIntegrationCommandInput,
+  UpdateIntegrationCommandOutput,
+} from "./commands/UpdateIntegrationCommand";
 import type { UpdatePentestCommandInput, UpdatePentestCommandOutput } from "./commands/UpdatePentestCommand";
 import type {
   UpdatePrivateConnectionCertificateCommandInput,
@@ -341,6 +357,8 @@ export type ServiceInputTypes =
   | BatchDeletePentestsCommandInput
   | BatchDeleteSecurityRequirementsCommandInput
   | BatchDeleteThreatModelsCommandInput
+  | BatchDisassociateFindingIssueCommandInput
+  | BatchExportFindingsCommandInput
   | BatchGetAgentSpacesCommandInput
   | BatchGetArtifactMetadataCommandInput
   | BatchGetCodeReviewJobTasksCommandInput
@@ -383,6 +401,7 @@ export type ServiceInputTypes =
   | GetSecurityRequirementPackCommandInput
   | ImportSecurityRequirementsCommandInput
   | InitiateProviderRegistrationCommandInput
+  | ListActorMessagesCommandInput
   | ListAgentSpacesCommandInput
   | ListApplicationsCommandInput
   | ListArtifactsCommandInput
@@ -420,6 +439,7 @@ export type ServiceInputTypes =
   | UpdateCodeReviewCommandInput
   | UpdateFindingCommandInput
   | UpdateIntegratedResourcesCommandInput
+  | UpdateIntegrationCommandInput
   | UpdatePentestCommandInput
   | UpdatePrivateConnectionCertificateCommandInput
   | UpdateSecurityRequirementPackCommandInput
@@ -438,6 +458,8 @@ export type ServiceOutputTypes =
   | BatchDeletePentestsCommandOutput
   | BatchDeleteSecurityRequirementsCommandOutput
   | BatchDeleteThreatModelsCommandOutput
+  | BatchDisassociateFindingIssueCommandOutput
+  | BatchExportFindingsCommandOutput
   | BatchGetAgentSpacesCommandOutput
   | BatchGetArtifactMetadataCommandOutput
   | BatchGetCodeReviewJobTasksCommandOutput
@@ -480,6 +502,7 @@ export type ServiceOutputTypes =
   | GetSecurityRequirementPackCommandOutput
   | ImportSecurityRequirementsCommandOutput
   | InitiateProviderRegistrationCommandOutput
+  | ListActorMessagesCommandOutput
   | ListAgentSpacesCommandOutput
   | ListApplicationsCommandOutput
   | ListArtifactsCommandOutput
@@ -517,6 +540,7 @@ export type ServiceOutputTypes =
   | UpdateCodeReviewCommandOutput
   | UpdateFindingCommandOutput
   | UpdateIntegratedResourcesCommandOutput
+  | UpdateIntegrationCommandOutput
   | UpdatePentestCommandOutput
   | UpdatePrivateConnectionCertificateCommandOutput
   | UpdateSecurityRequirementPackCommandOutput

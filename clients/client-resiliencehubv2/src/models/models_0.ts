@@ -15,6 +15,10 @@ import type {
   DependencyDiscoveryStatus,
   DependencyInsightsErrorCode,
   DependencyInsightsStatus,
+  DevOpsAgentConfidence,
+  DevOpsAgentConnectionStatus,
+  DevOpsAgentInvestigationStatus,
+  DevOpsAgentVerdict,
   EksLabelSelectorOperator,
   FailureCategory,
   FindingSeverity,
@@ -1013,6 +1017,18 @@ export interface CreateReportResponse {
 }
 
 /**
+ * <p>The AWS DevOps Agent (DevOps Agent) integration configuration that you supply when creating or updating a service. Connecting a service to a DevOps Agent Agent Space lets DevOps Agent investigate the service's resilience test runs and attach its analysis to the results. Include this block with an Agent Space Amazon Resource Name (ARN) to connect or reconnect the service to an Agent Space. Include it without an Agent Space ARN to disconnect the service. Omit it to leave the existing linkage unchanged.</p>
+ * @public
+ */
+export interface DevOpsAgentConfiguration {
+  /**
+   * <p>The ARN of the DevOps Agent Agent Space to link to this service.</p>
+   * @public
+   */
+  agentSpaceArn?: string | undefined;
+}
+
+/**
  * <p>Specifies a cross-account IAM role ARN and optional external ID.</p>
  * @public
  */
@@ -1176,6 +1192,12 @@ export interface CreateServiceRequest {
   kmsKeyId?: string | undefined;
 
   /**
+   * <p>The optional DevOps Agent integration configuration to apply to the new service. If you omit this field, the new service has no DevOps Agent integration.</p>
+   * @public
+   */
+  devOpsAgentConfiguration?: DevOpsAgentConfiguration | undefined;
+
+  /**
    * <p>Resource tags.</p>
    * @public
    */
@@ -1216,6 +1238,54 @@ export interface DependencyDiscoveryConfig {
    * @public
    */
   message?: string | undefined;
+}
+
+/**
+ * <p>The current DevOps Agent integration state for a service. Read operations return this state.</p>
+ * @public
+ */
+export interface DevOpsAgentConfigurationView {
+  /**
+   * <p>The ARN of the linked DevOps Agent Agent Space.</p>
+   * @public
+   */
+  agentSpaceArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the linked DevOps Agent Agent Space.</p>
+   * @public
+   */
+  agentSpaceId?: string | undefined;
+
+  /**
+   * <p>The AWS Region of the linked DevOps Agent Agent Space.</p>
+   * @public
+   */
+  region?: string | undefined;
+
+  /**
+   * <p>The connection status of the DevOps Agent integration for this service. Valid values:</p> <ul> <li> <p>CONNECTING - The service is being connected to the Agent Space.</p> </li> <li> <p>CONNECTED - The service is connected to the Agent Space.</p> </li> <li> <p>DISCONNECTED - The service is not connected to an Agent Space.</p> </li> <li> <p>FAILED - The connection attempt failed. See statusReason for details.</p> </li> </ul>
+   * @public
+   */
+  status?: DevOpsAgentConnectionStatus | undefined;
+
+  /**
+   * <p>The URL of the DevOps Agent Operator App for the linked Agent Space. This URL is present when the connection status is CONNECTED.</p>
+   * @public
+   */
+  operatorAppUrl?: string | undefined;
+
+  /**
+   * <p>The timestamp when the service successfully connected to the DevOps Agent Agent Space.</p>
+   * @public
+   */
+  connectedAt?: Date | undefined;
+
+  /**
+   * <p>A human-readable explanation of the current connection status. This field explains the status when the connection fails.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
 }
 
 /**
@@ -1510,6 +1580,12 @@ export interface Service {
    * @public
    */
   accountId?: string | undefined;
+
+  /**
+   * <p>The current DevOps Agent integration state for the service.</p>
+   * @public
+   */
+  devOpsAgentConfiguration?: DevOpsAgentConfigurationView | undefined;
 
   /**
    * <p>The timestamp when the service was created.</p>
@@ -2597,6 +2673,42 @@ export interface DependencySummary {
 }
 
 /**
+ * <p>The result when DevOps Agent investigates a resilience test run. The verdict is advisory and builds on the test run's own result, which remains authoritative.</p>
+ * @public
+ */
+export interface DevOpsAgentInvestigation {
+  /**
+   * <p>The investigation verdict. Valid values:</p> <ul> <li> <p>PASS - The resilience test run passed.</p> </li> <li> <p>FAIL - The resilience test run failed.</p> </li> <li> <p>INCONCLUSIVE - The investigation could not determine a clear outcome.</p> </li> </ul>
+   * @public
+   */
+  verdict?: DevOpsAgentVerdict | undefined;
+
+  /**
+   * <p>The confidence level of the verdict. Valid values:</p> <ul> <li> <p>HIGH - The verdict is highly reliable.</p> </li> <li> <p>MEDIUM - The verdict has moderate reliability.</p> </li> <li> <p>LOW - The verdict has low reliability.</p> </li> </ul>
+   * @public
+   */
+  confidence?: DevOpsAgentConfidence | undefined;
+
+  /**
+   * <p>A deep link to the interactive DevOps Agent investigation session.</p>
+   * @public
+   */
+  deepLink?: string | undefined;
+
+  /**
+   * <p>The lifecycle status of the investigation. Valid values:</p> <ul> <li> <p>PENDING - The investigation has been created but has not started.</p> </li> <li> <p>IN_PROGRESS - The investigation is running.</p> </li> <li> <p>COMPLETED - The investigation finished successfully.</p> </li> <li> <p>FAILED - The investigation failed to complete.</p> </li> <li> <p>TIMED_OUT - The investigation did not complete within the allotted time.</p> </li> <li> <p>CANCELED - The investigation was canceled.</p> </li> </ul>
+   * @public
+   */
+  status?: DevOpsAgentInvestigationStatus | undefined;
+
+  /**
+   * <p>The DevOps Agent analysis summary for the investigation.</p>
+   * @public
+   */
+  summary?: string | undefined;
+}
+
+/**
  * <p>Contains property information for a service topology edge.</p>
  * @public
  */
@@ -2786,6 +2898,12 @@ export interface Finding {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>A deep link to an interactive DevOps Agent investigation seeded with this finding. This value is null until DevOps Agent creates an investigation.</p>
+   * @public
+   */
+  investigationDeepLink?: string | undefined;
 }
 
 /**
@@ -2846,6 +2964,12 @@ export interface FindingSummary {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>A deep link to an interactive DevOps Agent investigation seeded with this finding. This value is null until DevOps Agent creates an investigation.</p>
+   * @public
+   */
+  investigationDeepLink?: string | undefined;
 }
 
 /**
@@ -3229,6 +3353,12 @@ export interface TestRun {
    * @public
    */
   accountTargeting?: AccountTargeting | undefined;
+
+  /**
+   * <p>The DevOps Agent investigation result for the test run, present when the integration is enabled for the service.</p>
+   * @public
+   */
+  devOpsAgentInvestigation?: DevOpsAgentInvestigation | undefined;
 }
 
 /**
@@ -4416,6 +4546,30 @@ export interface Resource {
    * @public
    */
   resourceType?: string | undefined;
+
+  /**
+   * <p>The Availability Zone ID of the Availability Zone that hosts the resource, such as use1-az1. The Availability Zone ID is consistent across Amazon Web Services (AWS) accounts, unlike the Availability Zone name.</p>
+   * @public
+   */
+  availabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The name of the Availability Zone that hosts the resource, such as us-west-2a.</p>
+   * @public
+   */
+  availabilityZoneName?: string | undefined;
+
+  /**
+   * <p>The identifier of the single parent resource that contains this resource, used to represent containment relationships in the resource topology. A resource has at most one containment parent.</p>
+   * @public
+   */
+  containmentParentId?: string | undefined;
+
+  /**
+   * <p>The identifier of the logical resource group that this resource belongs to. Resources that share this identifier are managed as a single unit.</p>
+   * @public
+   */
+  logicalResourceGroupId?: string | undefined;
 }
 
 /**
@@ -5643,6 +5797,18 @@ export interface ServiceSummary {
    * @public
    */
   assessmentStatus?: AssessmentStatus | undefined;
+
+  /**
+   * <p>The DevOps Agent connection status for the service. Valid values:</p> <ul> <li> <p>CONNECTING - The service is being connected to the Agent Space.</p> </li> <li> <p>CONNECTED - The service is connected to the Agent Space.</p> </li> <li> <p>DISCONNECTED - The service is not connected to an Agent Space.</p> </li> <li> <p>FAILED - The connection attempt failed.</p> </li> </ul>
+   * @public
+   */
+  devOpsAgentStatus?: DevOpsAgentConnectionStatus | undefined;
+
+  /**
+   * <p>The ARN of the DevOps Agent Agent Space linked to the service, when the service is linked to one.</p>
+   * @public
+   */
+  devOpsAgentSpaceArn?: string | undefined;
 
   /**
    * <p>The number of open findings.</p>
@@ -7957,6 +8123,12 @@ export interface UpdateServiceRequest {
    * @public
    */
   reportConfiguration?: ServiceReportConfiguration | undefined;
+
+  /**
+   * <p>The optional DevOps Agent integration configuration to set, replace, or disconnect for the service. If you omit this field, the existing DevOps Agent linkage stays unchanged.</p>
+   * @public
+   */
+  devOpsAgentConfiguration?: DevOpsAgentConfiguration | undefined;
 }
 
 /**

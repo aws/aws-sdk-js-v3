@@ -42,8 +42,9 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * const input = { // GetShardIteratorInput
  *   StreamArn: "STRING_VALUE", // required
  *   ShardId: "STRING_VALUE", // required
- *   ShardIteratorType: "TRIM_HORIZON" || "LATEST" || "AT_SEQUENCE_NUMBER" || "AFTER_SEQUENCE_NUMBER", // required
+ *   ShardIteratorType: "TRIM_HORIZON" || "LATEST" || "AT_SEQUENCE_NUMBER" || "AFTER_SEQUENCE_NUMBER" || "AT_TIMESTAMP", // required
  *   SequenceNumber: "STRING_VALUE",
+ *   Timestamp: new Date("TIMESTAMP"),
  * };
  * const command = new GetShardIteratorCommand(input);
  * const response = await client.send(command);

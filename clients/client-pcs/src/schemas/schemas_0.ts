@@ -215,6 +215,7 @@ const _sS = "scriptSource";
 const _sSh = "sharedSecret";
 const _sV = "secretVersion";
 const _sVI = "s3VersionId";
+const _sVc = "schedulerVersion";
 const _sc = "scheduler";
 const _se = "server";
 const _si = "size";
@@ -582,8 +583,8 @@ export var RegisterComputeNodeGroupInstanceRequest$: StaticStructureSchema = [3,
 ];
 export var RegisterComputeNodeGroupInstanceResponse$: StaticStructureSchema = [3, n0, _RCNGIRe,
   0,
-  [_nID, _sSh, _en, _cN, _cNGI, _cNGN, _nLA],
-  [0, [() => SharedSecret, 0], () => Endpoints, 0, 0, 0, () => NodeLifecycleActions$], 3
+  [_nID, _sSh, _en, _cN, _cNGI, _cNGN, _nLA, _sVc],
+  [0, [() => SharedSecret, 0], () => Endpoints, 0, 0, 0, () => NodeLifecycleActions$, 0], 3
 ];
 export var ScalingConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,

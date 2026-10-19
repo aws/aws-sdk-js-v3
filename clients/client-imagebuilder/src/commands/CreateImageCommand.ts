@@ -25,7 +25,10 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
 /**
  * <p>Creates a new image along with all configured output resources defined in the
  * 			distribution configuration. You must specify exactly one recipe for your image, using
- * 			either a ContainerRecipeArn or an ImageRecipeArn.</p>
+ * 			either a <code>containerRecipeArn</code> or an <code>imageRecipeArn</code>.</p>
+ *          <p>The response returns as soon as Image Builder creates the new image resource.
+ * 			The image build process runs asynchronously. To check its progress, call
+ * 			<a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetImage.html">GetImage</a> and check the image status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,12 +103,14 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
+ * 			calls on your behalf. Retry with an increasing or variable delay between
+ * 			requests.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
+ *  <p>A generic client error. This error usually indicates that the request
+ * 			failed a validation check, such as when a downstream service rejects a
+ * 			configured value.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
@@ -115,15 +120,16 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * 			from a previous request that used the same client token.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have requested an action that that the service doesn't support.</p>
+ *  <p>The request is malformed or otherwise invalid. Verify the request and try
+ * 			again.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The resource that you are trying to operate on is currently in use. Review the message
  * 			details and retry later.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the number of permitted resources or operations for this service.
@@ -136,6 +142,70 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example Create an image
+ * ```javascript
+ * // The following example creates a new image from the specified image recipe and infrastructure configuration.
+ * const input = {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLEeeeee",
+ *   imageRecipeArn: "arn:aws:imagebuilder:us-west-2:111122223333:image-recipe/my-example-recipe/1.0.0",
+ *   infrastructureConfigurationArn: "arn:aws:imagebuilder:us-west-2:111122223333:infrastructure-configuration/my-example-infrastructure"
+ * };
+ * const command = new CreateImageCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLEeeeee",
+ *   imageBuildVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.0/1",
+ *   latestVersionReferences: {
+ *     latestMajorVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.x.x",
+ *     latestMinorVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.x",
+ *     latestPatchVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.0",
+ *     latestVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/x.x.x"
+ *   },
+ *   requestId: "62e9b43f-a9fd-4272-89fb-ce6235d07ab4"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Create an image with custom build and parallel test workflows
+ * ```javascript
+ * // The following example creates an image that uses your custom build and test workflows. It uses the Image Builder service-linked role as the execution role. Both test workflows are in the same parallel group, so they can run at the same time after the build workflow completes.
+ * const input = {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE01234",
+ *   executionRole: "arn:aws:iam::111122223333:role/aws-service-role/imagebuilder.amazonaws.com/AWSServiceRoleForImageBuilder",
+ *   imageRecipeArn: "arn:aws:imagebuilder:us-west-2:111122223333:image-recipe/my-example-recipe/1.0.0",
+ *   infrastructureConfigurationArn: "arn:aws:imagebuilder:us-west-2:111122223333:infrastructure-configuration/my-example-infrastructure",
+ *   workflows: [
+ *     {
+ *       workflowArn: "arn:aws:imagebuilder:us-west-2:111122223333:workflow/build/my-example-workflow/1.0.0/1"
+ *     },
+ *     {
+ *       parallelGroup: "post-build-tests",
+ *       workflowArn: "arn:aws:imagebuilder:us-west-2:111122223333:workflow/test/my-example-integration-tests/1.0.0/1"
+ *     },
+ *     {
+ *       parallelGroup: "post-build-tests",
+ *       workflowArn: "arn:aws:imagebuilder:us-west-2:111122223333:workflow/test/my-example-compliance-tests/1.0.0/1"
+ *     }
+ *   ]
+ * };
+ * const command = new CreateImageCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE01234",
+ *   imageBuildVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.0/1",
+ *   latestVersionReferences: {
+ *     latestMajorVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.x.x",
+ *     latestMinorVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.x",
+ *     latestPatchVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.0",
+ *     latestVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/x.x.x"
+ *   },
+ *   requestId: "359f18b1-814f-4857-987f-924214970897"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

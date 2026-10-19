@@ -4081,170 +4081,6 @@ export interface IncrementalExportSpecification {
 }
 
 /**
- * <p>Represents the properties of the exported table.</p>
- * @public
- */
-export interface ExportDescription {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the table export.</p>
-   * @public
-   */
-  ExportArn?: string | undefined;
-
-  /**
-   * <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or
-   *             FAILED.</p>
-   * @public
-   */
-  ExportStatus?: ExportStatus | undefined;
-
-  /**
-   * <p>The time at which the export task began.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The time at which the export task completed.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The name of the manifest file for the export task.</p>
-   * @public
-   */
-  ExportManifest?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the table that was exported.</p>
-   * @public
-   */
-  TableArn?: string | undefined;
-
-  /**
-   * <p>Unique ID of the table that was exported.</p>
-   * @public
-   */
-  TableId?: string | undefined;
-
-  /**
-   * <p>Point in time from which table data was exported.</p>
-   * @public
-   */
-  ExportTime?: Date | undefined;
-
-  /**
-   * <p>The client token that was provided for the export task. A client token makes calls to
-   *                 <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple
-   *             identical calls have the same effect as one single call.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The name of the Amazon S3 bucket containing the export.</p>
-   * @public
-   */
-  S3Bucket?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the bucket containing the
-   *             export.</p>
-   * @public
-   */
-  S3BucketOwner?: string | undefined;
-
-  /**
-   * <p>The Amazon S3 bucket prefix used as the file name and path of the exported
-   *             snapshot.</p>
-   * @public
-   */
-  S3Prefix?: string | undefined;
-
-  /**
-   * <p>Type of encryption used on the bucket where export data is stored. Valid values for
-   *                 <code>S3SseAlgorithm</code> are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AES256</code> - server-side encryption with Amazon S3 managed
-   *                     keys</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KMS</code> - server-side encryption with KMS managed
-   *                     keys</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  S3SseAlgorithm?: S3SseAlgorithm | undefined;
-
-  /**
-   * <p>The ID of the KMS managed key used to encrypt the S3 bucket where
-   *             export data is stored (if applicable).</p>
-   * @public
-   */
-  S3SseKmsKeyId?: string | undefined;
-
-  /**
-   * <p>Status code for the result of the failed export.</p>
-   * @public
-   */
-  FailureCode?: string | undefined;
-
-  /**
-   * <p>Export failure reason description.</p>
-   * @public
-   */
-  FailureMessage?: string | undefined;
-
-  /**
-   * <p>The format of the exported data. Valid values for <code>ExportFormat</code> are
-   *                 <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
-   * @public
-   */
-  ExportFormat?: ExportFormat | undefined;
-
-  /**
-   * <p>The billable size of the table export.</p>
-   * @public
-   */
-  BilledSizeBytes?: number | undefined;
-
-  /**
-   * <p>The number of items exported.</p>
-   * @public
-   */
-  ItemCount?: number | undefined;
-
-  /**
-   * <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or
-   *                 <code>INCREMENTAL_EXPORT</code>.</p>
-   * @public
-   */
-  ExportType?: ExportType | undefined;
-
-  /**
-   * <p>Optional object containing the parameters specific to an incremental export.</p>
-   * @public
-   */
-  IncrementalExportSpecification?: IncrementalExportSpecification | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeExportOutput {
-  /**
-   * <p>Represents the properties of the export.</p>
-   * @public
-   */
-  ExportDescription?: ExportDescription | undefined;
-}
-
-/**
  * @public
  */
 export interface DescribeGlobalTableInput {
@@ -5098,123 +4934,6 @@ export interface KinesisStreamingDestinationOutput {
    * @public
    */
   EnableKinesisStreamingConfiguration?: EnableKinesisStreamingConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface ExportTableToPointInTimeInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) associated with the table to export.</p>
-   * @public
-   */
-  TableArn: string | undefined;
-
-  /**
-   * <p>Time in the past from which to export table data, counted in seconds from the start of
-   *             the Unix epoch. The table export will be a snapshot of the table's state at this point
-   *             in time.</p>
-   * @public
-   */
-  ExportTime?: Date | undefined;
-
-  /**
-   * <p>Providing a <code>ClientToken</code> makes the call to
-   *                 <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple
-   *             identical calls have the same effect as one single call.</p>
-   *          <p>A client token is valid for 8 hours after the first request that uses it is completed.
-   *             After 8 hours, any request with the same client token is treated as a new request. Do
-   *             not resubmit the same request with the same client token for more than 8 hours, or the
-   *             result might not be idempotent.</p>
-   *          <p>If you submit a request with the same client token but a change in other parameters
-   *             within the 8-hour idempotency window, DynamoDB returns an
-   *                 <code>ExportConflictException</code>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The name of the Amazon S3 bucket to export the snapshot to.</p>
-   * @public
-   */
-  S3Bucket: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the bucket the export will be
-   *             stored in.</p>
-   *          <note>
-   *             <p>S3BucketOwner is a required parameter when exporting to a S3 bucket in another
-   *                 account.</p>
-   *          </note>
-   * @public
-   */
-  S3BucketOwner?: string | undefined;
-
-  /**
-   * <p>The Amazon S3 bucket prefix to use as the file name and path of the exported
-   *             snapshot.</p>
-   * @public
-   */
-  S3Prefix?: string | undefined;
-
-  /**
-   * <p>Type of encryption used on the bucket where export data will be stored. Valid values
-   *             for <code>S3SseAlgorithm</code> are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AES256</code> - server-side encryption with Amazon S3 managed
-   *                     keys</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KMS</code> - server-side encryption with KMS managed
-   *                     keys</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  S3SseAlgorithm?: S3SseAlgorithm | undefined;
-
-  /**
-   * <p>The ID of the KMS managed key used to encrypt the S3 bucket where
-   *             export data will be stored (if applicable).</p>
-   * @public
-   */
-  S3SseKmsKeyId?: string | undefined;
-
-  /**
-   * <p>The format for the exported data. Valid values for <code>ExportFormat</code> are
-   *                 <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
-   * @public
-   */
-  ExportFormat?: ExportFormat | undefined;
-
-  /**
-   * <p>Choice of whether to execute as a full export or incremental export. Valid values are
-   *             FULL_EXPORT or INCREMENTAL_EXPORT. The default value is FULL_EXPORT. If
-   *             INCREMENTAL_EXPORT is provided, the IncrementalExportSpecification must also be
-   *             used.</p>
-   * @public
-   */
-  ExportType?: ExportType | undefined;
-
-  /**
-   * <p>Optional object containing the parameters specific to an incremental export.</p>
-   * @public
-   */
-  IncrementalExportSpecification?: IncrementalExportSpecification | undefined;
-}
-
-/**
- * @public
- */
-export interface ExportTableToPointInTimeOutput {
-  /**
-   * <p>Contains a description of the table export.</p>
-   * @public
-   */
-  ExportDescription?: ExportDescription | undefined;
 }
 
 /**
@@ -7903,6 +7622,56 @@ export interface ExecuteStatementInput {
 }
 
 /**
+ * <p>Contains the filter criteria used to limit which items are included in an export.
+ *             If you don't include this parameter, all items and attributes are exported.</p>
+ * @public
+ */
+export interface FilterSpecification {
+  /**
+   * <p>A condition that filters which items are included in the export. This parameter
+   *             uses the same syntax as <code>FilterExpression</code> in <code>Query</code> and
+   *                 <code>Scan</code>. If you don't provide <code>KeyConditionExpression</code>, this
+   *             expression can also reference key attributes. If you don't specify this parameter,
+   *             all items are included in the export.</p>
+   * @public
+   */
+  FilterExpression?: string | undefined;
+
+  /**
+   * <p>The attributes you want to retrieve for items included in the export. Separate
+   *             attribute names in the expression with commas. If you don't specify this parameter,
+   *             all attributes are returned.</p>
+   * @public
+   */
+  ProjectionExpression?: string | undefined;
+
+  /**
+   * <p>A condition expression that filters items by key values. The expression must test
+   *             equality on a single partition key value and can optionally compare a sort key value.
+   *             This parameter uses the same syntax as <code>KeyConditionExpression</code> in
+   *                 <code>Query</code>. When you provide this parameter, <code>FilterExpression</code>
+   *             can only reference non-key attributes. If you don't specify this parameter, all items
+   *             are eligible for export.</p>
+   * @public
+   */
+  KeyConditionExpression?: string | undefined;
+
+  /**
+   * <p>One or more substitution tokens for attribute names in an expression. For more
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html">Expression Attribute Names</a> in the Amazon DynamoDB Developer Guide.</p>
+   * @public
+   */
+  ExpressionAttributeNames?: Record<string, string> | undefined;
+
+  /**
+   * <p>One or more values that can be substituted in an expression. For more information,
+   *             see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeValues.html">Expression Attribute Values</a> in the Amazon DynamoDB Developer Guide.</p>
+   * @public
+   */
+  ExpressionAttributeValues?: Record<string, AttributeValue> | undefined;
+}
+
+/**
  * <p>Specifies an item and related attribute values to retrieve in a
  *                 <code>TransactGetItem</code> object.</p>
  * @public
@@ -8207,6 +7976,281 @@ export interface SearchResultItem {
 }
 
 /**
+ * <p>Represents the properties of the exported table.</p>
+ * @public
+ */
+export interface ExportDescription {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table export.</p>
+   * @public
+   */
+  ExportArn?: string | undefined;
+
+  /**
+   * <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or
+   *             FAILED.</p>
+   * @public
+   */
+  ExportStatus?: ExportStatus | undefined;
+
+  /**
+   * <p>The time at which the export task began.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The time at which the export task completed.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The name of the manifest file for the export task.</p>
+   * @public
+   */
+  ExportManifest?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table that was exported.</p>
+   * @public
+   */
+  TableArn?: string | undefined;
+
+  /**
+   * <p>Unique ID of the table that was exported.</p>
+   * @public
+   */
+  TableId?: string | undefined;
+
+  /**
+   * <p>Point in time from which table data was exported.</p>
+   * @public
+   */
+  ExportTime?: Date | undefined;
+
+  /**
+   * <p>The client token that was provided for the export task. A client token makes calls to
+   *                 <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple
+   *             identical calls have the same effect as one single call.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon S3 bucket containing the export.</p>
+   * @public
+   */
+  S3Bucket?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the bucket containing the
+   *             export.</p>
+   * @public
+   */
+  S3BucketOwner?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket prefix used as the file name and path of the exported
+   *             snapshot.</p>
+   * @public
+   */
+  S3Prefix?: string | undefined;
+
+  /**
+   * <p>Type of encryption used on the bucket where export data is stored. Valid values for
+   *                 <code>S3SseAlgorithm</code> are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AES256</code> - server-side encryption with Amazon S3 managed
+   *                     keys</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KMS</code> - server-side encryption with KMS managed
+   *                     keys</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  S3SseAlgorithm?: S3SseAlgorithm | undefined;
+
+  /**
+   * <p>The ID of the KMS managed key used to encrypt the S3 bucket where
+   *             export data is stored (if applicable).</p>
+   * @public
+   */
+  S3SseKmsKeyId?: string | undefined;
+
+  /**
+   * <p>Status code for the result of the failed export.</p>
+   * @public
+   */
+  FailureCode?: string | undefined;
+
+  /**
+   * <p>Export failure reason description.</p>
+   * @public
+   */
+  FailureMessage?: string | undefined;
+
+  /**
+   * <p>The format of the exported data. Valid values for <code>ExportFormat</code> are
+   *                 <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
+   * @public
+   */
+  ExportFormat?: ExportFormat | undefined;
+
+  /**
+   * <p>The billable size of the table export.</p>
+   * @public
+   */
+  BilledSizeBytes?: number | undefined;
+
+  /**
+   * <p>The number of items exported.</p>
+   * @public
+   */
+  ItemCount?: number | undefined;
+
+  /**
+   * <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or
+   *                 <code>INCREMENTAL_EXPORT</code>.</p>
+   * @public
+   */
+  ExportType?: ExportType | undefined;
+
+  /**
+   * <p>Optional object containing the parameters specific to an incremental export.</p>
+   * @public
+   */
+  IncrementalExportSpecification?: IncrementalExportSpecification | undefined;
+
+  /**
+   * <p>The filter criteria applied to the export. When present, only items that match the
+   *             specified key conditions and filter expressions are included in the export
+   *             output.</p>
+   * @public
+   */
+  FilterSpecification?: FilterSpecification | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportTableToPointInTimeInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the table to export.</p>
+   * @public
+   */
+  TableArn: string | undefined;
+
+  /**
+   * <p>Time in the past from which to export table data, counted in seconds from the start of
+   *             the Unix epoch. The table export will be a snapshot of the table's state at this point
+   *             in time.</p>
+   * @public
+   */
+  ExportTime?: Date | undefined;
+
+  /**
+   * <p>Providing a <code>ClientToken</code> makes the call to
+   *                 <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple
+   *             identical calls have the same effect as one single call.</p>
+   *          <p>A client token is valid for 8 hours after the first request that uses it is completed.
+   *             After 8 hours, any request with the same client token is treated as a new request. Do
+   *             not resubmit the same request with the same client token for more than 8 hours, or the
+   *             result might not be idempotent.</p>
+   *          <p>If you submit a request with the same client token but a change in other parameters
+   *             within the 8-hour idempotency window, DynamoDB returns an
+   *                 <code>ExportConflictException</code>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon S3 bucket to export the snapshot to.</p>
+   * @public
+   */
+  S3Bucket: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the bucket the export will be
+   *             stored in.</p>
+   *          <note>
+   *             <p>S3BucketOwner is a required parameter when exporting to a S3 bucket in another
+   *                 account.</p>
+   *          </note>
+   * @public
+   */
+  S3BucketOwner?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket prefix to use as the file name and path of the exported
+   *             snapshot.</p>
+   * @public
+   */
+  S3Prefix?: string | undefined;
+
+  /**
+   * <p>Type of encryption used on the bucket where export data will be stored. Valid values
+   *             for <code>S3SseAlgorithm</code> are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AES256</code> - server-side encryption with Amazon S3 managed
+   *                     keys</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KMS</code> - server-side encryption with KMS managed
+   *                     keys</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  S3SseAlgorithm?: S3SseAlgorithm | undefined;
+
+  /**
+   * <p>The ID of the KMS managed key used to encrypt the S3 bucket where
+   *             export data will be stored (if applicable).</p>
+   * @public
+   */
+  S3SseKmsKeyId?: string | undefined;
+
+  /**
+   * <p>The format for the exported data. Valid values for <code>ExportFormat</code> are
+   *                 <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
+   * @public
+   */
+  ExportFormat?: ExportFormat | undefined;
+
+  /**
+   * <p>Choice of whether to execute as a full export or incremental export. Valid values are
+   *             FULL_EXPORT or INCREMENTAL_EXPORT. The default value is FULL_EXPORT. If
+   *             INCREMENTAL_EXPORT is provided, the IncrementalExportSpecification must also be
+   *             used.</p>
+   * @public
+   */
+  ExportType?: ExportType | undefined;
+
+  /**
+   * <p>Optional object containing the parameters specific to an incremental export.</p>
+   * @public
+   */
+  IncrementalExportSpecification?: IncrementalExportSpecification | undefined;
+
+  /**
+   * <p>The criteria used to filter which items are included in the point-in-time export.
+   *             When you specify this parameter, only items that match the key conditions and filter
+   *             expressions are exported.</p>
+   * @public
+   */
+  FilterSpecification?: FilterSpecification | undefined;
+}
+
+/**
  * <p>Represents a set of primary keys and, for each key, the attributes to retrieve from
  *             the table.</p>
  *          <p>For each primary key, you must provide <i>all</i> of the key attributes.
@@ -8366,6 +8410,17 @@ export interface BatchExecuteStatementInput {
 /**
  * @public
  */
+export interface DescribeExportOutput {
+  /**
+   * <p>Represents the properties of the export.</p>
+   * @public
+   */
+  ExportDescription?: ExportDescription | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ExecuteTransactionInput {
   /**
    * <p>The list of PartiQL statements representing the transaction to run.</p>
@@ -8404,6 +8459,17 @@ export interface ExecuteTransactionOutput {
    * @public
    */
   ConsumedCapacity?: ConsumedCapacity[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportTableToPointInTimeOutput {
+  /**
+   * <p>Contains a description of the table export.</p>
+   * @public
+   */
+  ExportDescription?: ExportDescription | undefined;
 }
 
 /**

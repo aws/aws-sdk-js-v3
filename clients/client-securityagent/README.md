@@ -223,6 +223,20 @@ BatchDeleteThreatModels
 </details>
 <details>
 <summary>
+BatchDisassociateFindingIssue
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityagent/command/BatchDisassociateFindingIssueCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/BatchDisassociateFindingIssueCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/BatchDisassociateFindingIssueCommandOutput/)
+</details>
+<details>
+<summary>
+BatchExportFindings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityagent/command/BatchExportFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/BatchExportFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/BatchExportFindingsCommandOutput/)
+</details>
+<details>
+<summary>
 BatchGetAgentSpaces
 </summary>
 
@@ -517,6 +531,13 @@ InitiateProviderRegistration
 </details>
 <details>
 <summary>
+ListActorMessages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityagent/command/ListActorMessagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/ListActorMessagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/ListActorMessagesCommandOutput/)
+</details>
+<details>
+<summary>
 ListAgentSpaces
 </summary>
 
@@ -773,6 +794,13 @@ UpdateIntegratedResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityagent/command/UpdateIntegratedResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/UpdateIntegratedResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/UpdateIntegratedResourcesCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityagent/command/UpdateIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/UpdateIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/UpdateIntegrationCommandOutput/)
 </details>
 <details>
 <summary>

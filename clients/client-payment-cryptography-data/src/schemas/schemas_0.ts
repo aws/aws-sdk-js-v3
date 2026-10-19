@@ -875,8 +875,8 @@ export var PinVerificationAttributes$: StaticUnionSchema = [4, n0, _PVA,
 ];
 export var ReEncryptionAttributes$: StaticUnionSchema = [4, n0, _REA,
   0,
-  [_S, _D],
-  [[() => SymmetricEncryptionAttributes$, 0], [() => DukptEncryptionAttributes$, 0]]
+  [_S, _As, _D],
+  [[() => SymmetricEncryptionAttributes$, 0], () => AsymmetricEncryptionAttributes$, [() => DukptEncryptionAttributes$, 0]]
 ];
 export var SessionKeyDerivation$: StaticUnionSchema = [4, n0, _SKD,
   0,

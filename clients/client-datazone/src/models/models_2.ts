@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import type {
+  BlueprintCategory,
   ConnectionScope,
   ConnectionType,
   DataZoneEntityType,
@@ -20,6 +21,8 @@ import type {
   NotebookExportStatus,
   NotebookRunStatus,
   NotebookStatus,
+  NotebookType,
+  NotifyOnState,
   ProjectStatus,
   RejectRuleBehavior,
   RelationDirection,
@@ -374,6 +377,18 @@ export interface NetworkConfig {
 }
 
 /**
+ * <p>The notification configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
+ * @public
+ */
+export interface NotificationConfig {
+  /**
+   * Notebook run states that trigger notifications. Ordering is not significant.
+   * @public
+   */
+  notifyOn: NotifyOnState[] | undefined;
+}
+
+/**
  * <p>The storage configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
  * @public
  */
@@ -508,6 +523,12 @@ export interface GetNotebookRunOutput {
    * @public
    */
   storageConfiguration?: StorageConfig | undefined;
+
+  /**
+   * <p>The notification configuration of the notebook run, including the notebook run states that trigger notifications.</p>
+   * @public
+   */
+  notificationConfiguration?: NotificationConfig | undefined;
 
   /**
    * <p>The source that triggered the notebook run.</p>
@@ -759,6 +780,12 @@ export interface StartNotebookRunInput {
   timeoutConfiguration?: TimeoutConfig | undefined;
 
   /**
+   * <p>The notification configuration for the notebook run. Use this to specify the notebook run states that trigger notifications.</p>
+   * @public
+   */
+  notificationConfiguration?: NotificationConfig | undefined;
+
+  /**
    * <p>The source that triggered the notebook run.</p>
    * @public
    */
@@ -870,6 +897,12 @@ export interface StartNotebookRunOutput {
    * @public
    */
   storageConfiguration?: StorageConfig | undefined;
+
+  /**
+   * <p>The notification configuration of the notebook run, including the notebook run states that trigger notifications.</p>
+   * @public
+   */
+  notificationConfiguration?: NotificationConfig | undefined;
 
   /**
    * <p>The source that triggered the notebook run.</p>
@@ -2995,11 +3028,42 @@ export interface SearchUserProfilesOutput {
 }
 
 /**
+ * <p>A single Amazon Simple Storage Service object to import as a notebook cell.</p>
+ * @public
+ */
+export interface S3File {
+  /**
+   * <p>The key of the Amazon Simple Storage Service object to import.</p>
+   * @public
+   */
+  key: string | undefined;
+}
+
+/**
+ * <p>The Amazon Simple Storage Service objects to import as the cells of a notebook, specified as a bucket and an ordered list of object keys.</p>
+ * @public
+ */
+export interface S3FilesLocation {
+  /**
+   * <p>The name of the Amazon Simple Storage Service bucket that contains the files to import.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The files to import. Cells are created in the order in which you list the files. You can specify between 1 and 100 files.</p>
+   * @public
+   */
+  fileList: S3File[] | undefined;
+}
+
+/**
  * <p>The source location for a notebook import in Amazon SageMaker Unified Studio.</p>
  * @public
  */
 export type SourceLocation =
   | SourceLocation.S3Member
+  | SourceLocation.S3FilesMember
   | SourceLocation.$UnknownMember;
 
 /**
@@ -3012,6 +3076,17 @@ export namespace SourceLocation {
    */
   export interface S3Member {
     s3: string;
+    s3Files?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon Simple Storage Service objects to import as the notebook's cells. One cell is created for each object, in the order in which you list them.</p>
+   * @public
+   */
+  export interface S3FilesMember {
+    s3?: never;
+    s3Files: S3FilesLocation;
     $unknown?: never;
   }
 
@@ -3020,6 +3095,7 @@ export namespace SourceLocation {
    */
   export interface $UnknownMember {
     s3?: never;
+    s3Files?: never;
     $unknown: [string, any];
   }
 
@@ -3029,6 +3105,7 @@ export namespace SourceLocation {
    */
   export interface Visitor<T> {
     s3: (value: string) => T;
+    s3Files: (value: S3FilesLocation) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3050,7 +3127,7 @@ export interface StartNotebookImportInput {
   owningProjectIdentifier: string | undefined;
 
   /**
-   * <p>The source location of the notebook to import. This specifies the Amazon Simple Storage Service URI of the notebook file.</p>
+   * <p>The source location of the notebook to import. Specify either a single Amazon Simple Storage Service URI, or a list of objects to import as the notebook's cells.</p>
    * @public
    */
   sourceLocation: SourceLocation | undefined;
@@ -3066,6 +3143,12 @@ export interface StartNotebookImportInput {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The type of the notebook to import. If not specified, defaults to <code>DATA</code>.</p>
+   * @public
+   */
+  type?: NotebookType | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
@@ -3113,6 +3196,12 @@ export interface StartNotebookImportOutput {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The type of the imported notebook.</p>
+   * @public
+   */
+  type?: NotebookType | undefined;
 
   /**
    * <p>The source location from which the notebook was imported.</p>
@@ -3836,6 +3925,12 @@ export interface UpdateEnvironmentBlueprintInput {
    * @public
    */
   userParameters?: CustomParameter[] | undefined;
+
+  /**
+   * <p>The category to update. The only valid value is <code>TOOLING</code>.</p>
+   * @public
+   */
+  blueprintCategory?: BlueprintCategory | undefined;
 }
 
 /**
@@ -3889,6 +3984,12 @@ export interface UpdateEnvironmentBlueprintOutput {
    * @public
    */
   glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The category of the environment blueprint. The only valid value is <code>TOOLING</code>.</p>
+   * @public
+   */
+  blueprintCategory?: BlueprintCategory | undefined;
 
   /**
    * <p>The timestamp of when the environment blueprint was created.</p>

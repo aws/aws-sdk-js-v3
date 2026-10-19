@@ -78,6 +78,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+
+# 3.978.3 (2026-10-12)
+### Bug Fixes
+* **core/httpAuthSchemes:** skip clock-skew sampling for event-stream outputs ([#8346](https://github.com/aws/aws-sdk-js-v3/issues/8346)) ([345466f](https://github.com/aws/aws-sdk-js-v3/commit/345466f4d6c0c2ab2610b6badae7d9da0d15064e))
+
+
+
+# 3.978.2 (2026-10-08)
+### Chores
+* **codegen:** sync for endpoint cache fix and pre-schema error fallback ([#8341](https://github.com/aws/aws-sdk-js-v3/issues/8341)) ([5773a75](https://github.com/aws/aws-sdk-js-v3/commit/5773a7515472dbdf2760c61e4a462b71800c50e7))
+
+
+
 # 3.978.1 (2026-09-22)
 ### Chores
 * **codegen:** sync for MetricsRecorder support and core error/retry fixes ([#8312](https://github.com/aws/aws-sdk-js-v3/issues/8312)) ([9a10476](https://github.com/aws/aws-sdk-js-v3/commit/9a104768684e8f22d4373fcc5d910711e62676d6))

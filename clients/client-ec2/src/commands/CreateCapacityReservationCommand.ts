@@ -162,6 +162,7 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  * //     },
  * //     OriginalStartDate: new Date("TIMESTAMP"),
  * //     ZeroSizePreference: "retain" || "default",
+ * //     LaunchStatus: "launchable" || "unlaunchable",
  * //   },
  * // };
  *

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-endpoints",
-  "version": "3.996.45",
+  "version": "3.996.47",
   "description": "Utilities to help with endpoint resolution",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-endpoints",
   "license": "Apache-2.0",
@@ -29,8 +29,8 @@
     "clean": "premove dist-cjs dist-es dist-types"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.978.1",
-    "@smithy/core": "^3.35.0",
+    "@aws-sdk/core": "workspace:^3.978.3",
+    "@smithy/core": "^3.36.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

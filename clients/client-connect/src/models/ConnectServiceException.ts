@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from Connect service.
  */
 export class ConnectServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.connect#ConnectServiceException";
   /**
    * @internal
    */

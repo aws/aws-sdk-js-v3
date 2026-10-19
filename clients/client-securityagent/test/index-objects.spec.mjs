@@ -3,6 +3,7 @@ import {
   AccessDeniedException$,
   AccessType,
   Actor$,
+  ActorMessage$,
   AddArtifact$,
   AddArtifactCommand,
   AddArtifactInput$,
@@ -18,6 +19,10 @@ import {
   Authentication$,
   AuthenticationProviderType,
   AWSResources$,
+  AzureDevOpsIntegrationInput$,
+  AzureDevOpsRepositoryMetadata$,
+  AzureDevOpsRepositoryResource$,
+  AzureDevOpsResourceCapabilities$,
   BatchCreateSecurityRequirementResult$,
   BatchCreateSecurityRequirements$,
   BatchCreateSecurityRequirementsCommand,
@@ -39,6 +44,17 @@ import {
   BatchDeleteThreatModelsCommand,
   BatchDeleteThreatModelsInput$,
   BatchDeleteThreatModelsOutput$,
+  BatchDisassociateFindingIssue$,
+  BatchDisassociateFindingIssueCommand,
+  BatchDisassociateFindingIssueError$,
+  BatchDisassociateFindingIssueInput$,
+  BatchDisassociateFindingIssueOutput$,
+  BatchExportFindingError$,
+  BatchExportFindingResult$,
+  BatchExportFindings$,
+  BatchExportFindingsCommand,
+  BatchExportFindingsInput$,
+  BatchExportFindingsOutput$,
   BatchGetAgentSpaces$,
   BatchGetAgentSpacesCommand,
   BatchGetAgentSpacesInput$,
@@ -105,12 +121,14 @@ import {
   BatchUpdateSecurityRequirementsCommand,
   BatchUpdateSecurityRequirementsInput$,
   BatchUpdateSecurityRequirementsOutput$,
+  BitbucketDataCenterIntegrationInput$,
   BitbucketIntegrationInput$,
   BitbucketRepositoryMetadata$,
   BitbucketRepositoryResource$,
   BitbucketResourceCapabilities$,
   CaCertificateSource$,
   Category$,
+  CiCdConfiguration$,
   CleanUpStrategy,
   CloudWatchLog$,
   CodeLocation$,
@@ -277,8 +295,18 @@ import {
   InternalServerException,
   InternalServerException$,
   IpAddressType,
+  IssueDestination$,
+  JiraIntegrationInput$,
+  JiraProjectMetadata$,
+  JiraProjectResource$,
+  JiraResourceCapabilities$,
   JobStatus,
   JobType,
+  LinkedIssue$,
+  ListActorMessages$,
+  ListActorMessagesCommand,
+  ListActorMessagesInput$,
+  ListActorMessagesOutput$,
   ListAgentSpaces$,
   ListAgentSpacesCommand,
   ListAgentSpacesInput$,
@@ -384,6 +412,7 @@ import {
   NetworkTrafficRule$,
   NetworkTrafficRuleEffect,
   NetworkTrafficRuleType,
+  paginateListActorMessages,
   paginateListAgentSpaces,
   paginateListApplications,
   paginateListArtifacts,
@@ -419,12 +448,16 @@ import {
   ProviderResourceCapabilities$,
   ProviderType,
   ReportDestination$,
+  ReportFilters$,
   ResourceConfigDnsResolution,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceType,
   RiskLevel,
   RiskType,
+  ScopeChange$,
+  ScopeDecision,
+  ScopeResult$,
   SecurityAgent,
   SecurityAgentClient,
   SecurityAgentServiceException,
@@ -482,6 +515,8 @@ import {
   Task$,
   TaskExecutionStatus,
   TaskSummary$,
+  TestScope$,
+  TestScopeType,
   Threat$,
   ThreatActor,
   ThreatAnchorShape$,
@@ -497,6 +532,11 @@ import {
   ThreatSummary$,
   ThrottlingException,
   ThrottlingException$,
+  TriggerEvent,
+  TriggerFilter$,
+  TriggerFilterGroup$,
+  TriggerFilterMatchMode,
+  TriggerFilterType,
   TrustedCaCertificate$,
   UntagResource$,
   UntagResourceCommand,
@@ -522,6 +562,10 @@ import {
   UpdateIntegratedResourcesCommand,
   UpdateIntegratedResourcesInput$,
   UpdateIntegratedResourcesOutput$,
+  UpdateIntegration$,
+  UpdateIntegrationCommand,
+  UpdateIntegrationInput$,
+  UpdateIntegrationOutput$,
   UpdatePentest$,
   UpdatePentestCommand,
   UpdatePentestInput$,
@@ -563,6 +607,7 @@ import {
   VerifyTargetDomainInput$,
   VerifyTargetDomainOutput$,
   VpcConfig$,
+  WebhookAction,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -581,6 +626,10 @@ assert(typeof BatchDeleteSecurityRequirementsCommand === "function");
 assert(typeof BatchDeleteSecurityRequirements$ === "object");
 assert(typeof BatchDeleteThreatModelsCommand === "function");
 assert(typeof BatchDeleteThreatModels$ === "object");
+assert(typeof BatchDisassociateFindingIssueCommand === "function");
+assert(typeof BatchDisassociateFindingIssue$ === "object");
+assert(typeof BatchExportFindingsCommand === "function");
+assert(typeof BatchExportFindings$ === "object");
 assert(typeof BatchGetAgentSpacesCommand === "function");
 assert(typeof BatchGetAgentSpaces$ === "object");
 assert(typeof BatchGetArtifactMetadataCommand === "function");
@@ -665,6 +714,8 @@ assert(typeof ImportSecurityRequirementsCommand === "function");
 assert(typeof ImportSecurityRequirements$ === "object");
 assert(typeof InitiateProviderRegistrationCommand === "function");
 assert(typeof InitiateProviderRegistration$ === "object");
+assert(typeof ListActorMessagesCommand === "function");
+assert(typeof ListActorMessages$ === "object");
 assert(typeof ListAgentSpacesCommand === "function");
 assert(typeof ListAgentSpaces$ === "object");
 assert(typeof ListApplicationsCommand === "function");
@@ -739,6 +790,8 @@ assert(typeof UpdateFindingCommand === "function");
 assert(typeof UpdateFinding$ === "object");
 assert(typeof UpdateIntegratedResourcesCommand === "function");
 assert(typeof UpdateIntegratedResources$ === "object");
+assert(typeof UpdateIntegrationCommand === "function");
+assert(typeof UpdateIntegration$ === "object");
 assert(typeof UpdatePentestCommand === "function");
 assert(typeof UpdatePentest$ === "object");
 assert(typeof UpdatePrivateConnectionCertificateCommand === "function");
@@ -755,6 +808,7 @@ assert(typeof VerifyTargetDomainCommand === "function");
 assert(typeof VerifyTargetDomain$ === "object");
 // structural schemas
 assert(typeof Actor$ === "object");
+assert(typeof ActorMessage$ === "object");
 assert(typeof AddArtifactInput$ === "object");
 assert(typeof AddArtifactOutput$ === "object");
 assert(typeof AgentSpace$ === "object");
@@ -766,6 +820,10 @@ assert(typeof ArtifactSummary$ === "object");
 assert(typeof Assets$ === "object");
 assert(typeof Authentication$ === "object");
 assert(typeof AWSResources$ === "object");
+assert(typeof AzureDevOpsIntegrationInput$ === "object");
+assert(typeof AzureDevOpsRepositoryMetadata$ === "object");
+assert(typeof AzureDevOpsRepositoryResource$ === "object");
+assert(typeof AzureDevOpsResourceCapabilities$ === "object");
 assert(typeof BatchCreateSecurityRequirementResult$ === "object");
 assert(typeof BatchCreateSecurityRequirementsInput$ === "object");
 assert(typeof BatchCreateSecurityRequirementsOutput$ === "object");
@@ -777,6 +835,13 @@ assert(typeof BatchDeleteSecurityRequirementsInput$ === "object");
 assert(typeof BatchDeleteSecurityRequirementsOutput$ === "object");
 assert(typeof BatchDeleteThreatModelsInput$ === "object");
 assert(typeof BatchDeleteThreatModelsOutput$ === "object");
+assert(typeof BatchDisassociateFindingIssueError$ === "object");
+assert(typeof BatchDisassociateFindingIssueInput$ === "object");
+assert(typeof BatchDisassociateFindingIssueOutput$ === "object");
+assert(typeof BatchExportFindingError$ === "object");
+assert(typeof BatchExportFindingResult$ === "object");
+assert(typeof BatchExportFindingsInput$ === "object");
+assert(typeof BatchExportFindingsOutput$ === "object");
 assert(typeof BatchGetAgentSpacesInput$ === "object");
 assert(typeof BatchGetAgentSpacesOutput$ === "object");
 assert(typeof BatchGetArtifactMetadataInput$ === "object");
@@ -811,12 +876,14 @@ assert(typeof BatchGetThreatsOutput$ === "object");
 assert(typeof BatchSecurityRequirementError$ === "object");
 assert(typeof BatchUpdateSecurityRequirementsInput$ === "object");
 assert(typeof BatchUpdateSecurityRequirementsOutput$ === "object");
+assert(typeof BitbucketDataCenterIntegrationInput$ === "object");
 assert(typeof BitbucketIntegrationInput$ === "object");
 assert(typeof BitbucketRepositoryMetadata$ === "object");
 assert(typeof BitbucketRepositoryResource$ === "object");
 assert(typeof BitbucketResourceCapabilities$ === "object");
 assert(typeof CaCertificateSource$ === "object");
 assert(typeof Category$ === "object");
+assert(typeof CiCdConfiguration$ === "object");
 assert(typeof CloudWatchLog$ === "object");
 assert(typeof CodeLocation$ === "object");
 assert(typeof CodeRemediationTask$ === "object");
@@ -916,6 +983,14 @@ assert(typeof IntegratedResourceMetadata$ === "object");
 assert(typeof IntegratedResourceSummary$ === "object");
 assert(typeof IntegrationFilter$ === "object");
 assert(typeof IntegrationSummary$ === "object");
+assert(typeof IssueDestination$ === "object");
+assert(typeof JiraIntegrationInput$ === "object");
+assert(typeof JiraProjectMetadata$ === "object");
+assert(typeof JiraProjectResource$ === "object");
+assert(typeof JiraResourceCapabilities$ === "object");
+assert(typeof LinkedIssue$ === "object");
+assert(typeof ListActorMessagesInput$ === "object");
+assert(typeof ListActorMessagesOutput$ === "object");
 assert(typeof ListAgentSpacesInput$ === "object");
 assert(typeof ListAgentSpacesOutput$ === "object");
 assert(typeof ListApplicationsRequest$ === "object");
@@ -978,6 +1053,9 @@ assert(typeof PrivateConnectionSummary$ === "object");
 assert(typeof ProviderInput$ === "object");
 assert(typeof ProviderResourceCapabilities$ === "object");
 assert(typeof ReportDestination$ === "object");
+assert(typeof ReportFilters$ === "object");
+assert(typeof ScopeChange$ === "object");
+assert(typeof ScopeResult$ === "object");
 assert(typeof SecurityRequirementArtifact$ === "object");
 assert(typeof SecurityRequirementPackSummary$ === "object");
 assert(typeof SecurityRequirementSummary$ === "object");
@@ -1005,6 +1083,7 @@ assert(typeof TargetDomain$ === "object");
 assert(typeof TargetDomainSummary$ === "object");
 assert(typeof Task$ === "object");
 assert(typeof TaskSummary$ === "object");
+assert(typeof TestScope$ === "object");
 assert(typeof Threat$ === "object");
 assert(typeof ThreatAnchorShape$ === "object");
 assert(typeof ThreatEvidenceShape$ === "object");
@@ -1015,6 +1094,8 @@ assert(typeof ThreatModelJobTask$ === "object");
 assert(typeof ThreatModelJobTaskSummary$ === "object");
 assert(typeof ThreatModelSummary$ === "object");
 assert(typeof ThreatSummary$ === "object");
+assert(typeof TriggerFilter$ === "object");
+assert(typeof TriggerFilterGroup$ === "object");
 assert(typeof TrustedCaCertificate$ === "object");
 assert(typeof UntagResourceInput$ === "object");
 assert(typeof UntagResourceOutput$ === "object");
@@ -1028,6 +1109,8 @@ assert(typeof UpdateFindingInput$ === "object");
 assert(typeof UpdateFindingOutput$ === "object");
 assert(typeof UpdateIntegratedResourcesInput$ === "object");
 assert(typeof UpdateIntegratedResourcesOutput$ === "object");
+assert(typeof UpdateIntegrationInput$ === "object");
+assert(typeof UpdateIntegrationOutput$ === "object");
 assert(typeof UpdatePentestInput$ === "object");
 assert(typeof UpdatePentestOutput$ === "object");
 assert(typeof UpdatePrivateConnectionCertificateInput$ === "object");
@@ -1081,6 +1164,7 @@ assert(typeof ResourceConfigDnsResolution === "object");
 assert(typeof ResourceType === "object");
 assert(typeof RiskLevel === "object");
 assert(typeof RiskType === "object");
+assert(typeof ScopeDecision === "object");
 assert(typeof SecurityRequirementArtifactFormat === "object");
 assert(typeof SecurityRequirementPackImportStatus === "object");
 assert(typeof SecurityRequirementPackStatus === "object");
@@ -1090,12 +1174,17 @@ assert(typeof StepStatus === "object");
 assert(typeof StrideCategory === "object");
 assert(typeof TargetDomainStatus === "object");
 assert(typeof TaskExecutionStatus === "object");
+assert(typeof TestScopeType === "object");
 assert(typeof ThreatActor === "object");
 assert(typeof ThreatSeverity === "object");
 assert(typeof ThreatStatus === "object");
+assert(typeof TriggerEvent === "object");
+assert(typeof TriggerFilterMatchMode === "object");
+assert(typeof TriggerFilterType === "object");
 assert(typeof UserRole === "object");
 assert(typeof ValidationMode === "object");
 assert(typeof ValidationStatus === "object");
+assert(typeof WebhookAction === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof SecurityAgentServiceException);
 assert(typeof AccessDeniedException$ === "object");
@@ -1113,6 +1202,7 @@ assert(ValidationException.prototype instanceof SecurityAgentServiceException);
 assert(typeof ValidationException$ === "object");
 assert(SecurityAgentServiceException.prototype instanceof Error);
 // paginators
+assert(typeof paginateListActorMessages === "function");
 assert(typeof paginateListAgentSpaces === "function");
 assert(typeof paginateListApplications === "function");
 assert(typeof paginateListArtifacts === "function");

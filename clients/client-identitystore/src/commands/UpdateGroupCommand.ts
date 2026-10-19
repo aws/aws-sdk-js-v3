@@ -41,10 +41,16 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  *       AttributeValue: "DOCUMENT_VALUE",
  *     },
  *   ],
+ *   Revision: "STRING_VALUE",
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // UpdateGroupResponse
+ * //   IdentityStoreId: "STRING_VALUE", // required
+ * //   GroupId: "STRING_VALUE", // required
+ * //   GroupArn: "STRING_VALUE", // required
+ * //   Revision: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
@@ -91,7 +97,7 @@ export class UpdateGroupCommand extends command<UpdateGroupCommandInput, UpdateG
   protected declare static __types: {
     api: {
       input: UpdateGroupRequest;
-      output: {};
+      output: UpdateGroupResponse;
     };
     sdk: {
       input: UpdateGroupCommandInput;

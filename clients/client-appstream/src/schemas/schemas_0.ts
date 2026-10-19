@@ -369,6 +369,7 @@ const _IRA = "IamRoleArn";
 const _IRE = "InvalidRoleException";
 const _ISCR = "ImageStateChangeReason";
 const _ISL = "IconS3Location";
+const _ISM = "ImageSoftwareMetadata";
 const _ISWO = "ImageSharedWithOthers";
 const _IT = "InstanceType";
 const _ITm = "ImageType";
@@ -459,6 +460,7 @@ const _SB = "S3Bucket";
 const _SBA = "S3BucketArn";
 const _SBN = "S3BucketName";
 const _SC = "StorageConnectors";
+const _SCA = "StorageConnectorAuthentication";
 const _SCL = "StorageConnectorList";
 const _SCR = "StateChangeReason";
 const _SCe = "SessionContext";
@@ -607,6 +609,7 @@ const _er = "errors";
 const _hE = "httpError";
 const _i = "image";
 const _iP = "imagePermissions";
+const _nGDV = "nvidiaGridDriverVersion";
 const _nID = "newImageDescription";
 const _nIDN = "newImageDisplayName";
 const _nIN = "newImageName";
@@ -1037,8 +1040,8 @@ export var CreateImportedImageResult$: StaticStructureSchema = [3, n0, _CIIRr,
 ];
 export var CreateStackRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_N, _D, _DN, _SC, _RURL, _FURL, _US, _AS, _T, _AEc, _EHD, _SES, _CR, _AAC],
-  [0, 0, 0, () => StorageConnectorList, 0, 0, () => UserSettingList, () => ApplicationSettings$, 128 | 0, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => AgentAccessConfig$], 1
+  [_N, _D, _DN, _SC, _RURL, _FURL, _US, _AS, _T, _AEc, _EHD, _SES, _CR, _AAC, _SCA],
+  [0, 0, 0, () => StorageConnectorList, 0, 0, () => UserSettingList, () => ApplicationSettings$, 128 | 0, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => AgentAccessConfig$, 0], 1
 ];
 export var CreateStackResult$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -1567,8 +1570,8 @@ export var GetExportImageTaskResult$: StaticStructureSchema = [3, n0, _GEITRe,
 ];
 export var Image$: StaticStructureSchema = [3, n0, _I,
   0,
-  [_N, _A, _BIA, _DN, _St, _Vi, _IBS, _IBN, _Pl, _D, _SCR, _App, _CT, _PBIRD, _AAV, _IP, _IE, _LAAV, _SIFu, _DAPE, _ISWO, _MSI, _ITm],
-  [0, 0, 0, 0, 0, 0, 2, 0, 0, 0, () => ImageStateChangeReason$, () => Applications, 4, 4, 0, () => ImagePermissions$, () => ResourceErrors, 0, 64 | 0, 0, 0, 2, 0], 1
+  [_N, _A, _BIA, _DN, _St, _Vi, _IBS, _IBN, _Pl, _D, _SCR, _App, _CT, _PBIRD, _AAV, _IP, _IE, _LAAV, _SIFu, _DAPE, _ISWO, _MSI, _ITm, _ISM],
+  [0, 0, 0, 0, 0, 0, 2, 0, 0, 0, () => ImageStateChangeReason$, () => Applications, 4, 4, 0, () => ImagePermissions$, () => ResourceErrors, 0, 64 | 0, 0, 0, 2, 0, () => ImageSoftwareMetadata$], 1
 ];
 export var ImageBuilder$: StaticStructureSchema = [3, n0, _IB,
   0,
@@ -1584,6 +1587,11 @@ export var ImagePermissions$: StaticStructureSchema = [3, n0, _IP,
   0,
   [_aF, _aIB],
   [2, 2]
+];
+export var ImageSoftwareMetadata$: StaticStructureSchema = [3, n0, _ISM,
+  0,
+  [_nGDV],
+  [0]
 ];
 export var ImageStateChangeReason$: StaticStructureSchema = [3, n0, _ISCR,
   0,
@@ -1692,8 +1700,8 @@ export var SoftwareAssociations$: StaticStructureSchema = [3, n0, _SA,
 ];
 export var Stack$: StaticStructureSchema = [3, n0, _Stac,
   0,
-  [_N, _A, _D, _DN, _CT, _SC, _RURL, _FURL, _SE, _US, _AS, _AEc, _EHD, _SES, _CR, _AAC],
-  [0, 0, 0, 0, 4, () => StorageConnectorList, 0, 0, () => StackErrors, () => UserSettingList, () => ApplicationSettingsResponse$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => AgentAccessConfig$], 1
+  [_N, _A, _D, _DN, _CT, _SC, _RURL, _FURL, _SE, _US, _AS, _AEc, _EHD, _SES, _CR, _AAC, _SCA],
+  [0, 0, 0, 0, 4, () => StorageConnectorList, 0, 0, () => StackErrors, () => UserSettingList, () => ApplicationSettingsResponse$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => AgentAccessConfig$, 0], 1
 ];
 export var StackError$: StaticStructureSchema = [3, n0, _SEt,
   0,
@@ -1872,8 +1880,8 @@ export var UpdateImagePermissionsResult$: StaticStructureSchema = [3, n0, _UIPRp
 ];
 export var UpdateStackRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_N, _DN, _D, _SC, _DSC, _RURL, _FURL, _ATD, _US, _AS, _AEc, _EHD, _SES, _CR, _AAC],
-  [0, 0, 0, () => StorageConnectorList, 2, 0, 0, 64 | 0, () => UserSettingList, () => ApplicationSettings$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => AgentAccessConfigForUpdate$], 1
+  [_N, _DN, _D, _SC, _DSC, _RURL, _FURL, _ATD, _US, _AS, _AEc, _EHD, _SES, _CR, _AAC, _SCA],
+  [0, 0, 0, () => StorageConnectorList, 2, 0, 0, 64 | 0, () => UserSettingList, () => ApplicationSettings$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => AgentAccessConfigForUpdate$, 0], 1
 ];
 export var UpdateStackResult$: StaticStructureSchema = [3, n0, _USRp,
   0,

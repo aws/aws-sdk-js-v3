@@ -6,6 +6,7 @@ import {
   Ami$,
   AmiDistributionConfiguration$,
   AutoDisablePolicy$,
+  AutoScalingGroupConfiguration$,
   BuildType,
   CallRateLimitExceededException,
   CallRateLimitExceededException$,
@@ -401,6 +402,7 @@ import {
   paginateListWorkflowExecutions,
   paginateListWorkflows,
   paginateListWorkflowStepExecutions,
+  ParentInstanceConfiguration$,
   PipelineExecutionStartCondition,
   PipelineLoggingConfiguration$,
   PipelineStatus,
@@ -683,6 +685,7 @@ assert(typeof AdditionalInstanceConfiguration$ === "object");
 assert(typeof Ami$ === "object");
 assert(typeof AmiDistributionConfiguration$ === "object");
 assert(typeof AutoDisablePolicy$ === "object");
+assert(typeof AutoScalingGroupConfiguration$ === "object");
 assert(typeof CancelImageCreationRequest$ === "object");
 assert(typeof CancelImageCreationResponse$ === "object");
 assert(typeof CancelLifecycleExecutionRequest$ === "object");
@@ -882,6 +885,7 @@ assert(typeof ListWorkflowStepExecutionsResponse$ === "object");
 assert(typeof Logging$ === "object");
 assert(typeof OutputResources$ === "object");
 assert(typeof PackageVulnerabilityDetails$ === "object");
+assert(typeof ParentInstanceConfiguration$ === "object");
 assert(typeof PipelineLoggingConfiguration$ === "object");
 assert(typeof Placement$ === "object");
 assert(typeof ProductCodeListItem$ === "object");

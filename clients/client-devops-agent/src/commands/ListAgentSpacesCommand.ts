@@ -35,6 +35,7 @@ export interface ListAgentSpacesCommandOutput extends ListAgentSpacesOutput, __M
  * const input = { // ListAgentSpacesInput
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   includedData: "METADATA_ONLY" || "ALL_DATA",
  * };
  * const command = new ListAgentSpacesCommand(input);
  * const response = await client.send(command);
@@ -67,9 +68,6 @@ export interface ListAgentSpacesCommandOutput extends ListAgentSpacesOutput, __M
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
  *
- * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to too many requests. Please slow down and try again.</p>
- *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the service.</p>
  *
@@ -90,6 +88,9 @@ export interface ListAgentSpacesCommandOutput extends ListAgentSpacesOutput, __M
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request would exceed the service quota limit.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled due to too many requests. Please slow down and try again.</p>
  *
  * @throws {@link DevOpsAgentServiceException}
  * <p>Base exception class for all service exceptions from DevOpsAgent service.</p>

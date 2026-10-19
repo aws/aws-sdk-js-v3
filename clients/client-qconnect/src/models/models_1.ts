@@ -48,6 +48,7 @@ import type {
   MessageTemplateSourceConfigurationSummary,
   NotesChunkDataDetails,
   NotesDataDetails,
+  ProactiveRecommendationDataDetails,
   RankingData,
   RecommendationTrigger,
   RenderingConfiguration,
@@ -62,6 +63,40 @@ import type {
   SuggestedMessageDataDetails,
   VectorIngestionConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateAttachmentResponse {
+  /**
+   * <p>The message template attachment.</p>
+   * @public
+   */
+  attachment?: MessageTemplateAttachment | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateVersionRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template. If not supplied, the message template version will be created based on the message template content that is referenced by the <code>$LATEST</code> qualifier by default.</p>
+   * @public
+   */
+  messageTemplateContentSha256?: string | undefined;
+}
 
 /**
  * <p>The extended data of a message template.</p>
@@ -3058,6 +3093,7 @@ export type DataDetails =
   | DataDetails.IntentDetectedDataMember
   | DataDetails.NotesChunkDataMember
   | DataDetails.NotesDataMember
+  | DataDetails.ProactiveRecommendationDataMember
   | DataDetails.SourceContentDataMember
   | DataDetails.SuggestedMessageDataMember
   | DataDetails.$UnknownMember;
@@ -3083,6 +3119,7 @@ export namespace DataDetails {
     suggestedMessageData?: never;
     notesData?: never;
     notesChunkData?: never;
+    proactiveRecommendationData?: never;
     $unknown?: never;
   }
 
@@ -3103,6 +3140,7 @@ export namespace DataDetails {
     suggestedMessageData?: never;
     notesData?: never;
     notesChunkData?: never;
+    proactiveRecommendationData?: never;
     $unknown?: never;
   }
 
@@ -3123,6 +3161,7 @@ export namespace DataDetails {
     suggestedMessageData?: never;
     notesData?: never;
     notesChunkData?: never;
+    proactiveRecommendationData?: never;
     $unknown?: never;
   }
 
@@ -3143,6 +3182,7 @@ export namespace DataDetails {
     suggestedMessageData?: never;
     notesData?: never;
     notesChunkData?: never;
+    proactiveRecommendationData?: never;
     $unknown?: never;
   }
 
@@ -3163,6 +3203,7 @@ export namespace DataDetails {
     suggestedMessageData?: never;
     notesData?: never;
     notesChunkData?: never;
+    proactiveRecommendationData?: never;
     $unknown?: never;
   }
 
@@ -3183,6 +3224,7 @@ export namespace DataDetails {
     suggestedMessageData?: never;
     notesData?: never;
     notesChunkData?: never;
+    proactiveRecommendationData?: never;
     $unknown?: never;
   }
 
@@ -3203,6 +3245,7 @@ export namespace DataDetails {
     suggestedMessageData?: never;
     notesData?: never;
     notesChunkData?: never;
+    proactiveRecommendationData?: never;
     $unknown?: never;
   }
 
@@ -3223,6 +3266,7 @@ export namespace DataDetails {
     suggestedMessageData?: never;
     notesData?: never;
     notesChunkData?: never;
+    proactiveRecommendationData?: never;
     $unknown?: never;
   }
 
@@ -3243,6 +3287,7 @@ export namespace DataDetails {
     suggestedMessageData?: never;
     notesData?: never;
     notesChunkData?: never;
+    proactiveRecommendationData?: never;
     $unknown?: never;
   }
 
@@ -3263,6 +3308,7 @@ export namespace DataDetails {
     suggestedMessageData: SuggestedMessageDataDetails;
     notesData?: never;
     notesChunkData?: never;
+    proactiveRecommendationData?: never;
     $unknown?: never;
   }
 
@@ -3283,6 +3329,7 @@ export namespace DataDetails {
     suggestedMessageData?: never;
     notesData: NotesDataDetails;
     notesChunkData?: never;
+    proactiveRecommendationData?: never;
     $unknown?: never;
   }
 
@@ -3303,6 +3350,28 @@ export namespace DataDetails {
     suggestedMessageData?: never;
     notesData?: never;
     notesChunkData: NotesChunkDataDetails;
+    proactiveRecommendationData?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about a proactive recommendation, including the token used to retrieve its chunked response with <code>GetNextMessage</code>.</p>
+   * @public
+   */
+  export interface ProactiveRecommendationDataMember {
+    contentData?: never;
+    generativeData?: never;
+    intentDetectedData?: never;
+    sourceContentData?: never;
+    generativeChunkData?: never;
+    emailResponseChunkData?: never;
+    emailOverviewChunkData?: never;
+    emailGenerativeAnswerChunkData?: never;
+    caseSummarizationChunkData?: never;
+    suggestedMessageData?: never;
+    notesData?: never;
+    notesChunkData?: never;
+    proactiveRecommendationData: ProactiveRecommendationDataDetails;
     $unknown?: never;
   }
 
@@ -3322,6 +3391,7 @@ export namespace DataDetails {
     suggestedMessageData?: never;
     notesData?: never;
     notesChunkData?: never;
+    proactiveRecommendationData?: never;
     $unknown: [string, any];
   }
 
@@ -3342,6 +3412,7 @@ export namespace DataDetails {
     suggestedMessageData: (value: SuggestedMessageDataDetails) => T;
     notesData: (value: NotesDataDetails) => T;
     notesChunkData: (value: NotesChunkDataDetails) => T;
+    proactiveRecommendationData: (value: ProactiveRecommendationDataDetails) => T;
     _: (name: string, value: any) => T;
   }
 }

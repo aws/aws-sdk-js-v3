@@ -260,6 +260,48 @@ export type KnowledgeBaseState = (typeof KnowledgeBaseState)[keyof typeof Knowle
  * @public
  * @enum
  */
+export const VpcProtocol = {
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+} as const;
+/**
+ * @public
+ */
+export type VpcProtocol = (typeof VpcProtocol)[keyof typeof VpcProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcResolutionMode = {
+  IN_VPC: "IN_VPC",
+  PUBLIC: "PUBLIC",
+} as const;
+/**
+ * @public
+ */
+export type VpcResolutionMode = (typeof VpcResolutionMode)[keyof typeof VpcResolutionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcConfigurationStatus = {
+  CREATED: "CREATED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+} as const;
+/**
+ * @public
+ */
+export type VpcConfigurationStatus = (typeof VpcConfigurationStatus)[keyof typeof VpcConfigurationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const DataDeletionPolicy = {
   DELETE: "DELETE",
   RETAIN: "RETAIN",

@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from DataSync service.
  */
 export class DataSyncServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.datasync#DataSyncServiceException";
   /**
    * @internal
    */

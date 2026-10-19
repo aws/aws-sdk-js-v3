@@ -9,7 +9,8 @@ const _ACu = "AuthConfig";
 const _ADE = "AccessDeniedException";
 const _AI = "ApplicationId";
 const _AL = "ApplicationsList";
-const _AO = "ApprovedOrigins";
+const _AO = "AudienceOverride";
+const _AOp = "ApprovedOrigins";
 const _AS = "ApplicationSummary";
 const _ASC = "ApplicationSourceConfig";
 const _AT = "ApplicationType";
@@ -301,8 +302,8 @@ export var ApplicationSummary$: StaticStructureSchema = [3, n0, _AS,
 ];
 export var AuthConfig$: StaticStructureSchema = [3, n0, _ACu,
   0,
-  [_ATu, _CPI],
-  [0, 0]
+  [_ATu, _CPI, _AO],
+  [0, 0, 0]
 ];
 export var ContactHandling$: StaticStructureSchema = [3, n0, _CH,
   0,
@@ -411,7 +412,7 @@ export var ExecutionConfiguration$: StaticStructureSchema = [3, n0, _EC,
 ];
 export var ExternalUrlConfig$: StaticStructureSchema = [3, n0, _EUC,
   0,
-  [_AU, _AO],
+  [_AU, _AOp],
   [0, 64 | 0], 1
 ];
 export var FileConfiguration$: StaticStructureSchema = [3, n0, _FC,

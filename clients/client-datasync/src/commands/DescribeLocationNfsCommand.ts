@@ -47,7 +47,7 @@ export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsRes
  * //     ],
  * //   },
  * //   MountOptions: { // NfsMountOptions
- * //     Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1",
+ * //     Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1" || "NFS4_2",
  * //   },
  * //   CreationTime: new Date("TIMESTAMP"),
  * // };

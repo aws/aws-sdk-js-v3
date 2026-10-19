@@ -376,6 +376,7 @@ export interface CreateRegistryRecordCommandOutput extends CreateRegistryRecordR
  *       },
  *     },
  *   ],
+ *   customMetadata: "DOCUMENT_VALUE",
  *   tags: "<TagsMap>",
  * };
  * const command = new CreateRegistryRecordCommand(input);

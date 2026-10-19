@@ -33,11 +33,13 @@ export interface GetOfferSetCommandOutput extends GetOfferSetOutput, __MetadataB
  * const config = {}; // type is MarketplaceDiscoveryClientConfig
  * const client = new MarketplaceDiscoveryClient(config);
  * const input = { // GetOfferSetInput
+ *   locale: "STRING_VALUE",
  *   offerSetId: "STRING_VALUE", // required
  * };
  * const command = new GetOfferSetCommand(input);
  * const response = await client.send(command);
  * // { // GetOfferSetOutput
+ * //   locale: "STRING_VALUE",
  * //   offerSetId: "STRING_VALUE", // required
  * //   catalog: "STRING_VALUE", // required
  * //   offerSetName: "STRING_VALUE",
@@ -107,6 +109,7 @@ export interface GetOfferSetCommandOutput extends GetOfferSetOutput, __MetadataB
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerSetId: "offerset-sampleId"
  * };
  * const command = new GetOfferSetCommand(input);
@@ -156,16 +159,116 @@ export interface GetOfferSetCommandOutput extends GetOfferSetOutput, __MetadataB
  *     {
  *       badgeType: "PRIVATE_PRICING",
  *       displayName: "Private Pricing"
+ *     },
+ *     {
+ *       badgeType: "FUTURE_DATED",
+ *       displayName: "Future Dated"
+ *     },
+ *     {
+ *       badgeType: "REPLACEMENT_OFFER",
+ *       displayName: "Replacement Offer"
  *     }
  *   ],
  *   buyerNotes: "This bundle includes CrowdStrike Falcon and Splunk Enterprise for comprehensive security monitoring.",
  *   catalog: "AWSMarketplace",
  *   expirationTime: "2025-03-20T00:00:00.000Z",
+ *   locale: "en-US",
  *   offerSetId: "offerset-sampleId",
  *   offerSetName: "sample offer set",
  *   sellerOfRecord: {
  *     displayName: "sample reseller",
  *     sellerProfileId: "seller-sampleResellerId"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example Get offer set with only required fields
+ * ```javascript
+ * //
+ * const input = {
+ *   offerSetId: "offerset-sampleMinimalId"
+ * };
+ * const command = new GetOfferSetCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   associatedEntities: [
+ *     {
+ *       offer: {
+ *         offerId: "offer-sampleMinimalId",
+ *         sellerOfRecord: {
+ *           displayName: "sample reseller",
+ *           sellerProfileId: "seller-sampleResellerId"
+ *         }
+ *       },
+ *       product: {
+ *         manufacturer: {
+ *           displayName: "sample seller name 1",
+ *           sellerProfileId: "seller-sampleId1"
+ *         },
+ *         productId: "prod-sampleMinimalId",
+ *         productName: "sample product name"
+ *       }
+ *     }
+ *   ],
+ *   badges:   [],
+ *   catalog: "AWSMarketplace",
+ *   offerSetId: "offerset-sampleMinimalId",
+ *   sellerOfRecord: {
+ *     displayName: "sample reseller",
+ *     sellerProfileId: "seller-sampleResellerId"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example Get offer set that never expires from a first-party seller
+ * ```javascript
+ * //
+ * const input = {
+ *   locale: "en-US",
+ *   offerSetId: "offerset-samplePerpetualId"
+ * };
+ * const command = new GetOfferSetCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   associatedEntities: [
+ *     {
+ *       offer: {
+ *         offerId: "offer-samplePerpetualId",
+ *         offerName: "sample perpetual offer",
+ *         sellerOfRecord: {
+ *           displayName: "sample first-party seller",
+ *           sellerProfileId: "seller-sampleFirstPartyId"
+ *         }
+ *       },
+ *       product: {
+ *         manufacturer: {
+ *           displayName: "sample first-party seller",
+ *           sellerProfileId: "seller-sampleFirstPartyId"
+ *         },
+ *         productId: "prod-samplePerpetualId",
+ *         productName: "sample perpetual product"
+ *       }
+ *     }
+ *   ],
+ *   availableFromTime: "2024-03-20T00:00:00.000Z",
+ *   badges: [
+ *     {
+ *       badgeType: "PRIVATE_PRICING",
+ *       displayName: "Private Pricing"
+ *     }
+ *   ],
+ *   buyerNotes: "This offer set does not expire. Omitting expirationTime indicates the offer set remains available for procurement indefinitely.",
+ *   catalog: "AWSMarketplace",
+ *   locale: "en-US",
+ *   offerSetId: "offerset-samplePerpetualId",
+ *   offerSetName: "sample perpetual offer set",
+ *   sellerOfRecord: {
+ *     displayName: "sample first-party seller",
+ *     sellerProfileId: "seller-sampleFirstPartyId"
  *   }
  * }
  * *\/

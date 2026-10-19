@@ -3,6 +3,7 @@ import type {
   DataSourceSport,
   DictionaryLanguage,
   DictionaryStatus,
+  ExtendedAnalysisMode,
   FeedStatus,
   FilterName,
   OutputStatus,
@@ -65,10 +66,16 @@ export interface ClippingConfig {
  */
 export interface ContextualMetadataConfig {
   /**
-   * <p>Specifies whether Elemental Inference generates a descriptive summary of the media content for this output. </p> <p>Valid values:</p> <ul> <li> <p>ENABLED (default) – Elemental Inference generates a descriptive summary along with IAB taxonomy and GARM suitability classifications. </p> </li> <li> <p>DISABLED – No descriptive summary is generated.</p> </li> </ul>
+   * <p>Specifies whether Elemental Inference generates a descriptive summary of the media content for this output, along with the objects and actions that it detects. This setting is independent of <code>extendedAnalysis</code>. </p> <p>Valid values:</p> <ul> <li> <p>ENABLED (default) – Elemental Inference populates the summary, objects, and actions fields, along with the IAB taxonomy and GARM suitability classifications. </p> </li> <li> <p>DISABLED – Elemental Inference doesn't populate the summary, objects, and actions fields. </p> </li> </ul>
    * @public
    */
   summaryGeneration?: SummaryGenerationMode | undefined;
+
+  /**
+   * <p>Specifies whether Elemental Inference generates extended analysis of the media content for this output. Extended analysis identifies the people, environments, brands, and on-screen text in the media content. This setting is independent of <code>summaryGeneration</code>. </p> <p>Valid values:</p> <ul> <li> <p>ENABLED (default) – Elemental Inference populates the people, environments, brands, and on-screen text fields. </p> </li> <li> <p>DISABLED – Elemental Inference doesn't populate the people, environments, brands, and on-screen text fields. </p> </li> </ul>
+   * @public
+   */
+  extendedAnalysis?: ExtendedAnalysisMode | undefined;
 }
 
 /**
@@ -102,7 +109,7 @@ export interface CroppingConfig {
 }
 
 /**
- * <p>A type of OutputConfig, used when the output in a feed is for the smart subtitling feature. smart subtitling uses automatic speech recognition (ASR) to generate live TTML subtitles from the audio in your source media. </p>
+ * <p>A type of OutputConfig, used when the output in a feed is for the smart subtitling feature. Smart subtitling uses automatic speech recognition (ASR) to generate live TTML subtitles from the audio in your source media. </p>
  * @public
  */
 export interface SubtitlingConfig {

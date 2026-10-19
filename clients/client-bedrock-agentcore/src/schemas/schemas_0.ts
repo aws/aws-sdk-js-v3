@@ -454,6 +454,7 @@ const _RE = "RightExpression";
 const _REC = "RecommendationEvaluationConfig";
 const _REL = "RecommendationEvaluatorList";
 const _RER = "RecommendationEvaluatorReference";
+const _RES = "RecordExpirySpecification";
 const _RL = "ResourceLocation";
 const _RMR = "RetrieveMemoryRecords";
 const _RMRI = "RetrieveMemoryRecordsInput";
@@ -724,6 +725,7 @@ const _des = "descriptors";
 const _e = "error";
 const _eA = "evaluatorArn";
 const _eAm = "emailAddress";
+const _eAx = "expiresAt";
 const _eC = "exitCode";
 const _eCW = "embeddedCryptoWallet";
 const _eCf = "efsConfiguration";
@@ -957,7 +959,9 @@ const _rCed = "redactedContent";
 const _rCo = "rootCause";
 const _rD = "resultDestination";
 const _rE = "requestExpiry";
+const _rEDD = "recordExpiryDurationDays";
 const _rEI = "rootEventId";
+const _rES = "recordExpirySpecification";
 const _rH = "requestHost";
 const _rI = "recommendationId";
 const _rIe = "requestIdentifier";
@@ -1367,8 +1371,8 @@ export var BasicAuth$: StaticStructureSchema = [3, n0, _BA,
 ];
 export var BatchCreateMemoryRecordsInput$: StaticStructureSchema = [3, n0, _BCMRI,
   0,
-  [_mI, _rec, _cT],
-  [[0, 1], [() => MemoryRecordsCreateInputList, 0], [0, 4]], 2
+  [_mI, _rec, _cT, _rES],
+  [[0, 1], [() => MemoryRecordsCreateInputList, 0], [0, 4], () => RecordExpirySpecification$], 2
 ];
 export var BatchCreateMemoryRecordsOutput$: StaticStructureSchema = [3, n0, _BCMRO,
   0,
@@ -1397,8 +1401,8 @@ export var BatchEvaluationTraceConfig$: StaticStructureSchema = [3, n0, _BETC,
 ];
 export var BatchUpdateMemoryRecordsInput$: StaticStructureSchema = [3, n0, _BUMRI,
   0,
-  [_mI, _rec],
-  [[0, 1], [() => MemoryRecordsUpdateInputList, 0]], 2
+  [_mI, _rec, _rES],
+  [[0, 1], [() => MemoryRecordsUpdateInputList, 0], () => RecordExpirySpecification$], 2
 ];
 export var BatchUpdateMemoryRecordsOutput$: StaticStructureSchema = [3, n0, _BUMRO,
   0,
@@ -2437,8 +2441,8 @@ export var MemoryMetadataFilterExpression$: StaticStructureSchema = [3, n0, _MMF
 ];
 export var MemoryRecord$: StaticStructureSchema = [3, n0, _MR,
   0,
-  [_mRI, _co, _mSIe, _nam, _cA, _met],
-  [0, [() => MemoryContent$, 0], 0, 64 | 0, 4, () => MemoryRecordMetadataMap], 5
+  [_mRI, _co, _mSIe, _nam, _cA, _tim, _met, _eAx],
+  [0, [() => MemoryContent$, 0], 0, 64 | 0, 4, 4, () => MemoryRecordMetadataMap, 4], 5
 ];
 export var MemoryRecordCreateInput$: StaticStructureSchema = [3, n0, _MRCI,
   0,
@@ -2457,8 +2461,8 @@ export var MemoryRecordOutput$: StaticStructureSchema = [3, n0, _MRO,
 ];
 export var MemoryRecordSummary$: StaticStructureSchema = [3, n0, _MRS,
   0,
-  [_mRI, _co, _mSIe, _nam, _cA, _sco, _met],
-  [0, [() => MemoryContent$, 0], 0, 64 | 0, 4, 1, () => MemoryRecordMetadataMap], 5
+  [_mRI, _co, _mSIe, _nam, _cA, _sco, _tim, _met],
+  [0, [() => MemoryContent$, 0], 0, 64 | 0, 4, 1, 4, () => MemoryRecordMetadataMap], 5
 ];
 export var MemoryRecordUpdateInput$: StaticStructureSchema = [3, n0, _MRUI,
   0,
@@ -3499,6 +3503,11 @@ export var RecommendationResult$: StaticUnionSchema = [4, n0, _RR,
   0,
   [_sPRR, _tDRR],
   [[() => SystemPromptRecommendationResult$, 0], [() => ToolDescriptionRecommendationResult$, 0]]
+];
+export var RecordExpirySpecification$: StaticUnionSchema = [4, n0, _RES,
+  0,
+  [_rEDD, _act],
+  [1, 0]
 ];
 export var ResourceLocation$: StaticUnionSchema = [4, n0, _RL,
   0,

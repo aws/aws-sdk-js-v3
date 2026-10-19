@@ -31,16 +31,16 @@ import type {
   AgenticRetrieveMessage,
   AgenticRetrievePolicyConfiguration,
   BedrockModelConfigurations,
-  CitationEvent,
+  Citation,
   CollaboratorConfiguration,
   ConversationHistory,
   CustomOrchestration,
   ExternalSourcesRetrieveAndGenerateConfiguration,
   FilterAttribute,
+  GeneratedResponsePart,
   GenerationConfiguration,
   GuardrailConfiguration,
   GuardrailConfigurationWithArn,
-  GuardrailEvent,
   ImplicitFilterConfiguration,
   InlineBedrockModelConfigurations,
   InlineSessionState,
@@ -54,10 +54,49 @@ import type {
   RetrievalResultLocation,
   RetrieveAndGenerateInput,
   RetrieveAndGenerateSessionConfiguration,
+  RetrievedReference,
   StreamingConfigurations,
   UserContext,
   VectorSearchRerankingConfiguration,
 } from "./models_0";
+
+/**
+ * <p>A citation event.</p>
+ * @public
+ */
+export interface CitationEvent {
+  /**
+   * <p>The citation.</p>
+   *
+   * @deprecated (since 2024-12-17) Citation is deprecated. Please use GeneratedResponsePart and RetrievedReferences for citation event.
+   * @public
+   */
+  citation?: Citation | undefined;
+
+  /**
+   * <p>The generated response to the citation event.</p>
+   * @public
+   */
+  generatedResponsePart?: GeneratedResponsePart | undefined;
+
+  /**
+   * <p>The retrieved references of the citation event.</p>
+   * @public
+   */
+  retrievedReferences?: RetrievedReference[] | undefined;
+}
+
+/**
+ * <p>A guardrail event.</p>
+ * @public
+ */
+export interface GuardrailEvent {
+  /**
+   * <p>The guardrail action.</p>
+   * @public
+   */
+  action?: GuadrailAction | undefined;
+}
 
 /**
  * <p>A retrieve and generate output event.</p>

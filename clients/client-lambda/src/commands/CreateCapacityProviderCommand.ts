@@ -23,7 +23,7 @@ export interface CreateCapacityProviderCommandInput extends CreateCapacityProvid
 export interface CreateCapacityProviderCommandOutput extends CreateCapacityProviderResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a capacity provider that manages compute resources for Lambda functions</p>
+ * <p>Creates a capacity provider that manages compute resources for Lambda Event Functions</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

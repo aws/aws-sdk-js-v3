@@ -8,6 +8,7 @@ import { WisdomServiceException as __BaseException } from "./WisdomServiceExcept
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wisdom#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -31,6 +32,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wisdom#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -51,6 +53,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wisdom#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -79,6 +82,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wisdom#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -99,6 +103,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wisdom#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -121,6 +126,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class RequestTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wisdom#RequestTimeoutException";
   readonly name = "RequestTimeoutException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -143,6 +149,7 @@ export class RequestTimeoutException extends __BaseException {
  * @public
  */
 export class PreconditionFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wisdom#PreconditionFailedException";
   readonly name = "PreconditionFailedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -163,6 +170,7 @@ export class PreconditionFailedException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wisdom#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**

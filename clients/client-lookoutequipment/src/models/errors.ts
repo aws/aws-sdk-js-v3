@@ -9,6 +9,7 @@ import { LookoutEquipmentServiceException as __BaseException } from "./LookoutEq
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lookoutequipment#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -32,6 +33,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lookoutequipment#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -55,6 +57,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lookoutequipment#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   Message: string | undefined;
@@ -77,6 +80,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lookoutequipment#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -99,6 +103,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lookoutequipment#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -122,6 +127,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lookoutequipment#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -145,6 +151,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lookoutequipment#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;

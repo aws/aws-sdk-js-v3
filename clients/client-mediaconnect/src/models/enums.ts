@@ -334,6 +334,80 @@ export type InstanceState = (typeof InstanceState)[keyof typeof InstanceState];
  * @public
  * @enum
  */
+export const VideoColorimetry = {
+  BT2020: "BT2020",
+  BT470BG: "BT470BG",
+  BT470M: "BT470M",
+  BT601: "BT601",
+  BT709: "BT709",
+  GENERIC_FILM: "GENERIC_FILM",
+  SMPTE240M: "SMPTE240M",
+  SMPTE428: "SMPTE428",
+  SMPTE431: "SMPTE431",
+  SMPTE432: "SMPTE432",
+} as const;
+/**
+ * @public
+ */
+export type VideoColorimetry = (typeof VideoColorimetry)[keyof typeof VideoColorimetry];
+
+/**
+ * @public
+ * @enum
+ */
+export const VideoMatrixCoefficients = {
+  BT2020_CL: "BT2020_CL",
+  BT2020_NCL: "BT2020_NCL",
+  BT2100_ICTCP: "BT2100_ICTCP",
+  BT470BG: "BT470BG",
+  BT601: "BT601",
+  BT709: "BT709",
+  CHROMATICITY_DERIVED_CL: "CHROMATICITY_DERIVED_CL",
+  CHROMATICITY_DERIVED_NCL: "CHROMATICITY_DERIVED_NCL",
+  FCC: "FCC",
+  IDENTITY: "IDENTITY",
+  IPT_C2: "IPT_C2",
+  SMPTE2085: "SMPTE2085",
+  SMPTE240M: "SMPTE240M",
+  YCGCO: "YCGCO",
+} as const;
+/**
+ * @public
+ */
+export type VideoMatrixCoefficients = (typeof VideoMatrixCoefficients)[keyof typeof VideoMatrixCoefficients];
+
+/**
+ * @public
+ * @enum
+ */
+export const VideoTransferCharacteristics = {
+  BT1361_ECG: "BT1361_ECG",
+  BT2020_10: "BT2020_10",
+  BT2020_12: "BT2020_12",
+  BT2100_HLG: "BT2100_HLG",
+  BT2100_PQ: "BT2100_PQ",
+  BT470BG: "BT470BG",
+  BT470M: "BT470M",
+  BT601: "BT601",
+  BT709: "BT709",
+  IEC61966_2_1: "IEC61966_2_1",
+  IEC61966_2_4: "IEC61966_2_4",
+  LINEAR: "LINEAR",
+  LOG100: "LOG100",
+  LOG316: "LOG316",
+  SMPTE240M: "SMPTE240M",
+  SMPTE428: "SMPTE428",
+} as const;
+/**
+ * @public
+ */
+export type VideoTransferCharacteristics =
+  (typeof VideoTransferCharacteristics)[keyof typeof VideoTransferCharacteristics];
+
+/**
+ * @public
+ * @enum
+ */
 export const DurationUnits = {
   MONTHS: "MONTHS",
 } as const;
@@ -591,7 +665,9 @@ export type RouterInputState = (typeof RouterInputState)[keyof typeof RouterInpu
 export const RouterInputTier = {
   INPUT_100: "INPUT_100",
   INPUT_20: "INPUT_20",
+  INPUT_250: "INPUT_250",
   INPUT_50: "INPUT_50",
+  INPUT_500: "INPUT_500",
 } as const;
 /**
  * @public
@@ -662,6 +738,7 @@ export type MediaLiveInputPipelineId = (typeof MediaLiveInputPipelineId)[keyof t
  */
 export const RouterOutputProtocol = {
   RIST: "RIST",
+  RTMP_PUSH: "RTMP_PUSH",
   RTP: "RTP",
   SRT_CALLER: "SRT_CALLER",
   SRT_LISTENER: "SRT_LISTENER",
@@ -670,6 +747,18 @@ export const RouterOutputProtocol = {
  * @public
  */
 export type RouterOutputProtocol = (typeof RouterOutputProtocol)[keyof typeof RouterOutputProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const TlsEncryptionType = {
+  PUBLIC: "PUBLIC",
+} as const;
+/**
+ * @public
+ */
+export type TlsEncryptionType = (typeof TlsEncryptionType)[keyof typeof TlsEncryptionType];
 
 /**
  * @public
@@ -740,7 +829,9 @@ export type RouterOutputState = (typeof RouterOutputState)[keyof typeof RouterOu
 export const RouterOutputTier = {
   OUTPUT_100: "OUTPUT_100",
   OUTPUT_20: "OUTPUT_20",
+  OUTPUT_250: "OUTPUT_250",
   OUTPUT_50: "OUTPUT_50",
+  OUTPUT_500: "OUTPUT_500",
 } as const;
 /**
  * @public

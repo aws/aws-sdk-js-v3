@@ -8,6 +8,7 @@ import { PersonalizeRuntimeServiceException as __BaseException } from "./Persona
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.personalizeruntime#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.personalizeruntime#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**

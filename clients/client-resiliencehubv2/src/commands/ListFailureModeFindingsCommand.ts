@@ -54,6 +54,7 @@ export interface ListFailureModeFindingsCommandOutput extends ListFailureModeFin
  * //       status: "OPEN" || "RESOLVED" || "IRRELEVANT",
  * //       policyComponent: "AVAILABILITY_SLO" || "MULTI_AZ_DISASTER_RECOVERY" || "MULTI_REGION_DISASTER_RECOVERY" || "DATA_RECOVERY",
  * //       updatedAt: new Date("TIMESTAMP"),
+ * //       investigationDeepLink: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

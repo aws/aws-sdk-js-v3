@@ -283,6 +283,7 @@ import {
   EBSOptionsStatus$,
   EncryptionAtRestOptions$,
   EncryptionAtRestOptionsStatus$,
+  EncryptionMode,
   EngineMode,
   EngineModeStatus$,
   EngineType,
@@ -654,6 +655,7 @@ import {
   ValidationException,
   ValidationException$,
   ValidationFailure$,
+  ValidationFailureSeverity,
   VersionStatus$,
   VolumeType,
   VPCDerivedInfo$,
@@ -1244,6 +1246,7 @@ assert(typeof DomainProcessingStatusType === "object");
 assert(typeof DomainState === "object");
 assert(typeof DomainUseCase === "object");
 assert(typeof DryRunMode === "object");
+assert(typeof EncryptionMode === "object");
 assert(typeof EngineMode === "object");
 assert(typeof EngineType === "object");
 assert(typeof InboundConnectionStatusCode === "object");
@@ -1293,6 +1296,7 @@ assert(typeof TimeUnit === "object");
 assert(typeof TLSSecurityPolicy === "object");
 assert(typeof UpgradeStatus === "object");
 assert(typeof UpgradeStep === "object");
+assert(typeof ValidationFailureSeverity === "object");
 assert(typeof VolumeType === "object");
 assert(typeof VpcEndpointErrorCode === "object");
 assert(typeof VpcEndpointStatus === "object");

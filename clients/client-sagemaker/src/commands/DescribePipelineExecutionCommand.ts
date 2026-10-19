@@ -41,7 +41,7 @@ export interface DescribePipelineExecutionCommandOutput extends DescribePipeline
  * //   PipelineArn: "STRING_VALUE",
  * //   PipelineExecutionArn: "STRING_VALUE",
  * //   PipelineExecutionDisplayName: "STRING_VALUE",
- * //   PipelineExecutionStatus: "Executing" || "Stopping" || "Stopped" || "Failed" || "Succeeded",
+ * //   PipelineExecutionStatus: "Executing" || "Stopping" || "Stopped" || "Failed" || "Succeeded" || "CompletedWithFailures",
  * //   PipelineExecutionDescription: "STRING_VALUE",
  * //   PipelineExperimentConfig: { // PipelineExperimentConfig
  * //     ExperimentName: "STRING_VALUE",

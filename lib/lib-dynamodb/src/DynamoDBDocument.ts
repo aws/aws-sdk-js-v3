@@ -14,6 +14,11 @@ import {
 } from "./commands/BatchWriteCommand";
 import { type DeleteCommandInput, type DeleteCommandOutput, DeleteCommand } from "./commands/DeleteCommand";
 import {
+  type DescribeExportCommandInput,
+  type DescribeExportCommandOutput,
+  DescribeExportCommand,
+} from "./commands/DescribeExportCommand";
+import {
   type ExecuteStatementCommandInput,
   type ExecuteStatementCommandOutput,
   ExecuteStatementCommand,
@@ -23,6 +28,11 @@ import {
   type ExecuteTransactionCommandOutput,
   ExecuteTransactionCommand,
 } from "./commands/ExecuteTransactionCommand";
+import {
+  type ExportTableToPointInTimeCommandInput,
+  type ExportTableToPointInTimeCommandOutput,
+  ExportTableToPointInTimeCommand,
+} from "./commands/ExportTableToPointInTimeCommand";
 import { type GetCommandInput, type GetCommandOutput, GetCommand } from "./commands/GetCommand";
 import { type PutCommandInput, type PutCommandOutput, PutCommand } from "./commands/PutCommand";
 import { type QueryCommandInput, type QueryCommandOutput, QueryCommand } from "./commands/QueryCommand";
@@ -251,6 +261,44 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
 
   /**
    * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+   * DescribeExportCommand operation from {@link @aws-sdk/client-dynamodb#DescribeExportCommand}.
+   *
+   * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+   * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+   */
+  public describeExport(
+    args: DescribeExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeExportCommandOutput>;
+  public describeExport(
+    args: DescribeExportCommandInput,
+    cb: (err: any, data?: DescribeExportCommandOutput) => void
+  ): void;
+  public describeExport(
+    args: DescribeExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeExportCommandOutput) => void
+  ): void;
+  public describeExport(
+    args: DescribeExportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExportCommandOutput) => void),
+    cb?: (err: any, data?: DescribeExportCommandOutput) => void
+  ): Promise<DescribeExportCommandOutput> | void {
+    const command = new DescribeExportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") {
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      }
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Accepts native JavaScript types instead of `AttributeValue`s, and calls
    * ExecuteStatementCommand operation from {@link @aws-sdk/client-dynamodb#ExecuteStatementCommand}.
    *
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
@@ -313,6 +361,44 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     cb?: (err: any, data?: ExecuteTransactionCommandOutput) => void
   ): Promise<ExecuteTransactionCommandOutput> | void {
     const command = new ExecuteTransactionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") {
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      }
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+   * ExportTableToPointInTimeCommand operation from {@link @aws-sdk/client-dynamodb#ExportTableToPointInTimeCommand}.
+   *
+   * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+   * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+   */
+  public exportTableToPointInTime(
+    args: ExportTableToPointInTimeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportTableToPointInTimeCommandOutput>;
+  public exportTableToPointInTime(
+    args: ExportTableToPointInTimeCommandInput,
+    cb: (err: any, data?: ExportTableToPointInTimeCommandOutput) => void
+  ): void;
+  public exportTableToPointInTime(
+    args: ExportTableToPointInTimeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportTableToPointInTimeCommandOutput) => void
+  ): void;
+  public exportTableToPointInTime(
+    args: ExportTableToPointInTimeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportTableToPointInTimeCommandOutput) => void),
+    cb?: (err: any, data?: ExportTableToPointInTimeCommandOutput) => void
+  ): Promise<ExportTableToPointInTimeCommandOutput> | void {
+    const command = new ExportTableToPointInTimeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

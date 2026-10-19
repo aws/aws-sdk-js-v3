@@ -53,6 +53,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+
+# 3.972.52 (2026-10-12)
+### Chores
+* **middleware-bucket-endpoint:** update dependencies.
+
+
+
+# 3.972.51 (2026-10-09)
+### Chores
+* **middleware-bucket-endpoint:** update dependencies.
+
+
+
 # 3.972.50 (2026-09-22)
 ### Chores
 * **middleware-bucket-endpoint:** update dependencies.

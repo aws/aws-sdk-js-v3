@@ -44,7 +44,7 @@ export interface CreateAutomationRuleV2CommandOutput extends CreateAutomationRul
  *         { // CompositeFilter
  *           StringFilters: [ // OcsfStringFilterList
  *             { // OcsfStringFilter
- *               FieldName: "metadata.uid" || "activity_name" || "cloud.account.uid" || "cloud.provider" || "cloud.region" || "compliance.assessments.category" || "compliance.assessments.name" || "compliance.control" || "compliance.status" || "compliance.standards" || "finding_info.desc" || "finding_info.src_url" || "finding_info.title" || "finding_info.types" || "finding_info.uid" || "finding_info.related_events.traits.category" || "finding_info.related_events.uid" || "finding_info.related_events.product.uid" || "finding_info.related_events.title" || "metadata.product.name" || "metadata.product.uid" || "metadata.product.vendor_name" || "remediation.desc" || "remediation.references" || "resources.cloud_partition" || "resources.name" || "resources.owner.account.uid" || "resources.owner.org.uid" || "resources.owner.account.name" || "resources.provider" || "resources.region" || "resources.type" || "resources.uid" || "severity" || "status" || "comment" || "vulnerabilities.fix_coverage" || "class_name" || "databucket.encryption_details.algorithm" || "databucket.encryption_details.key_uid" || "databucket.file.data_classifications.classifier_details.type" || "evidences.actor.user.account.uid" || "evidences.api.operation" || "evidences.api.response.error_message" || "evidences.api.service.name" || "evidences.connection_info.direction" || "evidences.connection_info.protocol_name" || "evidences.dst_endpoint.autonomous_system.name" || "evidences.dst_endpoint.location.city" || "evidences.dst_endpoint.location.country" || "evidences.src_endpoint.autonomous_system.name" || "evidences.src_endpoint.hostname" || "evidences.src_endpoint.location.city" || "evidences.src_endpoint.location.country" || "finding_info.analytic.name" || "malware.name" || "malware_scan_info.uid" || "malware.severity" || "resources.cloud_function.layers.uid_alt" || "resources.cloud_function.runtime" || "resources.cloud_function.user.uid" || "resources.device.encryption_details.key_uid" || "resources.device.image.uid" || "resources.image.architecture" || "resources.image.registry_uid" || "resources.image.repository_name" || "resources.image.uid" || "resources.subnet_info.uid" || "resources.vpc_uid" || "vulnerabilities.affected_code.file.path" || "vulnerabilities.affected_packages.name" || "vulnerabilities.cve.epss.score" || "vulnerabilities.cve.uid" || "vulnerabilities.related_vulnerabilities" || "cloud.account.name" || "vendor_attributes.severity",
+ *               FieldName: "metadata.uid" || "activity_name" || "cloud.account.uid" || "cloud.provider" || "cloud.region" || "compliance.assessments.category" || "compliance.assessments.name" || "compliance.control" || "compliance.status" || "compliance.standards" || "finding_info.desc" || "finding_info.src_url" || "finding_info.title" || "finding_info.types" || "finding_info.uid" || "finding_info.related_events.traits.category" || "finding_info.related_events.uid" || "finding_info.related_events.product.uid" || "finding_info.related_events.title" || "impact" || "likelihood" || "metadata.product.name" || "metadata.product.uid" || "metadata.product.vendor_name" || "remediation.desc" || "remediation.references" || "resources.cloud_partition" || "resources.criticality" || "resources.name" || "resources.owner.account.uid" || "resources.owner.org.uid" || "resources.owner.account.name" || "resources.provider" || "resources.region" || "resources.type" || "resources.uid" || "severity" || "status" || "comment" || "vulnerabilities.fix_coverage" || "class_name" || "databucket.encryption_details.algorithm" || "databucket.encryption_details.key_uid" || "databucket.file.data_classifications.classifier_details.type" || "evidences.actor.user.account.uid" || "evidences.api.operation" || "evidences.api.response.error_message" || "evidences.api.service.name" || "evidences.connection_info.direction" || "evidences.connection_info.protocol_name" || "evidences.dst_endpoint.autonomous_system.name" || "evidences.dst_endpoint.location.city" || "evidences.dst_endpoint.location.country" || "evidences.src_endpoint.autonomous_system.name" || "evidences.src_endpoint.hostname" || "evidences.src_endpoint.location.city" || "evidences.src_endpoint.location.country" || "finding_info.analytic.name" || "malware.name" || "malware_scan_info.uid" || "malware.severity" || "resources.cloud_function.layers.uid_alt" || "resources.cloud_function.runtime" || "resources.cloud_function.user.uid" || "resources.device.encryption_details.key_uid" || "resources.device.image.uid" || "resources.image.architecture" || "resources.image.registry_uid" || "resources.image.repository_name" || "resources.image.uid" || "resources.subnet_info.uid" || "resources.vpc_uid" || "vulnerabilities.affected_code.file.path" || "vulnerabilities.affected_packages.name" || "vulnerabilities.cve.epss.score" || "vulnerabilities.cve.uid" || "vulnerabilities.related_vulnerabilities" || "cloud.account.name" || "vendor_attributes.severity",
  *               Filter: { // StringFilter
  *                 Value: "STRING_VALUE",
  *                 Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
@@ -107,7 +107,7 @@ export interface CreateAutomationRuleV2CommandOutput extends CreateAutomationRul
  *             {
  *               StringFilters: [
  *                 {
- *                   FieldName: "metadata.uid" || "activity_name" || "cloud.account.uid" || "cloud.provider" || "cloud.region" || "compliance.assessments.category" || "compliance.assessments.name" || "compliance.control" || "compliance.status" || "compliance.standards" || "finding_info.desc" || "finding_info.src_url" || "finding_info.title" || "finding_info.types" || "finding_info.uid" || "finding_info.related_events.traits.category" || "finding_info.related_events.uid" || "finding_info.related_events.product.uid" || "finding_info.related_events.title" || "metadata.product.name" || "metadata.product.uid" || "metadata.product.vendor_name" || "remediation.desc" || "remediation.references" || "resources.cloud_partition" || "resources.name" || "resources.owner.account.uid" || "resources.owner.org.uid" || "resources.owner.account.name" || "resources.provider" || "resources.region" || "resources.type" || "resources.uid" || "severity" || "status" || "comment" || "vulnerabilities.fix_coverage" || "class_name" || "databucket.encryption_details.algorithm" || "databucket.encryption_details.key_uid" || "databucket.file.data_classifications.classifier_details.type" || "evidences.actor.user.account.uid" || "evidences.api.operation" || "evidences.api.response.error_message" || "evidences.api.service.name" || "evidences.connection_info.direction" || "evidences.connection_info.protocol_name" || "evidences.dst_endpoint.autonomous_system.name" || "evidences.dst_endpoint.location.city" || "evidences.dst_endpoint.location.country" || "evidences.src_endpoint.autonomous_system.name" || "evidences.src_endpoint.hostname" || "evidences.src_endpoint.location.city" || "evidences.src_endpoint.location.country" || "finding_info.analytic.name" || "malware.name" || "malware_scan_info.uid" || "malware.severity" || "resources.cloud_function.layers.uid_alt" || "resources.cloud_function.runtime" || "resources.cloud_function.user.uid" || "resources.device.encryption_details.key_uid" || "resources.device.image.uid" || "resources.image.architecture" || "resources.image.registry_uid" || "resources.image.repository_name" || "resources.image.uid" || "resources.subnet_info.uid" || "resources.vpc_uid" || "vulnerabilities.affected_code.file.path" || "vulnerabilities.affected_packages.name" || "vulnerabilities.cve.epss.score" || "vulnerabilities.cve.uid" || "vulnerabilities.related_vulnerabilities" || "cloud.account.name" || "vendor_attributes.severity",
+ *                   FieldName: "metadata.uid" || "activity_name" || "cloud.account.uid" || "cloud.provider" || "cloud.region" || "compliance.assessments.category" || "compliance.assessments.name" || "compliance.control" || "compliance.status" || "compliance.standards" || "finding_info.desc" || "finding_info.src_url" || "finding_info.title" || "finding_info.types" || "finding_info.uid" || "finding_info.related_events.traits.category" || "finding_info.related_events.uid" || "finding_info.related_events.product.uid" || "finding_info.related_events.title" || "impact" || "likelihood" || "metadata.product.name" || "metadata.product.uid" || "metadata.product.vendor_name" || "remediation.desc" || "remediation.references" || "resources.cloud_partition" || "resources.criticality" || "resources.name" || "resources.owner.account.uid" || "resources.owner.org.uid" || "resources.owner.account.name" || "resources.provider" || "resources.region" || "resources.type" || "resources.uid" || "severity" || "status" || "comment" || "vulnerabilities.fix_coverage" || "class_name" || "databucket.encryption_details.algorithm" || "databucket.encryption_details.key_uid" || "databucket.file.data_classifications.classifier_details.type" || "evidences.actor.user.account.uid" || "evidences.api.operation" || "evidences.api.response.error_message" || "evidences.api.service.name" || "evidences.connection_info.direction" || "evidences.connection_info.protocol_name" || "evidences.dst_endpoint.autonomous_system.name" || "evidences.dst_endpoint.location.city" || "evidences.dst_endpoint.location.country" || "evidences.src_endpoint.autonomous_system.name" || "evidences.src_endpoint.hostname" || "evidences.src_endpoint.location.city" || "evidences.src_endpoint.location.country" || "finding_info.analytic.name" || "malware.name" || "malware_scan_info.uid" || "malware.severity" || "resources.cloud_function.layers.uid_alt" || "resources.cloud_function.runtime" || "resources.cloud_function.user.uid" || "resources.device.encryption_details.key_uid" || "resources.device.image.uid" || "resources.image.architecture" || "resources.image.registry_uid" || "resources.image.repository_name" || "resources.image.uid" || "resources.subnet_info.uid" || "resources.vpc_uid" || "vulnerabilities.affected_code.file.path" || "vulnerabilities.affected_packages.name" || "vulnerabilities.cve.epss.score" || "vulnerabilities.cve.uid" || "vulnerabilities.related_vulnerabilities" || "cloud.account.name" || "vendor_attributes.severity",
  *                   Filter: {
  *                     Value: "STRING_VALUE",
  *                     Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
@@ -175,10 +175,114 @@ export interface CreateAutomationRuleV2CommandOutput extends CreateAutomationRul
  *       ],
  *       CompositeOperator: "AND" || "OR",
  *     },
+ *     ResourceCriteria: { // ResourcesFilters
+ *       CompositeFilters: [ // ResourcesCompositeFilterList
+ *         { // ResourcesCompositeFilter
+ *           StringFilters: [ // ResourcesStringFilterList
+ *             { // ResourcesStringFilter
+ *               FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceGuid" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId" || "ResourceCriticality",
+ *               Filter: {
+ *                 Value: "STRING_VALUE",
+ *                 Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
+ *               },
+ *             },
+ *           ],
+ *           DateFilters: [ // ResourcesDateFilterList
+ *             { // ResourcesDateFilter
+ *               FieldName: "ResourceDetailCaptureTime" || "ResourceCreationTime",
+ *               Filter: {
+ *                 Start: "STRING_VALUE",
+ *                 End: "STRING_VALUE",
+ *                 DateRange: {
+ *                   Value: Number("int"),
+ *                   Unit: "DAYS",
+ *                   Comparison: "WITHIN" || "OLDER_THAN",
+ *                 },
+ *               },
+ *             },
+ *           ],
+ *           NumberFilters: [ // ResourcesNumberFilterList
+ *             { // ResourcesNumberFilter
+ *               FieldName: "FindingsSummary.TotalFindings" || "FindingsSummary.Severities.Other" || "FindingsSummary.Severities.Fatal" || "FindingsSummary.Severities.Critical" || "FindingsSummary.Severities.High" || "FindingsSummary.Severities.Medium" || "FindingsSummary.Severities.Low" || "FindingsSummary.Severities.Informational" || "FindingsSummary.Severities.Unknown" || "ResourceInfo.AIDetails.SelfHostedAIModelResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIModelServingResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIExternalEndpointResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIDevelopmentResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentFrameworkResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentToolsAndIdentityResourceCount" || "ResourceInfo.AIDetails.SelfHostedTotalAIResourceCount",
+ *               Filter: {
+ *                 Gte: Number("double"),
+ *                 Lte: Number("double"),
+ *                 Eq: Number("double"),
+ *                 Gt: Number("double"),
+ *                 Lt: Number("double"),
+ *               },
+ *             },
+ *           ],
+ *           MapFilters: [ // ResourcesMapFilterList
+ *             { // ResourcesMapFilter
+ *               FieldName: "ResourceTags",
+ *               Filter: {
+ *                 Key: "STRING_VALUE",
+ *                 Value: "STRING_VALUE",
+ *                 Comparison: "EQUALS" || "NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *               },
+ *             },
+ *           ],
+ *           NestedCompositeFilters: [
+ *             {
+ *               StringFilters: [
+ *                 {
+ *                   FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceGuid" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId" || "ResourceCriticality",
+ *                   Filter: {
+ *                     Value: "STRING_VALUE",
+ *                     Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
+ *                   },
+ *                 },
+ *               ],
+ *               DateFilters: [
+ *                 {
+ *                   FieldName: "ResourceDetailCaptureTime" || "ResourceCreationTime",
+ *                   Filter: {
+ *                     Start: "STRING_VALUE",
+ *                     End: "STRING_VALUE",
+ *                     DateRange: {
+ *                       Value: Number("int"),
+ *                       Unit: "DAYS",
+ *                       Comparison: "WITHIN" || "OLDER_THAN",
+ *                     },
+ *                   },
+ *                 },
+ *               ],
+ *               NumberFilters: [
+ *                 {
+ *                   FieldName: "FindingsSummary.TotalFindings" || "FindingsSummary.Severities.Other" || "FindingsSummary.Severities.Fatal" || "FindingsSummary.Severities.Critical" || "FindingsSummary.Severities.High" || "FindingsSummary.Severities.Medium" || "FindingsSummary.Severities.Low" || "FindingsSummary.Severities.Informational" || "FindingsSummary.Severities.Unknown" || "ResourceInfo.AIDetails.SelfHostedAIModelResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIModelServingResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIExternalEndpointResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIDevelopmentResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentFrameworkResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentToolsAndIdentityResourceCount" || "ResourceInfo.AIDetails.SelfHostedTotalAIResourceCount",
+ *                   Filter: {
+ *                     Gte: Number("double"),
+ *                     Lte: Number("double"),
+ *                     Eq: Number("double"),
+ *                     Gt: Number("double"),
+ *                     Lt: Number("double"),
+ *                   },
+ *                 },
+ *               ],
+ *               MapFilters: [
+ *                 {
+ *                   FieldName: "ResourceTags",
+ *                   Filter: {
+ *                     Key: "STRING_VALUE",
+ *                     Value: "STRING_VALUE",
+ *                     Comparison: "EQUALS" || "NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *                   },
+ *                 },
+ *               ],
+ *               NestedCompositeFilters: "<ResourcesCompositeFilterList>",
+ *               Operator: "AND" || "OR",
+ *             },
+ *           ],
+ *           Operator: "AND" || "OR",
+ *         },
+ *       ],
+ *       CompositeOperator: "AND" || "OR",
+ *     },
  *   },
  *   Actions: [ // AutomationRulesActionListV2 // required
  *     { // AutomationRulesActionV2
- *       Type: "FINDING_FIELDS_UPDATE" || "EXTERNAL_INTEGRATION", // required
+ *       Type: "FINDING_FIELDS_UPDATE" || "EXTERNAL_INTEGRATION" || "RESOURCE_FIELDS_UPDATE", // required
  *       FindingFieldsUpdate: { // AutomationRulesFindingFieldsUpdateV2
  *         SeverityId: Number("int"),
  *         Comment: "STRING_VALUE",
@@ -186,6 +290,9 @@ export interface CreateAutomationRuleV2CommandOutput extends CreateAutomationRul
  *       },
  *       ExternalIntegrationConfiguration: { // ExternalIntegrationConfiguration
  *         ConnectorArn: "STRING_VALUE",
+ *       },
+ *       ResourceFieldsUpdate: { // AutomationRulesResourceFieldsUpdateV2
+ *         Criticality: "Very High" || "High" || "Medium" || "Low" || "Unknown", // required
  *       },
  *     },
  *   ],

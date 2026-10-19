@@ -6,10 +6,13 @@ import type {
   RouterOutputRoutedState,
   RouterOutputState,
   RouterOutputTier,
+  RouterOutputType,
   RoutingScope,
 } from "./enums";
 import type {
   FabricConfiguration,
+  ListedRouterNetworkInterface,
+  ListedRouterOutput,
   MaintenanceConfiguration,
   MaintenanceSchedule,
   Reservation,
@@ -19,9 +22,219 @@ import type {
   RouterInputTransitEncryption,
   RouterNetworkInterface,
   RouterNetworkInterfaceConfiguration,
+  RouterNetworkInterfaceFilter,
   RouterOutput,
   RouterOutputConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListRouterNetworkInterfacesRequest {
+  /**
+   * <p>The maximum number of router network interfaces to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token used to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The filters to apply when retrieving the list of router network interfaces.</p>
+   * @public
+   */
+  Filters?: RouterNetworkInterfaceFilter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRouterNetworkInterfacesResponse {
+  /**
+   * <p>The summary information for the retrieved router network interfaces.</p>
+   * @public
+   */
+  RouterNetworkInterfaces: ListedRouterNetworkInterface[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A filter that can be used to retrieve a list of router outputs.</p>
+ * @public
+ */
+export type RouterOutputFilter =
+  | RouterOutputFilter.NameContainsMember
+  | RouterOutputFilter.NetworkInterfaceArnsMember
+  | RouterOutputFilter.OutputTypesMember
+  | RouterOutputFilter.RegionNamesMember
+  | RouterOutputFilter.RoutedInputArnsMember
+  | RouterOutputFilter.RoutingScopesMember
+  | RouterOutputFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RouterOutputFilter {
+  /**
+   * <p>The AWS Regions of the router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface RegionNamesMember {
+    RegionNames: string[];
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    OutputTypes?: never;
+    RoutedInputArns?: never;
+    NameContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the network interfaces associated with the router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface NetworkInterfaceArnsMember {
+    RegionNames?: never;
+    NetworkInterfaceArns: string[];
+    RoutingScopes?: never;
+    OutputTypes?: never;
+    RoutedInputArns?: never;
+    NameContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter criteria to list router outputs based on their routing scope.</p>
+   * @public
+   */
+  export interface RoutingScopesMember {
+    RegionNames?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes: RoutingScope[];
+    OutputTypes?: never;
+    RoutedInputArns?: never;
+    NameContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The types of router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface OutputTypesMember {
+    RegionNames?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    OutputTypes: RouterOutputType[];
+    RoutedInputArns?: never;
+    NameContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The ARNs of the router inputs associated with the router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface RoutedInputArnsMember {
+    RegionNames?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    OutputTypes?: never;
+    RoutedInputArns: string[];
+    NameContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The names of the router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface NameContainsMember {
+    RegionNames?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    OutputTypes?: never;
+    RoutedInputArns?: never;
+    NameContains: string[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    RegionNames?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    OutputTypes?: never;
+    RoutedInputArns?: never;
+    NameContains?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    RegionNames: (value: string[]) => T;
+    NetworkInterfaceArns: (value: string[]) => T;
+    RoutingScopes: (value: RoutingScope[]) => T;
+    OutputTypes: (value: RouterOutputType[]) => T;
+    RoutedInputArns: (value: string[]) => T;
+    NameContains: (value: string[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ListRouterOutputsRequest {
+  /**
+   * <p>The maximum number of router outputs to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token used to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The filters to apply when retrieving the list of router outputs.</p>
+   * @public
+   */
+  Filters?: RouterOutputFilter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRouterOutputsResponse {
+  /**
+   * <p>The summary information for the retrieved router outputs.</p>
+   * @public
+   */
+  RouterOutputs: ListedRouterOutput[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -250,7 +463,7 @@ export interface UpdateRouterInputRequest {
   RoutingScope?: RoutingScope | undefined;
 
   /**
-   * <p>The updated tier level for the router input.</p>
+   * <p>The updated tier level for the router input. The tier sets the maximum bitrate, in Mbps, for the router input. Valid values include the following:</p> <ul> <li> <p> <code>INPUT_20</code> – 20 Mbps</p> </li> <li> <p> <code>INPUT_50</code> – 50 Mbps</p> </li> <li> <p> <code>INPUT_100</code> – 100 Mbps</p> </li> <li> <p> <code>INPUT_250</code> – 250 Mbps</p> </li> <li> <p> <code>INPUT_500</code> – 500 Mbps</p> </li> </ul> <p>The 250 Mbps and 500 Mbps tiers are high-bitrate tiers that support TR-07 (JPEG XS) workflows.</p>
    * @public
    */
   Tier?: RouterInputTier | undefined;
@@ -520,7 +733,7 @@ export interface UpdateRouterOutputRequest {
   RoutingScope?: RoutingScope | undefined;
 
   /**
-   * <p>The updated tier level for the router output.</p>
+   * <p>The updated tier level for the router output. The tier sets the maximum bitrate, in Mbps, for the router output. Valid values include the following:</p> <ul> <li> <p> <code>OUTPUT_20</code> – 20 Mbps</p> </li> <li> <p> <code>OUTPUT_50</code> – 50 Mbps</p> </li> <li> <p> <code>OUTPUT_100</code> – 100 Mbps</p> </li> <li> <p> <code>OUTPUT_250</code> – 250 Mbps</p> </li> <li> <p> <code>OUTPUT_500</code> – 500 Mbps</p> </li> </ul> <p>The 250 Mbps and 500 Mbps tiers are high-bitrate tiers that support TR-07 (JPEG XS) workflows.</p>
    * @public
    */
   Tier?: RouterOutputTier | undefined;

@@ -1,0 +1,759 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+> **Note on versioning.** This package was previously developed as a private,
+> unpublished package under `lib/lib-transfer-manager`, versioned in lockstep with
+> the SDK release line. It now lives in `preview/`, is versioned independently
+> starting from `0.0.0`, and is published under the `preview` npm tag. Entries below
+> this note use the former lockstep version numbers and were never published to npm.
+
+
+
+# 0.1.0 (2026-10-14)
+### Features
+* **lib-transfer-manager:** publish as a preview package ([#8355](https://github.com/aws/aws-sdk-js-v3/issues/8355)) ([4108092](https://github.com/aws/aws-sdk-js-v3/commit/41080929c1e5a81980f0bda4a35eadd0b6e048a9))
+
+
+
+# 0.0.0 (2026-10-13)
+### Chores
+* **lib-transfer-manager:** move lib-transfer-manager to preview/ folder ([#8351](https://github.com/aws/aws-sdk-js-v3/issues/8351)) ([5037a00](https://github.com/aws/aws-sdk-js-v3/commit/5037a0065a1f6ae6a87ff7ce4884e3ef3be61a64))
+
+
+
+# [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1148.0...v3.1149.0) (2026-10-09)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** avoid full-body copy for SharedArrayBuffer uploads ([#8338](https://github.com/aws/aws-sdk-js-v3/issues/8338)) ([5473caf](https://github.com/aws/aws-sdk-js-v3/commit/5473caf9374d847234c677230d4d988bec810561))
+* **lib-transfer-manager:** retry UploadPart on worker-thread upload path ([#8345](https://github.com/aws/aws-sdk-js-v3/issues/8345)) ([0e357d9](https://github.com/aws/aws-sdk-js-v3/commit/0e357d90eaeaa8b80eda2ca6df94f1bf3b383a54))
+
+
+
+
+
+# [3.1148.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1147.0...v3.1148.0) (2026-10-08)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** use the declared checksum algorithm in workers ([#8331](https://github.com/aws/aws-sdk-js-v3/issues/8331)) ([0317bb8](https://github.com/aws/aws-sdk-js-v3/commit/0317bb822abed1302aaae350a8bbfa40f60ef32d))
+
+
+
+
+
+# [3.1147.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1146.0...v3.1147.0) (2026-10-06)
+
+
+### Features
+
+* **lib-transfer-manager:** add opt-in O_DIRECT path for file downloads ([#8319](https://github.com/aws/aws-sdk-js-v3/issues/8319)) ([1e414f1](https://github.com/aws/aws-sdk-js-v3/commit/1e414f146256296cc32d2675a2e2df515918785e))
+
+
+
+
+
+# [3.1146.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1145.0...v3.1146.0) (2026-10-02)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1144.0...v3.1145.0) (2026-10-01)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** respect file read stream's byte range on upload ([#8324](https://github.com/aws/aws-sdk-js-v3/issues/8324)) ([449c281](https://github.com/aws/aws-sdk-js-v3/commit/449c2814f04220f665f3c939f0c92b064986ac57))
+
+
+
+
+
+# [3.1144.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1143.0...v3.1144.0) (2026-09-30)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1143.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1142.0...v3.1143.0) (2026-09-29)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** retry worker path download part failures ([#8285](https://github.com/aws/aws-sdk-js-v3/issues/8285)) ([13f49ff](https://github.com/aws/aws-sdk-js-v3/commit/13f49fff196a19bca13f69f153d57a2262055e5c))
+
+
+
+
+
+# [3.1142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1141.0...v3.1142.0) (2026-09-28)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** bind browser deps via dependency injection ([#8305](https://github.com/aws/aws-sdk-js-v3/issues/8305)) ([aa6819c](https://github.com/aws/aws-sdk-js-v3/commit/aa6819c317895d74a2c5900dcd18192894479db1))
+
+
+
+
+
+# [3.1141.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1140.0...v3.1141.0) (2026-09-25)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1140.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1139.0...v3.1140.0) (2026-09-24)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1139.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1138.0...v3.1139.0) (2026-09-23)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1138.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1137.0...v3.1138.0) (2026-09-22)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1137.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1136.0...v3.1137.0) (2026-09-21)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1136.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1135.0...v3.1136.0) (2026-09-18)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1135.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1134.0...v3.1135.0) (2026-09-17)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1134.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1133.0...v3.1134.0) (2026-09-16)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** update transfer progress events ([#8292](https://github.com/aws/aws-sdk-js-v3/issues/8292)) ([8c690c2](https://github.com/aws/aws-sdk-js-v3/commit/8c690c23271c5971e7bd37d399b57da01d993b5f))
+
+
+
+
+
+# [3.1133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1132.0...v3.1133.0) (2026-09-15)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1132.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1131.0...v3.1132.0) (2026-09-14)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1130.0...v3.1131.0) (2026-09-11)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1129.0...v3.1130.0) (2026-09-10)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1129.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1128.0...v3.1129.0) (2026-09-09)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1127.0...v3.1128.0) (2026-09-08)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1126.0...v3.1127.0) (2026-09-04)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1126.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1125.0...v3.1126.0) (2026-09-03)
+
+
+### Features
+
+* **lib-transfer-manager:** add download directory functionality ([#8274](https://github.com/aws/aws-sdk-js-v3/issues/8274)) ([6e591ee](https://github.com/aws/aws-sdk-js-v3/commit/6e591ee8a054e364dda13cb66a800b6afa4aa9ea))
+
+
+
+
+
+# [3.1125.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1124.0...v3.1125.0) (2026-09-02)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1124.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1123.0...v3.1124.0) (2026-09-01)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1123.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1122.0...v3.1123.0) (2026-08-31)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1122.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1121.0...v3.1122.0) (2026-08-31)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1120.0...v3.1121.0) (2026-08-28)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1120.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1119.0...v3.1120.0) (2026-08-27)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1119.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1118.0...v3.1119.0) (2026-08-26)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1118.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1117.0...v3.1118.0) (2026-08-25)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1117.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1116.0...v3.1117.0) (2026-08-24)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1116.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1115.0...v3.1116.0) (2026-08-21)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1115.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1114.0...v3.1115.0) (2026-08-20)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1114.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1113.0...v3.1114.0) (2026-08-19)
+
+
+### Features
+
+* **lib-transfer-manager:** add file based download api and worker thread based download. ([#8259](https://github.com/aws/aws-sdk-js-v3/issues/8259)) ([b2d6035](https://github.com/aws/aws-sdk-js-v3/commit/b2d60357c87e86ce7da8902c9bd243bcc3bb34b2))
+
+
+
+
+
+# [3.1113.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1112.0...v3.1113.0) (2026-08-18)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1111.0...v3.1112.0) (2026-08-17)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1111.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1110.0...v3.1111.0) (2026-08-14)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1109.0...v3.1110.0) (2026-08-13)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1108.0...v3.1109.0) (2026-08-12)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1108.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1107.0...v3.1108.0) (2026-08-11)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** optimize worker HTTP connections and file I/O ([#8256](https://github.com/aws/aws-sdk-js-v3/issues/8256)) ([3ea6bc4](https://github.com/aws/aws-sdk-js-v3/commit/3ea6bc4b05b3acd358b4755bea1f3c42d99f8de5))
+
+
+
+
+
+# [3.1107.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1106.0...v3.1107.0) (2026-08-10)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1106.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1105.0...v3.1106.0) (2026-08-07)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1105.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1104.0...v3.1105.0) (2026-08-06)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1104.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1103.0...v3.1104.0) (2026-08-05)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1103.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1102.0...v3.1103.0) (2026-08-04)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1102.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1101.0...v3.1102.0) (2026-08-03)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1101.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1100.0...v3.1101.0) (2026-07-31)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1099.0...v3.1100.0) (2026-07-31)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1099.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1098.0...v3.1099.0) (2026-07-30)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1098.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1097.0...v3.1098.0) (2026-07-29)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1097.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1096.0...v3.1097.0) (2026-07-28)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1096.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1095.0...v3.1096.0) (2026-07-27)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1095.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1094.0...v3.1095.0) (2026-07-24)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1094.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1093.0...v3.1094.0) (2026-07-23)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1092.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1091.0...v3.1092.0) (2026-07-21)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1091.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1090.0...v3.1091.0) (2026-07-20)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1090.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1089.0...v3.1090.0) (2026-07-17)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1089.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1088.0...v3.1089.0) (2026-07-16)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1088.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1087.0...v3.1088.0) (2026-07-15)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1087.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1086.0...v3.1087.0) (2026-07-14)
+
+
+### Bug Fixes
+
+* **scripts:** add typesVersions entries for submodules ([#8186](https://github.com/aws/aws-sdk-js-v3/issues/8186)) ([9eade26](https://github.com/aws/aws-sdk-js-v3/commit/9eade2692bd0f4486bc03c606a6963bc96706fd1))
+
+
+
+
+
+# [3.1086.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1085.0...v3.1086.0) (2026-07-13)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1085.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1084.0...v3.1085.0) (2026-07-10)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1084.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1083.0...v3.1084.0) (2026-07-09)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1083.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1082.0...v3.1083.0) (2026-07-08)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1082.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1081.0...v3.1082.0) (2026-07-08)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** destroy orphaned response streams on abort ([#8165](https://github.com/aws/aws-sdk-js-v3/issues/8165)) ([8a5e590](https://github.com/aws/aws-sdk-js-v3/commit/8a5e590c9386c2106444971fc26dbb4f21926358))
+
+
+
+
+
+# [3.1081.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1080.0...v3.1081.0) (2026-07-07)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1080.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1079.0...v3.1080.0) (2026-07-06)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1079.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1078.0...v3.1079.0) (2026-07-02)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1078.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1077.0...v3.1078.0) (2026-07-01)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1077.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1076.0...v3.1077.0) (2026-06-30)
+
+
+### Features
+
+* **lib-transfer-manager:** add uploadDirectory functionality ([#8121](https://github.com/aws/aws-sdk-js-v3/issues/8121)) ([29b5656](https://github.com/aws/aws-sdk-js-v3/commit/29b5656447cbf5367825a88c11f325a911652524))
+
+
+
+
+
+# [3.1076.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1075.0...v3.1076.0) (2026-06-29)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1075.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1074.0...v3.1075.0) (2026-06-23)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1074.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1073.0...v3.1074.0) (2026-06-22)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1073.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1072.0...v3.1073.0) (2026-06-19)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1072.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1071.0...v3.1072.0) (2026-06-18)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1071.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1070.0...v3.1071.0) (2026-06-17)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1070.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1069.0...v3.1070.0) (2026-06-16)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1069.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1068.0...v3.1069.0) (2026-06-15)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1068.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1067.0...v3.1068.0) (2026-06-12)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1067.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1066.0...v3.1067.0) (2026-06-11)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1066.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1065.0...v3.1066.0) (2026-06-10)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1065.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1064.0...v3.1065.0) (2026-06-09)
+
+**Note:** Version bump only for package @aws-sdk/lib-transfer-manager
+
+
+
+
+
+# [3.1064.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1063.0...v3.1064.0) (2026-06-08)
+
+
+### Features
+
+* **lib-transfer-manager:** add @aws-sdk/lib-transfer-manager as private package ([#8074](https://github.com/aws/aws-sdk-js-v3/issues/8074)) ([3d051b5](https://github.com/aws/aws-sdk-js-v3/commit/3d051b5d26a22924ab36d77eb2f9a361b8136789))

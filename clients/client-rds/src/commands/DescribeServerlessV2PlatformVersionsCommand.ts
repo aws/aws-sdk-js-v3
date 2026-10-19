@@ -2,10 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type {
-  DescribeServerlessV2PlatformVersionsMessage,
-  ServerlessV2PlatformVersionsMessage,
-} from "../models/models_0";
+import type { DescribeServerlessV2PlatformVersionsMessage } from "../models/models_0";
+import type { ServerlessV2PlatformVersionsMessage } from "../models/models_1";
 import { DescribeServerlessV2PlatformVersions$ } from "../schemas/schemas_0";
 
 /**

@@ -83,6 +83,7 @@ export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse,
  *   },
  *   NdiSourceSettings: { // NdiSourceSettings
  *     SourceName: "STRING_VALUE",
+ *     AudioReferenceLevel: Number("int"),
  *   },
  *   RouterIntegrationState: "ENABLED" || "DISABLED",
  *   RouterIntegrationTransitDecryption: { // FlowTransitEncryption
@@ -156,8 +157,10 @@ export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse,
  * //       NdiProgramName: "STRING_VALUE",
  * //       NdiSourceSettings: { // NdiSourceSettings
  * //         SourceName: "STRING_VALUE",
+ * //         AudioReferenceLevel: Number("int"),
  * //       },
  * //       NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
+ * //       NdiAudioReferenceLevel: Number("int"),
  * //     },
  * //     VpcInterfaceName: "STRING_VALUE",
  * //     WhitelistCidr: "STRING_VALUE",

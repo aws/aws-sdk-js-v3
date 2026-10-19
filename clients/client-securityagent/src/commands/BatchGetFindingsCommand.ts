@@ -60,6 +60,7 @@ export interface BatchGetFindingsCommandOutput extends BatchGetFindingsOutput, _
  * //       confidence: "FALSE_POSITIVE" || "UNCONFIRMED" || "LOW" || "MEDIUM" || "HIGH",
  * //       validationStatus: "CONFIRMED" || "NOT_REPRODUCED" || "VALIDATION_FAILED" || "VALIDATING" || "NOT_VALIDATED",
  * //       attackScript: "STRING_VALUE",
+ * //       remediationCode: "STRING_VALUE",
  * //       codeRemediationTask: { // CodeRemediationTask
  * //         status: "IN_PROGRESS" || "COMPLETED" || "FAILED", // required
  * //         statusReason: "STRING_VALUE",
@@ -97,6 +98,15 @@ export interface BatchGetFindingsCommandOutput extends BatchGetFindingsOutput, _
  * //         "STRING_VALUE",
  * //       ],
  * //       originalFindingId: "STRING_VALUE",
+ * //       linkedIssue: { // LinkedIssue
+ * //         provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE" || "AZURE_DEVOPS" || "JIRA",
+ * //         integrationId: "STRING_VALUE",
+ * //         projectKey: "STRING_VALUE",
+ * //         issueKey: "STRING_VALUE",
+ * //         issueId: "STRING_VALUE",
+ * //         issueUrl: "STRING_VALUE",
+ * //         siteUrl: "STRING_VALUE",
+ * //       },
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },

@@ -55,7 +55,7 @@ export interface ListCustomDetectionRulesCommandOutput extends ListCustomDetecti
  * //       Name: "STRING_VALUE", // required
  * //       Description: "STRING_VALUE", // required
  * //       Severity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW", // required
- * //       DataSource: "CloudTrailManagementEvent", // required
+ * //       DataSource: "CloudTrailManagementEvent" || "RuntimeMonitoring", // required
  * //       Tactic: "STRING_VALUE", // required
  * //       Technique: "STRING_VALUE", // required
  * //       Service: "STRING_VALUE", // required

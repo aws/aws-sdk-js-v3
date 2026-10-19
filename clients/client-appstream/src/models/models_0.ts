@@ -39,6 +39,7 @@ import type {
   SoftwareDeploymentStatus,
   StackAttribute,
   StackErrorCode,
+  StorageConnectorAuthentication,
   StorageConnectorType,
   StreamView,
   ThemeAttribute,
@@ -3552,6 +3553,18 @@ export interface ImagePermissions {
 }
 
 /**
+ * <p>Describes the software metadata for an image, such as the installed NVIDIA GRID driver version.</p>
+ * @public
+ */
+export interface ImageSoftwareMetadata {
+  /**
+   * <p>The version of the NVIDIA GRID driver installed on the image. This field is empty if no NVIDIA GRID driver is installed.</p>
+   * @public
+   */
+  nvidiaGridDriverVersion?: string | undefined;
+}
+
+/**
  * <p>Describes the reason why the last image state change occurred.</p>
  * @public
  */
@@ -3733,6 +3746,12 @@ export interface Image {
    * @public
    */
   ImageType?: ImageType | undefined;
+
+  /**
+   * <p>The software metadata associated with the image.</p>
+   * @public
+   */
+  ImageSoftwareMetadata?: ImageSoftwareMetadata | undefined;
 }
 
 /**
@@ -3906,6 +3925,12 @@ export interface CreateStackRequest {
    * @public
    */
   AgentAccessConfig?: AgentAccessConfig | undefined;
+
+  /**
+   * <p>Specifies whether users' cloud storage authentication persists across streaming sessions. When you specify FORCE_REAUTHENTICATION, WorkSpaces Applications removes the stored authentication for the stack's OneDrive and Google Drive connectors when a user's session ends. The user links their cloud storage again on their next session. The default is REUSE_CREDENTIALS.</p>
+   * @public
+   */
+  StorageConnectorAuthentication?: StorageConnectorAuthentication | undefined;
 }
 
 /**
@@ -4026,6 +4051,12 @@ export interface Stack {
    * @public
    */
   AgentAccessConfig?: AgentAccessConfig | undefined;
+
+  /**
+   * <p>Indicates whether users' cloud storage authentication persists across streaming sessions. When this attribute is FORCE_REAUTHENTICATION, WorkSpaces Applications removes the stored authentication for the stack's OneDrive and Google Drive connectors when a user's session ends. The user links their cloud storage again on their next session. The default is REUSE_CREDENTIALS.</p>
+   * @public
+   */
+  StorageConnectorAuthentication?: StorageConnectorAuthentication | undefined;
 }
 
 /**
@@ -7192,6 +7223,12 @@ export interface UpdateStackRequest {
    * @public
    */
   AgentAccessConfig?: AgentAccessConfigForUpdate | undefined;
+
+  /**
+   * <p>Specifies whether users' cloud storage authentication persists across streaming sessions. When you specify FORCE_REAUTHENTICATION, WorkSpaces Applications removes the stored authentication for the stack's OneDrive and Google Drive connectors when a user's session ends. The user links their cloud storage again on their next session. To clear this attribute, add STORAGE_CONNECTOR_AUTHENTICATION to AttributesToDelete.</p>
+   * @public
+   */
+  StorageConnectorAuthentication?: StorageConnectorAuthentication | undefined;
 }
 
 /**

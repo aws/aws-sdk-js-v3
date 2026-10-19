@@ -68,7 +68,7 @@ export interface DescribeOrganizationConfigurationCommandOutput extends Describe
  * //       AutoEnable: "NEW" || "NONE" || "ALL",
  * //       AdditionalConfiguration: [ // OrganizationAdditionalConfigurationResults
  * //         { // OrganizationAdditionalConfigurationResult
- * //           Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT" || "EC2_AGENT_MANAGEMENT",
+ * //           Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT" || "EC2_AGENT_MANAGEMENT" || "RDS_DATA_RISK",
  * //           AutoEnable: "NEW" || "NONE" || "ALL",
  * //         },
  * //       ],

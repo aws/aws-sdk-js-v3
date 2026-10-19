@@ -24,6 +24,9 @@ export interface GetExportJobCommandOutput extends GetExportJobResponse, __Metad
 
 /**
  * <p>Provides information about an export job.</p>
+ *          <p>When the job status is <code>COMPLETED</code>, the response includes a pre-signed
+ *             URL in <code>ExportDestination.S3Url</code> that you use to download the export
+ *             file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import type {
+  BlueprintCategory,
   ConfigurationStatus,
   ConnectionScope,
   ConnectionType,
@@ -5455,6 +5456,12 @@ export interface GetEnvironmentBlueprintOutput {
   glossaryTerms?: string[] | undefined;
 
   /**
+   * <p>The category of this Amazon DataZone blueprint. The only valid value is <code>TOOLING</code>, which indicates a blueprint that provisions the tooling resources of a project.</p>
+   * @public
+   */
+  blueprintCategory?: BlueprintCategory | undefined;
+
+  /**
    * <p>A timestamp of when this blueprint was created.</p>
    * @public
    */
@@ -8006,6 +8013,12 @@ export interface EnvironmentBlueprintSummary {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>The category of the environment blueprint. The only valid value is <code>TOOLING</code>.</p>
+   * @public
+   */
+  blueprintCategory?: BlueprintCategory | undefined;
 }
 
 /**

@@ -8,6 +8,7 @@ import { DirectoryServiceServiceException as __BaseException } from "./Directory
  * @public
  */
 export class ClientException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#ClientException";
   readonly name = "ClientException" as const;
   readonly $fault = "client" as const;
   /**
@@ -41,6 +42,7 @@ export class ClientException extends __BaseException {
  * @public
  */
 export class DirectoryAlreadySharedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#DirectoryAlreadySharedException";
   readonly name = "DirectoryAlreadySharedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -74,6 +76,7 @@ export class DirectoryAlreadySharedException extends __BaseException {
  * @public
  */
 export class EntityDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#EntityDoesNotExistException";
   readonly name = "EntityDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -107,6 +110,7 @@ export class EntityDoesNotExistException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -140,6 +144,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class ServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#ServiceException";
   readonly name = "ServiceException" as const;
   readonly $fault = "server" as const;
   /**
@@ -173,6 +178,7 @@ export class ServiceException extends __BaseException {
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -214,6 +220,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ADAssessmentLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#ADAssessmentLimitExceededException";
   readonly name = "ADAssessmentLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -247,6 +254,7 @@ export class ADAssessmentLimitExceededException extends __BaseException {
  * @public
  */
 export class DirectoryUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#DirectoryUnavailableException";
   readonly name = "DirectoryUnavailableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -280,6 +288,7 @@ export class DirectoryUnavailableException extends __BaseException {
  * @public
  */
 export class EntityAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#EntityAlreadyExistsException";
   readonly name = "EntityAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -314,6 +323,7 @@ export class EntityAlreadyExistsException extends __BaseException {
  * @public
  */
 export class IpRouteLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#IpRouteLimitExceededException";
   readonly name = "IpRouteLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -348,6 +358,7 @@ export class IpRouteLimitExceededException extends __BaseException {
  * @public
  */
 export class DirectoryAlreadyInRegionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#DirectoryAlreadyInRegionException";
   readonly name = "DirectoryAlreadyInRegionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -381,6 +392,7 @@ export class DirectoryAlreadyInRegionException extends __BaseException {
  * @public
  */
 export class DirectoryDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#DirectoryDoesNotExistException";
   readonly name = "DirectoryDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -415,6 +427,7 @@ export class DirectoryDoesNotExistException extends __BaseException {
  * @public
  */
 export class RegionLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#RegionLimitExceededException";
   readonly name = "RegionLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -448,6 +461,7 @@ export class RegionLimitExceededException extends __BaseException {
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#UnsupportedOperationException";
   readonly name = "UnsupportedOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -481,6 +495,7 @@ export class UnsupportedOperationException extends __BaseException {
  * @public
  */
 export class TagLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#TagLimitExceededException";
   readonly name = "TagLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -514,6 +529,7 @@ export class TagLimitExceededException extends __BaseException {
  * @public
  */
 export class AuthenticationFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#AuthenticationFailedException";
   readonly name = "AuthenticationFailedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -547,6 +563,7 @@ export class AuthenticationFailedException extends __BaseException {
  * @public
  */
 export class CertificateAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#CertificateAlreadyExistsException";
   readonly name = "CertificateAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -580,6 +597,7 @@ export class CertificateAlreadyExistsException extends __BaseException {
  * @public
  */
 export class CertificateDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#CertificateDoesNotExistException";
   readonly name = "CertificateDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -614,6 +632,7 @@ export class CertificateDoesNotExistException extends __BaseException {
  * @public
  */
 export class CertificateInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#CertificateInUseException";
   readonly name = "CertificateInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -647,6 +666,7 @@ export class CertificateInUseException extends __BaseException {
  * @public
  */
 export class CertificateLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#CertificateLimitExceededException";
   readonly name = "CertificateLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -682,6 +702,7 @@ export class CertificateLimitExceededException extends __BaseException {
  * @public
  */
 export class DirectoryLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#DirectoryLimitExceededException";
   readonly name = "DirectoryLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -715,6 +736,7 @@ export class DirectoryLimitExceededException extends __BaseException {
  * @public
  */
 export class InsufficientPermissionsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#InsufficientPermissionsException";
   readonly name = "InsufficientPermissionsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -750,6 +772,7 @@ export class InsufficientPermissionsException extends __BaseException {
  * @public
  */
 export class SnapshotLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#SnapshotLimitExceededException";
   readonly name = "SnapshotLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -783,6 +806,7 @@ export class SnapshotLimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -816,6 +840,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class DirectoryInDesiredStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#DirectoryInDesiredStateException";
   readonly name = "DirectoryInDesiredStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -849,6 +874,7 @@ export class DirectoryInDesiredStateException extends __BaseException {
  * @public
  */
 export class DirectoryNotSharedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#DirectoryNotSharedException";
   readonly name = "DirectoryNotSharedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -882,6 +908,7 @@ export class DirectoryNotSharedException extends __BaseException {
  * @public
  */
 export class DisableAlreadyInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#DisableAlreadyInProgressException";
   readonly name = "DisableAlreadyInProgressException" as const;
   readonly $fault = "client" as const;
   /**
@@ -915,6 +942,7 @@ export class DisableAlreadyInProgressException extends __BaseException {
  * @public
  */
 export class InvalidClientAuthStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#InvalidClientAuthStatusException";
   readonly name = "InvalidClientAuthStatusException" as const;
   readonly $fault = "client" as const;
   /**
@@ -949,6 +977,7 @@ export class InvalidClientAuthStatusException extends __BaseException {
  * @public
  */
 export class InvalidLDAPSStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#InvalidLDAPSStatusException";
   readonly name = "InvalidLDAPSStatusException" as const;
   readonly $fault = "client" as const;
   /**
@@ -982,6 +1011,7 @@ export class InvalidLDAPSStatusException extends __BaseException {
  * @public
  */
 export class EnableAlreadyInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#EnableAlreadyInProgressException";
   readonly name = "EnableAlreadyInProgressException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1016,6 +1046,7 @@ export class EnableAlreadyInProgressException extends __BaseException {
  * @public
  */
 export class NoAvailableCertificateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#NoAvailableCertificateException";
   readonly name = "NoAvailableCertificateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1049,6 +1080,7 @@ export class NoAvailableCertificateException extends __BaseException {
  * @public
  */
 export class InvalidCertificateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#InvalidCertificateException";
   readonly name = "InvalidCertificateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1083,6 +1115,7 @@ export class InvalidCertificateException extends __BaseException {
  * @public
  */
 export class InvalidPasswordException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#InvalidPasswordException";
   readonly name = "InvalidPasswordException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1116,6 +1149,7 @@ export class InvalidPasswordException extends __BaseException {
  * @public
  */
 export class UserDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#UserDoesNotExistException";
   readonly name = "UserDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1149,6 +1183,7 @@ export class UserDoesNotExistException extends __BaseException {
  * @public
  */
 export class InvalidTargetException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#InvalidTargetException";
   readonly name = "InvalidTargetException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1182,6 +1217,7 @@ export class InvalidTargetException extends __BaseException {
  * @public
  */
 export class OrganizationsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#OrganizationsException";
   readonly name = "OrganizationsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1216,6 +1252,7 @@ export class OrganizationsException extends __BaseException {
  * @public
  */
 export class ShareLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#ShareLimitExceededException";
   readonly name = "ShareLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1250,6 +1287,7 @@ export class ShareLimitExceededException extends __BaseException {
  * @public
  */
 export class DomainControllerLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#DomainControllerLimitExceededException";
   readonly name = "DomainControllerLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1283,6 +1321,7 @@ export class DomainControllerLimitExceededException extends __BaseException {
  * @public
  */
 export class IncompatibleSettingsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#IncompatibleSettingsException";
   readonly name = "IncompatibleSettingsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1316,6 +1355,7 @@ export class IncompatibleSettingsException extends __BaseException {
  * @public
  */
 export class UnsupportedSettingsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.directoryservice#UnsupportedSettingsException";
   readonly name = "UnsupportedSettingsException" as const;
   readonly $fault = "client" as const;
   /**

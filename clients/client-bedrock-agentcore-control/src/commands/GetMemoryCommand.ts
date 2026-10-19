@@ -208,6 +208,7 @@ export interface GetMemoryCommandOutput extends GetMemoryOutput, __MetadataBeare
  * //         updatedAt: new Date("TIMESTAMP"),
  * //         status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",
  * //         memoryRecordSchema: "<MemoryRecordSchema>",
+ * //         recordExpiryDurationDays: Number("int"),
  * //       },
  * //     ],
  * //     indexedKeys: [ // IndexedKeysList

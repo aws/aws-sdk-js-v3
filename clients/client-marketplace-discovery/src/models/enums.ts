@@ -274,6 +274,19 @@ export type DeployedOnAwsStatus = (typeof DeployedOnAwsStatus)[keyof typeof Depl
  * @public
  * @enum
  */
+export const SaasQuickLaunchStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type SaasQuickLaunchStatus = (typeof SaasQuickLaunchStatus)[keyof typeof SaasQuickLaunchStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const PurchaseOptionFilterType = {
   AVAILABILITY_STATUS: "AVAILABILITY_STATUS",
   PRODUCT_ID: "PRODUCT_ID",

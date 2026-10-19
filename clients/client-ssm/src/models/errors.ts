@@ -8,6 +8,7 @@ import { SSMServiceException as __BaseException } from "./SSMServiceException";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -30,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InternalServerError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InternalServerError";
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class InternalServerError extends __BaseException {
  * @public
  */
 export class InvalidResourceId extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidResourceId";
   readonly name = "InvalidResourceId" as const;
   readonly $fault = "client" as const;
   /**
@@ -73,6 +76,7 @@ export class InvalidResourceId extends __BaseException {
  * @public
  */
 export class InvalidResourceType extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidResourceType";
   readonly name = "InvalidResourceType" as const;
   readonly $fault = "client" as const;
   /**
@@ -94,6 +98,7 @@ export class InvalidResourceType extends __BaseException {
  * @public
  */
 export class TooManyTagsError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#TooManyTagsError";
   readonly name = "TooManyTagsError" as const;
   readonly $fault = "client" as const;
   /**
@@ -114,6 +119,7 @@ export class TooManyTagsError extends __BaseException {
  * @public
  */
 export class TooManyUpdates extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#TooManyUpdates";
   readonly name = "TooManyUpdates" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -137,6 +143,7 @@ export class TooManyUpdates extends __BaseException {
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#AlreadyExistsException";
   readonly name = "AlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -159,6 +166,7 @@ export class AlreadyExistsException extends __BaseException {
  * @public
  */
 export class OpsItemConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#OpsItemConflictException";
   readonly name = "OpsItemConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -182,6 +190,7 @@ export class OpsItemConflictException extends __BaseException {
  * @public
  */
 export class OpsItemInvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#OpsItemInvalidParameterException";
   readonly name = "OpsItemInvalidParameterException" as const;
   readonly $fault = "client" as const;
   ParameterNames?: string[] | undefined;
@@ -206,6 +215,7 @@ export class OpsItemInvalidParameterException extends __BaseException {
  * @public
  */
 export class OpsItemLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#OpsItemLimitExceededException";
   readonly name = "OpsItemLimitExceededException" as const;
   readonly $fault = "client" as const;
   ResourceTypes?: string[] | undefined;
@@ -234,6 +244,7 @@ export class OpsItemLimitExceededException extends __BaseException {
  * @public
  */
 export class OpsItemNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#OpsItemNotFoundException";
   readonly name = "OpsItemNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -256,6 +267,7 @@ export class OpsItemNotFoundException extends __BaseException {
  * @public
  */
 export class OpsItemRelatedItemAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#OpsItemRelatedItemAlreadyExistsException";
   readonly name = "OpsItemRelatedItemAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -282,6 +294,7 @@ export class OpsItemRelatedItemAlreadyExistsException extends __BaseException {
  * @public
  */
 export class DuplicateInstanceId extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#DuplicateInstanceId";
   readonly name = "DuplicateInstanceId" as const;
   readonly $fault = "client" as const;
   /**
@@ -302,6 +315,7 @@ export class DuplicateInstanceId extends __BaseException {
  * @public
  */
 export class InvalidCommandId extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidCommandId";
   readonly name = "InvalidCommandId" as const;
   readonly $fault = "client" as const;
   /**
@@ -339,6 +353,7 @@ export class InvalidCommandId extends __BaseException {
  * @public
  */
 export class InvalidInstanceId extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidInstanceId";
   readonly name = "InvalidInstanceId" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -364,6 +379,7 @@ export class InvalidInstanceId extends __BaseException {
  * @public
  */
 export class DoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#DoesNotExistException";
   readonly name = "DoesNotExistException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -387,6 +403,7 @@ export class DoesNotExistException extends __BaseException {
  * @public
  */
 export class InvalidParameters extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidParameters";
   readonly name = "InvalidParameters" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -409,6 +426,7 @@ export class InvalidParameters extends __BaseException {
  * @public
  */
 export class AssociationAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#AssociationAlreadyExists";
   readonly name = "AssociationAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -429,6 +447,7 @@ export class AssociationAlreadyExists extends __BaseException {
  * @public
  */
 export class AssociationLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#AssociationLimitExceeded";
   readonly name = "AssociationLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -449,6 +468,7 @@ export class AssociationLimitExceeded extends __BaseException {
  * @public
  */
 export class InvalidDocument extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidDocument";
   readonly name = "InvalidDocument" as const;
   readonly $fault = "client" as const;
   /**
@@ -476,6 +496,7 @@ export class InvalidDocument extends __BaseException {
  * @public
  */
 export class InvalidDocumentVersion extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidDocumentVersion";
   readonly name = "InvalidDocumentVersion" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -498,6 +519,7 @@ export class InvalidDocumentVersion extends __BaseException {
  * @public
  */
 export class InvalidOutputLocation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidOutputLocation";
   readonly name = "InvalidOutputLocation" as const;
   readonly $fault = "client" as const;
   /**
@@ -518,6 +540,7 @@ export class InvalidOutputLocation extends __BaseException {
  * @public
  */
 export class InvalidSchedule extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidSchedule";
   readonly name = "InvalidSchedule" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -540,6 +563,7 @@ export class InvalidSchedule extends __BaseException {
  * @public
  */
 export class InvalidTag extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidTag";
   readonly name = "InvalidTag" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -563,6 +587,7 @@ export class InvalidTag extends __BaseException {
  * @public
  */
 export class InvalidTarget extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidTarget";
   readonly name = "InvalidTarget" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -585,6 +610,7 @@ export class InvalidTarget extends __BaseException {
  * @public
  */
 export class InvalidTargetMaps extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidTargetMaps";
   readonly name = "InvalidTargetMaps" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -608,6 +634,7 @@ export class InvalidTargetMaps extends __BaseException {
  * @public
  */
 export class UnsupportedPlatformType extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#UnsupportedPlatformType";
   readonly name = "UnsupportedPlatformType" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -631,6 +658,7 @@ export class UnsupportedPlatformType extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -654,6 +682,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -703,6 +732,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class DocumentAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#DocumentAlreadyExists";
   readonly name = "DocumentAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -725,6 +755,7 @@ export class DocumentAlreadyExists extends __BaseException {
  * @public
  */
 export class DocumentLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#DocumentLimitExceeded";
   readonly name = "DocumentLimitExceeded" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -747,6 +778,7 @@ export class DocumentLimitExceeded extends __BaseException {
  * @public
  */
 export class InvalidDocumentContent extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidDocumentContent";
   readonly name = "InvalidDocumentContent" as const;
   readonly $fault = "client" as const;
   /**
@@ -773,6 +805,7 @@ export class InvalidDocumentContent extends __BaseException {
  * @public
  */
 export class InvalidDocumentSchemaVersion extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidDocumentSchemaVersion";
   readonly name = "InvalidDocumentSchemaVersion" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -795,6 +828,7 @@ export class InvalidDocumentSchemaVersion extends __BaseException {
  * @public
  */
 export class MaxDocumentSizeExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#MaxDocumentSizeExceeded";
   readonly name = "MaxDocumentSizeExceeded" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -817,6 +851,7 @@ export class MaxDocumentSizeExceeded extends __BaseException {
  * @public
  */
 export class NoLongerSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#NoLongerSupportedException";
   readonly name = "NoLongerSupportedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -840,6 +875,7 @@ export class NoLongerSupportedException extends __BaseException {
  * @public
  */
 export class IdempotentParameterMismatch extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#IdempotentParameterMismatch";
   readonly name = "IdempotentParameterMismatch" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -865,6 +901,7 @@ export class IdempotentParameterMismatch extends __BaseException {
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ResourceLimitExceededException";
   readonly name = "ResourceLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -889,6 +926,7 @@ export class ResourceLimitExceededException extends __BaseException {
  * @public
  */
 export class OpsItemAccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#OpsItemAccessDeniedException";
   readonly name = "OpsItemAccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -911,6 +949,7 @@ export class OpsItemAccessDeniedException extends __BaseException {
  * @public
  */
 export class OpsItemAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#OpsItemAlreadyExistsException";
   readonly name = "OpsItemAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -935,6 +974,7 @@ export class OpsItemAlreadyExistsException extends __BaseException {
  * @public
  */
 export class OpsMetadataAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#OpsMetadataAlreadyExistsException";
   readonly name = "OpsMetadataAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -955,6 +995,7 @@ export class OpsMetadataAlreadyExistsException extends __BaseException {
  * @public
  */
 export class OpsMetadataInvalidArgumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#OpsMetadataInvalidArgumentException";
   readonly name = "OpsMetadataInvalidArgumentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -976,6 +1017,7 @@ export class OpsMetadataInvalidArgumentException extends __BaseException {
  * @public
  */
 export class OpsMetadataLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#OpsMetadataLimitExceededException";
   readonly name = "OpsMetadataLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -997,6 +1039,7 @@ export class OpsMetadataLimitExceededException extends __BaseException {
  * @public
  */
 export class OpsMetadataTooManyUpdatesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#OpsMetadataTooManyUpdatesException";
   readonly name = "OpsMetadataTooManyUpdatesException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1017,6 +1060,7 @@ export class OpsMetadataTooManyUpdatesException extends __BaseException {
  * @public
  */
 export class ResourceDataSyncAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ResourceDataSyncAlreadyExistsException";
   readonly name = "ResourceDataSyncAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   SyncName?: string | undefined;
@@ -1039,6 +1083,7 @@ export class ResourceDataSyncAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ResourceDataSyncCountExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ResourceDataSyncCountExceededException";
   readonly name = "ResourceDataSyncCountExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1061,6 +1106,7 @@ export class ResourceDataSyncCountExceededException extends __BaseException {
  * @public
  */
 export class ResourceDataSyncInvalidConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ResourceDataSyncInvalidConfigurationException";
   readonly name = "ResourceDataSyncInvalidConfigurationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1084,6 +1130,7 @@ export class ResourceDataSyncInvalidConfigurationException extends __BaseExcepti
  * @public
  */
 export class InvalidActivation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidActivation";
   readonly name = "InvalidActivation" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1107,6 +1154,7 @@ export class InvalidActivation extends __BaseException {
  * @public
  */
 export class InvalidActivationId extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidActivationId";
   readonly name = "InvalidActivationId" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1129,6 +1177,7 @@ export class InvalidActivationId extends __BaseException {
  * @public
  */
 export class AssociationDoesNotExist extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#AssociationDoesNotExist";
   readonly name = "AssociationDoesNotExist" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1151,6 +1200,7 @@ export class AssociationDoesNotExist extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1173,6 +1223,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class AssociatedInstances extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#AssociatedInstances";
   readonly name = "AssociatedInstances" as const;
   readonly $fault = "client" as const;
   /**
@@ -1194,6 +1245,7 @@ export class AssociatedInstances extends __BaseException {
  * @public
  */
 export class InvalidDocumentOperation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidDocumentOperation";
   readonly name = "InvalidDocumentOperation" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1217,6 +1269,7 @@ export class InvalidDocumentOperation extends __BaseException {
  * @public
  */
 export class InvalidDeleteInventoryParametersException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidDeleteInventoryParametersException";
   readonly name = "InvalidDeleteInventoryParametersException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1239,6 +1292,7 @@ export class InvalidDeleteInventoryParametersException extends __BaseException {
  * @public
  */
 export class InvalidInventoryRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidInventoryRequestException";
   readonly name = "InvalidInventoryRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1261,6 +1315,7 @@ export class InvalidInventoryRequestException extends __BaseException {
  * @public
  */
 export class InvalidOptionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidOptionException";
   readonly name = "InvalidOptionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1283,6 +1338,7 @@ export class InvalidOptionException extends __BaseException {
  * @public
  */
 export class InvalidTypeNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidTypeNameException";
   readonly name = "InvalidTypeNameException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1305,6 +1361,7 @@ export class InvalidTypeNameException extends __BaseException {
  * @public
  */
 export class OpsMetadataNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#OpsMetadataNotFoundException";
   readonly name = "OpsMetadataNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1330,6 +1387,7 @@ export class OpsMetadataNotFoundException extends __BaseException {
  * @public
  */
 export class ParameterNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ParameterNotFound";
   readonly name = "ParameterNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -1351,6 +1409,7 @@ export class ParameterNotFound extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1373,6 +1432,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class ResourceDataSyncNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ResourceDataSyncNotFoundException";
   readonly name = "ResourceDataSyncNotFoundException" as const;
   readonly $fault = "client" as const;
   SyncName?: string | undefined;
@@ -1400,6 +1460,7 @@ export class ResourceDataSyncNotFoundException extends __BaseException {
  * @public
  */
 export class MalformedResourcePolicyDocumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#MalformedResourcePolicyDocumentException";
   readonly name = "MalformedResourcePolicyDocumentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1424,6 +1485,7 @@ export class MalformedResourcePolicyDocumentException extends __BaseException {
  * @public
  */
 export class ResourcePolicyConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ResourcePolicyConflictException";
   readonly name = "ResourcePolicyConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1447,6 +1509,7 @@ export class ResourcePolicyConflictException extends __BaseException {
  * @public
  */
 export class ResourcePolicyInvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ResourcePolicyInvalidParameterException";
   readonly name = "ResourcePolicyInvalidParameterException" as const;
   readonly $fault = "client" as const;
   ParameterNames?: string[] | undefined;
@@ -1471,6 +1534,7 @@ export class ResourcePolicyInvalidParameterException extends __BaseException {
  * @public
  */
 export class ResourcePolicyNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ResourcePolicyNotFoundException";
   readonly name = "ResourcePolicyNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1494,6 +1558,7 @@ export class ResourcePolicyNotFoundException extends __BaseException {
  * @public
  */
 export class TargetInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#TargetInUseException";
   readonly name = "TargetInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1516,6 +1581,7 @@ export class TargetInUseException extends __BaseException {
  * @public
  */
 export class InvalidFilter extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidFilter";
   readonly name = "InvalidFilter" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1538,6 +1604,7 @@ export class InvalidFilter extends __BaseException {
  * @public
  */
 export class InvalidNextToken extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidNextToken";
   readonly name = "InvalidNextToken" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1562,6 +1629,7 @@ export class InvalidNextToken extends __BaseException {
  * @public
  */
 export class InvalidAssociationVersion extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidAssociationVersion";
   readonly name = "InvalidAssociationVersion" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1584,6 +1652,7 @@ export class InvalidAssociationVersion extends __BaseException {
  * @public
  */
 export class AssociationExecutionDoesNotExist extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#AssociationExecutionDoesNotExist";
   readonly name = "AssociationExecutionDoesNotExist" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1606,6 +1675,7 @@ export class AssociationExecutionDoesNotExist extends __BaseException {
  * @public
  */
 export class InvalidFilterKey extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidFilterKey";
   readonly name = "InvalidFilterKey" as const;
   readonly $fault = "client" as const;
   /**
@@ -1626,6 +1696,7 @@ export class InvalidFilterKey extends __BaseException {
  * @public
  */
 export class InvalidFilterValue extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidFilterValue";
   readonly name = "InvalidFilterValue" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1649,6 +1720,7 @@ export class InvalidFilterValue extends __BaseException {
  * @public
  */
 export class AutomationExecutionNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#AutomationExecutionNotFoundException";
   readonly name = "AutomationExecutionNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1672,6 +1744,7 @@ export class AutomationExecutionNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidPermissionType extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidPermissionType";
   readonly name = "InvalidPermissionType" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1695,6 +1768,7 @@ export class InvalidPermissionType extends __BaseException {
  * @public
  */
 export class UnsupportedOperatingSystem extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#UnsupportedOperatingSystem";
   readonly name = "UnsupportedOperatingSystem" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1717,6 +1791,7 @@ export class UnsupportedOperatingSystem extends __BaseException {
  * @public
  */
 export class InvalidInstanceInformationFilterValue extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidInstanceInformationFilterValue";
   readonly name = "InvalidInstanceInformationFilterValue" as const;
   readonly $fault = "client" as const;
   /**
@@ -1737,6 +1812,7 @@ export class InvalidInstanceInformationFilterValue extends __BaseException {
  * @public
  */
 export class InvalidInstancePropertyFilterValue extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidInstancePropertyFilterValue";
   readonly name = "InvalidInstancePropertyFilterValue" as const;
   readonly $fault = "client" as const;
   /**
@@ -1758,6 +1834,7 @@ export class InvalidInstancePropertyFilterValue extends __BaseException {
  * @public
  */
 export class InvalidDeletionIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidDeletionIdException";
   readonly name = "InvalidDeletionIdException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1781,6 +1858,7 @@ export class InvalidDeletionIdException extends __BaseException {
  * @public
  */
 export class InvalidFilterOption extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidFilterOption";
   readonly name = "InvalidFilterOption" as const;
   readonly $fault = "client" as const;
   /**
@@ -1802,6 +1880,7 @@ export class InvalidFilterOption extends __BaseException {
  * @public
  */
 export class OpsItemRelatedItemAssociationNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#OpsItemRelatedItemAssociationNotFoundException";
   readonly name = "OpsItemRelatedItemAssociationNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1825,6 +1904,7 @@ export class OpsItemRelatedItemAssociationNotFoundException extends __BaseExcept
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -1861,6 +1941,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1890,6 +1971,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class InvalidDocumentType extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidDocumentType";
   readonly name = "InvalidDocumentType" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1912,6 +1994,7 @@ export class InvalidDocumentType extends __BaseException {
  * @public
  */
 export class UnsupportedCalendarException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#UnsupportedCalendarException";
   readonly name = "UnsupportedCalendarException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1934,6 +2017,7 @@ export class UnsupportedCalendarException extends __BaseException {
  * @public
  */
 export class InvalidPluginName extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidPluginName";
   readonly name = "InvalidPluginName" as const;
   readonly $fault = "client" as const;
   /**
@@ -1955,6 +2039,7 @@ export class InvalidPluginName extends __BaseException {
  * @public
  */
 export class InvocationDoesNotExist extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvocationDoesNotExist";
   readonly name = "InvocationDoesNotExist" as const;
   readonly $fault = "client" as const;
   /**
@@ -1978,6 +2063,7 @@ export class InvocationDoesNotExist extends __BaseException {
  * @public
  */
 export class UnsupportedFeatureRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#UnsupportedFeatureRequiredException";
   readonly name = "UnsupportedFeatureRequiredException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2001,6 +2087,7 @@ export class UnsupportedFeatureRequiredException extends __BaseException {
  * @public
  */
 export class InvalidAggregatorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidAggregatorException";
   readonly name = "InvalidAggregatorException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2023,6 +2110,7 @@ export class InvalidAggregatorException extends __BaseException {
  * @public
  */
 export class InvalidInventoryGroupException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidInventoryGroupException";
   readonly name = "InvalidInventoryGroupException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2045,6 +2133,7 @@ export class InvalidInventoryGroupException extends __BaseException {
  * @public
  */
 export class InvalidResultAttributeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidResultAttributeException";
   readonly name = "InvalidResultAttributeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2067,6 +2156,7 @@ export class InvalidResultAttributeException extends __BaseException {
  * @public
  */
 export class InvalidKeyId extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidKeyId";
   readonly name = "InvalidKeyId" as const;
   readonly $fault = "client" as const;
   /**
@@ -2088,6 +2178,7 @@ export class InvalidKeyId extends __BaseException {
  * @public
  */
 export class ParameterVersionNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ParameterVersionNotFound";
   readonly name = "ParameterVersionNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -2109,6 +2200,7 @@ export class ParameterVersionNotFound extends __BaseException {
  * @public
  */
 export class ServiceSettingNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ServiceSettingNotFound";
   readonly name = "ServiceSettingNotFound" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2131,6 +2223,7 @@ export class ServiceSettingNotFound extends __BaseException {
  * @public
  */
 export class ParameterVersionLabelLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ParameterVersionLabelLimitExceeded";
   readonly name = "ParameterVersionLabelLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -2151,6 +2244,7 @@ export class ParameterVersionLabelLimitExceeded extends __BaseException {
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#UnsupportedOperationException";
   readonly name = "UnsupportedOperationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2178,6 +2272,7 @@ export class UnsupportedOperationException extends __BaseException {
  * @public
  */
 export class DocumentPermissionLimit extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#DocumentPermissionLimit";
   readonly name = "DocumentPermissionLimit" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2201,6 +2296,7 @@ export class DocumentPermissionLimit extends __BaseException {
  * @public
  */
 export class ComplianceTypeCountLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ComplianceTypeCountLimitExceededException";
   readonly name = "ComplianceTypeCountLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2223,6 +2319,7 @@ export class ComplianceTypeCountLimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidItemContentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidItemContentException";
   readonly name = "InvalidItemContentException" as const;
   readonly $fault = "client" as const;
   TypeName?: string | undefined;
@@ -2247,6 +2344,7 @@ export class InvalidItemContentException extends __BaseException {
  * @public
  */
 export class ItemSizeLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ItemSizeLimitExceededException";
   readonly name = "ItemSizeLimitExceededException" as const;
   readonly $fault = "client" as const;
   TypeName?: string | undefined;
@@ -2271,6 +2369,7 @@ export class ItemSizeLimitExceededException extends __BaseException {
  * @public
  */
 export class TotalSizeLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#TotalSizeLimitExceededException";
   readonly name = "TotalSizeLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2294,6 +2393,7 @@ export class TotalSizeLimitExceededException extends __BaseException {
  * @public
  */
 export class CustomSchemaCountLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#CustomSchemaCountLimitExceededException";
   readonly name = "CustomSchemaCountLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2317,6 +2417,7 @@ export class CustomSchemaCountLimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidInventoryItemContextException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidInventoryItemContextException";
   readonly name = "InvalidInventoryItemContextException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2339,6 +2440,7 @@ export class InvalidInventoryItemContextException extends __BaseException {
  * @public
  */
 export class ItemContentMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ItemContentMismatchException";
   readonly name = "ItemContentMismatchException" as const;
   readonly $fault = "client" as const;
   TypeName?: string | undefined;
@@ -2363,6 +2465,7 @@ export class ItemContentMismatchException extends __BaseException {
  * @public
  */
 export class SubTypeCountLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#SubTypeCountLimitExceededException";
   readonly name = "SubTypeCountLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2387,6 +2490,7 @@ export class SubTypeCountLimitExceededException extends __BaseException {
  * @public
  */
 export class UnsupportedInventoryItemContextException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#UnsupportedInventoryItemContextException";
   readonly name = "UnsupportedInventoryItemContextException" as const;
   readonly $fault = "client" as const;
   TypeName?: string | undefined;
@@ -2412,6 +2516,7 @@ export class UnsupportedInventoryItemContextException extends __BaseException {
  * @public
  */
 export class UnsupportedInventorySchemaVersionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#UnsupportedInventorySchemaVersionException";
   readonly name = "UnsupportedInventorySchemaVersionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2435,6 +2540,7 @@ export class UnsupportedInventorySchemaVersionException extends __BaseException 
  * @public
  */
 export class HierarchyLevelLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#HierarchyLevelLimitExceededException";
   readonly name = "HierarchyLevelLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2457,6 +2563,7 @@ export class HierarchyLevelLimitExceededException extends __BaseException {
  * @public
  */
 export class HierarchyTypeMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#HierarchyTypeMismatchException";
   readonly name = "HierarchyTypeMismatchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2478,6 +2585,7 @@ export class HierarchyTypeMismatchException extends __BaseException {
  * @public
  */
 export class IncompatiblePolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#IncompatiblePolicyException";
   readonly name = "IncompatiblePolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2498,6 +2606,7 @@ export class IncompatiblePolicyException extends __BaseException {
  * @public
  */
 export class InvalidAllowedPatternException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidAllowedPatternException";
   readonly name = "InvalidAllowedPatternException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2518,6 +2627,7 @@ export class InvalidAllowedPatternException extends __BaseException {
  * @public
  */
 export class InvalidPolicyAttributeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidPolicyAttributeException";
   readonly name = "InvalidPolicyAttributeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2539,6 +2649,7 @@ export class InvalidPolicyAttributeException extends __BaseException {
  * @public
  */
 export class InvalidPolicyTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidPolicyTypeException";
   readonly name = "InvalidPolicyTypeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2559,6 +2670,7 @@ export class InvalidPolicyTypeException extends __BaseException {
  * @public
  */
 export class ParameterAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ParameterAlreadyExists";
   readonly name = "ParameterAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -2580,6 +2692,7 @@ export class ParameterAlreadyExists extends __BaseException {
  * @public
  */
 export class ParameterLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ParameterLimitExceeded";
   readonly name = "ParameterLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -2615,6 +2728,7 @@ export class ParameterLimitExceeded extends __BaseException {
  * @public
  */
 export class ParameterMaxVersionLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ParameterMaxVersionLimitExceeded";
   readonly name = "ParameterMaxVersionLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -2635,6 +2749,7 @@ export class ParameterMaxVersionLimitExceeded extends __BaseException {
  * @public
  */
 export class ParameterPatternMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ParameterPatternMismatchException";
   readonly name = "ParameterPatternMismatchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2656,6 +2771,7 @@ export class ParameterPatternMismatchException extends __BaseException {
  * @public
  */
 export class PoliciesLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#PoliciesLimitExceededException";
   readonly name = "PoliciesLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2676,6 +2792,7 @@ export class PoliciesLimitExceededException extends __BaseException {
  * @public
  */
 export class UnsupportedParameterType extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#UnsupportedParameterType";
   readonly name = "UnsupportedParameterType" as const;
   readonly $fault = "client" as const;
   /**
@@ -2698,6 +2815,7 @@ export class UnsupportedParameterType extends __BaseException {
  * @public
  */
 export class ResourcePolicyLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ResourcePolicyLimitExceededException";
   readonly name = "ResourcePolicyLimitExceededException" as const;
   readonly $fault = "client" as const;
   Limit?: number | undefined;
@@ -2725,6 +2843,7 @@ export class ResourcePolicyLimitExceededException extends __BaseException {
  * @public
  */
 export class FeatureNotAvailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#FeatureNotAvailableException";
   readonly name = "FeatureNotAvailableException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2748,6 +2867,7 @@ export class FeatureNotAvailableException extends __BaseException {
  * @public
  */
 export class AutomationStepNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#AutomationStepNotFoundException";
   readonly name = "AutomationStepNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2770,6 +2890,7 @@ export class AutomationStepNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidAutomationSignalException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidAutomationSignalException";
   readonly name = "InvalidAutomationSignalException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2793,6 +2914,7 @@ export class InvalidAutomationSignalException extends __BaseException {
  * @public
  */
 export class InvalidNotificationConfig extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidNotificationConfig";
   readonly name = "InvalidNotificationConfig" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2815,6 +2937,7 @@ export class InvalidNotificationConfig extends __BaseException {
  * @public
  */
 export class InvalidOutputFolder extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidOutputFolder";
   readonly name = "InvalidOutputFolder" as const;
   readonly $fault = "client" as const;
   /**
@@ -2837,6 +2960,7 @@ export class InvalidOutputFolder extends __BaseException {
  * @public
  */
 export class InvalidRole extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidRole";
   readonly name = "InvalidRole" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2859,6 +2983,7 @@ export class InvalidRole extends __BaseException {
  * @public
  */
 export class InvalidAssociation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidAssociation";
   readonly name = "InvalidAssociation" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2881,6 +3006,7 @@ export class InvalidAssociation extends __BaseException {
  * @public
  */
 export class AutomationDefinitionNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#AutomationDefinitionNotFoundException";
   readonly name = "AutomationDefinitionNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2903,6 +3029,7 @@ export class AutomationDefinitionNotFoundException extends __BaseException {
  * @public
  */
 export class AutomationDefinitionVersionNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#AutomationDefinitionVersionNotFoundException";
   readonly name = "AutomationDefinitionVersionNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2926,6 +3053,7 @@ export class AutomationDefinitionVersionNotFoundException extends __BaseExceptio
  * @public
  */
 export class AutomationExecutionLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#AutomationExecutionLimitExceededException";
   readonly name = "AutomationExecutionLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2950,6 +3078,7 @@ export class AutomationExecutionLimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidAutomationExecutionParametersException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidAutomationExecutionParametersException";
   readonly name = "InvalidAutomationExecutionParametersException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2973,6 +3102,7 @@ export class InvalidAutomationExecutionParametersException extends __BaseExcepti
  * @public
  */
 export class AutomationDefinitionNotApprovedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#AutomationDefinitionNotApprovedException";
   readonly name = "AutomationDefinitionNotApprovedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2999,6 +3129,7 @@ export class AutomationDefinitionNotApprovedException extends __BaseException {
  * @public
  */
 export class TargetNotConnected extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#TargetNotConnected";
   readonly name = "TargetNotConnected" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3021,6 +3152,7 @@ export class TargetNotConnected extends __BaseException {
  * @public
  */
 export class InvalidAutomationStatusUpdateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidAutomationStatusUpdateException";
   readonly name = "InvalidAutomationStatusUpdateException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3044,6 +3176,7 @@ export class InvalidAutomationStatusUpdateException extends __BaseException {
  * @public
  */
 export class AssociationVersionLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#AssociationVersionLimitExceeded";
   readonly name = "AssociationVersionLimitExceeded" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3066,6 +3199,7 @@ export class AssociationVersionLimitExceeded extends __BaseException {
  * @public
  */
 export class InvalidUpdate extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#InvalidUpdate";
   readonly name = "InvalidUpdate" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3088,6 +3222,7 @@ export class InvalidUpdate extends __BaseException {
  * @public
  */
 export class StatusUnchanged extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#StatusUnchanged";
   readonly name = "StatusUnchanged" as const;
   readonly $fault = "client" as const;
   /**
@@ -3109,6 +3244,7 @@ export class StatusUnchanged extends __BaseException {
  * @public
  */
 export class DocumentVersionLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#DocumentVersionLimitExceeded";
   readonly name = "DocumentVersionLimitExceeded" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3132,6 +3268,7 @@ export class DocumentVersionLimitExceeded extends __BaseException {
  * @public
  */
 export class DuplicateDocumentContent extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#DuplicateDocumentContent";
   readonly name = "DuplicateDocumentContent" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3155,6 +3292,7 @@ export class DuplicateDocumentContent extends __BaseException {
  * @public
  */
 export class DuplicateDocumentVersionName extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#DuplicateDocumentVersionName";
   readonly name = "DuplicateDocumentVersionName" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3178,6 +3316,7 @@ export class DuplicateDocumentVersionName extends __BaseException {
  * @public
  */
 export class OpsMetadataKeyLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#OpsMetadataKeyLimitExceededException";
   readonly name = "OpsMetadataKeyLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3199,6 +3338,7 @@ export class OpsMetadataKeyLimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceDataSyncConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ssm#ResourceDataSyncConflictException";
   readonly name = "ResourceDataSyncConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

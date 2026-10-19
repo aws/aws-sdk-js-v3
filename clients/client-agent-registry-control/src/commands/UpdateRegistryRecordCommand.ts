@@ -264,6 +264,9 @@ export interface UpdateRegistryRecordCommandOutput extends UpdateRegistryRecordR
  *     },
  *   },
  *   recordVersion: "STRING_VALUE",
+ *   customMetadata: { // UpdatedCustomMetadataMap
+ *     optionalValue: "DOCUMENT_VALUE",
+ *   },
  *   triggerSynchronization: true || false,
  *   provenance: [ // ProvenanceList
  *     { // Provenance
@@ -787,6 +790,8 @@ export interface UpdateRegistryRecordCommandOutput extends UpdateRegistryRecordR
  * //   ],
  * //   createdByAutoDetection: true || false,
  * //   createdBy: "STRING_VALUE",
+ * //   customMetadata: "DOCUMENT_VALUE",
+ * //   customMetadataSchemaComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
  * // };
  *
  * ```

@@ -10,6 +10,7 @@ import type { ValidationExceptionField } from "./models_0";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.agentregistry#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -30,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.agentregistry#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -50,6 +52,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.agentregistry#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -70,6 +73,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.agentregistry#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -90,6 +94,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class UnauthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.agentregistry#UnauthorizedException";
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -110,6 +115,7 @@ export class UnauthorizedException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.agentregistry#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**

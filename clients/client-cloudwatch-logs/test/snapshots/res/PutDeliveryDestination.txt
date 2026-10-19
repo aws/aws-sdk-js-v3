@@ -36,6 +36,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "deliveryDestinationConfiguration": {
       "destinationResourceArn": "__destinationResourceArn__"
     },
+    "roleArn": "__roleArn__",
     "tags": {
       "key1": "__value__",
       "key2": "__value__",
@@ -55,6 +56,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     deliveryDestinationConfiguration: {
       destinationResourceArn: "__destinationResourceArn__"
     },
+    roleArn: "__roleArn__",
     tags: {
       key1: "__value__",
       key2: "__value__",

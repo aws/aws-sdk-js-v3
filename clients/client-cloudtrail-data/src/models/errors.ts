@@ -8,6 +8,7 @@ import { CloudTrailDataServiceException as __BaseException } from "./CloudTrailD
  * @public
  */
 export class ChannelInsufficientPermission extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtraildata#ChannelInsufficientPermission";
   readonly name = "ChannelInsufficientPermission" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class ChannelInsufficientPermission extends __BaseException {
  * @public
  */
 export class ChannelNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtraildata#ChannelNotFound";
   readonly name = "ChannelNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class ChannelNotFound extends __BaseException {
  * @public
  */
 export class ChannelUnsupportedSchema extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtraildata#ChannelUnsupportedSchema";
   readonly name = "ChannelUnsupportedSchema" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class ChannelUnsupportedSchema extends __BaseException {
  * @public
  */
 export class DuplicatedAuditEventId extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtraildata#DuplicatedAuditEventId";
   readonly name = "DuplicatedAuditEventId" as const;
   readonly $fault = "client" as const;
   /**
@@ -89,6 +93,7 @@ export class DuplicatedAuditEventId extends __BaseException {
  * @public
  */
 export class InvalidChannelARN extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtraildata#InvalidChannelARN";
   readonly name = "InvalidChannelARN" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +114,7 @@ export class InvalidChannelARN extends __BaseException {
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtraildata#UnsupportedOperationException";
   readonly name = "UnsupportedOperationException" as const;
   readonly $fault = "client" as const;
   /**

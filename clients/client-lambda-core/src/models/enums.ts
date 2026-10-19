@@ -8,6 +8,10 @@ export const ComputeResourceType = {
    * MicroVm compute resource type
    */
   MicroVm: "MicroVm",
+  /**
+   * WebFunction compute resource type
+   */
+  WebFunction: "WebFunction",
 } as const;
 /**
  * @public
@@ -111,6 +115,7 @@ export const NetworkConnectorLastUpdateStatusReasonCode = {
   InternalError: "InternalError",
   InvalidSecurityGroup: "InvalidSecurityGroup",
   InvalidSubnet: "InvalidSubnet",
+  SecurityGroupsPerInterfaceLimitExceeded: "SecurityGroupsPerInterfaceLimitExceeded",
   SubnetOutOfIPAddresses: "SubnetOutOfIPAddresses",
 } as const;
 /**
@@ -130,6 +135,7 @@ export const NetworkConnectorStateReasonCode = {
   InternalError: "InternalError",
   InvalidSecurityGroup: "InvalidSecurityGroup",
   InvalidSubnet: "InvalidSubnet",
+  SecurityGroupsPerInterfaceLimitExceeded: "SecurityGroupsPerInterfaceLimitExceeded",
   SubnetOutOfIPAddresses: "SubnetOutOfIPAddresses",
 } as const;
 /**

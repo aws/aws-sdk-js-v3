@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  */
 export class ElasticLoadBalancingV2ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.elasticloadbalancingv2#ElasticLoadBalancingV2ServiceException";
   /**
    * @internal
    */

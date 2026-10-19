@@ -30,6 +30,11 @@ export interface StartOTelEnrichmentCommandOutput extends StartOTelEnrichmentOut
  *          <p>Before calling this operation, you must enable resource tags on telemetry for your
  *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/EnableResourceTagsOnTelemetry.html">Enable
  *                 resource tags on telemetry</a>.</p>
+ *          <p>Optionally, <code>IncludeFilters</code> and <code>ExcludeFilters</code> limit
+ *             enrichment to a subset of the account's metrics. These filters are stored only when this
+ *             operation starts enrichment. Calling <code>StartOTelEnrichment</code> for an account
+ *             where enrichment is already running has no effect and does not modify the filters that
+ *             are applied. To change them, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UpdateOTelEnrichment.html">UpdateOTelEnrichment</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,10 +43,46 @@ export interface StartOTelEnrichmentCommandOutput extends StartOTelEnrichmentOut
  * // import type { CloudWatchClientConfig } from "@aws-sdk/client-cloudwatch";
  * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
- * const input = {};
+ * const input = { // StartOTelEnrichmentInput
+ *   IncludeFilters: [ // OTelEnrichmentMetricSelectorList
+ *     { // OTelEnrichmentMetricSelector
+ *       Namespace: "STRING_VALUE", // required
+ *       MetricNames: [ // OTelEnrichmentMetricNameList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ExcludeFilters: [
+ *     {
+ *       Namespace: "STRING_VALUE", // required
+ *       MetricNames: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new StartOTelEnrichmentCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // StartOTelEnrichmentOutput
+ * //   IncludeFilters: [ // OTelEnrichmentMetricSelectorList
+ * //     { // OTelEnrichmentMetricSelector
+ * //       Namespace: "STRING_VALUE", // required
+ * //       MetricNames: [ // OTelEnrichmentMetricNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   ExcludeFilters: [
+ * //     {
+ * //       Namespace: "STRING_VALUE", // required
+ * //       MetricNames: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   UpdatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *
@@ -50,6 +91,10 @@ export interface StartOTelEnrichmentCommandOutput extends StartOTelEnrichmentOut
  * @see {@link StartOTelEnrichmentCommandInput} for command's `input` shape.
  * @see {@link StartOTelEnrichmentCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation. One or more input parameters do not satisfy the
+ *             constraints that the operation requires.</p>
  *
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
@@ -66,8 +111,8 @@ export class StartOTelEnrichmentCommand extends command<StartOTelEnrichmentComma
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: {};
-      output: {};
+      input: StartOTelEnrichmentInput;
+      output: StartOTelEnrichmentOutput;
     };
     sdk: {
       input: StartOTelEnrichmentCommandInput;

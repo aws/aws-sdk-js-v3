@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-migration-hub-refactor-spaces",
-  "version": "3.1138.0",
+  "version": "3.1152.0",
   "description": "AWS SDK for JavaScript Migration Hub Refactor Spaces Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-migration-hub-refactor-spaces",
   "license": "Apache-2.0",
@@ -46,10 +46,10 @@
     "test:index": "tsc -p tsconfig.test.json && node ./test/index-objects.spec.mjs"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.978.1",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.84",
+    "@aws-sdk/core": "workspace:^3.978.3",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.86",
     "@aws-sdk/types": "workspace:^3.974.6",
-    "@smithy/core": "^3.35.0",
+    "@smithy/core": "^3.36.0",
     "@smithy/fetch-http-handler": "^5.8.0",
     "@smithy/node-http-handler": "^4.12.1",
     "@smithy/types": "^4.19.0",

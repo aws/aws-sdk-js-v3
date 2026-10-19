@@ -127,6 +127,19 @@ export type ConsumerStatus = (typeof ConsumerStatus)[keyof typeof ConsumerStatus
  * @public
  * @enum
  */
+export const RecordDistributionStrategy = {
+  AUTO: "AUTO",
+  USER_PARTITION_KEY: "USER_PARTITION_KEY",
+} as const;
+/**
+ * @public
+ */
+export type RecordDistributionStrategy = (typeof RecordDistributionStrategy)[keyof typeof RecordDistributionStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const StreamMode = {
   ON_DEMAND: "ON_DEMAND",
   PROVISIONED: "PROVISIONED",

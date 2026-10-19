@@ -60,6 +60,10 @@ export interface BatchUpdateMemoryRecordsCommandOutput extends BatchUpdateMemory
  *       },
  *     },
  *   ],
+ *   recordExpirySpecification: { // RecordExpirySpecification Union: only one key present
+ *     recordExpiryDurationDays: Number("int"),
+ *     action: "REMOVE",
+ *   },
  * };
  * const command = new BatchUpdateMemoryRecordsCommand(input);
  * const response = await client.send(command);

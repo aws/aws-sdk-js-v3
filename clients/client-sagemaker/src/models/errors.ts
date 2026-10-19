@@ -8,6 +8,7 @@ import { SageMakerServiceException as __BaseException } from "./SageMakerService
  * @public
  */
 export class ResourceLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemaker#ResourceLimitExceeded";
   readonly name = "ResourceLimitExceeded" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class ResourceLimitExceeded extends __BaseException {
  * @public
  */
 export class ResourceNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemaker#ResourceNotFound";
   readonly name = "ResourceNotFound" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class ResourceNotFound extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemaker#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -74,6 +77,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class ResourceInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemaker#ResourceInUse";
   readonly name = "ResourceInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

@@ -6,6 +6,7 @@
 export const AdsInteractionExcludeEventType = {
   AD_MARKER_FOUND: "AD_MARKER_FOUND",
   BEACON_FIRED: "BEACON_FIRED",
+  BEACON_RECEIVED: "BEACON_RECEIVED",
   EMPTY_VAST_RESPONSE: "EMPTY_VAST_RESPONSE",
   EMPTY_VMAP_RESPONSE: "EMPTY_VMAP_RESPONSE",
   ERROR_ADS_INVALID_RESPONSE: "ERROR_ADS_INVALID_RESPONSE",
@@ -293,6 +294,41 @@ export const Mode = {
  * @public
  */
 export type Mode = (typeof Mode)[keyof typeof Mode];
+
+/**
+ * @public
+ * @enum
+ */
+export const BeaconEventType = {
+  MUTE: "MUTE",
+  PAUSE: "PAUSE",
+  SKIP: "SKIP",
+  UNMUTE: "UNMUTE",
+} as const;
+/**
+ * @public
+ */
+export type BeaconEventType = (typeof BeaconEventType)[keyof typeof BeaconEventType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClientSideBeaconingMode = {
+  /**
+   * Tracking response returned unmodified.
+   */
+  DISABLED: "DISABLED",
+  /**
+   * EMT beacon URLs added alongside the ad server's. Effective default when
+   * BeaconingConfiguration is absent.
+   */
+  INSIGHTS: "INSIGHTS",
+} as const;
+/**
+ * @public
+ */
+export type ClientSideBeaconingMode = (typeof ClientSideBeaconingMode)[keyof typeof ClientSideBeaconingMode];
 
 /**
  * @public

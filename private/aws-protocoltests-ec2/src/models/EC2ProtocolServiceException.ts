@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from EC2Protocol service.
  */
 export class EC2ProtocolServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.aws.protocoltests.ec2#EC2ProtocolServiceException";
   /**
    * @internal
    */

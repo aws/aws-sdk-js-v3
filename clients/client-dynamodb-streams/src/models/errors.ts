@@ -8,6 +8,7 @@ import { DynamoDBStreamsServiceException as __BaseException } from "./DynamoDBSt
  * @public
  */
 export class InternalServerError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodbstreams#InternalServerError";
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   /**
@@ -30,6 +31,7 @@ export class InternalServerError extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodbstreams#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -52,6 +54,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ExpiredIteratorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodbstreams#ExpiredIteratorException";
   readonly name = "ExpiredIteratorException" as const;
   readonly $fault = "client" as const;
   /**
@@ -85,6 +88,7 @@ export class ExpiredIteratorException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodbstreams#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -116,6 +120,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class TrimmedDataAccessException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodbstreams#TrimmedDataAccessException";
   readonly name = "TrimmedDataAccessException" as const;
   readonly $fault = "client" as const;
   /**

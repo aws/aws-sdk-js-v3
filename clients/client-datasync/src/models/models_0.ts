@@ -18,6 +18,7 @@ import type {
   ManifestFormat,
   Mtime,
   NfsVersion,
+  ObjectMetadata,
   ObjectStorageServerProtocol,
   ObjectTags,
   ObjectVersionIds,
@@ -217,13 +218,20 @@ export interface CreateAgentRequest {
    *             <p>The VPC service endpoint you use must include the DataSync service name (for
    *         example, <code>com.amazonaws.us-east-2.datasync</code>).</p>
    *          </important>
+   *          <p>The endpoint ID is informational. DataSync doesn't verify it or use it to connect
+   *       to your agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#vpc-endpoint-multiple-subnets">Using a single VPC service endpoint across multiple subnets</a>.</p>
    * @public
    */
   VpcEndpointId?: string | undefined;
 
   /**
-   * <p>Specifies the ARN of the subnet where your VPC service endpoint is located. You can only
-   *       specify one ARN.</p>
+   * <p>Specifies the ARN of the subnet where DataSync creates the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/required-network-interfaces.html">network
+   *         interfaces</a> that handle data transfer traffic for your tasks. You can only specify one
+   *       ARN.</p>
+   *          <p>The subnet doesn't have to be the subnet that contains your VPC service endpoint. The
+   *       subnet can be one that another Amazon Web Services account shared with you through <a href="https://docs.aws.amazon.com/ram/latest/userguide/what-is.html">RAM</a>, in
+   *       which case the ARN must specify the account that owns the subnet. For more information, see
+   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#vpc-endpoint-multiple-subnets">Using a single VPC service endpoint across multiple subnets</a>.</p>
    * @public
    */
   SubnetArns?: string[] | undefined;
@@ -231,6 +239,9 @@ export interface CreateAgentRequest {
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the security group that allows traffic between
    *       your agent and VPC service endpoint. You can only specify one ARN.</p>
+   *          <p>The ARN must specify your own account, even when the security group was shared with you
+   *       from the account that owns the VPC. The security group must belong to the same VPC as the
+   *       subnet that you specify in <code>SubnetArns</code>.</p>
    * @public
    */
   SecurityGroupArns?: string[] | undefined;
@@ -576,7 +587,9 @@ export interface NfsMountOptions {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>AUTOMATIC</code> (default): DataSync chooses NFS version 4.1.</p>
+   *                   <code>AUTOMATIC</code> (default): DataSync chooses NFS version 4.1. For
+   *           Amazon FSx for OpenZFS locations, DataSync first attempts to use NFS
+   *           version 4.2, then falls back to version 4.1, and then to earlier versions if needed.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -593,6 +606,13 @@ export interface NfsMountOptions {
    *                   <code>NFSv4_1</code>: Stateful protocol version that supports sessions, directory
    *           delegations, and parallel data processing. NFS version 4.1 also includes all features
    *           available in version 4.0.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NFSv4_2</code>: Stateful protocol version that supports sparse file
+   *           operations, space reservation, and server-side copy operations, in addition to all
+   *           features available in version 4.1. Selecting NFS version 4.2 requires an Enhanced mode
+   *           task.</p>
    *             </li>
    *          </ul>
    *          <note>
@@ -2246,6 +2266,18 @@ export interface Options {
    * @public
    */
   ObjectTags?: ObjectTags | undefined;
+
+  /**
+   * <p>Specifies whether you want DataSync to <code>PRESERVE</code> object metadata
+   *       (default behavior) when transferring between object storage systems. If you want your
+   *       DataSync task to ignore object metadata, specify the <code>NONE</code> value.</p>
+   *          <note>
+   *             <p>Even if you specify <code>NONE</code>, metadata for the last modified time is still
+   *         preserved.</p>
+   *          </note>
+   * @public
+   */
+  ObjectMetadata?: ObjectMetadata | undefined;
 }
 
 /**
@@ -2658,7 +2690,10 @@ export interface DescribeAgentRequest {
  */
 export interface PrivateLinkConfig {
   /**
-   * <p>Specifies the ID of the VPC endpoint that your agent connects to.</p>
+   * <p>Specifies the ID of the VPC service endpoint that's recorded for your agent. The endpoint ID
+   *       is informational and isn't verified by DataSync. Your agent communicates through the
+   *       private IP address in <code>PrivateLinkEndpoint</code>, which is set when you activate the
+   *       agent.</p>
    * @public
    */
   VpcEndpointId?: string | undefined;
@@ -2670,8 +2705,9 @@ export interface PrivateLinkConfig {
   PrivateLinkEndpoint?: string | undefined;
 
   /**
-   * <p>Specifies the ARN of the subnet where your VPC endpoint is located. You can only specify
-   *       one ARN.</p>
+   * <p>Specifies the ARN of the subnet where DataSync creates the network interfaces
+   *       that handle data transfer traffic for your tasks. You can only specify one ARN.</p>
+   *          <p>The subnet doesn't have to be the subnet that contains your VPC endpoint.</p>
    * @public
    */
   SubnetArns?: string[] | undefined;
@@ -5434,11 +5470,13 @@ export interface UpdateLocationHdfsRequest {
    *          <p>The number of NameNodes you can specify depends on the task mode:</p>
    *          <ul>
    *             <li>
-   *                <p>Enhanced mode – You can specify multiple NameNodes for HDFS High Availability (HA)
+   *                <p>
+   *                   <b>Enhanced mode</b> – You can specify multiple NameNodes for HDFS High Availability (HA)
    *           configurations.</p>
    *             </li>
    *             <li>
-   *                <p>Basic mode – You can specify only one NameNode.</p>
+   *                <p>
+   *                   <b>Basic mode</b> – You can specify only one NameNode.</p>
    *             </li>
    *          </ul>
    * @public

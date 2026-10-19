@@ -9,6 +9,7 @@ import { PinpointEmailServiceException as __BaseException } from "./PinpointEmai
  * @public
  */
 export class AccountSuspendedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pinpointemail#AccountSuspendedException";
   readonly name = "AccountSuspendedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class AccountSuspendedException extends __BaseException {
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pinpointemail#AlreadyExistsException";
   readonly name = "AlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -49,6 +51,7 @@ export class AlreadyExistsException extends __BaseException {
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pinpointemail#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -69,6 +72,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pinpointemail#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "server" as const;
   /**
@@ -89,6 +93,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pinpointemail#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +114,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pinpointemail#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -129,6 +135,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pinpointemail#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -149,6 +156,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class MailFromDomainNotVerifiedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pinpointemail#MailFromDomainNotVerifiedException";
   readonly name = "MailFromDomainNotVerifiedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -169,6 +177,7 @@ export class MailFromDomainNotVerifiedException extends __BaseException {
  * @public
  */
 export class MessageRejected extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pinpointemail#MessageRejected";
   readonly name = "MessageRejected" as const;
   readonly $fault = "client" as const;
   /**
@@ -190,6 +199,7 @@ export class MessageRejected extends __BaseException {
  * @public
  */
 export class SendingPausedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pinpointemail#SendingPausedException";
   readonly name = "SendingPausedException" as const;
   readonly $fault = "client" as const;
   /**

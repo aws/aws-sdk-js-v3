@@ -50,6 +50,12 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  *   TargetStorageType: "STRING_VALUE",
  *   TargetAllocatedStorage: Number("int"),
  *   TargetStorageThroughput: Number("int"),
+ *   TargetResourceConfigurations: [ // TargetResourceConfigurationList
+ *     { // TargetResourceConfiguration
+ *       SourceArn: "STRING_VALUE", // required
+ *       TargetKmsKeyId: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateBlueGreenDeploymentCommand(input);
  * const response = await client.send(command);

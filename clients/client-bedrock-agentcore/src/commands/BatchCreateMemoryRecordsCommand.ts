@@ -58,6 +58,10 @@ export interface BatchCreateMemoryRecordsCommandOutput extends BatchCreateMemory
  *     },
  *   ],
  *   clientToken: "STRING_VALUE",
+ *   recordExpirySpecification: { // RecordExpirySpecification Union: only one key present
+ *     recordExpiryDurationDays: Number("int"),
+ *     action: "REMOVE",
+ *   },
  * };
  * const command = new BatchCreateMemoryRecordsCommand(input);
  * const response = await client.send(command);

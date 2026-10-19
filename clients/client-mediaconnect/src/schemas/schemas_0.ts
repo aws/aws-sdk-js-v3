@@ -31,9 +31,11 @@ const _AM = "AddMaintenance";
 const _AMS = "AudioMonitoringSetting";
 const _AMSR = "AddMediaStreamRequest";
 const _AMSu = "AudioMonitoringSettings";
+const _AN = "ApplicationName";
 const _AOC = "AssociatedOutputCount";
 const _AOR = "AddOutputRequest";
 const _AR = "AllowRules";
+const _ARL = "AudioReferenceLevel";
 const _AS = "ActiveSource";
 const _AZ = "AvailabilityZone";
 const _Al = "Algorithm";
@@ -91,6 +93,7 @@ const _CG = "CreateGateway";
 const _CGE = "CreateGateway420Exception";
 const _CGR = "CreateGatewayRequest";
 const _CGRr = "CreateGatewayResponse";
+const _CI = "ColorInformation";
 const _CIV = "ConstantInitializationVector";
 const _CL = "ContentLevel";
 const _CO = "ChannelOrder";
@@ -114,9 +117,10 @@ const _CS = "ConnectionStatus";
 const _CT = "ClientToken";
 const _Ch = "Channels";
 const _Ci = "Cidr";
-const _Co = "Configuration";
+const _Co = "Colorimetry";
 const _Cod = "Codec";
-const _Col = "Colorimetry";
+const _Col = "Color";
+const _Con = "Configuration";
 const _D = "Description";
 const _DA = "DestinationAddress";
 const _DB = "DeleteBridge";
@@ -204,6 +208,7 @@ const _EPn = "EncodingParameters";
 const _EPnc = "EncoderProfile";
 const _ES = "EntitlementStatus";
 const _ET = "EntitlementTags";
+const _ETn = "EncryptionType";
 const _En = "Entitlements";
 const _End = "End";
 const _Ent = "Entitlement";
@@ -344,12 +349,13 @@ const _LTFRRi = "ListTagsForResourceResponse";
 const _M = "Message";
 const _MB = "MaxBitrate";
 const _MBa = "MaximumBitrate";
-const _MC = "MaintenanceConfiguration";
+const _MC = "MatrixCoefficients";
 const _MCF = "MediaConnectFlow";
 const _MCFRIC = "MediaConnectFlowRouterInputConfiguration";
 const _MCFRISD = "MediaConnectFlowRouterInputStreamDetails";
 const _MCFROC = "MediaConnectFlowRouterOutputConfiguration";
 const _MCFROSD = "MediaConnectFlowRouterOutputStreamDetails";
+const _MCa = "MaintenanceConfiguration";
 const _MCe = "MessageCount";
 const _MCo = "MonitoringConfig";
 const _MD = "MaintenanceDay";
@@ -408,6 +414,7 @@ const _Ma = "Maintenance";
 const _Me = "Messages";
 const _Mer = "Merge";
 const _N = "Name";
+const _NARL = "NdiAudioReferenceLevel";
 const _NC = "NdiConfig";
 const _NCa = "NameContains";
 const _NDNII = "NonDeletedNetworkInterfaceIds";
@@ -467,6 +474,7 @@ const _PRNIC = "PublicRouterNetworkInterfaceConfiguration";
 const _PRNIR = "PublicRouterNetworkInterfaceRule";
 const _PS = "PrimarySource";
 const _PSI = "PrimarySourceIndex";
+const _PTEC = "PublicTlsEncryptionConfiguration";
 const _PU = "PriceUnits";
 const _Pa = "Par";
 const _Pi = "Pid";
@@ -553,6 +561,8 @@ const _ROSD = "RouterOutputStreamDetails";
 const _ROSQEE = "RouterOutputServiceQuotaExceededException";
 const _ROo = "RouterOutput";
 const _ROou = "RoutedOutputs";
+const _RP = "RtmpPush";
+const _RPROC = "RtmpPushRouterOutputConfiguration";
 const _RRI = "RestartRouterInput";
 const _RRIC = "RistRouterInputConfiguration";
 const _RRICt = "RtpRouterInputConfiguration";
@@ -617,6 +627,7 @@ const _SMEKC = "SecretsManagerEncryptionKeyConfiguration";
 const _SMM = "SourceMetadataMessages";
 const _SMe = "SecretsManager";
 const _SN = "SourceName";
+const _SNt = "StreamName";
 const _SP = "SourcePriority";
 const _SPM = "SourcePriorityMode";
 const _SPo = "SourcePort";
@@ -653,10 +664,14 @@ const _Star = "Start";
 const _Str = "Streams";
 const _Su = "Subscribers";
 const _T = "Ttl";
+const _TC = "TransferCharacteristics";
 const _TD = "ThumbnailDetails";
 const _TE = "TransitEncryption";
+const _TEC = "TlsEncryptionConfiguration";
+const _TEl = "TlsEncryption";
 const _TGR = "TagGlobalResource";
 const _TGRR = "TagGlobalResourceRequest";
+const _TI = "TsId";
 const _TK = "TagKeys";
 const _TM = "ThumbnailMessages";
 const _TMI = "TransportMediaInfo";
@@ -752,8 +767,10 @@ const _WMS = "WindowMaintenanceSchedule";
 const _a = "attributes";
 const _aIC = "associatedInputCount";
 const _aMS = "audioMonitoringSettings";
+const _aN = "applicationName";
 const _aOC = "associatedOutputCount";
 const _aR = "allowRules";
+const _aRL = "audioReferenceLevel";
 const _aS = "activeSource";
 const _aZ = "availabilityZone";
 const _al = "algorithm";
@@ -791,6 +808,7 @@ const _ci = "cidr";
 const _co = "code";
 const _cod = "codec";
 const _col = "colorimetry";
+const _colo = "color";
 const _con = "configuration";
 const _d = "description";
 const _dA = "destinationAddress";
@@ -830,6 +848,7 @@ const _ePn = "encoderProfile";
 const _ePnc = "encodingParameters";
 const _eS = "entitlementStatus";
 const _eT = "entitlementTags";
+const _eTn = "encryptionType";
 const _en = "encryption";
 const _end = "end";
 const _ent = "entitlements";
@@ -931,8 +950,9 @@ const _lOVMS = "__listOfVideoMonitoringSetting";
 const _m = "message";
 const _mB = "maxBitrate";
 const _mBa = "maximumBitrate";
-const _mC = "maintenanceConfiguration";
+const _mC = "matrixCoefficients";
 const _mCF = "mediaConnectFlow";
+const _mCa = "maintenanceConfiguration";
 const _mCe = "messageCount";
 const _mD = "maintenanceDay";
 const _mDa = "maintenanceDeadline";
@@ -972,6 +992,7 @@ const _ma = "maintenance";
 const _me = "messages";
 const _mer = "merge";
 const _n = "name";
+const _nARL = "ndiAudioReferenceLevel";
 const _nC = "ndiConfig";
 const _nCa = "nameContains";
 const _nDNII = "nonDeletedNetworkInterfaceIds";
@@ -1054,6 +1075,7 @@ const _rOA = "routerOutputArn";
 const _rON = "routerOutputName";
 const _rOo = "routerOutput";
 const _rOou = "routedOutputs";
+const _rP = "rtmpPush";
 const _rS = "routingScope";
 const _rSe = "resourceSpecification";
 const _rSes = "reservationState";
@@ -1093,6 +1115,7 @@ const _sMD = "sourceMetadataDetails";
 const _sMM = "sourceMetadataMessages";
 const _sMe = "secretsManager";
 const _sN = "sourceName";
+const _sNt = "streamName";
 const _sP = "sourcePriority";
 const _sPM = "sourcePriorityMode";
 const _sPo = "sourcePort";
@@ -1113,8 +1136,11 @@ const _star = "start";
 const _str = "streams";
 const _su = "subscribers";
 const _t = "ttl";
+const _tC = "transferCharacteristics";
 const _tD = "thumbnailDetails";
 const _tE = "transitEncryption";
+const _tEl = "tlsEncryption";
+const _tI = "tsId";
 const _tK = "tagKeys";
 const _tM = "thumbnailMessages";
 const _tMI = "transportMediaInfo";
@@ -1385,8 +1411,8 @@ export var AddMediaStreamRequest$: StaticStructureSchema = [3, n0, _AMSR,
 ];
 export var AddOutputRequest$: StaticStructureSchema = [3, n0, _AOR,
   0,
-  [_CAL, _D, _De, _E, _ML, _MSOC, _MLi, _N, _P, _Pr, _RI, _SCP, _SL, _SI, _VIA, _OS, _NSHQ, _NPN, _OT, _RIS, _RITE, _NOTS],
-  [[64 | 0, { [_jN]: _cAL }], [0, { [_jN]: _d }], [0, { [_jN]: _de }], [() => Encryption$, { [_jN]: _en }], [1, { [_jN]: _mL }], [() => __listOfMediaStreamOutputConfigurationRequest, { [_jN]: _mSOC }], [1, { [_jN]: _mLi }], [0, { [_jN]: _n }], [1, { [_jN]: _p }], [0, { [_jN]: _pr }], [0, { [_jN]: _rI }], [1, { [_jN]: _sCP }], [1, { [_jN]: _sL }], [0, { [_jN]: _sI }], [() => VpcInterfaceAttachment$, { [_jN]: _vIA }], [0, { [_jN]: _oS }], [1, { [_jN]: _nSHQ }], [0, { [_jN]: _nPN }], [128 | 0, { [_jN]: _oT }], [0, { [_jN]: _rIS }], [() => FlowTransitEncryption$, { [_jN]: _rITE }], [0, { [_jN]: _nOTS }]]
+  [_CAL, _D, _De, _E, _ML, _MSOC, _MLi, _N, _P, _Pr, _RI, _SCP, _SL, _SI, _VIA, _OS, _NSHQ, _NPN, _OT, _RIS, _RITE, _NOTS, _NARL],
+  [[64 | 0, { [_jN]: _cAL }], [0, { [_jN]: _d }], [0, { [_jN]: _de }], [() => Encryption$, { [_jN]: _en }], [1, { [_jN]: _mL }], [() => __listOfMediaStreamOutputConfigurationRequest, { [_jN]: _mSOC }], [1, { [_jN]: _mLi }], [0, { [_jN]: _n }], [1, { [_jN]: _p }], [0, { [_jN]: _pr }], [0, { [_jN]: _rI }], [1, { [_jN]: _sCP }], [1, { [_jN]: _sL }], [0, { [_jN]: _sI }], [() => VpcInterfaceAttachment$, { [_jN]: _vIA }], [0, { [_jN]: _oS }], [1, { [_jN]: _nSHQ }], [0, { [_jN]: _nPN }], [128 | 0, { [_jN]: _oT }], [0, { [_jN]: _rIS }], [() => FlowTransitEncryption$, { [_jN]: _rITE }], [0, { [_jN]: _nOTS }], [1, { [_jN]: _nARL }]]
 ];
 export var AudioMonitoringSetting$: StaticStructureSchema = [3, n0, _AMS,
   0,
@@ -1488,6 +1514,11 @@ export var BridgeSource$: StaticStructureSchema = [3, n0, _BSr,
   [_FS, _NS],
   [[() => BridgeFlowSource$, { [_jN]: _fS }], [() => BridgeNetworkSource$, { [_jN]: _nS }]]
 ];
+export var ColorInformation$: StaticStructureSchema = [3, n0, _CI,
+  0,
+  [_Co, _TC, _MC],
+  [[0, { [_jN]: _col }], [0, { [_jN]: _tC }], [0, { [_jN]: _mC }]]
+];
 export var ContentQualityAnalysisFeatureConfiguration$: StaticStructureSchema = [3, n0, _CQAFC,
   0,
   [_BF, _FF, _SA],
@@ -1525,8 +1556,8 @@ export var CreateGatewayResponse$: StaticStructureSchema = [3, n0, _CGRr,
 ];
 export var CreateRouterInputRequest$: StaticStructureSchema = [3, n0, _CRIR,
   0,
-  [_N, _Co, _MBa, _RS, _Ti, _RN, _AZ, _TE, _MC, _Ta, _CT, _CQAC],
-  [[0, { [_jN]: _n }], [() => RouterInputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [0, { [_jN]: _rN }], [0, { [_jN]: _aZ }], [() => RouterInputTransitEncryption$, { [_jN]: _tE }], [() => MaintenanceConfiguration$, { [_jN]: _mC }], [128 | 0, { [_jN]: _ta }], [0, { [_iT]: 1, [_jN]: _cT }], [() => RouterContentQualityAnalysisConfiguration$, { [_jN]: _cQAC }]], 5
+  [_N, _Con, _MBa, _RS, _Ti, _RN, _AZ, _TE, _MCa, _Ta, _CT, _CQAC],
+  [[0, { [_jN]: _n }], [() => RouterInputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [0, { [_jN]: _rN }], [0, { [_jN]: _aZ }], [() => RouterInputTransitEncryption$, { [_jN]: _tE }], [() => MaintenanceConfiguration$, { [_jN]: _mCa }], [128 | 0, { [_jN]: _ta }], [0, { [_iT]: 1, [_jN]: _cT }], [() => RouterContentQualityAnalysisConfiguration$, { [_jN]: _cQAC }]], 5
 ];
 export var CreateRouterInputResponse$: StaticStructureSchema = [3, n0, _CRIRr,
   0,
@@ -1535,7 +1566,7 @@ export var CreateRouterInputResponse$: StaticStructureSchema = [3, n0, _CRIRr,
 ];
 export var CreateRouterNetworkInterfaceRequest$: StaticStructureSchema = [3, n0, _CRNIR,
   0,
-  [_N, _Co, _RN, _Ta, _CT],
+  [_N, _Con, _RN, _Ta, _CT],
   [[0, { [_jN]: _n }], [() => RouterNetworkInterfaceConfiguration$, { [_jN]: _con }], [0, { [_jN]: _rN }], [128 | 0, { [_jN]: _ta }], [0, { [_iT]: 1, [_jN]: _cT }]], 2
 ];
 export var CreateRouterNetworkInterfaceResponse$: StaticStructureSchema = [3, n0, _CRNIRr,
@@ -1545,8 +1576,8 @@ export var CreateRouterNetworkInterfaceResponse$: StaticStructureSchema = [3, n0
 ];
 export var CreateRouterOutputRequest$: StaticStructureSchema = [3, n0, _CROR,
   0,
-  [_N, _Co, _MBa, _RS, _Ti, _RN, _AZ, _MC, _Ta, _FC, _CT],
-  [[0, { [_jN]: _n }], [() => RouterOutputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [0, { [_jN]: _rN }], [0, { [_jN]: _aZ }], [() => MaintenanceConfiguration$, { [_jN]: _mC }], [128 | 0, { [_jN]: _ta }], [() => FabricConfiguration$, { [_jN]: _fC }], [0, { [_iT]: 1, [_jN]: _cT }]], 5
+  [_N, _Con, _MBa, _RS, _Ti, _RN, _AZ, _MCa, _Ta, _FC, _CT],
+  [[0, { [_jN]: _n }], [() => RouterOutputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [0, { [_jN]: _rN }], [0, { [_jN]: _aZ }], [() => MaintenanceConfiguration$, { [_jN]: _mCa }], [128 | 0, { [_jN]: _ta }], [() => FabricConfiguration$, { [_jN]: _fC }], [0, { [_iT]: 1, [_jN]: _cT }]], 5
 ];
 export var CreateRouterOutputResponse$: StaticStructureSchema = [3, n0, _CRORr,
   0,
@@ -1785,12 +1816,12 @@ export var FlowTransitEncryption$: StaticStructureSchema = [3, n0, _FTE,
 ];
 export var Fmtp$: StaticStructureSchema = [3, n0, _Fm,
   0,
-  [_CO, _Col, _EF, _Pa, _Ra, _SM, _Tc],
+  [_CO, _Co, _EF, _Pa, _Ra, _SM, _Tc],
   [[0, { [_jN]: _cO }], [0, { [_jN]: _col }], [0, { [_jN]: _eF }], [0, { [_jN]: _pa }], [0, { [_jN]: _ra }], [0, { [_jN]: _sM }], [0, { [_jN]: _tc }]]
 ];
 export var FmtpRequest$: StaticStructureSchema = [3, n0, _FR,
   0,
-  [_CO, _Col, _EF, _Pa, _Ra, _SM, _Tc],
+  [_CO, _Co, _EF, _Pa, _Ra, _SM, _Tc],
   [[0, { [_jN]: _cO }], [0, { [_jN]: _col }], [0, { [_jN]: _eF }], [0, { [_jN]: _pa }], [0, { [_jN]: _ra }], [0, { [_jN]: _sM }], [0, { [_jN]: _tc }]]
 ];
 export var FrameResolution$: StaticStructureSchema = [3, n0, _FRr,
@@ -2215,8 +2246,8 @@ export var NdiMediaInfo$: StaticStructureSchema = [3, n0, _NMI,
 ];
 export var NdiMediaStreamInfo$: StaticStructureSchema = [3, n0, _NMSI,
   0,
-  [_STt, _Cod, _SI, _SM, _FRr, _FRra, _Ch, _SR],
-  [[0, { [_jN]: _sTt }], [0, { [_jN]: _cod }], [1, { [_jN]: _sI }], [0, { [_jN]: _sM }], [() => FrameResolution$, { [_jN]: _fR }], [0, { [_jN]: _fRr }], [1, { [_jN]: _ch }], [1, { [_jN]: _sR }]], 3
+  [_STt, _Cod, _SI, _SM, _Col, _FRr, _FRra, _Ch, _SR],
+  [[0, { [_jN]: _sTt }], [0, { [_jN]: _cod }], [1, { [_jN]: _sI }], [0, { [_jN]: _sM }], [() => ColorInformation$, { [_jN]: _colo }], [() => FrameResolution$, { [_jN]: _fR }], [0, { [_jN]: _fRr }], [1, { [_jN]: _ch }], [1, { [_jN]: _sR }]], 3
 ];
 export var NdiSourceInfo$: StaticStructureSchema = [3, n0, _NSI,
   0,
@@ -2230,8 +2261,8 @@ export var NdiSourceMetadataInfo$: StaticStructureSchema = [3, n0, _NSMI,
 ];
 export var NdiSourceSettings$: StaticStructureSchema = [3, n0, _NSS,
   0,
-  [_SN],
-  [[0, { [_jN]: _sN }]]
+  [_SN, _ARL],
+  [[0, { [_jN]: _sN }], [1, { [_jN]: _aRL }]]
 ];
 export var Offering$: StaticStructureSchema = [3, n0, _Of,
   0,
@@ -2257,6 +2288,11 @@ export var PublicRouterNetworkInterfaceRule$: StaticStructureSchema = [3, n0, _P
   0,
   [_Ci],
   [[0, { [_jN]: _ci }]], 1
+];
+export var PublicTlsEncryptionConfiguration$: StaticStructureSchema = [3, n0, _PTEC,
+  0,
+  [],
+  []
 ];
 export var PurchaseOfferingRequest$: StaticStructureSchema = [3, n0, _POR,
   0,
@@ -2380,8 +2416,8 @@ export var RistRouterOutputConfiguration$: StaticStructureSchema = [3, n0, _RROC
 ];
 export var RouterInput$: StaticStructureSchema = [3, n0, _RIou,
   0,
-  [_N, _Ar, _Id, _St, _IT, _Co, _ROou, _RN, _AZ, _MBa, _Ti, _RS, _CA, _UA, _Me, _TE, _Ta, _SD, _MT, _MC, _CQAT, _CQAC, _MRO, _IA, _MSTa, _MSa],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _ar }], [0, { [_jN]: _id }], [0, { [_jN]: _st }], [0, { [_jN]: _iTn }], [() => RouterInputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _rOou }], [0, { [_jN]: _rN }], [0, { [_jN]: _aZ }], [1, { [_jN]: _mBa }], [0, { [_jN]: _ti }], [0, { [_jN]: _rS }], [5, { [_jN]: _cA }], [5, { [_jN]: _uA }], [() => RouterInputMessages, { [_jN]: _me }], [() => RouterInputTransitEncryption$, { [_jN]: _tE }], [128 | 0, { [_jN]: _ta }], [() => RouterInputStreamDetails$, { [_jN]: _sD }], [0, { [_jN]: _mT }], [() => MaintenanceConfiguration$, { [_jN]: _mC }], [0, { [_jN]: _cQAT }], [() => RouterContentQualityAnalysisConfiguration$, { [_jN]: _cQAC }], [1, { [_jN]: _mRO }], [0, { [_jN]: _iA }], [0, { [_jN]: _mSTa }], [() => MaintenanceSchedule$, { [_jN]: _mSa }]], 22
+  [_N, _Ar, _Id, _St, _IT, _Con, _ROou, _RN, _AZ, _MBa, _Ti, _RS, _CA, _UA, _Me, _TE, _Ta, _SD, _MT, _MCa, _CQAT, _CQAC, _MRO, _IA, _MSTa, _MSa],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _ar }], [0, { [_jN]: _id }], [0, { [_jN]: _st }], [0, { [_jN]: _iTn }], [() => RouterInputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _rOou }], [0, { [_jN]: _rN }], [0, { [_jN]: _aZ }], [1, { [_jN]: _mBa }], [0, { [_jN]: _ti }], [0, { [_jN]: _rS }], [5, { [_jN]: _cA }], [5, { [_jN]: _uA }], [() => RouterInputMessages, { [_jN]: _me }], [() => RouterInputTransitEncryption$, { [_jN]: _tE }], [128 | 0, { [_jN]: _ta }], [() => RouterInputStreamDetails$, { [_jN]: _sD }], [0, { [_jN]: _mT }], [() => MaintenanceConfiguration$, { [_jN]: _mCa }], [0, { [_jN]: _cQAT }], [() => RouterContentQualityAnalysisConfiguration$, { [_jN]: _cQAC }], [1, { [_jN]: _mRO }], [0, { [_jN]: _iA }], [0, { [_jN]: _mSTa }], [() => MaintenanceSchedule$, { [_jN]: _mSa }]], 22
 ];
 export var RouterInputMessage$: StaticStructureSchema = [3, n0, _RIM,
   0,
@@ -2405,18 +2441,23 @@ export var RouterInputTransitEncryption$: StaticStructureSchema = [3, n0, _RITEo
 ];
 export var RouterNetworkInterface$: StaticStructureSchema = [3, n0, _RNIo,
   0,
-  [_N, _Ar, _Id, _St, _NIT, _Co, _AOC, _AIC, _RN, _CA, _UA, _Ta],
+  [_N, _Ar, _Id, _St, _NIT, _Con, _AOC, _AIC, _RN, _CA, _UA, _Ta],
   [[0, { [_jN]: _n }], [0, { [_jN]: _ar }], [0, { [_jN]: _id }], [0, { [_jN]: _st }], [0, { [_jN]: _nIT }], [() => RouterNetworkInterfaceConfiguration$, { [_jN]: _con }], [1, { [_jN]: _aOC }], [1, { [_jN]: _aIC }], [0, { [_jN]: _rN }], [5, { [_jN]: _cA }], [5, { [_jN]: _uA }], [128 | 0, { [_jN]: _ta }]], 12
 ];
 export var RouterOutput$: StaticStructureSchema = [3, n0, _ROo,
   0,
-  [_N, _Ar, _Id, _St, _OTu, _Co, _RSo, _RN, _AZ, _MBa, _RS, _Ti, _CA, _UA, _Me, _Ta, _SD, _MT, _MC, _FC, _IA, _RIA, _MSTa, _MSa],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _ar }], [0, { [_jN]: _id }], [0, { [_jN]: _st }], [0, { [_jN]: _oTu }], [() => RouterOutputConfiguration$, { [_jN]: _con }], [0, { [_jN]: _rSo }], [0, { [_jN]: _rN }], [0, { [_jN]: _aZ }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [5, { [_jN]: _cA }], [5, { [_jN]: _uA }], [() => RouterOutputMessages, { [_jN]: _me }], [128 | 0, { [_jN]: _ta }], [() => RouterOutputStreamDetails$, { [_jN]: _sD }], [0, { [_jN]: _mT }], [() => MaintenanceConfiguration$, { [_jN]: _mC }], [() => FabricConfiguration$, { [_jN]: _fC }], [0, { [_jN]: _iA }], [0, { [_jN]: _rIA }], [0, { [_jN]: _mSTa }], [() => MaintenanceSchedule$, { [_jN]: _mSa }]], 20
+  [_N, _Ar, _Id, _St, _OTu, _Con, _RSo, _RN, _AZ, _MBa, _RS, _Ti, _CA, _UA, _Me, _Ta, _SD, _MT, _MCa, _FC, _IA, _RIA, _MSTa, _MSa],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _ar }], [0, { [_jN]: _id }], [0, { [_jN]: _st }], [0, { [_jN]: _oTu }], [() => RouterOutputConfiguration$, { [_jN]: _con }], [0, { [_jN]: _rSo }], [0, { [_jN]: _rN }], [0, { [_jN]: _aZ }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [5, { [_jN]: _cA }], [5, { [_jN]: _uA }], [() => RouterOutputMessages, { [_jN]: _me }], [128 | 0, { [_jN]: _ta }], [() => RouterOutputStreamDetails$, { [_jN]: _sD }], [0, { [_jN]: _mT }], [() => MaintenanceConfiguration$, { [_jN]: _mCa }], [() => FabricConfiguration$, { [_jN]: _fC }], [0, { [_jN]: _iA }], [0, { [_jN]: _rIA }], [0, { [_jN]: _mSTa }], [() => MaintenanceSchedule$, { [_jN]: _mSa }]], 20
 ];
 export var RouterOutputMessage$: StaticStructureSchema = [3, n0, _ROM,
   0,
   [_C, _M],
   [[0, { [_jN]: _co }], [0, { [_jN]: _m }]], 2
+];
+export var RtmpPushRouterOutputConfiguration$: StaticStructureSchema = [3, n0, _RPROC,
+  0,
+  [_DA, _DP, _AN, _SNt, _TEl],
+  [[0, { [_jN]: _dA }], [1, { [_jN]: _dP }], [0, { [_jN]: _aN }], [0, { [_jN]: _sNt }], [() => TlsEncryption$, { [_jN]: _tEl }]], 4
 ];
 export var RtpRouterInputConfiguration$: StaticStructureSchema = [3, n0, _RRICt,
   0,
@@ -2598,20 +2639,25 @@ export var ThumbnailDetails$: StaticStructureSchema = [3, n0, _TD,
   [_FA, _TM, _Th, _Timec, _Tim],
   [[0, { [_jN]: _fA }], [() => __listOfMessageDetail, { [_jN]: _tM }], [0, { [_jN]: _th }], [0, { [_jN]: _timec }], [5, { [_jN]: _tim }]], 2
 ];
+export var TlsEncryption$: StaticStructureSchema = [3, n0, _TEl,
+  0,
+  [_ECn, _ETn],
+  [[() => TlsEncryptionConfiguration$, { [_jN]: _eCn }], [0, { [_jN]: _eTn }]], 1
+];
 export var Transport$: StaticStructureSchema = [3, n0, _Tr,
   0,
-  [_Pr, _CAL, _MB, _ML, _MSB, _MLi, _RI, _SCP, _SIAe, _SL, _SLA, _SLP, _SI, _NSHQ, _NPN, _NSS, _NOTS],
-  [[0, { [_jN]: _pr }], [64 | 0, { [_jN]: _cAL }], [1, { [_jN]: _mB }], [1, { [_jN]: _mL }], [1, { [_jN]: _mSB }], [1, { [_jN]: _mLi }], [0, { [_jN]: _rI }], [1, { [_jN]: _sCP }], [0, { [_jN]: _sIAe }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLA }], [1, { [_jN]: _sLP }], [0, { [_jN]: _sI }], [1, { [_jN]: _nSHQ }], [0, { [_jN]: _nPN }], [() => NdiSourceSettings$, { [_jN]: _nSS }], [0, { [_jN]: _nOTS }]], 1
+  [_Pr, _CAL, _MB, _ML, _MSB, _MLi, _RI, _SCP, _SIAe, _SL, _SLA, _SLP, _SI, _NSHQ, _NPN, _NSS, _NOTS, _NARL],
+  [[0, { [_jN]: _pr }], [64 | 0, { [_jN]: _cAL }], [1, { [_jN]: _mB }], [1, { [_jN]: _mL }], [1, { [_jN]: _mSB }], [1, { [_jN]: _mLi }], [0, { [_jN]: _rI }], [1, { [_jN]: _sCP }], [0, { [_jN]: _sIAe }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLA }], [1, { [_jN]: _sLP }], [0, { [_jN]: _sI }], [1, { [_jN]: _nSHQ }], [0, { [_jN]: _nPN }], [() => NdiSourceSettings$, { [_jN]: _nSS }], [0, { [_jN]: _nOTS }], [1, { [_jN]: _nARL }]], 1
 ];
 export var TransportMediaInfo$: StaticStructureSchema = [3, n0, _TMI,
   0,
-  [_Pro],
-  [[() => __listOfTransportStreamProgram, { [_jN]: _pro }]], 1
+  [_Pro, _TI],
+  [[() => __listOfTransportStreamProgram, { [_jN]: _pro }], [1, { [_jN]: _tI }]], 1
 ];
 export var TransportStream$: StaticStructureSchema = [3, n0, _TSr,
   0,
-  [_Pi, _STt, _Ch, _Cod, _FRra, _FRr, _SR, _SS],
-  [[1, { [_jN]: _pi }], [0, { [_jN]: _sTt }], [1, { [_jN]: _ch }], [0, { [_jN]: _cod }], [0, { [_jN]: _fRr }], [() => FrameResolution$, { [_jN]: _fR }], [1, { [_jN]: _sR }], [1, { [_jN]: _sS }]], 2
+  [_Pi, _STt, _Ch, _Cod, _Col, _FRra, _FRr, _SR, _SS],
+  [[1, { [_jN]: _pi }], [0, { [_jN]: _sTt }], [1, { [_jN]: _ch }], [0, { [_jN]: _cod }], [() => ColorInformation$, { [_jN]: _colo }], [0, { [_jN]: _fRr }], [() => FrameResolution$, { [_jN]: _fR }], [1, { [_jN]: _sR }], [1, { [_jN]: _sS }]], 2
 ];
 export var TransportStreamProgram$: StaticStructureSchema = [3, n0, _TSP,
   0,
@@ -2720,8 +2766,8 @@ export var UpdateFlowMediaStreamResponse$: StaticStructureSchema = [3, n0, _UFMS
 ];
 export var UpdateFlowOutputRequest$: StaticStructureSchema = [3, n0, _UFOR,
   0,
-  [_FA, _OA, _CAL, _D, _De, _E, _ML, _MSOC, _MLi, _P, _Pr, _RI, _SCP, _SIAe, _SL, _SI, _VIA, _OS, _NPN, _NSHQ, _RIS, _RITE, _NOTS],
-  [[0, 1], [0, 1], [64 | 0, { [_jN]: _cAL }], [0, { [_jN]: _d }], [0, { [_jN]: _de }], [() => UpdateEncryption$, { [_jN]: _en }], [1, { [_jN]: _mL }], [() => __listOfMediaStreamOutputConfigurationRequest, { [_jN]: _mSOC }], [1, { [_jN]: _mLi }], [1, { [_jN]: _p }], [0, { [_jN]: _pr }], [0, { [_jN]: _rI }], [1, { [_jN]: _sCP }], [0, { [_jN]: _sIAe }], [1, { [_jN]: _sL }], [0, { [_jN]: _sI }], [() => VpcInterfaceAttachment$, { [_jN]: _vIA }], [0, { [_jN]: _oS }], [0, { [_jN]: _nPN }], [1, { [_jN]: _nSHQ }], [0, { [_jN]: _rIS }], [() => FlowTransitEncryption$, { [_jN]: _rITE }], [0, { [_jN]: _nOTS }]], 2
+  [_FA, _OA, _CAL, _D, _De, _E, _ML, _MSOC, _MLi, _P, _Pr, _RI, _SCP, _SIAe, _SL, _SI, _VIA, _OS, _NPN, _NSHQ, _RIS, _RITE, _NOTS, _NARL],
+  [[0, 1], [0, 1], [64 | 0, { [_jN]: _cAL }], [0, { [_jN]: _d }], [0, { [_jN]: _de }], [() => UpdateEncryption$, { [_jN]: _en }], [1, { [_jN]: _mL }], [() => __listOfMediaStreamOutputConfigurationRequest, { [_jN]: _mSOC }], [1, { [_jN]: _mLi }], [1, { [_jN]: _p }], [0, { [_jN]: _pr }], [0, { [_jN]: _rI }], [1, { [_jN]: _sCP }], [0, { [_jN]: _sIAe }], [1, { [_jN]: _sL }], [0, { [_jN]: _sI }], [() => VpcInterfaceAttachment$, { [_jN]: _vIA }], [0, { [_jN]: _oS }], [0, { [_jN]: _nPN }], [1, { [_jN]: _nSHQ }], [0, { [_jN]: _rIS }], [() => FlowTransitEncryption$, { [_jN]: _rITE }], [0, { [_jN]: _nOTS }], [1, { [_jN]: _nARL }]], 2
 ];
 export var UpdateFlowOutputResponse$: StaticStructureSchema = [3, n0, _UFORp,
   0,
@@ -2775,8 +2821,8 @@ export var UpdateMaintenance$: StaticStructureSchema = [3, n0, _UM,
 ];
 export var UpdateRouterInputRequest$: StaticStructureSchema = [3, n0, _URIR,
   0,
-  [_Ar, _N, _Co, _MBa, _RS, _Ti, _TE, _MC, _CQAC],
-  [[0, 1], [0, { [_jN]: _n }], [() => RouterInputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [() => RouterInputTransitEncryption$, { [_jN]: _tE }], [() => MaintenanceConfiguration$, { [_jN]: _mC }], [() => RouterContentQualityAnalysisConfiguration$, { [_jN]: _cQAC }]], 1
+  [_Ar, _N, _Con, _MBa, _RS, _Ti, _TE, _MCa, _CQAC],
+  [[0, 1], [0, { [_jN]: _n }], [() => RouterInputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [() => RouterInputTransitEncryption$, { [_jN]: _tE }], [() => MaintenanceConfiguration$, { [_jN]: _mCa }], [() => RouterContentQualityAnalysisConfiguration$, { [_jN]: _cQAC }]], 1
 ];
 export var UpdateRouterInputResponse$: StaticStructureSchema = [3, n0, _URIRp,
   0,
@@ -2785,7 +2831,7 @@ export var UpdateRouterInputResponse$: StaticStructureSchema = [3, n0, _URIRp,
 ];
 export var UpdateRouterNetworkInterfaceRequest$: StaticStructureSchema = [3, n0, _URNIR,
   0,
-  [_Ar, _N, _Co],
+  [_Ar, _N, _Con],
   [[0, 1], [0, { [_jN]: _n }], [() => RouterNetworkInterfaceConfiguration$, { [_jN]: _con }]], 1
 ];
 export var UpdateRouterNetworkInterfaceResponse$: StaticStructureSchema = [3, n0, _URNIRp,
@@ -2795,8 +2841,8 @@ export var UpdateRouterNetworkInterfaceResponse$: StaticStructureSchema = [3, n0
 ];
 export var UpdateRouterOutputRequest$: StaticStructureSchema = [3, n0, _UROR,
   0,
-  [_Ar, _N, _Co, _MBa, _RS, _Ti, _MC, _FC],
-  [[0, 1], [0, { [_jN]: _n }], [() => RouterOutputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [() => MaintenanceConfiguration$, { [_jN]: _mC }], [() => FabricConfiguration$, { [_jN]: _fC }]], 1
+  [_Ar, _N, _Con, _MBa, _RS, _Ti, _MCa, _FC],
+  [[0, 1], [0, { [_jN]: _n }], [() => RouterOutputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [() => MaintenanceConfiguration$, { [_jN]: _mCa }], [() => FabricConfiguration$, { [_jN]: _fC }]], 1
 ];
 export var UpdateRouterOutputResponse$: StaticStructureSchema = [3, n0, _URORp,
   0,
@@ -3076,7 +3122,7 @@ export var FlowTransitEncryptionKeyConfiguration$: StaticUnionSchema = [4, n0, _
   [_SMe, _Au],
   [[() => SecretsManagerEncryptionKeyConfiguration$, { [_jN]: _sMe }], [() => AutomaticEncryptionKeyConfiguration$, { [_jN]: _au }]]
 ];
-export var MaintenanceConfiguration$: StaticUnionSchema = [4, n0, _MC,
+export var MaintenanceConfiguration$: StaticUnionSchema = [4, n0, _MCa,
   0,
   [_PDT, _Def],
   [[() => PreferredDayTimeMaintenanceConfiguration$, { [_jN]: _pDT }], [() => DefaultMaintenanceConfiguration$, { [_jN]: _def }]]
@@ -3153,13 +3199,18 @@ export var RouterOutputFilter$: StaticUnionSchema = [4, n0, _ROF,
 ];
 export var RouterOutputProtocolConfiguration$: StaticUnionSchema = [4, n0, _ROPC,
   0,
-  [_Ri, _SLr, _SC, _Rt],
-  [[() => RistRouterOutputConfiguration$, { [_jN]: _ri }], [() => SrtListenerRouterOutputConfiguration$, { [_jN]: _sLr }], [() => SrtCallerRouterOutputConfiguration$, { [_jN]: _sC }], [() => RtpRouterOutputConfiguration$, { [_jN]: _rt }]]
+  [_Ri, _SLr, _RP, _SC, _Rt],
+  [[() => RistRouterOutputConfiguration$, { [_jN]: _ri }], [() => SrtListenerRouterOutputConfiguration$, { [_jN]: _sLr }], [() => RtmpPushRouterOutputConfiguration$, { [_jN]: _rP }], [() => SrtCallerRouterOutputConfiguration$, { [_jN]: _sC }], [() => RtpRouterOutputConfiguration$, { [_jN]: _rt }]]
 ];
 export var RouterOutputStreamDetails$: StaticUnionSchema = [4, n0, _ROSD,
   0,
   [_Stan, _MCF, _MLI],
   [[() => StandardRouterOutputStreamDetails$, { [_jN]: _stan }], [() => MediaConnectFlowRouterOutputStreamDetails$, { [_jN]: _mCF }], [() => MediaLiveInputRouterOutputStreamDetails$, { [_jN]: _mLI }]]
+];
+export var TlsEncryptionConfiguration$: StaticUnionSchema = [4, n0, _TEC,
+  0,
+  [_Pu],
+  [[() => PublicTlsEncryptionConfiguration$, { [_jN]: _pu }]]
 ];
 export var AddBridgeOutputs$: StaticOperationSchema = [9, n0, _ABO,
   { [_h]: ["POST", "/v1/bridges/{BridgeArn}/outputs", 202] }, () => AddBridgeOutputsRequest$, () => AddBridgeOutputsResponse$

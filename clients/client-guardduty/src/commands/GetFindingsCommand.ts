@@ -464,6 +464,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             RemoteAccountDetails: { // RemoteAccountDetails
  * //               AccountId: "STRING_VALUE",
  * //               Affiliated: true || false,
+ * //               AwsServiceName: "STRING_VALUE",
  * //             },
  * //             AffectedResources: { // AffectedResources
  * //               "<keys>": "STRING_VALUE",
@@ -1159,6 +1160,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //       Type: "STRING_VALUE", // required
  * //       UpdatedAt: "STRING_VALUE", // required
  * //       AssociatedAttackSequenceArn: "STRING_VALUE",
+ * //       CustomDetectionRuleName: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

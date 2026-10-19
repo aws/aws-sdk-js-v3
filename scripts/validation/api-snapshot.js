@@ -19,10 +19,19 @@ const api = require(dataPath);
 
 api.$schema = "https://json-schema.org/draft/2020-12/schema";
 
+const readPackageDirs = (folder) => {
+  const folderPath = path.join(root, folder);
+  if (!fs.existsSync(folderPath)) {
+    return [];
+  }
+  return fs.readdirSync(folderPath).map((f) => path.join(folderPath, f));
+};
+
 const packageDirs = [
-  ...fs.readdirSync(path.join(root, "packages")).map((f) => path.join(root, "packages", f)),
-  ...fs.readdirSync(path.join(root, "packages-internal")).map((f) => path.join(root, "packages-internal", f)),
-  ...fs.readdirSync(path.join(root, "lib")).map((f) => path.join(root, "lib", f)),
+  ...readPackageDirs("packages"),
+  ...readPackageDirs("packages-internal"),
+  ...readPackageDirs("preview"),
+  ...readPackageDirs("lib"),
 ];
 const errors = [];
 

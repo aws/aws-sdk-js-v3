@@ -48,7 +48,7 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * //     { // PipelineExecutionSummary
  * //       PipelineExecutionArn: "STRING_VALUE",
  * //       StartTime: new Date("TIMESTAMP"),
- * //       PipelineExecutionStatus: "Executing" || "Stopping" || "Stopped" || "Failed" || "Succeeded",
+ * //       PipelineExecutionStatus: "Executing" || "Stopping" || "Stopped" || "Failed" || "Succeeded" || "CompletedWithFailures",
  * //       PipelineExecutionDescription: "STRING_VALUE",
  * //       PipelineExecutionDisplayName: "STRING_VALUE",
  * //       PipelineExecutionFailureReason: "STRING_VALUE",

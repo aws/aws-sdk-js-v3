@@ -9,6 +9,7 @@ import type { BatchWriteExceptionType } from "./enums";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -31,6 +32,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class DirectoryNotEnabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#DirectoryNotEnabledException";
   readonly name = "DirectoryNotEnabledException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -54,6 +56,7 @@ export class DirectoryNotEnabledException extends __BaseException {
  * @public
  */
 export class FacetValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#FacetValidationException";
   readonly name = "FacetValidationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -76,6 +79,7 @@ export class FacetValidationException extends __BaseException {
  * @public
  */
 export class InternalServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#InternalServiceException";
   readonly name = "InternalServiceException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -98,6 +102,7 @@ export class InternalServiceException extends __BaseException {
  * @public
  */
 export class InvalidArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#InvalidArnException";
   readonly name = "InvalidArnException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -120,6 +125,7 @@ export class InvalidArnException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -142,6 +148,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -164,6 +171,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class RetryableConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#RetryableConflictException";
   readonly name = "RetryableConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -187,6 +195,7 @@ export class RetryableConflictException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -210,6 +219,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class InvalidAttachmentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#InvalidAttachmentException";
   readonly name = "InvalidAttachmentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -233,6 +243,7 @@ export class InvalidAttachmentException extends __BaseException {
  * @public
  */
 export class SchemaAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#SchemaAlreadyExistsException";
   readonly name = "SchemaAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -256,6 +267,7 @@ export class SchemaAlreadyExistsException extends __BaseException {
  * @public
  */
 export class LinkNameAlreadyInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#LinkNameAlreadyInUseException";
   readonly name = "LinkNameAlreadyInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -278,6 +290,7 @@ export class LinkNameAlreadyInUseException extends __BaseException {
  * @public
  */
 export class NotPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#NotPolicyException";
   readonly name = "NotPolicyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -300,6 +313,7 @@ export class NotPolicyException extends __BaseException {
  * @public
  */
 export class IndexedAttributeMissingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#IndexedAttributeMissingException";
   readonly name = "IndexedAttributeMissingException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -322,6 +336,7 @@ export class IndexedAttributeMissingException extends __BaseException {
  * @public
  */
 export class NotIndexException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#NotIndexException";
   readonly name = "NotIndexException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -344,6 +359,7 @@ export class NotIndexException extends __BaseException {
  * @public
  */
 export class BatchWriteException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#BatchWriteException";
   readonly name = "BatchWriteException" as const;
   readonly $fault = "client" as const;
   Index?: number | undefined;
@@ -371,6 +387,7 @@ export class BatchWriteException extends __BaseException {
  * @public
  */
 export class DirectoryAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#DirectoryAlreadyExistsException";
   readonly name = "DirectoryAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -393,6 +410,7 @@ export class DirectoryAlreadyExistsException extends __BaseException {
  * @public
  */
 export class FacetAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#FacetAlreadyExistsException";
   readonly name = "FacetAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -415,6 +433,7 @@ export class FacetAlreadyExistsException extends __BaseException {
  * @public
  */
 export class InvalidRuleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#InvalidRuleException";
   readonly name = "InvalidRuleException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -437,6 +456,7 @@ export class InvalidRuleException extends __BaseException {
  * @public
  */
 export class UnsupportedIndexTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#UnsupportedIndexTypeException";
   readonly name = "UnsupportedIndexTypeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -460,6 +480,7 @@ export class UnsupportedIndexTypeException extends __BaseException {
  * @public
  */
 export class DirectoryDeletedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#DirectoryDeletedException";
   readonly name = "DirectoryDeletedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -482,6 +503,7 @@ export class DirectoryDeletedException extends __BaseException {
  * @public
  */
 export class DirectoryNotDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#DirectoryNotDisabledException";
   readonly name = "DirectoryNotDisabledException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -505,6 +527,7 @@ export class DirectoryNotDisabledException extends __BaseException {
  * @public
  */
 export class FacetInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#FacetInUseException";
   readonly name = "FacetInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -527,6 +550,7 @@ export class FacetInUseException extends __BaseException {
  * @public
  */
 export class FacetNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#FacetNotFoundException";
   readonly name = "FacetNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -550,6 +574,7 @@ export class FacetNotFoundException extends __BaseException {
  * @public
  */
 export class ObjectNotDetachedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#ObjectNotDetachedException";
   readonly name = "ObjectNotDetachedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -573,6 +598,7 @@ export class ObjectNotDetachedException extends __BaseException {
  * @public
  */
 export class StillContainsLinksException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#StillContainsLinksException";
   readonly name = "StillContainsLinksException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -595,6 +621,7 @@ export class StillContainsLinksException extends __BaseException {
  * @public
  */
 export class ObjectAlreadyDetachedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#ObjectAlreadyDetachedException";
   readonly name = "ObjectAlreadyDetachedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -618,6 +645,7 @@ export class ObjectAlreadyDetachedException extends __BaseException {
  * @public
  */
 export class NotNodeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#NotNodeException";
   readonly name = "NotNodeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -640,6 +668,7 @@ export class NotNodeException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -662,6 +691,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class CannotListParentOfRootException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#CannotListParentOfRootException";
   readonly name = "CannotListParentOfRootException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -684,6 +714,7 @@ export class CannotListParentOfRootException extends __BaseException {
  * @public
  */
 export class InvalidTaggingRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#InvalidTaggingRequestException";
   readonly name = "InvalidTaggingRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -706,6 +737,7 @@ export class InvalidTaggingRequestException extends __BaseException {
  * @public
  */
 export class SchemaAlreadyPublishedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#SchemaAlreadyPublishedException";
   readonly name = "SchemaAlreadyPublishedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -728,6 +760,7 @@ export class SchemaAlreadyPublishedException extends __BaseException {
  * @public
  */
 export class InvalidSchemaDocException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#InvalidSchemaDocException";
   readonly name = "InvalidSchemaDocException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -751,6 +784,7 @@ export class InvalidSchemaDocException extends __BaseException {
  * @public
  */
 export class InvalidFacetUpdateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#InvalidFacetUpdateException";
   readonly name = "InvalidFacetUpdateException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -773,6 +807,7 @@ export class InvalidFacetUpdateException extends __BaseException {
  * @public
  */
 export class IncompatibleSchemaException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.clouddirectory#IncompatibleSchemaException";
   readonly name = "IncompatibleSchemaException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

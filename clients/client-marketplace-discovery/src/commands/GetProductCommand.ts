@@ -33,11 +33,13 @@ export interface GetProductCommandOutput extends GetProductOutput, __MetadataBea
  * const config = {}; // type is MarketplaceDiscoveryClientConfig
  * const client = new MarketplaceDiscoveryClient(config);
  * const input = { // GetProductInput
+ *   locale: "STRING_VALUE",
  *   productId: "STRING_VALUE", // required
  * };
  * const command = new GetProductCommand(input);
  * const response = await client.send(command);
  * // { // GetProductOutput
+ * //   locale: "STRING_VALUE",
  * //   productId: "STRING_VALUE", // required
  * //   catalog: "STRING_VALUE", // required
  * //   productName: "STRING_VALUE", // required
@@ -95,6 +97,7 @@ export interface GetProductCommandOutput extends GetProductOutput, __MetadataBea
  * //       value: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   listingId: "STRING_VALUE", // required
  * // };
  *
  * ```
@@ -128,6 +131,7 @@ export interface GetProductCommandOutput extends GetProductOutput, __MetadataBea
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   productId: "prod-sampleSaasId"
  * };
  * const command = new GetProductCommand(input);
@@ -159,6 +163,8 @@ export interface GetProductCommandOutput extends GetProductOutput, __MetadataBea
  *   highlights: [
  *     "Configured to your specs: Pre-configured environments, out-of-the-box."
  *   ],
+ *   listingId: "listing-sampleSaasId",
+ *   locale: "en-US",
  *   logoThumbnailUrl: "https://d7umqicpi7263.cloudfront.net/img/product/07afb7c8-32f1-4851-8289-7e200d817ab1.png",
  *   longDescription: "Gitpod is a developer platform that provides on-demand, pre-configured cloud development environments (CDEs) that automatically integrate into any tool, library, or dependency required for creating software.",
  *   manufacturer: {
@@ -206,6 +212,7 @@ export interface GetProductCommandOutput extends GetProductOutput, __MetadataBea
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   productId: "prod-sampleAmiId"
  * };
  * const command = new GetProductCommand(input);
@@ -241,6 +248,8 @@ export interface GetProductCommandOutput extends GetProductOutput, __MetadataBea
  *   highlights: [
  *     "AES-256 encryption at rest and in transit"
  *   ],
+ *   listingId: "listing-sampleAmiId",
+ *   locale: "en-US",
  *   logoThumbnailUrl: "https://d7umqicpi7263.cloudfront.net/img/product/securevault-logo.png",
  *   longDescription: "SecureVault Enterprise provides comprehensive data encryption, key management, and security compliance tools for organizations.",
  *   manufacturer: {
@@ -290,6 +299,7 @@ export interface GetProductCommandOutput extends GetProductOutput, __MetadataBea
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   productId: "prod-sampleProServId"
  * };
  * const command = new GetProductCommand(input);
@@ -329,6 +339,8 @@ export interface GetProductCommandOutput extends GetProductOutput, __MetadataBea
  *   highlights: [
  *     "Certified AWS migration specialists"
  *   ],
+ *   listingId: "listing-sampleProServId",
+ *   locale: "en-US",
  *   logoThumbnailUrl: "https://d7umqicpi7263.cloudfront.net/img/product/cloudexperts-logo.png",
  *   longDescription: "Professional consulting services to help organizations plan and execute their cloud migration strategy.",
  *   manufacturer: {

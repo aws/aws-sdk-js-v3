@@ -40,9 +40,14 @@ export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTran
  * const response = await client.send(command);
  * // { // CheckDomainTransferabilityResponse
  * //   Transferability: { // DomainTransferability
- * //     Transferable: "TRANSFERABLE" || "UNTRANSFERABLE" || "DONT_KNOW" || "DOMAIN_IN_OWN_ACCOUNT" || "DOMAIN_IN_ANOTHER_ACCOUNT" || "PREMIUM_DOMAIN",
+ * //     Transferable: "TRANSFERABLE" || "UNTRANSFERABLE" || "DONT_KNOW" || "DOMAIN_IN_OWN_ACCOUNT" || "DOMAIN_IN_ANOTHER_ACCOUNT" || "PREMIUM_DOMAIN" || "PENDING",
  * //   },
  * //   Message: "STRING_VALUE",
+ * //   Price: { // PriceWithCurrency
+ * //     Price: Number("double"), // required
+ * //     Currency: "STRING_VALUE", // required
+ * //     PriceType: "STANDARD" || "REGISTRY_PREMIUM",
+ * //   },
  * // };
  *
  * ```

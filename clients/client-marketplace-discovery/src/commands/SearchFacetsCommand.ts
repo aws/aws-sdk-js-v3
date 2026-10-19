@@ -33,6 +33,7 @@ export interface SearchFacetsCommandOutput extends SearchFacetsOutput, __Metadat
  * const config = {}; // type is MarketplaceDiscoveryClientConfig
  * const client = new MarketplaceDiscoveryClient(config);
  * const input = { // SearchFacetsInput
+ *   locale: "STRING_VALUE",
  *   searchText: "STRING_VALUE",
  *   filters: [ // SearchFilterList
  *     { // SearchFilter
@@ -104,6 +105,7 @@ export interface SearchFacetsCommandOutput extends SearchFacetsOutput, __Metadat
  *       ]
  *     }
  *   ],
+ *   locale: "en-US",
  *   searchText: "analytics"
  * };
  * const command = new SearchFacetsCommand(input);
@@ -178,7 +180,8 @@ export interface SearchFacetsCommandOutput extends SearchFacetsOutput, __Metadat
  *         "5.0"
  *       ]
  *     }
- *   ]
+ *   ],
+ *   locale: "en-US"
  * };
  * const command = new SearchFacetsCommand(input);
  * const response = await client.send(command);

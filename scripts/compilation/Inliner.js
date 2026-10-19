@@ -22,11 +22,13 @@ module.exports = class Inliner {
     this.isInternalPackage = fs.existsSync(path.join(root, "packages-internal", pkg));
     this.isPackage = !this.isInternalPackage && fs.existsSync(path.join(root, "packages", pkg));
     this.isLib = fs.existsSync(path.join(root, "lib", pkg));
+    this.isPreview = fs.existsSync(path.join(root, "preview", pkg));
     this.isPrivate = fs.existsSync(path.join(root, "private", pkg));
     this.subfolder = (() => {
       if (this.isInternalPackage) return "packages-internal";
       if (this.isPackage) return "packages";
       if (this.isLib) return "lib";
+      if (this.isPreview) return "preview";
       if (this.isPrivate) return "private";
       return "clients";
     })();

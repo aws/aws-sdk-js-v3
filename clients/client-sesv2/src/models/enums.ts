@@ -213,6 +213,18 @@ export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
  * @public
  * @enum
  */
+export const ConfigurationSetFilterKey = {
+  CONFIGURATION_SET_NAME_CONTAINS: "CONFIGURATION_SET_NAME_CONTAINS",
+} as const;
+/**
+ * @public
+ */
+export type ConfigurationSetFilterKey = (typeof ConfigurationSetFilterKey)[keyof typeof ConfigurationSetFilterKey];
+
+/**
+ * @public
+ * @enum
+ */
 export const SubscriptionStatus = {
   OPT_IN: "OPT_IN",
   OPT_OUT: "OPT_OUT",
@@ -732,6 +744,20 @@ export type IdentityCertificateStatus = (typeof IdentityCertificateStatus)[keyof
  * @public
  * @enum
  */
+export const IdentityFilterKey = {
+  IDENTITY_NAME_CONTAINS: "IDENTITY_NAME_CONTAINS",
+  IDENTITY_TYPE: "IDENTITY_TYPE",
+  VERIFICATION_STATUS: "VERIFICATION_STATUS",
+} as const;
+/**
+ * @public
+ */
+export type IdentityFilterKey = (typeof IdentityFilterKey)[keyof typeof IdentityFilterKey];
+
+/**
+ * @public
+ * @enum
+ */
 export const ImportDestinationType = {
   CONTACT_LIST: "CONTACT_LIST",
   SUPPRESSION_LIST: "SUPPRESSION_LIST",
@@ -830,3 +856,16 @@ export const ResourceType = {
  * @public
  */
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ListTenantsFilterKey = {
+  SENDING_STATUS: "SENDING_STATUS",
+  TENANT_NAME_CONTAINS: "TENANT_NAME_CONTAINS",
+} as const;
+/**
+ * @public
+ */
+export type ListTenantsFilterKey = (typeof ListTenantsFilterKey)[keyof typeof ListTenantsFilterKey];

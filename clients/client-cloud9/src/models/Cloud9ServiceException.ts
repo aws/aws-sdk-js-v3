@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from Cloud9 service.
  */
 export class Cloud9ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.cloud9#Cloud9ServiceException";
   /**
    * @internal
    */

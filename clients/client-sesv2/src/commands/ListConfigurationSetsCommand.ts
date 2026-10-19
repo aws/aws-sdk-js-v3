@@ -39,6 +39,9 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * const config = {}; // type is SESv2ClientConfig
  * const client = new SESv2Client(config);
  * const input = { // ListConfigurationSetsRequest
+ *   Filter: { // ConfigurationSetFilter
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   NextToken: "STRING_VALUE",
  *   PageSize: Number("int"),
  * };

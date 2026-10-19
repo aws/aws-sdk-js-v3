@@ -13,6 +13,7 @@ import type { ValidationExceptionField } from "./models_0";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devopsguru#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -35,6 +36,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devopsguru#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -70,6 +72,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devopsguru#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   Message: string | undefined;
@@ -99,6 +102,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devopsguru#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -134,6 +138,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devopsguru#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -156,6 +161,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devopsguru#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -200,6 +206,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devopsguru#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**

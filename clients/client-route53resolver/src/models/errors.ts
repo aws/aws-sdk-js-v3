@@ -10,6 +10,7 @@ import { Route53ResolverServiceException as __BaseException } from "./Route53Res
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -34,6 +35,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -56,6 +58,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#InternalServiceErrorException";
   readonly name = "InternalServiceErrorException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -78,6 +81,7 @@ export class InternalServiceErrorException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -106,6 +110,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -134,6 +139,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -157,6 +163,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -179,6 +186,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -207,6 +215,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -229,6 +238,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class ResourceExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#ResourceExistsException";
   readonly name = "ResourceExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -257,6 +267,7 @@ export class ResourceExistsException extends __BaseException {
  * @public
  */
 export class ResourceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#ResourceUnavailableException";
   readonly name = "ResourceUnavailableException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -285,6 +296,7 @@ export class ResourceUnavailableException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -307,6 +319,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -335,6 +348,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class UnknownResourceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#UnknownResourceException";
   readonly name = "UnknownResourceException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -357,6 +371,7 @@ export class UnknownResourceException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -379,6 +394,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class InvalidPolicyDocument extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#InvalidPolicyDocument";
   readonly name = "InvalidPolicyDocument" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -401,6 +417,7 @@ export class InvalidPolicyDocument extends __BaseException {
  * @public
  */
 export class InvalidTagException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53resolver#InvalidTagException";
   readonly name = "InvalidTagException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

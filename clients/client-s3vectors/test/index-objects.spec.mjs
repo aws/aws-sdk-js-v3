@@ -48,6 +48,7 @@ import {
   GetVectorsInput$,
   GetVectorsOutput$,
   Index$,
+  IndexMode,
   IndexSummary$,
   InternalServerException,
   InternalServerException$,
@@ -84,6 +85,10 @@ import {
   paginateListVectors,
   paginateQueryVectors,
   PutInputVector$,
+  PutVectorBucketDefaultIndexMode$,
+  PutVectorBucketDefaultIndexModeCommand,
+  PutVectorBucketDefaultIndexModeInput$,
+  PutVectorBucketDefaultIndexModeOutput$,
   PutVectorBucketPolicy$,
   PutVectorBucketPolicyCommand,
   PutVectorBucketPolicyInput$,
@@ -117,6 +122,10 @@ import {
   UntagResourceCommand,
   UntagResourceInput$,
   UntagResourceOutput$,
+  UpdateIndexMode$,
+  UpdateIndexModeCommand,
+  UpdateIndexModeInput$,
+  UpdateIndexModeOutput$,
   ValidationException,
   ValidationException$,
   ValidationExceptionField$,
@@ -157,6 +166,8 @@ assert(typeof ListVectorBucketsCommand === "function");
 assert(typeof ListVectorBuckets$ === "object");
 assert(typeof ListVectorsCommand === "function");
 assert(typeof ListVectors$ === "object");
+assert(typeof PutVectorBucketDefaultIndexModeCommand === "function");
+assert(typeof PutVectorBucketDefaultIndexMode$ === "object");
 assert(typeof PutVectorBucketPolicyCommand === "function");
 assert(typeof PutVectorBucketPolicy$ === "object");
 assert(typeof PutVectorsCommand === "function");
@@ -167,6 +178,8 @@ assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdateIndexModeCommand === "function");
+assert(typeof UpdateIndexMode$ === "object");
 // structural schemas
 assert(typeof CreateIndexInput$ === "object");
 assert(typeof CreateIndexOutput$ === "object");
@@ -203,6 +216,8 @@ assert(typeof ListVectorsInput$ === "object");
 assert(typeof ListVectorsOutput$ === "object");
 assert(typeof MetadataConfiguration$ === "object");
 assert(typeof PutInputVector$ === "object");
+assert(typeof PutVectorBucketDefaultIndexModeInput$ === "object");
+assert(typeof PutVectorBucketDefaultIndexModeOutput$ === "object");
 assert(typeof PutVectorBucketPolicyInput$ === "object");
 assert(typeof PutVectorBucketPolicyOutput$ === "object");
 assert(typeof PutVectorsInput$ === "object");
@@ -214,6 +229,8 @@ assert(typeof TagResourceInput$ === "object");
 assert(typeof TagResourceOutput$ === "object");
 assert(typeof UntagResourceInput$ === "object");
 assert(typeof UntagResourceOutput$ === "object");
+assert(typeof UpdateIndexModeInput$ === "object");
+assert(typeof UpdateIndexModeOutput$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 assert(typeof VectorBucket$ === "object");
 assert(typeof VectorBucketSummary$ === "object");
@@ -221,6 +238,7 @@ assert(typeof VectorData$ === "object");
 // enums
 assert(typeof DataType === "object");
 assert(typeof DistanceMetric === "object");
+assert(typeof IndexMode === "object");
 assert(typeof SseType === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof S3VectorsServiceException);

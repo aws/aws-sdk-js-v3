@@ -70,13 +70,11 @@ import type {
   AmazonQInQuickSightConsoleConfigurations,
   AmazonQInQuickSightDashboardConfigurations,
   Analysis,
-  AnalysisError,
   Entity,
   Sheet,
 } from "./models_0";
 import type {
   _Parameters,
-  AnalysisDefinition,
   AnalysisSummary,
   AnonymousUserEmbeddingExperienceConfiguration,
   AnonymousUserSnapshotJobResult,
@@ -100,8 +98,6 @@ import type {
   BrandDefinition,
   BrandDetail,
   BrandSummary,
-  DashboardPublishOptions,
-  DashboardVersionDefinition,
   DashboardVisualId,
   DataSetRefreshProperties,
   LinkSharingConfiguration,
@@ -110,6 +106,7 @@ import type {
   SnapshotFile,
   SnapshotJobResultFileGroup,
   SnapshotS3DestinationConfiguration,
+  Tag,
   VpcConnectionProperties,
 } from "./models_2";
 import type {
@@ -117,7 +114,6 @@ import type {
   CustomPermissions,
   Dashboard,
   DashboardCustomizationSummaryConfigurations,
-  DashboardError,
   DashboardSummary,
   DashboardVersionSummary,
   DataSet,
@@ -133,7 +129,6 @@ import type {
   ProviderConfig,
   RefreshSchedule,
   TemplateAlias,
-  TemplateVersionDefinition,
   ThemeAlias,
   ThemeConfiguration,
   TopicConfiguration,
@@ -650,97 +645,6 @@ export interface DescribeAnalysisDefinitionRequest {
    * @public
    */
   AnalysisId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisDefinitionResponse {
-  /**
-   * <p>The ID of the analysis described.</p>
-   * @public
-   */
-  AnalysisId?: string | undefined;
-
-  /**
-   * <p>The descriptive name of the analysis.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Errors associated with the analysis.</p>
-   * @public
-   */
-  Errors?: AnalysisError[] | undefined;
-
-  /**
-   * <p>Status associated with the analysis.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceStatus?: ResourceStatus | undefined;
-
-  /**
-   * <p>The ARN of the theme of the analysis.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>The definition of an analysis.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   * @public
-   */
-  Definition?: AnalysisDefinition | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
 }
 
 /**
@@ -1543,151 +1447,6 @@ export interface DescribeDashboardDefinitionRequest {
    * @public
    */
   AliasName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardDefinitionResponse {
-  /**
-   * <p>The ID of the dashboard described.</p>
-   * @public
-   */
-  DashboardId?: string | undefined;
-
-  /**
-   * <p>Errors associated with this dashboard version.</p>
-   * @public
-   */
-  Errors?: DashboardError[] | undefined;
-
-  /**
-   * <p>The display name of the dashboard.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Status associated with the dashboard version.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceStatus?: ResourceStatus | undefined;
-
-  /**
-   * <p>The ARN of the theme of the dashboard.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>The definition of a dashboard.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   * @public
-   */
-  Definition?: DashboardVersionDefinition | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>Options for publishing the dashboard:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
-   *                     set to <code>DISABLED</code>, Amazon Quick Sight disables the left filter pane on
-   *                     the published dashboard, which can be used for ad hoc (one-time) filtering. This
-   *                     option is <code>ENABLED</code> by default. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
-   *                     option to export data to .CSV format isn't enabled when this is set to
-   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by default.
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
-   *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
-   *                     This option is <code>COLLAPSED</code> by default. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>QuickSuiteActionsOption</code> -
-   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>.
-   *                     Features related to Actions in Amazon Quick Suite on dashboards are disabled
-   *                     when this is set to <code>DISABLED</code>. This option is <code>DISABLED</code>
-   *                     by default.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>ExecutiveSummaryOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The option
-   *                     to build an executive summary is disabled when this is set to
-   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
-   *                     default.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>DataStoriesSharingOption</code> -
-   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>. The
-   *                     option to share a data story is disabled when this is set to
-   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
-   *                     default.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  DashboardPublishOptions?: DashboardPublishOptions | undefined;
 }
 
 /**
@@ -4727,97 +4486,6 @@ export interface DescribeTemplateDefinitionRequest {
    * @public
    */
   AliasName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplateDefinitionResponse {
-  /**
-   * <p>The descriptive name of the template.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The ID of the template described.</p>
-   * @public
-   */
-  TemplateId?: string | undefined;
-
-  /**
-   * <p>Errors associated with the template version.</p>
-   * @public
-   */
-  Errors?: TemplateError[] | undefined;
-
-  /**
-   * <p>Status associated with the template.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceStatus?: ResourceStatus | undefined;
-
-  /**
-   * <p>The ARN of the theme of the template.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>The definition of the template.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   * @public
-   */
-  Definition?: TemplateVersionDefinition | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
 }
 
 /**
@@ -9502,4 +9170,69 @@ export interface ListSpacesResponse {
    * @public
    */
   RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags
+   * 			for.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+   * 			resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTemplateAliasesRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template aliases that you're listing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
 }

@@ -1232,8 +1232,8 @@ export var Metadata$: StaticStructureSchema = [3, n0, _M,
 ];
 export var MetricMetadata$: StaticStructureSchema = [3, n0, _MM,
   0,
-  [_n, _nam, _pS, _mT, _at, _sem],
-  [0, 0, 0, 0, 128 | 0, () => MetricSemantics$]
+  [_n, _pS, _mT, _at, _sem],
+  [0, 0, 0, 128 | 0, () => MetricSemantics$]
 ];
 export var MetricSemantics$: StaticStructureSchema = [3, n0, _MS,
   0,
@@ -1502,8 +1502,8 @@ export var UpdateOmniDashboardOutput$: StaticStructureSchema = [3, n0, _UODO,
 ];
 export var UpdateSpaceInput$: StaticStructureSchema = [3, n0, _USI,
   0,
-  [_sI, _n, _eCn],
-  [0, 0, () => EncryptionConfiguration$], 1
+  [_sI, _n, _aCERA, _eCn],
+  [0, 0, 0, () => EncryptionConfiguration$], 1
 ];
 export var UpdateSpaceOutput$: StaticStructureSchema = [3, n0, _USO,
   0,
@@ -1668,7 +1668,7 @@ export var CreateDomainForOrganization$: StaticOperationSchema = [9, n0, _CDFO,
   0, () => CreateDomainForOrganizationInput$, () => CreateDomainForOrganizationOutput$
 ];
 export var CreateIntegration$: StaticOperationSchema = [9, n0, _CI,
-  0, () => CreateIntegrationInput$, () => CreateIntegrationOutput$
+  2, () => CreateIntegrationInput$, () => CreateIntegrationOutput$
 ];
 export var CreateOmniDashboard$: StaticOperationSchema = [9, n0, _COD,
   0, () => CreateOmniDashboardInput$, () => CreateOmniDashboardOutput$

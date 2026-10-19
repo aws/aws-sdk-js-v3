@@ -75,6 +75,9 @@ ETag: __ETag__
                 </SslProtocol>
             </Items>
         </OriginSslProtocols>
+        <IpAddressType>
+            __IpAddressType__
+        </IpAddressType>
     </VpcOriginEndpointConfig>
     <AccountId>
         123456789012
@@ -103,7 +106,8 @@ ETag: __ETag__
           "__member__",
           "__member__"
         ]
-      }
+      },
+      IpAddressType: "__IpAddressType__"
     },
     AccountId: "123456789012"
   },

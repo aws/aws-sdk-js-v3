@@ -68,6 +68,9 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *       },
  *     ],
  *   },
+ *   devOpsAgentConfiguration: { // DevOpsAgentConfiguration
+ *     agentSpaceArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
@@ -183,6 +186,15 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //     organizationId: "STRING_VALUE",
  * //     ouId: "STRING_VALUE",
  * //     accountId: "STRING_VALUE",
+ * //     devOpsAgentConfiguration: { // DevOpsAgentConfigurationView
+ * //       agentSpaceArn: "STRING_VALUE",
+ * //       agentSpaceId: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //       status: "CONNECTING" || "CONNECTED" || "DISCONNECTED" || "FAILED",
+ * //       operatorAppUrl: "STRING_VALUE",
+ * //       connectedAt: new Date("TIMESTAMP"),
+ * //       statusReason: "STRING_VALUE",
+ * //     },
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
  * //   },

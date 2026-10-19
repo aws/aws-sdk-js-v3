@@ -23,7 +23,9 @@ export interface GetLifecycleExecutionCommandInput extends GetLifecycleExecution
 export interface GetLifecycleExecutionCommandOutput extends GetLifecycleExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the runtime information for a specific runtime instance of the lifecycle policy.</p>
+ * <p>Retrieves runtime information for a lifecycle execution – a single run of
+ * 			lifecycle actions that a lifecycle policy or a
+ * 			<a>StartResourceStateUpdate</a> request started.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,22 +64,25 @@ export interface GetLifecycleExecutionCommandOutput extends GetLifecycleExecutio
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
+ * 			calls on your behalf. Retry with an increasing or variable delay between
+ * 			requests.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
+ *  <p>A generic client error. This error usually indicates that the request
+ * 			failed a validation check, such as when a downstream service rejects a
+ * 			configured value.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have requested an action that that the service doesn't support.</p>
+ *  <p>The request is malformed or otherwise invalid. Verify the request and try
+ * 			again.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -85,6 +90,30 @@ export interface GetLifecycleExecutionCommandOutput extends GetLifecycleExecutio
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example Get the details of a lifecycle execution
+ * ```javascript
+ * // The following example retrieves the runtime status of the specified lifecycle execution. If the execution was started by StartResourceStateUpdate rather than a lifecycle policy run, the response doesn't include the lifecyclePolicyArn field.
+ * const input = {
+ *   lifecycleExecutionId: "lce-401aefc3-a829-46f6-8fc2-91497988a503"
+ * };
+ * const command = new GetLifecycleExecutionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   lifecycleExecution: {
+ *     lifecycleExecutionId: "lce-401aefc3-a829-46f6-8fc2-91497988a503",
+ *     resourcesImpactedSummary: {
+ *       hasImpactedResources: false
+ *     },
+ *     startTime: "2026-09-09T21:42:29Z",
+ *     state: {
+ *       status: "IN_PROGRESS"
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

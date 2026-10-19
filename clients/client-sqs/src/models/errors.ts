@@ -8,6 +8,7 @@ import { SQSServiceException as __BaseException } from "./SQSServiceException";
  * @public
  */
 export class InvalidAddress extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#InvalidAddress";
   readonly name = "InvalidAddress" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class InvalidAddress extends __BaseException {
  * @public
  */
 export class InvalidSecurity extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#InvalidSecurity";
   readonly name = "InvalidSecurity" as const;
   readonly $fault = "client" as const;
   /**
@@ -51,6 +53,7 @@ export class InvalidSecurity extends __BaseException {
  * @public
  */
 export class OverLimit extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#OverLimit";
   readonly name = "OverLimit" as const;
   readonly $fault = "client" as const;
   /**
@@ -72,6 +75,7 @@ export class OverLimit extends __BaseException {
  * @public
  */
 export class QueueDoesNotExist extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#QueueDoesNotExist";
   readonly name = "QueueDoesNotExist" as const;
   readonly $fault = "client" as const;
   /**
@@ -103,6 +107,7 @@ export class QueueDoesNotExist extends __BaseException {
  * @public
  */
 export class RequestThrottled extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#RequestThrottled";
   readonly name = "RequestThrottled" as const;
   readonly $fault = "client" as const;
   /**
@@ -123,6 +128,7 @@ export class RequestThrottled extends __BaseException {
  * @public
  */
 export class UnsupportedOperation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#UnsupportedOperation";
   readonly name = "UnsupportedOperation" as const;
   readonly $fault = "client" as const;
   /**
@@ -143,6 +149,7 @@ export class UnsupportedOperation extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -163,6 +170,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class MessageNotInflight extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#MessageNotInflight";
   readonly name = "MessageNotInflight" as const;
   readonly $fault = "client" as const;
   /**
@@ -183,6 +191,7 @@ export class MessageNotInflight extends __BaseException {
  * @public
  */
 export class ReceiptHandleIsInvalid extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#ReceiptHandleIsInvalid";
   readonly name = "ReceiptHandleIsInvalid" as const;
   readonly $fault = "client" as const;
   /**
@@ -203,6 +212,7 @@ export class ReceiptHandleIsInvalid extends __BaseException {
  * @public
  */
 export class BatchEntryIdsNotDistinct extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#BatchEntryIdsNotDistinct";
   readonly name = "BatchEntryIdsNotDistinct" as const;
   readonly $fault = "client" as const;
   /**
@@ -223,6 +233,7 @@ export class BatchEntryIdsNotDistinct extends __BaseException {
  * @public
  */
 export class EmptyBatchRequest extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#EmptyBatchRequest";
   readonly name = "EmptyBatchRequest" as const;
   readonly $fault = "client" as const;
   /**
@@ -244,6 +255,7 @@ export class EmptyBatchRequest extends __BaseException {
  * @public
  */
 export class InvalidBatchEntryId extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#InvalidBatchEntryId";
   readonly name = "InvalidBatchEntryId" as const;
   readonly $fault = "client" as const;
   /**
@@ -265,6 +277,7 @@ export class InvalidBatchEntryId extends __BaseException {
  * @public
  */
 export class TooManyEntriesInBatchRequest extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#TooManyEntriesInBatchRequest";
   readonly name = "TooManyEntriesInBatchRequest" as const;
   readonly $fault = "client" as const;
   /**
@@ -285,6 +298,7 @@ export class TooManyEntriesInBatchRequest extends __BaseException {
  * @public
  */
 export class InvalidAttributeName extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#InvalidAttributeName";
   readonly name = "InvalidAttributeName" as const;
   readonly $fault = "client" as const;
   /**
@@ -305,6 +319,7 @@ export class InvalidAttributeName extends __BaseException {
  * @public
  */
 export class InvalidAttributeValue extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#InvalidAttributeValue";
   readonly name = "InvalidAttributeValue" as const;
   readonly $fault = "client" as const;
   /**
@@ -326,6 +341,7 @@ export class InvalidAttributeValue extends __BaseException {
  * @public
  */
 export class QueueDeletedRecently extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#QueueDeletedRecently";
   readonly name = "QueueDeletedRecently" as const;
   readonly $fault = "client" as const;
   /**
@@ -347,6 +363,7 @@ export class QueueDeletedRecently extends __BaseException {
  * @public
  */
 export class QueueNameExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#QueueNameExists";
   readonly name = "QueueNameExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -369,6 +386,7 @@ export class QueueNameExists extends __BaseException {
  * @public
  */
 export class InvalidIdFormat extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#InvalidIdFormat";
   readonly name = "InvalidIdFormat" as const;
   readonly $fault = "client" as const;
   /**
@@ -391,6 +409,7 @@ export class InvalidIdFormat extends __BaseException {
  * @public
  */
 export class PurgeQueueInProgress extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#PurgeQueueInProgress";
   readonly name = "PurgeQueueInProgress" as const;
   readonly $fault = "client" as const;
   /**
@@ -411,6 +430,7 @@ export class PurgeQueueInProgress extends __BaseException {
  * @public
  */
 export class KmsAccessDenied extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#KmsAccessDenied";
   readonly name = "KmsAccessDenied" as const;
   readonly $fault = "client" as const;
   /**
@@ -431,6 +451,7 @@ export class KmsAccessDenied extends __BaseException {
  * @public
  */
 export class KmsDisabled extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#KmsDisabled";
   readonly name = "KmsDisabled" as const;
   readonly $fault = "client" as const;
   /**
@@ -461,6 +482,7 @@ export class KmsDisabled extends __BaseException {
  * @public
  */
 export class KmsInvalidKeyUsage extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#KmsInvalidKeyUsage";
   readonly name = "KmsInvalidKeyUsage" as const;
   readonly $fault = "client" as const;
   /**
@@ -482,6 +504,7 @@ export class KmsInvalidKeyUsage extends __BaseException {
  * @public
  */
 export class KmsInvalidState extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#KmsInvalidState";
   readonly name = "KmsInvalidState" as const;
   readonly $fault = "client" as const;
   /**
@@ -503,6 +526,7 @@ export class KmsInvalidState extends __BaseException {
  * @public
  */
 export class KmsNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#KmsNotFound";
   readonly name = "KmsNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -524,6 +548,7 @@ export class KmsNotFound extends __BaseException {
  * @public
  */
 export class KmsOptInRequired extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#KmsOptInRequired";
   readonly name = "KmsOptInRequired" as const;
   readonly $fault = "client" as const;
   /**
@@ -544,6 +569,7 @@ export class KmsOptInRequired extends __BaseException {
  * @public
  */
 export class KmsThrottled extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#KmsThrottled";
   readonly name = "KmsThrottled" as const;
   readonly $fault = "client" as const;
   /**
@@ -564,6 +590,7 @@ export class KmsThrottled extends __BaseException {
  * @public
  */
 export class InvalidMessageContents extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#InvalidMessageContents";
   readonly name = "InvalidMessageContents" as const;
   readonly $fault = "client" as const;
   /**
@@ -584,6 +611,7 @@ export class InvalidMessageContents extends __BaseException {
  * @public
  */
 export class BatchRequestTooLong extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sqs#BatchRequestTooLong";
   readonly name = "BatchRequestTooLong" as const;
   readonly $fault = "client" as const;
   /**

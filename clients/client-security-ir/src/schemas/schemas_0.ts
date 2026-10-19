@@ -38,6 +38,9 @@ const _GCAUUR = "GetCaseAttachmentUploadUrlRequest";
 const _GCAUURe = "GetCaseAttachmentUploadUrlResponse";
 const _GCR = "GetCaseRequest";
 const _GCRe = "GetCaseResponse";
+const _GFM = "GetFindingMetrics";
+const _GFMR = "GetFindingMetricsRequest";
+const _GFMRe = "GetFindingMetricsResponse";
 const _GM = "GetMembership";
 const _GMADE = "GetMembershipAccountDetailError";
 const _GMADEe = "GetMembershipAccountDetailErrors";
@@ -153,14 +156,26 @@ const _com = "comment";
 const _cr = "creator";
 const _d = "description";
 const _e = "error";
+const _eD = "endDate";
 const _eT = "eventTimestamp";
 const _eTn = "engagementType";
 const _em = "email";
 const _er = "errors";
 const _f = "feedback";
+const _fE = "findingsEscalated";
+const _fEFP = "findingsEscalatedFalsePositive";
+const _fEIP = "findingsEscalatedInProgress";
+const _fI = "findingsInvestigated";
+const _fIFP = "findingsInvestigatedFalsePositive";
+const _fIGD = "findingsIngestedGuardDuty";
+const _fIIP = "findingsInvestigatedInProgress";
+const _fISH = "findingsIngestedSecurityHub";
 const _fL = "fieldList";
 const _fN = "fileName";
 const _fNe = "featureName";
+const _fT = "findingsTriaged";
+const _fTFP = "findingsTriagedFalsePositive";
+const _fTP = "findingsTruePositive";
 const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
@@ -219,6 +234,7 @@ const _re = "region";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.securityir";
 const _sA = "submittedAt";
 const _sC = "serviceCode";
+const _sD = "startDate";
 const _se = "server";
 const _st = "status";
 const _t = "title";
@@ -444,6 +460,16 @@ export var GetCaseResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
   [_t, _cA, _d, _cS, _eTn, _rISD, _aISD, _iAR, _tAIA, _pA, _iA, _w, _cD, _lUD, _cC, _rTe, _iS, _cAa, _cDl, _cM],
   [[() => CaseTitle, 0], 0, [() => CaseDescription, 0], 0, 0, 4, 4, () => ImpactedAwsRegionList, [() => ThreatActorIpList, 0], 0, 64 | 0, [() => Watchers, 0], 4, 4, 0, 0, 64 | 0, [() => CaseAttachmentsList, 0], 4, () => CaseMetadata]
+];
+export var GetFindingMetricsRequest$: StaticStructureSchema = [3, n0, _GFMR,
+  0,
+  [_mI, _sD, _eD],
+  [[0, 1], [4, { [_hQ]: _sD }], [4, { [_hQ]: _eD }]], 3
+];
+export var GetFindingMetricsResponse$: StaticStructureSchema = [3, n0, _GFMRe,
+  0,
+  [_fISH, _fIGD, _fT, _fTFP, _fI, _fIFP, _fE, _fEFP, _fTP, _fIIP, _fEIP],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 11
 ];
 export var GetMembershipAccountDetailError$: StaticStructureSchema = [3, n0, _GMADE,
   0,
@@ -754,6 +780,9 @@ export var GetCaseAttachmentDownloadUrl$: StaticOperationSchema = [9, n0, _GCADU
 ];
 export var GetCaseAttachmentUploadUrl$: StaticOperationSchema = [9, n0, _GCAUU,
   { [_h]: ["POST", "/v1/cases/{caseId}/get-presigned-url", 201] }, () => GetCaseAttachmentUploadUrlRequest$, () => GetCaseAttachmentUploadUrlResponse$
+];
+export var GetFindingMetrics$: StaticOperationSchema = [9, n0, _GFM,
+  { [_h]: ["GET", "/v1/membership/{membershipId}/finding-metrics", 200] }, () => GetFindingMetricsRequest$, () => GetFindingMetricsResponse$
 ];
 export var GetMembership$: StaticOperationSchema = [9, n0, _GM,
   { [_h]: ["GET", "/v1/membership/{membershipId}", 200] }, () => GetMembershipRequest$, () => GetMembershipResponse$

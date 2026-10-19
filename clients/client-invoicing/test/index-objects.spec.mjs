@@ -96,6 +96,7 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  MarketplacePunchOutPreference$,
   paginateListInvoiceSummaries,
   paginateListInvoiceUnits,
   paginateListProcurementPortalPreferences,
@@ -260,6 +261,7 @@ assert(typeof ListProcurementPortalSuppliersRequest$ === "object");
 assert(typeof ListProcurementPortalSuppliersResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof MarketplacePunchOutPreference$ === "object");
 assert(typeof ProcurementPortal$ === "object");
 assert(typeof ProcurementPortalPreference$ === "object");
 assert(typeof ProcurementPortalPreferenceSelector$ === "object");

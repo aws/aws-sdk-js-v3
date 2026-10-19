@@ -3,6 +3,124 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1152.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1151.0...v3.1152.0) (2026-10-14)
+
+**Note:** Version bump only for package @aws-sdk/client-gamelift
+
+
+
+
+
+# [3.1151.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1150.0...v3.1151.0) (2026-10-13)
+
+
+### Features
+
+* **client-gamelift:** Adds support for new instance types in the C8a, C8i, C9g, M8a, M8i, and M9g families for managed EC2 and container fleets ([5145677](https://github.com/aws/aws-sdk-js-v3/commit/5145677226e133de057c148d8060e0edb4ff567f))
+
+
+
+
+
+# [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
+
+**Note:** Version bump only for package @aws-sdk/client-gamelift
+
+
+
+
+
+# [3.1149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1148.0...v3.1149.0) (2026-10-09)
+
+**Note:** Version bump only for package @aws-sdk/client-gamelift
+
+
+
+
+
+# [3.1148.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1147.0...v3.1148.0) (2026-10-08)
+
+
+### Features
+
+* **client-gamelift:** Amazon GameLift Servers container fleets now support CPU bursting for game server container groups. The TotalVcpuLimit property of a game server container group definition is now optional. When you omit it, the group has no CPU cap and its containers can burst into unused CPU on the instance. ([1812184](https://github.com/aws/aws-sdk-js-v3/commit/181218406de73dbd7a528b282d8cd1fc0d560d5a))
+
+
+
+
+
+# [3.1147.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1146.0...v3.1147.0) (2026-10-06)
+
+**Note:** Version bump only for package @aws-sdk/client-gamelift
+
+
+
+
+
+# [3.1146.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1145.0...v3.1146.0) (2026-10-02)
+
+**Note:** Version bump only for package @aws-sdk/client-gamelift
+
+
+
+
+
+# [3.1145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1144.0...v3.1145.0) (2026-10-01)
+
+**Note:** Version bump only for package @aws-sdk/client-gamelift
+
+
+
+
+
+# [3.1144.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1143.0...v3.1144.0) (2026-09-30)
+
+**Note:** Version bump only for package @aws-sdk/client-gamelift
+
+
+
+
+
+# [3.1143.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1142.0...v3.1143.0) (2026-09-29)
+
+**Note:** Version bump only for package @aws-sdk/client-gamelift
+
+
+
+
+
+# [3.1142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1141.0...v3.1142.0) (2026-09-28)
+
+**Note:** Version bump only for package @aws-sdk/client-gamelift
+
+
+
+
+
+# [3.1141.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1140.0...v3.1141.0) (2026-09-25)
+
+**Note:** Version bump only for package @aws-sdk/client-gamelift
+
+
+
+
+
+# [3.1140.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1139.0...v3.1140.0) (2026-09-24)
+
+**Note:** Version bump only for package @aws-sdk/client-gamelift
+
+
+
+
+
+# [3.1139.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1138.0...v3.1139.0) (2026-09-23)
+
+**Note:** Version bump only for package @aws-sdk/client-gamelift
+
+
+
+
+
 # [3.1138.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1137.0...v3.1138.0) (2026-09-22)
 
 **Note:** Version bump only for package @aws-sdk/client-gamelift

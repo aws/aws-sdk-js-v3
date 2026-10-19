@@ -3,6 +3,7 @@ const _AA = "ApplicationArn";
 const _AAC = "AdditionalAuditContext";
 const _AC = "AuditContext";
 const _ACd = "AdditionalContext";
+const _ACt = "AttachmentColumns";
 const _AD = "AdditionalDetails";
 const _ADE = "AccessDeniedException";
 const _ADL = "AccessibleDataLocations";
@@ -19,6 +20,9 @@ const _ALFTTRR = "AddLFTagsToResourceRequest";
 const _ALFTTRRd = "AddLFTagsToResourceResponse";
 const _AO = "AddObject";
 const _AOI = "AddObjectInput";
+const _ARLSP = "AttachRLSPolicy";
+const _ARLSPR = "AttachRLSPolicyRequest";
+const _ARLSPRt = "AttachRLSPolicyResponse";
 const _ARW = "AllRowsWildcard";
 const _AS = "ApplicationStatus";
 const _ASTVL = "AuthorizedSessionTagValueList";
@@ -41,6 +45,7 @@ const _CDDP = "CreateDatabaseDefaultPermissions";
 const _CE = "ConflictException";
 const _CI = "CatalogId";
 const _CIl = "ClusterId";
+const _CL = "ColumnList";
 const _CLFICC = "CreateLakeFormationIdentityCenterConfiguration";
 const _CLFICCR = "CreateLakeFormationIdentityCenterConfigurationRequest";
 const _CLFICCRr = "CreateLakeFormationIdentityCenterConfigurationResponse";
@@ -59,6 +64,9 @@ const _CME = "ConcurrentModificationException";
 const _CN = "ColumnNames";
 const _CO = "ComparisonOperator";
 const _CR = "CatalogResource";
+const _CRLSP = "CreateRLSPolicy";
+const _CRLSPR = "CreateRLSPolicyRequest";
+const _CRLSPRr = "CreateRLSPolicyResponse";
 const _CS = "CredentialsScope";
 const _CT = "CancelTransaction";
 const _CTDP = "CreateTableDefaultPermissions";
@@ -69,7 +77,8 @@ const _CTRom = "CommitTransactionResponse";
 const _CTo = "CommitTransaction";
 const _CW = "ColumnWildcard";
 const _Ca = "Catalog";
-const _Co = "Config";
+const _Co = "Column";
+const _Con = "Config";
 const _Cr = "Credentials";
 const _D = "Description";
 const _DCF = "DataCellsFilter";
@@ -112,6 +121,13 @@ const _DOOC = "DeleteObjectsOnCancel";
 const _DOOCR = "DeleteObjectsOnCancelRequest";
 const _DOOCRe = "DeleteObjectsOnCancelResponse";
 const _DR = "DatabaseResource";
+const _DRLSP = "DefaultRLSPolicy";
+const _DRLSPR = "DeleteRLSPolicyRequest";
+const _DRLSPRe = "DeleteRLSPolicyResponse";
+const _DRLSPRet = "DetachRLSPolicyRequest";
+const _DRLSPReta = "DetachRLSPolicyResponse";
+const _DRLSPe = "DeleteRLSPolicy";
+const _DRLSPet = "DetachRLSPolicy";
 const _DRR = "DeregisterResourceRequest";
 const _DRRe = "DeregisterResourceResponse";
 const _DRRes = "DescribeResourceRequest";
@@ -181,6 +197,9 @@ const _GQSe = "GetQueryStatistics";
 const _GRLFT = "GetResourceLFTags";
 const _GRLFTR = "GetResourceLFTagsRequest";
 const _GRLFTRe = "GetResourceLFTagsResponse";
+const _GRLSP = "GetRLSPolicy";
+const _GRLSPR = "GetRLSPolicyRequest";
+const _GRLSPRe = "GetRLSPolicyResponse";
 const _GTDLC = "GetTemporaryDataLocationCredentials";
 const _GTDLCR = "GetTemporaryDataLocationCredentialsRequest";
 const _GTDLCRe = "GetTemporaryDataLocationCredentialsResponse";
@@ -242,6 +261,12 @@ const _LPR = "ListPermissionsRequest";
 const _LPRi = "ListPermissionsResponse";
 const _LR = "ListResources";
 const _LRD = "LastRunDetails";
+const _LRLSP = "ListRLSPolicies";
+const _LRLSPA = "ListRLSPolicyAttachments";
+const _LRLSPAR = "ListRLSPolicyAttachmentsRequest";
+const _LRLSPARi = "ListRLSPolicyAttachmentsResponse";
+const _LRLSPR = "ListRLSPoliciesRequest";
+const _LRLSPRi = "ListRLSPoliciesResponse";
 const _LRR = "ListResourcesRequest";
 const _LRRi = "ListResourcesResponse";
 const _LT = "ListTransactions";
@@ -263,6 +288,7 @@ const _PA = "PrincipalArn";
 const _PDLS = "PutDataLakeSettings";
 const _PDLSR = "PutDataLakeSettingsRequest";
 const _PDLSRu = "PutDataLakeSettingsResponse";
+const _PN = "PolicyName";
 const _PO = "PartitionObjects";
 const _PP = "PartitionPredicate";
 const _PPL = "PrincipalPermissionsList";
@@ -294,6 +320,7 @@ const _R = "Resource";
 const _RA = "RoleArn";
 const _RAe = "ResourceArn";
 const _RC = "RedshiftConnect";
+const _RD = "RemoveDefault";
 const _RE = "RequestEntry";
 const _RF = "RowFilter";
 const _RI = "ResourceInfo";
@@ -301,6 +328,13 @@ const _RIL = "ResourceInfoList";
 const _RLFTFR = "RemoveLFTagsFromResource";
 const _RLFTFRR = "RemoveLFTagsFromResourceRequest";
 const _RLFTFRRe = "RemoveLFTagsFromResourceResponse";
+const _RLSP = "RLSPolicy";
+const _RLSPA = "RLSPolicyAttachments";
+const _RLSPAL = "RLSPolicyAttachmentList";
+const _RLSPAo = "RLSPolicyAttachment";
+const _RLSPL = "RLSPolicyList";
+const _RLSPR = "RLSPolicyResource";
+const _RLSPo = "RLSPolicies";
 const _RNLEE = "ResourceNumberLimitExceededException";
 const _RNRE = "ResourceNotReadyException";
 const _ROA = "ReadOnlyAdmins";
@@ -322,6 +356,7 @@ const _S = "Size";
 const _SAK = "SecretAccessKey";
 const _SALFT = "ShowAssignedLFTags";
 const _SAMLA = "SAMLAssertion";
+const _SD = "SetDefault";
 const _SDBLFT = "SearchDatabasesByLFTags";
 const _SDBLFTR = "SearchDatabasesByLFTagsRequest";
 const _SDBLFTRe = "SearchDatabasesByLFTagsResponse";
@@ -353,7 +388,7 @@ const _STt = "StartTransaction";
 const _SVL = "StringValueList";
 const _St = "Status";
 const _Sta = "State";
-const _T = "Table";
+const _T = "Type";
 const _TA = "TableArn";
 const _TC = "TemporaryCredentials";
 const _TCE = "TransactionCanceledException";
@@ -385,6 +420,7 @@ const _TVTD = "TagValuesToDelete";
 const _TW = "TableWildcard";
 const _TWC = "TableWithColumns";
 const _TWCR = "TableWithColumnsResource";
+const _Ta = "Table";
 const _Tr = "Transactions";
 const _U = "Uri";
 const _UDCF = "UpdateDataCellsFilter";
@@ -400,6 +436,9 @@ const _ULFTERp = "UpdateLFTagExpressionResponse";
 const _ULFTR = "UpdateLFTagRequest";
 const _ULFTRp = "UpdateLFTagResponse";
 const _UR = "UpdateResource";
+const _URLSP = "UpdateRLSPolicy";
+const _URLSPR = "UpdateRLSPolicyRequest";
+const _URLSPRp = "UpdateRLSPolicyResponse";
 const _URR = "UpdateResourceRequest";
 const _URRp = "UpdateResourceResponse";
 const _USLR = "UseServiceLinkedRole";
@@ -637,6 +676,16 @@ export var AssumeDecoratedRoleWithSAMLResponse$: StaticStructureSchema = [3, n0,
   [_AKI, _SAK, _ST, _E],
   [0, 0, 0, 4]
 ];
+export var AttachRLSPolicyRequest$: StaticStructureSchema = [3, n0, _ARLSPR,
+  0,
+  [_N, _R, _P, _C, _SD],
+  [0, () => Resource$, () => DataLakePrincipal$, () => Condition$, 2], 2
+];
+export var AttachRLSPolicyResponse$: StaticStructureSchema = [3, n0, _ARLSPRt,
+  0,
+  [],
+  []
+];
 export var AuditContext$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_AAC],
@@ -686,6 +735,11 @@ export var CatalogResource$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_I],
   [0]
+];
+export var Column$: StaticStructureSchema = [3, n0, _Co,
+  0,
+  [_N, _T],
+  [0, 0], 1
 ];
 export var ColumnLFTag$: StaticStructureSchema = [3, n0, _CLFT,
   0,
@@ -758,6 +812,16 @@ export var CreateLFTagRequest$: StaticStructureSchema = [3, n0, _CLFTR,
   [0, 64 | 0, 0], 2
 ];
 export var CreateLFTagResponse$: StaticStructureSchema = [3, n0, _CLFTRr,
+  0,
+  [],
+  []
+];
+export var CreateRLSPolicyRequest$: StaticStructureSchema = [3, n0, _CRLSPR,
+  0,
+  [_N, _ACt, _FE],
+  [0, () => ColumnList, 0], 3
+];
+export var CreateRLSPolicyResponse$: StaticStructureSchema = [3, n0, _CRLSPRr,
   0,
   [],
   []
@@ -857,6 +921,16 @@ export var DeleteObjectsOnCancelResponse$: StaticStructureSchema = [3, n0, _DOOC
   [],
   []
 ];
+export var DeleteRLSPolicyRequest$: StaticStructureSchema = [3, n0, _DRLSPR,
+  0,
+  [_N],
+  [0], 1
+];
+export var DeleteRLSPolicyResponse$: StaticStructureSchema = [3, n0, _DRLSPRe,
+  0,
+  [],
+  []
+];
 export var DeregisterResourceRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_RAe],
@@ -896,6 +970,16 @@ export var DescribeTransactionResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
   [_TDr],
   [() => TransactionDescription$]
+];
+export var DetachRLSPolicyRequest$: StaticStructureSchema = [3, n0, _DRLSPRet,
+  0,
+  [_N, _R, _P, _C, _RD],
+  [0, () => Resource$, () => DataLakePrincipal$, () => Condition$, 2], 2
+];
+export var DetachRLSPolicyResponse$: StaticStructureSchema = [3, n0, _DRLSPReta,
+  0,
+  [],
+  []
 ];
 export var DetailsMap$: StaticStructureSchema = [3, n0, _DM,
   0,
@@ -1022,6 +1106,16 @@ export var GetResourceLFTagsResponse$: StaticStructureSchema = [3, n0, _GRLFTRe,
   [_LFTOD, _LFTOT, _LFTOC],
   [() => LFTagsList, () => LFTagsList, () => ColumnLFTagsList]
 ];
+export var GetRLSPolicyRequest$: StaticStructureSchema = [3, n0, _GRLSPR,
+  0,
+  [_N],
+  [0], 1
+];
+export var GetRLSPolicyResponse$: StaticStructureSchema = [3, n0, _GRLSPRe,
+  0,
+  [_RLSP],
+  [() => RLSPolicy$]
+];
 export var GetTableObjectsRequest$: StaticStructureSchema = [3, n0, _GTOR,
   0,
   [_DN, _TN, _CI, _TI, _QAOT, _PP, _MR, _NT],
@@ -1134,7 +1228,7 @@ export var LFTagPolicyResource$: StaticStructureSchema = [3, n0, _LFTPR,
 ];
 export var ListDataCellsFilterRequest$: StaticStructureSchema = [3, n0, _LDCFR,
   0,
-  [_T, _NT, _MR],
+  [_Ta, _NT, _MR],
   [() => TableResource$, 0, 1]
 ];
 export var ListDataCellsFilterResponse$: StaticStructureSchema = [3, n0, _LDCFRi,
@@ -1191,6 +1285,26 @@ export var ListResourcesResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
   [_RIL, _NT],
   [() => ResourceInfoList, 0]
+];
+export var ListRLSPoliciesRequest$: StaticStructureSchema = [3, n0, _LRLSPR,
+  0,
+  [_MR, _NT],
+  [1, 0]
+];
+export var ListRLSPoliciesResponse$: StaticStructureSchema = [3, n0, _LRLSPRi,
+  0,
+  [_RLSPo, _NT],
+  [() => RLSPolicyList, 0]
+];
+export var ListRLSPolicyAttachmentsRequest$: StaticStructureSchema = [3, n0, _LRLSPAR,
+  0,
+  [_R, _P, _PN, _MR, _NT],
+  [() => Resource$, () => DataLakePrincipal$, 0, 1, 0]
+];
+export var ListRLSPolicyAttachmentsResponse$: StaticStructureSchema = [3, n0, _LRLSPARi,
+  0,
+  [_RLSPA, _NT],
+  [() => RLSPolicyAttachmentList, 0]
 ];
 export var ListTableStorageOptimizersRequest$: StaticStructureSchema = [3, n0, _LTSOR,
   0,
@@ -1284,8 +1398,8 @@ export var RemoveLFTagsFromResourceResponse$: StaticStructureSchema = [3, n0, _R
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_Ca, _Da, _T, _TWC, _DLa, _DCF, _LFTa, _LFTPa, _LFTEa],
-  [() => CatalogResource$, () => DatabaseResource$, () => TableResource$, () => TableWithColumnsResource$, () => DataLocationResource$, () => DataCellsFilterResource$, () => LFTagKeyResource$, () => LFTagPolicyResource$, () => LFTagExpressionResource$]
+  [_Ca, _Da, _Ta, _TWC, _DLa, _DCF, _LFTa, _LFTPa, _LFTEa, _RLSP],
+  [() => CatalogResource$, () => DatabaseResource$, () => TableResource$, () => TableWithColumnsResource$, () => DataLocationResource$, () => DataCellsFilterResource$, () => LFTagKeyResource$, () => LFTagPolicyResource$, () => LFTagExpressionResource$, () => RLSPolicyResource$]
 ];
 export var ResourceInfo$: StaticStructureSchema = [3, n0, _RI,
   0,
@@ -1301,6 +1415,21 @@ export var RevokePermissionsResponse$: StaticStructureSchema = [3, n0, _RPRe,
   0,
   [],
   []
+];
+export var RLSPolicy$: StaticStructureSchema = [3, n0, _RLSP,
+  0,
+  [_CI, _N, _ACt, _FE],
+  [0, 0, () => ColumnList, 0]
+];
+export var RLSPolicyAttachment$: StaticStructureSchema = [3, n0, _RLSPAo,
+  0,
+  [_CI, _PN, _P, _R, _C, _DRLSP],
+  [0, 0, () => DataLakePrincipal$, () => Resource$, () => Condition$, 2]
+];
+export var RLSPolicyResource$: StaticStructureSchema = [3, n0, _RLSPR,
+  0,
+  [_N, _CI],
+  [0, 0], 1
 ];
 export var RowFilter$: StaticStructureSchema = [3, n0, _RF,
   0,
@@ -1349,7 +1478,7 @@ export var StartTransactionResponse$: StaticStructureSchema = [3, n0, _STRt,
 ];
 export var StorageOptimizer$: StaticStructureSchema = [3, n0, _SO,
   0,
-  [_SOT, _Co, _EM, _W, _LRD],
+  [_SOT, _Con, _EM, _W, _LRD],
   [0, 128 | 0, 0, 0, 0]
 ];
 export var TableObject$: StaticStructureSchema = [3, n0, _TO,
@@ -1379,7 +1508,7 @@ export var TaggedDatabase$: StaticStructureSchema = [3, n0, _TDa,
 ];
 export var TaggedTable$: StaticStructureSchema = [3, n0, _TTa,
   0,
-  [_T, _LFTOD, _LFTOT, _LFTOC],
+  [_Ta, _LFTOD, _LFTOT, _LFTOC],
   [() => TableResource$, () => LFTagsList, () => LFTagsList, () => ColumnLFTagsList]
 ];
 export var TemporaryCredentials$: StaticStructureSchema = [3, n0, _TC,
@@ -1442,6 +1571,16 @@ export var UpdateResourceResponse$: StaticStructureSchema = [3, n0, _URRp,
   [],
   []
 ];
+export var UpdateRLSPolicyRequest$: StaticStructureSchema = [3, n0, _URLSPR,
+  0,
+  [_N, _FE],
+  [0, 0], 1
+];
+export var UpdateRLSPolicyResponse$: StaticStructureSchema = [3, n0, _URLSPRp,
+  0,
+  [],
+  []
+];
 export var UpdateTableObjectsRequest$: StaticStructureSchema = [3, n0, _UTOR,
   0,
   [_DN, _TN, _WO, _CI, _TI],
@@ -1486,6 +1625,9 @@ var BatchPermissionsRequestEntryList: StaticListSchema = [1, n0, _BPREL,
 ];
 var ColumnLFTagsList: StaticListSchema = [1, n0, _CLFTL,
   0, () => ColumnLFTag$
+];
+var ColumnList: StaticListSchema = [1, n0, _CL,
+  0, () => Column$
 ];
 var ColumnNames = 64 | 0;
 var DatabaseLFTagsList: StaticListSchema = [1, n0, _DLFTL,
@@ -1535,6 +1677,12 @@ var ResourceInfoList: StaticListSchema = [1, n0, _RIL,
   0, () => ResourceInfo$
 ];
 var ResourceShareList = 64 | 0;
+var RLSPolicyAttachmentList: StaticListSchema = [1, n0, _RLSPAL,
+  0, () => RLSPolicyAttachment$
+];
+var RLSPolicyList: StaticListSchema = [1, n0, _RLSPL,
+  0, () => RLSPolicy$
+];
 var ScopeTargets = 64 | 0;
 var ServiceIntegrationList: StaticListSchema = [1, n0, _SIL,
   0, () => ServiceIntegrationUnion$
@@ -1587,6 +1735,9 @@ export var AddLFTagsToResource$: StaticOperationSchema = [9, n0, _ALFTTR,
 export var AssumeDecoratedRoleWithSAML$: StaticOperationSchema = [9, n0, _ADRWSAML,
   { [_h]: ["POST", "/AssumeDecoratedRoleWithSAML", 200] }, () => AssumeDecoratedRoleWithSAMLRequest$, () => AssumeDecoratedRoleWithSAMLResponse$
 ];
+export var AttachRLSPolicy$: StaticOperationSchema = [9, n0, _ARLSP,
+  { [_h]: ["POST", "/AttachRLSPolicy", 200] }, () => AttachRLSPolicyRequest$, () => AttachRLSPolicyResponse$
+];
 export var BatchGrantPermissions$: StaticOperationSchema = [9, n0, _BGP,
   { [_h]: ["POST", "/BatchGrantPermissions", 200] }, () => BatchGrantPermissionsRequest$, () => BatchGrantPermissionsResponse$
 ];
@@ -1614,6 +1765,9 @@ export var CreateLFTag$: StaticOperationSchema = [9, n0, _CLFTr,
 export var CreateLFTagExpression$: StaticOperationSchema = [9, n0, _CLFTE,
   { [_h]: ["POST", "/CreateLFTagExpression", 200] }, () => CreateLFTagExpressionRequest$, () => CreateLFTagExpressionResponse$
 ];
+export var CreateRLSPolicy$: StaticOperationSchema = [9, n0, _CRLSP,
+  { [_h]: ["POST", "/CreateRLSPolicy", 200] }, () => CreateRLSPolicyRequest$, () => CreateRLSPolicyResponse$
+];
 export var DeleteDataCellsFilter$: StaticOperationSchema = [9, n0, _DDCF,
   { [_h]: ["POST", "/DeleteDataCellsFilter", 200] }, () => DeleteDataCellsFilterRequest$, () => DeleteDataCellsFilterResponse$
 ];
@@ -1632,6 +1786,9 @@ export var DeleteLFTagExpression$: StaticOperationSchema = [9, n0, _DLFTE,
 export var DeleteObjectsOnCancel$: StaticOperationSchema = [9, n0, _DOOC,
   { [_h]: ["POST", "/DeleteObjectsOnCancel", 200] }, () => DeleteObjectsOnCancelRequest$, () => DeleteObjectsOnCancelResponse$
 ];
+export var DeleteRLSPolicy$: StaticOperationSchema = [9, n0, _DRLSPe,
+  { [_h]: ["POST", "/DeleteRLSPolicy", 200] }, () => DeleteRLSPolicyRequest$, () => DeleteRLSPolicyResponse$
+];
 export var DeregisterResource$: StaticOperationSchema = [9, n0, _DRe,
   { [_h]: ["POST", "/DeregisterResource", 200] }, () => DeregisterResourceRequest$, () => DeregisterResourceResponse$
 ];
@@ -1643,6 +1800,9 @@ export var DescribeResource$: StaticOperationSchema = [9, n0, _DRes,
 ];
 export var DescribeTransaction$: StaticOperationSchema = [9, n0, _DT,
   { [_h]: ["POST", "/DescribeTransaction", 200] }, () => DescribeTransactionRequest$, () => DescribeTransactionResponse$
+];
+export var DetachRLSPolicy$: StaticOperationSchema = [9, n0, _DRLSPet,
+  { [_h]: ["POST", "/DetachRLSPolicy", 200] }, () => DetachRLSPolicyRequest$, () => DetachRLSPolicyResponse$
 ];
 export var ExtendTransaction$: StaticOperationSchema = [9, n0, _ETx,
   { [_h]: ["POST", "/ExtendTransaction", 200] }, () => ExtendTransactionRequest$, () => ExtendTransactionResponse$
@@ -1673,6 +1833,9 @@ export var GetQueryStatistics$: StaticOperationSchema = [9, n0, _GQSe,
 ];
 export var GetResourceLFTags$: StaticOperationSchema = [9, n0, _GRLFT,
   { [_h]: ["POST", "/GetResourceLFTags", 200] }, () => GetResourceLFTagsRequest$, () => GetResourceLFTagsResponse$
+];
+export var GetRLSPolicy$: StaticOperationSchema = [9, n0, _GRLSP,
+  { [_h]: ["POST", "/GetRLSPolicy", 200] }, () => GetRLSPolicyRequest$, () => GetRLSPolicyResponse$
 ];
 export var GetTableObjects$: StaticOperationSchema = [9, n0, _GTO,
   { [_h]: ["POST", "/GetTableObjects", 200] }, () => GetTableObjectsRequest$, () => GetTableObjectsResponse$
@@ -1712,6 +1875,12 @@ export var ListPermissions$: StaticOperationSchema = [9, n0, _LP,
 ];
 export var ListResources$: StaticOperationSchema = [9, n0, _LR,
   { [_h]: ["POST", "/ListResources", 200] }, () => ListResourcesRequest$, () => ListResourcesResponse$
+];
+export var ListRLSPolicies$: StaticOperationSchema = [9, n0, _LRLSP,
+  { [_h]: ["POST", "/ListRLSPolicies", 200] }, () => ListRLSPoliciesRequest$, () => ListRLSPoliciesResponse$
+];
+export var ListRLSPolicyAttachments$: StaticOperationSchema = [9, n0, _LRLSPA,
+  { [_h]: ["POST", "/ListRLSPolicyAttachments", 200] }, () => ListRLSPolicyAttachmentsRequest$, () => ListRLSPolicyAttachmentsResponse$
 ];
 export var ListTableStorageOptimizers$: StaticOperationSchema = [9, n0, _LTSO,
   { [_h]: ["POST", "/ListTableStorageOptimizers", 200] }, () => ListTableStorageOptimizersRequest$, () => ListTableStorageOptimizersResponse$
@@ -1757,6 +1926,9 @@ export var UpdateLFTagExpression$: StaticOperationSchema = [9, n0, _ULFTE,
 ];
 export var UpdateResource$: StaticOperationSchema = [9, n0, _UR,
   { [_h]: ["POST", "/UpdateResource", 200] }, () => UpdateResourceRequest$, () => UpdateResourceResponse$
+];
+export var UpdateRLSPolicy$: StaticOperationSchema = [9, n0, _URLSP,
+  { [_h]: ["POST", "/UpdateRLSPolicy", 200] }, () => UpdateRLSPolicyRequest$, () => UpdateRLSPolicyResponse$
 ];
 export var UpdateTableObjects$: StaticOperationSchema = [9, n0, _UTO,
   { [_h]: ["POST", "/UpdateTableObjects", 200] }, () => UpdateTableObjectsRequest$, () => UpdateTableObjectsResponse$

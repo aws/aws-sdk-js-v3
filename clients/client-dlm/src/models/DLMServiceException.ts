@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from DLM service.
  */
 export class DLMServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.dlm#DLMServiceException";
   /**
    * @internal
    */

@@ -64,6 +64,7 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * //       streamingConfiguration: { // StreamingConfiguration
  * //         enableResponseStreaming: true || false,
  * //       },
+ * //       disableMcpListToolsPagination: true || false,
  * //     },
  * //   },
  * //   authorizerType: "CUSTOM_JWT" || "AWS_IAM" || "NONE" || "AUTHENTICATE_ONLY", // required

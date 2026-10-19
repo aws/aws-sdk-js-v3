@@ -2,19 +2,30 @@
 import type {
   _InstanceType,
   AccountDefaultStatus,
+  AppNetworkAccessType,
+  AppSecurityGroupManagement,
   BooleanOperator,
   CrossAccountFilterOption,
+  HomeEfsFileSystemCreation,
+  HubContentSupportStatus,
+  HubContentType,
   IPAddressType,
+  JobType,
   ModelApprovalStatus,
   ModelCardStatus,
   ModelPackageRegistrationType,
   ModelRegistrationMode,
   NotebookInstanceAcceleratorType,
   PartnerAppAuthType,
+  Processor,
   ResourceType,
   RootAccess,
   SearchSortOrder,
+  TagPropagation,
+  ThroughputMode,
   TrackingServerSize,
+  VariantPropertyType,
+  VendorGuidance,
   WorkforceIpAddressType,
 } from "./enums";
 import type {
@@ -24,13 +35,17 @@ import type {
   Tag,
 } from "./models_0";
 import type {
+  DefaultSpaceSettings,
+  DeploymentConfig,
+  EdgeOutputConfig,
+  FeatureDefinition,
   InferenceComponentRuntimeConfig,
+  InferenceComponentSpecification,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
   ModelLifeCycle,
   ModelPackageModelCard,
   ModelVariantConfig,
-  MonitoringScheduleConfig,
   ShadowModeConfig,
   UserSettings,
 } from "./models_1";
@@ -38,6 +53,7 @@ import type {
   IdcConfigInput,
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
+  MonitoringScheduleConfig,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
   OidcConfig,
@@ -55,14 +71,719 @@ import type {
   WorkerAccessConfiguration,
   WorkforceVpcConfigRequest,
 } from "./models_2";
-import type { Filter, Workforce, Workteam } from "./models_3";
+import type {
+  DesiredWeightAndCapacity,
+  Device,
+  DomainSettingsForUpdate,
+  FeatureParameter,
+  Filter,
+  InferenceComponentDeploymentConfig,
+  Workforce,
+  Workteam,
+} from "./models_3";
 import type {
   NestedFilters,
+  OnlineStoreConfigUpdate,
   ProfilerConfigForUpdate,
   RemoteDebugConfigForUpdate,
   ResourceConfigForUpdate,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateContextResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the context.</p>
+   * @public
+   */
+  ContextArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDeviceFleetRequest {
+  /**
+   * <p>The name of the fleet.</p>
+   * @public
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the device.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>Description of the fleet.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Output configuration for storing sample data collected by the fleet.</p>
+   * @public
+   */
+  OutputConfig: EdgeOutputConfig | undefined;
+
+  /**
+   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-\{DeviceFleetName\}".</p> <p>For example, if your device fleet is called "demo-fleet", the name of the role alias will be "SageMakerEdge-demo-fleet".</p>
+   * @public
+   */
+  EnableIotRoleAlias?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDevicesRequest {
+  /**
+   * <p>The name of the fleet the devices belong to.</p>
+   * @public
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>List of devices to register with Edge Manager agent.</p>
+   * @public
+   */
+  Devices: Device[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDomainRequest {
+  /**
+   * <p>The ID of the domain to be updated.</p>
+   * @public
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>A collection of settings.</p>
+   * @public
+   */
+  DefaultUserSettings?: UserSettings | undefined;
+
+  /**
+   * <p>A collection of <code>DomainSettings</code> configuration values to update.</p>
+   * @public
+   */
+  DomainSettingsForUpdate?: DomainSettingsForUpdate | undefined;
+
+  /**
+   * <p>The entity that creates and manages the required security groups for inter-app communication in <code>VPCOnly</code> mode. Required when <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is provided. If setting up the domain for use with RStudio, this value must be set to <code>Service</code>.</p>
+   * @public
+   */
+  AppSecurityGroupManagement?: AppSecurityGroupManagement | undefined;
+
+  /**
+   * <p>The default settings for shared spaces that users create in the domain.</p>
+   * @public
+   */
+  DefaultSpaceSettings?: DefaultSpaceSettings | undefined;
+
+  /**
+   * <p>The VPC subnets that Studio uses for communication.</p> <p>If removing subnets, ensure there are no apps in the <code>InService</code>, <code>Pending</code>, or <code>Deleting</code> state.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>Specifies the VPC used for non-EFS traffic.</p> <ul> <li> <p> <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon SageMaker AI, which allows direct internet access.</p> </li> <li> <p> <code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets.</p> </li> </ul> <p>This configuration can only be modified if there are no apps in the <code>InService</code>, <code>Pending</code>, or <code>Deleting</code> state. The configuration cannot be updated if <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is already set or <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is provided as part of the same request.</p>
+   * @public
+   */
+  AppNetworkAccessType?: AppNetworkAccessType | undefined;
+
+  /**
+   * <p>Indicates whether custom tag propagation is supported for the domain. Defaults to <code>DISABLED</code>.</p>
+   * @public
+   */
+  TagPropagation?: TagPropagation | undefined;
+
+  /**
+   * <p>Indicates whether to create a home EFS file system for the domain. You can change from <code>Disabled</code> to <code>Enabled</code> to provision EFS on demand, but you cannot change from <code>Enabled</code> to <code>Disabled</code>.</p>
+   * @public
+   */
+  HomeEfsFileSystemCreation?: HomeEfsFileSystemCreation | undefined;
+
+  /**
+   * <p>The identifier for the VPC used by the domain for network communication. Use this field only when adding VPC configuration to a SageMaker AI domain used in Amazon SageMaker Unified Studio that was created without VPC settings. SageMaker AI doesn't automatically apply VPC updates to existing applications. Stop and restart your applications to apply the changes.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDomainResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain.</p>
+   * @public
+   */
+  DomainArn?: string | undefined;
+}
+
+/**
+ * <p>Specifies a production variant property type for an Endpoint.</p> <p>If you are updating an endpoint with the <code>RetainAllVariantProperties</code> option of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpointInput</a> set to <code>true</code>, the <code>VariantProperty</code> objects listed in the <code>ExcludeRetainedVariantProperties</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpointInput</a> override the existing variant properties of the endpoint.</p>
+ * @public
+ */
+export interface VariantProperty {
+  /**
+   * <p>The type of variant property. The supported values are:</p> <ul> <li> <p> <code>DesiredInstanceCount</code>: Overrides the existing variant instance counts using the <code>InitialInstanceCount</code> values in the <code>ProductionVariants</code> of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>.</p> </li> <li> <p> <code>DesiredWeight</code>: Overrides the existing variant weights using the <code>InitialVariantWeight</code> values in the <code>ProductionVariants</code> of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>.</p> </li> <li> <p> <code>DataCaptureConfig</code>: (Not currently supported.)</p> </li> </ul>
+   * @public
+   */
+  VariantPropertyType: VariantPropertyType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEndpointInput {
+  /**
+   * <p>The name of the endpoint whose configuration you want to update.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The name of the new endpoint configuration.</p>
+   * @public
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>When updating endpoint resources, enables or disables the retention of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">variant properties</a>, such as the instance count or the variant weight. To retain the variant properties of an endpoint when updating it, set <code>RetainAllVariantProperties</code> to <code>true</code>. To use the variant properties specified in a new <code>EndpointConfig</code> call when updating an endpoint, set <code>RetainAllVariantProperties</code> to <code>false</code>. The default is <code>false</code>.</p>
+   * @public
+   */
+  RetainAllVariantProperties?: boolean | undefined;
+
+  /**
+   * <p>When you are updating endpoint resources with <code>RetainAllVariantProperties</code>, whose value is set to <code>true</code>, <code>ExcludeRetainedVariantProperties</code> specifies the list of type <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">VariantProperty</a> to override with the values provided by <code>EndpointConfig</code>. If you don't specify a value for <code>ExcludeRetainedVariantProperties</code>, no variant properties are overridden. </p>
+   * @public
+   */
+  ExcludeRetainedVariantProperties?: VariantProperty[] | undefined;
+
+  /**
+   * <p>The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.</p>
+   * @public
+   */
+  DeploymentConfig?: DeploymentConfig | undefined;
+
+  /**
+   * <p>Specifies whether to reuse the last deployment configuration. The default value is false (the configuration is not reused).</p>
+   * @public
+   */
+  RetainDeploymentConfig?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEndpointOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   * @public
+   */
+  EndpointArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEndpointWeightsAndCapacitiesInput {
+  /**
+   * <p>The name of an existing SageMaker endpoint.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>An object that provides new capacity and weight values for a variant.</p>
+   * @public
+   */
+  DesiredWeightsAndCapacities: DesiredWeightAndCapacity[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEndpointWeightsAndCapacitiesOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated endpoint.</p>
+   * @public
+   */
+  EndpointArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExperimentRequest {
+  /**
+   * <p>The name of the experiment to update.</p>
+   * @public
+   */
+  ExperimentName: string | undefined;
+
+  /**
+   * <p>The name of the experiment as displayed. The name doesn't need to be unique. If <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the experiment.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExperimentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   * @public
+   */
+  ExperimentArn?: string | undefined;
+}
+
+/**
+ * <p>The new throughput configuration for the feature group. You can switch between on-demand and provisioned modes or update the read / write capacity of provisioned feature groups. You can switch a feature group to on-demand only once in a 24 hour period. </p>
+ * @public
+ */
+export interface ThroughputConfigUpdate {
+  /**
+   * <p>Target throughput mode of the feature group. Throughput update is an asynchronous operation, and the outcome should be monitored by polling <code>LastUpdateStatus</code> field in <code>DescribeFeatureGroup</code> response. You cannot update a feature group's throughput while another update is in progress. </p>
+   * @public
+   */
+  ThroughputMode?: ThroughputMode | undefined;
+
+  /**
+   * <p>For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling. </p>
+   * @public
+   */
+  ProvisionedReadCapacityUnits?: number | undefined;
+
+  /**
+   * <p>For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling. </p>
+   * @public
+   */
+  ProvisionedWriteCapacityUnits?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFeatureGroupRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the feature group that you're updating.</p>
+   * @public
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>Updates the feature group. Updating a feature group is an asynchronous operation. When you get an HTTP 200 response, you've made a valid request. It takes some time after you've made a valid request for Feature Store to update the feature group.</p>
+   * @public
+   */
+  FeatureAdditions?: FeatureDefinition[] | undefined;
+
+  /**
+   * <p>Updates the feature group online store configuration.</p>
+   * @public
+   */
+  OnlineStoreConfig?: OnlineStoreConfigUpdate | undefined;
+
+  /**
+   * <p>The new throughput configuration for the feature group. You can switch between on-demand and provisioned modes or update the read / write capacity of provisioned feature groups. You can switch a feature group to on-demand only once in a 24 hour period. </p>
+   * @public
+   */
+  ThroughputConfig?: ThroughputConfigUpdate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFeatureGroupResponse {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the feature group that you're updating.</p>
+   * @public
+   */
+  FeatureGroupArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFeatureMetadataRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the feature group containing the feature that you're updating.</p>
+   * @public
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the feature that you're updating.</p>
+   * @public
+   */
+  FeatureName: string | undefined;
+
+  /**
+   * <p>A description that you can write to better describe the feature.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A list of key-value pairs that you can add to better describe the feature.</p>
+   * @public
+   */
+  ParameterAdditions?: FeatureParameter[] | undefined;
+
+  /**
+   * <p>A list of parameter keys that you can specify to remove parameters that describe your feature.</p>
+   * @public
+   */
+  ParameterRemovals?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHubRequest {
+  /**
+   * <p>The name of the hub to update.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>A description of the updated hub.</p>
+   * @public
+   */
+  HubDescription?: string | undefined;
+
+  /**
+   * <p>The display name of the hub.</p>
+   * @public
+   */
+  HubDisplayName?: string | undefined;
+
+  /**
+   * <p>The searchable keywords for the hub.</p>
+   * @public
+   */
+  HubSearchKeywords?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHubResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated hub.</p>
+   * @public
+   */
+  HubArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHubContentRequest {
+  /**
+   * <p>The name of the SageMaker hub that contains the hub content you want to update. You can optionally use the hub ARN instead.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The name of the hub content resource that you want to update.</p>
+   * @public
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The content type of the resource that you want to update. Only specify a <code>Model</code> or <code>Notebook</code> resource for this API. To update a <code>ModelReference</code>, use the <code>UpdateHubContentReference</code> API instead.</p>
+   * @public
+   */
+  HubContentType: HubContentType | undefined;
+
+  /**
+   * <p>The hub content version that you want to update. For example, if you have two versions of a resource in your hub, you can update the second version.</p>
+   * @public
+   */
+  HubContentVersion: string | undefined;
+
+  /**
+   * <p>The display name of the hub content.</p>
+   * @public
+   */
+  HubContentDisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the hub content.</p>
+   * @public
+   */
+  HubContentDescription?: string | undefined;
+
+  /**
+   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formatting.</p>
+   * @public
+   */
+  HubContentMarkdown?: string | undefined;
+
+  /**
+   * <p>The searchable keywords of the hub content.</p>
+   * @public
+   */
+  HubContentSearchKeywords?: string[] | undefined;
+
+  /**
+   * <p>Indicates the current status of the hub content resource.</p>
+   * @public
+   */
+  SupportStatus?: HubContentSupportStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHubContentResponse {
+  /**
+   * <p>The ARN of the private model hub that contains the updated hub content.</p>
+   * @public
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The ARN of the hub content resource that was updated.</p>
+   * @public
+   */
+  HubContentArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHubContentReferenceRequest {
+  /**
+   * <p>The name of the SageMaker hub that contains the hub content you want to update. You can optionally use the hub ARN instead.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The name of the hub content resource that you want to update.</p>
+   * @public
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The content type of the resource that you want to update. Only specify a <code>ModelReference</code> resource for this API. To update a <code>Model</code> or <code>Notebook</code> resource, use the <code>UpdateHubContent</code> API instead.</p>
+   * @public
+   */
+  HubContentType: HubContentType | undefined;
+
+  /**
+   * <p>The minimum hub content version of the referenced model that you want to use. The minimum version must be older than the latest available version of the referenced model. To support all versions of a model, set the value to <code>1.0.0</code>.</p>
+   * @public
+   */
+  MinVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHubContentReferenceResponse {
+  /**
+   * <p>The ARN of the private model hub that contains the updated hub content.</p>
+   * @public
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The ARN of the hub content resource that was updated.</p>
+   * @public
+   */
+  HubContentArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateImageRequest {
+  /**
+   * <p>A list of properties to delete. Only the <code>Description</code> and <code>DisplayName</code> properties can be deleted.</p>
+   * @public
+   */
+  DeleteProperties?: string[] | undefined;
+
+  /**
+   * <p>The new description for the image.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The new display name for the image.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The name of the image to update.</p>
+   * @public
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The new ARN for the IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateImageResponse {
+  /**
+   * <p>The ARN of the image.</p>
+   * @public
+   */
+  ImageArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateImageVersionRequest {
+  /**
+   * <p>The name of the image.</p>
+   * @public
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The alias of the image version.</p>
+   * @public
+   */
+  Alias?: string | undefined;
+
+  /**
+   * <p>The version of the image.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>A list of aliases to add.</p>
+   * @public
+   */
+  AliasesToAdd?: string[] | undefined;
+
+  /**
+   * <p>A list of aliases to delete.</p>
+   * @public
+   */
+  AliasesToDelete?: string[] | undefined;
+
+  /**
+   * <p>The availability of the image version specified by the maintainer.</p> <ul> <li> <p> <code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version stability.</p> </li> <li> <p> <code>STABLE</code>: The image version is stable.</p> </li> <li> <p> <code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image versions that are set to be archived are automatically archived after three months.</p> </li> <li> <p> <code>ARCHIVED</code>: The image version is archived. Archived image versions are not searchable and are no longer actively supported. </p> </li> </ul>
+   * @public
+   */
+  VendorGuidance?: VendorGuidance | undefined;
+
+  /**
+   * <p>Indicates SageMaker AI job type compatibility.</p> <ul> <li> <p> <code>TRAINING</code>: The image version is compatible with SageMaker AI training jobs.</p> </li> <li> <p> <code>INFERENCE</code>: The image version is compatible with SageMaker AI inference jobs.</p> </li> <li> <p> <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker AI notebook kernels.</p> </li> </ul>
+   * @public
+   */
+  JobType?: JobType | undefined;
+
+  /**
+   * <p>The machine learning framework vended in the image version.</p>
+   * @public
+   */
+  MLFramework?: string | undefined;
+
+  /**
+   * <p>The supported programming language and its version.</p>
+   * @public
+   */
+  ProgrammingLang?: string | undefined;
+
+  /**
+   * <p>Indicates CPU or GPU compatibility.</p> <ul> <li> <p> <code>CPU</code>: The image version is compatible with CPU.</p> </li> <li> <p> <code>GPU</code>: The image version is compatible with GPU.</p> </li> </ul>
+   * @public
+   */
+  Processor?: Processor | undefined;
+
+  /**
+   * <p>Indicates Horovod compatibility.</p>
+   * @public
+   */
+  Horovod?: boolean | undefined;
+
+  /**
+   * <p>The maintainer description of the image version.</p>
+   * @public
+   */
+  ReleaseNotes?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateImageVersionResponse {
+  /**
+   * <p>The ARN of the image version.</p>
+   * @public
+   */
+  ImageVersionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateInferenceComponentInput {
+  /**
+   * <p>The name of the inference component.</p>
+   * @public
+   */
+  InferenceComponentName: string | undefined;
+
+  /**
+   * <p>Details about the resources to deploy with this inference component, including the model, container, and compute resources.</p>
+   * @public
+   */
+  Specification?: InferenceComponentSpecification | undefined;
+
+  /**
+   * <p>A list of specification objects for the inference component, one per instance type. Use this parameter when you want to specify different model or resource configurations for the inference component on each instance type. You can use either this parameter or the singular <code>Specification</code> parameter, but not both.</p>
+   * @public
+   */
+  Specifications?: InferenceComponentSpecification[] | undefined;
+
+  /**
+   * <p>Runtime settings for a model that is deployed with an inference component.</p>
+   * @public
+   */
+  RuntimeConfig?: InferenceComponentRuntimeConfig | undefined;
+
+  /**
+   * <p>The deployment configuration for the inference component. The configuration contains the desired deployment strategy and rollback settings.</p>
+   * @public
+   */
+  DeploymentConfig?: InferenceComponentDeploymentConfig | undefined;
+}
 
 /**
  * @public

@@ -66,6 +66,7 @@ export interface GetEnvironmentBlueprintCommandOutput extends GetEnvironmentBlue
  * //   glossaryTerms: [ // GlossaryTerms
  * //     "STRING_VALUE",
  * //   ],
+ * //   blueprintCategory: "TOOLING",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
  * // };

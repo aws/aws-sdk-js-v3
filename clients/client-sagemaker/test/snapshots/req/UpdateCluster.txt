@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.UpdateCluster
-content-length: 10902
+content-length: 11006
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 8e7f4cf64d8916d97ca43b66c2c6bb42e80cf9024285a21a219fe5862a9d6aa8
+x-amz-content-sha256: 89516f49b56e80ed5029b2ba7eebd98d290e155b2633743a55b1dd7957e8c963
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [Uint8Array (json)]
@@ -764,7 +764,13 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       "ClusterArn": "__ClusterArn__"
     },
     "Slurm": {
-      "SlurmConfigStrategy": "__SlurmConfigStrategy__"
+      "SlurmConfigStrategy": "__SlurmConfigStrategy__",
+      "AccountingDatabase": {
+        "Endpoint": "__Endpoint__",
+        "SecretArn": "__SecretArn__",
+        "Port": 0,
+        "Name": "__Name__"
+      }
     }
   }
 }

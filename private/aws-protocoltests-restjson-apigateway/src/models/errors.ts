@@ -7,6 +7,7 @@ import { APIGatewayServiceException as __BaseException } from "./APIGatewayServi
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.apigateway#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -26,6 +27,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.apigateway#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   retryAfterSeconds?: string | undefined;
@@ -47,6 +49,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class UnauthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.apigateway#UnauthorizedException";
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   /**

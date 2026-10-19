@@ -50,6 +50,8 @@ export interface ListHostKeysCommandOutput extends ListHostKeysResponse, __Metad
  * //       Description: "STRING_VALUE",
  * //       Type: "STRING_VALUE",
  * //       DateImported: new Date("TIMESTAMP"),
+ * //       StorageType: "SERVICE_MANAGED" || "SECRETS_MANAGER",
+ * //       SecretId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

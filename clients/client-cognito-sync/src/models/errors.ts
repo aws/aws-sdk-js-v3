@@ -8,6 +8,7 @@ import { CognitoSyncServiceException as __BaseException } from "./CognitoSyncSer
  * @public
  */
 export class AlreadyStreamedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitosync#AlreadyStreamedException";
   readonly name = "AlreadyStreamedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AlreadyStreamedException extends __BaseException {
  * @public
  */
 export class DuplicateRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitosync#DuplicateRequestException";
   readonly name = "DuplicateRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -49,6 +51,7 @@ export class DuplicateRequestException extends __BaseException {
  * @public
  */
 export class InternalErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitosync#InternalErrorException";
   readonly name = "InternalErrorException" as const;
   readonly $fault = "server" as const;
   /**
@@ -70,6 +73,7 @@ export class InternalErrorException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitosync#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -91,6 +95,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class NotAuthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitosync#NotAuthorizedException";
   readonly name = "NotAuthorizedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -112,6 +117,7 @@ export class NotAuthorizedException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitosync#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -133,6 +139,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ResourceConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitosync#ResourceConflictException";
   readonly name = "ResourceConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -154,6 +161,7 @@ export class ResourceConflictException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitosync#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -173,6 +181,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class InvalidConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitosync#InvalidConfigurationException";
   readonly name = "InvalidConfigurationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -193,6 +202,7 @@ export class InvalidConfigurationException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitosync#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -213,6 +223,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class InvalidLambdaFunctionOutputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitosync#InvalidLambdaFunctionOutputException";
   readonly name = "InvalidLambdaFunctionOutputException" as const;
   readonly $fault = "client" as const;
   /**
@@ -233,6 +244,7 @@ export class InvalidLambdaFunctionOutputException extends __BaseException {
  * @public
  */
 export class LambdaThrottledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitosync#LambdaThrottledException";
   readonly name = "LambdaThrottledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -254,6 +266,7 @@ export class LambdaThrottledException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitosync#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**

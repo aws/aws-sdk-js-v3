@@ -67,6 +67,7 @@ import {
   BridgeSource$,
   BridgeState,
   Colorimetry,
+  ColorInformation$,
   ConflictException,
   ConflictException$,
   ConnectionStatus,
@@ -365,6 +366,7 @@ import {
   Protocol,
   PublicRouterNetworkInterfaceConfiguration$,
   PublicRouterNetworkInterfaceRule$,
+  PublicTlsEncryptionConfiguration$,
   PurchaseOffering$,
   PurchaseOfferingCommand,
   PurchaseOfferingRequest$,
@@ -453,6 +455,7 @@ import {
   RouterOutputTier,
   RouterOutputType,
   RoutingScope,
+  RtmpPushRouterOutputConfiguration$,
   RtpRouterInputConfiguration$,
   RtpRouterOutputConfiguration$,
   ScanMode,
@@ -515,6 +518,9 @@ import {
   Tcs,
   ThumbnailDetails$,
   ThumbnailState,
+  TlsEncryption$,
+  TlsEncryptionConfiguration$,
+  TlsEncryptionType,
   TooManyRequestsException,
   TooManyRequestsException$,
   Transport$,
@@ -588,7 +594,10 @@ import {
   UpdateRouterOutputCommand,
   UpdateRouterOutputRequest$,
   UpdateRouterOutputResponse$,
+  VideoColorimetry,
+  VideoMatrixCoefficients,
   VideoMonitoringSetting$,
+  VideoTransferCharacteristics,
   VpcInterface$,
   VpcInterfaceAttachment$,
   VpcInterfaceRequest$,
@@ -829,6 +838,7 @@ assert(typeof BridgeNetworkOutput$ === "object");
 assert(typeof BridgeNetworkSource$ === "object");
 assert(typeof BridgeOutput$ === "object");
 assert(typeof BridgeSource$ === "object");
+assert(typeof ColorInformation$ === "object");
 assert(typeof ContentQualityAnalysisFeatureConfiguration$ === "object");
 assert(typeof CreateBridgeRequest$ === "object");
 assert(typeof CreateBridgeResponse$ === "object");
@@ -989,6 +999,7 @@ assert(typeof Output$ === "object");
 assert(typeof PreferredDayTimeMaintenanceConfiguration$ === "object");
 assert(typeof PublicRouterNetworkInterfaceConfiguration$ === "object");
 assert(typeof PublicRouterNetworkInterfaceRule$ === "object");
+assert(typeof PublicTlsEncryptionConfiguration$ === "object");
 assert(typeof PurchaseOfferingRequest$ === "object");
 assert(typeof PurchaseOfferingResponse$ === "object");
 assert(typeof RemoveBridgeOutputRequest$ === "object");
@@ -1034,6 +1045,7 @@ assert(typeof RouterOutputFilter$ === "object");
 assert(typeof RouterOutputMessage$ === "object");
 assert(typeof RouterOutputProtocolConfiguration$ === "object");
 assert(typeof RouterOutputStreamDetails$ === "object");
+assert(typeof RtmpPushRouterOutputConfiguration$ === "object");
 assert(typeof RtpRouterInputConfiguration$ === "object");
 assert(typeof RtpRouterOutputConfiguration$ === "object");
 assert(typeof SecretsManagerEncryptionKeyConfiguration$ === "object");
@@ -1070,6 +1082,8 @@ assert(typeof TagResourceRequest$ === "object");
 assert(typeof TakeRouterInputRequest$ === "object");
 assert(typeof TakeRouterInputResponse$ === "object");
 assert(typeof ThumbnailDetails$ === "object");
+assert(typeof TlsEncryption$ === "object");
+assert(typeof TlsEncryptionConfiguration$ === "object");
 assert(typeof Transport$ === "object");
 assert(typeof TransportMediaInfo$ === "object");
 assert(typeof TransportStream$ === "object");
@@ -1176,6 +1190,10 @@ assert(typeof State === "object");
 assert(typeof Status === "object");
 assert(typeof Tcs === "object");
 assert(typeof ThumbnailState === "object");
+assert(typeof TlsEncryptionType === "object");
+assert(typeof VideoColorimetry === "object");
+assert(typeof VideoMatrixCoefficients === "object");
+assert(typeof VideoTransferCharacteristics === "object");
 // errors
 assert(AddFlowOutputs420Exception.prototype instanceof MediaConnectServiceException);
 assert(typeof AddFlowOutputs420Exception$ === "object");

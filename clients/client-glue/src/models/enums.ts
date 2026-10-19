@@ -133,6 +133,7 @@ export const OAuth2GrantType = {
   AUTHORIZATION_CODE: "AUTHORIZATION_CODE",
   CLIENT_CREDENTIALS: "CLIENT_CREDENTIALS",
   JWT_BEARER: "JWT_BEARER",
+  REFRESH_TOKEN: "REFRESH_TOKEN",
 } as const;
 /**
  * @public
@@ -2146,6 +2147,19 @@ export type ResourceState = (typeof ResourceState)[keyof typeof ResourceState];
  * @public
  * @enum
  */
+export const TableResourceShareType = {
+  ALL: "ALL",
+  FEDERATED: "FEDERATED",
+} as const;
+/**
+ * @public
+ */
+export type TableResourceShareType = (typeof TableResourceShareType)[keyof typeof TableResourceShareType];
+
+/**
+ * @public
+ * @enum
+ */
 export const PermissionType = {
   CELL_FILTER_PERMISSION: "CELL_FILTER_PERMISSION",
   COLUMN_PERMISSION: "COLUMN_PERMISSION",
@@ -2218,6 +2232,19 @@ export const StatisticEvaluationLevel = {
  * @public
  */
 export type StatisticEvaluationLevel = (typeof StatisticEvaluationLevel)[keyof typeof StatisticEvaluationLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataQualityEngine = {
+  PYTHON: "PYTHON",
+  SPARK: "SPARK",
+} as const;
+/**
+ * @public
+ */
+export type DataQualityEngine = (typeof DataQualityEngine)[keyof typeof DataQualityEngine];
 
 /**
  * @public

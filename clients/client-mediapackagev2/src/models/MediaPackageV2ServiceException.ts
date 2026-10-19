@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from MediaPackageV2 service.
  */
 export class MediaPackageV2ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.mediapackagev2#MediaPackageV2ServiceException";
   /**
    * @internal
    */

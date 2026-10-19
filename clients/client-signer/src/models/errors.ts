@@ -8,6 +8,7 @@ import { SignerServiceException as __BaseException } from "./SignerServiceExcept
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.signer#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -30,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.signer#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -52,6 +54,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.signer#InternalServiceErrorException";
   readonly name = "InternalServiceErrorException" as const;
   readonly $fault = "server" as const;
   code?: string | undefined;
@@ -74,6 +77,7 @@ export class InternalServiceErrorException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.signer#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -96,6 +100,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.signer#ServiceLimitExceededException";
   readonly name = "ServiceLimitExceededException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -119,6 +124,7 @@ export class ServiceLimitExceededException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.signer#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -141,6 +147,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.signer#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -164,6 +171,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.signer#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -186,6 +194,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.signer#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -211,6 +220,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.signer#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;

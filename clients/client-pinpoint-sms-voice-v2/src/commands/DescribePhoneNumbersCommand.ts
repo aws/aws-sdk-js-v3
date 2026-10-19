@@ -81,6 +81,7 @@ export interface DescribePhoneNumbersCommandOutput extends DescribePhoneNumbersR
  * //           "<keys>": Number("long"),
  * //         },
  * //       },
+ * //       PricingTier: "STRING_VALUE",
  * //       CreatedTimestamp: new Date("TIMESTAMP"), // required
  * //     },
  * //   ],

@@ -69,6 +69,9 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *     ],
  *   },
  *   kmsKeyId: "STRING_VALUE",
+ *   devOpsAgentConfiguration: { // DevOpsAgentConfiguration
+ *     agentSpaceArn: "STRING_VALUE",
+ *   },
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -188,6 +191,15 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //     organizationId: "STRING_VALUE",
  * //     ouId: "STRING_VALUE",
  * //     accountId: "STRING_VALUE",
+ * //     devOpsAgentConfiguration: { // DevOpsAgentConfigurationView
+ * //       agentSpaceArn: "STRING_VALUE",
+ * //       agentSpaceId: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //       status: "CONNECTING" || "CONNECTED" || "DISCONNECTED" || "FAILED",
+ * //       operatorAppUrl: "STRING_VALUE",
+ * //       connectedAt: new Date("TIMESTAMP"),
+ * //       statusReason: "STRING_VALUE",
+ * //     },
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
  * //   },

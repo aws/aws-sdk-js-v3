@@ -38,6 +38,7 @@ export interface DeleteColumnStatisticsTaskSettingsCommandOutput extends DeleteC
  * const input = { // DeleteColumnStatisticsTaskSettingsRequest
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
+ *   CatalogID: "STRING_VALUE",
  * };
  * const command = new DeleteColumnStatisticsTaskSettingsCommand(input);
  * const response = await client.send(command);

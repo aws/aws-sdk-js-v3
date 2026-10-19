@@ -109,6 +109,7 @@ import {
   AthenaDatasetDefinition$,
   AthenaResultCompressionType,
   AthenaResultFormat,
+  AthenaStepMetadata$,
   AttachClusterNodeNetworkInterface$,
   AttachClusterNodeNetworkInterfaceCommand,
   AttachClusterNodeNetworkInterfaceRequest$,
@@ -206,6 +207,7 @@ import {
   BedrockProvisionedModelThroughputMetadata$,
   BestObjectiveNotImproving$,
   Bias$,
+  BillableTokenUsage$,
   BlueGreenUpdatePolicy$,
   BooleanOperator,
   CacheHitResult$,
@@ -249,6 +251,10 @@ import {
   ClarifyTextConfig$,
   ClarifyTextGranularity,
   ClarifyTextLanguage,
+  CleanupFailure$,
+  CleanupFailureErrorCode,
+  CleanupStepMetadata$,
+  ClusterAccountingDatabase$,
   ClusterAutoPatchConfig$,
   ClusterAutoPatchConfigDetails$,
   ClusterAutoScalerType,
@@ -610,6 +616,10 @@ import {
   CreateTrainingPlanCommand,
   CreateTrainingPlanRequest$,
   CreateTrainingPlanResponse$,
+  CreateTrainingSession$,
+  CreateTrainingSessionCommand,
+  CreateTrainingSessionRequest$,
+  CreateTrainingSessionResponse$,
   CreateTransformJob$,
   CreateTransformJobCommand,
   CreateTransformJobRequest$,
@@ -641,6 +651,8 @@ import {
   CustomizationTechnique,
   CustomizedMetricSpecification$,
   CustomPosixUserConfig$,
+  DatabaseConfigurationMetadata$,
+  DatabaseConfigurationRollbackStatus,
   DataCaptureConfig$,
   DataCaptureConfigSummary$,
   DataCatalogConfig$,
@@ -851,6 +863,10 @@ import {
   DeleteTrainingJob$,
   DeleteTrainingJobCommand,
   DeleteTrainingJobRequest$,
+  DeleteTrainingSession$,
+  DeleteTrainingSessionCommand,
+  DeleteTrainingSessionRequest$,
+  DeleteTrainingSessionResponse$,
   DeleteTrial$,
   DeleteTrialCommand,
   DeleteTrialComponent$,
@@ -1160,6 +1176,10 @@ import {
   DescribeTrainingPlanExtensionHistoryResponse$,
   DescribeTrainingPlanRequest$,
   DescribeTrainingPlanResponse$,
+  DescribeTrainingSession$,
+  DescribeTrainingSessionCommand,
+  DescribeTrainingSessionRequest$,
+  DescribeTrainingSessionResponse$,
   DescribeTransformJob$,
   DescribeTransformJobCommand,
   DescribeTransformJobRequest$,
@@ -1241,6 +1261,7 @@ import {
   EFSFileSystemConfig$,
   EmrServerlessComputeConfig$,
   EmrServerlessSettings$,
+  EMRServerlessStepMetadata$,
   EmrSettings$,
   EMRStepMetadata$,
   EnabledOrDisabled,
@@ -1310,6 +1331,9 @@ import {
   FlowDefinitionOutputConfig$,
   FlowDefinitionStatus,
   FlowDefinitionSummary$,
+  ForEachSelectorResult$,
+  ForEachStatus,
+  ForEachStepMetadata$,
   Framework,
   FSxLustreConfig$,
   FSxLustreFileSystem$,
@@ -1462,6 +1486,7 @@ import {
   IntegerParameterRangeSpecification$,
   IPAddressType,
   IsTrackingServerActive,
+  IterationContext$,
   Job$,
   JobCategory,
   JobConfigSchemaVersionSummary$,
@@ -1843,6 +1868,10 @@ import {
   ListTrainingPlansCommand,
   ListTrainingPlansRequest$,
   ListTrainingPlansResponse$,
+  ListTrainingSessions$,
+  ListTrainingSessionsCommand,
+  ListTrainingSessionsRequest$,
+  ListTrainingSessionsResponse$,
   ListTransformJobs$,
   ListTransformJobsCommand,
   ListTransformJobsRequest$,
@@ -1873,6 +1902,7 @@ import {
   ListWorkteamsRequest$,
   ListWorkteamsResponse$,
   ListWorkteamsSortByOptions,
+  LoraConfig$,
   MaintenanceStatus,
   ManagedConfiguration$,
   ManagedInstanceScalingScaleInStrategy,
@@ -2145,6 +2175,7 @@ import {
   paginateListTrainingJobs,
   paginateListTrainingJobsForHyperParameterTuningJob,
   paginateListTrainingPlans,
+  paginateListTrainingSessions,
   paginateListTransformJobs,
   paginateListTrialComponents,
   paginateListTrials,
@@ -2386,6 +2417,10 @@ import {
   SharingType,
   ShuffleConfig$,
   SkipModelValidation,
+  SlurmHealthComponent,
+  SlurmHealthMetadata$,
+  SlurmHealthReason,
+  SlurmHealthStatus,
   SoftwareUpdateStatus,
   SortActionsBy,
   SortArtifactsBy,
@@ -2514,6 +2549,10 @@ import {
   StopTrainingJob$,
   StopTrainingJobCommand,
   StopTrainingJobRequest$,
+  StopTrainingSession$,
+  StopTrainingSessionCommand,
+  StopTrainingSessionRequest$,
+  StopTrainingSessionResponse$,
   StopTransformJob$,
   StopTransformJobCommand,
   StopTransformJobRequest$,
@@ -2582,6 +2621,12 @@ import {
   TrainingProgressInfo$,
   TrainingRepositoryAccessMode,
   TrainingRepositoryAuthConfig$,
+  TrainingSessionDetail$,
+  TrainingSessionModelConfig$,
+  TrainingSessionOutputConfig$,
+  TrainingSessionS3Location$,
+  TrainingSessionStatus,
+  TrainingSessionSummary$,
   TrainingSpecification$,
   TransformDataSource$,
   TransformInput$,
@@ -3009,6 +3054,8 @@ assert(typeof CreateTrainingJobCommand === "function");
 assert(typeof CreateTrainingJob$ === "object");
 assert(typeof CreateTrainingPlanCommand === "function");
 assert(typeof CreateTrainingPlan$ === "object");
+assert(typeof CreateTrainingSessionCommand === "function");
+assert(typeof CreateTrainingSession$ === "object");
 assert(typeof CreateTransformJobCommand === "function");
 assert(typeof CreateTransformJob$ === "object");
 assert(typeof CreateTrialCommand === "function");
@@ -3135,6 +3182,8 @@ assert(typeof DeleteTagsCommand === "function");
 assert(typeof DeleteTags$ === "object");
 assert(typeof DeleteTrainingJobCommand === "function");
 assert(typeof DeleteTrainingJob$ === "object");
+assert(typeof DeleteTrainingSessionCommand === "function");
+assert(typeof DeleteTrainingSession$ === "object");
 assert(typeof DeleteTrialCommand === "function");
 assert(typeof DeleteTrial$ === "object");
 assert(typeof DeleteTrialComponentCommand === "function");
@@ -3287,6 +3336,8 @@ assert(typeof DescribeTrainingPlanCommand === "function");
 assert(typeof DescribeTrainingPlan$ === "object");
 assert(typeof DescribeTrainingPlanExtensionHistoryCommand === "function");
 assert(typeof DescribeTrainingPlanExtensionHistory$ === "object");
+assert(typeof DescribeTrainingSessionCommand === "function");
+assert(typeof DescribeTrainingSession$ === "object");
 assert(typeof DescribeTransformJobCommand === "function");
 assert(typeof DescribeTransformJob$ === "object");
 assert(typeof DescribeTrialCommand === "function");
@@ -3489,6 +3540,8 @@ assert(typeof ListTrainingJobsForHyperParameterTuningJobCommand === "function");
 assert(typeof ListTrainingJobsForHyperParameterTuningJob$ === "object");
 assert(typeof ListTrainingPlansCommand === "function");
 assert(typeof ListTrainingPlans$ === "object");
+assert(typeof ListTrainingSessionsCommand === "function");
+assert(typeof ListTrainingSessions$ === "object");
 assert(typeof ListTransformJobsCommand === "function");
 assert(typeof ListTransformJobs$ === "object");
 assert(typeof ListTrialComponentsCommand === "function");
@@ -3573,6 +3626,8 @@ assert(typeof StopProcessingJobCommand === "function");
 assert(typeof StopProcessingJob$ === "object");
 assert(typeof StopTrainingJobCommand === "function");
 assert(typeof StopTrainingJob$ === "object");
+assert(typeof StopTrainingSessionCommand === "function");
+assert(typeof StopTrainingSession$ === "object");
 assert(typeof StopTransformJobCommand === "function");
 assert(typeof StopTransformJob$ === "object");
 assert(typeof UpdateActionCommand === "function");
@@ -3741,6 +3796,7 @@ assert(typeof AsyncInferenceConfig$ === "object");
 assert(typeof AsyncInferenceNotificationConfig$ === "object");
 assert(typeof AsyncInferenceOutputConfig$ === "object");
 assert(typeof AthenaDatasetDefinition$ === "object");
+assert(typeof AthenaStepMetadata$ === "object");
 assert(typeof AttachClusterNodeNetworkInterfaceRequest$ === "object");
 assert(typeof AttachClusterNodeNetworkInterfaceResponse$ === "object");
 assert(typeof AttachClusterNodeVolumeRequest$ === "object");
@@ -3801,6 +3857,7 @@ assert(typeof BedrockModelImportMetadata$ === "object");
 assert(typeof BedrockProvisionedModelThroughputMetadata$ === "object");
 assert(typeof BestObjectiveNotImproving$ === "object");
 assert(typeof Bias$ === "object");
+assert(typeof BillableTokenUsage$ === "object");
 assert(typeof BlueGreenUpdatePolicy$ === "object");
 assert(typeof CacheHitResult$ === "object");
 assert(typeof CallbackStepMetadata$ === "object");
@@ -3832,6 +3889,9 @@ assert(typeof ClarifyInferenceConfig$ === "object");
 assert(typeof ClarifyShapBaselineConfig$ === "object");
 assert(typeof ClarifyShapConfig$ === "object");
 assert(typeof ClarifyTextConfig$ === "object");
+assert(typeof CleanupFailure$ === "object");
+assert(typeof CleanupStepMetadata$ === "object");
+assert(typeof ClusterAccountingDatabase$ === "object");
 assert(typeof ClusterAutoPatchConfig$ === "object");
 assert(typeof ClusterAutoPatchConfigDetails$ === "object");
 assert(typeof ClusterAutoScalingConfig$ === "object");
@@ -4030,6 +4090,8 @@ assert(typeof CreateTrainingJobRequest$ === "object");
 assert(typeof CreateTrainingJobResponse$ === "object");
 assert(typeof CreateTrainingPlanRequest$ === "object");
 assert(typeof CreateTrainingPlanResponse$ === "object");
+assert(typeof CreateTrainingSessionRequest$ === "object");
+assert(typeof CreateTrainingSessionResponse$ === "object");
 assert(typeof CreateTransformJobRequest$ === "object");
 assert(typeof CreateTransformJobResponse$ === "object");
 assert(typeof CreateTrialComponentRequest$ === "object");
@@ -4047,6 +4109,7 @@ assert(typeof CustomFileSystemConfig$ === "object");
 assert(typeof CustomImage$ === "object");
 assert(typeof CustomizedMetricSpecification$ === "object");
 assert(typeof CustomPosixUserConfig$ === "object");
+assert(typeof DatabaseConfigurationMetadata$ === "object");
 assert(typeof DataCaptureConfig$ === "object");
 assert(typeof DataCaptureConfigSummary$ === "object");
 assert(typeof DataCatalogConfig$ === "object");
@@ -4140,6 +4203,8 @@ assert(typeof DeleteStudioLifecycleConfigRequest$ === "object");
 assert(typeof DeleteTagsInput$ === "object");
 assert(typeof DeleteTagsOutput$ === "object");
 assert(typeof DeleteTrainingJobRequest$ === "object");
+assert(typeof DeleteTrainingSessionRequest$ === "object");
+assert(typeof DeleteTrainingSessionResponse$ === "object");
 assert(typeof DeleteTrialComponentRequest$ === "object");
 assert(typeof DeleteTrialComponentResponse$ === "object");
 assert(typeof DeleteTrialRequest$ === "object");
@@ -4297,6 +4362,8 @@ assert(typeof DescribeTrainingPlanExtensionHistoryRequest$ === "object");
 assert(typeof DescribeTrainingPlanExtensionHistoryResponse$ === "object");
 assert(typeof DescribeTrainingPlanRequest$ === "object");
 assert(typeof DescribeTrainingPlanResponse$ === "object");
+assert(typeof DescribeTrainingSessionRequest$ === "object");
+assert(typeof DescribeTrainingSessionResponse$ === "object");
 assert(typeof DescribeTransformJobRequest$ === "object");
 assert(typeof DescribeTransformJobResponse$ === "object");
 assert(typeof DescribeTrialComponentRequest$ === "object");
@@ -4350,6 +4417,7 @@ assert(typeof EFSFileSystem$ === "object");
 assert(typeof EFSFileSystemConfig$ === "object");
 assert(typeof EmrServerlessComputeConfig$ === "object");
 assert(typeof EmrServerlessSettings$ === "object");
+assert(typeof EMRServerlessStepMetadata$ === "object");
 assert(typeof EmrSettings$ === "object");
 assert(typeof EMRStepMetadata$ === "object");
 assert(typeof EnableSagemakerServicecatalogPortfolioInput$ === "object");
@@ -4394,6 +4462,8 @@ assert(typeof FinalAutoMLJobObjectiveMetric$ === "object");
 assert(typeof FinalHyperParameterTuningJobObjectiveMetric$ === "object");
 assert(typeof FlowDefinitionOutputConfig$ === "object");
 assert(typeof FlowDefinitionSummary$ === "object");
+assert(typeof ForEachSelectorResult$ === "object");
+assert(typeof ForEachStepMetadata$ === "object");
 assert(typeof FSxLustreConfig$ === "object");
 assert(typeof FSxLustreFileSystem$ === "object");
 assert(typeof FSxLustreFileSystemConfig$ === "object");
@@ -4496,6 +4566,7 @@ assert(typeof InstancePreference$ === "object");
 assert(typeof InstanceRequirementsEniConfiguration$ === "object");
 assert(typeof IntegerParameterRange$ === "object");
 assert(typeof IntegerParameterRangeSpecification$ === "object");
+assert(typeof IterationContext$ === "object");
 assert(typeof Job$ === "object");
 assert(typeof JobConfigSchemaVersionSummary$ === "object");
 assert(typeof JobSecondaryStatusTransition$ === "object");
@@ -4692,6 +4763,8 @@ assert(typeof ListTrainingJobsRequest$ === "object");
 assert(typeof ListTrainingJobsResponse$ === "object");
 assert(typeof ListTrainingPlansRequest$ === "object");
 assert(typeof ListTrainingPlansResponse$ === "object");
+assert(typeof ListTrainingSessionsRequest$ === "object");
+assert(typeof ListTrainingSessionsResponse$ === "object");
 assert(typeof ListTransformJobsRequest$ === "object");
 assert(typeof ListTransformJobsResponse$ === "object");
 assert(typeof ListTrialComponentsRequest$ === "object");
@@ -4706,6 +4779,7 @@ assert(typeof ListWorkforcesRequest$ === "object");
 assert(typeof ListWorkforcesResponse$ === "object");
 assert(typeof ListWorkteamsRequest$ === "object");
 assert(typeof ListWorkteamsResponse$ === "object");
+assert(typeof LoraConfig$ === "object");
 assert(typeof ManagedConfiguration$ === "object");
 assert(typeof MemberDefinition$ === "object");
 assert(typeof MetadataProperties$ === "object");
@@ -4984,6 +5058,7 @@ assert(typeof ShadowModeConfig$ === "object");
 assert(typeof ShadowModelVariantConfig$ === "object");
 assert(typeof SharingSettings$ === "object");
 assert(typeof ShuffleConfig$ === "object");
+assert(typeof SlurmHealthMetadata$ === "object");
 assert(typeof SourceAlgorithm$ === "object");
 assert(typeof SourceAlgorithmSpecification$ === "object");
 assert(typeof SourceIpConfig$ === "object");
@@ -5036,6 +5111,8 @@ assert(typeof StopPipelineExecutionRequest$ === "object");
 assert(typeof StopPipelineExecutionResponse$ === "object");
 assert(typeof StopProcessingJobRequest$ === "object");
 assert(typeof StopTrainingJobRequest$ === "object");
+assert(typeof StopTrainingSessionRequest$ === "object");
+assert(typeof StopTrainingSessionResponse$ === "object");
 assert(typeof StopTransformJobRequest$ === "object");
 assert(typeof StudioLifecycleConfigDetails$ === "object");
 assert(typeof StudioWebPortalSettings$ === "object");
@@ -5076,6 +5153,11 @@ assert(typeof TrainingPlanOffering$ === "object");
 assert(typeof TrainingPlanSummary$ === "object");
 assert(typeof TrainingProgressInfo$ === "object");
 assert(typeof TrainingRepositoryAuthConfig$ === "object");
+assert(typeof TrainingSessionDetail$ === "object");
+assert(typeof TrainingSessionModelConfig$ === "object");
+assert(typeof TrainingSessionOutputConfig$ === "object");
+assert(typeof TrainingSessionS3Location$ === "object");
+assert(typeof TrainingSessionSummary$ === "object");
 assert(typeof TrainingSpecification$ === "object");
 assert(typeof TransformDataSource$ === "object");
 assert(typeof TransformInput$ === "object");
@@ -5279,6 +5361,7 @@ assert(typeof CaptureStatus === "object");
 assert(typeof ClarifyFeatureType === "object");
 assert(typeof ClarifyTextGranularity === "object");
 assert(typeof ClarifyTextLanguage === "object");
+assert(typeof CleanupFailureErrorCode === "object");
 assert(typeof ClusterAutoScalerType === "object");
 assert(typeof ClusterAutoScalingMode === "object");
 assert(typeof ClusterAutoScalingStatus === "object");
@@ -5310,6 +5393,7 @@ assert(typeof ContainerMode === "object");
 assert(typeof ContentClassifier === "object");
 assert(typeof CrossAccountFilterOption === "object");
 assert(typeof CustomizationTechnique === "object");
+assert(typeof DatabaseConfigurationRollbackStatus === "object");
 assert(typeof DataDistributionType === "object");
 assert(typeof DataSourceName === "object");
 assert(typeof DeepHealthCheckType === "object");
@@ -5344,6 +5428,7 @@ assert(typeof FileSystemType === "object");
 assert(typeof FillingType === "object");
 assert(typeof FlatInvocations === "object");
 assert(typeof FlowDefinitionStatus === "object");
+assert(typeof ForEachStatus === "object");
 assert(typeof Framework === "object");
 assert(typeof HomeEfsFileSystemCreation === "object");
 assert(typeof HubContentSortBy === "object");
@@ -5519,6 +5604,9 @@ assert(typeof SecondaryStatus === "object");
 assert(typeof ServerlessJobType === "object");
 assert(typeof SharingType === "object");
 assert(typeof SkipModelValidation === "object");
+assert(typeof SlurmHealthComponent === "object");
+assert(typeof SlurmHealthReason === "object");
+assert(typeof SlurmHealthStatus === "object");
 assert(typeof SoftwareUpdateStatus === "object");
 assert(typeof SortActionsBy === "object");
 assert(typeof SortArtifactsBy === "object");
@@ -5569,6 +5657,7 @@ assert(typeof TrainingPlanSortBy === "object");
 assert(typeof TrainingPlanSortOrder === "object");
 assert(typeof TrainingPlanStatus === "object");
 assert(typeof TrainingRepositoryAccessMode === "object");
+assert(typeof TrainingSessionStatus === "object");
 assert(typeof TransformInstanceType === "object");
 assert(typeof TransformJobStatus === "object");
 assert(typeof TrialComponentPrimaryStatus === "object");
@@ -5703,6 +5792,7 @@ assert(typeof paginateListTags === "function");
 assert(typeof paginateListTrainingJobs === "function");
 assert(typeof paginateListTrainingJobsForHyperParameterTuningJob === "function");
 assert(typeof paginateListTrainingPlans === "function");
+assert(typeof paginateListTrainingSessions === "function");
 assert(typeof paginateListTransformJobs === "function");
 assert(typeof paginateListTrialComponents === "function");
 assert(typeof paginateListTrials === "function");

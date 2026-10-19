@@ -487,6 +487,8 @@ import {
   RecommendationStatus,
   RecommendationSummary$,
   RecommendationType,
+  RecordExpiryAction,
+  RecordExpirySpecification$,
   RegistryRecordStatus,
   RegistryRecordSummary$,
   ResourceContent$,
@@ -1078,6 +1080,7 @@ assert(typeof RecommendationEvaluatorReference$ === "object");
 assert(typeof RecommendationResult$ === "object");
 assert(typeof RecommendationResultConfigurationBundle$ === "object");
 assert(typeof RecommendationSummary$ === "object");
+assert(typeof RecordExpirySpecification$ === "object");
 assert(typeof RegistryRecordSummary$ === "object");
 assert(typeof ResourceContent$ === "object");
 assert(typeof ResourceLocation$ === "object");
@@ -1206,6 +1209,7 @@ assert(typeof PaymentType === "object");
 assert(typeof ProgrammingLanguage === "object");
 assert(typeof RecommendationStatus === "object");
 assert(typeof RecommendationType === "object");
+assert(typeof RecordExpiryAction === "object");
 assert(typeof RegistryRecordStatus === "object");
 assert(typeof ResourceContentType === "object");
 assert(typeof ResultDestination === "object");

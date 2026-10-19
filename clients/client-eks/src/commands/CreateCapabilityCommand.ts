@@ -64,6 +64,13 @@ export interface CreateCapabilityCommandOutput extends CreateCapabilityResponse,
  *           "STRING_VALUE",
  *         ],
  *       },
+ *       endpointPrefix: "STRING_VALUE",
+ *     },
+ *     ack: { // AckConfigRequest
+ *       enableCrossNamespace: true || false,
+ *       disabledServices: [ // AckDisabledServicesList
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *   },
  *   tags: { // TagMap
@@ -107,6 +114,13 @@ export interface CreateCapabilityCommandOutput extends CreateCapabilityResponse,
  * //           ],
  * //         },
  * //         serverUrl: "STRING_VALUE",
+ * //         endpointPrefix: "STRING_VALUE",
+ * //       },
+ * //       ack: { // AckConfigResponse
+ * //         enableCrossNamespace: true || false,
+ * //         disabledServices: [ // AckDisabledServicesList
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     },
  * //     tags: { // TagMap

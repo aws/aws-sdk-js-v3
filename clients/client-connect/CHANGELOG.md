@@ -3,6 +3,130 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1152.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1151.0...v3.1152.0) (2026-10-14)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1151.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1150.0...v3.1151.0) (2026-10-13)
+
+
+### Features
+
+* **client-connect:** New APIs to support aliases and versions for ContactFlow. ([39466ba](https://github.com/aws/aws-sdk-js-v3/commit/39466baaf544133768153f920bafe6b97dfc3323))
+
+
+
+
+
+# [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1148.0...v3.1149.0) (2026-10-09)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1148.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1147.0...v3.1148.0) (2026-10-08)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1147.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1146.0...v3.1147.0) (2026-10-06)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1146.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1145.0...v3.1146.0) (2026-10-02)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1144.0...v3.1145.0) (2026-10-01)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1144.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1143.0...v3.1144.0) (2026-09-30)
+
+
+### Features
+
+* **client-connect:** Amazon Connect Rules can now trigger in-app notifications to users as a rule action. Notification character limit was increased to 500 visible characters. ([092994b](https://github.com/aws/aws-sdk-js-v3/commit/092994bd70837390fc0477a3dddd73441eb38588))
+
+
+
+
+
+# [3.1143.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1142.0...v3.1143.0) (2026-09-29)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1141.0...v3.1142.0) (2026-09-28)
+
+
+### Features
+
+* **client-connect:** This release adds ConnectionTypes and ChatStreamingConfiguration to StartChatContact, and ConnectionCredentials, Websocket, and StreamingId to its response, so customers can request connection information and chat streaming in the same call that starts the chat. ([21e76d1](https://github.com/aws/aws-sdk-js-v3/commit/21e76d11be702bb166ef281ac2e14b56e290c13a))
+
+
+
+
+
+# [3.1141.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1140.0...v3.1141.0) (2026-09-25)
+
+
+### Features
+
+* **client-connect:** Agent Privacy During Hold is a new privacy capability for Amazon Connect Voice that prevents agent audio from being captured in call recordings or Contact Lens conversational analytics during hold. When enabled, agents are automatically muted on entering hold and unmuted on resuming the contact ([03527f9](https://github.com/aws/aws-sdk-js-v3/commit/03527f9ea153365c1e3654ac6d3f3e064d06b5d0))
+
+
+
+
+
+# [3.1140.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1139.0...v3.1140.0) (2026-09-24)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1139.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1138.0...v3.1139.0) (2026-09-23)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
 # [3.1138.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1137.0...v3.1138.0) (2026-09-22)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

@@ -51,6 +51,10 @@ export interface DeleteOmniDashboardCommandOutput extends DeleteOmniDashboardOut
  * @throws {@link AccessDeniedException} (client fault)
  *  The caller is not authorized to perform this action.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  The operation could not be completed because of a conflict with the current
+ * state of the resource.
+ *
  * @throws {@link InternalServerException} (server fault)
  *  An unexpected error occurred while processing the request.
  *

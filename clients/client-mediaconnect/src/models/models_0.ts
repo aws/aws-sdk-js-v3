@@ -58,6 +58,10 @@ import type {
   Status,
   Tcs,
   ThumbnailState,
+  TlsEncryptionType,
+  VideoColorimetry,
+  VideoMatrixCoefficients,
+  VideoTransferCharacteristics,
 } from "./enums";
 
 /**
@@ -717,6 +721,12 @@ export interface AddOutputRequest {
    * @public
    */
   NdiOutputTimecodeSource?: NdiOutputTimecodeSource | undefined;
+
+  /**
+   * <p>The audio reference level of the NDI receiver, in decibels relative to full scale (dBFS). Common values are <code>-20</code> (NDI and SMPTE) and <code>-18</code> (EBU). If you don't specify this field, MediaConnect uses <code>-20</code>.</p>
+   * @public
+   */
+  NdiAudioReferenceLevel?: number | undefined;
 }
 
 /**
@@ -1578,6 +1588,30 @@ export interface NdiDiscoveryServerConfig {
 }
 
 /**
+ * <p>The color signaling of the video stream.</p>
+ * @public
+ */
+export interface ColorInformation {
+  /**
+   * <p>The color primaries that the video stream uses (for example, <code>BT709</code> or <code>BT2020</code>).</p>
+   * @public
+   */
+  Colorimetry?: VideoColorimetry | undefined;
+
+  /**
+   * <p>The transfer characteristics that the video stream uses (for example, <code>BT601</code>, <code>BT709</code>, <code>BT2100_PQ</code>, or <code>BT2100_HLG</code>).</p>
+   * @public
+   */
+  TransferCharacteristics?: VideoTransferCharacteristics | undefined;
+
+  /**
+   * <p>The YCbCr matrix coefficients that the video stream uses (for example, <code>BT709</code> or <code>BT2020_NCL</code>).</p>
+   * @public
+   */
+  MatrixCoefficients?: VideoMatrixCoefficients | undefined;
+}
+
+/**
  * <p> The frame resolution used by the video stream.</p>
  * @public
  */
@@ -1623,6 +1657,12 @@ export interface NdiMediaStreamInfo {
    * @public
    */
   ScanMode?: ScanMode | undefined;
+
+  /**
+   * <p> The color signaling of the video stream. Used when the <code>streamType</code> is <code>Video</code>. </p>
+   * @public
+   */
+  Color?: ColorInformation | undefined;
 
   /**
    * <p> The width and height dimensions of the video frame in pixels. Used when the <code>streamType</code> is <code>Video</code>. </p>
@@ -1734,7 +1774,7 @@ export interface Offering {
 }
 
 /**
- * <p> The settings for the NDI® source. This includes the exact name of the upstream NDI sender that you want to connect to your source. </p>
+ * <p> The settings for the NDI® source. This includes the exact name of the upstream NDI sender that you want to connect to your source. </p> <note> <p>When you update the NDI source, include only the members you want to change. MediaConnect leaves the members that you don't specify unchanged.</p> </note>
  * @public
  */
 export interface NdiSourceSettings {
@@ -1743,6 +1783,12 @@ export interface NdiSourceSettings {
    * @public
    */
   SourceName?: string | undefined;
+
+  /**
+   * <p>The audio reference level of the NDI sender, in decibels relative to full scale (dBFS). Common values are <code>-20</code> (NDI and SMPTE) and <code>-18</code> (EBU). If you don't specify this field, MediaConnect uses <code>-20</code>.</p>
+   * @public
+   */
+  AudioReferenceLevel?: number | undefined;
 }
 
 /**
@@ -1851,6 +1897,12 @@ export interface Transport {
    * @public
    */
   NdiOutputTimecodeSource?: NdiOutputTimecodeSource | undefined;
+
+  /**
+   * <p>The audio reference level of the NDI receiver, in decibels relative to full scale (dBFS). Common values are <code>-20</code> (NDI and SMPTE) and <code>-18</code> (EBU). For NDI outputs, this field is always present and defaults to <code>-20</code>.</p>
+   * @public
+   */
+  NdiAudioReferenceLevel?: number | undefined;
 }
 
 /**
@@ -2379,6 +2431,12 @@ export interface TransportStream {
    * @public
    */
   Codec?: string | undefined;
+
+  /**
+   * <p>The color signaling of the video stream.</p>
+   * @public
+   */
+  Color?: ColorInformation | undefined;
 
   /**
    * <p> The frame rate used by the video stream.</p>
@@ -3104,7 +3162,7 @@ export interface FailoverRouterInputConfiguration {
 }
 
 /**
- * <p>Configuration settings for connecting a router input to a flow output.</p>
+ * <p>Configuration settings for connecting a router input to a flow output.</p> <p>To connect the router input to the flow output, provide both <code>flowArn</code> and <code>flowOutputArn</code>. To disconnect it, call the update operation and omit both fields while keeping this configuration object.</p> <note> <p>You can't change <code>sourceTransitDecryption</code> while the router input is connected to a flow output. To change it, first disconnect the router input, then update the decryption.</p> </note>
  * @public
  */
 export interface MediaConnectFlowRouterInputConfiguration {
@@ -3199,7 +3257,7 @@ export interface MediaLiveTransitEncryption {
 }
 
 /**
- * <p>Configuration settings for connecting a router input to a MediaLive channel output.</p>
+ * <p>Configuration settings for connecting a router input to a MediaLive channel output.</p> <p>To connect the router input to the MediaLive channel output, provide all three of <code>mediaLiveChannelArn</code>, <code>mediaLivePipelineId</code>, and <code>mediaLiveChannelOutputName</code>. To disconnect it, call the update operation and omit all three fields while keeping this configuration object.</p> <note> <p>You can't change <code>sourceTransitDecryption</code> while the router input is connected to a MediaLive channel output. To change it, first disconnect the router input, then update the decryption.</p> </note>
  * @public
  */
 export interface MediaLiveChannelRouterInputConfiguration {
@@ -3446,7 +3504,7 @@ export namespace RouterInputConfiguration {
   }
 
   /**
-   * <p>Configuration settings for connecting a router input to a MediaLive channel output.</p>
+   * <p>Configuration settings for connecting a router input to a MediaLive channel output.</p> <p>To connect the router input to the MediaLive channel output, provide all three of <code>mediaLiveChannelArn</code>, <code>mediaLivePipelineId</code>, and <code>mediaLiveChannelOutputName</code>. To disconnect it, call the update operation and omit all three fields while keeping this configuration object.</p> <note> <p>You can't change <code>sourceTransitDecryption</code> while the router input is connected to a MediaLive channel output. To change it, first disconnect the router input, then update the decryption.</p> </note>
    * @public
    */
   export interface MediaLiveChannelMember {
@@ -3472,7 +3530,7 @@ export namespace RouterInputConfiguration {
   }
 
   /**
-   * <p>Configuration settings for connecting a router input to a flow output.</p>
+   * <p>Configuration settings for connecting a router input to a flow output.</p> <p>To connect the router input to the flow output, provide both <code>flowArn</code> and <code>flowOutputArn</code>. To disconnect it, call the update operation and omit both fields while keeping this configuration object.</p> <note> <p>You can't change <code>sourceTransitDecryption</code> while the router input is connected to a flow output. To change it, first disconnect the router input, then update the decryption.</p> </note>
    * @public
    */
   export interface MediaConnectFlowMember {
@@ -4144,7 +4202,7 @@ export interface RouterInput {
   MaximumBitrate: number | undefined;
 
   /**
-   * <p>The tier level of the router input.</p>
+   * <p>The tier level for the router input. The tier sets the maximum bitrate, in Mbps, for the router input. Valid values include the following:</p> <ul> <li> <p> <code>INPUT_20</code> – 20 Mbps</p> </li> <li> <p> <code>INPUT_50</code> – 50 Mbps</p> </li> <li> <p> <code>INPUT_100</code> – 100 Mbps</p> </li> <li> <p> <code>INPUT_250</code> – 250 Mbps</p> </li> <li> <p> <code>INPUT_500</code> – 500 Mbps</p> </li> </ul> <p>The 250 Mbps and 500 Mbps tiers are high-bitrate tiers that support TR-07 (JPEG XS) workflows.</p>
    * @public
    */
   Tier: RouterInputTier | undefined;
@@ -4512,7 +4570,7 @@ export interface BatchGetRouterOutputError {
 }
 
 /**
- * <p>Configuration settings for connecting a router output to a MediaConnect flow source.</p>
+ * <p>Configuration settings for connecting a router output to a MediaConnect flow source.</p> <p>To connect the router output to the flow source, provide both <code>flowArn</code> and <code>flowSourceArn</code>. To disconnect it, call the update operation and omit both fields while keeping this configuration object.</p> <note> <p>You can't change <code>destinationTransitEncryption</code> while the router output is connected to a flow source. To change it, first disconnect the router output, then update the encryption.</p> </note>
  * @public
  */
 export interface MediaConnectFlowRouterOutputConfiguration {
@@ -4536,7 +4594,7 @@ export interface MediaConnectFlowRouterOutputConfiguration {
 }
 
 /**
- * <p>Configuration settings for connecting a router output to a MediaLive input.</p>
+ * <p>Configuration settings for connecting a router output to a MediaLive input.</p> <p>To connect the router output to the MediaLive input, provide both <code>mediaLiveInputArn</code> and <code>mediaLivePipelineId</code>. To disconnect it, call the update operation and omit both fields while keeping this configuration object.</p> <note> <p>You can't change <code>destinationTransitEncryption</code> while the router output is connected to a MediaLive input. To change it, first disconnect the router output, then update the encryption.</p> </note>
  * @public
  */
 export interface MediaLiveInputRouterOutputConfiguration {
@@ -4575,6 +4633,105 @@ export interface RistRouterOutputConfiguration {
    * @public
    */
   DestinationPort: number | undefined;
+}
+
+/**
+ * <p>The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.</p>
+ * @public
+ */
+export interface PublicTlsEncryptionConfiguration {}
+
+/**
+ * <p>The configuration settings for TLS encryption.</p>
+ * @public
+ */
+export type TlsEncryptionConfiguration =
+  | TlsEncryptionConfiguration.PublicMember
+  | TlsEncryptionConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TlsEncryptionConfiguration {
+  /**
+   * <p>The TLS encryption configuration that validates the destination by using a publicly trusted certificate authority.</p>
+   * @public
+   */
+  export interface PublicMember {
+    Public: PublicTlsEncryptionConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Public?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Public: (value: PublicTlsEncryptionConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.</p>
+ * @public
+ */
+export interface TlsEncryption {
+  /**
+   * <p>The type of TLS encryption to use for the connection.</p>
+   * @public
+   */
+  EncryptionType?: TlsEncryptionType | undefined;
+
+  /**
+   * <p>The configuration settings for the specified TLS encryption type.</p>
+   * @public
+   */
+  EncryptionConfiguration: TlsEncryptionConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration settings for a router output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the destination address and port, the application and stream names, and optional TLS encryption configuration.</p>
+ * @public
+ */
+export interface RtmpPushRouterOutputConfiguration {
+  /**
+   * <p>The IP address or hostname of the destination RTMP server that the router output pushes the stream to. Provide only the server address; specify the application and stream names separately.</p>
+   * @public
+   */
+  DestinationAddress: string | undefined;
+
+  /**
+   * <p>The TCP port on the destination RTMP server. For RTMP, valid values range from <code>1024</code> to <code>65535</code>. For RTMPS (RTMP over TLS), valid values are <code>443</code> or <code>1024</code> to <code>65535</code>. RTMP typically uses port <code>1935</code>, and RTMPS typically uses port <code>443</code>.</p>
+   * @public
+   */
+  DestinationPort: number | undefined;
+
+  /**
+   * <p>The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern <code>rtmp://destinationAddress/applicationName/streamName</code>.</p>
+   * @public
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * <p>The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.</p>
+   * @public
+   */
+  StreamName: string | undefined;
+
+  /**
+   * <p>The TLS encryption settings for the output. When you specify these settings, the output uses RTMPS (RTMP over TLS) to establish a secure, encrypted connection to the destination server.</p>
+   * @public
+   */
+  TlsEncryption?: TlsEncryption | undefined;
 }
 
 /**
@@ -4679,6 +4836,7 @@ export interface SrtListenerRouterOutputConfiguration {
  */
 export type RouterOutputProtocolConfiguration =
   | RouterOutputProtocolConfiguration.RistMember
+  | RouterOutputProtocolConfiguration.RtmpPushMember
   | RouterOutputProtocolConfiguration.RtpMember
   | RouterOutputProtocolConfiguration.SrtCallerMember
   | RouterOutputProtocolConfiguration.SrtListenerMember
@@ -4695,6 +4853,7 @@ export namespace RouterOutputProtocolConfiguration {
   export interface RistMember {
     Rist: RistRouterOutputConfiguration;
     SrtListener?: never;
+    RtmpPush?: never;
     SrtCaller?: never;
     Rtp?: never;
     $unknown?: never;
@@ -4707,6 +4866,20 @@ export namespace RouterOutputProtocolConfiguration {
   export interface SrtListenerMember {
     Rist?: never;
     SrtListener: SrtListenerRouterOutputConfiguration;
+    RtmpPush?: never;
+    SrtCaller?: never;
+    Rtp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a router output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the destination address and port, the application and stream names, and optional TLS encryption configuration.</p>
+   * @public
+   */
+  export interface RtmpPushMember {
+    Rist?: never;
+    SrtListener?: never;
+    RtmpPush: RtmpPushRouterOutputConfiguration;
     SrtCaller?: never;
     Rtp?: never;
     $unknown?: never;
@@ -4719,6 +4892,7 @@ export namespace RouterOutputProtocolConfiguration {
   export interface SrtCallerMember {
     Rist?: never;
     SrtListener?: never;
+    RtmpPush?: never;
     SrtCaller: SrtCallerRouterOutputConfiguration;
     Rtp?: never;
     $unknown?: never;
@@ -4731,6 +4905,7 @@ export namespace RouterOutputProtocolConfiguration {
   export interface RtpMember {
     Rist?: never;
     SrtListener?: never;
+    RtmpPush?: never;
     SrtCaller?: never;
     Rtp: RtpRouterOutputConfiguration;
     $unknown?: never;
@@ -4742,6 +4917,7 @@ export namespace RouterOutputProtocolConfiguration {
   export interface $UnknownMember {
     Rist?: never;
     SrtListener?: never;
+    RtmpPush?: never;
     SrtCaller?: never;
     Rtp?: never;
     $unknown: [string, any];
@@ -4754,6 +4930,7 @@ export namespace RouterOutputProtocolConfiguration {
   export interface Visitor<T> {
     Rist: (value: RistRouterOutputConfiguration) => T;
     SrtListener: (value: SrtListenerRouterOutputConfiguration) => T;
+    RtmpPush: (value: RtmpPushRouterOutputConfiguration) => T;
     SrtCaller: (value: SrtCallerRouterOutputConfiguration) => T;
     Rtp: (value: RtpRouterOutputConfiguration) => T;
     _: (name: string, value: any) => T;
@@ -4810,7 +4987,7 @@ export namespace RouterOutputConfiguration {
   }
 
   /**
-   * <p>Configuration settings for connecting a router output to a MediaConnect flow source.</p>
+   * <p>Configuration settings for connecting a router output to a MediaConnect flow source.</p> <p>To connect the router output to the flow source, provide both <code>flowArn</code> and <code>flowSourceArn</code>. To disconnect it, call the update operation and omit both fields while keeping this configuration object.</p> <note> <p>You can't change <code>destinationTransitEncryption</code> while the router output is connected to a flow source. To change it, first disconnect the router output, then update the encryption.</p> </note>
    * @public
    */
   export interface MediaConnectFlowMember {
@@ -4821,7 +4998,7 @@ export namespace RouterOutputConfiguration {
   }
 
   /**
-   * <p>Configuration settings for connecting a router output to a MediaLive input.</p>
+   * <p>Configuration settings for connecting a router output to a MediaLive input.</p> <p>To connect the router output to the MediaLive input, provide both <code>mediaLiveInputArn</code> and <code>mediaLivePipelineId</code>. To disconnect it, call the update operation and omit both fields while keeping this configuration object.</p> <note> <p>You can't change <code>destinationTransitEncryption</code> while the router output is connected to a MediaLive input. To change it, first disconnect the router output, then update the encryption.</p> </note>
    * @public
    */
   export interface MediaLiveInputMember {
@@ -5048,7 +5225,7 @@ export interface RouterOutput {
   RoutingScope: RoutingScope | undefined;
 
   /**
-   * <p>The tier level of the router output.</p>
+   * <p>The tier level for the router output. The tier sets the maximum bitrate, in Mbps, for the router output. Valid values include the following:</p> <ul> <li> <p> <code>OUTPUT_20</code> – 20 Mbps</p> </li> <li> <p> <code>OUTPUT_50</code> – 50 Mbps</p> </li> <li> <p> <code>OUTPUT_100</code> – 100 Mbps</p> </li> <li> <p> <code>OUTPUT_250</code> – 250 Mbps</p> </li> <li> <p> <code>OUTPUT_500</code> – 500 Mbps</p> </li> </ul> <p>The 250 Mbps and 500 Mbps tiers are high-bitrate tiers that support TR-07 (JPEG XS) workflows.</p>
    * @public
    */
   Tier: RouterOutputTier | undefined;
@@ -6210,7 +6387,7 @@ export interface CreateRouterInputRequest {
   RoutingScope: RoutingScope | undefined;
 
   /**
-   * <p>The tier level for the router input.</p>
+   * <p>The tier level for the router input. The tier sets the maximum bitrate, in Mbps, for the router input. Valid values include the following:</p> <ul> <li> <p> <code>INPUT_20</code> – 20 Mbps</p> </li> <li> <p> <code>INPUT_50</code> – 50 Mbps</p> </li> <li> <p> <code>INPUT_100</code> – 100 Mbps</p> </li> <li> <p> <code>INPUT_250</code> – 250 Mbps</p> </li> <li> <p> <code>INPUT_500</code> – 500 Mbps</p> </li> </ul> <p>The 250 Mbps and 500 Mbps tiers are high-bitrate tiers that support TR-07 (JPEG XS) workflows.</p>
    * @public
    */
   Tier: RouterInputTier | undefined;
@@ -6344,7 +6521,7 @@ export interface CreateRouterOutputRequest {
   RoutingScope: RoutingScope | undefined;
 
   /**
-   * <p>The tier level for the router output.</p>
+   * <p>The tier level for the router output. The tier sets the maximum bitrate, in Mbps, for the router output. Valid values include the following:</p> <ul> <li> <p> <code>OUTPUT_20</code> – 20 Mbps</p> </li> <li> <p> <code>OUTPUT_50</code> – 50 Mbps</p> </li> <li> <p> <code>OUTPUT_100</code> – 100 Mbps</p> </li> <li> <p> <code>OUTPUT_250</code> – 250 Mbps</p> </li> <li> <p> <code>OUTPUT_500</code> – 500 Mbps</p> </li> </ul> <p>The 250 Mbps and 500 Mbps tiers are high-bitrate tiers that support TR-07 (JPEG XS) workflows.</p>
    * @public
    */
   Tier: RouterOutputTier | undefined;
@@ -6686,6 +6863,12 @@ export interface TransportMediaInfo {
    * @public
    */
   Programs: TransportStreamProgram[] | undefined;
+
+  /**
+   * <p>The transport stream ID (TSID) of the source, from the Program Association Table (PAT).</p>
+   * @public
+   */
+  TsId?: number | undefined;
 }
 
 /**
@@ -7628,6 +7811,12 @@ export interface UpdateFlowOutputRequest {
    * @public
    */
   NdiOutputTimecodeSource?: NdiOutputTimecodeSource | undefined;
+
+  /**
+   * <p>The audio reference level of the NDI receiver, in decibels relative to full scale (dBFS). Common values are <code>-20</code> (NDI and SMPTE) and <code>-18</code> (EBU). If you don't specify this field, MediaConnect leaves the value unchanged.</p>
+   * @public
+   */
+  NdiAudioReferenceLevel?: number | undefined;
 }
 
 /**
@@ -8752,213 +8941,4 @@ export namespace RouterNetworkInterfaceFilter {
     NameContains: (value: string[]) => T;
     _: (name: string, value: any) => T;
   }
-}
-
-/**
- * @public
- */
-export interface ListRouterNetworkInterfacesRequest {
-  /**
-   * <p>The maximum number of router network interfaces to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A token used to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The filters to apply when retrieving the list of router network interfaces.</p>
-   * @public
-   */
-  Filters?: RouterNetworkInterfaceFilter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRouterNetworkInterfacesResponse {
-  /**
-   * <p>The summary information for the retrieved router network interfaces.</p>
-   * @public
-   */
-  RouterNetworkInterfaces: ListedRouterNetworkInterface[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>A filter that can be used to retrieve a list of router outputs.</p>
- * @public
- */
-export type RouterOutputFilter =
-  | RouterOutputFilter.NameContainsMember
-  | RouterOutputFilter.NetworkInterfaceArnsMember
-  | RouterOutputFilter.OutputTypesMember
-  | RouterOutputFilter.RegionNamesMember
-  | RouterOutputFilter.RoutedInputArnsMember
-  | RouterOutputFilter.RoutingScopesMember
-  | RouterOutputFilter.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RouterOutputFilter {
-  /**
-   * <p>The AWS Regions of the router outputs to include in the filter.</p>
-   * @public
-   */
-  export interface RegionNamesMember {
-    RegionNames: string[];
-    NetworkInterfaceArns?: never;
-    RoutingScopes?: never;
-    OutputTypes?: never;
-    RoutedInputArns?: never;
-    NameContains?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the network interfaces associated with the router outputs to include in the filter.</p>
-   * @public
-   */
-  export interface NetworkInterfaceArnsMember {
-    RegionNames?: never;
-    NetworkInterfaceArns: string[];
-    RoutingScopes?: never;
-    OutputTypes?: never;
-    RoutedInputArns?: never;
-    NameContains?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Filter criteria to list router outputs based on their routing scope.</p>
-   * @public
-   */
-  export interface RoutingScopesMember {
-    RegionNames?: never;
-    NetworkInterfaceArns?: never;
-    RoutingScopes: RoutingScope[];
-    OutputTypes?: never;
-    RoutedInputArns?: never;
-    NameContains?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The types of router outputs to include in the filter.</p>
-   * @public
-   */
-  export interface OutputTypesMember {
-    RegionNames?: never;
-    NetworkInterfaceArns?: never;
-    RoutingScopes?: never;
-    OutputTypes: RouterOutputType[];
-    RoutedInputArns?: never;
-    NameContains?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The ARNs of the router inputs associated with the router outputs to include in the filter.</p>
-   * @public
-   */
-  export interface RoutedInputArnsMember {
-    RegionNames?: never;
-    NetworkInterfaceArns?: never;
-    RoutingScopes?: never;
-    OutputTypes?: never;
-    RoutedInputArns: string[];
-    NameContains?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The names of the router outputs to include in the filter.</p>
-   * @public
-   */
-  export interface NameContainsMember {
-    RegionNames?: never;
-    NetworkInterfaceArns?: never;
-    RoutingScopes?: never;
-    OutputTypes?: never;
-    RoutedInputArns?: never;
-    NameContains: string[];
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    RegionNames?: never;
-    NetworkInterfaceArns?: never;
-    RoutingScopes?: never;
-    OutputTypes?: never;
-    RoutedInputArns?: never;
-    NameContains?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    RegionNames: (value: string[]) => T;
-    NetworkInterfaceArns: (value: string[]) => T;
-    RoutingScopes: (value: RoutingScope[]) => T;
-    OutputTypes: (value: RouterOutputType[]) => T;
-    RoutedInputArns: (value: string[]) => T;
-    NameContains: (value: string[]) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface ListRouterOutputsRequest {
-  /**
-   * <p>The maximum number of router outputs to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A token used to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The filters to apply when retrieving the list of router outputs.</p>
-   * @public
-   */
-  Filters?: RouterOutputFilter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRouterOutputsResponse {
-  /**
-   * <p>The summary information for the retrieved router outputs.</p>
-   * @public
-   */
-  RouterOutputs: ListedRouterOutput[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

@@ -50,7 +50,11 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  * //       { // ValidationFailure
  * //         Code: "STRING_VALUE",
  * //         Message: "STRING_VALUE",
+ * //         Severity: "Critical" || "Warning",
  * //       },
+ * //     ],
+ * //     AcceptedWarnings: [ // AcceptedWarningsList
+ * //       "STRING_VALUE",
  * //     ],
  * //   },
  * //   DryRunConfig: { // DomainStatus
@@ -130,6 +134,7 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  * //     EncryptionAtRestOptions: { // EncryptionAtRestOptions
  * //       Enabled: true || false,
  * //       KmsKeyId: "STRING_VALUE",
+ * //       EncryptionMode: "DISK" || "NATIVE",
  * //     },
  * //     NodeToNodeEncryptionOptions: { // NodeToNodeEncryptionOptions
  * //       Enabled: true || false,

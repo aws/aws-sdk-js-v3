@@ -18,6 +18,11 @@ import {
   AssumeDecoratedRoleWithSAMLCommand,
 } from "./commands/AssumeDecoratedRoleWithSAMLCommand";
 import {
+  type AttachRLSPolicyCommandInput,
+  type AttachRLSPolicyCommandOutput,
+  AttachRLSPolicyCommand,
+} from "./commands/AttachRLSPolicyCommand";
+import {
   type BatchGrantPermissionsCommandInput,
   type BatchGrantPermissionsCommandOutput,
   BatchGrantPermissionsCommand,
@@ -63,6 +68,11 @@ import {
   CreateLFTagExpressionCommand,
 } from "./commands/CreateLFTagExpressionCommand";
 import {
+  type CreateRLSPolicyCommandInput,
+  type CreateRLSPolicyCommandOutput,
+  CreateRLSPolicyCommand,
+} from "./commands/CreateRLSPolicyCommand";
+import {
   type DeleteDataCellsFilterCommandInput,
   type DeleteDataCellsFilterCommandOutput,
   DeleteDataCellsFilterCommand,
@@ -93,6 +103,11 @@ import {
   DeleteObjectsOnCancelCommand,
 } from "./commands/DeleteObjectsOnCancelCommand";
 import {
+  type DeleteRLSPolicyCommandInput,
+  type DeleteRLSPolicyCommandOutput,
+  DeleteRLSPolicyCommand,
+} from "./commands/DeleteRLSPolicyCommand";
+import {
   type DeregisterResourceCommandInput,
   type DeregisterResourceCommandOutput,
   DeregisterResourceCommand,
@@ -112,6 +127,11 @@ import {
   type DescribeTransactionCommandOutput,
   DescribeTransactionCommand,
 } from "./commands/DescribeTransactionCommand";
+import {
+  type DetachRLSPolicyCommandInput,
+  type DetachRLSPolicyCommandOutput,
+  DetachRLSPolicyCommand,
+} from "./commands/DetachRLSPolicyCommand";
 import {
   type ExtendTransactionCommandInput,
   type ExtendTransactionCommandOutput,
@@ -158,6 +178,11 @@ import {
   type GetResourceLFTagsCommandOutput,
   GetResourceLFTagsCommand,
 } from "./commands/GetResourceLFTagsCommand";
+import {
+  type GetRLSPolicyCommandInput,
+  type GetRLSPolicyCommandOutput,
+  GetRLSPolicyCommand,
+} from "./commands/GetRLSPolicyCommand";
 import {
   type GetTableObjectsCommandInput,
   type GetTableObjectsCommandOutput,
@@ -223,6 +248,16 @@ import {
   type ListResourcesCommandOutput,
   ListResourcesCommand,
 } from "./commands/ListResourcesCommand";
+import {
+  type ListRLSPoliciesCommandInput,
+  type ListRLSPoliciesCommandOutput,
+  ListRLSPoliciesCommand,
+} from "./commands/ListRLSPoliciesCommand";
+import {
+  type ListRLSPolicyAttachmentsCommandInput,
+  type ListRLSPolicyAttachmentsCommandOutput,
+  ListRLSPolicyAttachmentsCommand,
+} from "./commands/ListRLSPolicyAttachmentsCommand";
 import {
   type ListTableStorageOptimizersCommandInput,
   type ListTableStorageOptimizersCommandOutput,
@@ -299,6 +334,11 @@ import {
   UpdateResourceCommand,
 } from "./commands/UpdateResourceCommand";
 import {
+  type UpdateRLSPolicyCommandInput,
+  type UpdateRLSPolicyCommandOutput,
+  UpdateRLSPolicyCommand,
+} from "./commands/UpdateRLSPolicyCommand";
+import {
   type UpdateTableObjectsCommandInput,
   type UpdateTableObjectsCommandOutput,
   UpdateTableObjectsCommand,
@@ -318,6 +358,8 @@ import { paginateListLFTagExpressions } from "./pagination/ListLFTagExpressionsP
 import { paginateListLFTags } from "./pagination/ListLFTagsPaginator";
 import { paginateListPermissions } from "./pagination/ListPermissionsPaginator";
 import { paginateListResources } from "./pagination/ListResourcesPaginator";
+import { paginateListRLSPolicies } from "./pagination/ListRLSPoliciesPaginator";
+import { paginateListRLSPolicyAttachments } from "./pagination/ListRLSPolicyAttachmentsPaginator";
 import { paginateListTableStorageOptimizers } from "./pagination/ListTableStorageOptimizersPaginator";
 import { paginateListTransactions } from "./pagination/ListTransactionsPaginator";
 import { paginateSearchDatabasesByLFTags } from "./pagination/SearchDatabasesByLFTagsPaginator";
@@ -326,6 +368,7 @@ import { paginateSearchTablesByLFTags } from "./pagination/SearchTablesByLFTagsP
 const commands = {
   AddLFTagsToResourceCommand,
   AssumeDecoratedRoleWithSAMLCommand,
+  AttachRLSPolicyCommand,
   BatchGrantPermissionsCommand,
   BatchRevokePermissionsCommand,
   CancelTransactionCommand,
@@ -335,16 +378,19 @@ const commands = {
   CreateLakeFormationOptInCommand,
   CreateLFTagCommand,
   CreateLFTagExpressionCommand,
+  CreateRLSPolicyCommand,
   DeleteDataCellsFilterCommand,
   DeleteLakeFormationIdentityCenterConfigurationCommand,
   DeleteLakeFormationOptInCommand,
   DeleteLFTagCommand,
   DeleteLFTagExpressionCommand,
   DeleteObjectsOnCancelCommand,
+  DeleteRLSPolicyCommand,
   DeregisterResourceCommand,
   DescribeLakeFormationIdentityCenterConfigurationCommand,
   DescribeResourceCommand,
   DescribeTransactionCommand,
+  DetachRLSPolicyCommand,
   ExtendTransactionCommand,
   GetDataCellsFilterCommand,
   GetDataLakePrincipalCommand,
@@ -355,6 +401,7 @@ const commands = {
   GetQueryStateCommand,
   GetQueryStatisticsCommand,
   GetResourceLFTagsCommand,
+  GetRLSPolicyCommand,
   GetTableObjectsCommand,
   GetTemporaryDataLocationCredentialsCommand,
   GetTemporaryGluePartitionCredentialsCommand,
@@ -368,6 +415,8 @@ const commands = {
   ListLFTagsCommand,
   ListPermissionsCommand,
   ListResourcesCommand,
+  ListRLSPoliciesCommand,
+  ListRLSPolicyAttachmentsCommand,
   ListTableStorageOptimizersCommand,
   ListTransactionsCommand,
   PutDataLakeSettingsCommand,
@@ -383,6 +432,7 @@ const commands = {
   UpdateLFTagCommand,
   UpdateLFTagExpressionCommand,
   UpdateResourceCommand,
+  UpdateRLSPolicyCommand,
   UpdateTableObjectsCommand,
   UpdateTableStorageOptimizerCommand,
 };
@@ -396,6 +446,8 @@ const paginators = {
   paginateListLFTags,
   paginateListPermissions,
   paginateListResources,
+  paginateListRLSPolicies,
+  paginateListRLSPolicyAttachments,
   paginateListTableStorageOptimizers,
   paginateListTransactions,
   paginateSearchDatabasesByLFTags,
@@ -442,6 +494,23 @@ export interface LakeFormation {
     args: AssumeDecoratedRoleWithSAMLCommandInput,
     options: LakeFormationRequestOptions,
     cb: (err: any, data?: AssumeDecoratedRoleWithSAMLCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AttachRLSPolicyCommand}
+   */
+  attachRLSPolicy(
+    args: AttachRLSPolicyCommandInput,
+    options?: LakeFormationRequestOptions
+  ): Promise<AttachRLSPolicyCommandOutput>;
+  attachRLSPolicy(
+    args: AttachRLSPolicyCommandInput,
+    cb: (err: any, data?: AttachRLSPolicyCommandOutput) => void
+  ): void;
+  attachRLSPolicy(
+    args: AttachRLSPolicyCommandInput,
+    options: LakeFormationRequestOptions,
+    cb: (err: any, data?: AttachRLSPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -599,6 +668,23 @@ export interface LakeFormation {
   ): void;
 
   /**
+   * @see {@link CreateRLSPolicyCommand}
+   */
+  createRLSPolicy(
+    args: CreateRLSPolicyCommandInput,
+    options?: LakeFormationRequestOptions
+  ): Promise<CreateRLSPolicyCommandOutput>;
+  createRLSPolicy(
+    args: CreateRLSPolicyCommandInput,
+    cb: (err: any, data?: CreateRLSPolicyCommandOutput) => void
+  ): void;
+  createRLSPolicy(
+    args: CreateRLSPolicyCommandInput,
+    options: LakeFormationRequestOptions,
+    cb: (err: any, data?: CreateRLSPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDataCellsFilterCommand}
    */
   deleteDataCellsFilter(): Promise<DeleteDataCellsFilterCommandOutput>;
@@ -703,6 +789,23 @@ export interface LakeFormation {
   ): void;
 
   /**
+   * @see {@link DeleteRLSPolicyCommand}
+   */
+  deleteRLSPolicy(
+    args: DeleteRLSPolicyCommandInput,
+    options?: LakeFormationRequestOptions
+  ): Promise<DeleteRLSPolicyCommandOutput>;
+  deleteRLSPolicy(
+    args: DeleteRLSPolicyCommandInput,
+    cb: (err: any, data?: DeleteRLSPolicyCommandOutput) => void
+  ): void;
+  deleteRLSPolicy(
+    args: DeleteRLSPolicyCommandInput,
+    options: LakeFormationRequestOptions,
+    cb: (err: any, data?: DeleteRLSPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeregisterResourceCommand}
    */
   deregisterResource(
@@ -769,6 +872,23 @@ export interface LakeFormation {
     args: DescribeTransactionCommandInput,
     options: LakeFormationRequestOptions,
     cb: (err: any, data?: DescribeTransactionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DetachRLSPolicyCommand}
+   */
+  detachRLSPolicy(
+    args: DetachRLSPolicyCommandInput,
+    options?: LakeFormationRequestOptions
+  ): Promise<DetachRLSPolicyCommandOutput>;
+  detachRLSPolicy(
+    args: DetachRLSPolicyCommandInput,
+    cb: (err: any, data?: DetachRLSPolicyCommandOutput) => void
+  ): void;
+  detachRLSPolicy(
+    args: DetachRLSPolicyCommandInput,
+    options: LakeFormationRequestOptions,
+    cb: (err: any, data?: DetachRLSPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -942,6 +1062,23 @@ export interface LakeFormation {
     args: GetResourceLFTagsCommandInput,
     options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetResourceLFTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRLSPolicyCommand}
+   */
+  getRLSPolicy(
+    args: GetRLSPolicyCommandInput,
+    options?: LakeFormationRequestOptions
+  ): Promise<GetRLSPolicyCommandOutput>;
+  getRLSPolicy(
+    args: GetRLSPolicyCommandInput,
+    cb: (err: any, data?: GetRLSPolicyCommandOutput) => void
+  ): void;
+  getRLSPolicy(
+    args: GetRLSPolicyCommandInput,
+    options: LakeFormationRequestOptions,
+    cb: (err: any, data?: GetRLSPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1170,6 +1307,42 @@ export interface LakeFormation {
     args: ListResourcesCommandInput,
     options: LakeFormationRequestOptions,
     cb: (err: any, data?: ListResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRLSPoliciesCommand}
+   */
+  listRLSPolicies(): Promise<ListRLSPoliciesCommandOutput>;
+  listRLSPolicies(
+    args: ListRLSPoliciesCommandInput,
+    options?: LakeFormationRequestOptions
+  ): Promise<ListRLSPoliciesCommandOutput>;
+  listRLSPolicies(
+    args: ListRLSPoliciesCommandInput,
+    cb: (err: any, data?: ListRLSPoliciesCommandOutput) => void
+  ): void;
+  listRLSPolicies(
+    args: ListRLSPoliciesCommandInput,
+    options: LakeFormationRequestOptions,
+    cb: (err: any, data?: ListRLSPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRLSPolicyAttachmentsCommand}
+   */
+  listRLSPolicyAttachments(): Promise<ListRLSPolicyAttachmentsCommandOutput>;
+  listRLSPolicyAttachments(
+    args: ListRLSPolicyAttachmentsCommandInput,
+    options?: LakeFormationRequestOptions
+  ): Promise<ListRLSPolicyAttachmentsCommandOutput>;
+  listRLSPolicyAttachments(
+    args: ListRLSPolicyAttachmentsCommandInput,
+    cb: (err: any, data?: ListRLSPolicyAttachmentsCommandOutput) => void
+  ): void;
+  listRLSPolicyAttachments(
+    args: ListRLSPolicyAttachmentsCommandInput,
+    options: LakeFormationRequestOptions,
+    cb: (err: any, data?: ListRLSPolicyAttachmentsCommandOutput) => void
   ): void;
 
   /**
@@ -1431,6 +1604,23 @@ export interface LakeFormation {
   ): void;
 
   /**
+   * @see {@link UpdateRLSPolicyCommand}
+   */
+  updateRLSPolicy(
+    args: UpdateRLSPolicyCommandInput,
+    options?: LakeFormationRequestOptions
+  ): Promise<UpdateRLSPolicyCommandOutput>;
+  updateRLSPolicy(
+    args: UpdateRLSPolicyCommandInput,
+    cb: (err: any, data?: UpdateRLSPolicyCommandOutput) => void
+  ): void;
+  updateRLSPolicy(
+    args: UpdateRLSPolicyCommandInput,
+    options: LakeFormationRequestOptions,
+    cb: (err: any, data?: UpdateRLSPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateTableObjectsCommand}
    */
   updateTableObjects(
@@ -1562,6 +1752,28 @@ export interface LakeFormation {
     args?: ListResourcesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListRLSPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRLSPoliciesCommandOutput}.
+   */
+  paginateListRLSPolicies(
+    args?: ListRLSPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRLSPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListRLSPolicyAttachmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRLSPolicyAttachmentsCommandOutput}.
+   */
+  paginateListRLSPolicyAttachments(
+    args?: ListRLSPolicyAttachmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRLSPolicyAttachmentsCommandOutput>;
 
   /**
    * @see {@link ListTableStorageOptimizersCommand}

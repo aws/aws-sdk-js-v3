@@ -34,6 +34,17 @@ import type {
 /**
  * @public
  */
+export interface DeleteEventOutput {
+  /**
+   * <p>The identifier of the event that was deleted.</p>
+   * @public
+   */
+  eventId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteMemoryRecordInput {
   /**
    * <p>The identifier of the AgentCore Memory resource from which to delete the memory record.</p>
@@ -164,10 +175,22 @@ export interface MemoryRecord {
   createdAt: Date | undefined;
 
   /**
+   * <p>The timestamp based on which the memory record was ingested. This reflects the time of the source content that the record was derived from, which can differ from <code>createdAt</code>, the time the record itself was written.</p>
+   * @public
+   */
+  timestamp?: Date | undefined;
+
+  /**
    * <p>A map of metadata key-value pairs associated with a memory record.</p>
    * @public
    */
   metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
+
+  /**
+   * <p>The timestamp at which the memory record expires and becomes eligible for deletion. This value is set when a record expiry (long-term memory time-to-live) applies to the record, either from the strategy the record belongs to or from a record expiry provided on the batch request that created or updated it. If the record has no expiry configured, this value is not present and the record does not expire.</p>
+   * @public
+   */
+  expiresAt?: Date | undefined;
 }
 
 /**
@@ -961,6 +984,12 @@ export interface MemoryRecordSummary {
    * @public
    */
   score?: number | undefined;
+
+  /**
+   * <p>The timestamp based on which the memory record was ingested. This reflects the time of the source content that the record was derived from, which can differ from <code>createdAt</code>, the time the record itself was written.</p>
+   * @public
+   */
+  timestamp?: Date | undefined;
 
   /**
    * <p>A map of metadata key-value pairs associated with a memory record.</p>

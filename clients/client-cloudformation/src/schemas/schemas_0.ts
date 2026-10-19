@@ -255,6 +255,7 @@ const _Exp = "Exports";
 const _F = "Filters";
 const _FE = "FailedEvents";
 const _FM = "FailureMode";
+const _FR = "ForceRollback";
 const _FSIC = "FailedStackInstancesCount";
 const _FTC = "FailureToleranceCount";
 const _FTP = "FailureTolerancePercentage";
@@ -1091,8 +1092,8 @@ export var ChangeSetSummary$: StaticStructureSchema = [3, n0, _CSS,
 ];
 export var ContinueUpdateRollbackInput$: StaticStructureSchema = [3, n0, _CURI,
   0,
-  [_SN, _RARN, _RTS, _CRT],
-  [0, 0, 64 | 0, 0], 1
+  [_SN, _RARN, _RTS, _CRT, _FR],
+  [0, 0, 64 | 0, 0, 2], 1
 ];
 export var ContinueUpdateRollbackOutput$: StaticStructureSchema = [3, n0, _CURO,
   0,

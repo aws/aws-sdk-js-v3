@@ -8,6 +8,7 @@ import { InternetMonitorServiceException as __BaseException } from "./InternetMo
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.internetmonitor#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.internetmonitor#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.internetmonitor#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.internetmonitor#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -89,6 +93,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.internetmonitor#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +114,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.internetmonitor#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   $retryable = {
@@ -132,6 +138,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.internetmonitor#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -152,6 +159,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.internetmonitor#InternalServerErrorException";
   readonly name = "InternalServerErrorException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -173,6 +181,7 @@ export class InternalServerErrorException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.internetmonitor#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -193,6 +202,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.internetmonitor#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   $retryable = {
@@ -216,6 +226,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.internetmonitor#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**

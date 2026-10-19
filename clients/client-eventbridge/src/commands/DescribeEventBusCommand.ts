@@ -57,6 +57,7 @@ export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse,
  * //   },
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   ManagedBy: "STRING_VALUE",
  * // };
  *
  * ```

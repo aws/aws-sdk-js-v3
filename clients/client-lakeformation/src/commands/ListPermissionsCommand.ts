@@ -103,6 +103,10 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  *       CatalogId: "STRING_VALUE",
  *       Name: "STRING_VALUE", // required
  *     },
+ *     RLSPolicy: { // RLSPolicyResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
+ *     },
  *   },
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
@@ -174,6 +178,10 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * //           ExpressionName: "STRING_VALUE",
  * //         },
  * //         LFTagExpression: { // LFTagExpressionResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           Name: "STRING_VALUE", // required
+ * //         },
+ * //         RLSPolicy: { // RLSPolicyResource
  * //           CatalogId: "STRING_VALUE",
  * //           Name: "STRING_VALUE", // required
  * //         },

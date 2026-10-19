@@ -33,6 +33,7 @@ export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationT
  */
 export const AuthType = {
   API_KEY: "API_KEY",
+  CONNECT_JWT: "CONNECT_JWT",
 } as const;
 /**
  * @public

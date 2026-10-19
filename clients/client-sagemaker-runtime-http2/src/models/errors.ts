@@ -8,6 +8,7 @@ import { SageMakerRuntimeHTTP2ServiceException as __BaseException } from "./Sage
  * @public
  */
 export class InputValidationError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerruntimehttp2#InputValidationError";
   readonly name = "InputValidationError" as const;
   readonly $fault = "client" as const;
   /**
@@ -41,6 +42,7 @@ export class InputValidationError extends __BaseException {
  * @public
  */
 export class InternalServerError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerruntimehttp2#InternalServerError";
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   /**
@@ -74,6 +76,7 @@ export class InternalServerError extends __BaseException {
  * @public
  */
 export class InternalStreamFailure extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerruntimehttp2#InternalStreamFailure";
   readonly name = "InternalStreamFailure" as const;
   readonly $fault = "server" as const;
   /**
@@ -100,6 +103,7 @@ export class InternalStreamFailure extends __BaseException {
  * @public
  */
 export class ModelStreamError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerruntimehttp2#ModelStreamError";
   readonly name = "ModelStreamError" as const;
   readonly $fault = "client" as const;
   /**
@@ -133,6 +137,7 @@ export class ModelStreamError extends __BaseException {
  * @public
  */
 export class ModelError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerruntimehttp2#ModelError";
   readonly name = "ModelError" as const;
   readonly $fault = "client" as const;
   /**
@@ -187,6 +192,7 @@ export class ModelError extends __BaseException {
  * @public
  */
 export class ServiceUnavailableError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerruntimehttp2#ServiceUnavailableError";
   readonly name = "ServiceUnavailableError" as const;
   readonly $fault = "server" as const;
   /**

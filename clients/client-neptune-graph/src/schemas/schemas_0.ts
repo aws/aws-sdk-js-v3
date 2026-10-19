@@ -611,8 +611,8 @@ export var ListGraphsOutput$: StaticStructureSchema = [3, n0, _LGO,
 ];
 export var ListImportTasksInput$: StaticStructureSchema = [3, n0, _LITI,
   0,
-  [_nT, _mR],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [_gIr, _nT, _mR],
+  [[0, { [_hQ]: _gIr }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
 ];
 export var ListImportTasksOutput$: StaticStructureSchema = [3, n0, _LITO,
   0,

@@ -25,6 +25,7 @@ import type {
   DomainProcessingStatusType,
   DomainState,
   DomainUseCase,
+  EncryptionMode,
   EngineMode,
   EngineType,
   InboundConnectionStatusCode,
@@ -72,6 +73,7 @@ import type {
   TLSSecurityPolicy,
   UpgradeStatus,
   UpgradeStep,
+  ValidationFailureSeverity,
   VolumeType,
   VpcEndpointErrorCode,
   VpcEndpointStatus,
@@ -2421,6 +2423,17 @@ export interface EncryptionAtRestOptions {
    * @public
    */
   KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The type of encryption at rest applied to the domain's data. Valid values are
+   *             <code>DISK</code> and <code>NATIVE</code>. <code>DISK</code> is the default and uses
+   *             volume-level encryption. <code>NATIVE</code> uses engine-native, index-level encryption
+   *             and requires encryption at rest to be enabled and OpenSearch version 3.3 or later. After
+   *             the mode is set to <code>NATIVE</code>, it can't be changed back to
+   *             <code>DISK</code>.</p>
+   * @public
+   */
+  EncryptionMode?: EncryptionMode | undefined;
 }
 
 /**
@@ -4527,6 +4540,31 @@ export interface ChangeProgressStage {
 }
 
 /**
+ * <p>A validation failure that occurred as the result of a pre-update validation check
+ *             (verbose dry run) on a domain.</p>
+ * @public
+ */
+export interface ValidationFailure {
+  /**
+   * <p>The error code of the failure.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>A message corresponding to the failure.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The severity of the validation failure.</p>
+   * @public
+   */
+  Severity?: ValidationFailureSeverity | undefined;
+}
+
+/**
  * <p>The progress details of a specific domain configuration change.</p>
  * @public
  */
@@ -4593,6 +4631,18 @@ export interface ChangeProgressStatusDetails {
    * @public
    */
   InitiatedBy?: InitiatedBy | undefined;
+
+  /**
+   * <p>The validation failures that occurred as a result of the configuration change.</p>
+   * @public
+   */
+  ValidationFailures?: ValidationFailure[] | undefined;
+
+  /**
+   * <p>The list of advisory warning codes that were accepted for the configuration change.</p>
+   * @public
+   */
+  AcceptedWarnings?: string[] | undefined;
 }
 
 /**
@@ -5580,25 +5630,6 @@ export interface DescribeDryRunProgressRequest {
 }
 
 /**
- * <p>A validation failure that occurred as the result of a pre-update validation check
- *             (verbose dry run) on a domain.</p>
- * @public
- */
-export interface ValidationFailure {
-  /**
-   * <p>The error code of the failure.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>A message corresponding to the failure.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
  * <p>Information about the progress of a pre-upgrade dry run analysis.</p>
  * @public
  */
@@ -5628,10 +5659,16 @@ export interface DryRunProgressStatus {
   UpdateDate: string | undefined;
 
   /**
-   * <p>Any validation failures that occurred as a result of the dry run.</p>
+   * <p>The validation failures that occurred as a result of the dry run.</p>
    * @public
    */
   ValidationFailures?: ValidationFailure[] | undefined;
+
+  /**
+   * <p>The list of advisory warning codes that were accepted for the configuration change.</p>
+   * @public
+   */
+  AcceptedWarnings?: string[] | undefined;
 }
 
 /**

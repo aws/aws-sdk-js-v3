@@ -33,11 +33,13 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  * const config = {}; // type is MarketplaceDiscoveryClientConfig
  * const client = new MarketplaceDiscoveryClient(config);
  * const input = { // GetListingInput
+ *   locale: "STRING_VALUE",
  *   listingId: "STRING_VALUE", // required
  * };
  * const command = new GetListingCommand(input);
  * const response = await client.send(command);
  * // { // GetListingOutput
+ * //   locale: "STRING_VALUE",
  * //   associatedEntities: [ // ListingAssociatedEntityList // required
  * //     { // ListingAssociatedEntity
  * //       product: { // ProductInformation
@@ -186,7 +188,8 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  * ```javascript
  * //
  * const input = {
- *   listingId: "prodview-sampleSaasId"
+ *   listingId: "prodview-sampleSaasId",
+ *   locale: "en-US"
  * };
  * const command = new GetListingCommand(input);
  * const response = await client.send(command);
@@ -229,6 +232,7 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  *   ],
  *   listingId: "prodview-sampleSaasId",
  *   listingName: "sample SaaS listing",
+ *   locale: "en-US",
  *   logoThumbnailUrl: "https://example.com/logos/sample-saas-logo.png",
  *   longDescription: "A sample SaaS product that provides automated, ready-to-code development environments in the cloud.",
  *   pricingModels: [
@@ -305,7 +309,8 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  * ```javascript
  * //
  * const input = {
- *   listingId: "prodview-sampleAmiId"
+ *   listingId: "prodview-sampleAmiId",
+ *   locale: "en-US"
  * };
  * const command = new GetListingCommand(input);
  * const response = await client.send(command);
@@ -366,6 +371,7 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  *   ],
  *   listingId: "prodview-sampleAmiId",
  *   listingName: "sample AMI listing",
+ *   locale: "en-US",
  *   logoThumbnailUrl: "https://example.com/logos/sample-ami-logo.png",
  *   longDescription: "A sample AMI product that provides load balancing, content caching, and API gateway capabilities optimized for cloud-native architectures.",
  *   pricingModels: [
@@ -450,7 +456,8 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  * ```javascript
  * //
  * const input = {
- *   listingId: "prodview-sampleMultiProductId"
+ *   listingId: "prodview-sampleMultiProductId",
+ *   locale: "en-US"
  * };
  * const command = new GetListingCommand(input);
  * const response = await client.send(command);
@@ -500,6 +507,7 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  *   integrationGuide: "To add the remote Box MCP server in Amazon Quick Suite, follow these steps: In the Amazon Quick Suite console, choose Integrations and create new integration by choosing Model Content Protocol.",
  *   listingId: "prodview-sampleMultiProductId",
  *   listingName: "sample multi-product listing",
+ *   locale: "en-US",
  *   logoThumbnailUrl: "https://example.com/logos/sample-multi-product-logo.png",
  *   longDescription: "A sample multi-product listing that connects content management with a unified AI platform. Users can securely search, analyze, and extract valuable insights from their files.",
  *   pricingModels: [

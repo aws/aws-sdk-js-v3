@@ -8,6 +8,7 @@ import { CloudFormationServiceException as __BaseException } from "./CloudFormat
  * @public
  */
 export class InvalidOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#InvalidOperationException";
   readonly name = "InvalidOperationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class InvalidOperationException extends __BaseException {
  * @public
  */
 export class OperationNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#OperationNotFoundException";
   readonly name = "OperationNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class OperationNotFoundException extends __BaseException {
  * @public
  */
 export class CFNRegistryException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#CFNRegistryException";
   readonly name = "CFNRegistryException" as const;
   readonly $fault = "client" as const;
   /**
@@ -78,6 +81,7 @@ export class CFNRegistryException extends __BaseException {
  * @public
  */
 export class TypeNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#TypeNotFoundException";
   readonly name = "TypeNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -104,6 +108,7 @@ export class TypeNotFoundException extends __BaseException {
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#AlreadyExistsException";
   readonly name = "AlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -126,6 +131,7 @@ export class AlreadyExistsException extends __BaseException {
  * @public
  */
 export class TypeConfigurationNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#TypeConfigurationNotFoundException";
   readonly name = "TypeConfigurationNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -152,6 +158,7 @@ export class TypeConfigurationNotFoundException extends __BaseException {
  * @public
  */
 export class TokenAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#TokenAlreadyExistsException";
   readonly name = "TokenAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -175,6 +182,7 @@ export class TokenAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ChangeSetNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#ChangeSetNotFoundException";
   readonly name = "ChangeSetNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -197,6 +205,7 @@ export class ChangeSetNotFoundException extends __BaseException {
  * @public
  */
 export class InsufficientCapabilitiesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#InsufficientCapabilitiesException";
   readonly name = "InsufficientCapabilitiesException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -221,6 +230,7 @@ export class InsufficientCapabilitiesException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -245,6 +255,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ConcurrentResourcesLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#ConcurrentResourcesLimitExceededException";
   readonly name = "ConcurrentResourcesLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -267,6 +278,7 @@ export class ConcurrentResourcesLimitExceededException extends __BaseException {
  * @public
  */
 export class OperationIdAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#OperationIdAlreadyExistsException";
   readonly name = "OperationIdAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -290,6 +302,7 @@ export class OperationIdAlreadyExistsException extends __BaseException {
  * @public
  */
 export class OperationInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#OperationInProgressException";
   readonly name = "OperationInProgressException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -312,6 +325,7 @@ export class OperationInProgressException extends __BaseException {
  * @public
  */
 export class StackSetNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#StackSetNotFoundException";
   readonly name = "StackSetNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -334,6 +348,7 @@ export class StackSetNotFoundException extends __BaseException {
  * @public
  */
 export class StaleRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#StaleRequestException";
   readonly name = "StaleRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -356,6 +371,7 @@ export class StaleRequestException extends __BaseException {
  * @public
  */
 export class CreatedButModifiedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#CreatedButModifiedException";
   readonly name = "CreatedButModifiedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -378,6 +394,7 @@ export class CreatedButModifiedException extends __BaseException {
  * @public
  */
 export class NameAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#NameAlreadyExistsException";
   readonly name = "NameAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -401,6 +418,7 @@ export class NameAlreadyExistsException extends __BaseException {
  * @public
  */
 export class InvalidChangeSetStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#InvalidChangeSetStatusException";
   readonly name = "InvalidChangeSetStatusException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -423,6 +441,7 @@ export class InvalidChangeSetStatusException extends __BaseException {
  * @public
  */
 export class GeneratedTemplateNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#GeneratedTemplateNotFoundException";
   readonly name = "GeneratedTemplateNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -446,6 +465,7 @@ export class GeneratedTemplateNotFoundException extends __BaseException {
  * @public
  */
 export class StackSetNotEmptyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#StackSetNotEmptyException";
   readonly name = "StackSetNotEmptyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -468,6 +488,7 @@ export class StackSetNotEmptyException extends __BaseException {
  * @public
  */
 export class ResourceScanNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#ResourceScanNotFoundException";
   readonly name = "ResourceScanNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -490,6 +511,7 @@ export class ResourceScanNotFoundException extends __BaseException {
  * @public
  */
 export class StackInstanceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#StackInstanceNotFoundException";
   readonly name = "StackInstanceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -512,6 +534,7 @@ export class StackInstanceNotFoundException extends __BaseException {
  * @public
  */
 export class StackRefactorNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#StackRefactorNotFoundException";
   readonly name = "StackRefactorNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -534,6 +557,7 @@ export class StackRefactorNotFoundException extends __BaseException {
  * @public
  */
 export class HookResultNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#HookResultNotFoundException";
   readonly name = "HookResultNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -556,6 +580,7 @@ export class HookResultNotFoundException extends __BaseException {
  * @public
  */
 export class StackNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#StackNotFoundException";
   readonly name = "StackNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -578,6 +603,7 @@ export class StackNotFoundException extends __BaseException {
  * @public
  */
 export class ResourceScanInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#ResourceScanInProgressException";
   readonly name = "ResourceScanInProgressException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -601,6 +627,7 @@ export class ResourceScanInProgressException extends __BaseException {
  * @public
  */
 export class InvalidStateTransitionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#InvalidStateTransitionException";
   readonly name = "InvalidStateTransitionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -624,6 +651,7 @@ export class InvalidStateTransitionException extends __BaseException {
  * @public
  */
 export class OperationStatusCheckFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#OperationStatusCheckFailedException";
   readonly name = "OperationStatusCheckFailedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -658,6 +686,7 @@ export class OperationStatusCheckFailedException extends __BaseException {
  * @public
  */
 export class ResourceScanLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudformation#ResourceScanLimitExceededException";
   readonly name = "ResourceScanLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

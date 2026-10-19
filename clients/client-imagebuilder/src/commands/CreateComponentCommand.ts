@@ -35,6 +35,9 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * 						<code>uri</code> property in the request body.</p>
  *             </li>
  *          </ul>
+ *          <p>Image Builder determines the component type from the document. If the document
+ * 			contains a single phase named <code>test</code>, the component type is
+ * 			<code>TEST</code>. Otherwise, the component type is <code>BUILD</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,12 +87,14 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
+ * 			calls on your behalf. Retry with an increasing or variable delay between
+ * 			requests.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
+ *  <p>A generic client error. This error usually indicates that the request
+ * 			failed a validation check, such as when a downstream service rejects a
+ * 			configured value.</p>
  *
  * @throws {@link DryRunOperationException} (client fault)
  *  <p>The dry run operation of the resource was successful, and no resources or mutations were actually performed due to the dry run flag in the request.</p>
@@ -102,11 +107,13 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * 			from a previous request that used the same client token.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>You have specified two or more mutually exclusive parameters. Review the error message
- * 			for details.</p>
+ *  <p>You have specified a combination of parameters that isn't valid. For
+ * 			example, two mutually exclusive parameters, or a parameter without its
+ * 			required companion parameter. Review the error message for details.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have requested an action that that the service doesn't support.</p>
+ *  <p>The request is malformed or otherwise invalid. Verify the request and try
+ * 			again.</p>
  *
  * @throws {@link InvalidVersionNumberException} (client fault)
  *  <p>Your version number is out of bounds or does not follow the required syntax.</p>
@@ -116,8 +123,8 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * 			details and retry later.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the number of permitted resources or operations for this service.
@@ -130,6 +137,73 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example Create a component from a document stored in Amazon S3
+ * ```javascript
+ * // The following example creates a component from a YAML definition document that's stored in an Amazon S3 bucket. The definition document for this component includes an AppVersion parameter that recipes can set when they include the component.
+ * const input = {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE10101",
+ *   description: "Installs a configurable version of my application",
+ *   name: "my-example-parameterized-component",
+ *   platform: "Linux",
+ *   semanticVersion: "1.0.0",
+ *   uri: "s3://amzn-s3-demo-bucket/components/install-my-app.yaml"
+ * };
+ * const command = new CreateComponentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE10101",
+ *   componentBuildVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-parameterized-component/1.0.0/1",
+ *   latestVersionReferences: {
+ *     latestMajorVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-parameterized-component/1.x.x",
+ *     latestMinorVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-parameterized-component/1.0.x",
+ *     latestPatchVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-parameterized-component/1.0.0",
+ *     latestVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-parameterized-component/x.x.x"
+ *   },
+ *   requestId: "0cec8e32-a5c6-4aeb-ac3a-6471c8a2a8a9"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Create a component from an inline document
+ * ```javascript
+ * // The following example creates a build component from a YAML document provided inline in the request.
+ * const input = {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   data: "name: InstallMyApp
+ * description: Installs my application
+ * schemaVersion: 1.0
+ * phases:
+ *   - name: build
+ *     steps:
+ *       - name: InstallApp
+ *         action: ExecuteBash
+ *         inputs:
+ *           commands:
+ *             - sudo yum -y install my-app
+ * ",
+ *   description: "Installs the latest version of my application",
+ *   name: "my-example-component",
+ *   platform: "Linux",
+ *   semanticVersion: "1.0.0"
+ * };
+ * const command = new CreateComponentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   componentBuildVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-component/1.0.0/1",
+ *   latestVersionReferences: {
+ *     latestMajorVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-component/1.x.x",
+ *     latestMinorVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-component/1.0.x",
+ *     latestPatchVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-component/1.0.0",
+ *     latestVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-component/x.x.x"
+ *   },
+ *   requestId: "e769f240-fb6a-4253-88d1-20a80cbe787d"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

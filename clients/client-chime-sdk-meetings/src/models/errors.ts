@@ -8,6 +8,7 @@ import { ChimeSDKMeetingsServiceException as __BaseException } from "./ChimeSDKM
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmeetings#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -38,6 +39,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class ForbiddenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmeetings#ForbiddenException";
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -68,6 +70,7 @@ export class ForbiddenException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmeetings#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -98,6 +101,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmeetings#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -128,6 +132,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class ServiceFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmeetings#ServiceFailureException";
   readonly name = "ServiceFailureException" as const;
   readonly $fault = "server" as const;
   Code?: string | undefined;
@@ -158,6 +163,7 @@ export class ServiceFailureException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmeetings#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   Code?: string | undefined;
@@ -195,6 +201,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmeetings#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -225,6 +232,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class UnauthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmeetings#UnauthorizedException";
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -255,6 +263,7 @@ export class UnauthorizedException extends __BaseException {
  * @public
  */
 export class UnprocessableEntityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmeetings#UnprocessableEntityException";
   readonly name = "UnprocessableEntityException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -285,6 +294,7 @@ export class UnprocessableEntityException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmeetings#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -315,6 +325,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmeetings#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -352,6 +363,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmeetings#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;

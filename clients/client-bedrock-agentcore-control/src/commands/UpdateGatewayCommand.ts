@@ -51,6 +51,7 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  *       streamingConfiguration: { // StreamingConfiguration
  *         enableResponseStreaming: true || false,
  *       },
+ *       disableMcpListToolsPagination: true || false,
  *     },
  *   },
  *   authorizerType: "CUSTOM_JWT" || "AWS_IAM" || "NONE" || "AUTHENTICATE_ONLY", // required
@@ -205,6 +206,7 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  * //       streamingConfiguration: { // StreamingConfiguration
  * //         enableResponseStreaming: true || false,
  * //       },
+ * //       disableMcpListToolsPagination: true || false,
  * //     },
  * //   },
  * //   authorizerType: "CUSTOM_JWT" || "AWS_IAM" || "NONE" || "AUTHENTICATE_ONLY", // required

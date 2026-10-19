@@ -418,6 +418,8 @@ export type {
   ManagedSearchBedrockRerankingModelConfiguration,
   ManagedSearchConfiguration,
   ManagedSearchRerankingConfiguration,
+  MantleFoundationModelConfiguration,
+  MantleFoundationModelModelConfiguration,
   Memory,
   MemorySessionSummary,
   Message,

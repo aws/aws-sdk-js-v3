@@ -64,6 +64,59 @@ export interface DescribeExportCommandOutput extends DescribeExportOutput, __Met
  * //       ExportToTime: new Date("TIMESTAMP"),
  * //       ExportViewType: "NEW_IMAGE" || "NEW_AND_OLD_IMAGES",
  * //     },
+ * //     FilterSpecification: { // FilterSpecification
+ * //       FilterExpression: "STRING_VALUE",
+ * //       ProjectionExpression: "STRING_VALUE",
+ * //       KeyConditionExpression: "STRING_VALUE",
+ * //       ExpressionAttributeNames: { // ExpressionAttributeNameMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       ExpressionAttributeValues: { // ExpressionAttributeValueMap
+ * //         "<keys>": { // AttributeValue Union: only one key present
+ * //           S: "STRING_VALUE",
+ * //           N: "STRING_VALUE",
+ * //           B: new Uint8Array(),
+ * //           SS: [ // StringSetAttributeValue
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           NS: [ // NumberSetAttributeValue
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           BS: [ // BinarySetAttributeValue
+ * //             new Uint8Array(),
+ * //           ],
+ * //           M: { // MapAttributeValue
+ * //             "<keys>": {//  Union: only one key present
+ * //               S: "STRING_VALUE",
+ * //               N: "STRING_VALUE",
+ * //               B: new Uint8Array(),
+ * //               SS: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               NS: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               BS: [
+ * //                 new Uint8Array(),
+ * //               ],
+ * //               M: {
+ * //                 "<keys>": "<AttributeValue>",
+ * //               },
+ * //               L: [ // ListAttributeValue
+ * //                 "<AttributeValue>",
+ * //               ],
+ * //               NULL: true || false,
+ * //               BOOL: true || false,
+ * //             },
+ * //           },
+ * //           L: [
+ * //             "<AttributeValue>",
+ * //           ],
+ * //           NULL: true || false,
+ * //           BOOL: true || false,
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * // };
  *

@@ -55,6 +55,7 @@ export interface ListVpcOriginsCommandOutput extends ListVpcOriginsResult, __Met
  * //         Arn: "STRING_VALUE", // required
  * //         AccountId: "STRING_VALUE",
  * //         OriginEndpointArn: "STRING_VALUE", // required
+ * //         IpAddressType: "ipv4" || "dualstack",
  * //       },
  * //     ],
  * //   },

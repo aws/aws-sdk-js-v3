@@ -662,6 +662,18 @@ export type ServiceManagedFleetOperatingSystemFamily =
  * @public
  * @enum
  */
+export const FleetSoftwareAddOnName = {
+  DOCKER: "docker",
+} as const;
+/**
+ * @public
+ */
+export type FleetSoftwareAddOnName = (typeof FleetSoftwareAddOnName)[keyof typeof FleetSoftwareAddOnName];
+
+/**
+ * @public
+ * @enum
+ */
 export const Ec2MarketType = {
   ON_DEMAND: "on-demand",
   SPOT: "spot",
@@ -929,6 +941,21 @@ export const LicenseEndpointStatus = {
  * @public
  */
 export type LicenseEndpointStatus = (typeof LicenseEndpointStatus)[keyof typeof LicenseEndpointStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const MembershipResourceType = {
+  FARM: "FARM",
+  FLEET: "FLEET",
+  JOB: "JOB",
+  QUEUE: "QUEUE",
+} as const;
+/**
+ * @public
+ */
+export type MembershipResourceType = (typeof MembershipResourceType)[keyof typeof MembershipResourceType];
 
 /**
  * @public

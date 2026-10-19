@@ -8,6 +8,7 @@ import { MediaPackageVodServiceException as __BaseException } from "./MediaPacka
  * @public
  */
 export class ForbiddenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediapackagevod#ForbiddenException";
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class ForbiddenException extends __BaseException {
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediapackagevod#InternalServerErrorException";
   readonly name = "InternalServerErrorException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class InternalServerErrorException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediapackagevod#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -74,6 +77,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediapackagevod#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -96,6 +100,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediapackagevod#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -118,6 +123,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class UnprocessableEntityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediapackagevod#UnprocessableEntityException";
   readonly name = "UnprocessableEntityException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

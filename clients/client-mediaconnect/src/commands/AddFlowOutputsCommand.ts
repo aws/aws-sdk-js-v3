@@ -101,6 +101,7 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  *         },
  *       },
  *       NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
+ *       NdiAudioReferenceLevel: Number("int"),
  *     },
  *   ],
  * };
@@ -170,8 +171,10 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  * //         NdiProgramName: "STRING_VALUE",
  * //         NdiSourceSettings: { // NdiSourceSettings
  * //           SourceName: "STRING_VALUE",
+ * //           AudioReferenceLevel: Number("int"),
  * //         },
  * //         NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
+ * //         NdiAudioReferenceLevel: Number("int"),
  * //       },
  * //       VpcInterfaceAttachment: { // VpcInterfaceAttachment
  * //         VpcInterfaceName: "STRING_VALUE",

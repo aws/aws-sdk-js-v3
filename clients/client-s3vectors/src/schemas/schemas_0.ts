@@ -60,6 +60,9 @@ const _MC = "MetadataConfiguration";
 const _NFE = "NotFoundException";
 const _PIV = "PutInputVector";
 const _PV = "PutVectors";
+const _PVBDIM = "PutVectorBucketDefaultIndexMode";
+const _PVBDIMI = "PutVectorBucketDefaultIndexModeInput";
+const _PVBDIMO = "PutVectorBucketDefaultIndexModeOutput";
 const _PVBP = "PutVectorBucketPolicy";
 const _PVBPI = "PutVectorBucketPolicyInput";
 const _PVBPO = "PutVectorBucketPolicyOutput";
@@ -78,6 +81,9 @@ const _TMRE = "TooManyRequestsException";
 const _TR = "TagResource";
 const _TRI = "TagResourceInput";
 const _TRO = "TagResourceOutput";
+const _UIM = "UpdateIndexMode";
+const _UIMI = "UpdateIndexModeInput";
+const _UIMO = "UpdateIndexModeOutput";
 const _UR = "UntagResource";
 const _URI = "UntagResourceInput";
 const _URO = "UntagResourceOutput";
@@ -90,6 +96,7 @@ const _VEFL = "ValidationExceptionFieldList";
 const _c = "client";
 const _cT = "creationTime";
 const _d = "dimension";
+const _dIM = "defaultIndexMode";
 const _dM = "distanceMetric";
 const _dT = "dataType";
 const _da = "data";
@@ -104,6 +111,7 @@ const _hE = "httpError";
 const _hQ = "httpQuery";
 const _i = "index";
 const _iA = "indexArn";
+const _iM = "indexMode";
 const _iN = "indexName";
 const _in = "indexes";
 const _k = "keys";
@@ -118,6 +126,7 @@ const _nT = "nextToken";
 const _p = "policy";
 const _pa = "path";
 const _pr = "prefix";
+const _qM = "queryMode";
 const _qV = "queryVector";
 const _rA = "resourceArn";
 const _rD = "returnData";
@@ -370,8 +379,8 @@ export var GetVectorsOutput$: StaticStructureSchema = [3, n0, _GVO,
 ];
 export var Index$: StaticStructureSchema = [3, n0, _I,
   0,
-  [_vBN, _iN, _iA, _cT, _dT, _d, _dM, _mC, _eC],
-  [0, 0, 0, 4, 0, 1, 0, () => MetadataConfiguration$, () => EncryptionConfiguration$], 7
+  [_vBN, _iN, _iA, _cT, _dT, _d, _dM, _mC, _eC, _iM],
+  [0, 0, 0, 4, 0, 1, 0, () => MetadataConfiguration$, () => EncryptionConfiguration$, 0], 7
 ];
 export var IndexSummary$: StaticStructureSchema = [3, n0, _IS,
   0,
@@ -433,6 +442,16 @@ export var PutInputVector$: StaticStructureSchema = [3, n0, _PIV,
   [_ke, _da, _me],
   [0, () => VectorData$, 15], 2
 ];
+export var PutVectorBucketDefaultIndexModeInput$: StaticStructureSchema = [3, n0, _PVBDIMI,
+  0,
+  [_dIM, _vBN, _vBA],
+  [0, 0, 0], 1
+];
+export var PutVectorBucketDefaultIndexModeOutput$: StaticStructureSchema = [3, n0, _PVBDIMO,
+  0,
+  [],
+  []
+];
 export var PutVectorBucketPolicyInput$: StaticStructureSchema = [3, n0, _PVBPI,
   0,
   [_p, _vBN, _vBA],
@@ -460,8 +479,8 @@ export var QueryOutputVector$: StaticStructureSchema = [3, n0, _QOV,
 ];
 export var QueryVectorsInput$: StaticStructureSchema = [3, n0, _QVI,
   0,
-  [_tK, _qV, _vBN, _iN, _iA, _f, _rM, _rDe, _nT],
-  [1, () => VectorData$, 0, 0, 0, 15, 2, 2, 0], 2
+  [_tK, _qV, _vBN, _iN, _iA, _f, _qM, _rM, _rDe, _nT],
+  [1, () => VectorData$, 0, 0, 0, 15, 0, 2, 2, 0], 2
 ];
 export var QueryVectorsOutput$: StaticStructureSchema = [3, n0, _QVO,
   0,
@@ -488,6 +507,16 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   [],
   []
 ];
+export var UpdateIndexModeInput$: StaticStructureSchema = [3, n0, _UIMI,
+  0,
+  [_iM, _vBN, _iN, _iA],
+  [0, 0, 0, 0], 1
+];
+export var UpdateIndexModeOutput$: StaticStructureSchema = [3, n0, _UIMO,
+  0,
+  [],
+  []
+];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_pa, _m],
@@ -495,8 +524,8 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
 ];
 export var VectorBucket$: StaticStructureSchema = [3, n0, _VB,
   0,
-  [_vBN, _vBA, _cT, _eC],
-  [0, 0, 4, () => EncryptionConfiguration$], 3
+  [_vBN, _vBA, _cT, _eC, _dIM],
+  [0, 0, 4, () => EncryptionConfiguration$, 0], 3
 ];
 export var VectorBucketSummary$: StaticStructureSchema = [3, n0, _VBS,
   0,
@@ -577,6 +606,9 @@ export var ListVectorBuckets$: StaticOperationSchema = [9, n0, _LVB,
 export var ListVectors$: StaticOperationSchema = [9, n0, _LV,
   { [_h]: ["POST", "/ListVectors", 200] }, () => ListVectorsInput$, () => ListVectorsOutput$
 ];
+export var PutVectorBucketDefaultIndexMode$: StaticOperationSchema = [9, n0, _PVBDIM,
+  { [_h]: ["POST", "/PutVectorBucketDefaultIndexMode", 200] }, () => PutVectorBucketDefaultIndexModeInput$, () => PutVectorBucketDefaultIndexModeOutput$
+];
 export var PutVectorBucketPolicy$: StaticOperationSchema = [9, n0, _PVBP,
   { [_h]: ["POST", "/PutVectorBucketPolicy", 200] }, () => PutVectorBucketPolicyInput$, () => PutVectorBucketPolicyOutput$
 ];
@@ -591,4 +623,7 @@ export var TagResource$: StaticOperationSchema = [9, n0, _TR,
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] }, () => UntagResourceInput$, () => UntagResourceOutput$
+];
+export var UpdateIndexMode$: StaticOperationSchema = [9, n0, _UIM,
+  { [_h]: ["POST", "/UpdateIndexMode", 200] }, () => UpdateIndexModeInput$, () => UpdateIndexModeOutput$
 ];

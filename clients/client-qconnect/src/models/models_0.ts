@@ -50,6 +50,7 @@ import type {
   ReferenceType,
   Relevance,
   RelevanceLevel,
+  RetrieveErrorCode,
   SessionDataNamespace,
   SourceContentType,
   Status,
@@ -1797,6 +1798,12 @@ export interface AIAgentConfigurationData {
    * @public
    */
   aiAgentId: string | undefined;
+
+  /**
+   * <p>Indicates whether the AI Agent configured for this AI Agent type is enabled. When this value is omitted or set to true, the configured AI Agent runs; when set to false, the AI Agent ID is retained but no AI Agent runs for the AI Agent type. Setting this value to false is currently supported only for the <code>ANSWER_RECOMMENDATION</code> AI Agent type; other requests to set it to false are rejected with a validation error.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
 }
 
 /**
@@ -4166,6 +4173,18 @@ export interface NotesDataDetails {
 }
 
 /**
+ * <p>Details about a proactive recommendation, including the token used to retrieve its chunked response with <code>GetNextMessage</code>.</p>
+ * @public
+ */
+export interface ProactiveRecommendationDataDetails {
+  /**
+   * <p>The token used to retrieve the next message in the proactive recommendation. Pass this token in a <code>GetNextMessage</code> request to continue receiving the chunked proactive response. Each response returns the next token to use until the chunked response is complete.</p>
+   * @public
+   */
+  nextMessageToken: string | undefined;
+}
+
+/**
  * <p>Contains information about where the text with a citation begins and ends in the generated output.</p>
  * @public
  */
@@ -5187,6 +5206,30 @@ export namespace KnowledgeSource {
 }
 
 /**
+ * <p>An error returned for a single assistant association whose knowledge base retrieval failed during a <code>Retrieve</code> operation. The overall operation still succeeds and returns the results from the associations that were queried successfully.</p>
+ * @public
+ */
+export interface RetrieveError {
+  /**
+   * <p>The identifier of the assistant association whose knowledge base retrieval failed.</p>
+   * @public
+   */
+  associationId: string | undefined;
+
+  /**
+   * <p>The error code that categorizes the retrieval failure for the assistant association.</p>
+   * @public
+   */
+  code: RetrieveErrorCode | undefined;
+
+  /**
+   * <p>A human-readable description of the retrieval failure for the assistant association.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
  * <p>A single result from a content retrieval operation.</p>
  * @public
  */
@@ -5225,6 +5268,12 @@ export interface RetrieveResponse {
    * @public
    */
   results: RetrieveResult[] | undefined;
+
+  /**
+   * <p>The per-association errors returned when one or more knowledge base associations fail during a <code>Retrieve</code> operation that spans multiple assistant associations. The overall operation still succeeds and returns the results from the associations that were queried successfully. This list contains one entry for each association that failed, up to a maximum of five.</p>
+   * @public
+   */
+  errors?: RetrieveError[] | undefined;
 }
 
 /**
@@ -9047,38 +9096,4 @@ export interface MessageTemplateAttachment {
    * @public
    */
   attachmentId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMessageTemplateAttachmentResponse {
-  /**
-   * <p>The message template attachment.</p>
-   * @public
-   */
-  attachment?: MessageTemplateAttachment | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMessageTemplateVersionRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template. If not supplied, the message template version will be created based on the message template content that is referenced by the <code>$LATEST</code> qualifier by default.</p>
-   * @public
-   */
-  messageTemplateContentSha256?: string | undefined;
 }

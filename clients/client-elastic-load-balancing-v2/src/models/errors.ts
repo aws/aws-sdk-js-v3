@@ -8,6 +8,7 @@ import { ElasticLoadBalancingV2ServiceException as __BaseException } from "./Ela
  * @public
  */
 export class CertificateNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#CertificateNotFoundException";
   readonly name = "CertificateNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class CertificateNotFoundException extends __BaseException {
  * @public
  */
 export class ListenerNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException";
   readonly name = "ListenerNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class ListenerNotFoundException extends __BaseException {
  * @public
  */
 export class TooManyCertificatesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TooManyCertificatesException";
   readonly name = "TooManyCertificatesException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -74,6 +77,7 @@ export class TooManyCertificatesException extends __BaseException {
  * @public
  */
 export class DuplicateTagKeysException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#DuplicateTagKeysException";
   readonly name = "DuplicateTagKeysException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -96,6 +100,7 @@ export class DuplicateTagKeysException extends __BaseException {
  * @public
  */
 export class LoadBalancerNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException";
   readonly name = "LoadBalancerNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -118,6 +123,7 @@ export class LoadBalancerNotFoundException extends __BaseException {
  * @public
  */
 export class RuleNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#RuleNotFoundException";
   readonly name = "RuleNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -140,6 +146,7 @@ export class RuleNotFoundException extends __BaseException {
  * @public
  */
 export class TargetGroupNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException";
   readonly name = "TargetGroupNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -162,6 +169,7 @@ export class TargetGroupNotFoundException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -184,6 +192,7 @@ export class TooManyTagsException extends __BaseException {
  * @public
  */
 export class TrustStoreNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException";
   readonly name = "TrustStoreNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -206,6 +215,7 @@ export class TrustStoreNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidRevocationContentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#InvalidRevocationContentException";
   readonly name = "InvalidRevocationContentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -228,6 +238,7 @@ export class InvalidRevocationContentException extends __BaseException {
  * @public
  */
 export class RevocationContentNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#RevocationContentNotFoundException";
   readonly name = "RevocationContentNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -250,6 +261,7 @@ export class RevocationContentNotFoundException extends __BaseException {
  * @public
  */
 export class TooManyTrustStoreRevocationEntriesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TooManyTrustStoreRevocationEntriesException";
   readonly name = "TooManyTrustStoreRevocationEntriesException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -272,6 +284,7 @@ export class TooManyTrustStoreRevocationEntriesException extends __BaseException
  * @public
  */
 export class AllocationIdNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#AllocationIdNotFoundException";
   readonly name = "AllocationIdNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -294,6 +307,7 @@ export class AllocationIdNotFoundException extends __BaseException {
  * @public
  */
 export class ALPNPolicyNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#ALPNPolicyNotSupportedException";
   readonly name = "ALPNPolicyNotSupportedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -316,6 +330,7 @@ export class ALPNPolicyNotSupportedException extends __BaseException {
  * @public
  */
 export class AvailabilityZoneNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#AvailabilityZoneNotSupportedException";
   readonly name = "AvailabilityZoneNotSupportedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -338,6 +353,7 @@ export class AvailabilityZoneNotSupportedException extends __BaseException {
  * @public
  */
 export class CaCertificatesBundleNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#CaCertificatesBundleNotFoundException";
   readonly name = "CaCertificatesBundleNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -360,6 +376,7 @@ export class CaCertificatesBundleNotFoundException extends __BaseException {
  * @public
  */
 export class CapacityDecreaseRequestsLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#CapacityDecreaseRequestsLimitExceededException";
   readonly name = "CapacityDecreaseRequestsLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -382,6 +399,7 @@ export class CapacityDecreaseRequestsLimitExceededException extends __BaseExcept
  * @public
  */
 export class CapacityReservationPendingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#CapacityReservationPendingException";
   readonly name = "CapacityReservationPendingException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -404,6 +422,7 @@ export class CapacityReservationPendingException extends __BaseException {
  * @public
  */
 export class CapacityUnitsLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#CapacityUnitsLimitExceededException";
   readonly name = "CapacityUnitsLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -426,6 +445,7 @@ export class CapacityUnitsLimitExceededException extends __BaseException {
  * @public
  */
 export class DuplicateListenerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#DuplicateListenerException";
   readonly name = "DuplicateListenerException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -448,6 +468,7 @@ export class DuplicateListenerException extends __BaseException {
  * @public
  */
 export class IncompatibleProtocolsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#IncompatibleProtocolsException";
   readonly name = "IncompatibleProtocolsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -470,6 +491,7 @@ export class IncompatibleProtocolsException extends __BaseException {
  * @public
  */
 export class InvalidConfigurationRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException";
   readonly name = "InvalidConfigurationRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -492,6 +514,7 @@ export class InvalidConfigurationRequestException extends __BaseException {
  * @public
  */
 export class InvalidLoadBalancerActionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#InvalidLoadBalancerActionException";
   readonly name = "InvalidLoadBalancerActionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -514,6 +537,7 @@ export class InvalidLoadBalancerActionException extends __BaseException {
  * @public
  */
 export class SSLPolicyNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#SSLPolicyNotFoundException";
   readonly name = "SSLPolicyNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -536,6 +560,7 @@ export class SSLPolicyNotFoundException extends __BaseException {
  * @public
  */
 export class TargetGroupAssociationLimitException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TargetGroupAssociationLimitException";
   readonly name = "TargetGroupAssociationLimitException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -558,6 +583,7 @@ export class TargetGroupAssociationLimitException extends __BaseException {
  * @public
  */
 export class TooManyActionsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TooManyActionsException";
   readonly name = "TooManyActionsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -580,6 +606,7 @@ export class TooManyActionsException extends __BaseException {
  * @public
  */
 export class TooManyListenersException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TooManyListenersException";
   readonly name = "TooManyListenersException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -603,6 +630,7 @@ export class TooManyListenersException extends __BaseException {
  * @public
  */
 export class TooManyRegistrationsForTargetIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TooManyRegistrationsForTargetIdException";
   readonly name = "TooManyRegistrationsForTargetIdException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -625,6 +653,7 @@ export class TooManyRegistrationsForTargetIdException extends __BaseException {
  * @public
  */
 export class TooManyTargetsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TooManyTargetsException";
   readonly name = "TooManyTargetsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -649,6 +678,7 @@ export class TooManyTargetsException extends __BaseException {
  * @public
  */
 export class TooManyUniqueTargetGroupsPerLoadBalancerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TooManyUniqueTargetGroupsPerLoadBalancerException";
   readonly name = "TooManyUniqueTargetGroupsPerLoadBalancerException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -671,6 +701,7 @@ export class TooManyUniqueTargetGroupsPerLoadBalancerException extends __BaseExc
  * @public
  */
 export class TrustStoreNotReadyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TrustStoreNotReadyException";
   readonly name = "TrustStoreNotReadyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -693,6 +724,7 @@ export class TrustStoreNotReadyException extends __BaseException {
  * @public
  */
 export class UnsupportedProtocolException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#UnsupportedProtocolException";
   readonly name = "UnsupportedProtocolException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -715,6 +747,7 @@ export class UnsupportedProtocolException extends __BaseException {
  * @public
  */
 export class DuplicateLoadBalancerNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#DuplicateLoadBalancerNameException";
   readonly name = "DuplicateLoadBalancerNameException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -737,6 +770,7 @@ export class DuplicateLoadBalancerNameException extends __BaseException {
  * @public
  */
 export class InvalidSchemeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#InvalidSchemeException";
   readonly name = "InvalidSchemeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -759,6 +793,7 @@ export class InvalidSchemeException extends __BaseException {
  * @public
  */
 export class InvalidSecurityGroupException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#InvalidSecurityGroupException";
   readonly name = "InvalidSecurityGroupException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -781,6 +816,7 @@ export class InvalidSecurityGroupException extends __BaseException {
  * @public
  */
 export class InvalidSubnetException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#InvalidSubnetException";
   readonly name = "InvalidSubnetException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -803,6 +839,7 @@ export class InvalidSubnetException extends __BaseException {
  * @public
  */
 export class OperationNotPermittedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#OperationNotPermittedException";
   readonly name = "OperationNotPermittedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -825,6 +862,7 @@ export class OperationNotPermittedException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -847,6 +885,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class SubnetNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#SubnetNotFoundException";
   readonly name = "SubnetNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -870,6 +909,7 @@ export class SubnetNotFoundException extends __BaseException {
  * @public
  */
 export class TooManyLoadBalancersException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TooManyLoadBalancersException";
   readonly name = "TooManyLoadBalancersException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -892,6 +932,7 @@ export class TooManyLoadBalancersException extends __BaseException {
  * @public
  */
 export class PriorityInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#PriorityInUseException";
   readonly name = "PriorityInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -914,6 +955,7 @@ export class PriorityInUseException extends __BaseException {
  * @public
  */
 export class TooManyRulesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TooManyRulesException";
   readonly name = "TooManyRulesException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -937,6 +979,7 @@ export class TooManyRulesException extends __BaseException {
  * @public
  */
 export class TooManyTargetGroupsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TooManyTargetGroupsException";
   readonly name = "TooManyTargetGroupsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -959,6 +1002,7 @@ export class TooManyTargetGroupsException extends __BaseException {
  * @public
  */
 export class DuplicateTargetGroupNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#DuplicateTargetGroupNameException";
   readonly name = "DuplicateTargetGroupNameException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -981,6 +1025,7 @@ export class DuplicateTargetGroupNameException extends __BaseException {
  * @public
  */
 export class DuplicateTrustStoreNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#DuplicateTrustStoreNameException";
   readonly name = "DuplicateTrustStoreNameException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1003,6 +1048,7 @@ export class DuplicateTrustStoreNameException extends __BaseException {
  * @public
  */
 export class InvalidCaCertificatesBundleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#InvalidCaCertificatesBundleException";
   readonly name = "InvalidCaCertificatesBundleException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1025,6 +1071,7 @@ export class InvalidCaCertificatesBundleException extends __BaseException {
  * @public
  */
 export class TooManyTrustStoresException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TooManyTrustStoresException";
   readonly name = "TooManyTrustStoresException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1047,6 +1094,7 @@ export class TooManyTrustStoresException extends __BaseException {
  * @public
  */
 export class DeleteAssociationSameAccountException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#DeleteAssociationSameAccountException";
   readonly name = "DeleteAssociationSameAccountException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1069,6 +1117,7 @@ export class DeleteAssociationSameAccountException extends __BaseException {
  * @public
  */
 export class TrustStoreAssociationNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TrustStoreAssociationNotFoundException";
   readonly name = "TrustStoreAssociationNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1091,6 +1140,7 @@ export class TrustStoreAssociationNotFoundException extends __BaseException {
  * @public
  */
 export class TrustStoreInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#TrustStoreInUseException";
   readonly name = "TrustStoreInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1114,6 +1164,7 @@ export class TrustStoreInUseException extends __BaseException {
  * @public
  */
 export class InvalidTargetException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#InvalidTargetException";
   readonly name = "InvalidTargetException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1137,6 +1188,7 @@ export class InvalidTargetException extends __BaseException {
  * @public
  */
 export class HealthUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#HealthUnavailableException";
   readonly name = "HealthUnavailableException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -1159,6 +1211,7 @@ export class HealthUnavailableException extends __BaseException {
  * @public
  */
 export class RevocationIdNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#RevocationIdNotFoundException";
   readonly name = "RevocationIdNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1181,6 +1234,7 @@ export class RevocationIdNotFoundException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1203,6 +1257,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class InsufficientCapacityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#InsufficientCapacityException";
   readonly name = "InsufficientCapacityException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -1225,6 +1280,7 @@ export class InsufficientCapacityException extends __BaseException {
  * @public
  */
 export class PriorRequestNotCompleteException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticloadbalancingv2#PriorRequestNotCompleteException";
   readonly name = "PriorRequestNotCompleteException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

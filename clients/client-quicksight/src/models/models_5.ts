@@ -8,14 +8,17 @@ import type {
   AssetBundleImportFailureAction,
   AssetType,
   AssignmentStatus,
+  CrossDatasetTypes,
   DashboardsQAStatus,
   DataSetImportMode,
   DataSourceType,
   DlpAction,
   DlpProviderType,
   FieldName,
+  FilterNullOption,
   FilterOperator,
   GovernedAction,
+  HierarchyFilterMatchOperator,
   IdentityType,
   IncludeFolderMembers,
   IncludeGeneratedAnswer,
@@ -46,6 +49,7 @@ import type {
   VisualRole,
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
+  WidgetStatus,
 } from "./enums";
 import type {
   AccessControlConfiguration,
@@ -54,10 +58,29 @@ import type {
   ActionConnectorSummary,
   AgentSearchFilter,
   AgentSummary,
+  AnalysisDefaults,
+  AnalysisError,
+  AssetOptions,
+  CalculatedField,
+  CategoryFilter,
+  ColumnConfiguration,
+  ColumnIdentifier,
+  DataSetIdentifierDeclaration,
+  DefaultFilterControlConfiguration,
+  FilterScopeConfiguration,
+  HierarchyFilterLevel,
+  NestedFilter,
+  NumericEqualityFilter,
+  NumericRangeFilter,
+  ParameterDeclaration,
+  QueryExecutionOptions,
+  RelativeDatesFilter,
+  TimeEqualityFilter,
+  TimeRangeFilter,
+  TopBottomFilter,
 } from "./models_0";
 import type {
   _Parameters,
-  AnalysisDefinition,
   AnalysisSearchFilter,
   AnalysisSourceEntity,
   AnalysisSummary,
@@ -81,14 +104,17 @@ import type {
   CustomPromptInput,
   DashboardPublishOptions,
   DashboardSourceEntity,
-  DashboardVersionDefinition,
   DataSetRefreshProperties,
   DataSourceParameters,
   Governance,
   LinkSharingConfiguration,
   ResourcePermission,
+  SheetDefinition,
   SslProperties,
+  StaticFile,
   Tag,
+  TooltipSheetDefinition,
+  TopicIdentifierDeclaration,
   TopicIR,
   TopicTemplate,
   ValidationStrategy,
@@ -96,10 +122,12 @@ import type {
 } from "./models_2";
 import type {
   CustomInstructions,
+  DashboardError,
   DashboardSearchFilter,
   DashboardSummary,
   DashboardVisualResult,
   DataPrepConfiguration,
+  DataSetConfiguration,
   DatasetParameter,
   DataSetSearchFilter,
   DataSetSummary,
@@ -123,9 +151,9 @@ import type {
   SemanticModelConfiguration,
   TemplateAlias,
   TemplateSourceEntity,
-  TemplateVersionDefinition,
   ThemeAlias,
   ThemeConfiguration,
+  TopicConfiguration,
   TopicDetails,
   TopicRefreshSchedule,
   TopicV2Details,
@@ -149,73 +177,9 @@ import type {
   SnapshotConfiguration,
   SpaceQuickSightResourceDetails,
   SpaceSummary,
+  TemplateError,
   User,
 } from "./models_4";
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags
-   * 			for.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-   * 			resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTemplateAliasesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template aliases that you're listing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
 
 /**
  * @public
@@ -3759,66 +3723,6 @@ export interface UpdateAgentPermissionsResponse {
 /**
  * @public
  */
-export interface UpdateAnalysisRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the analysis that you're updating.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the analysis that you're updating. This ID displays in the URL of the
-   *             analysis.</p>
-   * @public
-   */
-  AnalysisId: string | undefined;
-
-  /**
-   * <p>A descriptive name for the analysis that you're updating. This name displays for the
-   *             analysis in the Amazon Quick Sight console.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The parameter names and override values that you want to use. An analysis can have
-   *             any parameter type, and some parameters might accept multiple values. </p>
-   * @public
-   */
-  Parameters?: _Parameters | undefined;
-
-  /**
-   * <p>A source entity to use for the analysis that you're updating. This metadata structure
-   *             contains details that describe a source template and one or more datasets or topics.</p>
-   * @public
-   */
-  SourceEntity?: AnalysisSourceEntity | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the theme to apply to the analysis that you're
-   *             creating. To see the theme in the Amazon Quick Sight console, make sure that you have access to
-   *             it.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>The definition of an analysis.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   * @public
-   */
-  Definition?: AnalysisDefinition | undefined;
-
-  /**
-   * <p>The option to relax the validation needed to update an analysis with definition objects. This skips the validation step for specific errors.</p>
-   * @public
-   */
-  ValidationStrategy?: ValidationStrategy | undefined;
-}
-
-/**
- * @public
- */
 export interface UpdateAnalysisResponse {
   /**
    * <p>The ARN of the analysis that you're updating.</p>
@@ -4252,141 +4156,6 @@ export interface UpdateCustomPermissionsResponse {
    * @public
    */
   RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDashboardRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
-   *             updating.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The display name of the dashboard.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The entity that you are using as a source when you update the dashboard. In
-   *                 <code>SourceEntity</code>, you specify the type of object you're using as source.
-   *             You can only update a dashboard from a template, so you use a
-   *                 <code>SourceTemplate</code> entity. If you need to update a dashboard from an
-   *             analysis, first convert the analysis to a template by using the <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
-   *             </code> API operation. For <code>SourceTemplate</code>,
-   *             specify the Amazon Resource Name (ARN) of the source template. The
-   *                 <code>SourceTemplate</code> ARN can contain any Amazon Web Services account and any
-   *                 Amazon Quick Sight-supported Amazon Web Services Region. </p>
-   *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
-   *             list the replacement datasets for the placeholders listed in the original. The schema in
-   *             each dataset must match its placeholder. Use the <code>TopicReferences</code>
-   *             entity to list the replacement topics for the topic placeholders listed in the original.
-   *             The schema in each topic must match its placeholder.</p>
-   * @public
-   */
-  SourceEntity?: DashboardSourceEntity | undefined;
-
-  /**
-   * <p>A structure that contains the parameters of the dashboard. These are parameter
-   *             overrides for a dashboard. A dashboard can have any type of parameters, and some
-   *             parameters might accept multiple values.</p>
-   * @public
-   */
-  Parameters?: _Parameters | undefined;
-
-  /**
-   * <p>A description for the first version of the dashboard being created.</p>
-   * @public
-   */
-  VersionDescription?: string | undefined;
-
-  /**
-   * <p>Options for publishing the dashboard when you create it:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
-   *                     set to <code>DISABLED</code>, Amazon Quick Sight disables the left filter pane on
-   *                     the published dashboard, which can be used for ad hoc (one-time) filtering. This
-   *                     option is <code>ENABLED</code> by default. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
-   *                     option to export data to .CSV format isn't enabled when this is set to
-   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by default.
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
-   *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
-   *                     This option is <code>COLLAPSED</code> by default. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>QuickSuiteActionsOption</code> -
-   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>.
-   *                     Features related to Actions in Amazon Quick Suite on dashboards are disabled
-   *                     when this is set to <code>DISABLED</code>. This option is <code>DISABLED</code>
-   *                     by default.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>ExecutiveSummaryOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The option
-   *                     to build an executive summary is disabled when this is set to
-   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
-   *                     default.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>DataStoriesSharingOption</code> -
-   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>. The
-   *                     option to share a data story is disabled when this is set to
-   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
-   *                     default.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  DashboardPublishOptions?: DashboardPublishOptions | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
-   *             you add a value for this field, it overrides the value that was originally associated
-   *             with the entity. The theme ARN must exist in the same Amazon Web Services account where
-   *             you create the dashboard.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>The definition of a dashboard.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   * @public
-   */
-  Definition?: DashboardVersionDefinition | undefined;
-
-  /**
-   * <p>The option to relax the validation needed to update a dashboard with definition
-   *             objects. This skips the validation step for specific errors.</p>
-   * @public
-   */
-  ValidationStrategy?: ValidationStrategy | undefined;
 }
 
 /**
@@ -6561,68 +6330,6 @@ export interface UpdateSPICECapacityConfigurationResponse {
 /**
  * @public
  */
-export interface UpdateTemplateRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template that you're updating.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The entity that you are using as a source when you update the template. In
-   * 			<code>SourceEntity</code>, you specify the type of object you're using as source:
-   * 			<code>SourceTemplate</code> for a template or <code>SourceAnalysis</code> for an
-   * 			analysis. Both of these require an Amazon Resource Name (ARN). For
-   * 			<code>SourceTemplate</code>, specify the ARN of the source template. For
-   * 			<code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code>
-   * 			ARN can contain any Amazon Web Services account and any Quick Sight-supported Amazon Web Services Region;. </p>
-   *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
-   * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
-   * 			in the original. The schema in each dataset must match its placeholder. Use the <code>TopicReferences</code>
-   * 			entity to list the replacement topics for the topic placeholders listed in the original.
-   * 			The schema in each topic must match its placeholder.</p>
-   * @public
-   */
-  SourceEntity?: TemplateSourceEntity | undefined;
-
-  /**
-   * <p>A description of the current template version that is being updated. Every time you call
-   * 				<code>UpdateTemplate</code>, you create a new version of the template. Each version
-   * 			of the template maintains a description of the version in the
-   * 				<code>VersionDescription</code> field.</p>
-   * @public
-   */
-  VersionDescription?: string | undefined;
-
-  /**
-   * <p>The name for the template.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The definition of a template.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   * @public
-   */
-  Definition?: TemplateVersionDefinition | undefined;
-
-  /**
-   * <p>The option to relax the validation needed to update a template with definition objects. This skips the validation step for specific errors.</p>
-   * @public
-   */
-  ValidationStrategy?: ValidationStrategy | undefined;
-}
-
-/**
- * @public
- */
 export interface UpdateTemplateResponse {
   /**
    * <p>The ID for the template.</p>
@@ -7611,6 +7318,49 @@ export interface UpdateVPCConnectionResponse {
 }
 
 /**
+ * <p>A node in the selection tree of a <code>HierarchyFilter</code>. Each node records the
+ *             values that are selected at one level of the hierarchy. Nodes nest through
+ *             <code>Children</code> to record selections at deeper levels.</p>
+ *          <p>The tree cannot be deeper than the number of levels declared in
+ *             <code>HierarchyLevels</code>. A tree can be a maximum of 5 levels deep, and a node can
+ *             have a maximum of 1,000 children.</p>
+ * @public
+ */
+export interface HierarchyFilterNode {
+  /**
+   * <p>The column that this node selects values from. This column must match the column of the
+   *             corresponding level in <code>HierarchyFilter$HierarchyLevels</code>. The node at depth 1
+   *             must match the first level, the node at depth 2 must match the second level, and so on.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The value in the parent node's <code>HierarchyValues</code> that this node belongs to.
+   *             When a parent selects several values, each of its children repeats one of them here to
+   *             identify which branch of the hierarchy that child describes.</p>
+   *          <p>Omit this attribute on the root node of <code>HierarchyTree</code>, which has no
+   *             parent.</p>
+   * @public
+   */
+  ParentValue?: string | undefined;
+
+  /**
+   * <p>The values that are selected at this level of the hierarchy. You can specify a maximum
+   *             of 2,000 values per node.</p>
+   * @public
+   */
+  HierarchyValues?: string[] | undefined;
+
+  /**
+   * <p>The nodes that record the selections at the next level of the hierarchy. You can
+   *             specify a maximum of 1,000 children per node.</p>
+   * @public
+   */
+  Children?: HierarchyFilterNode[] | undefined;
+}
+
+/**
  * <p>The definition for a <code>TopicVisual</code>.</p>
  * @public
  */
@@ -7683,6 +7433,81 @@ export interface CreateTopicReviewedAnswer {
 }
 
 /**
+ * <p>A <code>HierarchyFilter</code> filters data by drilling down through an ordered list of columns. Each level in the list narrows the data by one column, and the selected values at each level determine which values are available at the next.</p>
+ * @public
+ */
+export interface HierarchyFilter {
+  /**
+   * <p>An identifier that uniquely identifies a filter within a dashboard, analysis, or template.</p>
+   * @public
+   */
+  FilterId: string | undefined;
+
+  /**
+   * <p>The column that anchors the filter. This column determines the dataset that the whole
+   *             filter applies to, so every column in <code>HierarchyLevels</code> and in
+   *             <code>HierarchyTree</code> must belong to the same dataset.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The ordered list of columns that defines the drill-down path of the filter. The first level is the top of the hierarchy. You can specify a maximum of 5 levels.</p>
+   * @public
+   */
+  HierarchyLevels: HierarchyFilterLevel[] | undefined;
+
+  /**
+   * <p>The tree of selected values for the filter. Each node records the values that are selected at one level of the hierarchy, and its children record the selections beneath those values. Omit this attribute to define the drill-down path without restricting any values.</p>
+   * @public
+   */
+  HierarchyTree?: HierarchyFilterNode | undefined;
+
+  /**
+   * <p>This option determines how null values should be treated when filtering data.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_VALUES</code>: Include null values in filtered results.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NULLS_ONLY</code>: Only include null values in filtered results.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NON_NULLS_ONLY</code>: Exclude null values from filtered results.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  NullOption: FilterNullOption | undefined;
+
+  /**
+   * <p>Determines whether the values selected in <code>HierarchyTree</code> are kept or
+   *             removed. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INCLUDE</code>: Keep only the selected values.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXCLUDE</code>: Remove the selected values.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MatchOperator: HierarchyFilterMatchOperator | undefined;
+
+  /**
+   * <p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>
+   * @public
+   */
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration | undefined;
+}
+
+/**
  * <p>The deinition for a <code>TopicReviewedAnswer</code>.</p>
  * @public
  */
@@ -7728,6 +7553,69 @@ export interface TopicReviewedAnswer {
    * @public
    */
   Template?: TopicTemplate | undefined;
+}
+
+/**
+ * <p>With a <code>Filter</code>, you can remove portions of data from a particular visual or view.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface Filter {
+  /**
+   * <p>A <code>CategoryFilter</code> filters text values.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html">Adding text filters</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  CategoryFilter?: CategoryFilter | undefined;
+
+  /**
+   * <p>A <code>NumericRangeFilter</code> filters numeric values that are either inside or outside a given numeric range.</p>
+   * @public
+   */
+  NumericRangeFilter?: NumericRangeFilter | undefined;
+
+  /**
+   * <p>A <code>NumericEqualityFilter</code> filters numeric values that equal or do not equal a given numeric value.</p>
+   * @public
+   */
+  NumericEqualityFilter?: NumericEqualityFilter | undefined;
+
+  /**
+   * <p>A <code>TimeEqualityFilter</code> filters date-time values that equal or do not equal
+   *             a given date/time value.</p>
+   * @public
+   */
+  TimeEqualityFilter?: TimeEqualityFilter | undefined;
+
+  /**
+   * <p>A <code>TimeRangeFilter</code> filters date-time values that are either inside or outside a given date/time range.</p>
+   * @public
+   */
+  TimeRangeFilter?: TimeRangeFilter | undefined;
+
+  /**
+   * <p>A <code>RelativeDatesFilter</code> filters date values that are relative to a given date.</p>
+   * @public
+   */
+  RelativeDatesFilter?: RelativeDatesFilter | undefined;
+
+  /**
+   * <p>A <code>TopBottomFilter</code> filters data to the top or bottom values for a given column.</p>
+   * @public
+   */
+  TopBottomFilter?: TopBottomFilter | undefined;
+
+  /**
+   * <p>A <code>NestedFilter</code> filters data with a subset of data that is defined by the nested inner filter.</p>
+   * @public
+   */
+  NestedFilter?: NestedFilter | undefined;
+
+  /**
+   * <p>A <code>HierarchyFilter</code> filters data by drilling down through an ordered list of columns. Each level in the list narrows the data by one column, and the selected values at each level determine which values are available at the next.</p>
+   * @public
+   */
+  HierarchyFilter?: HierarchyFilter | undefined;
 }
 
 /**
@@ -7786,4 +7674,1229 @@ export interface ListTopicReviewedAnswersResponse {
    * @public
    */
   RequestId?: string | undefined;
+}
+
+/**
+ * <p>A grouping of individual filters. Filter groups are applied to the same group of visuals.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html">Adding filter conditions (group filters) with AND and OR operators</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+ * @public
+ */
+export interface FilterGroup {
+  /**
+   * <p>The value that uniquely identifies a <code>FilterGroup</code> within a dashboard, template, or analysis.</p>
+   * @public
+   */
+  FilterGroupId: string | undefined;
+
+  /**
+   * <p>The list of filters that are present in a <code>FilterGroup</code>.</p>
+   * @public
+   */
+  Filters: Filter[] | undefined;
+
+  /**
+   * <p>The configuration that specifies what scope to apply to a <code>FilterGroup</code>.</p>
+   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+   * @public
+   */
+  ScopeConfiguration: FilterScopeConfiguration | undefined;
+
+  /**
+   * <p>The status of the <code>FilterGroup</code>.</p>
+   * @public
+   */
+  Status?: WidgetStatus | undefined;
+
+  /**
+   * <p>The filter new feature which can apply filter group to all data sets. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_DATASETS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SINGLE_DATASET</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CrossDataset: CrossDatasetTypes | undefined;
+}
+
+/**
+ * <p>The definition of an analysis.</p>
+ * @public
+ */
+export interface AnalysisDefinition {
+  /**
+   * <p>An array of dataset identifier declarations. This mapping allows the usage of dataset identifiers instead
+   *             of dataset ARNs throughout analysis sub-structures.</p>
+   * @public
+   */
+  DataSetIdentifierDeclarations: DataSetIdentifierDeclaration[] | undefined;
+
+  /**
+   * <p>An array of topic identifier declarations. This mapping allows the usage of topic identifiers instead
+   *             of topic ARNs throughout analysis sub-structures.</p>
+   * @public
+   */
+  TopicIdentifierDeclarations?: TopicIdentifierDeclaration[] | undefined;
+
+  /**
+   * <p>An array of sheet definitions for an analysis. Each <code>SheetDefinition</code> provides detailed information about
+   *             a sheet within this analysis.</p>
+   * @public
+   */
+  Sheets?: SheetDefinition[] | undefined;
+
+  /**
+   * <p>An array of tooltip sheet definitions for an analysis. Each <code>TooltipSheetDefinition</code> provides detailed information about
+   *             a tooltip sheet within this analysis.</p>
+   * @public
+   */
+  TooltipSheets?: TooltipSheetDefinition[] | undefined;
+
+  /**
+   * <p>An array of calculated field definitions for the analysis.</p>
+   * @public
+   */
+  CalculatedFields?: CalculatedField[] | undefined;
+
+  /**
+   * <p>An array of parameter declarations for an analysis.</p>
+   *          <p>Parameters are named variables that can transfer a value for use by an action or an object.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  ParameterDeclarations?: ParameterDeclaration[] | undefined;
+
+  /**
+   * <p>Filter definitions for an analysis.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html">Filtering Data in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  FilterGroups?: FilterGroup[] | undefined;
+
+  /**
+   * <p>
+   *             An array of analysis-level column configurations. Column configurations can be used to set default
+   *             formatting for a column to be used throughout an analysis.
+   *         </p>
+   * @public
+   */
+  ColumnConfigurations?: ColumnConfiguration[] | undefined;
+
+  /**
+   * <p>The configuration for default analysis settings.</p>
+   * @public
+   */
+  AnalysisDefaults?: AnalysisDefaults | undefined;
+
+  /**
+   * <p>An array of option definitions for an analysis.</p>
+   * @public
+   */
+  Options?: AssetOptions | undefined;
+
+  /**
+   * <p>A structure that describes the query execution options.</p>
+   * @public
+   */
+  QueryExecutionOptions?: QueryExecutionOptions | undefined;
+
+  /**
+   * <p>The static files for the definition.</p>
+   * @public
+   */
+  StaticFiles?: StaticFile[] | undefined;
+}
+
+/**
+ * <p>The contents of a dashboard.</p>
+ * @public
+ */
+export interface DashboardVersionDefinition {
+  /**
+   * <p>An array of dataset identifier declarations. With
+   *             this mapping,you can use dataset identifiers instead of dataset Amazon Resource Names (ARNs) throughout the dashboard's sub-structures.</p>
+   * @public
+   */
+  DataSetIdentifierDeclarations: DataSetIdentifierDeclaration[] | undefined;
+
+  /**
+   * <p>An array of topic identifier declarations. With
+   *             this mapping, you can use topic identifiers instead of topic Amazon Resource Names (ARNs) throughout the dashboard's sub-structures.</p>
+   * @public
+   */
+  TopicIdentifierDeclarations?: TopicIdentifierDeclaration[] | undefined;
+
+  /**
+   * <p>An array of sheet definitions for a dashboard.</p>
+   * @public
+   */
+  Sheets?: SheetDefinition[] | undefined;
+
+  /**
+   * <p>An array of tooltip sheet definitions for a dashboard.</p>
+   * @public
+   */
+  TooltipSheets?: TooltipSheetDefinition[] | undefined;
+
+  /**
+   * <p>An array of calculated field definitions for the dashboard.</p>
+   * @public
+   */
+  CalculatedFields?: CalculatedField[] | undefined;
+
+  /**
+   * <p>The parameter declarations for a dashboard. Parameters are named variables that can transfer a value for use by an action or an object.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  ParameterDeclarations?: ParameterDeclaration[] | undefined;
+
+  /**
+   * <p>The filter definitions for a dashboard.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html">Filtering Data in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  FilterGroups?: FilterGroup[] | undefined;
+
+  /**
+   * <p>An array of dashboard-level column configurations. Column configurations
+   *             are used to set the default formatting for a column that
+   *             is used throughout a dashboard. </p>
+   * @public
+   */
+  ColumnConfigurations?: ColumnConfiguration[] | undefined;
+
+  /**
+   * <p>The configuration for default analysis settings.</p>
+   * @public
+   */
+  AnalysisDefaults?: AnalysisDefaults | undefined;
+
+  /**
+   * <p>An array of option definitions for a dashboard.</p>
+   * @public
+   */
+  Options?: AssetOptions | undefined;
+
+  /**
+   * <p>The static files for the definition.</p>
+   * @public
+   */
+  StaticFiles?: StaticFile[] | undefined;
+}
+
+/**
+ * <p>The detailed definition of a template.</p>
+ * @public
+ */
+export interface TemplateVersionDefinition {
+  /**
+   * <p>An array of dataset configurations. These configurations define the required columns for each dataset used within a template.</p>
+   * @public
+   */
+  DataSetConfigurations: DataSetConfiguration[] | undefined;
+
+  /**
+   * <p>An array of topic configurations. These configurations define the required columns for each topic used within a template.</p>
+   * @public
+   */
+  TopicConfigurations?: TopicConfiguration[] | undefined;
+
+  /**
+   * <p>An array of sheet definitions for a template.</p>
+   * @public
+   */
+  Sheets?: SheetDefinition[] | undefined;
+
+  /**
+   * <p>An array of tooltip sheet definitions for a template.</p>
+   * @public
+   */
+  TooltipSheets?: TooltipSheetDefinition[] | undefined;
+
+  /**
+   * <p>An array of calculated field definitions for the template.</p>
+   * @public
+   */
+  CalculatedFields?: CalculatedField[] | undefined;
+
+  /**
+   * <p>An array of parameter declarations for a template.</p>
+   *          <p>
+   *             <i>Parameters</i> are named variables that can transfer a value for use by an action or an object.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon Quick Sight</a> in the
+   *             <i>Amazon Quick Suite User Guide</i>.
+   *         </p>
+   * @public
+   */
+  ParameterDeclarations?: ParameterDeclaration[] | undefined;
+
+  /**
+   * <p>Filter definitions for a template.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html">Filtering Data</a> in the <i>Amazon Quick Suite User Guide</i>.
+   *         </p>
+   * @public
+   */
+  FilterGroups?: FilterGroup[] | undefined;
+
+  /**
+   * <p> An array of template-level column
+   *             configurations. Column configurations are used to set default formatting for a column that's used throughout a template. </p>
+   * @public
+   */
+  ColumnConfigurations?: ColumnConfiguration[] | undefined;
+
+  /**
+   * <p>The configuration for default analysis settings.</p>
+   * @public
+   */
+  AnalysisDefaults?: AnalysisDefaults | undefined;
+
+  /**
+   * <p>An array of option definitions for a template.</p>
+   * @public
+   */
+  Options?: AssetOptions | undefined;
+
+  /**
+   * <p>A structure that describes the query execution options.</p>
+   * @public
+   */
+  QueryExecutionOptions?: QueryExecutionOptions | undefined;
+
+  /**
+   * <p>The static files for the definition.</p>
+   * @public
+   */
+  StaticFiles?: StaticFile[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAnalysisRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account where you are creating an analysis.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the analysis that you're creating. This ID displays in the URL of the
+   *             analysis.</p>
+   * @public
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * <p>A descriptive name for the analysis that you're creating. This name displays for the
+   *             analysis in the Amazon Quick Sight console. </p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The parameter names and override values that you want to use. An analysis can have
+   *             any parameter type, and some parameters might accept multiple values. </p>
+   * @public
+   */
+  Parameters?: _Parameters | undefined;
+
+  /**
+   * <p>A structure that describes the principals and the resource-level permissions on an
+   *             analysis. You can use the <code>Permissions</code> structure to grant permissions by
+   *             providing a list of Identity and Access Management (IAM) action information for each
+   *             principal listed by Amazon Resource Name (ARN). </p>
+   *          <p>To specify no permissions, omit <code>Permissions</code>.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>A source entity to use for the analysis that you're creating. This metadata structure
+   *             contains details that describe a source template and one or more datasets or topics.</p>
+   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
+   *             order for the request to be valid.</p>
+   * @public
+   */
+  SourceEntity?: AnalysisSourceEntity | undefined;
+
+  /**
+   * <p>The ARN for the theme to apply to the analysis that you're creating. To see the theme
+   *             in the Amazon Quick Sight console, make sure that you have access to it.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+   *             analysis.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The definition of an analysis.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
+   *             order for the request to be valid.</p>
+   * @public
+   */
+  Definition?: AnalysisDefinition | undefined;
+
+  /**
+   * <p>The option to relax the validation needed to create an analysis with definition objects. This skips the validation step for specific errors.</p>
+   * @public
+   */
+  ValidationStrategy?: ValidationStrategy | undefined;
+
+  /**
+   * <p>When you create the analysis, Amazon Quick Sight adds the analysis to these folders.</p>
+   * @public
+   */
+  FolderArns?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDashboardRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account where you want to create the
+   *             dashboard.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard, also added to the IAM policy.</p>
+   * @public
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The display name of the dashboard.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The parameters for the creation of the dashboard, which you want to use to override
+   *             the default settings. A dashboard can have any type of parameters, and some parameters
+   *             might accept multiple values. </p>
+   * @public
+   */
+  Parameters?: _Parameters | undefined;
+
+  /**
+   * <p>A structure that contains the permissions of the dashboard. You can use this structure
+   *             for granting permissions by providing a list of IAM action information
+   *             for each principal ARN. </p>
+   *          <p>To specify no permissions, omit the permissions list.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The entity that you are using as a source when you create the dashboard. In
+   *                 <code>SourceEntity</code>, you specify the type of object you're using as source.
+   *             You can only create a dashboard from a template, so you use a
+   *                 <code>SourceTemplate</code> entity. If you need to create a dashboard from an
+   *             analysis, first convert the analysis to a template by using the <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
+   *             </code> API operation. For <code>SourceTemplate</code>,
+   *             specify the Amazon Resource Name (ARN) of the source template. The
+   *                 <code>SourceTemplate</code>ARN can contain any Amazon Web Services account and any
+   *                 Amazon Quick Sight-supported Amazon Web Services Region. </p>
+   *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
+   *             list the replacement datasets for the placeholders listed in the original. The schema in
+   *             each dataset must match its placeholder. Use the <code>TopicReferences</code>
+   *             entity to list the replacement topics for the topic placeholders listed in the original.
+   *             The schema in each topic must match its placeholder.</p>
+   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
+   *             order for the request to be valid.</p>
+   * @public
+   */
+  SourceEntity?: DashboardSourceEntity | undefined;
+
+  /**
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+   *             dashboard.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A description for the first version of the dashboard being created.</p>
+   * @public
+   */
+  VersionDescription?: string | undefined;
+
+  /**
+   * <p>Options for publishing the dashboard when you create it:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
+   *                     set to <code>DISABLED</code>, Amazon Quick Sight disables the left filter pane on
+   *                     the published dashboard, which can be used for ad hoc (one-time) filtering. This
+   *                     option is <code>ENABLED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
+   *                     option to export data to .CSV format isn't enabled when this is set to
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by default.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
+   *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
+   *                     This option is <code>COLLAPSED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>QuickSuiteActionsOption</code> -
+   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>.
+   *                     Features related to Actions in Amazon Quick Suite on dashboards are disabled
+   *                     when this is set to <code>DISABLED</code>. This option is <code>DISABLED</code>
+   *                     by default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>ExecutiveSummaryOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The option
+   *                     to build an executive summary is disabled when this is set to
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
+   *                     default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>DataStoriesSharingOption</code> -
+   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>. The
+   *                     option to share a data story is disabled when this is set to
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
+   *                     default.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DashboardPublishOptions?: DashboardPublishOptions | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
+   *             you add a value for this field, it overrides the value that is used in the source
+   *             entity. The theme ARN must exist in the same Amazon Web Services account where you create
+   *             the dashboard.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>The definition of a dashboard.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
+   *             order for the request to be valid.</p>
+   * @public
+   */
+  Definition?: DashboardVersionDefinition | undefined;
+
+  /**
+   * <p>The option to relax the validation needed to create a dashboard with definition
+   *             objects. This option skips the validation step for specific errors.</p>
+   * @public
+   */
+  ValidationStrategy?: ValidationStrategy | undefined;
+
+  /**
+   * <p>When you create the dashboard, Amazon Quick Sight adds the dashboard to these
+   *             folders.</p>
+   * @public
+   */
+  FolderArns?: string[] | undefined;
+
+  /**
+   * <p>A structure that contains the permissions of a shareable link to the dashboard.</p>
+   * @public
+   */
+  LinkSharingConfiguration?: LinkSharingConfiguration | undefined;
+
+  /**
+   * <p>A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.</p>
+   * @public
+   */
+  LinkEntities?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTemplateRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. You use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>An ID for the template that you want to create. This template is unique per Amazon Web Services Region; in
+   * 			each Amazon Web Services account.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>A display name for the template.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A list of resource permissions to be set on the template. </p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The entity that you are using as a source when you create the template. In
+   * 			<code>SourceEntity</code>, you specify the type of object you're using as source:
+   * 			<code>SourceTemplate</code> for a template or <code>SourceAnalysis</code> for an
+   * 			analysis. Both of these require an Amazon Resource Name (ARN). For
+   * 			<code>SourceTemplate</code>, specify the ARN of the source template. For
+   * 			<code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code>
+   * 			ARN can contain any Amazon Web Services account and any Quick Sight-supported Amazon Web Services Region. </p>
+   *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
+   * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
+   * 			in the original. The schema in each dataset must match its placeholder. Use the <code>TopicReferences</code>
+   * 			entity to list the replacement topics for the topic placeholders listed in the original.
+   * 			The schema in each topic must match its placeholder.</p>
+   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
+   * 			order for the request to be valid.</p>
+   * @public
+   */
+  SourceEntity?: TemplateSourceEntity | undefined;
+
+  /**
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A description of the current template version being created. This API operation creates the
+   * 			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
+   * 			version is created. Each version of the template maintains a description of the version
+   * 			in the <code>VersionDescription</code> field.</p>
+   * @public
+   */
+  VersionDescription?: string | undefined;
+
+  /**
+   * <p>The definition of a template.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
+   * 			order for the request to be valid.</p>
+   * @public
+   */
+  Definition?: TemplateVersionDefinition | undefined;
+
+  /**
+   * <p>TThe option to relax the validation needed to create a template with definition objects. This skips the validation step for specific errors.</p>
+   * @public
+   */
+  ValidationStrategy?: ValidationStrategy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAnalysisDefinitionResponse {
+  /**
+   * <p>The ID of the analysis described.</p>
+   * @public
+   */
+  AnalysisId?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the analysis.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Errors associated with the analysis.</p>
+   * @public
+   */
+  Errors?: AnalysisError[] | undefined;
+
+  /**
+   * <p>Status associated with the analysis.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceStatus?: ResourceStatus | undefined;
+
+  /**
+   * <p>The ARN of the theme of the analysis.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>The definition of an analysis.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   * @public
+   */
+  Definition?: AnalysisDefinition | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardDefinitionResponse {
+  /**
+   * <p>The ID of the dashboard described.</p>
+   * @public
+   */
+  DashboardId?: string | undefined;
+
+  /**
+   * <p>Errors associated with this dashboard version.</p>
+   * @public
+   */
+  Errors?: DashboardError[] | undefined;
+
+  /**
+   * <p>The display name of the dashboard.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Status associated with the dashboard version.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceStatus?: ResourceStatus | undefined;
+
+  /**
+   * <p>The ARN of the theme of the dashboard.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>The definition of a dashboard.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   * @public
+   */
+  Definition?: DashboardVersionDefinition | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>Options for publishing the dashboard:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
+   *                     set to <code>DISABLED</code>, Amazon Quick Sight disables the left filter pane on
+   *                     the published dashboard, which can be used for ad hoc (one-time) filtering. This
+   *                     option is <code>ENABLED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
+   *                     option to export data to .CSV format isn't enabled when this is set to
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by default.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
+   *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
+   *                     This option is <code>COLLAPSED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>QuickSuiteActionsOption</code> -
+   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>.
+   *                     Features related to Actions in Amazon Quick Suite on dashboards are disabled
+   *                     when this is set to <code>DISABLED</code>. This option is <code>DISABLED</code>
+   *                     by default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>ExecutiveSummaryOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The option
+   *                     to build an executive summary is disabled when this is set to
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
+   *                     default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>DataStoriesSharingOption</code> -
+   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>. The
+   *                     option to share a data story is disabled when this is set to
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
+   *                     default.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DashboardPublishOptions?: DashboardPublishOptions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTemplateDefinitionResponse {
+  /**
+   * <p>The descriptive name of the template.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The ID of the template described.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>Errors associated with the template version.</p>
+   * @public
+   */
+  Errors?: TemplateError[] | undefined;
+
+  /**
+   * <p>Status associated with the template.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceStatus?: ResourceStatus | undefined;
+
+  /**
+   * <p>The ARN of the theme of the template.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>The definition of the template.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   * @public
+   */
+  Definition?: TemplateVersionDefinition | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAnalysisRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the analysis that you're updating.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the analysis that you're updating. This ID displays in the URL of the
+   *             analysis.</p>
+   * @public
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * <p>A descriptive name for the analysis that you're updating. This name displays for the
+   *             analysis in the Amazon Quick Sight console.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The parameter names and override values that you want to use. An analysis can have
+   *             any parameter type, and some parameters might accept multiple values. </p>
+   * @public
+   */
+  Parameters?: _Parameters | undefined;
+
+  /**
+   * <p>A source entity to use for the analysis that you're updating. This metadata structure
+   *             contains details that describe a source template and one or more datasets or topics.</p>
+   * @public
+   */
+  SourceEntity?: AnalysisSourceEntity | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the theme to apply to the analysis that you're
+   *             creating. To see the theme in the Amazon Quick Sight console, make sure that you have access to
+   *             it.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>The definition of an analysis.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   * @public
+   */
+  Definition?: AnalysisDefinition | undefined;
+
+  /**
+   * <p>The option to relax the validation needed to update an analysis with definition objects. This skips the validation step for specific errors.</p>
+   * @public
+   */
+  ValidationStrategy?: ValidationStrategy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDashboardRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
+   *             updating.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   * @public
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The display name of the dashboard.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The entity that you are using as a source when you update the dashboard. In
+   *                 <code>SourceEntity</code>, you specify the type of object you're using as source.
+   *             You can only update a dashboard from a template, so you use a
+   *                 <code>SourceTemplate</code> entity. If you need to update a dashboard from an
+   *             analysis, first convert the analysis to a template by using the <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
+   *             </code> API operation. For <code>SourceTemplate</code>,
+   *             specify the Amazon Resource Name (ARN) of the source template. The
+   *                 <code>SourceTemplate</code> ARN can contain any Amazon Web Services account and any
+   *                 Amazon Quick Sight-supported Amazon Web Services Region. </p>
+   *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
+   *             list the replacement datasets for the placeholders listed in the original. The schema in
+   *             each dataset must match its placeholder. Use the <code>TopicReferences</code>
+   *             entity to list the replacement topics for the topic placeholders listed in the original.
+   *             The schema in each topic must match its placeholder.</p>
+   * @public
+   */
+  SourceEntity?: DashboardSourceEntity | undefined;
+
+  /**
+   * <p>A structure that contains the parameters of the dashboard. These are parameter
+   *             overrides for a dashboard. A dashboard can have any type of parameters, and some
+   *             parameters might accept multiple values.</p>
+   * @public
+   */
+  Parameters?: _Parameters | undefined;
+
+  /**
+   * <p>A description for the first version of the dashboard being created.</p>
+   * @public
+   */
+  VersionDescription?: string | undefined;
+
+  /**
+   * <p>Options for publishing the dashboard when you create it:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
+   *                     set to <code>DISABLED</code>, Amazon Quick Sight disables the left filter pane on
+   *                     the published dashboard, which can be used for ad hoc (one-time) filtering. This
+   *                     option is <code>ENABLED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
+   *                     option to export data to .CSV format isn't enabled when this is set to
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by default.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
+   *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
+   *                     This option is <code>COLLAPSED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>QuickSuiteActionsOption</code> -
+   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>.
+   *                     Features related to Actions in Amazon Quick Suite on dashboards are disabled
+   *                     when this is set to <code>DISABLED</code>. This option is <code>DISABLED</code>
+   *                     by default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>ExecutiveSummaryOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The option
+   *                     to build an executive summary is disabled when this is set to
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
+   *                     default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>DataStoriesSharingOption</code> -
+   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>. The
+   *                     option to share a data story is disabled when this is set to
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
+   *                     default.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DashboardPublishOptions?: DashboardPublishOptions | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
+   *             you add a value for this field, it overrides the value that was originally associated
+   *             with the entity. The theme ARN must exist in the same Amazon Web Services account where
+   *             you create the dashboard.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>The definition of a dashboard.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   * @public
+   */
+  Definition?: DashboardVersionDefinition | undefined;
+
+  /**
+   * <p>The option to relax the validation needed to update a dashboard with definition
+   *             objects. This skips the validation step for specific errors.</p>
+   * @public
+   */
+  ValidationStrategy?: ValidationStrategy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTemplateRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template that you're updating.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The entity that you are using as a source when you update the template. In
+   * 			<code>SourceEntity</code>, you specify the type of object you're using as source:
+   * 			<code>SourceTemplate</code> for a template or <code>SourceAnalysis</code> for an
+   * 			analysis. Both of these require an Amazon Resource Name (ARN). For
+   * 			<code>SourceTemplate</code>, specify the ARN of the source template. For
+   * 			<code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code>
+   * 			ARN can contain any Amazon Web Services account and any Quick Sight-supported Amazon Web Services Region;. </p>
+   *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
+   * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
+   * 			in the original. The schema in each dataset must match its placeholder. Use the <code>TopicReferences</code>
+   * 			entity to list the replacement topics for the topic placeholders listed in the original.
+   * 			The schema in each topic must match its placeholder.</p>
+   * @public
+   */
+  SourceEntity?: TemplateSourceEntity | undefined;
+
+  /**
+   * <p>A description of the current template version that is being updated. Every time you call
+   * 				<code>UpdateTemplate</code>, you create a new version of the template. Each version
+   * 			of the template maintains a description of the version in the
+   * 				<code>VersionDescription</code> field.</p>
+   * @public
+   */
+  VersionDescription?: string | undefined;
+
+  /**
+   * <p>The name for the template.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The definition of a template.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   * @public
+   */
+  Definition?: TemplateVersionDefinition | undefined;
+
+  /**
+   * <p>The option to relax the validation needed to update a template with definition objects. This skips the validation step for specific errors.</p>
+   * @public
+   */
+  ValidationStrategy?: ValidationStrategy | undefined;
 }

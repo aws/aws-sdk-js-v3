@@ -50,6 +50,7 @@ export interface GetUserIdCommandOutput extends GetUserIdResponse, __MetadataBea
  * // { // GetUserIdResponse
  * //   IdentityStoreId: "STRING_VALUE", // required
  * //   UserId: "STRING_VALUE", // required
+ * //   UserArn: "STRING_VALUE", // required
  * // };
  *
  * ```

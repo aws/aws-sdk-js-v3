@@ -77,6 +77,7 @@ export interface RetrieveMemoryRecordsCommandOutput extends RetrieveMemoryRecord
  * //       ],
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       score: Number("double"),
+ * //       timestamp: new Date("TIMESTAMP"),
  * //       metadata: { // MemoryRecordMetadataMap
  * //         "<keys>": { // MemoryRecordMetadataValue Union: only one key present
  * //           stringValue: "STRING_VALUE",

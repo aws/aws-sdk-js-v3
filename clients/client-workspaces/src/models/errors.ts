@@ -8,6 +8,7 @@ import { WorkSpacesServiceException as __BaseException } from "./WorkSpacesServi
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -96,6 +100,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -116,6 +121,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ApplicationNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#ApplicationNotSupportedException";
   readonly name = "ApplicationNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -136,6 +142,7 @@ export class ApplicationNotSupportedException extends __BaseException {
  * @public
  */
 export class InvalidParameterValuesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#InvalidParameterValuesException";
   readonly name = "InvalidParameterValuesException" as const;
   readonly $fault = "client" as const;
   /**
@@ -156,6 +163,7 @@ export class InvalidParameterValuesException extends __BaseException {
  * @public
  */
 export class InvalidResourceStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#InvalidResourceStateException";
   readonly name = "InvalidResourceStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -176,6 +184,7 @@ export class InvalidResourceStateException extends __BaseException {
  * @public
  */
 export class OperationNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#OperationNotSupportedException";
   readonly name = "OperationNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -203,6 +212,7 @@ export class OperationNotSupportedException extends __BaseException {
  * @public
  */
 export class ResourceAssociatedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#ResourceAssociatedException";
   readonly name = "ResourceAssociatedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -223,6 +233,7 @@ export class ResourceAssociatedException extends __BaseException {
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#ResourceLimitExceededException";
   readonly name = "ResourceLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -243,6 +254,7 @@ export class ResourceLimitExceededException extends __BaseException {
  * @public
  */
 export class ComputeNotCompatibleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#ComputeNotCompatibleException";
   readonly name = "ComputeNotCompatibleException" as const;
   readonly $fault = "client" as const;
   /**
@@ -263,6 +275,7 @@ export class ComputeNotCompatibleException extends __BaseException {
  * @public
  */
 export class IncompatibleApplicationsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#IncompatibleApplicationsException";
   readonly name = "IncompatibleApplicationsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -283,6 +296,7 @@ export class IncompatibleApplicationsException extends __BaseException {
  * @public
  */
 export class OperatingSystemNotCompatibleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#OperatingSystemNotCompatibleException";
   readonly name = "OperatingSystemNotCompatibleException" as const;
   readonly $fault = "client" as const;
   /**
@@ -303,6 +317,7 @@ export class OperatingSystemNotCompatibleException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -323,6 +338,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -350,6 +366,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class ResourceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#ResourceUnavailableException";
   readonly name = "ResourceUnavailableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -377,6 +394,7 @@ export class ResourceUnavailableException extends __BaseException {
  * @public
  */
 export class ResourceCreationFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#ResourceCreationFailedException";
   readonly name = "ResourceCreationFailedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -397,6 +415,7 @@ export class ResourceCreationFailedException extends __BaseException {
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#InvalidParameterCombinationException";
   readonly name = "InvalidParameterCombinationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -417,6 +436,7 @@ export class InvalidParameterCombinationException extends __BaseException {
  * @public
  */
 export class OperationInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#OperationInProgressException";
   readonly name = "OperationInProgressException" as const;
   readonly $fault = "client" as const;
   /**
@@ -439,6 +459,7 @@ export class OperationInProgressException extends __BaseException {
  * @public
  */
 export class UnsupportedWorkspaceConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#UnsupportedWorkspaceConfigurationException";
   readonly name = "UnsupportedWorkspaceConfigurationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -462,6 +483,7 @@ export class UnsupportedWorkspaceConfigurationException extends __BaseException 
  * @public
  */
 export class UnsupportedNetworkConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#UnsupportedNetworkConfigurationException";
   readonly name = "UnsupportedNetworkConfigurationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -483,6 +505,7 @@ export class UnsupportedNetworkConfigurationException extends __BaseException {
  * @public
  */
 export class WorkspacesDefaultRoleNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspaces#WorkspacesDefaultRoleNotFoundException";
   readonly name = "WorkspacesDefaultRoleNotFoundException" as const;
   readonly $fault = "client" as const;
   /**

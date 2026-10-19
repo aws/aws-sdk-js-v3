@@ -33,6 +33,7 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  * const config = {}; // type is MarketplaceDiscoveryClientConfig
  * const client = new MarketplaceDiscoveryClient(config);
  * const input = { // SearchListingsInput
+ *   locale: "STRING_VALUE",
  *   searchText: "STRING_VALUE",
  *   filters: [ // SearchFilterList
  *     { // SearchFilter
@@ -162,6 +163,7 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  *       ]
  *     }
  *   ],
+ *   locale: "en-US",
  *   maxResults: 25,
  *   searchText: "computer vision",
  *   sortBy: "RELEVANCE",

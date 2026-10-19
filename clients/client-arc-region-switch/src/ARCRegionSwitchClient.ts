@@ -93,6 +93,10 @@ import type {
   ListRoute53HealthChecksInRegionCommandOutput,
 } from "./commands/ListRoute53HealthChecksInRegionCommand";
 import type {
+  ListServiceQuotaWarningsCommandInput,
+  ListServiceQuotaWarningsCommandOutput,
+} from "./commands/ListServiceQuotaWarningsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -140,6 +144,7 @@ export type ServiceInputTypes =
   | ListPlansInRegionCommandInput
   | ListRoute53HealthChecksCommandInput
   | ListRoute53HealthChecksInRegionCommandInput
+  | ListServiceQuotaWarningsCommandInput
   | ListTagsForResourceCommandInput
   | StartPlanExecutionCommandInput
   | TagResourceCommandInput
@@ -166,6 +171,7 @@ export type ServiceOutputTypes =
   | ListPlansInRegionCommandOutput
   | ListRoute53HealthChecksCommandOutput
   | ListRoute53HealthChecksInRegionCommandOutput
+  | ListServiceQuotaWarningsCommandOutput
   | ListTagsForResourceCommandOutput
   | StartPlanExecutionCommandOutput
   | TagResourceCommandOutput

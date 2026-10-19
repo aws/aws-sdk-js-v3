@@ -113,6 +113,11 @@ export interface RegisterServiceCommandOutput extends RegisterServiceOutput, __M
  *           tokenValue: "STRING_VALUE", // required
  *           authorizationHeader: "STRING_VALUE",
  *         },
+ *         customHeaders: { // MCPServerCustomHeadersConfig
+ *           headers: { // CustomHeaders // required
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
  *         authorizationDiscovery: {
  *           returnToEndpoint: "STRING_VALUE", // required
  *         },
@@ -163,6 +168,11 @@ export interface RegisterServiceCommandOutput extends RegisterServiceOutput, __M
  *           tokenName: "STRING_VALUE", // required
  *           tokenValue: "STRING_VALUE", // required
  *           authorizationHeader: "STRING_VALUE",
+ *         },
+ *         customHeaders: {
+ *           headers: { // required
+ *             "<keys>": "STRING_VALUE",
+ *           },
  *         },
  *         authorizationDiscovery: {
  *           returnToEndpoint: "STRING_VALUE", // required
@@ -226,6 +236,11 @@ export interface RegisterServiceCommandOutput extends RegisterServiceOutput, __M
  *           tokenValue: "STRING_VALUE", // required
  *           authorizationHeader: "STRING_VALUE",
  *         },
+ *         customHeaders: {
+ *           headers: { // required
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
  *         authorizationDiscovery: {
  *           returnToEndpoint: "STRING_VALUE", // required
  *         },
@@ -261,7 +276,7 @@ export interface RegisterServiceCommandOutput extends RegisterServiceOutput, __M
  *         service: "STRING_VALUE", // required
  *         roleArn: "STRING_VALUE",
  *         mcpRoleArn: "STRING_VALUE",
- *         customHeaders: { // CustomHeaders
+ *         customHeaders: {
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },

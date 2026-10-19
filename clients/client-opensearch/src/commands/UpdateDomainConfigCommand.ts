@@ -102,6 +102,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *   EncryptionAtRestOptions: { // EncryptionAtRestOptions
  *     Enabled: true || false,
  *     KmsKeyId: "STRING_VALUE",
+ *     EncryptionMode: "DISK" || "NATIVE",
  *   },
  *   DomainEndpointOptions: { // DomainEndpointOptions
  *     EnforceHTTPS: true || false,
@@ -205,6 +206,9 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *   },
  *   UseCase: "SEARCH" || "VECTOR" || "OBSERVABILITY" || "MIXED",
  *   EngineMode: "GENERAL" || "OPTIMIZED",
+ *   AcceptedWarnings: [ // AcceptedWarningsList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new UpdateDomainConfigCommand(input);
  * const response = await client.send(command);
@@ -328,6 +332,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //       Options: { // EncryptionAtRestOptions
  * //         Enabled: true || false,
  * //         KmsKeyId: "STRING_VALUE",
+ * //         EncryptionMode: "DISK" || "NATIVE",
  * //       },
  * //       Status: "<OptionStatus>", // required
  * //     },
@@ -517,7 +522,11 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //       { // ValidationFailure
  * //         Code: "STRING_VALUE",
  * //         Message: "STRING_VALUE",
+ * //         Severity: "Critical" || "Warning",
  * //       },
+ * //     ],
+ * //     AcceptedWarnings: [ // AcceptedWarningsList
+ * //       "STRING_VALUE",
  * //     ],
  * //   },
  * // };

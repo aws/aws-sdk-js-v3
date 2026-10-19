@@ -9,6 +9,7 @@ import { KMSServiceException as __BaseException } from "./KMSServiceException";
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#AlreadyExistsException";
   readonly name = "AlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -30,6 +31,7 @@ export class AlreadyExistsException extends __BaseException {
  * @public
  */
 export class DependencyTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#DependencyTimeoutException";
   readonly name = "DependencyTimeoutException" as const;
   readonly $fault = "server" as const;
   /**
@@ -51,6 +53,7 @@ export class DependencyTimeoutException extends __BaseException {
  * @public
  */
 export class InvalidArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#InvalidArnException";
   readonly name = "InvalidArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -72,6 +75,7 @@ export class InvalidArnException extends __BaseException {
  * @public
  */
 export class KMSInternalException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#KMSInternalException";
   readonly name = "KMSInternalException" as const;
   readonly $fault = "server" as const;
   /**
@@ -109,6 +113,7 @@ export class KMSInternalException extends __BaseException {
  * @public
  */
 export class KMSInvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#KMSInvalidStateException";
   readonly name = "KMSInvalidStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -130,6 +135,7 @@ export class KMSInvalidStateException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -155,6 +161,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class CloudHsmClusterInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#CloudHsmClusterInUseException";
   readonly name = "CloudHsmClusterInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -206,6 +213,7 @@ export class CloudHsmClusterInUseException extends __BaseException {
  * @public
  */
 export class CloudHsmClusterInvalidConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#CloudHsmClusterInvalidConfigurationException";
   readonly name = "CloudHsmClusterInvalidConfigurationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -229,6 +237,7 @@ export class CloudHsmClusterInvalidConfigurationException extends __BaseExceptio
  * @public
  */
 export class CloudHsmClusterNotActiveException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#CloudHsmClusterNotActiveException";
   readonly name = "CloudHsmClusterNotActiveException" as const;
   readonly $fault = "client" as const;
   /**
@@ -250,6 +259,7 @@ export class CloudHsmClusterNotActiveException extends __BaseException {
  * @public
  */
 export class CloudHsmClusterNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#CloudHsmClusterNotFoundException";
   readonly name = "CloudHsmClusterNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -277,6 +287,7 @@ export class CloudHsmClusterNotFoundException extends __BaseException {
  * @public
  */
 export class CloudHsmClusterNotRelatedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#CloudHsmClusterNotRelatedException";
   readonly name = "CloudHsmClusterNotRelatedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -298,6 +309,7 @@ export class CloudHsmClusterNotRelatedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -353,6 +365,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class CustomKeyStoreInvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#CustomKeyStoreInvalidStateException";
   readonly name = "CustomKeyStoreInvalidStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -374,6 +387,7 @@ export class CustomKeyStoreInvalidStateException extends __BaseException {
  * @public
  */
 export class CustomKeyStoreNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#CustomKeyStoreNotFoundException";
   readonly name = "CustomKeyStoreNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -394,6 +408,7 @@ export class CustomKeyStoreNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidAliasNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#InvalidAliasNameException";
   readonly name = "InvalidAliasNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -416,6 +431,7 @@ export class InvalidAliasNameException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -438,6 +454,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class CustomKeyStoreNameInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#CustomKeyStoreNameInUseException";
   readonly name = "CustomKeyStoreNameInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -461,6 +478,7 @@ export class CustomKeyStoreNameInUseException extends __BaseException {
  * @public
  */
 export class IncorrectTrustAnchorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#IncorrectTrustAnchorException";
   readonly name = "IncorrectTrustAnchorException" as const;
   readonly $fault = "client" as const;
   /**
@@ -484,6 +502,7 @@ export class IncorrectTrustAnchorException extends __BaseException {
  * @public
  */
 export class XksProxyIncorrectAuthenticationCredentialException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#XksProxyIncorrectAuthenticationCredentialException";
   readonly name = "XksProxyIncorrectAuthenticationCredentialException" as const;
   readonly $fault = "client" as const;
   /**
@@ -505,6 +524,7 @@ export class XksProxyIncorrectAuthenticationCredentialException extends __BaseEx
  * @public
  */
 export class XksProxyInvalidConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#XksProxyInvalidConfigurationException";
   readonly name = "XksProxyInvalidConfigurationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -528,6 +548,7 @@ export class XksProxyInvalidConfigurationException extends __BaseException {
  * @public
  */
 export class XksProxyInvalidResponseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#XksProxyInvalidResponseException";
   readonly name = "XksProxyInvalidResponseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -550,6 +571,7 @@ export class XksProxyInvalidResponseException extends __BaseException {
  * @public
  */
 export class XksProxyUriEndpointInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#XksProxyUriEndpointInUseException";
   readonly name = "XksProxyUriEndpointInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -573,6 +595,7 @@ export class XksProxyUriEndpointInUseException extends __BaseException {
  * @public
  */
 export class XksProxyUriInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#XksProxyUriInUseException";
   readonly name = "XksProxyUriInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -597,6 +620,7 @@ export class XksProxyUriInUseException extends __BaseException {
  * @public
  */
 export class XksProxyUriUnreachableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#XksProxyUriUnreachableException";
   readonly name = "XksProxyUriUnreachableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -619,6 +643,7 @@ export class XksProxyUriUnreachableException extends __BaseException {
  * @public
  */
 export class XksProxyVpcEndpointServiceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#XksProxyVpcEndpointServiceInUseException";
   readonly name = "XksProxyVpcEndpointServiceInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -643,6 +668,7 @@ export class XksProxyVpcEndpointServiceInUseException extends __BaseException {
  * @public
  */
 export class XksProxyVpcEndpointServiceInvalidConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#XksProxyVpcEndpointServiceInvalidConfigurationException";
   readonly name = "XksProxyVpcEndpointServiceInvalidConfigurationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -667,6 +693,7 @@ export class XksProxyVpcEndpointServiceInvalidConfigurationException extends __B
  * @public
  */
 export class XksProxyVpcEndpointServiceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#XksProxyVpcEndpointServiceNotFoundException";
   readonly name = "XksProxyVpcEndpointServiceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -687,6 +714,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends __BaseException
  * @public
  */
 export class DisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#DisabledException";
   readonly name = "DisabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -707,6 +735,7 @@ export class DisabledException extends __BaseException {
  * @public
  */
 export class DryRunOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#DryRunOperationException";
   readonly name = "DryRunOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -727,6 +756,7 @@ export class DryRunOperationException extends __BaseException {
  * @public
  */
 export class InvalidGrantTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#InvalidGrantTokenException";
   readonly name = "InvalidGrantTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -748,6 +778,7 @@ export class InvalidGrantTokenException extends __BaseException {
  * @public
  */
 export class MalformedPolicyDocumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#MalformedPolicyDocumentException";
   readonly name = "MalformedPolicyDocumentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -768,6 +799,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
  * @public
  */
 export class TagException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#TagException";
   readonly name = "TagException" as const;
   readonly $fault = "client" as const;
   /**
@@ -789,6 +821,7 @@ export class TagException extends __BaseException {
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#UnsupportedOperationException";
   readonly name = "UnsupportedOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -811,6 +844,7 @@ export class UnsupportedOperationException extends __BaseException {
  * @public
  */
 export class XksKeyAlreadyInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#XksKeyAlreadyInUseException";
   readonly name = "XksKeyAlreadyInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -834,6 +868,7 @@ export class XksKeyAlreadyInUseException extends __BaseException {
  * @public
  */
 export class XksKeyInvalidConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#XksKeyInvalidConfigurationException";
   readonly name = "XksKeyInvalidConfigurationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -860,6 +895,7 @@ export class XksKeyInvalidConfigurationException extends __BaseException {
  * @public
  */
 export class XksKeyNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#XksKeyNotFoundException";
   readonly name = "XksKeyNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -883,6 +919,7 @@ export class XksKeyNotFoundException extends __BaseException {
  * @public
  */
 export class CustomKeyStoreHasCMKsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#CustomKeyStoreHasCMKsException";
   readonly name = "CustomKeyStoreHasCMKsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -906,6 +943,7 @@ export class CustomKeyStoreHasCMKsException extends __BaseException {
  * @public
  */
 export class IncorrectKeyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#IncorrectKeyException";
   readonly name = "IncorrectKeyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -931,6 +969,7 @@ export class IncorrectKeyException extends __BaseException {
  * @public
  */
 export class InvalidCiphertextException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#InvalidCiphertextException";
   readonly name = "InvalidCiphertextException" as const;
   readonly $fault = "client" as const;
   /**
@@ -970,6 +1009,7 @@ export class InvalidCiphertextException extends __BaseException {
  * @public
  */
 export class InvalidKeyUsageException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#InvalidKeyUsageException";
   readonly name = "InvalidKeyUsageException" as const;
   readonly $fault = "client" as const;
   /**
@@ -991,6 +1031,7 @@ export class InvalidKeyUsageException extends __BaseException {
  * @public
  */
 export class KeyUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#KeyUnavailableException";
   readonly name = "KeyUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -1012,6 +1053,7 @@ export class KeyUnavailableException extends __BaseException {
  * @public
  */
 export class InvalidMarkerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#InvalidMarkerException";
   readonly name = "InvalidMarkerException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1033,6 +1075,7 @@ export class InvalidMarkerException extends __BaseException {
  * @public
  */
 export class ExpiredImportTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#ExpiredImportTokenException";
   readonly name = "ExpiredImportTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1056,6 +1099,7 @@ export class ExpiredImportTokenException extends __BaseException {
  * @public
  */
 export class IncorrectKeyMaterialException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#IncorrectKeyMaterialException";
   readonly name = "IncorrectKeyMaterialException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1077,6 +1121,7 @@ export class IncorrectKeyMaterialException extends __BaseException {
  * @public
  */
 export class InvalidImportTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#InvalidImportTokenException";
   readonly name = "InvalidImportTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1097,6 +1142,7 @@ export class InvalidImportTokenException extends __BaseException {
  * @public
  */
 export class InvalidGrantIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#InvalidGrantIdException";
   readonly name = "InvalidGrantIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1119,6 +1165,7 @@ export class InvalidGrantIdException extends __BaseException {
  * @public
  */
 export class KMSInvalidMacException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#KMSInvalidMacException";
   readonly name = "KMSInvalidMacException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1141,6 +1188,7 @@ export class KMSInvalidMacException extends __BaseException {
  * @public
  */
 export class KMSInvalidSignatureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kms#KMSInvalidSignatureException";
   readonly name = "KMSInvalidSignatureException" as const;
   readonly $fault = "client" as const;
   /**

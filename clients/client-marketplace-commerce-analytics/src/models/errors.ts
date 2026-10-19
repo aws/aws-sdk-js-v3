@@ -10,6 +10,7 @@ import {
  * @public
  */
 export class MarketplaceCommerceAnalyticsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacecommerceanalytics#MarketplaceCommerceAnalyticsException";
   readonly name = "MarketplaceCommerceAnalyticsException" as const;
   readonly $fault = "server" as const;
   /**

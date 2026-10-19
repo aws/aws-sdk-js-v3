@@ -8,6 +8,7 @@ import { SignerDataServiceException as __BaseException } from "./SignerDataServi
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.signerdata#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -30,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.signerdata#InternalServiceErrorException";
   readonly name = "InternalServiceErrorException" as const;
   readonly $fault = "server" as const;
   code?: string | undefined;
@@ -52,6 +54,7 @@ export class InternalServiceErrorException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.signerdata#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -74,6 +77,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.signerdata#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;

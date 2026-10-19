@@ -324,6 +324,8 @@ export const EC2InstanceType = {
   c7i_large: "c7i.large",
   c7i_xlarge: "c7i.xlarge",
   c8a_2xlarge: "c8a.2xlarge",
+  c8a_4xlarge: "c8a.4xlarge",
+  c8a_8xlarge: "c8a.8xlarge",
   c8a_large: "c8a.large",
   c8a_medium: "c8a.medium",
   c8a_xlarge: "c8a.xlarge",
@@ -338,9 +340,13 @@ export const EC2InstanceType = {
   c8g_medium: "c8g.medium",
   c8g_xlarge: "c8g.xlarge",
   c8i_2xlarge: "c8i.2xlarge",
+  c8i_4xlarge: "c8i.4xlarge",
+  c8i_8xlarge: "c8i.8xlarge",
   c8i_large: "c8i.large",
   c8i_xlarge: "c8i.xlarge",
   c9g_2xlarge: "c9g.2xlarge",
+  c9g_4xlarge: "c9g.4xlarge",
+  c9g_8xlarge: "c9g.8xlarge",
   c9g_large: "c9g.large",
   c9g_medium: "c9g.medium",
   c9g_xlarge: "c9g.xlarge",
@@ -506,6 +512,8 @@ export const EC2InstanceType = {
   m7i_large: "m7i.large",
   m7i_xlarge: "m7i.xlarge",
   m8a_2xlarge: "m8a.2xlarge",
+  m8a_4xlarge: "m8a.4xlarge",
+  m8a_8xlarge: "m8a.8xlarge",
   m8a_large: "m8a.large",
   m8a_medium: "m8a.medium",
   m8a_xlarge: "m8a.xlarge",
@@ -520,10 +528,15 @@ export const EC2InstanceType = {
   m8g_medium: "m8g.medium",
   m8g_xlarge: "m8g.xlarge",
   m8i_2xlarge: "m8i.2xlarge",
+  m8i_4xlarge: "m8i.4xlarge",
+  m8i_8xlarge: "m8i.8xlarge",
   m8i_large: "m8i.large",
   m8i_xlarge: "m8i.xlarge",
   m9g_2xlarge: "m9g.2xlarge",
+  m9g_4xlarge: "m9g.4xlarge",
+  m9g_8xlarge: "m9g.8xlarge",
   m9g_large: "m9g.large",
+  m9g_medium: "m9g.medium",
   m9g_xlarge: "m9g.xlarge",
   r3_2xlarge: "r3.2xlarge",
   r3_4xlarge: "r3.4xlarge",
@@ -964,6 +977,19 @@ export const ContainerGroupDefinitionStatus = {
  */
 export type ContainerGroupDefinitionStatus =
   (typeof ContainerGroupDefinitionStatus)[keyof typeof ContainerGroupDefinitionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContainerGroupDefinitionRemoveAttribute = {
+  TOTAL_VCPU_LIMIT: "TOTAL_VCPU_LIMIT",
+} as const;
+/**
+ * @public
+ */
+export type ContainerGroupDefinitionRemoveAttribute =
+  (typeof ContainerGroupDefinitionRemoveAttribute)[keyof typeof ContainerGroupDefinitionRemoveAttribute];
 
 /**
  * @public

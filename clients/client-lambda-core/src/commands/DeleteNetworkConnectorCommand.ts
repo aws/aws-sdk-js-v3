@@ -23,7 +23,7 @@ export interface DeleteNetworkConnectorCommandInput extends DeleteNetworkConnect
 export interface DeleteNetworkConnectorCommandOutput extends DeleteNetworkConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates deletion of a network connector. The connector transitions to <code>DELETING</code> state while elastic network interfaces are cleaned up asynchronously. After deletion completes, subsequent calls to <code>GetNetworkConnector</code> return <code>ResourceNotFoundException</code>.</p> <p>This operation is idempotent — calling delete on a connector that is already deleting or has been deleted succeeds without error. You can delete connectors in <code>ACTIVE</code> or <code>FAILED</code> states. Before deleting a connector, ensure that no Lambda MicroVMs are using it, as they will lose VPC egress connectivity immediately.</p>
+ * <p>Initiates deletion of a network connector. The connector transitions to <code>DELETING</code> state while elastic network interfaces are cleaned up asynchronously. After deletion completes, subsequent calls to <code>GetNetworkConnector</code> return <code>ResourceNotFoundException</code>.</p> <p>This operation is idempotent — calling delete on a connector that is already deleting or has been deleted succeeds without error. You can delete connectors in <code>ACTIVE</code> or <code>FAILED</code> states. Before deleting a connector, ensure that no Lambda compute resources are using it, as they will lose VPC egress connectivity immediately.</p> <p>Deleting with an unqualified identifier removes the connector and all of its versions. To remove a single historical version, supply its version-qualified ARN; the connector and its remaining versions are unaffected. You can't delete the latest version on its own — delete the connector to remove it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,6 +41,8 @@ export interface DeleteNetworkConnectorCommandOutput extends DeleteNetworkConnec
  * //   Arn: "STRING_VALUE", // required
  * //   Name: "STRING_VALUE", // required
  * //   Id: "STRING_VALUE", // required
+ * //   VersionArn: "STRING_VALUE",
+ * //   Version: Number("long"),
  * //   Configuration: { // NetworkConnectorConfiguration Union: only one key present
  * //     VpcEgressConfiguration: { // NetworkConnectorVpcEgressConfiguration
  * //       SubnetIds: [ // NetworkConnectorSubnetIds
@@ -51,7 +53,7 @@ export interface DeleteNetworkConnectorCommandOutput extends DeleteNetworkConnec
  * //       ],
  * //       NetworkProtocol: "IPv4" || "DualStack",
  * //       AssociatedComputeResourceTypes: [ // AssociatedComputeResourceTypesList
- * //         "MicroVm",
+ * //         "MicroVm" || "WebFunction",
  * //       ],
  * //     },
  * //   },

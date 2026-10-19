@@ -11,10 +11,10 @@ import type {
  * @public
  */
 export interface ClientInputEndpointParameters {
-  region?: string | undefined | Provider<string | undefined>;
   useDualstackEndpoint?: boolean | undefined | Provider<boolean | undefined>;
   useFipsEndpoint?: boolean | undefined | Provider<boolean | undefined>;
   endpoint?: string | Provider<string> | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
+  region?: string | undefined | Provider<string | undefined>;
 }
 
 /**
@@ -51,8 +51,8 @@ export const commonParams = {
  * @internal
  */
 export interface EndpointParameters extends __EndpointParameters {
-  Region?: string | undefined;
   UseDualStack?: boolean | undefined;
   UseFIPS?: boolean | undefined;
   Endpoint?: string | undefined;
+  Region?: string | undefined;
 }

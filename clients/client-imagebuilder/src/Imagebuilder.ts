@@ -2081,8 +2081,12 @@ export interface Imagebuilder {
 /**
  * <p>EC2 Image Builder automates the
  * 			creation, management, and deployment of customized, secure, and up-to-date
- * 			"golden" server images that are pre-installed and pre-configured with software
- * 			and settings to meet specific IT standards.</p>
+ * 			server images. You can build Amazon Machine Images (AMIs) and container images
+ * 			that are pre-installed and pre-configured with software and settings to meet
+ * 			specific IT standards.</p>
+ *          <p>For an introduction to the service concepts that these API operations work with,
+ * 			see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/how-image-builder-works.html">How Image Builder
+ * 				works</a> in the <i>EC2 Image Builder User Guide</i>.</p>
  * @public
  */
 export class Imagebuilder extends ImagebuilderClient implements Imagebuilder {}

@@ -39,6 +39,8 @@ const _CHM = "CreateHlsManifests";
 const _CHMC = "CreateHlsManifestConfiguration";
 const _CISA = "CdnIdentifierSecretArns";
 const _CIV = "ConstantInitializationVector";
+const _CKPC = "ContentKeyPeriodConfiguration";
+const _CKPT = "ContentKeyPeriodTiming";
 const _CL = "ChannelList";
 const _CLC = "ChannelListConfiguration";
 const _CLLHM = "CreateLowLatencyHlsManifests";
@@ -154,6 +156,7 @@ const _ISE = "InternalServerException";
 const _IT = "InputType";
 const _It = "Items";
 const _KRIS = "KeyRotationIntervalSeconds";
+const _L = "Layout";
 const _LC = "LanguageCode";
 const _LCG = "ListChannelGroups";
 const _LCGR = "ListChannelGroupsRequest";
@@ -184,6 +187,7 @@ const _MA = "ModifiedAt";
 const _MBTS = "MinBufferTimeSeconds";
 const _MC = "MultiviewConfiguration";
 const _MF = "ManifestFilter";
+const _MFC = "MultiviewFilterConfiguration";
 const _MIU = "MoreInformationUrl";
 const _ML = "ManifestLayout";
 const _MM = "MssManifests";
@@ -193,6 +197,7 @@ const _MR = "MaxResults";
 const _MT = "MimeType";
 const _MUPS = "MinUpdatePeriodSeconds";
 const _MWS = "ManifestWindowSeconds";
+const _Mu = "Multiview";
 const _NT = "NextToken";
 const _OEL = "OriginEndpointsList";
 const _OELC = "OriginEndpointListConfiguration";
@@ -251,10 +256,12 @@ const _SRA = "SecretsRoleArn";
 const _ST = "StartTag";
 const _STF = "SegmentTemplateFormat";
 const _STt = "StartTime";
+const _SV = "SpekeVersion";
 const _SWS = "StartoverWindowSeconds";
 const _Sc = "Scte";
 const _Se = "Segment";
 const _So = "Source";
+const _Sou = "Sources";
 const _St = "Start";
 const _T = "Tags";
 const _TC = "TtmlConfiguration";
@@ -412,6 +419,11 @@ export var ChannelListConfiguration$: StaticStructureSchema = [3, n0, _CLC,
   0,
   [_A, _CN, _CGN, _CA, _MA, _D, _IT, _OLM, _MC, _AMC],
   [0, 0, 0, 4, 4, 0, 0, 0, () => MultiviewConfiguration$, 64 | 0], 5
+];
+export var ContentKeyPeriodConfiguration$: StaticStructureSchema = [3, n0, _CKPC,
+  0,
+  [_CKPT],
+  [0]
 ];
 export var CreateChannelGroupRequest$: StaticStructureSchema = [3, n0, _CCGR,
   0,
@@ -585,8 +597,8 @@ export var EncryptionMethod$: StaticStructureSchema = [3, n0, _EMn,
 ];
 export var FilterConfiguration$: StaticStructureSchema = [3, n0, _FC,
   0,
-  [_MF, _DSr, _St, _En, _TDS, _CST],
-  [0, 0, 4, 4, 1, 4]
+  [_MF, _DSr, _St, _En, _TDS, _CST, _Mu],
+  [0, 0, 4, 4, 1, 4, () => MultiviewFilterConfiguration$]
 ];
 export var ForceEndpointErrorConfiguration$: StaticStructureSchema = [3, n0, _FEEC,
   0,
@@ -788,6 +800,11 @@ export var MultiviewConfiguration$: StaticStructureSchema = [3, n0, _MC,
   [_AS, _AL],
   [64 | 0, 64 | 0], 2
 ];
+export var MultiviewFilterConfiguration$: StaticStructureSchema = [3, n0, _MFC,
+  0,
+  [_L, _Sou],
+  [0, 64 | 0], 2
+];
 export var OriginEndpointListConfiguration$: StaticStructureSchema = [3, n0, _OELC,
   0,
   [_A, _CGN, _CN, _OEN, _CTo, _D, _CA, _MA, _HMl, _LLHM, _DM, _MM, _FEEC, _US, _SNOM],
@@ -865,8 +882,8 @@ export var Segment$: StaticStructureSchema = [3, n0, _Se,
 ];
 export var SpekeKeyProvider$: StaticStructureSchema = [3, n0, _SKP,
   0,
-  [_ECC, _RI, _DSrm, _RAo, _U, _CAe],
-  [() => EncryptionContractConfiguration$, 0, 64 | 0, 0, 0, 0], 5
+  [_ECC, _RI, _DSrm, _RAo, _U, _CAe, _SV, _CKPC],
+  [() => EncryptionContractConfiguration$, 0, 64 | 0, 0, 0, 0, 0, () => ContentKeyPeriodConfiguration$], 5
 ];
 export var StartTag$: StaticStructureSchema = [3, n0, _ST,
   0,

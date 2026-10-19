@@ -75,6 +75,7 @@ export type OperationType = (typeof OperationType)[keyof typeof OperationType];
 export const ShardIteratorType = {
   AFTER_SEQUENCE_NUMBER: "AFTER_SEQUENCE_NUMBER",
   AT_SEQUENCE_NUMBER: "AT_SEQUENCE_NUMBER",
+  AT_TIMESTAMP: "AT_TIMESTAMP",
   LATEST: "LATEST",
   TRIM_HORIZON: "TRIM_HORIZON",
 } as const;

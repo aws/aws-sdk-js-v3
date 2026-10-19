@@ -14,4 +14,6 @@ export * from "./ListRegionsCommand";
 export * from "./PutAccountNameCommand";
 export * from "./PutAlternateContactCommand";
 export * from "./PutContactInformationCommand";
+export * from "./SendPhoneNumberVerificationCommand";
 export * from "./StartPrimaryEmailUpdateCommand";
+export * from "./VerifyPhoneNumberCommand";

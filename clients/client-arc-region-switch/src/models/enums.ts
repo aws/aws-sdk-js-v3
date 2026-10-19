@@ -240,6 +240,19 @@ export type Ec2AsgCapacityMonitoringApproach =
  * @public
  * @enum
  */
+export const WaitELBTargetGroupHealthy = {
+  DISABLED: "disabled",
+  ENABLED: "enabled",
+} as const;
+/**
+ * @public
+ */
+export type WaitELBTargetGroupHealthy = (typeof WaitELBTargetGroupHealthy)[keyof typeof WaitELBTargetGroupHealthy];
+
+/**
+ * @public
+ * @enum
+ */
 export const EcsCapacityMonitoringApproach = {
   CONTAINER_INSIGHTS_MAX_IN_LAST_24_HOURS: "containerInsightsMaxInLast24Hours",
   SAMPLED_MAX_IN_LAST_24_HOURS: "sampledMaxInLast24Hours",
@@ -357,6 +370,19 @@ export type RdsUngracefulBehavior = (typeof RdsUngracefulBehavior)[keyof typeof 
  * @public
  * @enum
  */
+export const SsmSendCommandUngracefulBehavior = {
+  SKIP: "skip",
+} as const;
+/**
+ * @public
+ */
+export type SsmSendCommandUngracefulBehavior =
+  (typeof SsmSendCommandUngracefulBehavior)[keyof typeof SsmSendCommandUngracefulBehavior];
+
+/**
+ * @public
+ * @enum
+ */
 export const ExecutionBlockType = {
   AURORA: "AuroraGlobalDatabase",
   AURORA_PROVISIONED_SCALING: "AuroraProvisionedScaling",
@@ -376,6 +402,7 @@ export const ExecutionBlockType = {
   REGION_SWITCH: "ARCRegionSwitchPlan",
   ROUTE53_HEALTH_CHECK: "Route53HealthCheck",
   ROUTING_CONTROL: "ARCRoutingControl",
+  SSM_SEND_COMMAND: "SSMSendCommand",
 } as const;
 /**
  * @public
@@ -450,6 +477,22 @@ export const Route53HealthCheckStatus = {
  * @public
  */
 export type Route53HealthCheckStatus = (typeof Route53HealthCheckStatus)[keyof typeof Route53HealthCheckStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceQuotaWarningStatus = {
+  DENIED: "denied",
+  INSUFFICIENT_PERMISSIONS: "insufficientPermissions",
+  MAX_ACCOUNT_REQUESTS_EXCEEDED: "maxAccountRequestsExceeded",
+  MAX_REGION_SWITCH_REQUESTS_EXCEEDED: "maxRegionSwitchRequestsExceeded",
+  PENDING: "pending",
+} as const;
+/**
+ * @public
+ */
+export type ServiceQuotaWarningStatus = (typeof ServiceQuotaWarningStatus)[keyof typeof ServiceQuotaWarningStatus];
 
 /**
  * @public

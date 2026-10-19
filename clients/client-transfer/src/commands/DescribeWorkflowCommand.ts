@@ -160,6 +160,9 @@ export interface DescribeWorkflowCommandOutput extends DescribeWorkflowResponse,
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     StructuredLogDestinations: [ // StructuredLogDestinations
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

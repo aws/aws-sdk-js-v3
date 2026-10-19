@@ -103,6 +103,9 @@ const _GCRSRe = "GetContactReachabilityStatusResponse";
 const _GDD = "GetDomainDetail";
 const _GDDR = "GetDomainDetailRequest";
 const _GDDRe = "GetDomainDetailResponse";
+const _GDP = "GetDomainPrices";
+const _GDPR = "GetDomainPricesRequest";
+const _GDPRe = "GetDomainPricesResponse";
 const _GDS = "GetDomainSuggestions";
 const _GDSR = "GetDomainSuggestionsRequest";
 const _GDSRe = "GetDomainSuggestionsResponse";
@@ -146,6 +149,7 @@ const _OLE = "OperationLimitExceeded";
 const _ON = "OrganizationName";
 const _OS = "OperationSummary";
 const _OSL = "OperationSummaryList";
+const _OSP = "OnlyStandardPrices";
 const _Op = "Operator";
 const _Ope = "Operations";
 const _P = "Password";
@@ -157,6 +161,7 @@ const _PPAC = "PrivacyProtectAdminContact";
 const _PPBC = "PrivacyProtectBillingContact";
 const _PPRC = "PrivacyProtectRegistrantContact";
 const _PPTC = "PrivacyProtectTechContact";
+const _PT = "PriceType";
 const _PWC = "PriceWithCurrency";
 const _Pr = "Price";
 const _Pri = "Prices";
@@ -392,8 +397,8 @@ export var CheckDomainAvailabilityRequest$: StaticStructureSchema = [3, n0, _CDA
 ];
 export var CheckDomainAvailabilityResponse$: StaticStructureSchema = [3, n0, _CDARh,
   0,
-  [_A],
-  [0]
+  [_A, _Pr],
+  [0, () => PriceWithCurrency$]
 ];
 export var CheckDomainTransferabilityRequest$: StaticStructureSchema = [3, n0, _CDTR,
   0,
@@ -402,8 +407,8 @@ export var CheckDomainTransferabilityRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var CheckDomainTransferabilityResponse$: StaticStructureSchema = [3, n0, _CDTRh,
   0,
-  [_T, _M],
-  [() => DomainTransferability$, 0]
+  [_T, _M, _Pr],
+  [() => DomainTransferability$, 0, () => PriceWithCurrency$]
 ];
 export var Consent$: StaticStructureSchema = [3, n0, _Co,
   0,
@@ -482,8 +487,8 @@ export var DomainPrice$: StaticStructureSchema = [3, n0, _DP,
 ];
 export var DomainSuggestion$: StaticStructureSchema = [3, n0, _DS,
   0,
-  [_DN, _A],
-  [0, 0]
+  [_DN, _A, _Pr],
+  [0, 0, () => PriceWithCurrency$]
 ];
 export var DomainSummary$: StaticStructureSchema = [3, n0, _DSo,
   0,
@@ -545,10 +550,20 @@ export var GetDomainDetailResponse$: StaticStructureSchema = [3, n0, _GDDRe,
   [_DN, _Na, _AR, _ACd, _RC, _TC, _AP, _RPeg, _TPe, _RN, _WIS, _RU, _ACE, _ACP, _RDI, _CDr, _UD, _ED, _R, _DSn, _SL, _DKn, _BC, _BP],
   [0, () => NameserverList, 2, [() => ContactDetail$, 0], [() => ContactDetail$, 0], [() => ContactDetail$, 0], 2, 2, 2, 0, 0, 0, [() => Email, 0], [() => ContactNumber, 0], 0, 4, 4, 4, 0, 0, 64 | 0, () => DnssecKeyList, [() => ContactDetail$, 0], 2]
 ];
+export var GetDomainPricesRequest$: StaticStructureSchema = [3, n0, _GDPR,
+  0,
+  [_DN],
+  [0], 1
+];
+export var GetDomainPricesResponse$: StaticStructureSchema = [3, n0, _GDPRe,
+  0,
+  [_DP],
+  [() => DomainPrice$]
+];
 export var GetDomainSuggestionsRequest$: StaticStructureSchema = [3, n0, _GDSR,
   0,
-  [_DN, _SC, _OA],
-  [0, 1, 2], 3
+  [_DN, _SC, _OA, _OSP],
+  [0, 1, 2, 2], 3
 ];
 export var GetDomainSuggestionsResponse$: StaticStructureSchema = [3, n0, _GDSRe,
   0,
@@ -617,8 +632,8 @@ export var OperationSummary$: StaticStructureSchema = [3, n0, _OS,
 ];
 export var PriceWithCurrency$: StaticStructureSchema = [3, n0, _PWC,
   0,
-  [_Pr, _Cu],
-  [1, 0], 2
+  [_Pr, _Cu, _PT],
+  [1, 0, 0], 2
 ];
 export var PushDomainRequest$: StaticStructureSchema = [3, n0, _PDR,
   0,
@@ -627,8 +642,8 @@ export var PushDomainRequest$: StaticStructureSchema = [3, n0, _PDR,
 ];
 export var RegisterDomainRequest$: StaticStructureSchema = [3, n0, _RDR,
   0,
-  [_DN, _DIY, _ACd, _RC, _TC, _ILC, _AR, _PPAC, _PPRC, _PPTC, _BC, _PPBC],
-  [0, 1, [() => ContactDetail$, 0], [() => ContactDetail$, 0], [() => ContactDetail$, 0], 0, 2, 2, 2, 2, [() => ContactDetail$, 0], 2], 5
+  [_DN, _DIY, _ACd, _RC, _TC, _ILC, _AR, _PPAC, _PPRC, _PPTC, _BC, _PPBC, _Co],
+  [0, 1, [() => ContactDetail$, 0], [() => ContactDetail$, 0], [() => ContactDetail$, 0], 0, 2, 2, 2, 2, [() => ContactDetail$, 0], 2, () => Consent$], 5
 ];
 export var RegisterDomainResponse$: StaticStructureSchema = [3, n0, _RDRe,
   0,
@@ -647,8 +662,8 @@ export var RejectDomainTransferFromAnotherAwsAccountResponse$: StaticStructureSc
 ];
 export var RenewDomainRequest$: StaticStructureSchema = [3, n0, _RDRen,
   0,
-  [_DN, _CEY, _DIY],
-  [0, 1, 1], 2
+  [_DN, _CEY, _DIY, _Co],
+  [0, 1, 1, () => Consent$], 2
 ];
 export var RenewDomainResponse$: StaticStructureSchema = [3, n0, _RDRene,
   0,
@@ -692,8 +707,8 @@ export var Tag$: StaticStructureSchema = [3, n0, _Tag,
 ];
 export var TransferDomainRequest$: StaticStructureSchema = [3, n0, _TDR,
   0,
-  [_DN, _ACd, _RC, _TC, _ILC, _DIY, _Na, _AC, _AR, _PPAC, _PPRC, _PPTC, _BC, _PPBC],
-  [0, [() => ContactDetail$, 0], [() => ContactDetail$, 0], [() => ContactDetail$, 0], 0, 1, () => NameserverList, [() => DomainAuthCode, 0], 2, 2, 2, 2, [() => ContactDetail$, 0], 2], 4
+  [_DN, _ACd, _RC, _TC, _ILC, _DIY, _Na, _AC, _AR, _PPAC, _PPRC, _PPTC, _BC, _PPBC, _Co],
+  [0, [() => ContactDetail$, 0], [() => ContactDetail$, 0], [() => ContactDetail$, 0], 0, 1, () => NameserverList, [() => DomainAuthCode, 0], 2, 2, 2, 2, [() => ContactDetail$, 0], 2, () => Consent$], 4
 ];
 export var TransferDomainResponse$: StaticStructureSchema = [3, n0, _TDRr,
   0,
@@ -839,6 +854,9 @@ export var GetContactReachabilityStatus$: StaticOperationSchema = [9, n0, _GCRS,
 ];
 export var GetDomainDetail$: StaticOperationSchema = [9, n0, _GDD,
   0, () => GetDomainDetailRequest$, () => GetDomainDetailResponse$
+];
+export var GetDomainPrices$: StaticOperationSchema = [9, n0, _GDP,
+  0, () => GetDomainPricesRequest$, () => GetDomainPricesResponse$
 ];
 export var GetDomainSuggestions$: StaticOperationSchema = [9, n0, _GDS,
   0, () => GetDomainSuggestionsRequest$, () => GetDomainSuggestionsResponse$

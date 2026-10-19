@@ -1135,7 +1135,13 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ClusterArn": "__ClusterArn__"
     },
     "Slurm": {
-      "SlurmConfigStrategy": "__SlurmConfigStrategy__"
+      "SlurmConfigStrategy": "__SlurmConfigStrategy__",
+      "AccountingDatabase": {
+        "Endpoint": "__Endpoint__",
+        "SecretArn": "__SecretArn__",
+        "Port": 0,
+        "Name": "__Name__"
+      }
     }
   },
   "TieredStorageConfig": {
@@ -2174,7 +2180,13 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ClusterArn: "__ClusterArn__"
     },
     Slurm: {
-      SlurmConfigStrategy: "__SlurmConfigStrategy__"
+      SlurmConfigStrategy: "__SlurmConfigStrategy__",
+      AccountingDatabase: {
+        Endpoint: "__Endpoint__",
+        SecretArn: "__SecretArn__",
+        Port: (number) 0,
+        Name: "__Name__"
+      }
     }
   },
   TieredStorageConfig: {

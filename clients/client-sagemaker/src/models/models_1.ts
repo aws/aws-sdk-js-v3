@@ -14,14 +14,19 @@ import type {
   AvailabilityZoneBalanceEnforcementMode,
   AwsManagedHumanLoopRequestSource,
   CapacityReservationPreference,
+  ClusterConfigMode,
+  ClusterImageVersionStatus,
+  ClusterInstanceType,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
+  ClusterStatus,
   CollectionType,
   CompilationJobStatus,
   CompleteOnConvergence,
   ConditionOutcome,
   ContainerMode,
   ContentClassifier,
+  DeepHealthCheckType,
   DeviceSubsetType,
   EdgePresetDeploymentType,
   ExecutionRoleIdentityConfig,
@@ -58,7 +63,6 @@ import type {
   ModelPackageRegistrationType,
   ModelRegistrationMode,
   MonitoringProblemType,
-  MonitoringType,
   NotebookOutputOption,
   ParameterType,
   PreemptTeamTasks,
@@ -150,14 +154,12 @@ import type {
   ClarifyExplainerConfig,
   ClusterAutoScalingConfig,
   ClusterInstanceGroupSpecification,
+  ClusterInstanceStorageConfig,
   ClusterOrchestrator,
   ClusterRestrictedInstanceGroupsConfig,
-  ClusterRestrictedInstanceGroupSpecification,
-  ClusterTieredStorageConfig,
   CodeEditorAppImageConfig,
-  CodeEditorAppSettings,
   ComputeQuotaResourceConfig,
-  CustomImage,
+  FSxLustreConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
@@ -167,11 +169,270 @@ import type {
   OutputDataConfig,
   ResourceConfig,
   ResourceSpec,
+  ScheduledUpdateConfig,
   StoppingCondition,
   Tag,
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>The configuration for the restricted instance groups (RIG) environment.</p>
+ * @public
+ */
+export interface EnvironmentConfig {
+  /**
+   * <p>Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.</p>
+   * @public
+   */
+  FSxLustreConfig?: FSxLustreConfig | undefined;
+}
+
+/**
+ * <p>The specifications of a restricted instance group that you need to define.</p>
+ * @public
+ */
+export interface ClusterRestrictedInstanceGroupSpecification {
+  /**
+   * <p>Specifies the number of instances to add to the restricted instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>Specifies the name of the restricted instance group.</p>
+   * @public
+   */
+  InstanceGroupName: string | undefined;
+
+  /**
+   * <p>Specifies the instance type of the restricted instance group.</p>
+   * @public
+   */
+  InstanceType: ClusterInstanceType | undefined;
+
+  /**
+   * <p>Specifies an IAM execution role to be assumed by the restricted instance group.</p>
+   * @public
+   */
+  ExecutionRole: string | undefined;
+
+  /**
+   * <p>The number you specified to <code>TreadsPerCore</code> in <code>CreateCluster</code> for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading. For more information, see the reference table of <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">CPU cores and threads per CPU core per instance type</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * @public
+   */
+  ThreadsPerCore?: number | undefined;
+
+  /**
+   * <p>Specifies the additional storage configurations for the instances in the SageMaker HyperPod cluster restricted instance group.</p>
+   * @public
+   */
+  InstanceStorageConfigs?: ClusterInstanceStorageConfig[] | undefined;
+
+  /**
+   * <p>A flag indicating whether deep health checks should be performed when the cluster restricted instance group is created or updated.</p>
+   * @public
+   */
+  OnStartDeepHealthChecks?: DeepHealthCheckType[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training plan to filter clusters by. For more information about reserving GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  OverrideVpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The configuration object of the schedule that SageMaker follows when updating the AMI.</p>
+   * @public
+   */
+  ScheduledUpdateConfig?: ScheduledUpdateConfig | undefined;
+
+  /**
+   * <p>The configuration for the restricted instance groups (RIG) environment.</p>
+   * @public
+   */
+  EnvironmentConfig?: EnvironmentConfig | undefined;
+}
+
+/**
+ * <p>Summary of the cluster policy.</p>
+ * @public
+ */
+export interface ClusterSchedulerConfigSummary {
+  /**
+   * <p>ARN of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigArn: string | undefined;
+
+  /**
+   * <p>ID of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigId: string | undefined;
+
+  /**
+   * <p>Version of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigVersion?: number | undefined;
+
+  /**
+   * <p>Name of the cluster policy.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Creation time of the cluster policy.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Last modified time of the cluster policy.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Status of the cluster policy.</p>
+   * @public
+   */
+  Status: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>ARN of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+}
+
+/**
+ * <p>Lists a summary of the properties of a SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The name of the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>The time when the SageMaker HyperPod cluster is created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The status of the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  ClusterStatus: ClusterStatus | undefined;
+
+  /**
+   * <p>A list of Amazon Resource Names (ARNs) of the training plans associated with this cluster.</p> <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
+   * @public
+   */
+  TrainingPlanArns?: string[] | undefined;
+
+  /**
+   * <p>The aggregate status of the image version across the cluster's instance groups.</p>
+   * @public
+   */
+  ImageVersionStatus?: ClusterImageVersionStatus | undefined;
+}
+
+/**
+ * <p>Defines the configuration for managed tier checkpointing in a HyperPod cluster. Managed tier checkpointing uses multiple storage tiers, including cluster CPU memory, to provide faster checkpoint operations and improved fault tolerance for large-scale model training. The system automatically saves checkpoints at high frequency to memory and periodically persists them to durable storage, like Amazon S3.</p>
+ * @public
+ */
+export interface ClusterTieredStorageConfig {
+  /**
+   * <p>Specifies whether managed tier checkpointing is enabled or disabled for the HyperPod cluster. When set to <code>Enable</code>, the system installs a memory management daemon that provides disaggregated memory as a service for checkpoint storage. When set to <code>Disable</code>, the feature is turned off and the memory management daemon is removed from the cluster.</p>
+   * @public
+   */
+  Mode: ClusterConfigMode | undefined;
+
+  /**
+   * <p>The percentage (int) of cluster memory to allocate for checkpointing.</p>
+   * @public
+   */
+  InstanceMemoryAllocationPercentage?: number | undefined;
+}
+
+/**
+ * <p>A custom SageMaker AI image. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker AI image</a>.</p>
+ * @public
+ */
+export interface CustomImage {
+  /**
+   * <p>The name of the CustomImage. Must be unique to your account.</p>
+   * @public
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The version number of the CustomImage.</p>
+   * @public
+   */
+  ImageVersionNumber?: number | undefined;
+
+  /**
+   * <p>The name of the AppImageConfig.</p>
+   * @public
+   */
+  AppImageConfigName: string | undefined;
+}
+
+/**
+ * <p>The Code Editor application settings.</p> <p>For more information about Code Editor, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.html">Get started with Code Editor in Amazon SageMaker</a>.</p>
+ * @public
+ */
+export interface CodeEditorAppSettings {
+  /**
+   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that the version runs on.</p> <note> <p>When both <code>SageMakerImageVersionArn</code> and <code>SageMakerImageArn</code> are passed, <code>SageMakerImageVersionArn</code> is used. Any updates to <code>SageMakerImageArn</code> will not take effect if <code>SageMakerImageVersionArn</code> already exists in the <code>ResourceSpec</code> because <code>SageMakerImageVersionArn</code> always takes precedence. To clear the value set for <code>SageMakerImageVersionArn</code>, pass <code>None</code> as the value.</p> </note>
+   * @public
+   */
+  DefaultResourceSpec?: ResourceSpec | undefined;
+
+  /**
+   * <p>A list of custom SageMaker images that are configured to run as a Code Editor app.</p>
+   * @public
+   */
+  CustomImages?: CustomImage[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Code Editor application lifecycle configuration.</p>
+   * @public
+   */
+  LifecycleConfigArns?: string[] | undefined;
+
+  /**
+   * <p>Settings that are used to configure and manage the lifecycle of CodeEditor applications.</p>
+   * @public
+   */
+  AppLifecycleManagement?: AppLifecycleManagement | undefined;
+
+  /**
+   * <p>The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.</p>
+   * @public
+   */
+  BuiltInLifecycleConfigArn?: string | undefined;
+}
 
 /**
  * <p>A Git repository that SageMaker AI automatically displays to users for cloning in the JupyterServer application.</p>
@@ -1827,7 +2088,7 @@ export interface SchedulerConfig {
  */
 export interface CreateClusterSchedulerConfigRequest {
   /**
-   * <p>Name for the cluster policy.</p>
+   * <p>The name for the cluster policy. The name must be unique within the SageMaker AI HyperPod cluster specified by <code>ClusterArn</code>. You can use the same name in other clusters within a Region or across Regions.</p>
    * @public
    */
   Name: string | undefined;
@@ -2085,7 +2346,7 @@ export interface CreateCompilationJobResponse {
  */
 export interface CreateComputeQuotaRequest {
   /**
-   * <p>Name to the compute allocation definition.</p>
+   * <p>The name of the compute allocation definition. The name must be unique within the SageMaker AI HyperPod cluster specified by <code>ClusterArn</code>. You can use the same name in other clusters within a Region or across Regions.</p>
    * @public
    */
   Name: string | undefined;
@@ -8304,220 +8565,4 @@ export interface CreateModelQualityJobDefinitionResponse {
    * @public
    */
   JobDefinitionArn: string | undefined;
-}
-
-/**
- * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.</p>
- * @public
- */
-export interface MonitoringBaselineConfig {
-  /**
-   * <p>The name of the job that performs baselining for the monitoring job.</p>
-   * @public
-   */
-  BaseliningJobName?: string | undefined;
-
-  /**
-   * <p>The baseline constraint file in Amazon S3 that the current monitoring job should validated against.</p>
-   * @public
-   */
-  ConstraintsResource?: MonitoringConstraintsResource | undefined;
-
-  /**
-   * <p>The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.</p>
-   * @public
-   */
-  StatisticsResource?: MonitoringStatisticsResource | undefined;
-}
-
-/**
- * <p>Container image configuration object for the monitoring job.</p>
- * @public
- */
-export interface MonitoringAppSpecification {
-  /**
-   * <p>The container image to be run by the monitoring job.</p>
-   * @public
-   */
-  ImageUri: string | undefined;
-
-  /**
-   * <p>Specifies the entrypoint for a container used to run the monitoring job.</p>
-   * @public
-   */
-  ContainerEntrypoint?: string[] | undefined;
-
-  /**
-   * <p>An array of arguments for the container used to run the monitoring job.</p>
-   * @public
-   */
-  ContainerArguments?: string[] | undefined;
-
-  /**
-   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flattened JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.</p>
-   * @public
-   */
-  RecordPreprocessorSourceUri?: string | undefined;
-
-  /**
-   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.</p>
-   * @public
-   */
-  PostAnalyticsProcessorSourceUri?: string | undefined;
-}
-
-/**
- * <p>The inputs for a monitoring job.</p>
- * @public
- */
-export interface MonitoringInput {
-  /**
-   * <p>The endpoint for a monitoring job.</p>
-   * @public
-   */
-  EndpointInput?: EndpointInput | undefined;
-
-  /**
-   * <p>Input object for the batch transform job.</p>
-   * @public
-   */
-  BatchTransformInput?: BatchTransformInput | undefined;
-}
-
-/**
- * <p>Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.</p>
- * @public
- */
-export interface NetworkConfig {
-  /**
-   * <p>Whether to encrypt all communications between distributed processing jobs. Choose <code>True</code> to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.</p>
-   * @public
-   */
-  EnableInterContainerTrafficEncryption?: boolean | undefined;
-
-  /**
-   * <p>Whether to allow inbound and outbound network calls to and from the containers used for the processing job.</p>
-   * @public
-   */
-  EnableNetworkIsolation?: boolean | undefined;
-
-  /**
-   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
-   * @public
-   */
-  VpcConfig?: VpcConfig | undefined;
-}
-
-/**
- * <p>Defines the monitoring job.</p>
- * @public
- */
-export interface MonitoringJobDefinition {
-  /**
-   * <p>Baseline configuration used to validate that the data conforms to the specified constraints and statistics</p>
-   * @public
-   */
-  BaselineConfig?: MonitoringBaselineConfig | undefined;
-
-  /**
-   * <p>The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.</p>
-   * @public
-   */
-  MonitoringInputs: MonitoringInput[] | undefined;
-
-  /**
-   * <p>The array of outputs from the monitoring job to be uploaded to Amazon S3.</p>
-   * @public
-   */
-  MonitoringOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.</p>
-   * @public
-   */
-  MonitoringResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Configures the monitoring job to run a specified Docker container image.</p>
-   * @public
-   */
-  MonitoringAppSpecification: MonitoringAppSpecification | undefined;
-
-  /**
-   * <p>Specifies a time limit for how long the monitoring job is allowed to run.</p>
-   * @public
-   */
-  StoppingCondition?: MonitoringStoppingCondition | undefined;
-
-  /**
-   * <p>Sets the environment variables in the Docker container.</p>
-   * @public
-   */
-  Environment?: Record<string, string> | undefined;
-
-  /**
-   * <p>Specifies networking options for an monitoring job.</p>
-   * @public
-   */
-  NetworkConfig?: NetworkConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-}
-
-/**
- * <p>Configuration details about the monitoring schedule.</p>
- * @public
- */
-export interface ScheduleConfig {
-  /**
-   * <p>A cron expression that describes details about the monitoring schedule.</p> <p>The supported cron expressions are:</p> <ul> <li> <p>If you want to set the job to start every hour, use the following:</p> <p> <code>Hourly: cron(0 * ? * * *)</code> </p> </li> <li> <p>If you want to start the job daily:</p> <p> <code>cron(0 [00-23] ? * * *)</code> </p> </li> <li> <p>If you want to run the job one time, immediately, use the following keyword:</p> <p> <code>NOW</code> </p> </li> </ul> <p>For example, the following are valid cron expressions:</p> <ul> <li> <p>Daily at noon UTC: <code>cron(0 12 ? * * *)</code> </p> </li> <li> <p>Daily at midnight UTC: <code>cron(0 0 ? * * *)</code> </p> </li> </ul> <p>To support running every 6, 12 hours, the following are also supported:</p> <p> <code>cron(0 [00-23]/[01-24] ? * * *)</code> </p> <p>For example, the following are valid cron expressions:</p> <ul> <li> <p>Every 12 hours, starting at 5pm UTC: <code>cron(0 17/12 ? * * *)</code> </p> </li> <li> <p>Every two hours starting at midnight: <code>cron(0 0/2 ? * * *)</code> </p> </li> </ul> <note> <ul> <li> <p>Even though the cron expression is set to start at 5PM UTC, note that there could be a delay of 0-20 minutes from the actual requested time to run the execution. </p> </li> <li> <p>We recommend that if you would like a daily schedule, you do not provide this parameter. Amazon SageMaker AI will pick a time for running every day.</p> </li> </ul> </note> <p>You can also specify the keyword <code>NOW</code> to run the monitoring job immediately, one time, without recurring.</p>
-   * @public
-   */
-  ScheduleExpression: string | undefined;
-
-  /**
-   * <p>Sets the start time for a monitoring job window. Express this time as an offset to the times that you schedule your monitoring jobs to run. You schedule monitoring jobs with the <code>ScheduleExpression</code> parameter. Specify this offset in ISO 8601 duration format. For example, if you want to monitor the five hours of data in your dataset that precede the start of each monitoring job, you would specify: <code>"-PT5H"</code>.</p> <p>The start time that you specify must not precede the end time that you specify by more than 24 hours. You specify the end time with the <code>DataAnalysisEndTime</code> parameter.</p> <p>If you set <code>ScheduleExpression</code> to <code>NOW</code>, this parameter is required.</p>
-   * @public
-   */
-  DataAnalysisStartTime?: string | undefined;
-
-  /**
-   * <p>Sets the end time for a monitoring job window. Express this time as an offset to the times that you schedule your monitoring jobs to run. You schedule monitoring jobs with the <code>ScheduleExpression</code> parameter. Specify this offset in ISO 8601 duration format. For example, if you want to end the window one hour before the start of each monitoring job, you would specify: <code>"-PT1H"</code>.</p> <p>The end time that you specify must not follow the start time that you specify by more than 24 hours. You specify the start time with the <code>DataAnalysisStartTime</code> parameter.</p> <p>If you set <code>ScheduleExpression</code> to <code>NOW</code>, this parameter is required.</p>
-   * @public
-   */
-  DataAnalysisEndTime?: string | undefined;
-}
-
-/**
- * <p>Configures the monitoring schedule and defines the monitoring job.</p>
- * @public
- */
-export interface MonitoringScheduleConfig {
-  /**
-   * <p>Configures the monitoring schedule.</p>
-   * @public
-   */
-  ScheduleConfig?: ScheduleConfig | undefined;
-
-  /**
-   * <p>Defines the monitoring job.</p>
-   * @public
-   */
-  MonitoringJobDefinition?: MonitoringJobDefinition | undefined;
-
-  /**
-   * <p>The name of the monitoring job definition to schedule.</p>
-   * @public
-   */
-  MonitoringJobDefinitionName?: string | undefined;
-
-  /**
-   * <p>The type of the monitoring job definition to schedule.</p>
-   * @public
-   */
-  MonitoringType?: MonitoringType | undefined;
 }

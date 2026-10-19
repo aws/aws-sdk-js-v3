@@ -38,6 +38,16 @@ import {
   BatchDeleteThreatModelsCommand,
 } from "./commands/BatchDeleteThreatModelsCommand";
 import {
+  type BatchDisassociateFindingIssueCommandInput,
+  type BatchDisassociateFindingIssueCommandOutput,
+  BatchDisassociateFindingIssueCommand,
+} from "./commands/BatchDisassociateFindingIssueCommand";
+import {
+  type BatchExportFindingsCommandInput,
+  type BatchExportFindingsCommandOutput,
+  BatchExportFindingsCommand,
+} from "./commands/BatchExportFindingsCommand";
+import {
   type BatchGetAgentSpacesCommandInput,
   type BatchGetAgentSpacesCommandOutput,
   BatchGetAgentSpacesCommand,
@@ -248,6 +258,11 @@ import {
   InitiateProviderRegistrationCommand,
 } from "./commands/InitiateProviderRegistrationCommand";
 import {
+  type ListActorMessagesCommandInput,
+  type ListActorMessagesCommandOutput,
+  ListActorMessagesCommand,
+} from "./commands/ListActorMessagesCommand";
+import {
   type ListAgentSpacesCommandInput,
   type ListAgentSpacesCommandOutput,
   ListAgentSpacesCommand,
@@ -433,6 +448,11 @@ import {
   UpdateIntegratedResourcesCommand,
 } from "./commands/UpdateIntegratedResourcesCommand";
 import {
+  type UpdateIntegrationCommandInput,
+  type UpdateIntegrationCommandOutput,
+  UpdateIntegrationCommand,
+} from "./commands/UpdateIntegrationCommand";
+import {
   type UpdatePentestCommandInput,
   type UpdatePentestCommandOutput,
   UpdatePentestCommand,
@@ -467,6 +487,7 @@ import {
   type VerifyTargetDomainCommandOutput,
   VerifyTargetDomainCommand,
 } from "./commands/VerifyTargetDomainCommand";
+import { paginateListActorMessages } from "./pagination/ListActorMessagesPaginator";
 import { paginateListAgentSpaces } from "./pagination/ListAgentSpacesPaginator";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
 import { paginateListArtifacts } from "./pagination/ListArtifactsPaginator";
@@ -498,6 +519,8 @@ const commands = {
   BatchDeletePentestsCommand,
   BatchDeleteSecurityRequirementsCommand,
   BatchDeleteThreatModelsCommand,
+  BatchDisassociateFindingIssueCommand,
+  BatchExportFindingsCommand,
   BatchGetAgentSpacesCommand,
   BatchGetArtifactMetadataCommand,
   BatchGetCodeReviewJobsCommand,
@@ -540,6 +563,7 @@ const commands = {
   GetSecurityRequirementPackCommand,
   ImportSecurityRequirementsCommand,
   InitiateProviderRegistrationCommand,
+  ListActorMessagesCommand,
   ListAgentSpacesCommand,
   ListApplicationsCommand,
   ListArtifactsCommand,
@@ -577,6 +601,7 @@ const commands = {
   UpdateCodeReviewCommand,
   UpdateFindingCommand,
   UpdateIntegratedResourcesCommand,
+  UpdateIntegrationCommand,
   UpdatePentestCommand,
   UpdatePrivateConnectionCertificateCommand,
   UpdateSecurityRequirementPackCommand,
@@ -586,6 +611,7 @@ const commands = {
   VerifyTargetDomainCommand,
 };
 const paginators = {
+  paginateListActorMessages,
   paginateListAgentSpaces,
   paginateListApplications,
   paginateListArtifacts,
@@ -718,6 +744,40 @@ export interface SecurityAgent {
     args: BatchDeleteThreatModelsCommandInput,
     options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchDeleteThreatModelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDisassociateFindingIssueCommand}
+   */
+  batchDisassociateFindingIssue(
+    args: BatchDisassociateFindingIssueCommandInput,
+    options?: SecurityAgentRequestOptions
+  ): Promise<BatchDisassociateFindingIssueCommandOutput>;
+  batchDisassociateFindingIssue(
+    args: BatchDisassociateFindingIssueCommandInput,
+    cb: (err: any, data?: BatchDisassociateFindingIssueCommandOutput) => void
+  ): void;
+  batchDisassociateFindingIssue(
+    args: BatchDisassociateFindingIssueCommandInput,
+    options: SecurityAgentRequestOptions,
+    cb: (err: any, data?: BatchDisassociateFindingIssueCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchExportFindingsCommand}
+   */
+  batchExportFindings(
+    args: BatchExportFindingsCommandInput,
+    options?: SecurityAgentRequestOptions
+  ): Promise<BatchExportFindingsCommandOutput>;
+  batchExportFindings(
+    args: BatchExportFindingsCommandInput,
+    cb: (err: any, data?: BatchExportFindingsCommandOutput) => void
+  ): void;
+  batchExportFindings(
+    args: BatchExportFindingsCommandInput,
+    options: SecurityAgentRequestOptions,
+    cb: (err: any, data?: BatchExportFindingsCommandOutput) => void
   ): void;
 
   /**
@@ -1436,6 +1496,23 @@ export interface SecurityAgent {
   ): void;
 
   /**
+   * @see {@link ListActorMessagesCommand}
+   */
+  listActorMessages(
+    args: ListActorMessagesCommandInput,
+    options?: SecurityAgentRequestOptions
+  ): Promise<ListActorMessagesCommandOutput>;
+  listActorMessages(
+    args: ListActorMessagesCommandInput,
+    cb: (err: any, data?: ListActorMessagesCommandOutput) => void
+  ): void;
+  listActorMessages(
+    args: ListActorMessagesCommandInput,
+    options: SecurityAgentRequestOptions,
+    cb: (err: any, data?: ListActorMessagesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAgentSpacesCommand}
    */
   listAgentSpaces(): Promise<ListAgentSpacesCommandOutput>;
@@ -2071,6 +2148,23 @@ export interface SecurityAgent {
   ): void;
 
   /**
+   * @see {@link UpdateIntegrationCommand}
+   */
+  updateIntegration(
+    args: UpdateIntegrationCommandInput,
+    options?: SecurityAgentRequestOptions
+  ): Promise<UpdateIntegrationCommandOutput>;
+  updateIntegration(
+    args: UpdateIntegrationCommandInput,
+    cb: (err: any, data?: UpdateIntegrationCommandOutput) => void
+  ): void;
+  updateIntegration(
+    args: UpdateIntegrationCommandInput,
+    options: SecurityAgentRequestOptions,
+    cb: (err: any, data?: UpdateIntegrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdatePentestCommand}
    */
   updatePentest(
@@ -2188,6 +2282,17 @@ export interface SecurityAgent {
     options: SecurityAgentRequestOptions,
     cb: (err: any, data?: VerifyTargetDomainCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListActorMessagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListActorMessagesCommandOutput}.
+   */
+  paginateListActorMessages(
+    args: ListActorMessagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListActorMessagesCommandOutput>;
 
   /**
    * @see {@link ListAgentSpacesCommand}

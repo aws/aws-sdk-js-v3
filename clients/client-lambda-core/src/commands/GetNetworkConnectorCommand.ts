@@ -41,7 +41,10 @@ export interface GetNetworkConnectorCommandOutput extends GetNetworkConnectorRes
  * //   Arn: "STRING_VALUE", // required
  * //   Name: "STRING_VALUE", // required
  * //   Id: "STRING_VALUE", // required
+ * //   VersionArn: "STRING_VALUE",
  * //   Version: Number("long"),
+ * //   LatestVersionArn: "STRING_VALUE",
+ * //   LatestVersion: Number("long"),
  * //   Configuration: { // NetworkConnectorConfiguration Union: only one key present
  * //     VpcEgressConfiguration: { // NetworkConnectorVpcEgressConfiguration
  * //       SubnetIds: [ // NetworkConnectorSubnetIds
@@ -52,17 +55,17 @@ export interface GetNetworkConnectorCommandOutput extends GetNetworkConnectorRes
  * //       ],
  * //       NetworkProtocol: "IPv4" || "DualStack",
  * //       AssociatedComputeResourceTypes: [ // AssociatedComputeResourceTypesList
- * //         "MicroVm",
+ * //         "MicroVm" || "WebFunction",
  * //       ],
  * //     },
  * //   },
  * //   OperatorRole: "STRING_VALUE",
  * //   State: "PENDING" || "ACTIVE" || "INACTIVE" || "FAILED" || "DELETING" || "DELETE_FAILED",
  * //   StateReason: "STRING_VALUE",
- * //   StateReasonCode: "DisallowedByVpcEncryptionControl" || "Ec2RequestLimitExceeded" || "InsufficientRolePermissions" || "InternalError" || "InvalidSecurityGroup" || "InvalidSubnet" || "SubnetOutOfIPAddresses",
+ * //   StateReasonCode: "DisallowedByVpcEncryptionControl" || "Ec2RequestLimitExceeded" || "InsufficientRolePermissions" || "InternalError" || "InvalidSecurityGroup" || "InvalidSubnet" || "SecurityGroupsPerInterfaceLimitExceeded" || "SubnetOutOfIPAddresses",
  * //   LastUpdateStatus: "Successful" || "Failed" || "InProgress",
  * //   LastUpdateStatusReason: "STRING_VALUE",
- * //   LastUpdateStatusReasonCode: "DisallowedByVpcEncryptionControl" || "Ec2RequestLimitExceeded" || "InsufficientRolePermissions" || "InternalError" || "InvalidSecurityGroup" || "InvalidSubnet" || "SubnetOutOfIPAddresses",
+ * //   LastUpdateStatusReasonCode: "DisallowedByVpcEncryptionControl" || "Ec2RequestLimitExceeded" || "InsufficientRolePermissions" || "InternalError" || "InvalidSecurityGroup" || "InvalidSubnet" || "SecurityGroupsPerInterfaceLimitExceeded" || "SubnetOutOfIPAddresses",
  * //   LastModified: new Date("TIMESTAMP"),
  * // };
  *

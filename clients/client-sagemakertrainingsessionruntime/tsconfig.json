@@ -1,0 +1,12 @@
+{
+  "extends": "@tsconfig/node20/tsconfig.json",
+  "compilerOptions": {
+    "importHelpers": true,
+    "types": ["node"],
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "rootDir": "src",
+    "useUnknownInCatchVariables": false
+  },
+  "include": ["src"]
+}

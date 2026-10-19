@@ -27,6 +27,8 @@ import type {
   EvaluationType,
   EventSourceName,
   ExecutionRecordStatus,
+  FileStatusType,
+  FileUseCaseType,
   FilterV2StringConditionComparisonOperator,
   FlowAssociationResourceType,
   Grouping,
@@ -41,7 +43,6 @@ import type {
   MediaType,
   MetricStatus,
   MetricType,
-  MonitorCapability,
   NotificationPriority,
   NotificationSource,
   NotificationStatus,
@@ -86,6 +87,7 @@ import type {
   AIAgent,
   AnalyticsDataAssociationResult,
   Application,
+  CreatedByInfo,
   DataTableLockVersion,
   Distribution,
   FlowAssociationSummary,
@@ -97,13 +99,12 @@ import type {
   PrimaryValueResponse,
   QueueReference,
   SecurityProfileItem,
-  TaskTemplateConstraints,
-  TaskTemplateDefaults,
   UserProficiency,
 } from "./models_0";
 import type {
   Attribute,
   DataTableAttribute,
+  DataTableEvaluatedValue,
   EvaluationContactParticipant,
   EvaluationScore,
   ExtensionConfiguration,
@@ -111,8 +112,220 @@ import type {
   HoursOfOperationOverride,
   HoursOfOperationsIdentifier,
   Notification,
+  TaskTemplateConstraints,
+  TaskTemplateDefaults,
   TaskTemplateField,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface EvaluateDataTableValuesResponse {
+  /**
+   * <p>A list of evaluated values with their computed results, error information, and metadata.</p>
+   * @public
+   */
+  Values: DataTableEvaluatedValue[] | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Request to GetAttachedFile API.
+ * @public
+ */
+export interface GetAttachedFileRequest {
+  /**
+   * <p>The unique identifier of the Connect Customer instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the attached file resource.</p>
+   * @public
+   */
+  FileId: string | undefined;
+
+  /**
+   * <p>Optional override for the expiry of the pre-signed S3 URL in seconds. The default value is 300.</p>
+   * @public
+   */
+  UrlExpiryInSeconds?: number | undefined;
+
+  /**
+   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a>, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>, and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-getting-started-tasks.html">Task</a>.</p>
+   *          <note>
+   *             <p>This value must be a valid ARN.</p>
+   *          </note>
+   * @public
+   */
+  AssociatedResourceArn: string | undefined;
+}
+
+/**
+ * <p>Metadata used to download the attached file.</p>
+ * @public
+ */
+export interface DownloadUrlMetadata {
+  /**
+   * <p>A pre-signed URL that should be used to download the attached file. </p>
+   * @public
+   */
+  Url?: string | undefined;
+
+  /**
+   * <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ.
+   *    For example, 2019-11-08T02:41:28.172Z.</p>
+   * @public
+   */
+  UrlExpiry?: string | undefined;
+}
+
+/**
+ * Response from GetAttachedFile API.
+ * @public
+ */
+export interface GetAttachedFileResponse {
+  /**
+   * <p>The unique identifier of the attached file resource (ARN).</p>
+   * @public
+   */
+  FileArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the attached file resource.</p>
+   * @public
+   */
+  FileId?: string | undefined;
+
+  /**
+   * <p>The time of Creation of the file resource as an ISO timestamp. It's specified in ISO 8601 format:
+   *     <code>yyyy-MM-ddThh:mm:ss.SSSZ</code>. For example, <code>2024-05-03T02:41:28.172Z</code>.</p>
+   * @public
+   */
+  CreationTime?: string | undefined;
+
+  /**
+   * <p>The current status of the attached file.</p>
+   * @public
+   */
+  FileStatus?: FileStatusType | undefined;
+
+  /**
+   * <p>A case-sensitive name of the attached file being uploaded.</p>
+   * @public
+   */
+  FileName?: string | undefined;
+
+  /**
+   * <p>The size of the attached file in bytes.</p>
+   * @public
+   */
+  FileSizeInBytes: number | undefined;
+
+  /**
+   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a>, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>, and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-getting-started-tasks.html">Task</a>.</p>
+   * @public
+   */
+  AssociatedResourceArn?: string | undefined;
+
+  /**
+   * <p>The use case for the file.</p>
+   * @public
+   */
+  FileUseCaseType?: FileUseCaseType | undefined;
+
+  /**
+   * <p>Represents the identity that created the file.</p>
+   * @public
+   */
+  CreatedBy?: CreatedByInfo | undefined;
+
+  /**
+   * <p>URL and expiry to be used when downloading the attached file. </p>
+   * @public
+   */
+  DownloadUrlMetadata?: DownloadUrlMetadata | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, <code>\{ "Tags":
+   *     \{"key1":"value1", "key2":"value2"\} \}</code>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContactAttributesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the initial contact.</p>
+   * @public
+   */
+  InitialContactId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContactAttributesResponse {
+  /**
+   * <p>Information about the attributes.</p>
+   * @public
+   */
+  Attributes?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Contains the details of a metric to be retrieved for a contact. Use this object to specify which
+ *    contact level metrics you want to include in your GetContactMetrics request.</p>
+ * @public
+ */
+export interface ContactMetricInfo {
+  /**
+   * <p>The name of the metric to retrieve. Supported values are POSITION_IN_QUEUE (returns the contact's
+   *    current position in the queue) and ESTIMATED_WAIT_TIME (returns the predicted wait time in seconds).</p>
+   * @public
+   */
+  Name: ContactMetricName | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContactMetricsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Connect Customer. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>A list of contact level metrics to retrieve.Supported metrics include POSITION_IN_QUEUE (the contact's
+   *    current position in the queue) and ESTIMATED_WAIT_TIME (the predicted time in seconds until the contact is
+   *    connected to an agent)</p>
+   * @public
+   */
+  Metrics: ContactMetricInfo[] | undefined;
+}
 
 /**
  * <p>Contains the numeric value of a contact metric result.</p>
@@ -2222,7 +2435,7 @@ export interface GetMetricDataV2Request {
    *          <p>The following are valid filter keys for a <code>GetMetricDataV2</code> request:</p>
    *          <p>
    *             <code>AGENT</code> | <code>AI_AGENT</code> | <code>AI_AGENT_ID</code> | <code>AI_AGENT_NAME</code> |
-   *    <code>AI_AGENT_TYPE</code> | <code>AI_PROMPT</code> | <code>AI_PROMPT_ID</code> |
+   *    <code>AI_AGENT_NAME_VERSION</code> | <code>AI_AGENT_TYPE</code> | <code>AI_PROMPT</code> | <code>AI_PROMPT_ID</code> |
    *    <code>AI_PROMPT_NAME</code> | <code>AI_PROMPT_TYPE</code> | <code>AI_TOOL_ID</code> |
    *    <code>AI_TOOL_NAME</code> | <code>AI_TOOL_TYPE</code> | <code>AI_USE_CASE</code> |
    *    <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> |
@@ -2350,7 +2563,7 @@ export interface GetMetricDataV2Request {
    *          </p>
    *          <note>
    *             <p>
-   *                <code>AI_AGENT_NAME_VERSION</code>, <code>AI_PROMPT_NAME_VERSION</code>, and <code>KNOWLEDGE_ARTICLE_NAME</code> are valid groupings but not valid filters.</p>
+   *                <code>AI_PROMPT_NAME_VERSION</code> and <code>KNOWLEDGE_ARTICLE_NAME</code> are valid groupings but not valid filters.</p>
    *          </note>
    *          <p>API, SCHEDULE, and EVENT are the only valid filterValues for TEST_CASE_INVOCATION_METHOD.</p>
    *          <p>OBSERVE_EVENT, SEND_INSTRUCTION, ASSERT_DATA, and OVERRIDE_SYSTEM_BEHAVIOR are the only valid filterValues for
@@ -2640,297 +2853,256 @@ export interface GetMetricDataV2Request {
    *             <dt>ACTIVE_AI_AGENTS</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing
-   *       Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case,
+   *       Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#active-ai-agents">Active AI Agents</a>
    *                </p>
    *             </dd>
    *             <dt>AI_HANDOFF_RATE</dt>
    *             <dd>
    *                <p>Unit: Percent</p>
-   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile,
+   *       Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoff-rate">AI Handoff Rate</a>
    *                </p>
    *             </dd>
    *             <dt>AI_HANDOFFS</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile,
+   *       Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoffs">AI Handoff Count</a>
    *                </p>
    *             </dd>
    *             <dt>AI_AGENT_INVOCATION_SUCCESS</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case,
-   *       Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case,
+   *       Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-invocation-success">AI Agent Invocation Success</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>AI_AGENT_INVOCATION_SUCCESS_RATE</dt>
    *             <dd>
    *                <p>Unit: Percent</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case,
-   *       Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case,
+   *       Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-invocation-success-rate">AI Agent Invocation Success Rate</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>AI_AGENT_INVOCATIONS</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Agent Name Version, AI Use Case,
-   *       Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case,
+   *       Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-invocations">AI Agent Invocation Count</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>AI_AGENT_RESPONSE_HELPFUL</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel,
-   *       Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case,
+   *       Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-response-helpful">AI Agent Response Helpful</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>AI_AGENT_RESPONSE_NOT_HELPFUL</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel,
-   *       Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case,
+   *       Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-response-not-helpful">AI Agent Response Not Helpful</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>AI_RESPONSE_COMPLETION_RATE</dt>
    *             <dd>
    *                <p>Unit: Percent</p>
-   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile,
+   *       Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-response-completion-rate">AI Response Completion Rate</a>
    *                </p>
    *             </dd>
    *             <dt>AI_INVOLVED_CONTACTS</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile,
+   *       Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-involved-contacts">AI Involved Contacts</a>
    *                </p>
    *             </dd>
    *             <dt>AI_PROMPT_INVOCATION_SUCCESS</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Prompt, AI
-   *       Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Prompt, AI
+   *       Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-prompt-invocation-success">AI Prompt Invocation Success</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>AI_PROMPT_INVOCATION_SUCCESS_RATE</dt>
    *             <dd>
    *                <p>Unit: Percent</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Prompt, AI
-   *       Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Prompt, AI
+   *       Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-prompt-invocation-success-rate">AI Prompt Invocation Success Rate</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>AI_PROMPT_INVOCATIONS</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Prompt, AI
-   *       Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Prompt, AI
+   *       Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-prompt-invocations">AI Prompt Invocations</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>AI_TOOL_INVOCATION_SUCCESS</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI
-   *       Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI
+   *       Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-invocation-success">AI Tool Invocation Success</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>AI_TOOL_INVOCATION_SUCCESS_RATE</dt>
    *             <dd>
    *                <p>Unit: Percent</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI
-   *       Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI
+   *       Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-invocation-success-rate">AI Tool Invocation Success Rate</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>AI_TOOL_INVOCATIONS</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI
-   *       Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI
+   *       Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-invocations">AI Tool Invocations</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>AVG_AI_AGENT_CONVERSATION_TURNS</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case,
-   *       Channel, Queue, Routing Profile </p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case,
+   *       Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-ai-agent-conversation-turns">Average AI Agent Conversation Turns</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>AVG_AI_CONVERSATION_TURNS</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile,
+   *       Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-ai-conversation-turns">Average AI Conversation Turns</a>
    *                </p>
    *             </dd>
    *             <dt>AVG_AI_PROMPT_INVOCATION_LATENCY</dt>
    *             <dd>
    *                <p>Unit: Milliseconds</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Prompt, AI
-   *       Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Prompt, AI
+   *       Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-ai-prompt-invocation-latency">Average AI Prompt Invocation Latency</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>AVG_AI_TOOL_INVOCATION_LATENCY</dt>
    *             <dd>
    *                <p>Unit: Milliseconds</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI
-   *       Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI
+   *       Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-ai-tool-invocation-latency">Average AI Tool Invocation Latency</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>AI_TOOL_PARAMETER_ACCURACY</dt>
    *             <dd>
    *                <p>Unit: Double</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type,
-   *       AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID,
+   *       AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-parameter-accuracy">AI Tool Parameter Accuracy</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>AI_TOOL_SELECTION_ACCURACY</dt>
    *             <dd>
    *                <p>Unit: Double</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type,
-   *       AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID,
+   *       AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-selection-accuracy">AI Tool Selection Accuracy</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>AI_TOOL_UTILIZATION_ACCURACY</dt>
    *             <dd>
    *                <p>Unit: Double</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type,
-   *       AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID,
+   *       AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-utilization-accuracy">AI Tool Utilization Accuracy</a>
    *                </p>
-   *                <note>
-   *                   <p>AI Agent Name Version is not a valid filter but a valid grouping.</p>
-   *                </note>
    *             </dd>
    *             <dt>COMPLETENESS_SCORE</dt>
    *             <dd>
    *                <p>Unit: Double</p>
-   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue,
-   *       Routing Profile, Session ID</p>
+   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile,
+   *       Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#completeness-score">Completeness Score</a>
    *                </p>
    *             </dd>
    *             <dt>FAITHFULNESS_SCORE</dt>
    *             <dd>
    *                <p>Unit: Double</p>
-   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue,
-   *       Routing Profile, Session ID</p>
+   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile,
+   *       Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#faithfulness-score">Faithfulness Score</a>
    *                </p>
    *             </dd>
    *             <dt>GOAL_SUCCESS_RATE</dt>
    *             <dd>
    *                <p>Unit: Double</p>
-   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue,
-   *       Routing Profile, Session ID</p>
+   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile,
+   *       Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#goal-success-rate">Goal Success Rate</a>
    *                </p>
    *             </dd>
    *             <dt>KNOWLEDGE_CONTENT_REFERENCES</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Use Case, Channel, Knowledge Base
-   *       Name, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case,
+   *       Channel, Knowledge Base Name, Queue, Routing Profile, Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#knowledge-content-references">Knowledge Content References</a>
    *                </p>
    *             </dd>
    *             <dt>PROACTIVE_INTENT_ENGAGEMENT_RATE</dt>
    *             <dd>
    *                <p>Unit: Percent</p>
-   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile,
+   *       Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-engagement-rate">Proactive Intent Engagement Rate</a>
    *                </p>
    *             </dd>
    *             <dt>PROACTIVE_INTENT_RESPONSE_RATE</dt>
    *             <dd>
    *                <p>Unit: Percent</p>
-   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile,
+   *       Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-response-rate">Proactive Intent Response Rate</a>
    *                </p>
    *             </dd>
    *             <dt>PROACTIVE_INTENTS_ANSWERED</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile,
+   *       Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-answered">Proactive Intents Answered</a>
    *                </p>
    *             </dd>
    *             <dt>PROACTIVE_INTENTS_DETECTED</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile,
+   *       Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-detected">Proactive Intents Detected</a>
    *                </p>
    *             </dd>
    *             <dt>PROACTIVE_INTENTS_ENGAGED</dt>
    *             <dd>
    *                <p>Unit: Count</p>
-   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p>
+   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile,
+   *       Session ID</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-engaged">Proactive Intents Engaged</a>
    *                </p>
    *             </dd>
@@ -3647,6 +3819,52 @@ export interface GetMetricDataV2Request {
    *       Timestamp</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#recipients-interacted">Recipients interacted</a>
    *                </p>
+   *             </dd>
+   *             <dt>AI_AGENT_COLLABORATORS</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case,
+   *       Channel, Queue, Routing Profile, Session ID</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-collaborators">AI Agent Collaborators</a>
+   *                </p>
+   *             </dd>
+   *             <dt>AI_AGENT_COLLABORATION_INVOCATIONS</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case,
+   *       Channel, Queue, Routing Profile, Session ID</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-collaboration-invocations">AI Agent Collaboration Invocations</a>
+   *                </p>
+   *             </dd>
+   *             <dt>AI_AGENT_SELECTION_ACCURACY</dt>
+   *             <dd>
+   *                <p>Unit: Double</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case,
+   *       Channel, Queue, Routing Profile, Session ID</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-selection-accuracy">AI Agent Selection Accuracy</a>
+   *                </p>
+   *                <note>
+   *                   <p>This metric is available as part of Connect Customer AI.</p>
+   *                </note>
+   *             </dd>
+   *             <dt>AVG_AI_AGENT_INVOCATION_LATENCY</dt>
+   *             <dd>
+   *                <p>Unit: Milliseconds</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case,
+   *       Channel, Queue, Routing Profile, Session ID</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-ai-agent-invocation-latency">Average AI Agent Invocation Latency</a>
+   *                </p>
+   *             </dd>
+   *             <dt>CONTEXT_FIDELITY_SCORE</dt>
+   *             <dd>
+   *                <p>Unit: Double</p>
+   *                <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case,
+   *       Channel, Queue, Routing Profile, Session ID</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#context-fidelity-score">Context Fidelity Score</a>
+   *                </p>
+   *                <note>
+   *                   <p>This metric is available as part of Connect Customer AI.</p>
+   *                </note>
    *             </dd>
    *             <dt>RECIPIENTS_TARGETED</dt>
    *             <dd>
@@ -5127,6 +5345,101 @@ export interface ListContactEvaluationsResponse {
 /**
  * @public
  */
+export interface ListContactFlowAliasesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains summary information about a flow alias.</p>
+ * @public
+ */
+export interface ContactFlowAliasSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow alias.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The identifier of the alias.</p>
+   * @public
+   */
+  AliasId?: string | undefined;
+
+  /**
+   * <p>The version of the flow.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>The name of the alias.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+
+  /**
+   * <p>The description of the alias.</p>
+   * @public
+   */
+  AliasDescription?: string | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContactFlowAliasesResponse {
+  /**
+   * <p>Information about the flow aliases.</p>
+   * @public
+   */
+  ContactFlowAliasSummaryList?: ContactFlowAliasSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListContactFlowModuleAliasesRequest {
   /**
    * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -5488,7 +5801,7 @@ export interface ListContactFlowVersionsRequest {
  */
 export interface ContactFlowVersionSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the view version.</p>
+   * <p>The Amazon Resource Name (ARN) of the flow version.</p>
    * @public
    */
   Arn?: string | undefined;
@@ -5504,6 +5817,18 @@ export interface ContactFlowVersionSummary {
    * @public
    */
   Version?: number | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
 }
 
 /**
@@ -10992,256 +11317,3 @@ export interface MediaItem {
    */
   Source?: string | undefined;
 }
-
-/**
- * @public
- */
-export interface ListWorkspaceMediaResponse {
-  /**
-   * <p>A list of media assets for the workspace.</p>
-   * @public
-   */
-  Media?: MediaItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkspacePagesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
-   *    the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the workspace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Contains information about a page configuration in a workspace, including the view assigned to the page.</p>
- * @public
- */
-export interface WorkspacePage {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the view associated with this page.</p>
-   * @public
-   */
-  ResourceArn?: string | undefined;
-
-  /**
-   * <p>The page identifier. System pages include <code>HOME</code> and <code>AGENT_EXPERIENCE</code>.</p>
-   * @public
-   */
-  Page?: string | undefined;
-
-  /**
-   * <p>The URL-friendly identifier for the page.</p>
-   * @public
-   */
-  Slug?: string | undefined;
-
-  /**
-   * <p>A JSON string containing input parameters passed to the view when the page is rendered.</p>
-   * @public
-   */
-  InputData?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkspacePagesResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of page configurations in the workspace.</p>
-   * @public
-   */
-  WorkspacePageList: WorkspacePage[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkspacesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
-   *    the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Contains summary information about a workspace.</p>
- * @public
- */
-export interface WorkspaceSummary {
-  /**
-   * <p>The unique identifier of the workspace.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The name of the workspace.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the workspace.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The timestamp when the workspace was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where the workspace was last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkspacesResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A summary list of workspaces.</p>
-   * @public
-   */
-  WorkspaceSummaryList: WorkspaceSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface MonitorContactRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
-   *    instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>Specify which monitoring actions the user is allowed to take. For example, whether the user is allowed to
-   *    escalate from silent monitoring to barge. AllowedMonitorCapabilities is required if barge is enabled.</p>
-   * @public
-   */
-  AllowedMonitorCapabilities?: MonitorCapability[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface MonitorContactResponse {
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId?: string | undefined;
-
-  /**
-   * <p>The ARN of the contact.</p>
-   * @public
-   */
-  ContactArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PauseContactRequest {
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the <code>instanceId</code> in the ARN of the
-   *    instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow.</p>
-   * @public
-   */
-  ContactFlowId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PauseContactResponse {}

@@ -56,10 +56,24 @@ export type DomainAvailability = (typeof DomainAvailability)[keyof typeof Domain
  * @public
  * @enum
  */
+export const PriceType = {
+  REGISTRY_PREMIUM: "REGISTRY_PREMIUM",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type PriceType = (typeof PriceType)[keyof typeof PriceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const Transferable = {
   DOMAIN_IN_ANOTHER_ACCOUNT: "DOMAIN_IN_ANOTHER_ACCOUNT",
   DOMAIN_IN_OWN_ACCOUNT: "DOMAIN_IN_OWN_ACCOUNT",
   DONT_KNOW: "DONT_KNOW",
+  PENDING: "PENDING",
   PREMIUM_DOMAIN: "PREMIUM_DOMAIN",
   TRANSFERABLE: "TRANSFERABLE",
   UNTRANSFERABLE: "UNTRANSFERABLE",

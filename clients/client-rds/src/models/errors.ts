@@ -8,6 +8,7 @@ import { RDSServiceException as __BaseException } from "./RDSServiceException";
  * @public
  */
 export class DBClusterNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBClusterNotFoundFault";
   readonly name = "DBClusterNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class DBClusterNotFoundFault extends __BaseException {
  * @public
  */
 export class DBClusterRoleAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBClusterRoleAlreadyExistsFault";
   readonly name = "DBClusterRoleAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class DBClusterRoleAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBClusterRoleQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBClusterRoleQuotaExceededFault";
   readonly name = "DBClusterRoleQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class DBClusterRoleQuotaExceededFault extends __BaseException {
  * @public
  */
 export class InvalidDBClusterStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBClusterStateFault";
   readonly name = "InvalidDBClusterStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class InvalidDBClusterStateFault extends __BaseException {
  * @public
  */
 export class DBInstanceNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBInstanceNotFoundFault";
   readonly name = "DBInstanceNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class DBInstanceNotFoundFault extends __BaseException {
  * @public
  */
 export class DBInstanceRoleAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBInstanceRoleAlreadyExistsFault";
   readonly name = "DBInstanceRoleAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -128,6 +134,7 @@ export class DBInstanceRoleAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBInstanceRoleQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBInstanceRoleQuotaExceededFault";
   readonly name = "DBInstanceRoleQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -148,6 +155,7 @@ export class DBInstanceRoleQuotaExceededFault extends __BaseException {
  * @public
  */
 export class InvalidDBInstanceStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBInstanceStateFault";
   readonly name = "InvalidDBInstanceStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -168,6 +176,7 @@ export class InvalidDBInstanceStateFault extends __BaseException {
  * @public
  */
 export class SourceNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#SourceNotFoundFault";
   readonly name = "SourceNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -188,6 +197,7 @@ export class SourceNotFoundFault extends __BaseException {
  * @public
  */
 export class SubscriptionNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#SubscriptionNotFoundFault";
   readonly name = "SubscriptionNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -208,6 +218,7 @@ export class SubscriptionNotFoundFault extends __BaseException {
  * @public
  */
 export class BlueGreenDeploymentNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault";
   readonly name = "BlueGreenDeploymentNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -228,6 +239,7 @@ export class BlueGreenDeploymentNotFoundFault extends __BaseException {
  * @public
  */
 export class DBProxyEndpointNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBProxyEndpointNotFoundFault";
   readonly name = "DBProxyEndpointNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -248,6 +260,7 @@ export class DBProxyEndpointNotFoundFault extends __BaseException {
  * @public
  */
 export class DBProxyNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBProxyNotFoundFault";
   readonly name = "DBProxyNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -268,6 +281,7 @@ export class DBProxyNotFoundFault extends __BaseException {
  * @public
  */
 export class DBProxyTargetGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault";
   readonly name = "DBProxyTargetGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -288,6 +302,7 @@ export class DBProxyTargetGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class DBShardGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBShardGroupNotFoundFault";
   readonly name = "DBShardGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -308,6 +323,7 @@ export class DBShardGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class DBSnapshotNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBSnapshotNotFoundFault";
   readonly name = "DBSnapshotNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -328,6 +344,7 @@ export class DBSnapshotNotFoundFault extends __BaseException {
  * @public
  */
 export class DBSnapshotTenantDatabaseNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBSnapshotTenantDatabaseNotFoundFault";
   readonly name = "DBSnapshotTenantDatabaseNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -348,6 +365,7 @@ export class DBSnapshotTenantDatabaseNotFoundFault extends __BaseException {
  * @public
  */
 export class IntegrationNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#IntegrationNotFoundFault";
   readonly name = "IntegrationNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -368,6 +386,7 @@ export class IntegrationNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidDBClusterEndpointStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBClusterEndpointStateFault";
   readonly name = "InvalidDBClusterEndpointStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -388,6 +407,7 @@ export class InvalidDBClusterEndpointStateFault extends __BaseException {
  * @public
  */
 export class TenantDatabaseNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#TenantDatabaseNotFoundFault";
   readonly name = "TenantDatabaseNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -408,6 +428,7 @@ export class TenantDatabaseNotFoundFault extends __BaseException {
  * @public
  */
 export class ResourceNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#ResourceNotFoundFault";
   readonly name = "ResourceNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -428,6 +449,7 @@ export class ResourceNotFoundFault extends __BaseException {
  * @public
  */
 export class AuthorizationAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#AuthorizationAlreadyExistsFault";
   readonly name = "AuthorizationAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -448,6 +470,7 @@ export class AuthorizationAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class AuthorizationQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#AuthorizationQuotaExceededFault";
   readonly name = "AuthorizationQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -468,6 +491,7 @@ export class AuthorizationQuotaExceededFault extends __BaseException {
  * @public
  */
 export class DBSecurityGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBSecurityGroupNotFoundFault";
   readonly name = "DBSecurityGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -488,6 +512,7 @@ export class DBSecurityGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidDBSecurityGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBSecurityGroupStateFault";
   readonly name = "InvalidDBSecurityGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -508,6 +533,7 @@ export class InvalidDBSecurityGroupStateFault extends __BaseException {
  * @public
  */
 export class ExportTaskNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#ExportTaskNotFoundFault";
   readonly name = "ExportTaskNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -528,6 +554,7 @@ export class ExportTaskNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidExportTaskStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidExportTaskStateFault";
   readonly name = "InvalidExportTaskStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -548,6 +575,7 @@ export class InvalidExportTaskStateFault extends __BaseException {
  * @public
  */
 export class DBParameterGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault";
   readonly name = "DBParameterGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -568,6 +596,7 @@ export class DBParameterGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBParameterGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBParameterGroupNotFoundFault";
   readonly name = "DBParameterGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -588,6 +617,7 @@ export class DBParameterGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class DBParameterGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBParameterGroupQuotaExceededFault";
   readonly name = "DBParameterGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -608,6 +638,7 @@ export class DBParameterGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class DBClusterSnapshotAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBClusterSnapshotAlreadyExistsFault";
   readonly name = "DBClusterSnapshotAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -628,6 +659,7 @@ export class DBClusterSnapshotAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBClusterSnapshotNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBClusterSnapshotNotFoundFault";
   readonly name = "DBClusterSnapshotNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -648,6 +680,7 @@ export class DBClusterSnapshotNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidDBClusterSnapshotStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault";
   readonly name = "InvalidDBClusterSnapshotStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -668,6 +701,7 @@ export class InvalidDBClusterSnapshotStateFault extends __BaseException {
  * @public
  */
 export class KMSKeyNotAccessibleFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#KMSKeyNotAccessibleFault";
   readonly name = "KMSKeyNotAccessibleFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -688,6 +722,7 @@ export class KMSKeyNotAccessibleFault extends __BaseException {
  * @public
  */
 export class SnapshotQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#SnapshotQuotaExceededFault";
   readonly name = "SnapshotQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -708,6 +743,7 @@ export class SnapshotQuotaExceededFault extends __BaseException {
  * @public
  */
 export class CustomAvailabilityZoneNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#CustomAvailabilityZoneNotFoundFault";
   readonly name = "CustomAvailabilityZoneNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -728,6 +764,7 @@ export class CustomAvailabilityZoneNotFoundFault extends __BaseException {
  * @public
  */
 export class DBSnapshotAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBSnapshotAlreadyExistsFault";
   readonly name = "DBSnapshotAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -748,6 +785,7 @@ export class DBSnapshotAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class InvalidDBSnapshotStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBSnapshotStateFault";
   readonly name = "InvalidDBSnapshotStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -768,6 +806,7 @@ export class InvalidDBSnapshotStateFault extends __BaseException {
  * @public
  */
 export class OptionGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#OptionGroupAlreadyExistsFault";
   readonly name = "OptionGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -788,6 +827,7 @@ export class OptionGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class OptionGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#OptionGroupNotFoundFault";
   readonly name = "OptionGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -808,6 +848,7 @@ export class OptionGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class OptionGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#OptionGroupQuotaExceededFault";
   readonly name = "OptionGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -828,6 +869,7 @@ export class OptionGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class BlueGreenDeploymentAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#BlueGreenDeploymentAlreadyExistsFault";
   readonly name = "BlueGreenDeploymentAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -848,6 +890,7 @@ export class BlueGreenDeploymentAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBClusterParameterGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault";
   readonly name = "DBClusterParameterGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -868,6 +911,7 @@ export class DBClusterParameterGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class DBClusterQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBClusterQuotaExceededFault";
   readonly name = "DBClusterQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -888,6 +932,7 @@ export class DBClusterQuotaExceededFault extends __BaseException {
  * @public
  */
 export class InstanceQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InstanceQuotaExceededFault";
   readonly name = "InstanceQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -908,6 +953,7 @@ export class InstanceQuotaExceededFault extends __BaseException {
  * @public
  */
 export class SourceClusterNotSupportedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#SourceClusterNotSupportedFault";
   readonly name = "SourceClusterNotSupportedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -928,6 +974,7 @@ export class SourceClusterNotSupportedFault extends __BaseException {
  * @public
  */
 export class SourceDatabaseNotSupportedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#SourceDatabaseNotSupportedFault";
   readonly name = "SourceDatabaseNotSupportedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -948,6 +995,7 @@ export class SourceDatabaseNotSupportedFault extends __BaseException {
  * @public
  */
 export class StorageQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#StorageQuotaExceededFault";
   readonly name = "StorageQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -968,6 +1016,7 @@ export class StorageQuotaExceededFault extends __BaseException {
  * @public
  */
 export class CreateCustomDBEngineVersionFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#CreateCustomDBEngineVersionFault";
   readonly name = "CreateCustomDBEngineVersionFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -988,6 +1037,7 @@ export class CreateCustomDBEngineVersionFault extends __BaseException {
  * @public
  */
 export class CustomDBEngineVersionAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#CustomDBEngineVersionAlreadyExistsFault";
   readonly name = "CustomDBEngineVersionAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1008,6 +1058,7 @@ export class CustomDBEngineVersionAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class CustomDBEngineVersionNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#CustomDBEngineVersionNotFoundFault";
   readonly name = "CustomDBEngineVersionNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1028,6 +1079,7 @@ export class CustomDBEngineVersionNotFoundFault extends __BaseException {
  * @public
  */
 export class CustomDBEngineVersionQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#CustomDBEngineVersionQuotaExceededFault";
   readonly name = "CustomDBEngineVersionQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1048,6 +1100,7 @@ export class CustomDBEngineVersionQuotaExceededFault extends __BaseException {
  * @public
  */
 export class Ec2ImagePropertiesNotSupportedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#Ec2ImagePropertiesNotSupportedFault";
   readonly name = "Ec2ImagePropertiesNotSupportedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1068,6 +1121,7 @@ export class Ec2ImagePropertiesNotSupportedFault extends __BaseException {
  * @public
  */
 export class InvalidCustomDBEngineVersionStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidCustomDBEngineVersionStateFault";
   readonly name = "InvalidCustomDBEngineVersionStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1088,6 +1142,7 @@ export class InvalidCustomDBEngineVersionStateFault extends __BaseException {
  * @public
  */
 export class DBClusterAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBClusterAlreadyExistsFault";
   readonly name = "DBClusterAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1108,6 +1163,7 @@ export class DBClusterAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs";
   readonly name = "DBSubnetGroupDoesNotCoverEnoughAZs" as const;
   readonly $fault = "client" as const;
   /**
@@ -1128,6 +1184,7 @@ export class DBSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
  * @public
  */
 export class DBSubnetGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBSubnetGroupNotFoundFault";
   readonly name = "DBSubnetGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1148,6 +1205,7 @@ export class DBSubnetGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class DomainNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DomainNotFoundFault";
   readonly name = "DomainNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1168,6 +1226,7 @@ export class DomainNotFoundFault extends __BaseException {
  * @public
  */
 export class GlobalClusterNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#GlobalClusterNotFoundFault";
   readonly name = "GlobalClusterNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1188,6 +1247,7 @@ export class GlobalClusterNotFoundFault extends __BaseException {
  * @public
  */
 export class InsufficientDBInstanceCapacityFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InsufficientDBInstanceCapacityFault";
   readonly name = "InsufficientDBInstanceCapacityFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1208,6 +1268,7 @@ export class InsufficientDBInstanceCapacityFault extends __BaseException {
  * @public
  */
 export class InsufficientStorageClusterCapacityFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InsufficientStorageClusterCapacityFault";
   readonly name = "InsufficientStorageClusterCapacityFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1228,6 +1289,7 @@ export class InsufficientStorageClusterCapacityFault extends __BaseException {
  * @public
  */
 export class InvalidDBSubnetGroupFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBSubnetGroupFault";
   readonly name = "InvalidDBSubnetGroupFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1248,6 +1310,7 @@ export class InvalidDBSubnetGroupFault extends __BaseException {
  * @public
  */
 export class InvalidDBSubnetGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBSubnetGroupStateFault";
   readonly name = "InvalidDBSubnetGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1268,6 +1331,7 @@ export class InvalidDBSubnetGroupStateFault extends __BaseException {
  * @public
  */
 export class InvalidGlobalClusterStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidGlobalClusterStateFault";
   readonly name = "InvalidGlobalClusterStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1288,6 +1352,7 @@ export class InvalidGlobalClusterStateFault extends __BaseException {
  * @public
  */
 export class InvalidSubnet extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidSubnet";
   readonly name = "InvalidSubnet" as const;
   readonly $fault = "client" as const;
   /**
@@ -1308,6 +1373,7 @@ export class InvalidSubnet extends __BaseException {
  * @public
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidVPCNetworkStateFault";
   readonly name = "InvalidVPCNetworkStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1328,6 +1394,7 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
  * @public
  */
 export class NetworkTypeNotSupported extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#NetworkTypeNotSupported";
   readonly name = "NetworkTypeNotSupported" as const;
   readonly $fault = "client" as const;
   /**
@@ -1348,6 +1415,7 @@ export class NetworkTypeNotSupported extends __BaseException {
  * @public
  */
 export class StorageTypeNotSupportedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#StorageTypeNotSupportedFault";
   readonly name = "StorageTypeNotSupportedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1368,6 +1436,7 @@ export class StorageTypeNotSupportedFault extends __BaseException {
  * @public
  */
 export class VpcEncryptionControlViolationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#VpcEncryptionControlViolationException";
   readonly name = "VpcEncryptionControlViolationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1388,6 +1457,7 @@ export class VpcEncryptionControlViolationException extends __BaseException {
  * @public
  */
 export class DBClusterEndpointAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBClusterEndpointAlreadyExistsFault";
   readonly name = "DBClusterEndpointAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1408,6 +1478,7 @@ export class DBClusterEndpointAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBClusterEndpointQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBClusterEndpointQuotaExceededFault";
   readonly name = "DBClusterEndpointQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1428,6 +1499,7 @@ export class DBClusterEndpointQuotaExceededFault extends __BaseException {
  * @public
  */
 export class AuthorizationNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#AuthorizationNotFoundFault";
   readonly name = "AuthorizationNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1450,6 +1522,7 @@ export class AuthorizationNotFoundFault extends __BaseException {
  * @public
  */
 export class BackupPolicyNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#BackupPolicyNotFoundFault";
   readonly name = "BackupPolicyNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1470,6 +1543,7 @@ export class BackupPolicyNotFoundFault extends __BaseException {
  * @public
  */
 export class CertificateNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#CertificateNotFoundFault";
   readonly name = "CertificateNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1490,6 +1564,7 @@ export class CertificateNotFoundFault extends __BaseException {
  * @public
  */
 export class DBInstanceAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBInstanceAlreadyExistsFault";
   readonly name = "DBInstanceAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1510,6 +1585,7 @@ export class DBInstanceAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ProvisionedIopsNotAvailableInAZFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault";
   readonly name = "ProvisionedIopsNotAvailableInAZFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1530,6 +1606,7 @@ export class ProvisionedIopsNotAvailableInAZFault extends __BaseException {
  * @public
  */
 export class TenantDatabaseQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#TenantDatabaseQuotaExceededFault";
   readonly name = "TenantDatabaseQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1550,6 +1627,7 @@ export class TenantDatabaseQuotaExceededFault extends __BaseException {
  * @public
  */
 export class DBSubnetGroupNotAllowedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBSubnetGroupNotAllowedFault";
   readonly name = "DBSubnetGroupNotAllowedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1570,6 +1648,7 @@ export class DBSubnetGroupNotAllowedFault extends __BaseException {
  * @public
  */
 export class DBProxyAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBProxyAlreadyExistsFault";
   readonly name = "DBProxyAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1590,6 +1669,7 @@ export class DBProxyAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBProxyQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBProxyQuotaExceededFault";
   readonly name = "DBProxyQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1610,6 +1690,7 @@ export class DBProxyQuotaExceededFault extends __BaseException {
  * @public
  */
 export class DBProxyEndpointAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBProxyEndpointAlreadyExistsFault";
   readonly name = "DBProxyEndpointAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1630,6 +1711,7 @@ export class DBProxyEndpointAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBProxyEndpointQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBProxyEndpointQuotaExceededFault";
   readonly name = "DBProxyEndpointQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1650,6 +1732,7 @@ export class DBProxyEndpointQuotaExceededFault extends __BaseException {
  * @public
  */
 export class InvalidDBProxyStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBProxyStateFault";
   readonly name = "InvalidDBProxyStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1670,6 +1753,7 @@ export class InvalidDBProxyStateFault extends __BaseException {
  * @public
  */
 export class DBSecurityGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBSecurityGroupAlreadyExistsFault";
   readonly name = "DBSecurityGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1690,6 +1774,7 @@ export class DBSecurityGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBSecurityGroupNotSupportedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBSecurityGroupNotSupportedFault";
   readonly name = "DBSecurityGroupNotSupportedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1710,6 +1795,7 @@ export class DBSecurityGroupNotSupportedFault extends __BaseException {
  * @public
  */
 export class DBSecurityGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBSecurityGroupQuotaExceededFault";
   readonly name = "DBSecurityGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1730,6 +1816,7 @@ export class DBSecurityGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class DBShardGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBShardGroupAlreadyExistsFault";
   readonly name = "DBShardGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1750,6 +1837,7 @@ export class DBShardGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class MaxDBShardGroupLimitReached extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#MaxDBShardGroupLimitReached";
   readonly name = "MaxDBShardGroupLimitReached" as const;
   readonly $fault = "client" as const;
   /**
@@ -1770,6 +1858,7 @@ export class MaxDBShardGroupLimitReached extends __BaseException {
  * @public
  */
 export class UnsupportedDBEngineVersionFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#UnsupportedDBEngineVersionFault";
   readonly name = "UnsupportedDBEngineVersionFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1790,6 +1879,7 @@ export class UnsupportedDBEngineVersionFault extends __BaseException {
  * @public
  */
 export class DBSubnetGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBSubnetGroupAlreadyExistsFault";
   readonly name = "DBSubnetGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1810,6 +1900,7 @@ export class DBSubnetGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBSubnetGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBSubnetGroupQuotaExceededFault";
   readonly name = "DBSubnetGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1830,6 +1921,7 @@ export class DBSubnetGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class DBSubnetQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBSubnetQuotaExceededFault";
   readonly name = "DBSubnetQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1850,6 +1942,7 @@ export class DBSubnetQuotaExceededFault extends __BaseException {
  * @public
  */
 export class EventSubscriptionQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#EventSubscriptionQuotaExceededFault";
   readonly name = "EventSubscriptionQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1870,6 +1963,7 @@ export class EventSubscriptionQuotaExceededFault extends __BaseException {
  * @public
  */
 export class SNSInvalidTopicFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#SNSInvalidTopicFault";
   readonly name = "SNSInvalidTopicFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1890,6 +1984,7 @@ export class SNSInvalidTopicFault extends __BaseException {
  * @public
  */
 export class SNSNoAuthorizationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#SNSNoAuthorizationFault";
   readonly name = "SNSNoAuthorizationFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1910,6 +2005,7 @@ export class SNSNoAuthorizationFault extends __BaseException {
  * @public
  */
 export class SNSTopicArnNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#SNSTopicArnNotFoundFault";
   readonly name = "SNSTopicArnNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1930,6 +2026,7 @@ export class SNSTopicArnNotFoundFault extends __BaseException {
  * @public
  */
 export class SubscriptionAlreadyExistFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#SubscriptionAlreadyExistFault";
   readonly name = "SubscriptionAlreadyExistFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1950,6 +2047,7 @@ export class SubscriptionAlreadyExistFault extends __BaseException {
  * @public
  */
 export class SubscriptionCategoryNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#SubscriptionCategoryNotFoundFault";
   readonly name = "SubscriptionCategoryNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1970,6 +2068,7 @@ export class SubscriptionCategoryNotFoundFault extends __BaseException {
  * @public
  */
 export class GlobalClusterAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#GlobalClusterAlreadyExistsFault";
   readonly name = "GlobalClusterAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1990,6 +2089,7 @@ export class GlobalClusterAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class GlobalClusterQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#GlobalClusterQuotaExceededFault";
   readonly name = "GlobalClusterQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2010,6 +2110,7 @@ export class GlobalClusterQuotaExceededFault extends __BaseException {
  * @public
  */
 export class InvalidDBShardGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBShardGroupStateFault";
   readonly name = "InvalidDBShardGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2030,6 +2131,7 @@ export class InvalidDBShardGroupStateFault extends __BaseException {
  * @public
  */
 export class IntegrationAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#IntegrationAlreadyExistsFault";
   readonly name = "IntegrationAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2050,6 +2152,7 @@ export class IntegrationAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class IntegrationConflictOperationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#IntegrationConflictOperationFault";
   readonly name = "IntegrationConflictOperationFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2070,6 +2173,7 @@ export class IntegrationConflictOperationFault extends __BaseException {
  * @public
  */
 export class IntegrationQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#IntegrationQuotaExceededFault";
   readonly name = "IntegrationQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2090,6 +2194,7 @@ export class IntegrationQuotaExceededFault extends __BaseException {
  * @public
  */
 export class TenantDatabaseAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#TenantDatabaseAlreadyExistsFault";
   readonly name = "TenantDatabaseAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2110,6 +2215,7 @@ export class TenantDatabaseAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class InvalidBlueGreenDeploymentStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidBlueGreenDeploymentStateFault";
   readonly name = "InvalidBlueGreenDeploymentStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2130,6 +2236,7 @@ export class InvalidBlueGreenDeploymentStateFault extends __BaseException {
  * @public
  */
 export class DBClusterAutomatedBackupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBClusterAutomatedBackupQuotaExceededFault";
   readonly name = "DBClusterAutomatedBackupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2150,6 +2257,7 @@ export class DBClusterAutomatedBackupQuotaExceededFault extends __BaseException 
  * @public
  */
 export class DBClusterAutomatedBackupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBClusterAutomatedBackupNotFoundFault";
   readonly name = "DBClusterAutomatedBackupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2170,6 +2278,7 @@ export class DBClusterAutomatedBackupNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidDBClusterAutomatedBackupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBClusterAutomatedBackupStateFault";
   readonly name = "InvalidDBClusterAutomatedBackupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2190,6 +2299,7 @@ export class InvalidDBClusterAutomatedBackupStateFault extends __BaseException {
  * @public
  */
 export class DBClusterEndpointNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBClusterEndpointNotFoundFault";
   readonly name = "DBClusterEndpointNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2210,6 +2320,7 @@ export class DBClusterEndpointNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidDBParameterGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBParameterGroupStateFault";
   readonly name = "InvalidDBParameterGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2230,6 +2341,7 @@ export class InvalidDBParameterGroupStateFault extends __BaseException {
  * @public
  */
 export class DBInstanceAutomatedBackupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBInstanceAutomatedBackupQuotaExceededFault";
   readonly name = "DBInstanceAutomatedBackupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2250,6 +2362,7 @@ export class DBInstanceAutomatedBackupQuotaExceededFault extends __BaseException
  * @public
  */
 export class DBInstanceAutomatedBackupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBInstanceAutomatedBackupNotFoundFault";
   readonly name = "DBInstanceAutomatedBackupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2270,6 +2383,7 @@ export class DBInstanceAutomatedBackupNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidDBInstanceAutomatedBackupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBInstanceAutomatedBackupStateFault";
   readonly name = "InvalidDBInstanceAutomatedBackupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2290,6 +2404,7 @@ export class InvalidDBInstanceAutomatedBackupStateFault extends __BaseException 
  * @public
  */
 export class InvalidDBProxyEndpointStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBProxyEndpointStateFault";
   readonly name = "InvalidDBProxyEndpointStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2310,6 +2425,7 @@ export class InvalidDBProxyEndpointStateFault extends __BaseException {
  * @public
  */
 export class InvalidDBSubnetStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBSubnetStateFault";
   readonly name = "InvalidDBSubnetStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2330,6 +2446,7 @@ export class InvalidDBSubnetStateFault extends __BaseException {
  * @public
  */
 export class InvalidEventSubscriptionStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidEventSubscriptionStateFault";
   readonly name = "InvalidEventSubscriptionStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2350,6 +2467,7 @@ export class InvalidEventSubscriptionStateFault extends __BaseException {
  * @public
  */
 export class InvalidIntegrationStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidIntegrationStateFault";
   readonly name = "InvalidIntegrationStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2370,6 +2488,7 @@ export class InvalidIntegrationStateFault extends __BaseException {
  * @public
  */
 export class InvalidOptionGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidOptionGroupStateFault";
   readonly name = "InvalidOptionGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2390,6 +2509,7 @@ export class InvalidOptionGroupStateFault extends __BaseException {
  * @public
  */
 export class DBProxyTargetNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBProxyTargetNotFoundFault";
   readonly name = "DBProxyTargetNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2410,6 +2530,7 @@ export class DBProxyTargetNotFoundFault extends __BaseException {
  * @public
  */
 export class DBClusterBacktrackNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBClusterBacktrackNotFoundFault";
   readonly name = "DBClusterBacktrackNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2430,6 +2551,7 @@ export class DBClusterBacktrackNotFoundFault extends __BaseException {
  * @public
  */
 export class DBInstanceNotReadyFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBInstanceNotReadyFault";
   readonly name = "DBInstanceNotReadyFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2450,6 +2572,7 @@ export class DBInstanceNotReadyFault extends __BaseException {
  * @public
  */
 export class ReservedDBInstanceNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#ReservedDBInstanceNotFoundFault";
   readonly name = "ReservedDBInstanceNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2470,6 +2593,7 @@ export class ReservedDBInstanceNotFoundFault extends __BaseException {
  * @public
  */
 export class ReservedDBInstancesOfferingNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#ReservedDBInstancesOfferingNotFoundFault";
   readonly name = "ReservedDBInstancesOfferingNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2490,6 +2614,7 @@ export class ReservedDBInstancesOfferingNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidResourceStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidResourceStateFault";
   readonly name = "InvalidResourceStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2510,6 +2635,7 @@ export class InvalidResourceStateFault extends __BaseException {
  * @public
  */
 export class DBLogFileNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBLogFileNotFoundFault";
   readonly name = "DBLogFileNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2530,6 +2656,7 @@ export class DBLogFileNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidDBClusterCapacityFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBClusterCapacityFault";
   readonly name = "InvalidDBClusterCapacityFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2550,6 +2677,7 @@ export class InvalidDBClusterCapacityFault extends __BaseException {
  * @public
  */
 export class StorageTypeNotAvailableFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#StorageTypeNotAvailableFault";
   readonly name = "StorageTypeNotAvailableFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2570,6 +2698,7 @@ export class StorageTypeNotAvailableFault extends __BaseException {
  * @public
  */
 export class SharedSnapshotQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#SharedSnapshotQuotaExceededFault";
   readonly name = "SharedSnapshotQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2590,6 +2719,7 @@ export class SharedSnapshotQuotaExceededFault extends __BaseException {
  * @public
  */
 export class DBUpgradeDependencyFailureFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBUpgradeDependencyFailureFault";
   readonly name = "DBUpgradeDependencyFailureFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2610,6 +2740,7 @@ export class DBUpgradeDependencyFailureFault extends __BaseException {
  * @public
  */
 export class SubnetAlreadyInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#SubnetAlreadyInUse";
   readonly name = "SubnetAlreadyInUse" as const;
   readonly $fault = "client" as const;
   /**
@@ -2630,6 +2761,7 @@ export class SubnetAlreadyInUse extends __BaseException {
  * @public
  */
 export class ReservedDBInstanceAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#ReservedDBInstanceAlreadyExistsFault";
   readonly name = "ReservedDBInstanceAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2650,6 +2782,7 @@ export class ReservedDBInstanceAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ReservedDBInstanceQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#ReservedDBInstanceQuotaExceededFault";
   readonly name = "ReservedDBInstanceQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2670,6 +2803,7 @@ export class ReservedDBInstanceQuotaExceededFault extends __BaseException {
  * @public
  */
 export class DBProxyTargetAlreadyRegisteredFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBProxyTargetAlreadyRegisteredFault";
   readonly name = "DBProxyTargetAlreadyRegisteredFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2690,6 +2824,7 @@ export class DBProxyTargetAlreadyRegisteredFault extends __BaseException {
  * @public
  */
 export class InsufficientAvailableIPsInSubnetFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InsufficientAvailableIPsInSubnetFault";
   readonly name = "InsufficientAvailableIPsInSubnetFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2710,6 +2845,7 @@ export class InsufficientAvailableIPsInSubnetFault extends __BaseException {
  * @public
  */
 export class DBClusterRoleNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBClusterRoleNotFoundFault";
   readonly name = "DBClusterRoleNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2730,6 +2866,7 @@ export class DBClusterRoleNotFoundFault extends __BaseException {
  * @public
  */
 export class DBInstanceRoleNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBInstanceRoleNotFoundFault";
   readonly name = "DBInstanceRoleNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2750,6 +2887,7 @@ export class DBInstanceRoleNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidS3BucketFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidS3BucketFault";
   readonly name = "InvalidS3BucketFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2770,6 +2908,7 @@ export class InvalidS3BucketFault extends __BaseException {
  * @public
  */
 export class InsufficientDBClusterCapacityFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InsufficientDBClusterCapacityFault";
   readonly name = "InsufficientDBClusterCapacityFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2790,6 +2929,7 @@ export class InsufficientDBClusterCapacityFault extends __BaseException {
  * @public
  */
 export class InvalidRestoreFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidRestoreFault";
   readonly name = "InvalidRestoreFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2810,6 +2950,7 @@ export class InvalidRestoreFault extends __BaseException {
  * @public
  */
 export class PointInTimeRestoreNotEnabledFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#PointInTimeRestoreNotEnabledFault";
   readonly name = "PointInTimeRestoreNotEnabledFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2830,6 +2971,7 @@ export class PointInTimeRestoreNotEnabledFault extends __BaseException {
  * @public
  */
 export class ExportTaskAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#ExportTaskAlreadyExistsFault";
   readonly name = "ExportTaskAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2850,6 +2992,7 @@ export class ExportTaskAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class IamRoleMissingPermissionsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#IamRoleMissingPermissionsFault";
   readonly name = "IamRoleMissingPermissionsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2870,6 +3013,7 @@ export class IamRoleMissingPermissionsFault extends __BaseException {
  * @public
  */
 export class IamRoleNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#IamRoleNotFoundFault";
   readonly name = "IamRoleNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2890,6 +3034,7 @@ export class IamRoleNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidExportOnlyFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidExportOnlyFault";
   readonly name = "InvalidExportOnlyFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2910,6 +3055,7 @@ export class InvalidExportOnlyFault extends __BaseException {
  * @public
  */
 export class InvalidExportSourceStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidExportSourceStateFault";
   readonly name = "InvalidExportSourceStateFault" as const;
   readonly $fault = "client" as const;
   /**

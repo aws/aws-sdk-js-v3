@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { GetAgentContextRequest, GetAgentContextResponse } from "../models/models_0";
 import { GetAgentContext$ } from "../schemas/schemas_0";
 
@@ -109,7 +109,7 @@ export interface GetAgentContextCommandOutput extends GetAgentContextResponse, _
  * @public
  */
 export class GetAgentContextCommand extends command<GetAgentContextCommandInput, GetAgentContextCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "GetAgentContext",
   GetAgentContext$

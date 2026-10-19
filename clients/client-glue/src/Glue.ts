@@ -58,6 +58,11 @@ import {
   BatchGetDataQualityResultCommand,
 } from "./commands/BatchGetDataQualityResultCommand";
 import {
+  type BatchGetDataQualityResultV2CommandInput,
+  type BatchGetDataQualityResultV2CommandOutput,
+  BatchGetDataQualityResultV2Command,
+} from "./commands/BatchGetDataQualityResultV2Command";
+import {
   type BatchGetDataQualityRulesetEvaluationRunCommandInput,
   type BatchGetDataQualityRulesetEvaluationRunCommandOutput,
   BatchGetDataQualityRulesetEvaluationRunCommand,
@@ -656,6 +661,11 @@ import {
   GetDataQualityResultCommand,
 } from "./commands/GetDataQualityResultCommand";
 import {
+  type GetDataQualityResultV2CommandInput,
+  type GetDataQualityResultV2CommandOutput,
+  GetDataQualityResultV2Command,
+} from "./commands/GetDataQualityResultV2Command";
+import {
   type GetDataQualityRuleRecommendationRunCommandInput,
   type GetDataQualityRuleRecommendationRunCommandOutput,
   GetDataQualityRuleRecommendationRunCommand,
@@ -830,6 +840,16 @@ import {
   type GetStatementCommandOutput,
   GetStatementCommand,
 } from "./commands/GetStatementCommand";
+import {
+  type GetSystemLogsForJobRunCommandInput,
+  type GetSystemLogsForJobRunCommandOutput,
+  GetSystemLogsForJobRunCommand,
+} from "./commands/GetSystemLogsForJobRunCommand";
+import {
+  type GetSystemLogsForSessionCommandInput,
+  type GetSystemLogsForSessionCommandOutput,
+  GetSystemLogsForSessionCommand,
+} from "./commands/GetSystemLogsForSessionCommand";
 import { type GetTableCommandInput, type GetTableCommandOutput, GetTableCommand } from "./commands/GetTableCommand";
 import {
   type GetTableOptimizerCommandInput,
@@ -953,6 +973,11 @@ import {
   type ListDataQualityResultsCommandOutput,
   ListDataQualityResultsCommand,
 } from "./commands/ListDataQualityResultsCommand";
+import {
+  type ListDataQualityResultsV2CommandInput,
+  type ListDataQualityResultsV2CommandOutput,
+  ListDataQualityResultsV2Command,
+} from "./commands/ListDataQualityResultsV2Command";
 import {
   type ListDataQualityRuleRecommendationRunsCommandInput,
   type ListDataQualityRuleRecommendationRunsCommandOutput,
@@ -1079,6 +1104,11 @@ import {
   type ModifyIntegrationCommandOutput,
   ModifyIntegrationCommand,
 } from "./commands/ModifyIntegrationCommand";
+import {
+  type PublishDataQualityResultV2CommandInput,
+  type PublishDataQualityResultV2CommandOutput,
+  PublishDataQualityResultV2Command,
+} from "./commands/PublishDataQualityResultV2Command";
 import { type PutAssetCommandInput, type PutAssetCommandOutput, PutAssetCommand } from "./commands/PutAssetCommand";
 import {
   type PutAssetTypeCommandInput,
@@ -1482,6 +1512,7 @@ import { paginateListConnectionTypes } from "./pagination/ListConnectionTypesPag
 import { paginateListCrawlers } from "./pagination/ListCrawlersPaginator";
 import { paginateListCustomEntityTypes } from "./pagination/ListCustomEntityTypesPaginator";
 import { paginateListDataQualityResults } from "./pagination/ListDataQualityResultsPaginator";
+import { paginateListDataQualityResultsV2 } from "./pagination/ListDataQualityResultsV2Paginator";
 import {
   paginateListDataQualityRuleRecommendationRuns,
 } from "./pagination/ListDataQualityRuleRecommendationRunsPaginator";
@@ -1520,6 +1551,7 @@ const commands = {
   BatchGetCrawlersCommand,
   BatchGetCustomEntityTypesCommand,
   BatchGetDataQualityResultCommand,
+  BatchGetDataQualityResultV2Command,
   BatchGetDataQualityRulesetEvaluationRunCommand,
   BatchGetDevEndpointsCommand,
   BatchGetIterableFormsCommand,
@@ -1642,6 +1674,7 @@ const commands = {
   GetDataQualityModelCommand,
   GetDataQualityModelResultCommand,
   GetDataQualityResultCommand,
+  GetDataQualityResultV2Command,
   GetDataQualityRuleRecommendationRunCommand,
   GetDataQualityRulesetCommand,
   GetDataQualityRulesetEvaluationRunCommand,
@@ -1681,6 +1714,8 @@ const commands = {
   GetSessionCommand,
   GetSessionEndpointCommand,
   GetStatementCommand,
+  GetSystemLogsForJobRunCommand,
+  GetSystemLogsForSessionCommand,
   GetTableCommand,
   GetTableOptimizerCommand,
   GetTablesCommand,
@@ -1708,6 +1743,7 @@ const commands = {
   ListCrawlsCommand,
   ListCustomEntityTypesCommand,
   ListDataQualityResultsCommand,
+  ListDataQualityResultsV2Command,
   ListDataQualityRuleRecommendationRunsCommand,
   ListDataQualityRulesetEvaluationRunsCommand,
   ListDataQualityRulesetsCommand,
@@ -1734,6 +1770,7 @@ const commands = {
   ListUsageProfilesCommand,
   ListWorkflowsCommand,
   ModifyIntegrationCommand,
+  PublishDataQualityResultV2Command,
   PutAssetCommand,
   PutAssetTypeCommand,
   PutAttachmentCommand,
@@ -1842,6 +1879,7 @@ const paginators = {
   paginateListCrawlers,
   paginateListCustomEntityTypes,
   paginateListDataQualityResults,
+  paginateListDataQualityResultsV2,
   paginateListDataQualityRuleRecommendationRuns,
   paginateListDataQualityRulesetEvaluationRuns,
   paginateListDataQualityRulesets,
@@ -2042,6 +2080,23 @@ export interface Glue {
     args: BatchGetDataQualityResultCommandInput,
     options: GlueRequestOptions,
     cb: (err: any, data?: BatchGetDataQualityResultCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetDataQualityResultV2Command}
+   */
+  batchGetDataQualityResultV2(
+    args: BatchGetDataQualityResultV2CommandInput,
+    options?: GlueRequestOptions
+  ): Promise<BatchGetDataQualityResultV2CommandOutput>;
+  batchGetDataQualityResultV2(
+    args: BatchGetDataQualityResultV2CommandInput,
+    cb: (err: any, data?: BatchGetDataQualityResultV2CommandOutput) => void
+  ): void;
+  batchGetDataQualityResultV2(
+    args: BatchGetDataQualityResultV2CommandInput,
+    options: GlueRequestOptions,
+    cb: (err: any, data?: BatchGetDataQualityResultV2CommandOutput) => void
   ): void;
 
   /**
@@ -4135,6 +4190,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link GetDataQualityResultV2Command}
+   */
+  getDataQualityResultV2(
+    args: GetDataQualityResultV2CommandInput,
+    options?: GlueRequestOptions
+  ): Promise<GetDataQualityResultV2CommandOutput>;
+  getDataQualityResultV2(
+    args: GetDataQualityResultV2CommandInput,
+    cb: (err: any, data?: GetDataQualityResultV2CommandOutput) => void
+  ): void;
+  getDataQualityResultV2(
+    args: GetDataQualityResultV2CommandInput,
+    options: GlueRequestOptions,
+    cb: (err: any, data?: GetDataQualityResultV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDataQualityRuleRecommendationRunCommand}
    */
   getDataQualityRuleRecommendationRun(
@@ -4806,6 +4878,40 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link GetSystemLogsForJobRunCommand}
+   */
+  getSystemLogsForJobRun(
+    args: GetSystemLogsForJobRunCommandInput,
+    options?: GlueRequestOptions
+  ): Promise<GetSystemLogsForJobRunCommandOutput>;
+  getSystemLogsForJobRun(
+    args: GetSystemLogsForJobRunCommandInput,
+    cb: (err: any, data?: GetSystemLogsForJobRunCommandOutput) => void
+  ): void;
+  getSystemLogsForJobRun(
+    args: GetSystemLogsForJobRunCommandInput,
+    options: GlueRequestOptions,
+    cb: (err: any, data?: GetSystemLogsForJobRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSystemLogsForSessionCommand}
+   */
+  getSystemLogsForSession(
+    args: GetSystemLogsForSessionCommandInput,
+    options?: GlueRequestOptions
+  ): Promise<GetSystemLogsForSessionCommandOutput>;
+  getSystemLogsForSession(
+    args: GetSystemLogsForSessionCommandInput,
+    cb: (err: any, data?: GetSystemLogsForSessionCommandOutput) => void
+  ): void;
+  getSystemLogsForSession(
+    args: GetSystemLogsForSessionCommandInput,
+    options: GlueRequestOptions,
+    cb: (err: any, data?: GetSystemLogsForSessionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTableCommand}
    */
   getTable(
@@ -5274,6 +5380,24 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link ListDataQualityResultsV2Command}
+   */
+  listDataQualityResultsV2(): Promise<ListDataQualityResultsV2CommandOutput>;
+  listDataQualityResultsV2(
+    args: ListDataQualityResultsV2CommandInput,
+    options?: GlueRequestOptions
+  ): Promise<ListDataQualityResultsV2CommandOutput>;
+  listDataQualityResultsV2(
+    args: ListDataQualityResultsV2CommandInput,
+    cb: (err: any, data?: ListDataQualityResultsV2CommandOutput) => void
+  ): void;
+  listDataQualityResultsV2(
+    args: ListDataQualityResultsV2CommandInput,
+    options: GlueRequestOptions,
+    cb: (err: any, data?: ListDataQualityResultsV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDataQualityRuleRecommendationRunsCommand}
    */
   listDataQualityRuleRecommendationRuns(): Promise<ListDataQualityRuleRecommendationRunsCommandOutput>;
@@ -5732,6 +5856,23 @@ export interface Glue {
     args: ModifyIntegrationCommandInput,
     options: GlueRequestOptions,
     cb: (err: any, data?: ModifyIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PublishDataQualityResultV2Command}
+   */
+  publishDataQualityResultV2(
+    args: PublishDataQualityResultV2CommandInput,
+    options?: GlueRequestOptions
+  ): Promise<PublishDataQualityResultV2CommandOutput>;
+  publishDataQualityResultV2(
+    args: PublishDataQualityResultV2CommandInput,
+    cb: (err: any, data?: PublishDataQualityResultV2CommandOutput) => void
+  ): void;
+  publishDataQualityResultV2(
+    args: PublishDataQualityResultV2CommandInput,
+    options: GlueRequestOptions,
+    cb: (err: any, data?: PublishDataQualityResultV2CommandOutput) => void
   ): void;
 
   /**
@@ -7363,6 +7504,17 @@ export interface Glue {
     args?: ListDataQualityResultsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListDataQualityResultsCommandOutput>;
+
+  /**
+   * @see {@link ListDataQualityResultsV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataQualityResultsV2CommandOutput}.
+   */
+  paginateListDataQualityResultsV2(
+    args?: ListDataQualityResultsV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataQualityResultsV2CommandOutput>;
 
   /**
    * @see {@link ListDataQualityRuleRecommendationRunsCommand}

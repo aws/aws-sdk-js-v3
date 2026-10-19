@@ -17,9 +17,34 @@ import type {
   AwsEcsTaskDefinitionContainerDefinitionsDetails,
   AwsEcsTaskDefinitionInferenceAcceleratorsDetails,
   AwsEcsTaskDefinitionPlacementConstraintsDetails,
-  AwsEcsTaskDefinitionProxyConfigurationDetails,
+  AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails,
   RelatedFinding,
 } from "./models_0";
+
+/**
+ * <p>The configuration details for the App Mesh
+ *          proxy.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
+  /**
+   * <p>The name of the container that will serve as the App Mesh proxy.</p>
+   * @public
+   */
+  ContainerName?: string | undefined;
+
+  /**
+   * <p>The set of network configuration parameters to provide to the Container Network Interface (CNI) plugin, specified as key-value pairs.</p>
+   * @public
+   */
+  ProxyConfigurationProperties?: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails[] | undefined;
+
+  /**
+   * <p>The proxy type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+}
 
 /**
  * <p>Information about a Docker volume.</p>
@@ -11190,41 +11215,4 @@ export interface AwsWafRulePredicateListDetails {
    * @public
    */
   Type?: string | undefined;
-}
-
-/**
- * <p>Provides information about a WAF rule. This rule specifies the web requests that you want to allow, block, or count.
- *       </p>
- * @public
- */
-export interface AwsWafRuleDetails {
-  /**
-   * <p>The name of the metrics for this rule.
-   *       </p>
-   * @public
-   */
-  MetricName?: string | undefined;
-
-  /**
-   * <p>A descriptive name for the rule.
-   *       </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
-   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and,
-   *          for each object, indicates whether you want to negate the settings.
-   *       </p>
-   * @public
-   */
-  PredicateList?: AwsWafRulePredicateListDetails[] | undefined;
-
-  /**
-   * <p>The ID of the WAF rule.
-   *       </p>
-   * @public
-   */
-  RuleId?: string | undefined;
 }

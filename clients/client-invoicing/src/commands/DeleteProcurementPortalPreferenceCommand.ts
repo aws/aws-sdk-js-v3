@@ -56,6 +56,9 @@ export interface DeleteProcurementPortalPreferenceCommandOutput extends DeletePr
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have sufficient access to perform this action.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the resource. This exception occurs when a concurrent modification is detected during an update operation, or when attempting to create a resource that already exists.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The processing request failed because of an unknown error, exception, or failure. </p>
  *

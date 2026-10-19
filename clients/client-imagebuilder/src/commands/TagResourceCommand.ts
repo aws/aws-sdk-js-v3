@@ -58,12 +58,29 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>At least one of the resources referenced by your request does not exist.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example Add tags to a component build version
+ * ```javascript
+ * // The following example adds two tags to a component build version.
+ * const input = {
+ *   resourceArn: "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-tagged-component/1.0.0/1",
+ *   tags: {
+ *     CostCenter: "12345",
+ *     Environment: "Production"
+ *   }
+ * };
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
  *
  * @public
  */

@@ -23,7 +23,14 @@ export interface ListMediaAnalysisJobsCommandInput extends ListMediaAnalysisJobs
 export interface ListMediaAnalysisJobsCommandOutput extends ListMediaAnalysisJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of media analysis jobs. Results are sorted by <code>CreationTimestamp</code> in descending order.</p>
+ * <important>
+ *             <p>Service availability notice: Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see
+ * <a href="https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html">Rekognition feature availability changes</a>.</p>
+ *             <p>
+ *                <b>This change does not impact the availability of other Amazon Rekognition features.</b>
+ *             </p>
+ *          </important>
+ *          <p>Returns a list of media analysis jobs. Results are sorted by <code>CreationTimestamp</code> in descending order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

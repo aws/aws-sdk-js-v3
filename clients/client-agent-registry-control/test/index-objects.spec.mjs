@@ -37,6 +37,8 @@ import {
   CustomClaimValidationType$,
   CustomDescriptor$,
   CustomJWTAuthorizerConfiguration$,
+  CustomMetadataSchemaComplianceStatus,
+  CustomMetadataSchemaConfiguration$,
   DeleteRegistry$,
   DeleteRegistryCommand,
   DeleteRegistryRecord$,
@@ -87,6 +89,7 @@ import {
   ProvenanceRelation,
   ProvenanceSummary$,
   RecordType,
+  RecordTypeSchemaOverride$,
   RegistryAuthorizerType,
   RegistryFilter$,
   RegistryFilterName,
@@ -138,6 +141,8 @@ import {
   UpdatedAutoDetectionConfiguration$,
   UpdatedCustomDescriptor$,
   UpdatedCustomDescriptorFields$,
+  UpdatedCustomMetadataMap$,
+  UpdatedCustomMetadataSchemaConfiguration$,
   UpdatedDataSchemaVersion$,
   UpdatedDescription$,
   UpdatedDescriptorData$,
@@ -233,6 +238,7 @@ assert(typeof CreateRegistryResponse$ === "object");
 assert(typeof CustomClaimValidationType$ === "object");
 assert(typeof CustomDescriptor$ === "object");
 assert(typeof CustomJWTAuthorizerConfiguration$ === "object");
+assert(typeof CustomMetadataSchemaConfiguration$ === "object");
 assert(typeof DeleteRegistryRecordRequest$ === "object");
 assert(typeof DeleteRegistryRecordResponse$ === "object");
 assert(typeof DeleteRegistryRequest$ === "object");
@@ -261,6 +267,7 @@ assert(typeof PrivateEndpoint$ === "object");
 assert(typeof PrivateEndpointOverride$ === "object");
 assert(typeof Provenance$ === "object");
 assert(typeof ProvenanceSummary$ === "object");
+assert(typeof RecordTypeSchemaOverride$ === "object");
 assert(typeof RegistryFilter$ === "object");
 assert(typeof RegistryRecordCredentialProviderConfiguration$ === "object");
 assert(typeof RegistryRecordCredentialProviderUnion$ === "object");
@@ -292,6 +299,8 @@ assert(typeof UpdatedAuthorizerConfiguration$ === "object");
 assert(typeof UpdatedAutoDetectionConfiguration$ === "object");
 assert(typeof UpdatedCustomDescriptor$ === "object");
 assert(typeof UpdatedCustomDescriptorFields$ === "object");
+assert(typeof UpdatedCustomMetadataMap$ === "object");
+assert(typeof UpdatedCustomMetadataSchemaConfiguration$ === "object");
 assert(typeof UpdatedDataSchemaVersion$ === "object");
 assert(typeof UpdatedDescription$ === "object");
 assert(typeof UpdatedDescriptorData$ === "object");
@@ -323,6 +332,7 @@ assert(typeof AutoApprovalRule === "object");
 assert(typeof AutoDetectionScope === "object");
 assert(typeof AutoDetectionStatus === "object");
 assert(typeof ClaimMatchOperatorType === "object");
+assert(typeof CustomMetadataSchemaComplianceStatus === "object");
 assert(typeof EndpointIpAddressType === "object");
 assert(typeof InboundTokenClaimValueType === "object");
 assert(typeof ProvenanceRelation === "object");

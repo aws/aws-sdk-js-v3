@@ -558,6 +558,12 @@ export interface AgentRecommendationSummary {
   profileArn: string | undefined;
 
   /**
+   * <p>The identifier of the generation process that produced this recommendation.</p>
+   * @public
+   */
+  generationId?: string | undefined;
+
+  /**
    * <p>The title of the recommendation.</p>
    * @public
    */
@@ -3034,6 +3040,12 @@ export interface GetAgentRecommendationResponse {
    * @public
    */
   profileArn: string | undefined;
+
+  /**
+   * <p>The identifier of the generation process that produced this recommendation.</p>
+   * @public
+   */
+  generationId?: string | undefined;
 
   /**
    * <p>The title of the recommendation.</p>

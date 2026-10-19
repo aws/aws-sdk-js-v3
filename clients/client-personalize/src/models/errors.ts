@@ -8,6 +8,7 @@ import { PersonalizeServiceException as __BaseException } from "./PersonalizeSer
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.personalize#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.personalize#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.personalize#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.personalize#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.personalize#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.personalize#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -128,6 +134,7 @@ export class TooManyTagsException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.personalize#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -148,6 +155,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class TooManyTagKeysException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.personalize#TooManyTagKeysException";
   readonly name = "TooManyTagKeysException" as const;
   readonly $fault = "client" as const;
   /**

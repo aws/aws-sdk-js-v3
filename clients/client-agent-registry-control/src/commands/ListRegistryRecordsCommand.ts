@@ -70,6 +70,7 @@ export interface ListRegistryRecordsCommandOutput extends ListRegistryRecordsRes
  * //           sourceType: "AWS::BedrockAgentCore::Runtime" || "AWS::BedrockAgentCore::Gateway",
  * //         },
  * //       ],
+ * //       customMetadataSchemaComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

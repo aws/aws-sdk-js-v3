@@ -5,6 +5,7 @@ import type {
   CertificateStatusType,
   CertificateType,
   CertificateUsageType,
+  CommunicationMode,
   CompressionEnum,
   ConnectorEgressType,
   ConnectorsIpAddressType,
@@ -19,6 +20,7 @@ import type {
   ExecutionErrorType,
   ExecutionStatus,
   HomeDirectoryType,
+  HostKeyStorageType,
   IdentityProviderType,
   IpAddressType,
   MapType,
@@ -1757,15 +1759,33 @@ export interface IdentityProviderDetails {
 }
 
 /**
- * <p>Contains configuration for PROXY protocol version 2 (PPv2) support on an Transfer Family server. When enabled, Transfer Family reads the added PPv2 header from incoming connections to extract the original client IP address. This address is then available in Amazon CloudWatch Logs entries and is passed to custom identity providers during authentication, enabling IP-based access policies. For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/working-with-nlb.html">Working with Network Load Balancers</a>.</p>
+ * <p>Contains configuration for PROXY protocol version 2 (PPv2) support on an Transfer Family server. When enabled, Transfer Family reads the added PPv2 header from incoming connections to extract the client's source IP address. This address is then available in Amazon CloudWatch Logs entries and is passed to custom identity providers during authentication, enabling IP-based access policies. For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/working-with-nlb.html">Working with Network Load Balancers</a>.</p>
  * @public
  */
 export interface ProxyConfig {
   /**
-   * <p>Specifies whether the Transfer Family server requires or ignores a PPv2 header containing the original client IP address on incoming SFTP connections. If you don't specify a value, the default is <code>NONE</code> </p> <ul> <li> <p> <code>NONE</code>: the server reads and ignores any PPv2 header on incoming SFTP connections. This is the default value. Use this value when your SFTP server is not behind an NLB, or when you do not need to preserve client source IP addresses through an NLB.</p> </li> <li> <p> <code>PROXY_PROTOCOL_V2_ENFORCED</code>: the server requires a valid PPv2 header on every incoming SFTP connection. When a valid header is present, the server applies it and uses the client IP address from the header. If a connection arrives without a PPv2 header, the server refuses the connection and logs an error to Amazon CloudWatch Logs indicating that the expected PPv2 header was missing. Use this value when your SFTP server is behind an NLB with PPv2 enabled on the target group.</p> <important> <p>When you enable <code>PROXY_PROTOCOL_V2_ENFORCED</code>, the server trusts the source IP address in the PPv2 header. You must configure security groups on your server's VPC endpoint to restrict inbound traffic to only the NLB's private IP addresses. For the full requirements, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/working-with-nlb.html">Working with Network Load Balancers</a>.</p> </important> </li> </ul>
+   * <p>Specifies whether the Transfer Family server requires or ignores a PPv2 header containing the client's source IP address on incoming SFTP connections. If you don't specify a value, the default is <code>NONE</code> </p> <ul> <li> <p> <code>NONE</code>: the server reads and ignores any PPv2 header on incoming SFTP connections. This is the default value. Use this value when your SFTP server is not behind an NLB, or when you do not need to preserve the client's source IP address through an NLB.</p> </li> <li> <p> <code>PROXY_PROTOCOL_V2_ENFORCED</code>: the server requires a valid PPv2 header on every incoming SFTP connection. When a valid header is present, the server applies it and uses the source IP address from the header. If a connection arrives without a PPv2 header, the server refuses the connection and logs an error to Amazon CloudWatch Logs indicating that the expected PPv2 header was missing. Use this value when your SFTP server is behind an NLB with PPv2 enabled on the target group.</p> <important> <p>With <code>PROXY_PROTOCOL_V2_ENFORCED</code> you must restrict the server's VPC endpoint security group to allow inbound traffic only via the trusted NLB. For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/working-with-nlb.html">Working with Network Load Balancers</a>.</p> </important> </li> </ul>
    * @public
    */
   SftpMode?: ProxyMode | undefined;
+}
+
+/**
+ * <p>Specifies the configuration for a single SFTP port on a Transfer Family server that uses the SFTP protocol and has a <code>PUBLIC</code> endpoint. Each entry in the <code>SftpPorts</code> list is an <code>SftpPortWithOptions</code> object that pairs a port number with a communication mode.</p>
+ * @public
+ */
+export interface SftpPortWithOptions {
+  /**
+   * <p>The port on which the Transfer Family server listens for SFTP connections. Specify any integer from 2000 to 65535, or 22. This value is required for each entry in the <code>SftpPorts</code> list.</p>
+   * @public
+   */
+  SftpPort: number | undefined;
+
+  /**
+   * <p>Determines whether the server or the client sends data first when a client establishes an SFTP connection on this port. Valid values are <code>SERVER_TALK_FIRST</code> and <code>CLIENT_TALK_FIRST</code>. For a description of each mode, see the <code>SftpPorts</code> property. This value is optional.</p>
+   * @public
+   */
+  CommunicationMode?: CommunicationMode | undefined;
 }
 
 /**
@@ -1790,6 +1810,12 @@ export interface ProtocolDetails {
    * @public
    */
   SetStatOption?: SetStatOption | undefined;
+
+  /**
+   * <p>A property used with Transfer Family servers that use the SFTP protocol and have <code>PUBLIC</code> endpoints. This property accepts a list of up to three port configurations that the service opens on the server endpoint.</p> <p>Each entry in the list consists of two parameters, the <code>SftpPort</code> and the <code>CommunicationMode</code>. The <code>SftpPort</code> takes any integer from 2000 to 65535, or 22. <code>CommunicationMode</code> can be one of the following options:</p> <ul> <li> <p> <code>SERVER_TALK_FIRST</code>: The server responds to initial TCP connections first. Many older clients expect that an SFTP server responds with its server string before starting SSH negotiations.</p> </li> <li> <p> <code>CLIENT_TALK_FIRST</code>: The server responds to the initial TCP connection only after receiving a data packet. Most modern clients support this behavior and send their client string along with the initial data packets for SSH negotiation. Additionally, this mode is more resilient to TCP retransmissions that can occur during the initial TCP connection.</p> </li> </ul> <p>The following is an <code>SftpPorts</code> example for port 2222 with <code>CLIENT_TALK_FIRST</code>.</p> <p> <code>[ \{ "SftpPort": 2222, "CommunicationMode": "CLIENT_TALK_FIRST" \} ]</code> </p> <p>If you don't specify any configurations during <code>CreateServer</code>, the service uses port 22 with <code>SERVER_TALK_FIRST</code> by default.</p>
+   * @public
+   */
+  SftpPorts?: SftpPortWithOptions[] | undefined;
 
   /**
    * <p>Indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p>
@@ -1923,7 +1949,7 @@ export interface CreateServerRequest {
   Protocols?: Protocol[] | undefined;
 
   /**
-   * <p>The protocol settings that are configured for your server.</p> <note> <p>Avoid placing Network Load Balancers (NLBs) or NAT gateways in front of Transfer Family servers, as this increases costs and can cause performance issues, including reduced connection limits for FTPS. For more details, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations"> Avoid placing NLBs and NATs in front of Transfer Family</a>.</p> </note> <ul> <li> <p> To indicate passive mode (for FTP and FTPS protocols), use the <code>PassiveIp</code> parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer. </p> </li> <li> <p>To ignore the error that is generated when the client attempts to use the <code>SETSTAT</code> command on a file that you are uploading to an Amazon S3 bucket, use the <code>SetStatOption</code> parameter. To have the Transfer Family server ignore the <code>SETSTAT</code> command and upload files without needing to make any changes to your SFTP client, set the value to <code>ENABLE_NO_OP</code>. If you set the <code>SetStatOption</code> parameter to <code>ENABLE_NO_OP</code>, Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a <code>SETSTAT</code> call.</p> </li> <li> <p>To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the <code>TlsSessionResumptionMode</code> parameter.</p> </li> <li> <p> <code>As2Transports</code> indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p> </li> </ul>
+   * <p>The protocol settings that are configured for your server.</p> <note> <p>Avoid placing Network Load Balancers (NLBs) or NAT gateways in front of Transfer Family servers, as this increases costs and can cause performance issues, including reduced connection limits for FTPS. For more details, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations"> Avoid placing NLBs and NATs in front of Transfer Family</a>.</p> </note> <ul> <li> <p> To indicate passive mode (for FTP and FTPS protocols), use the <code>PassiveIp</code> parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer. </p> </li> <li> <p>To ignore the error that is generated when the client attempts to use the <code>SETSTAT</code> command on a file that you are uploading to an Amazon S3 bucket, use the <code>SetStatOption</code> parameter. To have the Transfer Family server ignore the <code>SETSTAT</code> command and upload files without needing to make any changes to your SFTP client, set the value to <code>ENABLE_NO_OP</code>. If you set the <code>SetStatOption</code> parameter to <code>ENABLE_NO_OP</code>, Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a <code>SETSTAT</code> call.</p> </li> <li> <p>To specify which ports your Transfer Family server listens to, use the <code>SftpPorts</code> parameter.</p> </li> <li> <p>To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the <code>TlsSessionResumptionMode</code> parameter.</p> </li> <li> <p> <code>As2Transports</code> indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p> </li> </ul>
    * @public
    */
   ProtocolDetails?: ProtocolDetails | undefined;
@@ -1947,7 +1973,7 @@ export interface CreateServerRequest {
   WorkflowDetails?: WorkflowDetails | undefined;
 
   /**
-   * <p>Specifies the log groups to which your server logs are sent.</p> <p>To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:</p> <p> <code>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</code> </p> <p>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code> </p> <p>If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty value for this parameter in an <code>update-server</code> call. For example:</p> <p> <code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code> </p>
+   * <p>Specifies the log groups to which your server logs are sent.</p> <p>To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:</p> <p> <code>arn:partition:logs:region-name:amazon-account-id:log-group:log-group-name:*</code> </p> <p>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code> </p> <p>If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty value for this parameter in an <code>update-server</code> call. For example:</p> <p> <code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code> </p>
    * @public
    */
   StructuredLogDestinations?: string[] | undefined;
@@ -1963,6 +1989,12 @@ export interface CreateServerRequest {
    * @public
    */
   IpAddressType?: IpAddressType | undefined;
+
+  /**
+   * <p>Specifies whether the host key is stored by Transfer Family (<code>SERVICE_MANAGED</code>) or in Secrets Manager (<code>SECRETS_MANAGER</code>). When you specify <code>SECRETS_MANAGER</code>, Transfer Family stores the private host key material in an Secrets Manager secret.</p>
+   * @public
+   */
+  HostKeyStorageType?: HostKeyStorageType | undefined;
 }
 
 /**
@@ -2470,6 +2502,12 @@ export interface CreateWorkflowRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Specifies the log groups to which your workflow logs are sent.</p> <p>To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:</p> <p> <code>arn:partition:logs:region-name:amazon-account-id:log-group:log-group-name:*</code> </p> <p>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code> </p>
+   * @public
+   */
+  StructuredLogDestinations?: string[] | undefined;
 }
 
 /**
@@ -2974,6 +3012,18 @@ export interface DescribedHostKey {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Specifies whether the host key is stored by Transfer Family (<code>SERVICE_MANAGED</code>) or in Secrets Manager (<code>SECRETS_MANAGER</code>).</p>
+   * @public
+   */
+  StorageType?: HostKeyStorageType | undefined;
+
+  /**
+   * <p>The ARN of the Secrets Manager secret that stores the host key material, when <code>StorageType</code> is <code>SECRETS_MANAGER</code>.</p>
+   * @public
+   */
+  SecretId?: string | undefined;
 }
 
 /**
@@ -3120,7 +3170,7 @@ export interface DescribedServer {
   Certificate?: string | undefined;
 
   /**
-   * <p>The protocol settings that are configured for your server.</p> <note> <p>Avoid placing Network Load Balancers (NLBs) or NAT gateways in front of Transfer Family servers, as this increases costs and can cause performance issues, including reduced connection limits for FTPS. For more details, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations"> Avoid placing NLBs and NATs in front of Transfer Family</a>.</p> </note> <ul> <li> <p> To indicate passive mode (for FTP and FTPS protocols), use the <code>PassiveIp</code> parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer. </p> </li> <li> <p>To ignore the error that is generated when the client attempts to use the <code>SETSTAT</code> command on a file that you are uploading to an Amazon S3 bucket, use the <code>SetStatOption</code> parameter. To have the Transfer Family server ignore the <code>SETSTAT</code> command and upload files without needing to make any changes to your SFTP client, set the value to <code>ENABLE_NO_OP</code>. If you set the <code>SetStatOption</code> parameter to <code>ENABLE_NO_OP</code>, Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a <code>SETSTAT</code> call.</p> </li> <li> <p>To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the <code>TlsSessionResumptionMode</code> parameter.</p> </li> <li> <p> <code>As2Transports</code> indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p> </li> </ul>
+   * <p>The protocol settings that are configured for your server.</p> <note> <p>Avoid placing Network Load Balancers (NLBs) or NAT gateways in front of Transfer Family servers, as this increases costs and can cause performance issues, including reduced connection limits for FTPS. For more details, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations"> Avoid placing NLBs and NATs in front of Transfer Family</a>.</p> </note> <ul> <li> <p> To indicate passive mode (for FTP and FTPS protocols), use the <code>PassiveIp</code> parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer. </p> </li> <li> <p>To ignore the error that is generated when the client attempts to use the <code>SETSTAT</code> command on a file that you are uploading to an Amazon S3 bucket, use the <code>SetStatOption</code> parameter. To have the Transfer Family server ignore the <code>SETSTAT</code> command and upload files without needing to make any changes to your SFTP client, set the value to <code>ENABLE_NO_OP</code>. If you set the <code>SetStatOption</code> parameter to <code>ENABLE_NO_OP</code>, Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a <code>SETSTAT</code> call.</p> </li> <li> <p>To specify which ports your Transfer Family server listens to, use the <code>SftpPorts</code> parameter.</p> </li> <li> <p>To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the <code>TlsSessionResumptionMode</code> parameter.</p> </li> <li> <p> <code>As2Transports</code> indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p> </li> </ul>
    * @public
    */
   ProtocolDetails?: ProtocolDetails | undefined;
@@ -3222,7 +3272,7 @@ export interface DescribedServer {
   WorkflowDetails?: WorkflowDetails | undefined;
 
   /**
-   * <p>Specifies the log groups to which your server logs are sent.</p> <p>To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:</p> <p> <code>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</code> </p> <p>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code> </p> <p>If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty value for this parameter in an <code>update-server</code> call. For example:</p> <p> <code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code> </p>
+   * <p>Specifies the log groups to which your server logs are sent.</p> <p>To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:</p> <p> <code>arn:partition:logs:region-name:amazon-account-id:log-group:log-group-name:*</code> </p> <p>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code> </p> <p>If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty value for this parameter in an <code>update-server</code> call. For example:</p> <p> <code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code> </p>
    * @public
    */
   StructuredLogDestinations?: string[] | undefined;
@@ -3580,6 +3630,12 @@ export interface DescribedWorkflow {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Specifies the log groups to which your workflow logs are sent.</p> <p>To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:</p> <p> <code>arn:partition:logs:region-name:amazon-account-id:log-group:log-group-name:*</code> </p> <p>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code> </p>
+   * @public
+   */
+  StructuredLogDestinations?: string[] | undefined;
 }
 
 /**
@@ -3837,6 +3893,18 @@ export interface ImportHostKeyRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Specifies whether the host key is stored by Transfer Family (<code>SERVICE_MANAGED</code>) or in Secrets Manager (<code>SECRETS_MANAGER</code>). When you specify <code>SECRETS_MANAGER</code>, Transfer Family stores the private host key material in an Secrets Manager secret.</p>
+   * @public
+   */
+  StorageType?: HostKeyStorageType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the Secrets Manager secret that stores the host key. If you specify a customer managed key, its key policy must allow the <code>AWSServiceRoleForTransfer</code> service-linked role to decrypt the secret. If you don't specify a value, Transfer Family uses the Amazon Web Services managed key for Secrets Manager.</p>
+   * @public
+   */
+  KmsKey?: string | undefined;
 }
 
 /**
@@ -4049,6 +4117,18 @@ export interface ListedHostKey {
    * @public
    */
   DateImported?: Date | undefined;
+
+  /**
+   * <p>Specifies whether the host key is stored by Transfer Family (<code>SERVICE_MANAGED</code>) or in Secrets Manager (<code>SECRETS_MANAGER</code>).</p>
+   * @public
+   */
+  StorageType?: HostKeyStorageType | undefined;
+
+  /**
+   * <p>The ARN of the Secrets Manager secret that stores the host key material, when <code>StorageType</code> is <code>SECRETS_MANAGER</code>.</p>
+   * @public
+   */
+  SecretId?: string | undefined;
 }
 
 /**
@@ -4716,7 +4796,7 @@ export interface UpdateServerRequest {
   Certificate?: string | undefined;
 
   /**
-   * <p>The protocol settings that are configured for your server.</p> <note> <p>Avoid placing Network Load Balancers (NLBs) or NAT gateways in front of Transfer Family servers, as this increases costs and can cause performance issues, including reduced connection limits for FTPS. For more details, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations"> Avoid placing NLBs and NATs in front of Transfer Family</a>.</p> </note> <ul> <li> <p> To indicate passive mode (for FTP and FTPS protocols), use the <code>PassiveIp</code> parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer. </p> </li> <li> <p>To ignore the error that is generated when the client attempts to use the <code>SETSTAT</code> command on a file that you are uploading to an Amazon S3 bucket, use the <code>SetStatOption</code> parameter. To have the Transfer Family server ignore the <code>SETSTAT</code> command and upload files without needing to make any changes to your SFTP client, set the value to <code>ENABLE_NO_OP</code>. If you set the <code>SetStatOption</code> parameter to <code>ENABLE_NO_OP</code>, Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a <code>SETSTAT</code> call.</p> </li> <li> <p>To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the <code>TlsSessionResumptionMode</code> parameter.</p> </li> <li> <p> <code>As2Transports</code> indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p> </li> </ul>
+   * <p>The protocol settings that are configured for your server.</p> <note> <p>Avoid placing Network Load Balancers (NLBs) or NAT gateways in front of Transfer Family servers, as this increases costs and can cause performance issues, including reduced connection limits for FTPS. For more details, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations"> Avoid placing NLBs and NATs in front of Transfer Family</a>.</p> </note> <ul> <li> <p> To indicate passive mode (for FTP and FTPS protocols), use the <code>PassiveIp</code> parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer. </p> </li> <li> <p>To ignore the error that is generated when the client attempts to use the <code>SETSTAT</code> command on a file that you are uploading to an Amazon S3 bucket, use the <code>SetStatOption</code> parameter. To have the Transfer Family server ignore the <code>SETSTAT</code> command and upload files without needing to make any changes to your SFTP client, set the value to <code>ENABLE_NO_OP</code>. If you set the <code>SetStatOption</code> parameter to <code>ENABLE_NO_OP</code>, Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a <code>SETSTAT</code> call.</p> </li> <li> <p>To specify which ports your Transfer Family server listens to, use the <code>SftpPorts</code> parameter.</p> </li> <li> <p>To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the <code>TlsSessionResumptionMode</code> parameter.</p> </li> <li> <p> <code>As2Transports</code> indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p> </li> </ul>
    * @public
    */
   ProtocolDetails?: ProtocolDetails | undefined;
@@ -4788,7 +4868,7 @@ export interface UpdateServerRequest {
   WorkflowDetails?: WorkflowDetails | undefined;
 
   /**
-   * <p>Specifies the log groups to which your server logs are sent.</p> <p>To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:</p> <p> <code>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</code> </p> <p>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code> </p> <p>If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty value for this parameter in an <code>update-server</code> call. For example:</p> <p> <code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code> </p>
+   * <p>Specifies the log groups to which your server logs are sent.</p> <p>To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:</p> <p> <code>arn:partition:logs:region-name:amazon-account-id:log-group:log-group-name:*</code> </p> <p>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code> </p> <p>If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty value for this parameter in an <code>update-server</code> call. For example:</p> <p> <code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code> </p>
    * @public
    */
   StructuredLogDestinations?: string[] | undefined;
@@ -5245,7 +5325,19 @@ export interface UpdateHostKeyRequest {
    * <p>An updated description for the host key.</p>
    * @public
    */
-  Description: string | undefined;
+  Description?: string | undefined;
+
+  /**
+   * <p>Specifies whether the host key is stored by Transfer Family (<code>SERVICE_MANAGED</code>) or in Secrets Manager (<code>SECRETS_MANAGER</code>). When you specify <code>SECRETS_MANAGER</code>, Transfer Family stores the private host key material in an Secrets Manager secret.</p>
+   * @public
+   */
+  StorageType?: HostKeyStorageType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the Secrets Manager secret that stores the host key. If you specify a customer managed key, its key policy must allow the <code>AWSServiceRoleForTransfer</code> service-linked role to decrypt the secret. If you don't specify a value, Transfer Family uses the Amazon Web Services managed key for Secrets Manager.</p>
+   * @public
+   */
+  KmsKey?: string | undefined;
 }
 
 /**

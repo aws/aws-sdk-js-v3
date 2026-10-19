@@ -68,6 +68,12 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *     PassiveIp: "STRING_VALUE",
  *     TlsSessionResumptionMode: "DISABLED" || "ENABLED" || "ENFORCED",
  *     SetStatOption: "DEFAULT" || "ENABLE_NO_OP",
+ *     SftpPorts: [ // SftpPorts
+ *       { // SftpPortWithOptions
+ *         SftpPort: Number("int"), // required
+ *         CommunicationMode: "CLIENT_TALK_FIRST" || "SERVER_TALK_FIRST",
+ *       },
+ *     ],
  *     As2Transports: [ // As2Transports
  *       "HTTP",
  *     ],
@@ -103,6 +109,7 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *     DirectoryListingOptimization: "ENABLED" || "DISABLED",
  *   },
  *   IpAddressType: "IPV4" || "DUALSTACK",
+ *   HostKeyStorageType: "SERVICE_MANAGED" || "SECRETS_MANAGER",
  * };
  * const command = new CreateServerCommand(input);
  * const response = await client.send(command);

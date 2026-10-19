@@ -9,6 +9,7 @@ import { WickrServiceException as __BaseException } from "./WickrServiceExceptio
  * @public
  */
 export class BadRequestError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wickr#BadRequestError";
   readonly name = "BadRequestError" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class BadRequestError extends __BaseException {
  * @public
  */
 export class ForbiddenError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wickr#ForbiddenError";
   readonly name = "ForbiddenError" as const;
   readonly $fault = "client" as const;
   /**
@@ -49,6 +51,7 @@ export class ForbiddenError extends __BaseException {
  * @public
  */
 export class InternalServerError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wickr#InternalServerError";
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   /**
@@ -69,6 +72,7 @@ export class InternalServerError extends __BaseException {
  * @public
  */
 export class RateLimitError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wickr#RateLimitError";
   readonly name = "RateLimitError" as const;
   readonly $fault = "client" as const;
   /**
@@ -89,6 +93,7 @@ export class RateLimitError extends __BaseException {
  * @public
  */
 export class ResourceNotFoundError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wickr#ResourceNotFoundError";
   readonly name = "ResourceNotFoundError" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +114,7 @@ export class ResourceNotFoundError extends __BaseException {
  * @public
  */
 export class UnauthorizedError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wickr#UnauthorizedError";
   readonly name = "UnauthorizedError" as const;
   readonly $fault = "client" as const;
   /**
@@ -129,6 +135,7 @@ export class UnauthorizedError extends __BaseException {
  * @public
  */
 export class ValidationError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wickr#ValidationError";
   readonly name = "ValidationError" as const;
   readonly $fault = "client" as const;
   /**

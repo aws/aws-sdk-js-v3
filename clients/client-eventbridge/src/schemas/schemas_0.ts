@@ -909,8 +909,8 @@ export var DescribeEventBusRequest$: StaticStructureSchema = [3, n0, _DEBRe,
 ];
 export var DescribeEventBusResponse$: StaticStructureSchema = [3, n0, _DEBRes,
   0,
-  [_N, _Ar, _D, _KKI, _DLC, _Po, _LC, _CT, _LMT],
-  [0, 0, 0, 0, () => DeadLetterConfig$, 0, () => LogConfig$, 4, 4]
+  [_N, _Ar, _D, _KKI, _DLC, _Po, _LC, _CT, _LMT, _MB],
+  [0, 0, 0, 0, () => DeadLetterConfig$, 0, () => LogConfig$, 4, 4, 0]
 ];
 export var DescribeEventSourceRequest$: StaticStructureSchema = [3, n0, _DESRe,
   0,
@@ -979,8 +979,8 @@ export var EndpointEventBus$: StaticStructureSchema = [3, n0, _EEB,
 ];
 export var EventBus$: StaticStructureSchema = [3, n0, _EBv,
   0,
-  [_N, _Ar, _D, _Po, _CT, _LMT],
-  [0, 0, 0, 0, 4, 4]
+  [_N, _Ar, _D, _Po, _CT, _LMT, _MB],
+  [0, 0, 0, 0, 4, 4, 0]
 ];
 export var EventSource$: StaticStructureSchema = [3, n0, _ES,
   0,
