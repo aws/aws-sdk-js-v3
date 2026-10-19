@@ -15,7 +15,6 @@
  * ```
  */
 
-
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
@@ -46,11 +45,9 @@ const tree = /** @type {string} */ (treeArg).replace(/\/+$/, "");
 const nodeModules = tree.endsWith("node_modules") ? tree : join(tree, "node_modules");
 if (!existsSync(nodeModules)) die(`no node_modules at ${nodeModules}`);
 
-const { status, error } = spawnSync(
-  trivy,
-  ["rootfs", "--scanners", "vuln", ...argv, nodeModules],
-  { stdio: "inherit" }
-);
+const { status, error } = spawnSync(trivy, ["rootfs", "--scanners", "vuln", ...argv, nodeModules], {
+  stdio: "inherit",
+});
 
 if (error) {
   die(

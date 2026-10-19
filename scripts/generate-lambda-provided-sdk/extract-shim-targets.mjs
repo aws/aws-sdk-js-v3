@@ -36,9 +36,7 @@ const SNAPSHOT = option("snapshot");
 const COMMIT = option("commit") ?? "bb2232f76f4";
 
 if (!SNAPSHOT) {
-  die(
-    "usage: extract-shim-targets.mjs --snapshot <lambda-provided-sdk-api-snapshot.json> [--commit <sha>]"
-  );
+  die("usage: extract-shim-targets.mjs --snapshot <lambda-provided-sdk-api-snapshot.json> [--commit <sha>]");
 }
 if (!existsSync(/** @type {string} */ (SNAPSHOT))) die(`no snapshot at ${SNAPSHOT}`);
 
@@ -138,7 +136,7 @@ writeFileSync(
         "`target`, which the assembler generates rather than installing.",
         "",
         `Targets were extracted from ${COMMIT} ("chore(packages): re-export from migrated`,
-        'packages"), which replaced each deprecated package\'s src/index.ts with one',
+        "packages\"), which replaced each deprecated package's src/index.ts with one",
         "`export * from`. Those packages were later deleted from the repo, so that commit is",
         "the only remaining record of the mapping here. Rebuild with extract-shim-targets.mjs.",
         "",
@@ -165,9 +163,7 @@ for (const e of Object.values(resolved)) {
 console.log(`wrote ${OUT}`);
 console.log(`  entries   : ${Object.keys(resolved).length}`);
 console.log(`  by source : ${JSON.stringify(bySource)}`);
-console.log(
-  `  exports   : ${Object.values(resolved).reduce((a, e) => a + /** @type {any} */ (e).exports.length, 0)}`
-);
+console.log(`  exports   : ${Object.values(resolved).reduce((a, e) => a + /** @type {any} */ (e).exports.length, 0)}`);
 if (unresolved.length) {
   console.log(`  carried forward from the committed file (not in ${COMMIT}):`);
   unresolved.forEach((u) => console.log(`    ${u.name}  — ${u.note}`));
