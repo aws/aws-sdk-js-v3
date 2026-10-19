@@ -1394,7 +1394,7 @@ export interface CreateDeviceProfileRequest {
   /**
    * <p>The name of the new resource.</p>
    *          <note>
-   *             <p>The following special characters aren't accepted: <code><>^#~$</code>
+   *             <p>The following special characters aren't accepted: <code>&lt;&gt;^#~$</code>
    *             </p>
    *          </note>
    * @public
@@ -1894,7 +1894,7 @@ export interface CreateServiceProfileRequest {
   /**
    * <p>The name of the new resource.</p>
    *          <note>
-   *             <p>The following special characters aren't accepted: <code><>^#~$</code>
+   *             <p>The following special characters aren't accepted: <code>&lt;&gt;^#~$</code>
    *             </p>
    *          </note>
    * @public
@@ -2165,7 +2165,7 @@ export interface CreateWirelessDeviceRequest {
   /**
    * <p>The name of the new resource.</p>
    *          <note>
-   *             <p>The following special characters aren't accepted: <code><>^#~$</code>
+   *             <p>The following special characters aren't accepted: <code>&lt;&gt;^#~$</code>
    *             </p>
    *          </note>
    * @public
@@ -2297,7 +2297,7 @@ export interface CreateWirelessGatewayRequest {
   /**
    * <p>The name of the new resource.</p>
    *          <note>
-   *             <p>The following special characters aren't accepted: <code><>^#~$</code>
+   *             <p>The following special characters aren't accepted: <code>&lt;&gt;^#~$</code>
    *             </p>
    *          </note>
    * @public

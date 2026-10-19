@@ -1073,7 +1073,7 @@ export interface UpdateWirelessDeviceRequest {
   /**
    * <p>The new name of the resource.</p>
    *          <note>
-   *             <p>The following special characters aren't accepted: <code><>^#~$</code>
+   *             <p>The following special characters aren't accepted: <code>&lt;&gt;^#~$</code>
    *             </p>
    *          </note>
    * @public
@@ -1158,7 +1158,7 @@ export interface UpdateWirelessGatewayRequest {
   /**
    * <p>The new name of the resource.</p>
    *          <note>
-   *             <p>The following special characters aren't accepted: <code><>^#~$</code>
+   *             <p>The following special characters aren't accepted: <code>&lt;&gt;^#~$</code>
    *             </p>
    *          </note>
    * @public
