@@ -207,6 +207,10 @@ export interface GetDbParameterGroupCommandOutput extends GetDbParameterGroupOut
  * //       distinctValueCacheDisableFromHistory: true || false,
  * //       replicationInterval: "<Duration>",
  * //       catalogSyncInterval: "<Duration>",
+ * //       upgradePachaTree: true || false,
+ * //       walBufferSize: Number("long"),
+ * //       snapshotSize: "<PercentOrAbsoluteLong>",
+ * //       snapshotDuration: "<Duration>",
  * //     },
  * //   },
  * // };

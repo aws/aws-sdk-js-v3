@@ -245,12 +245,14 @@ const _sCMMS = "storageCacheMaxMemorySize";
 const _sCSMS = "storageCacheSnapshotMemorySize";
 const _sCSWCD = "storageCacheSnapshotWriteColdDuration";
 const _sCTB = "storageCompactThroughputBurst";
+const _sD = "snapshotDuration";
 const _sL = "sessionLength";
 const _sMCC = "storageMaxConcurrentCompactions";
 const _sMILFS = "storageMaxIndexLogFileSize";
 const _sNVFS = "storageNoValidateFieldSize";
 const _sRCI = "storageRetentionCheckInterval";
 const _sRD = "sessionRenewDisabled";
+const _sS = "snapshotSize";
 const _sSFMCSC = "storageSeriesFileMaxConcurrentSnapshotCompactions";
 const _sSISCS = "storageSeriesIdSetCacheSize";
 const _sWFTK = "snapshottedWalFilesToKeep";
@@ -267,9 +269,11 @@ const _ti = "timezone";
 const _ty = "type";
 const _u = "username";
 const _uD = "uiDisabled";
+const _uPT = "upgradePachaTree";
 const _v = "value";
 const _vSGI = "vpcSecurityGroupIds";
 const _vSI = "vpcSubnetIds";
+const _wBS = "walBufferSize";
 const _wMWBS = "walMaxWriteBufferSize";
 const _wRCL = "walReplayConcurrencyLimit";
 const _wRFOE = "walReplayFailOnError";
@@ -524,8 +528,8 @@ export var InfluxDBv3CoreParameters$: StaticStructureSchema = [3, n0, _IDBCP,
 ];
 export var InfluxDBv3EnterpriseParameters$: StaticStructureSchema = [3, n0, _IDBEP,
   0,
-  [_iQI, _qOI, _dC, _qFL, _qLS, _lF, _lFo, _dFNT, _dFRT, _dFRDLS, _dFREI, _dFRGQI, _dFRMBT, _dFRMIEPT, _dFRTKA, _dFRTP, _dFMPF, _dFUCPL, _dFC, _mHRS, _fSMT, _wSS, _wMWBS, _sWFTK, _pCA, _pMCPP, _pMCPI, _dPMC, _pMCQPD, _lCEI, _dCEI, _gD, _eMPB, _pMCS, _wRFOE, _wRCL, _tICME, _tICCL, _gLD, _rCI, _dGP, _hDDD, _pRU, _pRSA, _cRL, _cMNFPP, _cGD, _cM, _cCW, _cCI, _lVCDFH, _dVCDFH, _rIe, _cSI],
-  [1, 1, 2, 1, 1, 0, 0, 1, 0, 2, 1, 1, 1, 1, () => Duration$, 1, 1, 2, 0, 1, () => PercentOrAbsoluteLong$, 1, 1, 1, () => Duration$, 1, () => Duration$, 2, () => Duration$, () => Duration$, () => Duration$, () => Duration$, () => PercentOrAbsoluteLong$, () => PercentOrAbsoluteLong$, 2, 1, 1, 1, () => Duration$, () => Duration$, () => Duration$, () => Duration$, 0, 0, 1, 1, () => Duration$, 0, () => Duration$, () => Duration$, 2, 2, () => Duration$, () => Duration$], 3
+  [_iQI, _qOI, _dC, _qFL, _qLS, _lF, _lFo, _dFNT, _dFRT, _dFRDLS, _dFREI, _dFRGQI, _dFRMBT, _dFRMIEPT, _dFRTKA, _dFRTP, _dFMPF, _dFUCPL, _dFC, _mHRS, _fSMT, _wSS, _wMWBS, _sWFTK, _pCA, _pMCPP, _pMCPI, _dPMC, _pMCQPD, _lCEI, _dCEI, _gD, _eMPB, _pMCS, _wRFOE, _wRCL, _tICME, _tICCL, _gLD, _rCI, _dGP, _hDDD, _pRU, _pRSA, _cRL, _cMNFPP, _cGD, _cM, _cCW, _cCI, _lVCDFH, _dVCDFH, _rIe, _cSI, _uPT, _wBS, _sS, _sD],
+  [1, 1, 2, 1, 1, 0, 0, 1, 0, 2, 1, 1, 1, 1, () => Duration$, 1, 1, 2, 0, 1, () => PercentOrAbsoluteLong$, 1, 1, 1, () => Duration$, 1, () => Duration$, 2, () => Duration$, () => Duration$, () => Duration$, () => Duration$, () => PercentOrAbsoluteLong$, () => PercentOrAbsoluteLong$, 2, 1, 1, 1, () => Duration$, () => Duration$, () => Duration$, () => Duration$, 0, 0, 1, 1, () => Duration$, 0, () => Duration$, () => Duration$, 2, 2, () => Duration$, () => Duration$, 2, 1, () => PercentOrAbsoluteLong$, () => Duration$], 3
 ];
 export var ListDbBackupsInput$: StaticStructureSchema = [3, n0, _LDBI,
   0,

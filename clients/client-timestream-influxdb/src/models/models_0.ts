@@ -3780,6 +3780,30 @@ export interface InfluxDBv3EnterpriseParameters {
    * @public
    */
   catalogSyncInterval?: Duration | undefined;
+
+  /**
+   * <p>Specifies whether to migrate the cluster from the Parquet storage engine to PachaTree. This action cannot be reversed. To create a new cluster on Parquet, set this to false.</p>
+   * @public
+   */
+  upgradePachaTree?: boolean | undefined;
+
+  /**
+   * <p>The maximum size, in bytes, of the in-memory WAL buffer before a flush is triggered regardless of the flush interval. Increase this value if WAL files are flushed before the interval elapses.</p>
+   * @public
+   */
+  walBufferSize?: number | undefined;
+
+  /**
+   * <p>The maximum size of the active snapshot bucket before it is rotated for snapshotting.</p>
+   * @public
+   */
+  snapshotSize?: PercentOrAbsoluteLong | undefined;
+
+  /**
+   * <p>The time-based trigger that controls how often the ingester creates snapshots. This value is also used on query nodes as the bucket rotation interval for the replica buffer.</p>
+   * @public
+   */
+  snapshotDuration?: Duration | undefined;
 }
 
 /**
