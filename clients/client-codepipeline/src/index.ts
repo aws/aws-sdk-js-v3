@@ -1,13 +1,16 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <fullname>CodePipeline</fullname>
+ * <fullname>
+ *             CodePipeline
+ *          </fullname>
  *          <p>
  *             <b>Overview</b>
  *          </p>
  *          <p>This is the CodePipeline API Reference. This guide provides descriptions
  *             of the actions and data types for CodePipeline. Some functionality for your
- *             pipeline can only be configured through the API. For more information, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html">CodePipeline User Guide</a>.</p>
+ *             pipeline can only be configured through the API. For more information, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html">
+ *                CodePipeline User Guide</a>.</p>
  *          <p>You can use the CodePipeline API to work with pipelines, stages, actions,
  *             and transitions.</p>
  *          <p>
@@ -81,7 +84,8 @@
  *             action to rerun the most recent artifact through the pipeline. You can call <a>GetPipelineState</a>, which displays the status of a pipeline, including the
  *             status of stages in the pipeline, or <a>GetPipeline</a>, which returns the
  *             entire structure of the pipeline, including the stages of that pipeline. For more
- *             information about the structure of stages and actions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html">CodePipeline
+ *             information about the structure of stages and actions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html">
+ *                CodePipeline
  *                 Pipeline Structure Reference</a>.</p>
  *          <p>Pipeline stages include <i>actions</i> that are categorized into
  *             categories such as source or build actions performed in a stage of a pipeline. For
@@ -130,7 +134,8 @@
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Using the API to integrate with CodePipeline</b>
+ *             <b>Using the API to integrate with CodePipeline
+ *             </b>
  *          </p>
  *          <p>For third-party integrators or developers who want to create their own integrations
  *             with CodePipeline, the expected sequence varies from the standard API user. To
