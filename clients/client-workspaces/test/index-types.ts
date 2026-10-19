@@ -312,6 +312,7 @@ export type {
   ImageAssociatedResourceType,
   ImageComputeType,
   ImageType,
+  ImageValidationMode,
   InternetFallbackProtocol,
   LogUploadEnum,
   ModificationResourceEnum,

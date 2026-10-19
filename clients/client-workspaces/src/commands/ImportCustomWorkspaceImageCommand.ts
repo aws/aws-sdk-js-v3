@@ -56,6 +56,7 @@ export interface ImportCustomWorkspaceImageCommandOutput extends ImportCustomWor
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   ImageValidationMode: "CUSTOMER_MANAGED" || "SERVICE_MANAGED",
  * };
  * const command = new ImportCustomWorkspaceImageCommand(input);
  * const response = await client.send(command);

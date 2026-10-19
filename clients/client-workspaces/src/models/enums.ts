@@ -1128,6 +1128,19 @@ export type ImageComputeType = (typeof ImageComputeType)[keyof typeof ImageCompu
  * @public
  * @enum
  */
+export const ImageValidationMode = {
+  CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
+  SERVICE_MANAGED: "SERVICE_MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type ImageValidationMode = (typeof ImageValidationMode)[keyof typeof ImageValidationMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const OSVersion = {
   Windows_10: "Windows_10",
   Windows_11: "Windows_11",

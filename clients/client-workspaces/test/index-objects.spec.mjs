@@ -301,6 +301,7 @@ import {
   ImageResourceAssociation$,
   ImageSourceIdentifier$,
   ImageType,
+  ImageValidationMode,
   ImportClientBranding$,
   ImportClientBrandingCommand,
   ImportClientBrandingRequest$,
@@ -1061,6 +1062,7 @@ assert(typeof EndpointEncryptionMode === "object");
 assert(typeof ImageAssociatedResourceType === "object");
 assert(typeof ImageComputeType === "object");
 assert(typeof ImageType === "object");
+assert(typeof ImageValidationMode === "object");
 assert(typeof InternetFallbackProtocol === "object");
 assert(typeof LogUploadEnum === "object");
 assert(typeof ModificationResourceEnum === "object");
