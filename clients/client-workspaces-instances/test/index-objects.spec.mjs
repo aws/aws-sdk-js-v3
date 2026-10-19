@@ -92,6 +92,10 @@ import {
   ListWorkspaceInstancesResponse$,
   ManagedInstanceRequest$,
   MarketTypeEnum,
+  ModifyVolume$,
+  ModifyVolumeCommand,
+  ModifyVolumeRequest$,
+  ModifyVolumeResponse$,
   NestedVirtualizationEnum,
   paginateListInstanceTypes,
   paginateListRegions,
@@ -128,6 +132,8 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
+  VolumeModificationRateExceededException,
+  VolumeModificationRateExceededException$,
   VolumeTypeEnum,
   WorkspaceInstance$,
   WorkspaceInstanceError$,
@@ -162,6 +168,8 @@ assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof ListWorkspaceInstancesCommand === "function");
 assert(typeof ListWorkspaceInstances$ === "object");
+assert(typeof ModifyVolumeCommand === "function");
+assert(typeof ModifyVolume$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -216,6 +224,8 @@ assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListWorkspaceInstancesRequest$ === "object");
 assert(typeof ListWorkspaceInstancesResponse$ === "object");
 assert(typeof ManagedInstanceRequest$ === "object");
+assert(typeof ModifyVolumeRequest$ === "object");
+assert(typeof ModifyVolumeResponse$ === "object");
 assert(typeof Placement$ === "object");
 assert(typeof PrivateDnsNameOptionsRequest$ === "object");
 assert(typeof PrivateIpAddressSpecification$ === "object");
@@ -272,6 +282,8 @@ assert(ThrottlingException.prototype instanceof WorkspacesInstancesServiceExcept
 assert(typeof ThrottlingException$ === "object");
 assert(ValidationException.prototype instanceof WorkspacesInstancesServiceException);
 assert(typeof ValidationException$ === "object");
+assert(VolumeModificationRateExceededException.prototype instanceof WorkspacesInstancesServiceException);
+assert(typeof VolumeModificationRateExceededException$ === "object");
 assert(WorkspacesInstancesServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListInstanceTypes === "function");
