@@ -587,6 +587,7 @@ const _dS = "dataSource";
 const _dSC = "deliverySourceConfiguration";
 const _dSN = "deliverySourceName";
 const _dSNa = "dataSourceName";
+const _dSNe = "deliverySourceNames";
 const _dSRA = "dataSourceRoleArn";
 const _dST = "dataSourceType";
 const _dSa = "dataSources";
@@ -781,6 +782,7 @@ const _nMV = "nonMatchValue";
 const _nP = "networkPolicy";
 const _nST = "nextSequenceToken";
 const _nT = "nextToken";
+const _na = "names";
 const _oAI = "ownerAccountId";
 const _oB = "orderBy";
 const _oF = "outputFormat";
@@ -1465,8 +1467,8 @@ export var DescribeConfigurationTemplatesResponse$: StaticStructureSchema = [3, 
 ];
 export var DescribeDeliveriesRequest$: StaticStructureSchema = [3, n0, _DDRes,
   0,
-  [_nT, _li],
-  [0, 1]
+  [_nT, _li, _dSNe],
+  [0, 1, 64 | 0]
 ];
 export var DescribeDeliveriesResponse$: StaticStructureSchema = [3, n0, _DDResc,
   0,
@@ -1475,8 +1477,8 @@ export var DescribeDeliveriesResponse$: StaticStructureSchema = [3, n0, _DDResc,
 ];
 export var DescribeDeliveryDestinationsRequest$: StaticStructureSchema = [3, n0, _DDDRe,
   0,
-  [_nT, _li],
-  [0, 1]
+  [_nT, _li, _na],
+  [0, 1, 64 | 0]
 ];
 export var DescribeDeliveryDestinationsResponse$: StaticStructureSchema = [3, n0, _DDDRes,
   0,
@@ -1485,8 +1487,8 @@ export var DescribeDeliveryDestinationsResponse$: StaticStructureSchema = [3, n0
 ];
 export var DescribeDeliverySourcesRequest$: StaticStructureSchema = [3, n0, _DDSRe,
   0,
-  [_nT, _li],
-  [0, 1]
+  [_nT, _li, _rAe],
+  [0, 1, 64 | 0]
 ];
 export var DescribeDeliverySourcesResponse$: StaticStructureSchema = [3, n0, _DDSRes,
   0,
@@ -2729,6 +2731,7 @@ var DeleteWithKeys = 64 | 0;
 var Deliveries: StaticListSchema = [1, n0, _Del,
   0, () => Delivery$
 ];
+var DeliveryDestinationNames = 64 | 0;
 var DeliveryDestinations: StaticListSchema = [1, n0, _DDe,
   0, () => DeliveryDestination$
 ];
@@ -2737,6 +2740,7 @@ var DeliverySourceConfigurationSchemas: StaticListSchema = [1, n0, _DSCSe,
   0, () => DeliverySourceConfigurationSchema$
 ];
 var DeliverySourceConfigurationSupportedValues = 64 | 0;
+var DeliverySourceNames = 64 | 0;
 var DeliverySources: StaticListSchema = [1, n0, _DSel,
   0, () => DeliverySource$
 ];
@@ -2758,6 +2762,7 @@ var FieldIndexNames = 64 | 0;
 var FilteredLogEvents: StaticListSchema = [1, n0, _FLEi,
   0, () => FilteredLogEvent$
 ];
+var FilterResourceArns = 64 | 0;
 var GroupingIdentifiers: StaticListSchema = [1, n0, _GIr,
   0, () => GroupingIdentifier$
 ];

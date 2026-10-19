@@ -36,7 +36,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  *                <p>
  *                   <b>Supported principals</b> - Policy only applies when
  *           operations are invoked by Amazon Web Services service principals (not IAM
- *           users, roles, or cross-account principals</p>
+ *           users, roles, or cross-account principals)</p>
  *             </li>
  *             <li>
  *                <p>

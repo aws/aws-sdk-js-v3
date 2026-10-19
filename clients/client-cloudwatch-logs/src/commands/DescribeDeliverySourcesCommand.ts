@@ -35,6 +35,9 @@ export interface DescribeDeliverySourcesCommandOutput extends DescribeDeliverySo
  * const input = { // DescribeDeliverySourcesRequest
  *   nextToken: "STRING_VALUE",
  *   limit: Number("int"),
+ *   resourceArns: [ // FilterResourceArns
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new DescribeDeliverySourcesCommand(input);
  * const response = await client.send(command);
