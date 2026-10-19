@@ -2724,6 +2724,7 @@ const _UCAR = "UpdateContactAttributesRequest";
 const _UCARp = "UpdateContactAttributesResponse";
 const _UCAp = "UpdateCaseAction";
 const _UCApd = "UpdateContactAttributes";
+const _UCD = "UrlContentDisposition";
 const _UCE = "UpdateContactEvaluation";
 const _UCER = "UpdateContactEvaluationRequest";
 const _UCERp = "UpdateContactEvaluationResponse";
@@ -3085,6 +3086,7 @@ const _tKa = "tagKeys";
 const _tV = "tagValue";
 const _tVCT = "tagValueComparisonType";
 const _ta = "tags";
+const _uCD = "urlContentDisposition";
 const _uEIS = "urlExpiryInSeconds";
 const _v = "version";
 const _va = "value";
@@ -6156,8 +6158,8 @@ export var FontFamily$: StaticStructureSchema = [3, n0, _FF,
 ];
 export var GetAttachedFileRequest$: StaticStructureSchema = [3, n0, _GAFR,
   0,
-  [_II, _FIi, _ARA, _UEIS],
-  [[0, 1], [0, 1], [0, { [_hQ]: _aRA }], [1, { [_hQ]: _uEIS }]], 3
+  [_II, _FIi, _ARA, _UEIS, _UCD],
+  [[0, 1], [0, 1], [0, { [_hQ]: _aRA }], [1, { [_hQ]: _uEIS }], [0, { [_hQ]: _uCD }]], 3
 ];
 export var GetAttachedFileResponse$: StaticStructureSchema = [3, n0, _GAFRe,
   0,

@@ -289,6 +289,7 @@ import {
   ContactSearchSummarySegmentAttributeValue$,
   ContactState,
   ContentAttributes$,
+  ContentDisposition,
   ControlPlaneAttributeFilter$,
   ControlPlaneTagFilter$,
   ControlPlaneUserAttributeFilter$,
@@ -4660,6 +4661,7 @@ assert(typeof ContactMetricName === "object");
 assert(typeof ContactParticipantRole === "object");
 assert(typeof ContactRecordingType === "object");
 assert(typeof ContactState === "object");
+assert(typeof ContentDisposition === "object");
 assert(typeof CurrentMetricName === "object");
 assert(typeof DataTableAttributeValueType === "object");
 assert(typeof DataTableLockLevel === "object");

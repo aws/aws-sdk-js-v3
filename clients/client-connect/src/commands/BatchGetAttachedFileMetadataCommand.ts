@@ -50,7 +50,7 @@ export interface BatchGetAttachedFileMetadataCommandOutput extends BatchGetAttac
  * //       FileId: "STRING_VALUE", // required
  * //       FileName: "STRING_VALUE", // required
  * //       FileSizeInBytes: Number("long"), // required
- * //       FileStatus: "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED", // required
+ * //       FileStatus: "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED" || "DRAFTING", // required
  * //       CreatedBy: { // CreatedByInfo Union: only one key present
  * //         ConnectUserArn: "STRING_VALUE",
  * //         AWSIdentityArn: "STRING_VALUE",

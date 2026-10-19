@@ -1250,6 +1250,7 @@ export type {
   ContactParticipantRole,
   ContactRecordingType,
   ContactState,
+  ContentDisposition,
   CurrentMetricName,
   DataTableAttributeValueType,
   DataTableLockLevel,
