@@ -1,22 +1,10 @@
 #!/usr/bin/env node
 // @ts-check
 /**
- * Maintenance tool. Rebuilds `shim-targets.json` from this repository's own history.
- * Not part of the build; `index.mjs` only reads what this writes.
- *
- * Commit bb2232f76f4, "chore(packages): re-export from migrated packages", replaced each
- * deprecated package's `src/index.ts` with a single `export * from "<target>"`. Those
- * packages were later moved to `deprecated/packages/` and then deleted, so that commit is
- * the only remaining record in this repository of where each deprecated name forwards to.
- * The mapping cannot be re-derived from the names: 41 of the 47 follow
- * @aws-sdk/X -> @smithy/X and the rest do not, because those packages were consolidated
- * rather than renamed.
- *
- * The export surface each forwarder must provide comes from the Lambda payload's
- * cumulative API snapshot, which lives in the AwsSdkJavaScriptForLambda package. Only the
- * ~7 KB slice covering these packages is copied here, so the assembler can verify them
- * without reaching outside this repo. The full snapshot remains authoritative for the
- * whole tree.
+ * Maintenance tool. Rebuilds `shim-targets.json` from history — the deprecated packages
+ * are deleted, so the commit that rewrote them to `export * from "<target>"` is the only
+ * record of the mapping, which is not mechanical. Export surfaces come from the Lambda
+ * payload's API snapshot, sliced to these packages so the assembler stays self-contained.
  *
  * @example
  * ```
@@ -71,14 +59,12 @@ try {
 const snapshot = JSON.parse(readFileSync(/** @type {string} */ (SNAPSHOT), "utf-8"));
 const existing = existsSync(OUT) ? JSON.parse(readFileSync(OUT, "utf-8")).awsSdkShims : {};
 
-// Scoped to the directories the deprecated packages lived in; listing the whole tree at
-// that commit is several hundred clients' worth of paths.
+// Scoped to the directories the deprecated packages lived in
 const indexFiles = git(["ls-tree", "-r", "--name-only", COMMIT, "packages/", "lib/", "private/"])
   .split("\n")
   .filter((p) => p.endsWith("/src/index.ts"));
 
-// Index by the name the sibling manifest declares, rather than guessing the directory
-// from the package name.
+// Index by the name the sibling manifest declares
 const byName = new Map();
 for (const indexPath of indexFiles) {
   const manifestPath = indexPath.replace(/src\/index\.ts$/, "package.json");
@@ -117,9 +103,6 @@ for (const [name, previous] of Object.entries(existing)) {
   const entry = { version, exports: requiredExports(name) };
 
   if (target) {
-    // Where history and practice disagree, practice wins — the committed target is kept
-    // and the historical one recorded, so the difference reads as a known correction
-    // rather than a transcription error.
     const committed = /** @type {any} */ (previous);
     if (committed.source === "corrected" && committed.target !== target) {
       resolved[name] = {
@@ -133,7 +116,6 @@ for (const [name, previous] of Object.entries(existing)) {
       resolved[name] = { ...entry, target, source: COMMIT };
     }
   } else {
-    // Deprecated before the migration commit, so the automated pass cannot find it.
     // Carry the committed decision forward rather than dropping the entry.
     const committed = /** @type {any} */ (previous);
     resolved[name] = {

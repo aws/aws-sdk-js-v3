@@ -3,13 +3,10 @@
 /**
  * Scans an already-assembled Lambda-provided-SDK payload for known vulnerabilities.
  *
- * A thin shim over `trivy rootfs`. The subcommand is the reason this file exists:
- * the payload ships no lockfile, and `trivy fs` reports "0 language-specific files"
- * on it and exits 0 — indistinguishable from a clean result. Only `rootfs` enables
- * the node-pkg analyzer that reads installed package.json files.
- *
- * Trivy's own output and exit code are passed straight through. Any extra arguments
- * are forwarded, so `--severity HIGH,CRITICAL`, `--format json` and friends all work.
+ * A thin shim over `trivy rootfs`. The subcommand matters: the payload ships no
+ * lockfile, so `trivy fs` finds no language-specific files and exits 0 — a clean
+ * result and a scan of nothing look identical. Only `rootfs` reads installed
+ * package.json files. Trivy's output, exit code and extra arguments pass through.
  *
  * @example
  * ```
@@ -17,6 +14,7 @@
  * node scripts/generate-lambda-provided-sdk/scan-payload.mjs --tree /tmp/out --severity HIGH,CRITICAL
  * ```
  */
+
 
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
