@@ -82,7 +82,8 @@ notification rule in your account. </p>
 your account. </p>
 </li>
 </ul>
-<p> For information about how to use CodeStar Notifications, see the <a href="https://docs.aws.amazon.com/dtconsole/latest/userguide/what-is-dtconsole.html">Amazon Web Services Developer Tools Console User Guide</a>.
+<p> For information about how to use CodeStar Notifications, see the <a href="https://docs.aws.amazon.com/dtconsole/latest/userguide/what-is-dtconsole.html">
+Amazon Web Services Developer Tools Console User Guide</a>.
 </p>
 
 ## Installing

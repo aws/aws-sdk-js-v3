@@ -55,7 +55,8 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>CodeStar Notifications can't complete the request because the resource is being modified by
+ *  <p>
+ *             CodeStar Notifications can't complete the request because the resource is being modified by
  *       another process. Wait a few minutes and try again.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
@@ -64,7 +65,8 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  *             information, see Limits.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+ *  <p>
+ *             CodeStar Notifications can't find a resource that matches the provided ARN. </p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>

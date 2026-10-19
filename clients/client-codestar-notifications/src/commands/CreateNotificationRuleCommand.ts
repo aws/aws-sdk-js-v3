@@ -68,11 +68,13 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>CodeStar Notifications can't create the notification rule because you do not have sufficient
+ *  <p>
+ *             CodeStar Notifications can't create the notification rule because you do not have sufficient
  *       permissions.</p>
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>CodeStar Notifications can't complete the request because the resource is being modified by
+ *  <p>
+ *             CodeStar Notifications can't complete the request because the resource is being modified by
  *       another process. Wait a few minutes and try again.</p>
  *
  * @throws {@link ConfigurationException} (client fault)
