@@ -1526,6 +1526,84 @@ export interface ListWorkspaceInstancesResponse {
 }
 
 /**
+ * <p>Contains the parameters for modifying a volume, including the target size, volume type, IOPS, or throughput.</p>
+ * @public
+ */
+export interface ModifyVolumeRequest {
+  /**
+   * <p>Specifies the identifier of the volume to modify.</p>
+   * @public
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>Specifies the target size of the volume, in GiB. The target size must be greater than or equal to the current size of the volume. If you don't specify a size, the current size is retained.</p>
+   * @public
+   */
+  SizeInGB?: number | undefined;
+
+  /**
+   * <p>Specifies the target Amazon Elastic Block Store (Amazon EBS) volume type. If you don't specify a volume type, the current volume type is retained.</p>
+   * @public
+   */
+  VolumeType?: VolumeTypeEnum | undefined;
+
+  /**
+   * <p>Specifies the target IOPS rate of the volume. This parameter is valid only for <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes. If you don't specify IOPS and keep the same volume type, the current IOPS rate is retained.</p>
+   * @public
+   */
+  Iops?: number | undefined;
+
+  /**
+   * <p>Specifies the target throughput of the volume, in MiB/s. This parameter is valid only for <code>gp3</code> volumes. If you don't specify throughput and the volume remains <code>gp3</code>, the current throughput is retained.</p>
+   * @public
+   */
+  Throughput?: number | undefined;
+
+  /**
+   * <p>Unique token to ensure idempotent volume modification, preventing duplicate volume modifications.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * <p>Contains the target configuration of the volume after the modification, including the size, volume type, IOPS, and throughput where applicable.</p>
+ * @public
+ */
+export interface ModifyVolumeResponse {
+  /**
+   * <p>Specifies the identifier of the modified volume.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
+
+  /**
+   * <p>Specifies the target size of the volume, in GiB.</p>
+   * @public
+   */
+  TargetSize?: number | undefined;
+
+  /**
+   * <p>Specifies the target Amazon EBS volume type.</p>
+   * @public
+   */
+  TargetVolumeType?: VolumeTypeEnum | undefined;
+
+  /**
+   * <p>Specifies the target IOPS rate of the volume.</p>
+   * @public
+   */
+  TargetIops?: number | undefined;
+
+  /**
+   * <p>Specifies the target throughput of the volume, in MiB/s.</p>
+   * @public
+   */
+  TargetThroughput?: number | undefined;
+}
+
+/**
  * <p>Specifies tags to add to a WorkSpace Instance.</p>
  * @public
  */

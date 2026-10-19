@@ -668,8 +668,11 @@ export type CodeCommitClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface CodeCommitClientResolvedConfig extends CodeCommitClientResolvedConfigType {}
 
 /**
- * <fullname>CodeCommit</fullname>
- *          <p>This is the <i>CodeCommit API Reference</i>. This reference provides descriptions of the operations and data types for
+ * <fullname>
+ *             CodeCommit
+ *          </fullname>
+ *          <p>This is the <i>
+ *                CodeCommit API Reference</i>. This reference provides descriptions of the operations and data types for
  *             CodeCommit API along with usage examples.</p>
  *          <p>You can use the CodeCommit API to work with the following objects:</p>
  *          <p>Repositories, by calling the following:</p>
@@ -1059,7 +1062,8 @@ export interface CodeCommitClientResolvedConfig extends CodeCommitClientResolved
  *                             by sending data to the trigger target.</p>
  *             </li>
  *          </ul>
- *          <p>For information about how to use CodeCommit, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">CodeCommit User Guide</a>.</p>
+ *          <p>For information about how to use CodeCommit, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">
+ *                CodeCommit User Guide</a>.</p>
  * @public
  */
 export class CodeCommitClient extends __Client<

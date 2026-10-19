@@ -38,6 +38,7 @@ export interface GetAttachedFileCommandOutput extends GetAttachedFileResponse, _
  *   FileId: "STRING_VALUE", // required
  *   UrlExpiryInSeconds: Number("int"),
  *   AssociatedResourceArn: "STRING_VALUE", // required
+ *   UrlContentDisposition: "INLINE" || "ATTACHMENT",
  * };
  * const command = new GetAttachedFileCommand(input);
  * const response = await client.send(command);
@@ -45,7 +46,7 @@ export interface GetAttachedFileCommandOutput extends GetAttachedFileResponse, _
  * //   FileArn: "STRING_VALUE",
  * //   FileId: "STRING_VALUE",
  * //   CreationTime: "STRING_VALUE",
- * //   FileStatus: "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
+ * //   FileStatus: "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED" || "DRAFTING",
  * //   FileName: "STRING_VALUE",
  * //   FileSizeInBytes: Number("long"), // required
  * //   AssociatedResourceArn: "STRING_VALUE",

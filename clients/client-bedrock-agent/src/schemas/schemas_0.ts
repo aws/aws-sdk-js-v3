@@ -93,6 +93,12 @@ const _CPVR = "CreatePromptVersionRequest";
 const _CPVRr = "CreatePromptVersionResponse";
 const _CQ = "CuratedQuery";
 const _CQu = "CuratedQueries";
+const _CRI = "CreateRetrievalInstruction";
+const _CRIR = "CreateRetrievalInstructionRequest";
+const _CRIRr = "CreateRetrievalInstructionResponse";
+const _CRIV = "CreateRetrievalInstructionVersion";
+const _CRIVR = "CreateRetrievalInstructionVersionRequest";
+const _CRIVRr = "CreateRetrievalInstructionVersionResponse";
 const _CSC = "ConfluenceSourceConfiguration";
 const _CSL = "CustomS3Location";
 const _CTC = "CustomTransformationConfiguration";
@@ -149,6 +155,9 @@ const _DP = "DeletePrompt";
 const _DPC = "DeletionProtectionConfiguration";
 const _DPR = "DeletePromptRequest";
 const _DPRe = "DeletePromptResponse";
+const _DRI = "DeleteRetrievalInstruction";
+const _DRIR = "DeleteRetrievalInstructionRequest";
+const _DRIRe = "DeleteRetrievalInstructionResponse";
 const _DRP = "DeleteResourcePolicy";
 const _DRPR = "DeleteResourcePolicyRequest";
 const _DRPRe = "DeleteResourcePolicyResponse";
@@ -244,6 +253,9 @@ const _GKBRe = "GetKnowledgeBaseResponse";
 const _GP = "GetPrompt";
 const _GPR = "GetPromptRequest";
 const _GPRe = "GetPromptResponse";
+const _GRI = "GetRetrievalInstruction";
+const _GRIR = "GetRetrievalInstructionRequest";
+const _GRIRe = "GetRetrievalInstructionResponse";
 const _GRP = "GetResourcePolicy";
 const _GRPR = "GetResourcePolicyRequest";
 const _GRPRe = "GetResourcePolicyResponse";
@@ -340,6 +352,12 @@ const _LKBRi = "ListKnowledgeBasesResponse";
 const _LP = "ListPrompts";
 const _LPR = "ListPromptsRequest";
 const _LPRi = "ListPromptsResponse";
+const _LRI = "ListRetrievalInstructions";
+const _LRIR = "ListRetrievalInstructionsRequest";
+const _LRIRi = "ListRetrievalInstructionsResponse";
+const _LRIV = "ListRetrievalInstructionVersions";
+const _LRIVR = "ListRetrievalInstructionVersionsRequest";
+const _LRIVRi = "ListRetrievalInstructionVersionsResponse";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -441,6 +459,16 @@ const _RFM = "RdsFieldMapping";
 const _RFNC = "RetrievalFlowNodeConfiguration";
 const _RFNSC = "RetrievalFlowNodeS3Configuration";
 const _RFNSCe = "RetrievalFlowNodeServiceConfiguration";
+const _RIC = "RetrievalInstructionContent";
+const _RID = "RetrievalInstructionDescription";
+const _RIFR = "RetrievalInstructionFailureReason";
+const _RIFRe = "RetrievalInstructionFailureReasons";
+const _RIFT = "RetrievalInstructionFieldText";
+const _RIN = "RetrievalInstructionName";
+const _RIS = "RetrievalInstructionSummary";
+const _RISe = "RetrievalInstructionSummaries";
+const _RIVS = "RetrievalInstructionVersionSummary";
+const _RIVSe = "RetrievalInstructionVersionSummaries";
 const _RMSMC = "RerankingMetadataSelectiveModeConfiguration";
 const _RNFE = "ResourceNotFoundException";
 const _RP = "ResourcePolicy";
@@ -554,6 +582,9 @@ const _UP = "UpdatePrompt";
 const _UPR = "UpdatePromptRequest";
 const _UPRp = "UpdatePromptResponse";
 const _UR = "UntagResource";
+const _URI = "UpdateRetrievalInstruction";
+const _URIR = "UpdateRetrievalInstructionRequest";
+const _URIRp = "UpdateRetrievalInstructionResponse";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
 const _VBA = "VectorBucketArn";
@@ -600,6 +631,7 @@ const _aD = "agentDescriptor";
 const _aDCC = "awsDataCatalogConfiguration";
 const _aEC = "audioExtractionConfiguration";
 const _aES = "audioExtractionStatus";
+const _aF = "answerFormat";
 const _aGE = "actionGroupExecutor";
 const _aGI = "actionGroupId";
 const _aGN = "actionGroupName";
@@ -613,6 +645,7 @@ const _aKB = "agentKnowledgeBase";
 const _aKBS = "agentKnowledgeBaseSummaries";
 const _aMRF = "additionalModelRequestFields";
 const _aN = "agentName";
+const _aP = "answerPolicy";
 const _aRRA = "agentResourceRoleArn";
 const _aS = "agentStatus";
 const _aSg = "agentSummaries";
@@ -815,7 +848,10 @@ const _lI = "localeId";
 const _lINT = "loopIncompatibleNodeType";
 const _lIo = "loopInput";
 const _lN = "loopNode";
+const _lTS = "lastTransitionStatus";
+const _lTSR = "lastTransitionStatusReasons";
 const _lUA = "lastUpdatedAt";
+const _lV = "latestVersion";
 const _la = "latency";
 const _lam = "lambda";
 const _le = "lex";
@@ -919,6 +955,7 @@ const _pTro = "promptType";
 const _pV = "promptVersion";
 const _pa = "parameters";
 const _pay = "payload";
+const _pe = "persona";
 const _po = "policy";
 const _pr = "protocol";
 const _pro = "prompt";
@@ -935,7 +972,13 @@ const _rCe = "requireConfirmation";
 const _rCed = "redshiftConfiguration";
 const _rCer = "rerankingConfiguration";
 const _rECC = "redisEnterpriseCloudConfiguration";
+const _rG = "retrievalGuidance";
 const _rI = "revisionId";
+const _rIA = "retrievalInstructionArn";
+const _rII = "retrievalInstructionId";
+const _rIS = "retrievalInstructionSummaries";
+const _rIV = "retrievalInstructionVersion";
+const _rIVS = "retrievalInstructionVersionSummaries";
 const _rL = "rateLimit";
 const _rM = "resolutionMode";
 const _rT = "resourceTarget";
@@ -1161,6 +1204,9 @@ var Payload: StaticSimpleSchema = [0, n0, _P, 8, 0];
 var PromptMetadataKey: StaticSimpleSchema = [0, n0, _PMK, 8, 0];
 var PromptMetadataValue: StaticSimpleSchema = [0, n0, _PMV, 8, 0];
 var ResourcePolicy: StaticSimpleSchema = [0, n0, _RP, { [_mT]: _a }, 0];
+var RetrievalInstructionDescription: StaticSimpleSchema = [0, n0, _RID, 8, 0];
+var RetrievalInstructionFieldText: StaticSimpleSchema = [0, n0, _RIFT, 8, 0];
+var RetrievalInstructionName: StaticSimpleSchema = [0, n0, _RIN, 8, 0];
 var S3Prefix: StaticSimpleSchema = [0, n0, _SP, 8, 0];
 var StringValue: StaticSimpleSchema = [0, n0, _SV, 8, 0];
 var TextPrompt: StaticSimpleSchema = [0, n0, _TP, 8, 0];
@@ -1467,6 +1513,26 @@ export var CreatePromptVersionResponse$: StaticStructureSchema = [3, n0, _CPVRr,
   [_n, _id, _ar, _v, _cA, _uA, _d, _cEKA, _dV, _va],
   [0, 0, 0, 0, 5, 5, 0, 0, 0, [() => PromptVariantList, 0]], 6
 ];
+export var CreateRetrievalInstructionRequest$: StaticStructureSchema = [3, n0, _CRIR,
+  0,
+  [_n, _i, _cT, _d, _cEKA, _ta],
+  [[() => RetrievalInstructionName, 0], [() => RetrievalInstructionContent$, 0], [0, 4], [() => RetrievalInstructionDescription, 0], 0, 128 | 0], 2
+];
+export var CreateRetrievalInstructionResponse$: StaticStructureSchema = [3, n0, _CRIRr,
+  0,
+  [_rII, _rIA, _n, _st, _lTS, _cA, _uA],
+  [0, 0, [() => RetrievalInstructionName, 0], 0, 0, 5, 5], 7
+];
+export var CreateRetrievalInstructionVersionRequest$: StaticStructureSchema = [3, n0, _CRIVR,
+  0,
+  [_rII, _d, _cT],
+  [[0, 1], [() => RetrievalInstructionDescription, 0], [0, 4]], 1
+];
+export var CreateRetrievalInstructionVersionResponse$: StaticStructureSchema = [3, n0, _CRIVRr,
+  0,
+  [_rII, _rIA, _v, _cA, _d],
+  [0, 0, 0, 5, [() => RetrievalInstructionDescription, 0]], 4
+];
 export var CreateVpcConfigurationRequest$: StaticStructureSchema = [3, n0, _CVCR,
   0,
   [_kBI, _vI, _sI, _rT, _p, _pr, _rM, _cT, _hH, _tSN, _n, _d],
@@ -1651,6 +1717,16 @@ export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe
   0,
   [_rAe, _rI],
   [0, 0], 1
+];
+export var DeleteRetrievalInstructionRequest$: StaticStructureSchema = [3, n0, _DRIR,
+  0,
+  [_rII, _rIV],
+  [[0, 1], [0, { [_hQ]: _rIV }]], 1
+];
+export var DeleteRetrievalInstructionResponse$: StaticStructureSchema = [3, n0, _DRIRe,
+  0,
+  [_rII, _rIA, _v],
+  [0, 0, 0], 2
 ];
 export var DeleteVpcConfigurationRequest$: StaticStructureSchema = [3, n0, _DVCR,
   0,
@@ -1962,6 +2038,16 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   [_rAe, _po, _rI],
   [0, [() => ResourcePolicy, 0], 0], 3
 ];
+export var GetRetrievalInstructionRequest$: StaticStructureSchema = [3, n0, _GRIR,
+  0,
+  [_rII, _rIV],
+  [[0, 1], [0, { [_hQ]: _rIV }]], 1
+];
+export var GetRetrievalInstructionResponse$: StaticStructureSchema = [3, n0, _GRIRe,
+  0,
+  [_rII, _rIA, _n, _st, _lTS, _cA, _uA, _i, _d, _cEKA, _lTSR, _v, _lV],
+  [0, 0, [() => RetrievalInstructionName, 0], 0, 0, 5, 5, [() => RetrievalInstructionContent$, 0], [() => RetrievalInstructionDescription, 0], 0, () => RetrievalInstructionFailureReasons, 0, 0], 7
+];
 export var GetVpcConfigurationRequest$: StaticStructureSchema = [3, n0, _GVCR,
   0,
   [_kBI, _vCI],
@@ -2266,6 +2352,26 @@ export var ListPromptsResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
   [_pS, _nT],
   [() => PromptSummaries, 0], 1
+];
+export var ListRetrievalInstructionsRequest$: StaticStructureSchema = [3, n0, _LRIR,
+  0,
+  [_st, _mR, _nT],
+  [[0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+];
+export var ListRetrievalInstructionsResponse$: StaticStructureSchema = [3, n0, _LRIRi,
+  0,
+  [_rIS, _nT],
+  [[() => RetrievalInstructionSummaries, 0], 0], 1
+];
+export var ListRetrievalInstructionVersionsRequest$: StaticStructureSchema = [3, n0, _LRIVR,
+  0,
+  [_rII, _mR, _nT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListRetrievalInstructionVersionsResponse$: StaticStructureSchema = [3, n0, _LRIVRi,
+  0,
+  [_rIVS, _nT],
+  [() => RetrievalInstructionVersionSummaries, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
@@ -2697,6 +2803,26 @@ export var RetrievalFlowNodeS3Configuration$: StaticStructureSchema = [3, n0, _R
   [_bN],
   [0], 1
 ];
+export var RetrievalInstructionContent$: StaticStructureSchema = [3, n0, _RIC,
+  8,
+  [_rG, _pe, _aF, _aP],
+  [[() => RetrievalInstructionFieldText, 0], [() => RetrievalInstructionFieldText, 0], [() => RetrievalInstructionFieldText, 0], [() => RetrievalInstructionFieldText, 0]]
+];
+export var RetrievalInstructionFailureReason$: StaticStructureSchema = [3, n0, _RIFR,
+  0,
+  [_cod, _m, _fN],
+  [0, 0, 0], 2
+];
+export var RetrievalInstructionSummary$: StaticStructureSchema = [3, n0, _RIS,
+  0,
+  [_rII, _rIA, _n, _st, _lTS, _cA, _uA, _d],
+  [0, 0, [() => RetrievalInstructionName, 0], 0, 0, 5, 5, [() => RetrievalInstructionDescription, 0]], 7
+];
+export var RetrievalInstructionVersionSummary$: StaticStructureSchema = [3, n0, _RIVS,
+  0,
+  [_v, _cA],
+  [0, 5], 2
+];
 export var S3Content$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_sL],
@@ -3037,6 +3163,16 @@ export var UpdatePromptResponse$: StaticStructureSchema = [3, n0, _UPRp,
   [_n, _id, _ar, _v, _cA, _uA, _d, _cEKA, _dV, _va],
   [0, 0, 0, 0, 5, 5, 0, 0, 0, [() => PromptVariantList, 0]], 6
 ];
+export var UpdateRetrievalInstructionRequest$: StaticStructureSchema = [3, n0, _URIR,
+  0,
+  [_rII, _i, _d],
+  [[0, 1], [() => RetrievalInstructionContent$, 0], [() => RetrievalInstructionDescription, 0]], 2
+];
+export var UpdateRetrievalInstructionResponse$: StaticStructureSchema = [3, n0, _URIRp,
+  0,
+  [_rII, _rIA, _n, _st, _lTS, _cA, _uA],
+  [0, 0, [() => RetrievalInstructionName, 0], 0, 0, 5, 5], 7
+];
 export var UrlConfiguration$: StaticStructureSchema = [3, n0, _UC,
   0,
   [_sUe],
@@ -3284,6 +3420,16 @@ var RecommendedActions = 64 | 0;
 var RedshiftQueryEngineStorageConfigurations: StaticListSchema = [1, n0, _RQESCe,
   0, () => RedshiftQueryEngineStorageConfiguration$
 ];
+var RetrievalInstructionFailureReasons: StaticListSchema = [1, n0, _RIFRe,
+  0, () => RetrievalInstructionFailureReason$
+];
+var RetrievalInstructionSummaries: StaticListSchema = [1, n0, _RISe,
+  0, [() => RetrievalInstructionSummary$,
+    0]
+];
+var RetrievalInstructionVersionSummaries: StaticListSchema = [1, n0, _RIVSe,
+  0, () => RetrievalInstructionVersionSummary$
+];
 var S3Prefixes: StaticListSchema = [1, n0, _SPr,
   0, [() => S3Prefix,
     0]
@@ -3468,6 +3614,12 @@ export var CreatePrompt$: StaticOperationSchema = [9, n0, _CP,
 export var CreatePromptVersion$: StaticOperationSchema = [9, n0, _CPV,
   { [_h]: ["POST", "/prompts/{promptIdentifier}/versions", 201] }, () => CreatePromptVersionRequest$, () => CreatePromptVersionResponse$
 ];
+export var CreateRetrievalInstruction$: StaticOperationSchema = [9, n0, _CRI,
+  { [_h]: ["POST", "/retrievalinstructions/", 202] }, () => CreateRetrievalInstructionRequest$, () => CreateRetrievalInstructionResponse$
+];
+export var CreateRetrievalInstructionVersion$: StaticOperationSchema = [9, n0, _CRIV,
+  { [_h]: ["POST", "/retrievalinstructions/{retrievalInstructionId}/versions", 201] }, () => CreateRetrievalInstructionVersionRequest$, () => CreateRetrievalInstructionVersionResponse$
+];
 export var CreateVpcConfiguration$: StaticOperationSchema = [9, n0, _CVC,
   { [_h]: ["POST", "/knowledgebases/{knowledgeBaseId}/vpcconfigurations/", 202] }, () => CreateVpcConfigurationRequest$, () => CreateVpcConfigurationResponse$
 ];
@@ -3506,6 +3658,9 @@ export var DeletePrompt$: StaticOperationSchema = [9, n0, _DP,
 ];
 export var DeleteResourcePolicy$: StaticOperationSchema = [9, n0, _DRP,
   { [_h]: ["DELETE", "/resourcepolicy/{resourceArn}", 200] }, () => DeleteResourcePolicyRequest$, () => DeleteResourcePolicyResponse$
+];
+export var DeleteRetrievalInstruction$: StaticOperationSchema = [9, n0, _DRI,
+  { [_h]: ["DELETE", "/retrievalinstructions/{retrievalInstructionId}", 200] }, () => DeleteRetrievalInstructionRequest$, () => DeleteRetrievalInstructionResponse$
 ];
 export var DeleteVpcConfiguration$: StaticOperationSchema = [9, n0, _DVC,
   { [_h]: ["DELETE", "/knowledgebases/{knowledgeBaseId}/vpcconfigurations/{vpcConfigurationId}", 202] }, () => DeleteVpcConfigurationRequest$, () => DeleteVpcConfigurationResponse$
@@ -3561,6 +3716,9 @@ export var GetPrompt$: StaticOperationSchema = [9, n0, _GP,
 export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
   { [_h]: ["GET", "/resourcepolicy/{resourceArn}", 200] }, () => GetResourcePolicyRequest$, () => GetResourcePolicyResponse$
 ];
+export var GetRetrievalInstruction$: StaticOperationSchema = [9, n0, _GRI,
+  { [_h]: ["GET", "/retrievalinstructions/{retrievalInstructionId}", 200] }, () => GetRetrievalInstructionRequest$, () => GetRetrievalInstructionResponse$
+];
 export var GetVpcConfiguration$: StaticOperationSchema = [9, n0, _GVC,
   { [_h]: ["GET", "/knowledgebases/{knowledgeBaseId}/vpcconfigurations/{vpcConfigurationId}", 200] }, () => GetVpcConfigurationRequest$, () => GetVpcConfigurationResponse$
 ];
@@ -3608,6 +3766,12 @@ export var ListKnowledgeBases$: StaticOperationSchema = [9, n0, _LKB,
 ];
 export var ListPrompts$: StaticOperationSchema = [9, n0, _LP,
   { [_h]: ["GET", "/prompts/", 200] }, () => ListPromptsRequest$, () => ListPromptsResponse$
+];
+export var ListRetrievalInstructions$: StaticOperationSchema = [9, n0, _LRI,
+  { [_h]: ["GET", "/retrievalinstructions/", 200] }, () => ListRetrievalInstructionsRequest$, () => ListRetrievalInstructionsResponse$
+];
+export var ListRetrievalInstructionVersions$: StaticOperationSchema = [9, n0, _LRIV,
+  { [_h]: ["GET", "/retrievalinstructions/{retrievalInstructionId}/versions", 200] }, () => ListRetrievalInstructionVersionsRequest$, () => ListRetrievalInstructionVersionsResponse$
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
@@ -3665,6 +3829,9 @@ export var UpdateKnowledgeBase$: StaticOperationSchema = [9, n0, _UKB,
 ];
 export var UpdatePrompt$: StaticOperationSchema = [9, n0, _UP,
   { [_h]: ["PUT", "/prompts/{promptIdentifier}/", 200] }, () => UpdatePromptRequest$, () => UpdatePromptResponse$
+];
+export var UpdateRetrievalInstruction$: StaticOperationSchema = [9, n0, _URI,
+  { [_h]: ["PUT", "/retrievalinstructions/{retrievalInstructionId}", 202] }, () => UpdateRetrievalInstructionRequest$, () => UpdateRetrievalInstructionResponse$
 ];
 export var ValidateFlowDefinition$: StaticOperationSchema = [9, n0, _VFD,
   { [_h]: ["POST", "/flows/validate-definition", 200] }, () => ValidateFlowDefinitionRequest$, () => ValidateFlowDefinitionResponse$

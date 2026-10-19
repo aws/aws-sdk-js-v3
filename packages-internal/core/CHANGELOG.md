@@ -80,6 +80,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.978.4 (2026-10-16)
+### Chores
+* **core:** consume JSON codec from @smithy/core ([#8335](https://github.com/aws/aws-sdk-js-v3/issues/8335)) ([412d136](https://github.com/aws/aws-sdk-js-v3/commit/412d1362e9d60979d3e11e7396e2598872b55773))
+* **codegen:** sync for JSON codec and schema server plugin ([#8353](https://github.com/aws/aws-sdk-js-v3/issues/8353)) ([3e350b5](https://github.com/aws/aws-sdk-js-v3/commit/3e350b59848e2bffcfe4d34a628e7adc136a6a55))
+
+
+
 # 3.978.3 (2026-10-12)
 ### Bug Fixes
 * **core/httpAuthSchemes:** skip clock-skew sampling for event-stream outputs ([#8346](https://github.com/aws/aws-sdk-js-v3/issues/8346)) ([345466f](https://github.com/aws/aws-sdk-js-v3/commit/345466f4d6c0c2ab2610b6badae7d9da0d15064e))

@@ -200,6 +200,7 @@ const _bN = "bucketName";
 const _bPK = "businessPublicKey";
 const _bPKSS = "businessPublicKeySignatureStatus";
 const _c = "client";
+const _cC = "correctCategory";
 const _cE = "callEvent";
 const _cEM = "codeExpirationMinutes";
 const _cEa = "callEnabled";
@@ -228,6 +229,8 @@ const _dOW = "dayOfWeek";
 const _dPN = "destinationPhoneNumber";
 const _dPNN = "displayPhoneNumberName";
 const _dPNi = "displayPhoneNumber";
+const _dSES = "directSendEnforcementStatus";
+const _dSESEA = "directSendEnforcementStatusExpiresAt";
 const _dSF = "destinationS3File";
 const _dSPU = "destinationS3PresignedUrl";
 const _dU = "downloadUrl";
@@ -341,6 +344,7 @@ const _tN = "templateName";
 const _tP = "timePeriod";
 const _tQS = "templateQualityScore";
 const _tS = "templateStatus";
+const _tSe = "templateSource";
 const _tT = "templateTopic";
 const _tUC = "templateUseCase";
 const _ta = "tags";
@@ -673,8 +677,8 @@ export var LibraryTemplateButtonList$: StaticStructureSchema = [3, n0, _LTBL,
 ];
 export var LinkedWhatsAppBusinessAccount$: StaticStructureSchema = [3, n0, _LWABA,
   0,
-  [_ar, _i, _wI, _rS, _lD, _wN, _eD, _pNh, _mMOS, _dI],
-  [0, 0, 0, 0, 4, 0, () => WhatsAppBusinessAccountEventDestinations, () => WhatsAppPhoneNumberSummaryList, 0, 0], 8
+  [_ar, _i, _wI, _rS, _lD, _wN, _eD, _pNh, _mMOS, _dSES, _dSESEA, _dI],
+  [0, 0, 0, 0, 4, 0, () => WhatsAppBusinessAccountEventDestinations, () => WhatsAppPhoneNumberSummaryList, 0, 0, 4, 0], 8
 ];
 export var LinkedWhatsAppBusinessAccountIdMetaData$: StaticStructureSchema = [3, n0, _LWABAIMD,
   0,
@@ -683,8 +687,8 @@ export var LinkedWhatsAppBusinessAccountIdMetaData$: StaticStructureSchema = [3,
 ];
 export var LinkedWhatsAppBusinessAccountSummary$: StaticStructureSchema = [3, n0, _LWABAS,
   0,
-  [_ar, _i, _wI, _rS, _lD, _wN, _eD, _mMOS, _dI],
-  [0, 0, 0, 0, 4, 0, () => WhatsAppBusinessAccountEventDestinations, 0, 0], 7
+  [_ar, _i, _wI, _rS, _lD, _wN, _eD, _mMOS, _dSES, _dSESEA, _dI],
+  [0, 0, 0, 0, 4, 0, () => WhatsAppBusinessAccountEventDestinations, 0, 0, 4, 0], 7
 ];
 export var ListLinkedWhatsAppBusinessAccountsInput$: StaticStructureSchema = [3, n0, _LLWABAI,
   0,
@@ -888,8 +892,8 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
 ];
 export var TemplateSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_tN, _mTI, _tS, _tQS, _tL, _tC],
-  [0, 0, 0, 0, 0, 0]
+  [_tN, _mTI, _tS, _tQS, _tL, _tC, _tSe, _cC],
+  [0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,

@@ -57,6 +57,8 @@ export interface ListLinkedWhatsAppBusinessAccountsCommandOutput extends ListLin
  * //         },
  * //       ],
  * //       marketingMessagesOnboardingStatus: "STRING_VALUE",
+ * //       directSendEnforcementStatus: "STRING_VALUE",
+ * //       directSendEnforcementStatusExpiresAt: new Date("TIMESTAMP"),
  * //       datasetId: "STRING_VALUE",
  * //     },
  * //   ],

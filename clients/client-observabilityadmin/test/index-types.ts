@@ -140,6 +140,7 @@ export type {
   Action,
   CentralizationFailureReason,
   ContextGraphStatus,
+  DeletionProtection,
   DestinationType,
   EncryptedLogGroupStrategy,
   EncryptionConflictResolutionStrategy,

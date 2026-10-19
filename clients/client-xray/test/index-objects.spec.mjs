@@ -12,6 +12,7 @@ import {
   CancelTraceRetrievalCommand,
   CancelTraceRetrievalRequest$,
   CancelTraceRetrievalResult$,
+  CloudWatchLogsConfiguration$,
   CreateGroup$,
   CreateGroupCommand,
   CreateGroupRequest$,
@@ -355,6 +356,7 @@ assert(typeof BatchGetTracesRequest$ === "object");
 assert(typeof BatchGetTracesResult$ === "object");
 assert(typeof CancelTraceRetrievalRequest$ === "object");
 assert(typeof CancelTraceRetrievalResult$ === "object");
+assert(typeof CloudWatchLogsConfiguration$ === "object");
 assert(typeof CreateGroupRequest$ === "object");
 assert(typeof CreateGroupResult$ === "object");
 assert(typeof CreateSamplingRuleRequest$ === "object");

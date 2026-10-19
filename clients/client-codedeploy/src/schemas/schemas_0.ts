@@ -100,6 +100,7 @@ const _DTIRE = "DeploymentTargetIdRequiredException";
 const _DTL = "DeploymentTargetList";
 const _DTLE = "DescriptionTooLongException";
 const _DTLSEE = "DeploymentTargetListSizeExceededException";
+const _ECDO = "EC2DeploymentOptions";
 const _ECSS = "ECSService";
 const _ECSSL = "ECSServiceList";
 const _ECSSMLEE = "ECSServiceMappingLimitExceededException";
@@ -149,6 +150,7 @@ const _IANE = "InvalidApplicationNameException";
 const _IARCE = "InvalidAutoRollbackConfigException";
 const _IARE = "IamArnRequiredException";
 const _IASGE = "InvalidAutoScalingGroupException";
+const _IASGPTSE = "InvalidAutoScalingGroupProcessToSuspendException";
 const _IBGDCE = "InvalidBlueGreenDeploymentConfigurationException";
 const _IBNFE = "InvalidBucketNameFilterException";
 const _ICPE = "InvalidComputePlatformException";
@@ -343,6 +345,7 @@ const _aRC = "autoRollbackConfiguration";
 const _aRE = "autoRollbackEnabled";
 const _aSC = "appSpecContent";
 const _aSG = "autoScalingGroups";
+const _aSGPTS = "autoScalingGroupProcessesToSuspend";
 const _aUOIDI = "autoUpdateOutdatedInstancesDeploymentIds";
 const _aUOIRDI = "autoUpdateOutdatedInstancesRootDeploymentId";
 const _ac = "action";
@@ -399,6 +402,7 @@ const _dep = "deployments";
 const _di = "diagnostics";
 const _e = "error";
 const _eC = "errorCode";
+const _eDO = "ec2DeploymentOptions";
 const _eI = "externalId";
 const _eIL = "elbInfoList";
 const _eIr = "errorInformation";
@@ -604,6 +608,7 @@ import {
   InvalidArnException,
   InvalidAutoRollbackConfigException,
   InvalidAutoScalingGroupException,
+  InvalidAutoScalingGroupProcessToSuspendException,
   InvalidBlueGreenDeploymentConfigurationException,
   InvalidBucketNameFilterException,
   InvalidComputePlatformException,
@@ -946,6 +951,12 @@ export var InvalidAutoScalingGroupException$: StaticErrorSchema = [-3, n0, _IASG
   [0]
 ];
 n0_registry.registerError(InvalidAutoScalingGroupException$, InvalidAutoScalingGroupException);
+export var InvalidAutoScalingGroupProcessToSuspendException$: StaticErrorSchema = [-3, n0, _IASGPTSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidAutoScalingGroupProcessToSuspendException$, InvalidAutoScalingGroupProcessToSuspendException);
 export var InvalidBlueGreenDeploymentConfigurationException$: StaticErrorSchema = [-3, n0, _IBGDCE,
   { [_e]: _c },
   [_m],
@@ -1492,8 +1503,8 @@ export var CreateDeploymentConfigOutput$: StaticStructureSchema = [3, n0, _CDCO,
 ];
 export var CreateDeploymentGroupInput$: StaticStructureSchema = [3, n0, _CDGI,
   0,
-  [_aN, _dGNe, _sRA, _dCN, _eTF, _oPITF, _aSG, _tC, _aC, _aRC, _oIS, _dS, _bGDC, _lBI, _eTS, _eS, _oPTS, _t, _tHE],
-  [0, 0, 0, 0, () => EC2TagFilterList, () => TagFilterList, 64 | 0, () => TriggerConfigList, () => AlarmConfiguration$, () => AutoRollbackConfiguration$, 0, () => DeploymentStyle$, () => BlueGreenDeploymentConfiguration$, () => LoadBalancerInfo$, () => EC2TagSet$, () => ECSServiceList, () => OnPremisesTagSet$, () => TagList, 2], 3
+  [_aN, _dGNe, _sRA, _dCN, _eTF, _oPITF, _aSG, _tC, _aC, _aRC, _oIS, _dS, _bGDC, _lBI, _eTS, _eS, _oPTS, _t, _eDO, _tHE],
+  [0, 0, 0, 0, () => EC2TagFilterList, () => TagFilterList, 64 | 0, () => TriggerConfigList, () => AlarmConfiguration$, () => AutoRollbackConfiguration$, 0, () => DeploymentStyle$, () => BlueGreenDeploymentConfiguration$, () => LoadBalancerInfo$, () => EC2TagSet$, () => ECSServiceList, () => OnPremisesTagSet$, () => TagList, () => EC2DeploymentOptions$, 2], 3
 ];
 export var CreateDeploymentGroupOutput$: StaticStructureSchema = [3, n0, _CDGO,
   0,
@@ -1502,8 +1513,8 @@ export var CreateDeploymentGroupOutput$: StaticStructureSchema = [3, n0, _CDGO,
 ];
 export var CreateDeploymentInput$: StaticStructureSchema = [3, n0, _CDIr,
   0,
-  [_aN, _dGNe, _re, _dCN, _d, _iASF, _tIar, _aRC, _uOIO, _fEB, _dM, _oAC],
-  [0, 0, () => RevisionLocation$, 0, 0, 2, () => TargetInstances$, () => AutoRollbackConfiguration$, 2, 0, 0, () => AlarmConfiguration$], 1
+  [_aN, _dGNe, _re, _dCN, _d, _iASF, _tIar, _aRC, _uOIO, _fEB, _dM, _oAC, _eDO],
+  [0, 0, () => RevisionLocation$, 0, 0, 2, () => TargetInstances$, () => AutoRollbackConfiguration$, 2, 0, 0, () => AlarmConfiguration$, () => EC2DeploymentOptions$], 1
 ];
 export var CreateDeploymentOutput$: StaticStructureSchema = [3, n0, _CDO,
   0,
@@ -1557,13 +1568,13 @@ export var DeploymentConfigInfo$: StaticStructureSchema = [3, n0, _DCI,
 ];
 export var DeploymentGroupInfo$: StaticStructureSchema = [3, n0, _DGI,
   0,
-  [_aN, _dGIe, _dGNe, _dCN, _eTF, _oPITF, _aSG, _sRA, _tR, _tC, _aC, _aRC, _dS, _oIS, _bGDC, _lBI, _lSD, _lAD, _eTS, _oPTS, _cP, _eS, _tHE],
-  [0, 0, 0, 0, () => EC2TagFilterList, () => TagFilterList, () => AutoScalingGroupList, 0, () => RevisionLocation$, () => TriggerConfigList, () => AlarmConfiguration$, () => AutoRollbackConfiguration$, () => DeploymentStyle$, 0, () => BlueGreenDeploymentConfiguration$, () => LoadBalancerInfo$, () => LastDeploymentInfo$, () => LastDeploymentInfo$, () => EC2TagSet$, () => OnPremisesTagSet$, 0, () => ECSServiceList, 2]
+  [_aN, _dGIe, _dGNe, _dCN, _eTF, _oPITF, _aSG, _sRA, _tR, _tC, _aC, _aRC, _dS, _oIS, _bGDC, _lBI, _lSD, _lAD, _eTS, _oPTS, _cP, _eS, _eDO, _tHE],
+  [0, 0, 0, 0, () => EC2TagFilterList, () => TagFilterList, () => AutoScalingGroupList, 0, () => RevisionLocation$, () => TriggerConfigList, () => AlarmConfiguration$, () => AutoRollbackConfiguration$, () => DeploymentStyle$, 0, () => BlueGreenDeploymentConfiguration$, () => LoadBalancerInfo$, () => LastDeploymentInfo$, () => LastDeploymentInfo$, () => EC2TagSet$, () => OnPremisesTagSet$, 0, () => ECSServiceList, () => EC2DeploymentOptions$, 2]
 ];
 export var DeploymentInfo$: StaticStructureSchema = [3, n0, _DI,
   0,
-  [_aN, _dGNe, _dCN, _dI, _pR, _re, _st, _eIr, _cT, _sT, _cTo, _dO, _d, _cr, _iASF, _aRC, _uOIO, _rI, _dS, _tIar, _iTWTS, _bGDC, _lBI, _aDSI, _fEB, _dM, _dSM, _cP, _eI, _rD, _oAC],
-  [0, 0, 0, 0, () => RevisionLocation$, () => RevisionLocation$, 0, () => ErrorInformation$, 4, 4, 4, () => DeploymentOverview$, 0, 0, 2, () => AutoRollbackConfiguration$, 2, () => RollbackInfo$, () => DeploymentStyle$, () => TargetInstances$, 2, () => BlueGreenDeploymentConfiguration$, () => LoadBalancerInfo$, 0, 0, 0, 64 | 0, 0, 0, () => RelatedDeployments$, () => AlarmConfiguration$]
+  [_aN, _dGNe, _dCN, _dI, _pR, _re, _st, _eIr, _cT, _sT, _cTo, _dO, _d, _cr, _iASF, _aRC, _uOIO, _rI, _dS, _tIar, _iTWTS, _bGDC, _lBI, _aDSI, _fEB, _dM, _dSM, _cP, _eI, _rD, _oAC, _eDO],
+  [0, 0, 0, 0, () => RevisionLocation$, () => RevisionLocation$, 0, () => ErrorInformation$, 4, 4, 4, () => DeploymentOverview$, 0, 0, 2, () => AutoRollbackConfiguration$, 2, () => RollbackInfo$, () => DeploymentStyle$, () => TargetInstances$, 2, () => BlueGreenDeploymentConfiguration$, () => LoadBalancerInfo$, 0, 0, 0, 64 | 0, 0, 0, () => RelatedDeployments$, () => AlarmConfiguration$, () => EC2DeploymentOptions$]
 ];
 export var DeploymentOverview$: StaticStructureSchema = [3, n0, _DO,
   0,
@@ -1594,6 +1605,11 @@ export var Diagnostics$: StaticStructureSchema = [3, n0, _D,
   0,
   [_eC, _sN, _m, _lTo],
   [0, 0, 0, 0]
+];
+export var EC2DeploymentOptions$: StaticStructureSchema = [3, n0, _ECDO,
+  0,
+  [_aSGPTS],
+  [64 | 0]
 ];
 export var EC2TagFilter$: StaticStructureSchema = [3, n0, _ECTF,
   0,
@@ -2032,8 +2048,8 @@ export var UpdateApplicationInput$: StaticStructureSchema = [3, n0, _UAI,
 ];
 export var UpdateDeploymentGroupInput$: StaticStructureSchema = [3, n0, _UDGI,
   0,
-  [_aN, _cDGN, _nDGN, _dCN, _eTF, _oPITF, _aSG, _sRA, _tC, _aC, _aRC, _oIS, _dS, _bGDC, _lBI, _eTS, _eS, _oPTS, _tHE],
-  [0, 0, 0, 0, () => EC2TagFilterList, () => TagFilterList, 64 | 0, 0, () => TriggerConfigList, () => AlarmConfiguration$, () => AutoRollbackConfiguration$, 0, () => DeploymentStyle$, () => BlueGreenDeploymentConfiguration$, () => LoadBalancerInfo$, () => EC2TagSet$, () => ECSServiceList, () => OnPremisesTagSet$, 2], 2
+  [_aN, _cDGN, _nDGN, _dCN, _eTF, _oPITF, _aSG, _sRA, _tC, _aC, _aRC, _oIS, _dS, _bGDC, _lBI, _eTS, _eS, _oPTS, _eDO, _tHE],
+  [0, 0, 0, 0, () => EC2TagFilterList, () => TagFilterList, 64 | 0, 0, () => TriggerConfigList, () => AlarmConfiguration$, () => AutoRollbackConfiguration$, 0, () => DeploymentStyle$, () => BlueGreenDeploymentConfiguration$, () => LoadBalancerInfo$, () => EC2TagSet$, () => ECSServiceList, () => OnPremisesTagSet$, () => EC2DeploymentOptions$, 2], 2
 ];
 export var UpdateDeploymentGroupOutput$: StaticStructureSchema = [3, n0, _UDGO,
   0,
@@ -2058,6 +2074,7 @@ var AutoScalingGroupList: StaticListSchema = [1, n0, _ASGL,
   0, () => AutoScalingGroup$
 ];
 var AutoScalingGroupNameList = 64 | 0;
+var AutoScalingGroupProcessesToSuspendList = 64 | 0;
 var DeploymentConfigsList = 64 | 0;
 var DeploymentGroupInfoList: StaticListSchema = [1, n0, _DGIL,
   0, () => DeploymentGroupInfo$

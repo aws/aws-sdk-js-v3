@@ -3,6 +3,7 @@ import type {
   _InstanceType,
   ApplicationRevisionSortBy,
   AutoRollbackEvent,
+  AutoScalingGroupProcess,
   BundleType,
   ComputePlatform,
   DeploymentCreator,
@@ -705,6 +706,40 @@ export interface DeploymentStyle {
 }
 
 /**
+ * <p>Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups
+ *             during a deployment.</p>
+ * @public
+ */
+export interface EC2DeploymentOptions {
+  /**
+   * <p>The Amazon EC2 Auto Scaling processes to suspend during the deployment.
+   *             CodeDeploy suspends these processes before it deploys to instances in an
+   *             Auto Scaling group, and resumes them when the deployment succeeds, fails, or is
+   *             stopped. Valid values are <code>Terminate</code>, <code>AZRebalance</code>,
+   *             <code>InstanceRefresh</code>, and <code>ScheduledActions</code>.</p>
+   *          <p>This parameter applies only to in-place deployments on the EC2/On-premises compute
+   *             platform. If the list is empty, or if the deployment does not target instances in an
+   *             Auto Scaling group, no processes are suspended.</p>
+   *          <p>The service role for the deployment group must have permission to call
+   *             <code>autoscaling:SuspendProcesses</code> and <code>autoscaling:ResumeProcesses</code>
+   *             on the target Auto Scaling groups. If the processes cannot be suspended, the
+   *             deployment fails before any instance is updated.</p>
+   *          <p>If you suspend <code>ScheduledActions</code>, scheduled actions with a start time
+   *             during the deployment are skipped and do not run after the process resumes.</p>
+   *          <note>
+   *             <p>If CodeDeploy cannot resume the processes, the deployment fails and the
+   *                 processes stay suspended until you resume them with the Auto Scaling
+   *                 <code>ResumeProcesses</code> action. While <code>Terminate</code> is suspended,
+   *                 Auto Scaling does not replace unhealthy instances. If you suspend
+   *                 <code>Terminate</code>, configure a trigger that notifies you when a deployment
+   *                 fails.</p>
+   *          </note>
+   * @public
+   */
+  autoScalingGroupProcessesToSuspend?: AutoScalingGroupProcess[] | undefined;
+}
+
+/**
  * <p>Information about an EC2 tag filter.</p>
  * @public
  */
@@ -1167,6 +1202,13 @@ export interface DeploymentGroupInfo {
    * @public
    */
   ecsServices?: ECSService[] | undefined;
+
+  /**
+   * <p>Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups
+   *             during a deployment.</p>
+   * @public
+   */
+  ec2DeploymentOptions?: EC2DeploymentOptions | undefined;
 
   /**
    * <p>Indicates whether the deployment group was configured to have CodeDeploy
@@ -1917,6 +1959,13 @@ export interface DeploymentInfo {
    * @public
    */
   overrideAlarmConfiguration?: AlarmConfiguration | undefined;
+
+  /**
+   * <p>Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups
+   *             during a deployment.</p>
+   * @public
+   */
+  ec2DeploymentOptions?: EC2DeploymentOptions | undefined;
 }
 
 /**
@@ -2686,6 +2735,13 @@ export interface CreateDeploymentInput {
    * @public
    */
   overrideAlarmConfiguration?: AlarmConfiguration | undefined;
+
+  /**
+   * <p>Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups
+   *             during a deployment.</p>
+   * @public
+   */
+  ec2DeploymentOptions?: EC2DeploymentOptions | undefined;
 }
 
 /**
@@ -3118,6 +3174,13 @@ export interface CreateDeploymentGroupInput {
    * @public
    */
   tags?: Tag[] | undefined;
+
+  /**
+   * <p>Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups
+   *             during a deployment.</p>
+   * @public
+   */
+  ec2DeploymentOptions?: EC2DeploymentOptions | undefined;
 
   /**
    * <p>This parameter only applies if you are using CodeDeploy with Amazon EC2 Auto Scaling. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html">Integrating
@@ -4548,6 +4611,13 @@ export interface UpdateDeploymentGroupInput {
    * @public
    */
   onPremisesTagSet?: OnPremisesTagSet | undefined;
+
+  /**
+   * <p>Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups
+   *             during a deployment.</p>
+   * @public
+   */
+  ec2DeploymentOptions?: EC2DeploymentOptions | undefined;
 
   /**
    * <p>This parameter only applies if you are using CodeDeploy with Amazon EC2 Auto Scaling. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html">Integrating

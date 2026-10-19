@@ -152,6 +152,9 @@ const _MOe = "MetadataOptions";
 const _MP = "MaxPrice";
 const _MR = "MaxResults";
 const _MT = "MarketType";
+const _MV = "ModifyVolume";
+const _MVR = "ModifyVolumeRequest";
+const _MVRo = "ModifyVolumeResponse";
 const _Mo = "Monitoring";
 const _N = "Name";
 const _NCI = "NetworkCardIndex";
@@ -202,6 +205,7 @@ const _SQEE = "ServiceQuotaExceededException";
 const _T = "Throughput";
 const _TE = "ThrottlingException";
 const _TET = "TcpEstablishedTimeout";
+const _TI = "TargetIops";
 const _TK = "TagKeys";
 const _TL = "TagList";
 const _TPC = "ThreadsPerCore";
@@ -209,7 +213,10 @@ const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _TS = "TagSpecifications";
-const _TSa = "TagSpecification";
+const _TSa = "TargetSize";
+const _TSag = "TagSpecification";
+const _TT = "TargetThroughput";
+const _TVT = "TargetVolumeType";
 const _Ta = "Tags";
 const _Tag = "Tag";
 const _Te = "Tenancy";
@@ -224,6 +231,7 @@ const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
 const _VI = "VolumeId";
+const _VMREE = "VolumeModificationRateExceededException";
 const _VN = "VirtualName";
 const _VS = "VolumeSize";
 const _VT = "VolumeType";
@@ -259,6 +267,7 @@ import {
   ServiceQuotaExceededException,
   ThrottlingException,
   ValidationException,
+  VolumeModificationRateExceededException,
 } from "../models/errors";
 import { WorkspacesInstancesServiceException } from "../models/WorkspacesInstancesServiceException";
 
@@ -309,6 +318,12 @@ export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   [0, 0, () => ValidationExceptionFieldList], 2
 ];
 n0_registry.registerError(ValidationException$, ValidationException);
+export var VolumeModificationRateExceededException$: StaticErrorSchema = [-3, n0, _VMREE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(VolumeModificationRateExceededException$, VolumeModificationRateExceededException);
 /**
  * TypeRegistry instances containing modeled errors.
  * @internal
@@ -569,6 +584,16 @@ export var ManagedInstanceRequest$: StaticStructureSchema = [3, n0, _MIR,
   [_BDM, _CRS, _CO, _CS, _DAS, _EO, _EPI, _EOn, _HO, _IIP, _IIm, _IMO, _ITn, _IApv, _IAC, _KI, _KN, _LS, _MO, _MOe, _Mo, _NI, _NPO, _P, _PDNO, _PIA, _RIa, _SGI, _SG, _SIu, _TS, _UD],
   [[() => BlockDeviceMappings, 0], () => CapacityReservationSpecification$, () => CpuOptionsRequest$, () => CreditSpecificationRequest$, 2, 2, 2, () => EnclaveOptionsRequest$, () => HibernationOptionsRequest$, () => IamInstanceProfileSpecification$, 0, () => InstanceMarketOptionsRequest$, 0, [() => Ipv6Addresses, 0], 1, 0, 0, () => LicenseSpecifications, () => InstanceMaintenanceOptionsRequest$, () => InstanceMetadataOptionsRequest$, () => RunInstancesMonitoringEnabled$, [() => NetworkInterfaces, 0], () => InstanceNetworkPerformanceOptionsRequest$, () => Placement$, () => PrivateDnsNameOptionsRequest$, [() => Ipv4Address, 0], 0, 64 | 0, 64 | 0, 0, () => TagSpecifications, [() => UserData, 0]]
 ];
+export var ModifyVolumeRequest$: StaticStructureSchema = [3, n0, _MVR,
+  0,
+  [_VI, _SIGB, _VT, _I, _T, _CT],
+  [0, 1, 0, 1, 1, [() => ClientToken, 4]], 1
+];
+export var ModifyVolumeResponse$: StaticStructureSchema = [3, n0, _MVRo,
+  0,
+  [_VI, _TSa, _TVT, _TI, _TT],
+  [0, 1, 0, 1, 1]
+];
 export var Placement$: StaticStructureSchema = [3, n0, _P,
   0,
   [_Af, _AZ, _GI, _GN, _HI, _HRGA, _PN, _Te],
@@ -619,7 +644,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var TagSpecification$: StaticStructureSchema = [3, n0, _TSa,
+export var TagSpecification$: StaticStructureSchema = [3, n0, _TSag,
   0,
   [_RT, _Ta],
   [0, () => TagList]
@@ -737,6 +762,9 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 ];
 export var ListWorkspaceInstances$: StaticOperationSchema = [9, n0, _LWI,
   0, () => ListWorkspaceInstancesRequest$, () => ListWorkspaceInstancesResponse$
+];
+export var ModifyVolume$: StaticOperationSchema = [9, n0, _MV,
+  2, () => ModifyVolumeRequest$, () => ModifyVolumeResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   0, () => TagResourceRequest$, () => TagResourceResponse$

@@ -101,6 +101,11 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  *       },
  *     ],
  *   },
+ *   ec2DeploymentOptions: { // EC2DeploymentOptions
+ *     autoScalingGroupProcessesToSuspend: [ // AutoScalingGroupProcessesToSuspendList
+ *       "Terminate" || "AZRebalance" || "InstanceRefresh" || "ScheduledActions",
+ *     ],
+ *   },
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
@@ -172,6 +177,12 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * @throws {@link InvalidAutoScalingGroupException} (client fault)
  *  <p>The Auto Scaling group was specified in an invalid format or does not
  *             exist.</p>
+ *
+ * @throws {@link InvalidAutoScalingGroupProcessToSuspendException} (client fault)
+ *  <p>The <code>autoScalingGroupProcessesToSuspend</code> list in
+ *             <code>ec2DeploymentOptions</code> contains a process that is not valid. Valid values
+ *             are <code>Terminate</code>, <code>AZRebalance</code>, <code>InstanceRefresh</code>,
+ *             and <code>ScheduledActions</code>. Process names are case sensitive.</p>
  *
  * @throws {@link InvalidComputePlatformException} (client fault)
  *  <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>

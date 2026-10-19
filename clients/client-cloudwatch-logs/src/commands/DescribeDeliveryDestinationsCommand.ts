@@ -36,6 +36,9 @@ export interface DescribeDeliveryDestinationsCommandOutput extends DescribeDeliv
  * const input = { // DescribeDeliveryDestinationsRequest
  *   nextToken: "STRING_VALUE",
  *   limit: Number("int"),
+ *   names: [ // DeliveryDestinationNames
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new DescribeDeliveryDestinationsCommand(input);
  * const response = await client.send(command);

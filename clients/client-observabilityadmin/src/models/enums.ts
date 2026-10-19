@@ -35,6 +35,18 @@ export type CentralizationFailureReason =
  * @public
  * @enum
  */
+export const DeletionProtection = {
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type DeletionProtection = (typeof DeletionProtection)[keyof typeof DeletionProtection];
+
+/**
+ * @public
+ * @enum
+ */
 export const EncryptionConflictResolutionStrategy = {
   ALLOW: "ALLOW",
   SKIP: "SKIP",
@@ -328,6 +340,7 @@ export type TelemetrySourceType = (typeof TelemetrySourceType)[keyof typeof Tele
  * @enum
  */
 export const TelemetryType = {
+  INSIGHTS: "Insights",
   LOGS: "Logs",
   METRICS: "Metrics",
   TRACES: "Traces",

@@ -163,6 +163,17 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  *     },
  *   },
  *   EvaluationInterval: Number("int"),
+ *   ActionConfiguration: { // ActionConfiguration
+ *     AlarmTagsPropagation: { // AlarmTagsPropagation
+ *       Enabled: true || false, // required
+ *       IncludedTagKeys: [ // AlarmTagsPropagationTagKeys
+ *         "STRING_VALUE",
+ *       ],
+ *       ExcludedTagKeys: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new PutMetricAlarmCommand(input);
  * const response = await client.send(command);

@@ -1132,7 +1132,8 @@ export interface CreateApprovalRuleTemplateInput {
    *                         requires an Amazon Web Services account and a resource. It can be used for both IAM users
    *                         and federated access users whose name matches the provided resource name.
    *                         This is a very powerful option that offers a great deal of flexibility. For
-   *                         example, if you specify the Amazon Web Services account <i>123456789012</i>
+   *                         example, if you specify the Amazon Web Services account
+   *                      <i>123456789012</i>
    *                         and <i>Mary_Major</i>, all of the following are counted as
    *                         approvals coming from that user:</p>
    *                   <ul>
@@ -1679,7 +1680,8 @@ export interface CreatePullRequestApprovalRuleInput {
    *                         requires an Amazon Web Services account and a resource. It can be used for both IAM users
    *                         and federated access users whose name matches the provided resource name.
    *                         This is a very powerful option that offers a great deal of flexibility. For
-   *                         example, if you specify the Amazon Web Services account <i>123456789012</i>
+   *                         example, if you specify the Amazon Web Services account
+   *                      <i>123456789012</i>
    *                         and <i>Mary_Major</i>, all of the following would be counted
    *                         as approvals coming from that user:</p>
    *                   <ul>
@@ -1736,7 +1738,8 @@ export interface CreateRepositoryInput {
    *             <p>The repository name must be unique across the calling Amazon Web Services account. Repository names
    *                 are limited to 100 alphanumeric, dash, and underscore characters, and cannot include
    *                 certain characters. For more information about the limits on repository names, see
-   *                     <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>. The
+   *                     <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>
+   *                   CodeCommit User Guide</i>. The
    *                 suffix .git is prohibited.</p>
    *          </note>
    * @public
@@ -1766,8 +1769,10 @@ export interface CreateRepositoryInput {
    * <p>The ID of the encryption key. You can view the ID of an encryption key in the KMS console, or use the KMS APIs to
    *             programmatically retrieve a key ID. For more information about acceptable values for kmsKeyID, see
    *             <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html#KMS-Decrypt-request-KeyId">KeyId</a> in the Decrypt API description in
-   *             the <i>Key Management Service API Reference</i>.</p>
-   *          <p>If no key is specified, the default <code>aws/codecommit</code> Amazon Web Services managed key is used.</p>
+   *             the <i>
+   *                Key Management Service API Reference</i>.</p>
+   *          <p>If no key is specified, the default <code>aws/codecommit</code>
+   *             Amazon Web Services managed key is used.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -5255,7 +5260,8 @@ export interface PutCommentReactionInput {
 
   /**
    * <p>The emoji reaction you want to add or update. To remove a reaction, provide a value of blank or null. You can also provide the value of none.
-   *             For information about emoji reaction values supported in CodeCommit, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-commit-comment.html#emoji-reaction-table">CodeCommit User Guide</a>.</p>
+   *             For information about emoji reaction values supported in CodeCommit, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-commit-comment.html#emoji-reaction-table">
+   *                CodeCommit User Guide</a>.</p>
    * @public
    */
   reactionValue: string | undefined;
@@ -5649,7 +5655,8 @@ export interface UpdatePullRequestApprovalRuleContentInput {
    *                         requires an Amazon Web Services account and a resource. It can be used for both IAM users
    *                         and federated access users whose name matches the provided resource name.
    *                         This is a very powerful option that offers a great deal of flexibility. For
-   *                         example, if you specify the Amazon Web Services account <i>123456789012</i>
+   *                         example, if you specify the Amazon Web Services account
+   *                      <i>123456789012</i>
    *                         and <i>Mary_Major</i>, all of the following are counted as
    *                         approvals coming from that user:</p>
    *                   <ul>
@@ -5836,7 +5843,8 @@ export interface UpdateRepositoryEncryptionKeyInput {
    * <p>The ID of the encryption key. You can view the ID of an encryption key in the KMS console, or use the KMS APIs to
    *             programmatically retrieve a key ID. For more information about acceptable values for keyID, see
    *             <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html#KMS-Decrypt-request-KeyId">KeyId</a> in the Decrypt API description in
-   *         the <i>Key Management Service API Reference</i>.</p>
+   *         the <i>
+   *                Key Management Service API Reference</i>.</p>
    * @public
    */
   kmsKeyId: string | undefined;

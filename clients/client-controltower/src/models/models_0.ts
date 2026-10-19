@@ -540,7 +540,7 @@ export interface EnabledBaselineInheritanceDrift {
 }
 
 /**
- * <p>The types of drift that can be detected for an enabled baseline.</p> <ul> <li> <p> Amazon Web Services Control Tower detects inheritance drift on the enabled baselines that target OUs: <code>AWSControlTowerBaseline</code> and <code>BackupBaseline</code>. </p> </li> <li> <p>Amazon Web Services Control Tower does not detect drift on the baselines that apply to your landing zone: <code>IdentityCenterBaseline</code>, <code>AuditBaseline</code>, <code>LogArchiveBaseline</code>, <code>BackupCentralVaultBaseline</code>, or <code>BackupAdminBaseline</code>. For more information, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/types-of-baselines.html">Types of baselines</a>.</p> </li> </ul> <p>Baselines enabled on an OU are inherited by its member accounts as child <code>EnabledBaseline</code> resources. The baseline on the OU serves as the parent <code>EnabledBaseline</code>, which governs the configuration of each child <code>EnabledBaseline</code>.</p> <p>If the baseline configuration of a member account in an OU does not match the configuration of the parent OU, the parent and child baseline is in a state of inheritance drift. This drift could occur in the <code>AWSControlTowerBaseline</code> or the <code>BackupBaseline</code> related to that account.</p>
+ * <p>The types of drift that can be detected for an enabled baseline.</p> <ul> <li> <p> Amazon Web Services Control Tower detects inheritance drift on the enabled baselines that target OUs: <code>AWSControlTowerBaseline</code> and <code>BackupBaseline</code>. </p> </li> <li> <p> Amazon Web Services Control Tower does not detect drift on the baselines that apply to your landing zone: <code>IdentityCenterBaseline</code>, <code>AuditBaseline</code>, <code>LogArchiveBaseline</code>, <code>BackupCentralVaultBaseline</code>, or <code>BackupAdminBaseline</code>. For more information, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/types-of-baselines.html">Types of baselines</a>.</p> </li> </ul> <p>Baselines enabled on an OU are inherited by its member accounts as child <code>EnabledBaseline</code> resources. The baseline on the OU serves as the parent <code>EnabledBaseline</code>, which governs the configuration of each child <code>EnabledBaseline</code>.</p> <p>If the baseline configuration of a member account in an OU does not match the configuration of the parent OU, the parent and child baseline is in a state of inheritance drift. This drift could occur in the <code>AWSControlTowerBaseline</code> or the <code>BackupBaseline</code> related to that account.</p>
  * @public
  */
 export interface EnabledBaselineDriftTypes {
@@ -968,7 +968,7 @@ export interface EnabledControlDriftTypes {
 }
 
 /**
- * <p>The drift summary of the enabled control.</p> <p>Amazon Web Services Control Tower expects the enabled control configuration to include all supported and governed Regions. If the enabled control differs from the expected configuration, it is defined to be in a state of drift. You can repair this drift by resetting the enabled control.</p>
+ * <p>The drift summary of the enabled control.</p> <p> Amazon Web Services Control Tower expects the enabled control configuration to include all supported and governed Regions. If the enabled control differs from the expected configuration, it is defined to be in a state of drift. You can repair this drift by resetting the enabled control.</p>
  * @public
  */
 export interface DriftStatusSummary {

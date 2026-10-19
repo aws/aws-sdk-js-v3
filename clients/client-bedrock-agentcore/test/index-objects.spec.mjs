@@ -181,6 +181,7 @@ import {
   FailureSubCategoryCluster$,
   FilterInput$,
   FilterValue$,
+  FindingTargetType,
   GatewayFilter$,
   GetABTest$,
   GetABTestCommand,
@@ -314,8 +315,11 @@ import {
   InlineMemoryContent$,
   InputContentBlock$,
   Insight$,
+  InsightResult$,
+  InsightRootCause$,
   InsightsFailureCategory,
   InsightsFailureSignal$,
+  InsightType,
   InstrumentBalanceToken,
   InternalServerException,
   InternalServerException$,
@@ -511,6 +515,7 @@ import {
   RuntimeClientError$,
   S3FilesConfiguration$,
   S3Location$,
+  SampleSession$,
   SaveBrowserSessionProfile$,
   SaveBrowserSessionProfileCommand,
   SaveBrowserSessionProfileRequest$,
@@ -531,6 +536,7 @@ import {
   ServiceQuotaExceededException$,
   SessionFilter$,
   SessionFilterConfig$,
+  SessionFinding$,
   SessionLimits$,
   SessionMetadataShape$,
   SessionStatus,
@@ -976,6 +982,8 @@ assert(typeof InlineGroundTruth$ === "object");
 assert(typeof InlineMemoryContent$ === "object");
 assert(typeof InputContentBlock$ === "object");
 assert(typeof Insight$ === "object");
+assert(typeof InsightResult$ === "object");
+assert(typeof InsightRootCause$ === "object");
 assert(typeof InsightsFailureSignal$ === "object");
 assert(typeof InvokeAgentRuntimeCommandRequest$ === "object");
 assert(typeof InvokeAgentRuntimeCommandRequestBody$ === "object");
@@ -1091,6 +1099,7 @@ assert(typeof RightExpression$ === "object");
 assert(typeof RootCauseCluster$ === "object");
 assert(typeof S3FilesConfiguration$ === "object");
 assert(typeof S3Location$ === "object");
+assert(typeof SampleSession$ === "object");
 assert(typeof SaveBrowserSessionProfileRequest$ === "object");
 assert(typeof SaveBrowserSessionProfileResponse$ === "object");
 assert(typeof ScreenshotArguments$ === "object");
@@ -1102,6 +1111,7 @@ assert(typeof SecretsManagerLocation$ === "object");
 assert(typeof ServerDefinition$ === "object");
 assert(typeof SessionFilter$ === "object");
 assert(typeof SessionFilterConfig$ === "object");
+assert(typeof SessionFinding$ === "object");
 assert(typeof SessionLimits$ === "object");
 assert(typeof SessionMetadataShape$ === "object");
 assert(typeof SessionSummary$ === "object");
@@ -1182,6 +1192,7 @@ assert(typeof DescriptorType === "object");
 assert(typeof EventFilterCondition === "object");
 assert(typeof ExtractionJobStatus === "object");
 assert(typeof ExtractionMode === "object");
+assert(typeof FindingTargetType === "object");
 assert(typeof HarnessBedrockApiFormat === "object");
 assert(typeof HarnessConversationRole === "object");
 assert(typeof HarnessHookDecision === "object");
@@ -1192,6 +1203,7 @@ assert(typeof HarnessToolType === "object");
 assert(typeof HarnessToolUseStatus === "object");
 assert(typeof HarnessToolUseType === "object");
 assert(typeof InsightsFailureCategory === "object");
+assert(typeof InsightType === "object");
 assert(typeof InstrumentBalanceToken === "object");
 assert(typeof LanguageRuntime === "object");
 assert(typeof MemoryRecordOperatorType === "object");

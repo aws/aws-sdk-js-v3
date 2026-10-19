@@ -84,14 +84,16 @@ export interface TLSCertificateConfiguration {
   certificateProviderType?: CertificateProviderType | undefined;
 
   /**
-   * <p>Secrets Manager ARN that contains the public TLS certificate contents, used for
+   * <p>
+   *             Secrets Manager ARN that contains the public TLS certificate contents, used for
    *          communication between the user job and the system job.</p>
    * @public
    */
   publicCertificateSecretArn?: string | undefined;
 
   /**
-   * <p>Secrets Manager ARN that contains the private TLS certificate contents, used for
+   * <p>
+   *             Secrets Manager ARN that contains the private TLS certificate contents, used for
    *          communication between the user job and the system job.</p>
    * @public
    */
@@ -141,7 +143,8 @@ export interface SecureNamespaceInfo {
 }
 
 /**
- * <p>Lake Formation related configuration inputs for the security
+ * <p>
+ *             Lake Formation related configuration inputs for the security
  *          configuration.</p>
  * @public
  */
@@ -173,7 +176,8 @@ export interface LakeFormationConfiguration {
  */
 export interface AuthorizationConfiguration {
   /**
-   * <p>Lake Formation related configuration inputs for the security
+   * <p>
+   *             Lake Formation related configuration inputs for the security
    *          configuration.</p>
    * @public
    */

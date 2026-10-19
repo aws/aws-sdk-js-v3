@@ -295,3 +295,44 @@ export class ServiceQuotaExceededException extends __BaseException {
     this.QuotaCode = opts.QuotaCode;
   }
 }
+
+/**
+ * <p>The volume has a previous modification that is still in progress, or has reached the limit of four modifications in a rolling 24-hour period. Wait for the current modification to finish, or wait until the time indicated in the error message, and then retry the request.</p>
+ * @public
+ */
+export class VolumeModificationRateExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workspacesinstances#VolumeModificationRateExceededException";
+  readonly name = "VolumeModificationRateExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>Specifies the reason that the modification request was rejected.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>Specifies the identifier of the volume for which the modification request was rejected.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>Specifies the type of the resource for which the modification request was rejected.</p>
+   * @public
+   */
+  ResourceType: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<VolumeModificationRateExceededException, __BaseException>) {
+    super({
+      name: "VolumeModificationRateExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, VolumeModificationRateExceededException.prototype);
+    this.Message = opts.Message;
+    this.ResourceId = opts.ResourceId;
+    this.ResourceType = opts.ResourceType;
+  }
+}

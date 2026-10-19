@@ -186,7 +186,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * //       glueConnection: { // GlueConnection
  * //         name: "STRING_VALUE",
  * //         description: "STRING_VALUE",
- * //         connectionType: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW" || "VPC" || "GIT",
+ * //         connectionType: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW" || "VPC" || "GIT" || "ICEBERGRESTCATALOG" || "SNOWFLAKEICEBERGRESTCATALOG" || "DATABRICKSICEBERGRESTCATALOG",
  * //         matchCriteria: [ // MatchCriteria
  * //           "STRING_VALUE",
  * //         ],
@@ -392,7 +392,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * //       errorMessage: "STRING_VALUE",
  * //     },
  * //   },
- * //   type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW" || "VPC" || "GIT", // required
+ * //   type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW" || "VPC" || "GIT" || "ICEBERGRESTCATALOG" || "SNOWFLAKEICEBERGRESTCATALOG" || "DATABRICKSICEBERGRESTCATALOG", // required
  * //   scope: "DOMAIN" || "PROJECT",
  * // };
  *

@@ -367,6 +367,7 @@ const _IS = "ImageSource";
 const _ISE = "InternalServerException";
 const _ISI = "ImageSourceIdentifier";
 const _IT = "ImageType";
+const _IVM = "ImageValidationMode";
 const _IVS = "IncreaseVolumeSize";
 const _IWI = "ImportWorkspaceImage";
 const _IWIR = "ImportWorkspaceImageRequest";
@@ -1621,8 +1622,8 @@ export var ImportClientBrandingResult$: StaticStructureSchema = [3, n0, _ICBRm,
 ];
 export var ImportCustomWorkspaceImageRequest$: StaticStructureSchema = [3, n0, _ICWIR,
   0,
-  [_IN, _ID, _CTo, _Pr, _IS, _ICA, _Pl, _OV, _T],
-  [0, 0, 0, 0, () => ImageSourceIdentifier$, 0, 0, 0, () => TagList], 8
+  [_IN, _ID, _CTo, _Pr, _IS, _ICA, _Pl, _OV, _T, _IVM],
+  [0, 0, 0, 0, () => ImageSourceIdentifier$, 0, 0, 0, () => TagList, 0], 8
 ];
 export var ImportCustomWorkspaceImageResult$: StaticStructureSchema = [3, n0, _ICWIRm,
   0,

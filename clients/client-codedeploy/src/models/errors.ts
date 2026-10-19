@@ -980,6 +980,30 @@ export class InvalidAutoScalingGroupException extends __BaseException {
 }
 
 /**
+ * <p>The <code>autoScalingGroupProcessesToSuspend</code> list in
+ *             <code>ec2DeploymentOptions</code> contains a process that is not valid. Valid values
+ *             are <code>Terminate</code>, <code>AZRebalance</code>, <code>InstanceRefresh</code>,
+ *             and <code>ScheduledActions</code>. Process names are case sensitive.</p>
+ * @public
+ */
+export class InvalidAutoScalingGroupProcessToSuspendException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidAutoScalingGroupProcessToSuspendException";
+  readonly name = "InvalidAutoScalingGroupProcessToSuspendException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAutoScalingGroupProcessToSuspendException, __BaseException>) {
+    super({
+      name: "InvalidAutoScalingGroupProcessToSuspendException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAutoScalingGroupProcessToSuspendException.prototype);
+  }
+}
+
+/**
  * <p>The deployment configuration name was specified in an invalid format.</p>
  * @public
  */

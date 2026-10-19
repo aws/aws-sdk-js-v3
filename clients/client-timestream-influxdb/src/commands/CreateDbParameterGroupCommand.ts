@@ -200,6 +200,10 @@ export interface CreateDbParameterGroupCommandOutput extends CreateDbParameterGr
  *       distinctValueCacheDisableFromHistory: true || false,
  *       replicationInterval: "<Duration>",
  *       catalogSyncInterval: "<Duration>",
+ *       upgradePachaTree: true || false,
+ *       walBufferSize: Number("long"),
+ *       snapshotSize: "<PercentOrAbsoluteLong>",
+ *       snapshotDuration: "<Duration>",
  *     },
  *   },
  *   tags: { // RequestTagMap
@@ -378,6 +382,10 @@ export interface CreateDbParameterGroupCommandOutput extends CreateDbParameterGr
  * //       distinctValueCacheDisableFromHistory: true || false,
  * //       replicationInterval: "<Duration>",
  * //       catalogSyncInterval: "<Duration>",
+ * //       upgradePachaTree: true || false,
+ * //       walBufferSize: Number("long"),
+ * //       snapshotSize: "<PercentOrAbsoluteLong>",
+ * //       snapshotDuration: "<Duration>",
  * //     },
  * //   },
  * // };

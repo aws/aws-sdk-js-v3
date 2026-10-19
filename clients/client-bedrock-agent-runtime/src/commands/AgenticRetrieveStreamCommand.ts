@@ -177,6 +177,10 @@ export interface AgenticRetrieveStreamCommandOutput extends AgenticRetrieveStrea
  *     ],
  *     persistenceMode: "DEFAULT" || "NONE",
  *   },
+ *   retrievalInstructionConfiguration: { // AgenticRetrieveInstructionConfiguration
+ *     retrievalInstructionId: "STRING_VALUE", // required
+ *     version: "STRING_VALUE",
+ *   },
  *   generateResponse: true || false,
  * };
  * const command = new AgenticRetrieveStreamCommand(input);
@@ -286,6 +290,10 @@ export interface AgenticRetrieveStreamCommandOutput extends AgenticRetrieveStrea
  * //             sourceRetriever: "<AgenticRetrieveSourceRetriever>",
  * //           },
  * //         ],
+ * //         appliedInstruction: { // AgenticRetrieveAppliedInstruction
+ * //           id: "STRING_VALUE", // required
+ * //           version: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //     responseEvent: { // AgenticRetrieveResponseEvent

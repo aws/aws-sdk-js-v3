@@ -59,7 +59,7 @@ export interface CreateAttachedFileCommandOutput extends CreateAttachedFileRespo
  * //   FileArn: "STRING_VALUE",
  * //   FileId: "STRING_VALUE",
  * //   CreationTime: "STRING_VALUE",
- * //   FileStatus: "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
+ * //   FileStatus: "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED" || "DRAFTING",
  * // };
  *
  * ```

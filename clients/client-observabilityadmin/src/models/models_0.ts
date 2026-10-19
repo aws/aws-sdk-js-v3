@@ -3,6 +3,7 @@ import type {
   Action,
   CentralizationFailureReason,
   ContextGraphStatus,
+  DeletionProtection,
   DestinationType,
   EncryptedLogGroupStrategy,
   EncryptionConflictResolutionStrategy,
@@ -215,6 +216,12 @@ export interface DestinationLogsConfiguration {
    * @public
    */
   TagPropagationConfiguration?: TagPropagationConfiguration | undefined;
+
+  /**
+   * <p>Specifies whether this centralization rule enables deletion protection on the destination log groups that it creates. If you don't specify this setting, the rule doesn't enable deletion protection on the log groups that it creates. If you specify a backup Region in <code>BackupConfiguration</code>, the setting also applies to the log groups that the rule creates in the backup Region.</p> <p>When you set this to <code>ENABLED</code>, the rule enables deletion protection only on log groups that it creates after you enable the setting. It does not add deletion protection to log groups the rule created before you enabled the setting.</p> <p>If you remove this setting from the rule or delete the rule, deletion protection stays enabled on log groups that already have it. To delete one of these log groups, first disable deletion protection on the log group in the destination account.</p>
+   * @public
+   */
+  LogGroupDeletionProtection?: DeletionProtection | undefined;
 }
 
 /**
@@ -1007,7 +1014,7 @@ export interface TelemetryDestinationConfiguration {
  */
 export interface TelemetryRule {
   /**
-   * <p> The type of Amazon Web Services resource to configure telemetry for (for example, <code>AWS::EC2::VPC</code>, <code>AWS::EKS::Cluster</code>, <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>, <code>AWS::Bedrock::KnowledgeBase</code>, or <code>AWS::BedrockAgentCore::PaymentManager</code>). </p>
+   * <p> The type of Amazon Web Services resource to configure telemetry for (for example, <code>AWS::EC2::VPC</code>, <code>AWS::EKS::Cluster</code>, <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>, <code>AWS::Bedrock::KnowledgeBase</code>, <code>AWS::BedrockAgentCore::PaymentManager</code>, or <code>AWS::XRay::TransactionSearchConfig</code>). </p>
    * @public
    */
   ResourceType?: ResourceType | undefined;

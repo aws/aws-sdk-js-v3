@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
+
+
+### Features
+
+* **client-codecommit:** Documentation update release for AWS service ([f6d2795](https://github.com/aws/aws-sdk-js-v3/commit/f6d27955eafb97949159410ad7e42b0decc07237))
+
+
+
+
+
 # [3.1152.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1151.0...v3.1152.0) (2026-10-14)
 
 **Note:** Version bump only for package @aws-sdk/client-codecommit

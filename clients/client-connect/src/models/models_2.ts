@@ -15,6 +15,7 @@ import type {
   ContactInteractionType,
   ContactMetricName,
   ContactState,
+  ContentDisposition,
   CurrentMetricName,
   DataTableAttributeValueType,
   DirectoryType,
@@ -165,6 +166,23 @@ export interface GetAttachedFileRequest {
    * @public
    */
   AssociatedResourceArn: string | undefined;
+
+  /**
+   * <p>Specifies how a browser handles the file at the pre-signed URL. The valid values are the
+   *    following:</p>
+   *          <dl>
+   *             <dt>INLINE</dt>
+   *             <dd>
+   *                <p>Displays the file in the browser.</p>
+   *             </dd>
+   *             <dt>ATTACHMENT</dt>
+   *             <dd>
+   *                <p>Downloads the file. This is the default.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  UrlContentDisposition?: ContentDisposition | undefined;
 }
 
 /**

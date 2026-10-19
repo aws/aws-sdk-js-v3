@@ -37,6 +37,7 @@ import type {
   ImageAssociatedResourceType,
   ImageComputeType,
   ImageType,
+  ImageValidationMode,
   InternetFallbackProtocol,
   LogUploadEnum,
   ModificationResourceEnum,
@@ -5159,6 +5160,12 @@ export interface ImportCustomWorkspaceImageRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The image validation mode for the WorkSpace image import.</p>
+   * @public
+   */
+  ImageValidationMode?: ImageValidationMode | undefined;
 }
 
 /**

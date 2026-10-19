@@ -10,5 +10,6 @@ export * from "./ListInstanceTypesCommand";
 export * from "./ListRegionsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ListWorkspaceInstancesCommand";
+export * from "./ModifyVolumeCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";

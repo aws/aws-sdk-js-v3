@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CodestarNotificationsServiceException as __BaseException } from "./CodestarNotificationsServiceException";
 
 /**
- * <p>CodeStar Notifications can't create the notification rule because you do not have sufficient
+ * <p>
+ *             CodeStar Notifications can't create the notification rule because you do not have sufficient
  *       permissions.</p>
  * @public
  */
@@ -28,7 +29,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>CodeStar Notifications can't complete the request because the resource is being modified by
+ * <p>
+ *             CodeStar Notifications can't complete the request because the resource is being modified by
  *       another process. Wait a few minutes and try again.</p>
  * @public
  */
@@ -147,7 +149,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+ * <p>
+ *             CodeStar Notifications can't find a resource that matches the provided ARN. </p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

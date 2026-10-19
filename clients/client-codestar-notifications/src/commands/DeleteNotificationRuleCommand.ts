@@ -50,7 +50,8 @@ export interface DeleteNotificationRuleCommandOutput extends DeleteNotificationR
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>CodeStar Notifications can't complete the request because the resource is being modified by
+ *  <p>
+ *             CodeStar Notifications can't complete the request because the resource is being modified by
  *       another process. Wait a few minutes and try again.</p>
  *
  * @throws {@link LimitExceededException} (client fault)

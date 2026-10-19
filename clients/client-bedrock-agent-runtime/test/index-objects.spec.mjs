@@ -14,6 +14,7 @@ import {
   AgentCollaboratorOutputPayload$,
   AgenticRetrieveAction$,
   AgenticRetrieveActionDetails$,
+  AgenticRetrieveAppliedInstruction$,
   AgenticRetrieveBedrockGuardrailConfiguration$,
   AgenticRetrieveBedrockRerankingConfiguration$,
   AgenticRetrieveBedrockRerankingModelConfiguration$,
@@ -24,6 +25,7 @@ import {
   AgenticRetrieveFullDocExpansionDetails$,
   AgenticRetrieveGeneratedResponse$,
   AgenticRetrieveGuardrailWarning$,
+  AgenticRetrieveInstructionConfiguration$,
   AgenticRetrieveMemoryConfiguration$,
   AgenticRetrieveMemoryMetadataFilter$,
   AgenticRetrieveMemoryMetadataFilterLeft$,
@@ -634,6 +636,7 @@ assert(typeof AgentCollaboratorInvocationOutput$ === "object");
 assert(typeof AgentCollaboratorOutputPayload$ === "object");
 assert(typeof AgenticRetrieveAction$ === "object");
 assert(typeof AgenticRetrieveActionDetails$ === "object");
+assert(typeof AgenticRetrieveAppliedInstruction$ === "object");
 assert(typeof AgenticRetrieveBedrockGuardrailConfiguration$ === "object");
 assert(typeof AgenticRetrieveBedrockRerankingConfiguration$ === "object");
 assert(typeof AgenticRetrieveBedrockRerankingModelConfiguration$ === "object");
@@ -644,6 +647,7 @@ assert(typeof AgenticRetrieveFailure$ === "object");
 assert(typeof AgenticRetrieveFullDocExpansionDetails$ === "object");
 assert(typeof AgenticRetrieveGeneratedResponse$ === "object");
 assert(typeof AgenticRetrieveGuardrailWarning$ === "object");
+assert(typeof AgenticRetrieveInstructionConfiguration$ === "object");
 assert(typeof AgenticRetrieveMemoryConfiguration$ === "object");
 assert(typeof AgenticRetrieveMemoryMetadataFilter$ === "object");
 assert(typeof AgenticRetrieveMemoryMetadataFilterLeft$ === "object");

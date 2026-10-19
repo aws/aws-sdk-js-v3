@@ -58,7 +58,7 @@ export interface StartAttachedFileUploadCommandOutput extends StartAttachedFileU
  * //   FileArn: "STRING_VALUE",
  * //   FileId: "STRING_VALUE",
  * //   CreationTime: "STRING_VALUE",
- * //   FileStatus: "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
+ * //   FileStatus: "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED" || "DRAFTING",
  * //   CreatedBy: { // CreatedByInfo Union: only one key present
  * //     ConnectUserArn: "STRING_VALUE",
  * //     AWSIdentityArn: "STRING_VALUE",

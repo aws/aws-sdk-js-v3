@@ -63,6 +63,11 @@ import {
   ListWorkspaceInstancesCommand,
 } from "./commands/ListWorkspaceInstancesCommand";
 import {
+  type ModifyVolumeCommandInput,
+  type ModifyVolumeCommandOutput,
+  ModifyVolumeCommand,
+} from "./commands/ModifyVolumeCommand";
+import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
   TagResourceCommand,
@@ -89,6 +94,7 @@ const commands = {
   ListRegionsCommand,
   ListTagsForResourceCommand,
   ListWorkspaceInstancesCommand,
+  ModifyVolumeCommand,
   TagResourceCommand,
   UntagResourceCommand,
 };
@@ -294,6 +300,23 @@ export interface WorkspacesInstances {
     args: ListWorkspaceInstancesCommandInput,
     options: WorkspacesInstancesRequestOptions,
     cb: (err: any, data?: ListWorkspaceInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyVolumeCommand}
+   */
+  modifyVolume(
+    args: ModifyVolumeCommandInput,
+    options?: WorkspacesInstancesRequestOptions
+  ): Promise<ModifyVolumeCommandOutput>;
+  modifyVolume(
+    args: ModifyVolumeCommandInput,
+    cb: (err: any, data?: ModifyVolumeCommandOutput) => void
+  ): void;
+  modifyVolume(
+    args: ModifyVolumeCommandInput,
+    options: WorkspacesInstancesRequestOptions,
+    cb: (err: any, data?: ModifyVolumeCommandOutput) => void
   ): void;
 
   /**

@@ -60,6 +60,13 @@
 
 
 
+
+# 3.0.61 (2026-10-15)
+### Chores
+* **codegen:** sync for JSON codec and schema server plugin ([#8353](https://github.com/aws/aws-sdk-js-v3/issues/8353)) ([3e350b5](https://github.com/aws/aws-sdk-js-v3/commit/3e350b59848e2bffcfe4d34a628e7adc136a6a55))
+
+
+
 # 3.0.60 (2026-10-12)
 ### Chores
 * **snapshot-testing:** update dependencies.

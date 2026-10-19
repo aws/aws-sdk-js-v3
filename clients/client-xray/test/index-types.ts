@@ -135,6 +135,7 @@ export type {
   BatchGetTracesResult,
   CancelTraceRetrievalRequest,
   CancelTraceRetrievalResult,
+  CloudWatchLogsConfiguration,
   CreateGroupRequest,
   CreateGroupResult,
   CreateSamplingRuleRequest,

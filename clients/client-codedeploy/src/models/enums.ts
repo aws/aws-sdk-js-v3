@@ -45,6 +45,21 @@ export type AutoRollbackEvent = (typeof AutoRollbackEvent)[keyof typeof AutoRoll
  * @public
  * @enum
  */
+export const AutoScalingGroupProcess = {
+  AZ_REBALANCE: "AZRebalance",
+  INSTANCE_REFRESH: "InstanceRefresh",
+  SCHEDULED_ACTIONS: "ScheduledActions",
+  TERMINATE: "Terminate",
+} as const;
+/**
+ * @public
+ */
+export type AutoScalingGroupProcess = (typeof AutoScalingGroupProcess)[keyof typeof AutoScalingGroupProcess];
+
+/**
+ * @public
+ * @enum
+ */
 export const RevisionLocationType = {
   AppSpecContent: "AppSpecContent",
   GitHub: "GitHub",

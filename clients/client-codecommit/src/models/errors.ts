@@ -347,7 +347,8 @@ export class EncryptionKeyUnavailableException extends __BaseException {
 /**
  * <p>The name of the approval rule template is not valid. Template names must be between 1
  *             and 100 valid characters in length. For more information about limits in CodeCommit,
- *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+ *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>
+ *                CodeCommit User Guide</i>.</p>
  * @public
  */
 export class InvalidApprovalRuleTemplateNameException extends __BaseException {
@@ -1079,7 +1080,8 @@ export class InvalidApprovalRuleTemplateContentException extends __BaseException
 /**
  * <p>The description for the approval rule template is not valid because it exceeds the
  *             maximum characters allowed for a description. For more information about limits in CodeCommit,
- *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+ *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>
+ *                CodeCommit User Guide</i>.</p>
  * @public
  */
 export class InvalidApprovalRuleTemplateDescriptionException extends __BaseException {
@@ -2872,7 +2874,8 @@ export class RevisionNotCurrentException extends __BaseException {
 
 /**
  * <p>The specified file exceeds the file size limit for CodeCommit. For more information about limits in CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+ *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>
+ *                CodeCommit User Guide</i>.</p>
  * @public
  */
 export class FileTooLargeException extends __BaseException {
@@ -3168,7 +3171,8 @@ export class InvalidSortByException extends __BaseException {
 
 /**
  * <p>The value for the resource ARN is not valid. For more information about resources in CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
+ *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">
+ *                CodeCommit Resources and Operations</a>
  *             in the CodeCommit User Guide.</p>
  * @public
  */
@@ -3191,7 +3195,8 @@ export class InvalidResourceArnException extends __BaseException {
 
 /**
  * <p>A valid Amazon Resource Name (ARN) for an CodeCommit resource is required. For a list of valid resources in CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
+ *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">
+ *                CodeCommit Resources and Operations</a>
  *             in the CodeCommit User Guide.</p>
  * @public
  */
@@ -3446,7 +3451,8 @@ export class InvalidRelativeFileVersionEnumException extends __BaseException {
 }
 
 /**
- * <p>The value of the reaction is not valid. For more information, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">CodeCommit User Guide</a>.</p>
+ * <p>The value of the reaction is not valid. For more information, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">
+ *                CodeCommit User Guide</a>.</p>
  * @public
  */
 export class InvalidReactionValueException extends __BaseException {

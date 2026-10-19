@@ -46,6 +46,7 @@ export interface DescribePublishingDestinationCommandOutput extends DescribePubl
  * //   DestinationProperties: { // DestinationProperties
  * //     DestinationArn: "STRING_VALUE",
  * //     KmsKeyArn: "STRING_VALUE",
+ * //     ExpectedBucketOwner: "STRING_VALUE",
  * //   },
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",

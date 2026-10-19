@@ -84,6 +84,7 @@ import type {
   SchedulingStrategy,
   Scope,
   ServiceConnectAccessLoggingFormat,
+  ServiceConnectContainerLogLevel,
   ServiceConnectIncludeQueryParameters,
   ServiceDeploymentLifecycleStage,
   ServiceDeploymentRollbackMonitorsStatus,
@@ -7149,6 +7150,45 @@ export interface ServiceConnectAccessLogConfiguration {
 }
 
 /**
+ * <p>Contains a configuration setting for the Service Connect proxy container, such as the log level. Specify exactly one member in each object.</p>
+ * @public
+ */
+export type ServiceConnectContainerConfiguration =
+  | ServiceConnectContainerConfiguration.LogLevelMember
+  | ServiceConnectContainerConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ServiceConnectContainerConfiguration {
+  /**
+   * <p>The log level of the Service Connect proxy container. Set the log level to <code>debug</code> to collect more detailed proxy logs when you troubleshoot connectivity issues between services, and set it back to <code>info</code> when you finish. Debug logging increases the volume of logs that the proxy container writes. If you don't specify a log level, the default is <code>info</code>.</p>
+   * @public
+   */
+  export interface LogLevelMember {
+    logLevel: ServiceConnectContainerLogLevel;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    logLevel?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    logLevel: (value: ServiceConnectContainerLogLevel) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>The header matching rules for test traffic routing in Amazon ECS blue/green deployments. These rules determine how incoming requests are matched based on HTTP headers to route test traffic to the new service revision.</p>
  * @public
  */
@@ -7344,6 +7384,12 @@ export interface ServiceConnectConfiguration {
    * @public
    */
   accessLogConfiguration?: ServiceConnectAccessLogConfiguration | undefined;
+
+  /**
+   * <p>The settings for the Service Connect proxy container that Amazon ECS adds to each task in this service. Each object in the list sets exactly one setting, and each setting can appear only once in the list.</p> <p>Your changes to these settings apply only to tasks that Amazon ECS launches after you update the service. Your running tasks keep their existing settings until Amazon ECS replaces them. If you update the <code>serviceConnectConfiguration</code> of your service and don't include <code>containerConfigurations</code>, the proxy container settings return to their defaults.</p>
+   * @public
+   */
+  containerConfigurations?: ServiceConnectContainerConfiguration[] | undefined;
 }
 
 /**
@@ -9401,40 +9447,4 @@ export interface ManagedIngressPath {
    * @public
    */
   targetGroups?: ManagedTargetGroup[] | undefined;
-}
-
-/**
- * <p>The Cloudwatch Log Group created by Amazon ECS for an Express service.</p>
- * @public
- */
-export interface ManagedLogGroup {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Cloudwatch Log Group associated with the Express service.</p>
-   * @public
-   */
-  arn?: string | undefined;
-
-  /**
-   * <p>The status of the Cloudwatch LogGroup.</p>
-   * @public
-   */
-  status: ManagedResourceStatus | undefined;
-
-  /**
-   * <p>Information about why the Cloudwatch LogGroup is in the current status.</p>
-   * @public
-   */
-  statusReason?: string | undefined;
-
-  /**
-   * <p>The Unix timestamp for when the Cloudwatch LogGroup was last updated</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The name of the Cloudwatch Log Group associated with the Express service.</p>
-   * @public
-   */
-  logGroupName: string | undefined;
 }

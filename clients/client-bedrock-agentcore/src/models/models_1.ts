@@ -8,6 +8,7 @@ import type {
   DescriptorType,
   EventFilterCondition,
   ExtractionJobStatus,
+  ExtractionMode,
   InstrumentBalanceToken,
   MemoryRecordOperatorType,
   OperatorType,
@@ -22,14 +23,174 @@ import type {
   A2aDescriptor,
   ActorSummary,
   AgentSkillsDescriptor,
+  Branch,
   Conversational,
-  Event,
   ExtractionConfig,
   MemoryContent,
   MemoryJsonData,
   MemoryRecordMetadataValue,
   MetadataValue,
+  PayloadType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateEventInput {
+  /**
+   * <p>The identifier of the AgentCore Memory resource in which to create the event.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>The identifier of the actor associated with this event. An actor represents an entity that participates in sessions and generates events.</p>
+   * @public
+   */
+  actorId: string | undefined;
+
+  /**
+   * <p>The identifier of the session in which this event occurs. A session represents a sequence of related events.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
+
+  /**
+   * <p>The timestamp when the event occurred. If not specified, the current time is used.</p>
+   * @public
+   */
+  eventTimestamp: Date | undefined;
+
+  /**
+   * <p>The content payload of the event. This can include conversational data, JSON data, or binary content.</p>
+   * @public
+   */
+  payload: PayloadType[] | undefined;
+
+  /**
+   * <p>The branch information for this event. Branches allow for organizing events into different conversation threads or paths.</p>
+   * @public
+   */
+  branch?: Branch | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, AgentCore ignores the request, but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The key-value metadata to attach to the event.</p>
+   * @public
+   */
+  metadata?: Record<string, MetadataValue> | undefined;
+
+  /**
+   * <p>Controls long-term memory extraction for this event. When set to <code>SKIP</code>, the event is stored in short-term memory but is excluded from long-term memory extraction. If not specified, the event is processed for extraction as usual.</p>
+   * @public
+   */
+  extractionMode?: ExtractionMode | undefined;
+
+  /**
+   * <p>The extraction configuration for long-term memory records. Use this parameter to specify namespace variable keys and their values for namespace substitution during extraction.</p>
+   * @public
+   */
+  extractionConfig?: ExtractionConfig | undefined;
+}
+
+/**
+ * <p>Contains information about an event in an AgentCore Memory resource.</p>
+ * @public
+ */
+export interface Event {
+  /**
+   * <p>The identifier of the AgentCore Memory resource containing the event.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>The identifier of the actor associated with the event.</p>
+   * @public
+   */
+  actorId: string | undefined;
+
+  /**
+   * <p>The identifier of the session containing the event.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the event.</p>
+   * @public
+   */
+  eventId: string | undefined;
+
+  /**
+   * <p>The timestamp when the event occurred.</p>
+   * @public
+   */
+  eventTimestamp: Date | undefined;
+
+  /**
+   * <p>The content payload of the event.</p>
+   * @public
+   */
+  payload: PayloadType[] | undefined;
+
+  /**
+   * <p>The branch information for the event.</p>
+   * @public
+   */
+  branch?: Branch | undefined;
+
+  /**
+   * <p>Metadata associated with an event.</p>
+   * @public
+   */
+  metadata?: Record<string, MetadataValue> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEventOutput {
+  /**
+   * <p>The event that was created.</p>
+   * @public
+   */
+  event: Event | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteEventInput {
+  /**
+   * <p>The identifier of the AgentCore Memory resource from which to delete the event.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>The identifier of the session containing the event to delete.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The identifier of the event to delete.</p>
+   * @public
+   */
+  eventId: string | undefined;
+
+  /**
+   * <p>The identifier of the actor associated with the event to delete.</p>
+   * @public
+   */
+  actorId: string | undefined;
+}
 
 /**
  * @public
@@ -908,7 +1069,7 @@ export interface ListMemoryRecordsInput {
   memoryId: string | undefined;
 
   /**
-   * <p>The namespace prefix to filter memory records by. Returns all memory records in namespaces that start with the provided prefix. Either <code>namespace</code> or <code>namespacePath</code> is required.</p>
+   * <p>The exact namespace to filter memory records by. Returns all memory records that matches the provided namespace. Either <code>namespace</code> or <code>namespacePath</code> is required.</p>
    * @public
    */
   namespace?: string | undefined;
@@ -1144,7 +1305,7 @@ export interface RetrieveMemoryRecordsInput {
   memoryId: string | undefined;
 
   /**
-   * <p>The namespace prefix to filter memory records by. Searches for memory records in namespaces that start with the provided prefix. Either <code>namespace</code> or <code>namespacePath</code> is required.</p>
+   * <p>The exact namespace to filter memory records by. Searches for memory records that matches the provided namespace value. Either <code>namespace</code> or <code>namespacePath</code> is required.</p>
    * @public
    */
   namespace?: string | undefined;

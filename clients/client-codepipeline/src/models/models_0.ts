@@ -239,7 +239,8 @@ export interface ActionTypeId {
    * <p>The creator of the action being called. There are three valid values for the
    *                 <code>Owner</code> field in the action category section within your pipeline
    *             structure: <code>AWS</code>, <code>ThirdParty</code>, and <code>Custom</code>. For more
-   *             information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid Action Types and Providers in CodePipeline</a>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid Action Types and Providers in CodePipeline
+   *             </a>.</p>
    * @public
    */
   owner: ActionOwner | undefined;
@@ -248,7 +249,8 @@ export interface ActionTypeId {
    * <p>The provider of the service being called by the action. Valid providers are
    *             determined by the action category. For example, an action in the Deploy category type
    *             might have a provider of CodeDeploy, which would be specified as
-   *             <code>CodeDeploy</code>. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid Action Types and Providers in CodePipeline</a>.</p>
+   *             <code>CodeDeploy</code>. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid Action Types and Providers in CodePipeline
+   *             </a>.</p>
    * @public
    */
   provider: string | undefined;
@@ -358,10 +360,13 @@ export interface ActionDeclaration {
 
   /**
    * <p>The action's configuration. These are key-value pairs that specify input values for
-   *             an action. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action Structure Requirements in CodePipeline</a>. For the list of
-   *             configuration properties for the CloudFormation action type in CodePipeline, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration Properties Reference</a> in the <i>CloudFormation
+   *             an action. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action Structure Requirements in CodePipeline
+   *             </a>. For the list of
+   *             configuration properties for the CloudFormation action type in CodePipeline, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration Properties Reference</a> in the <i>
+   *                CloudFormation
    *                 User Guide</i>. For template snippets with examples, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html">Using Parameter Override Functions with CodePipeline Pipelines</a> in the
-   *                     <i>CloudFormation User Guide</i>.</p>
+   *                     <i>
+   *                CloudFormation User Guide</i>.</p>
    *          <p>The values can be represented in either JSON or YAML format. For example, the JSON
    *             configuration item format is as follows: </p>
    *          <p>
@@ -1549,7 +1554,8 @@ export interface AWSSessionCredentials {
 /**
  * <p>The ID for the rule type, which is made up of the combined values for category, owner,
  *             provider, and version. For more information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage
- *                 conditions</a>. For more information about rules, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">CodePipeline rule reference</a>.</p>
+ *                 conditions</a>. For more information about rules, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">
+ *                CodePipeline rule reference</a>.</p>
  * @public
  */
 export interface RuleTypeId {
@@ -1569,7 +1575,8 @@ export interface RuleTypeId {
 
   /**
    * <p>The rule provider, such as the <code>DeploymentWindow</code> rule. For a list of rule
-   *             provider names, see the rules listed in the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">CodePipeline rule
+   *             provider names, see the rules listed in the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">
+   *                CodePipeline rule
    *                 reference</a>.</p>
    * @public
    */
@@ -1588,7 +1595,8 @@ export interface RuleTypeId {
  *             for a test result before allowing the run to enter the deployment stage. For more
  *             information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage conditions</a>
  *             and <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html">How do
- *                 stage conditions work?</a>. For more information about rules, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">CodePipeline rule reference</a>.</p>
+ *                 stage conditions work?</a>. For more information about rules, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">
+ *                CodePipeline rule reference</a>.</p>
  * @public
  */
 export interface RuleDeclaration {
@@ -1653,7 +1661,8 @@ export interface RuleDeclaration {
  * <p>The condition for the stage. A condition is made up of the rules and the result for
  *             the condition. For more information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage conditions</a>
  *             and <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html">How do
- *                 stage conditions work?</a>.. For more information about rules, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">CodePipeline rule reference</a>.</p>
+ *                 stage conditions work?</a>.. For more information about rules, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">
+ *                CodePipeline rule reference</a>.</p>
  * @public
  */
 export interface Condition {
@@ -2199,7 +2208,8 @@ export interface PipelineDeclaration {
   executionMode?: ExecutionMode | undefined;
 
   /**
-   * <p>CodePipeline provides the following pipeline types, which differ in
+   * <p>
+   *             CodePipeline provides the following pipeline types, which differ in
    *             characteristics and price, so that you can tailor your pipeline features and cost to the
    *             needs of your applications.</p>
    *          <ul>
@@ -2726,7 +2736,8 @@ export interface PipelineMetadata {
    *          <p>You can migrate (update) a polling pipeline to use event-based change detection. For
    *             example, for a pipeline with a CodeCommit source, we recommend you migrate
    *             (update) your pipeline to use CloudWatch Events. To learn more, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/update-change-detection.html">Migrate polling
-   *                 pipelines to use event-based change detection</a> in the <i>CodePipeline User Guide</i>.</p>
+   *                 pipelines to use event-based change detection</a> in the <i>
+   *                CodePipeline User Guide</i>.</p>
    * @public
    */
   pollingDisabledAt?: Date | undefined;
@@ -4023,7 +4034,8 @@ export interface PipelineSummary {
   version?: number | undefined;
 
   /**
-   * <p>CodePipeline provides the following pipeline types, which differ in
+   * <p>
+   *             CodePipeline provides the following pipeline types, which differ in
    *             characteristics and price, so that you can tailor your pipeline features and cost to the
    *             needs of your applications.</p>
    *          <ul>
@@ -4154,7 +4166,8 @@ export interface RuleExecutionInput {
   /**
    * <p>The ID for the rule type, which is made up of the combined values for category, owner,
    *             provider, and version. For more information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage
-   *                 conditions</a>. For more information about rules, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">CodePipeline rule reference</a>.</p>
+   *                 conditions</a>. For more information about rules, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">
+   *                CodePipeline rule reference</a>.</p>
    * @public
    */
   ruleTypeId?: RuleTypeId | undefined;

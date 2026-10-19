@@ -82,6 +82,17 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * //       ActionsSuppressor: "STRING_VALUE",
  * //       ActionsSuppressorWaitPeriod: Number("int"),
  * //       ActionsSuppressorExtensionPeriod: Number("int"),
+ * //       ActionConfiguration: { // ActionConfiguration
+ * //         AlarmTagsPropagation: { // AlarmTagsPropagation
+ * //           Enabled: true || false, // required
+ * //           IncludedTagKeys: [ // AlarmTagsPropagationTagKeys
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           ExcludedTagKeys: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   MetricAlarms: [ // MetricAlarms
@@ -166,6 +177,17 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * //         },
  * //       },
  * //       EvaluationInterval: Number("int"),
+ * //       ActionConfiguration: {
+ * //         AlarmTagsPropagation: {
+ * //           Enabled: true || false, // required
+ * //           IncludedTagKeys: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           ExcludedTagKeys: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   LogAlarms: [ // LogAlarms
@@ -214,6 +236,15 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * //       WarmUpConfiguration: {
  * //         WarmUpPeriodDurationInMinutes: Number("int"), // required
  * //         OnlyStartEvaluatingAfterWarmUpPeriodEnds: true || false,
+ * //       },
+ * //       ActionConfiguration: {
+ * //         AlarmTagsPropagation: {
+ * //           Enabled: true || false, // required
+ * //           IncludedTagKeys: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           ExcludedTagKeys: "<AlarmTagsPropagationTagKeys>",
+ * //         },
  * //       },
  * //     },
  * //   ],

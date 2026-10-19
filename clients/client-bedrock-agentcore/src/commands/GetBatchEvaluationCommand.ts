@@ -115,6 +115,53 @@ export interface GetBatchEvaluationCommandOutput extends GetBatchEvaluationRespo
  * //       },
  * //     ],
  * //   },
+ * //   insightResults: [ // InsightResultList
+ * //     { // InsightResult
+ * //       type: "FAILURE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       affectedSessionCount: Number("int"),
+ * //       sampleSessions: [ // InsightSampleSessionList
+ * //         { // SampleSession
+ * //           sessionId: "STRING_VALUE", // required
+ * //           lastSeenAt: new Date("TIMESTAMP"),
+ * //           findings: [ // SessionFindingList
+ * //             { // SessionFinding
+ * //               targetId: "STRING_VALUE",
+ * //               targetType: "SPAN_ID" || "TRACE_ID" || "SPAN_NAME",
+ * //               description: "STRING_VALUE", // required
+ * //               category: "STRING_VALUE",
+ * //               confidence: Number("double"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       rootCauses: [ // InsightRootCauseList
+ * //         { // InsightRootCause
+ * //           name: "STRING_VALUE", // required
+ * //           explanation: "STRING_VALUE", // required
+ * //           affectedSessionCount: Number("int"),
+ * //           suggestedFix: "STRING_VALUE",
+ * //           sampleSessions: [
+ * //             {
+ * //               sessionId: "STRING_VALUE", // required
+ * //               lastSeenAt: new Date("TIMESTAMP"),
+ * //               findings: [
+ * //                 {
+ * //                   targetId: "STRING_VALUE",
+ * //                   targetType: "SPAN_ID" || "TRACE_ID" || "SPAN_NAME",
+ * //                   description: "STRING_VALUE", // required
+ * //                   category: "STRING_VALUE",
+ * //                   confidence: Number("double"),
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
  * //   failureAnalysisResult: { // FailureAnalysisResultContent
  * //     failures: [ // FailureCategoryClusterList // required
  * //       { // FailureCategoryCluster

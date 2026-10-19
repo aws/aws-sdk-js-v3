@@ -277,6 +277,32 @@ export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof Re
  * @public
  * @enum
  */
+export const FindingTargetType = {
+  SPAN_ID: "SPAN_ID",
+  SPAN_NAME: "SPAN_NAME",
+  TRACE_ID: "TRACE_ID",
+} as const;
+/**
+ * @public
+ */
+export type FindingTargetType = (typeof FindingTargetType)[keyof typeof FindingTargetType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightType = {
+  FAILURE: "FAILURE",
+} as const;
+/**
+ * @public
+ */
+export type InsightType = (typeof InsightType)[keyof typeof InsightType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResultDestination = {
   DEDICATED_LOG_GROUP: "DEDICATED_LOG_GROUP",
   SOURCE_LOG_GROUP: "SOURCE_LOG_GROUP",

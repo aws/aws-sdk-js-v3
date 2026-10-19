@@ -297,6 +297,13 @@ ListWorkspaceInstances
 </details>
 <details>
 <summary>
+ModifyVolume
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-instances/command/ModifyVolumeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-instances/Interface/ModifyVolumeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-instances/Interface/ModifyVolumeCommandOutput/)
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 

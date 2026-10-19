@@ -62,6 +62,7 @@ import {
   DeleteTelemetryRuleForOrganizationCommand,
   DeleteTelemetryRuleForOrganizationInput$,
   DeleteTelemetryRuleInput$,
+  DeletionProtection,
   DestinationLogsConfiguration$,
   DestinationMetricsConfiguration$,
   DestinationType,
@@ -486,6 +487,7 @@ assert(typeof WAFLoggingParameters$ === "object");
 assert(typeof Action === "object");
 assert(typeof CentralizationFailureReason === "object");
 assert(typeof ContextGraphStatus === "object");
+assert(typeof DeletionProtection === "object");
 assert(typeof DestinationType === "object");
 assert(typeof EncryptedLogGroupStrategy === "object");
 assert(typeof EncryptionConflictResolutionStrategy === "object");

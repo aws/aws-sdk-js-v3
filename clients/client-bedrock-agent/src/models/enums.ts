@@ -1146,3 +1146,65 @@ export const KnowledgeBaseStatus = {
  * @public
  */
 export type KnowledgeBaseStatus = (typeof KnowledgeBaseStatus)[keyof typeof KnowledgeBaseStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RetrievalInstructionLastTransitionStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_SUCCESSFUL: "CREATE_SUCCESSFUL",
+  CREATING: "CREATING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type RetrievalInstructionLastTransitionStatus =
+  (typeof RetrievalInstructionLastTransitionStatus)[keyof typeof RetrievalInstructionLastTransitionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RetrievalInstructionStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+/**
+ * @public
+ */
+export type RetrievalInstructionStatus = (typeof RetrievalInstructionStatus)[keyof typeof RetrievalInstructionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RetrievalInstructionFailureReasonCode = {
+  CLIENT_ERROR: "CLIENT_ERROR",
+  CONTENT_REJECTED: "CONTENT_REJECTED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+} as const;
+/**
+ * @public
+ */
+export type RetrievalInstructionFailureReasonCode =
+  (typeof RetrievalInstructionFailureReasonCode)[keyof typeof RetrievalInstructionFailureReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RetrievalInstructionFieldName = {
+  ANSWER_FORMAT: "ANSWER_FORMAT",
+  ANSWER_POLICY: "ANSWER_POLICY",
+  PERSONA: "PERSONA",
+  RETRIEVAL_GUIDANCE: "RETRIEVAL_GUIDANCE",
+} as const;
+/**
+ * @public
+ */
+export type RetrievalInstructionFieldName =
+  (typeof RetrievalInstructionFieldName)[keyof typeof RetrievalInstructionFieldName];

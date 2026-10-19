@@ -52,6 +52,8 @@ export interface GetLinkedWhatsAppBusinessAccountCommandOutput extends GetLinked
  * //       },
  * //     ],
  * //     marketingMessagesOnboardingStatus: "STRING_VALUE",
+ * //     directSendEnforcementStatus: "STRING_VALUE",
+ * //     directSendEnforcementStatusExpiresAt: new Date("TIMESTAMP"),
  * //     datasetId: "STRING_VALUE",
  * //     phoneNumbers: [ // WhatsAppPhoneNumberSummaryList // required
  * //       { // WhatsAppPhoneNumberSummary

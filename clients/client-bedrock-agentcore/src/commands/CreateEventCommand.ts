@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { CreateEventInput, CreateEventOutput } from "../models/models_0";
+import type { CreateEventInput, CreateEventOutput } from "../models/models_1";
 import { CreateEvent$ } from "../schemas/schemas_0";
 
 /**

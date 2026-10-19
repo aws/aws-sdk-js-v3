@@ -422,6 +422,7 @@ export type EntityType = (typeof EntityType)[keyof typeof EntityType];
  */
 export const FileStatusType = {
   APPROVED: "APPROVED",
+  DRAFTING: "DRAFTING",
   FAILED: "FAILED",
   PROCESSING: "PROCESSING",
   REJECTED: "REJECTED",
@@ -2387,6 +2388,19 @@ export const Visibility = {
  * @public
  */
 export type Visibility = (typeof Visibility)[keyof typeof Visibility];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentDisposition = {
+  ATTACHMENT: "ATTACHMENT",
+  INLINE: "INLINE",
+} as const;
+/**
+ * @public
+ */
+export type ContentDisposition = (typeof ContentDisposition)[keyof typeof ContentDisposition];
 
 /**
  * @public

@@ -36,6 +36,9 @@ export interface UpdateTraceSegmentDestinationCommandOutput extends UpdateTraceS
  * const client = new XRayClient(config);
  * const input = { // UpdateTraceSegmentDestinationRequest
  *   Destination: "XRay" || "CloudWatchLogs",
+ *   CloudWatchLogsConfiguration: { // CloudWatchLogsConfiguration
+ *     SpansLogGroupKmsKeyId: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateTraceSegmentDestinationCommand(input);
  * const response = await client.send(command);

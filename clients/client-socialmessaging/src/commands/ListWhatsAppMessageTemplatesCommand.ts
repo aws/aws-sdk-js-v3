@@ -48,6 +48,8 @@ export interface ListWhatsAppMessageTemplatesCommandOutput extends ListWhatsAppM
  * //       templateQualityScore: "STRING_VALUE",
  * //       templateLanguage: "STRING_VALUE",
  * //       templateCategory: "STRING_VALUE",
+ * //       templateSource: "STRING_VALUE",
+ * //       correctCategory: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
