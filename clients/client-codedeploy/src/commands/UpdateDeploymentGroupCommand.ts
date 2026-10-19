@@ -156,6 +156,11 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  *       ],
  *     ],
  *   },
+ *   ec2DeploymentOptions: { // EC2DeploymentOptions
+ *     autoScalingGroupProcessesToSuspend: [ // AutoScalingGroupProcessesToSuspendList
+ *       "Terminate" || "AZRebalance" || "InstanceRefresh" || "ScheduledActions",
+ *     ],
+ *   },
  *   terminationHookEnabled: true || false,
  * };
  * const command = new UpdateDeploymentGroupCommand(input);
@@ -236,6 +241,12 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  * @throws {@link InvalidAutoScalingGroupException} (client fault)
  *  <p>The Auto Scaling group was specified in an invalid format or does not
  *             exist.</p>
+ *
+ * @throws {@link InvalidAutoScalingGroupProcessToSuspendException} (client fault)
+ *  <p>The <code>autoScalingGroupProcessesToSuspend</code> list in
+ *             <code>ec2DeploymentOptions</code> contains a process that is not valid. Valid values
+ *             are <code>Terminate</code>, <code>AZRebalance</code>, <code>InstanceRefresh</code>,
+ *             and <code>ScheduledActions</code>. Process names are case sensitive.</p>
  *
  * @throws {@link InvalidBlueGreenDeploymentConfigurationException} (client fault)
  *  <p>The configuration for the blue/green deployment group was provided in an invalid

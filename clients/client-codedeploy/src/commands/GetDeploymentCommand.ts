@@ -219,6 +219,11 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  * //         },
  * //       ],
  * //     },
+ * //     ec2DeploymentOptions: { // EC2DeploymentOptions
+ * //       autoScalingGroupProcessesToSuspend: [ // AutoScalingGroupProcessesToSuspendList
+ * //         "Terminate" || "AZRebalance" || "InstanceRefresh" || "ScheduledActions",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

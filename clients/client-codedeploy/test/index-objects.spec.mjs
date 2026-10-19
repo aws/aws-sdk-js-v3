@@ -23,6 +23,7 @@ import {
   AutoRollbackConfiguration$,
   AutoRollbackEvent,
   AutoScalingGroup$,
+  AutoScalingGroupProcess,
   BatchGetApplicationRevisions$,
   BatchGetApplicationRevisionsCommand,
   BatchGetApplicationRevisionsInput$,
@@ -157,6 +158,7 @@ import {
   DescriptionTooLongException,
   DescriptionTooLongException$,
   Diagnostics$,
+  EC2DeploymentOptions$,
   EC2TagFilter$,
   EC2TagFilterType,
   EC2TagSet$,
@@ -244,6 +246,8 @@ import {
   InvalidAutoRollbackConfigException$,
   InvalidAutoScalingGroupException,
   InvalidAutoScalingGroupException$,
+  InvalidAutoScalingGroupProcessToSuspendException,
+  InvalidAutoScalingGroupProcessToSuspendException$,
   InvalidBlueGreenDeploymentConfigurationException,
   InvalidBlueGreenDeploymentConfigurationException$,
   InvalidBucketNameFilterException,
@@ -650,6 +654,7 @@ assert(typeof DeploymentStyle$ === "object");
 assert(typeof DeploymentTarget$ === "object");
 assert(typeof DeregisterOnPremisesInstanceInput$ === "object");
 assert(typeof Diagnostics$ === "object");
+assert(typeof EC2DeploymentOptions$ === "object");
 assert(typeof EC2TagFilter$ === "object");
 assert(typeof EC2TagSet$ === "object");
 assert(typeof ECSService$ === "object");
@@ -743,6 +748,7 @@ assert(typeof ZonalConfig$ === "object");
 // enums
 assert(typeof ApplicationRevisionSortBy === "object");
 assert(typeof AutoRollbackEvent === "object");
+assert(typeof AutoScalingGroupProcess === "object");
 assert(typeof BundleType === "object");
 assert(typeof ComputePlatform === "object");
 assert(typeof DeploymentCreator === "object");
@@ -867,6 +873,8 @@ assert(InvalidAutoRollbackConfigException.prototype instanceof CodeDeployService
 assert(typeof InvalidAutoRollbackConfigException$ === "object");
 assert(InvalidAutoScalingGroupException.prototype instanceof CodeDeployServiceException);
 assert(typeof InvalidAutoScalingGroupException$ === "object");
+assert(InvalidAutoScalingGroupProcessToSuspendException.prototype instanceof CodeDeployServiceException);
+assert(typeof InvalidAutoScalingGroupProcessToSuspendException$ === "object");
 assert(InvalidBlueGreenDeploymentConfigurationException.prototype instanceof CodeDeployServiceException);
 assert(typeof InvalidBlueGreenDeploymentConfigurationException$ === "object");
 assert(InvalidBucketNameFilterException.prototype instanceof CodeDeployServiceException);

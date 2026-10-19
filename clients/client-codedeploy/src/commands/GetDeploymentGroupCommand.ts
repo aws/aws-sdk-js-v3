@@ -202,6 +202,11 @@ export interface GetDeploymentGroupCommandOutput extends GetDeploymentGroupOutpu
  * //         clusterName: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     ec2DeploymentOptions: { // EC2DeploymentOptions
+ * //       autoScalingGroupProcessesToSuspend: [ // AutoScalingGroupProcessesToSuspendList
+ * //         "Terminate" || "AZRebalance" || "InstanceRefresh" || "ScheduledActions",
+ * //       ],
+ * //     },
  * //     terminationHookEnabled: true || false,
  * //   },
  * // };

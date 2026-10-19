@@ -217,6 +217,11 @@ export interface BatchGetDeploymentsCommandOutput extends BatchGetDeploymentsOut
  * //           },
  * //         ],
  * //       },
+ * //       ec2DeploymentOptions: { // EC2DeploymentOptions
+ * //         autoScalingGroupProcessesToSuspend: [ // AutoScalingGroupProcessesToSuspendList
+ * //           "Terminate" || "AZRebalance" || "InstanceRefresh" || "ScheduledActions",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * // };
