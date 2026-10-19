@@ -321,8 +321,16 @@ export type ConfigurationStatus = (typeof ConfigurationStatus)[keyof typeof Conf
  */
 export const GlueConnectionType = {
   BIGQUERY: "BIGQUERY",
+  /**
+   * <p>A Databricks Unity Catalog (Iceberg REST) connection type.</p>
+   */
+  DATABRICKSICEBERGRESTCATALOG: "DATABRICKSICEBERGRESTCATALOG",
   DOCUMENTDB: "DOCUMENTDB",
   DYNAMODB: "DYNAMODB",
+  /**
+   * <p>A generic Iceberg REST catalog connection type.</p>
+   */
+  ICEBERGRESTCATALOG: "ICEBERGRESTCATALOG",
   MYSQL: "MYSQL",
   OPENSEARCH: "OPENSEARCH",
   ORACLE: "ORACLE",
@@ -330,6 +338,10 @@ export const GlueConnectionType = {
   REDSHIFT: "REDSHIFT",
   SAPHANA: "SAPHANA",
   SNOWFLAKE: "SNOWFLAKE",
+  /**
+   * <p>A Snowflake Horizon (Iceberg REST) catalog connection type.</p>
+   */
+  SNOWFLAKEICEBERGRESTCATALOG: "SNOWFLAKEICEBERGRESTCATALOG",
   SQLSERVER: "SQLSERVER",
   TERADATA: "TERADATA",
   VERTICA: "VERTICA",
@@ -481,6 +493,10 @@ export const ConnectionType = {
   ATHENA: "ATHENA",
   BIGQUERY: "BIGQUERY",
   DATABRICKS: "DATABRICKS",
+  /**
+   * <p>A Databricks Unity Catalog (Iceberg REST) connection type.</p>
+   */
+  DATABRICKSICEBERGRESTCATALOG: "DATABRICKSICEBERGRESTCATALOG",
   DOCUMENTDB: "DOCUMENTDB",
   DYNAMODB: "DYNAMODB",
   /**
@@ -489,6 +505,10 @@ export const ConnectionType = {
   GIT: "GIT",
   HYPERPOD: "HYPERPOD",
   IAM: "IAM",
+  /**
+   * <p>A generic Iceberg REST catalog connection type.</p>
+   */
+  ICEBERGRESTCATALOG: "ICEBERGRESTCATALOG",
   MLFLOW: "MLFLOW",
   MYSQL: "MYSQL",
   OPENSEARCH: "OPENSEARCH",
@@ -498,6 +518,10 @@ export const ConnectionType = {
   S3: "S3",
   SAPHANA: "SAPHANA",
   SNOWFLAKE: "SNOWFLAKE",
+  /**
+   * <p>A Snowflake Horizon (Iceberg REST) catalog connection type.</p>
+   */
+  SNOWFLAKEICEBERGRESTCATALOG: "SNOWFLAKEICEBERGRESTCATALOG",
   SPARK: "SPARK",
   SQLSERVER: "SQLSERVER",
   TERADATA: "TERADATA",
