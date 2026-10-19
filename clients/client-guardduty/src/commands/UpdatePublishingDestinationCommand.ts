@@ -38,6 +38,7 @@ export interface UpdatePublishingDestinationCommandOutput extends UpdatePublishi
  *   DestinationProperties: { // DestinationProperties
  *     DestinationArn: "STRING_VALUE",
  *     KmsKeyArn: "STRING_VALUE",
+ *     ExpectedBucketOwner: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdatePublishingDestinationCommand(input);

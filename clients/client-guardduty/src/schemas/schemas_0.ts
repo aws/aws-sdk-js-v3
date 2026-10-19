@@ -2490,8 +2490,8 @@ export var Destination$: StaticStructureSchema = [3, n0, _De,
 ];
 export var DestinationProperties$: StaticStructureSchema = [3, n0, _DP,
   0,
-  [_DA, _KKA],
-  [[0, { [_jN]: _dA }], [0, { [_jN]: _kKA }]]
+  [_DA, _KKA, _EBO],
+  [[0, { [_jN]: _dA }], [0, { [_jN]: _kKA }], [0, { [_jN]: _eBO }]]
 ];
 export var Detection$: StaticStructureSchema = [3, n0, _Det,
   0,

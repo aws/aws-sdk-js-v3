@@ -38,6 +38,7 @@ export interface CreatePublishingDestinationCommandOutput extends CreatePublishi
  *   DestinationProperties: { // DestinationProperties
  *     DestinationArn: "STRING_VALUE",
  *     KmsKeyArn: "STRING_VALUE",
+ *     ExpectedBucketOwner: "STRING_VALUE",
  *   },
  *   ClientToken: "STRING_VALUE",
  *   Tags: { // TagMap
