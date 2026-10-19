@@ -81,12 +81,14 @@ export interface CreateApprovalRuleTemplateCommandOutput extends CreateApprovalR
  * @throws {@link InvalidApprovalRuleTemplateDescriptionException} (client fault)
  *  <p>The description for the approval rule template is not valid because it exceeds the
  *             maximum characters allowed for a description. For more information about limits in CodeCommit,
- *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+ *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>
+ *                CodeCommit User Guide</i>.</p>
  *
  * @throws {@link InvalidApprovalRuleTemplateNameException} (client fault)
  *  <p>The name of the approval rule template is not valid. Template names must be between 1
  *             and 100 valid characters in length. For more information about limits in CodeCommit,
- *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+ *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>
+ *                CodeCommit User Guide</i>.</p>
  *
  * @throws {@link NumberOfRuleTemplatesExceededException} (client fault)
  *  <p>The maximum number of approval rule templates has been exceeded for this Amazon Web Services Region. </p>

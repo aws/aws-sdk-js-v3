@@ -23,7 +23,9 @@ export interface UntagResourceCommandInput extends UntagResourceInput {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes tags for a resource in CodeCommit. For a list of valid resources in CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a> in the <i>CodeCommit User
+ * <p>Removes tags for a resource in CodeCommit. For a list of valid resources in CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">
+ *                CodeCommit Resources and Operations</a> in the <i>
+ *                CodeCommit User
  *                 Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,7 +63,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link InvalidResourceArnException} (client fault)
  *  <p>The value for the resource ARN is not valid. For more information about resources in CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
+ *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">
+ *                CodeCommit Resources and Operations</a>
  *             in the CodeCommit User Guide.</p>
  *
  * @throws {@link InvalidSystemTagUsageException} (client fault)
@@ -75,7 +78,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link ResourceArnRequiredException} (client fault)
  *  <p>A valid Amazon Resource Name (ARN) for an CodeCommit resource is required. For a list of valid resources in CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
+ *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">
+ *                CodeCommit Resources and Operations</a>
  *             in the CodeCommit User Guide.</p>
  *
  * @throws {@link TagKeysListRequiredException} (client fault)

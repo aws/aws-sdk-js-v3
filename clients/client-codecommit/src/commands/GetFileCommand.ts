@@ -80,7 +80,8 @@ export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
  *
  * @throws {@link FileTooLargeException} (client fault)
  *  <p>The specified file exceeds the file size limit for CodeCommit. For more information about limits in CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+ *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>
+ *                CodeCommit User Guide</i>.</p>
  *
  * @throws {@link InvalidCommitException} (client fault)
  *  <p>The specified commit is not valid.</p>
