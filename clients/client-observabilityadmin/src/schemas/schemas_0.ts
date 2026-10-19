@@ -140,6 +140,7 @@ const _LDP = "LogDeliveryParameters";
 const _LEC = "LogsEncryptionConfiguration";
 const _LF = "LoggingFilter";
 const _LFo = "LogFormat";
+const _LGDP = "LogGroupDeletionProtection";
 const _LGNC = "LogGroupNameConfiguration";
 const _LGNP = "LogGroupNamePattern";
 const _LGSC = "LogGroupSelectionCriteria";
@@ -556,8 +557,8 @@ export var DeleteTelemetryRuleInput$: StaticStructureSchema = [3, n0, _DTRI,
 ];
 export var DestinationLogsConfiguration$: StaticStructureSchema = [3, n0, _DLC,
   0,
-  [_LEC, _BC, _LGNC, _TPC],
-  [() => LogsEncryptionConfiguration$, () => LogsBackupConfiguration$, () => LogGroupNameConfiguration$, () => TagPropagationConfiguration$]
+  [_LEC, _BC, _LGNC, _TPC, _LGDP],
+  [() => LogsEncryptionConfiguration$, () => LogsBackupConfiguration$, () => LogGroupNameConfiguration$, () => TagPropagationConfiguration$, 0]
 ];
 export var DestinationMetricsConfiguration$: StaticStructureSchema = [3, n0, _DMC,
   0,

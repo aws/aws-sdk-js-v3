@@ -74,6 +74,7 @@ export interface CreateCentralizationRuleForOrganizationCommandOutput extends Cr
  *           DestinationRoleArn: "STRING_VALUE", // required
  *           TagConflictResolutionStrategy: "IN_SYNC" || "ADD_ONLY" || "UPDATE_SYNC",
  *         },
+ *         LogGroupDeletionProtection: "ENABLED",
  *       },
  *       DestinationMetricsConfiguration: { // DestinationMetricsConfiguration
  *         BackupConfiguration: { // MetricsBackupConfiguration
