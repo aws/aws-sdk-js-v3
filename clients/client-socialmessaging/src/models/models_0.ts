@@ -957,6 +957,18 @@ export interface LinkedWhatsAppBusinessAccount {
   marketingMessagesOnboardingStatus?: string | undefined;
 
   /**
+   * <p>The Direct Send enforcement status for the WhatsApp Business Account. Enforcement applies when an account repeatedly sends messages in a category that does not match the content. This field is not present when no enforcement is active.</p>
+   * @public
+   */
+  directSendEnforcementStatus?: string | undefined;
+
+  /**
+   * <p>The time when the current Direct Send enforcement is expected to lift. This field is not present for permanent enforcement or when no enforcement is active.</p>
+   * @public
+   */
+  directSendEnforcementStatusExpiresAt?: Date | undefined;
+
+  /**
    * <p>The Meta Conversions API dataset ID associated with this WhatsApp Business Account. This value is a numeric string of 10 to 20 digits. This field is not present when no dataset has been created for this account.</p>
    * @public
    */
@@ -1774,6 +1786,18 @@ export interface LinkedWhatsAppBusinessAccountSummary {
   marketingMessagesOnboardingStatus?: string | undefined;
 
   /**
+   * <p>The Direct Send enforcement status for the WhatsApp Business Account. Enforcement applies when an account repeatedly sends messages in a category that does not match the content. This field is not present when no enforcement is active.</p>
+   * @public
+   */
+  directSendEnforcementStatus?: string | undefined;
+
+  /**
+   * <p>The time when the current Direct Send enforcement is expected to lift. This field is not present for permanent enforcement or when no enforcement is active.</p>
+   * @public
+   */
+  directSendEnforcementStatusExpiresAt?: Date | undefined;
+
+  /**
    * <p>The Meta Conversions API dataset ID associated with this WhatsApp Business Account. This value is a numeric string of 10 to 20 digits. This field is not present when no dataset has been created for this account.</p>
    * @public
    */
@@ -2006,6 +2030,18 @@ export interface TemplateSummary {
    * @public
    */
   templateCategory?: string | undefined;
+
+  /**
+   * <p>The source of the template. A value of AUTO_GENERATED indicates that the template was created automatically from a message that you sent. This field is not present for templates that you created manually.</p>
+   * @public
+   */
+  templateSource?: string | undefined;
+
+  /**
+   * <p>The category that the template content actually belongs to, when it differs from the template's current category. This field is present only when the template has been flagged as miscategorized.</p>
+   * @public
+   */
+  correctCategory?: string | undefined;
 }
 
 /**
