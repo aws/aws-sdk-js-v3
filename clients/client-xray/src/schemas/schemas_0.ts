@@ -39,6 +39,7 @@ const _CSRRr = "CreateSamplingRuleResult";
 const _CTR = "CancelTraceRetrieval";
 const _CTRR = "CancelTraceRetrievalRequest";
 const _CTRRa = "CancelTraceRetrievalResult";
+const _CWLC = "CloudWatchLogsConfiguration";
 const _CWM = "CooldownWindowMinutes";
 const _Ca = "Categories";
 const _Co = "Coverage";
@@ -297,6 +298,7 @@ const _SGST = "ServiceGraphStartTime";
 const _SI = "ServiceId";
 const _SIe = "ServiceIds";
 const _SL = "SegmentList";
+const _SLGKKI = "SpansLogGroupKmsKeyId";
 const _SLe = "ServiceList";
 const _SLp = "SpanList";
 const _SN = "ServiceName";
@@ -554,6 +556,11 @@ export var CancelTraceRetrievalResult$: StaticStructureSchema = [3, n0, _CTRRa,
   0,
   [],
   []
+];
+export var CloudWatchLogsConfiguration$: StaticStructureSchema = [3, n0, _CWLC,
+  0,
+  [_SLGKKI],
+  [0]
 ];
 export var CreateGroupRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
@@ -1202,8 +1209,8 @@ export var UpdateSamplingRuleResult$: StaticStructureSchema = [3, n0, _USRRp,
 ];
 export var UpdateTraceSegmentDestinationRequest$: StaticStructureSchema = [3, n0, _UTSDR,
   0,
-  [_D],
-  [0]
+  [_D, _CWLC],
+  [0, () => CloudWatchLogsConfiguration$]
 ];
 export var UpdateTraceSegmentDestinationResult$: StaticStructureSchema = [3, n0, _UTSDRp,
   0,
