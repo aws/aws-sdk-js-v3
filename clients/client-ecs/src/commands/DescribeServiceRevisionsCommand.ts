@@ -149,6 +149,11 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  * //           format: "TEXT" || "JSON", // required
  * //           includeQueryParameters: "DISABLED" || "ENABLED",
  * //         },
+ * //         containerConfigurations: [ // ServiceConnectContainerConfigurations
+ * //           { // ServiceConnectContainerConfiguration Union: only one key present
+ * //             logLevel: "debug" || "info",
+ * //           },
+ * //         ],
  * //       },
  * //       volumeConfigurations: [ // ServiceVolumeConfigurations
  * //         { // ServiceVolumeConfiguration

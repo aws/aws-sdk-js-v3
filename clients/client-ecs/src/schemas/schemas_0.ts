@@ -424,6 +424,8 @@ const _SCALC = "ServiceConnectAccessLogConfiguration";
 const _SCC = "ServiceConnectConfiguration";
 const _SCCA = "ServiceConnectClientAlias";
 const _SCCAL = "ServiceConnectClientAliasList";
+const _SCCC = "ServiceConnectContainerConfigurations";
+const _SCCCe = "ServiceConnectContainerConfiguration";
 const _SCRS = "ServiceCurrentRevisionSummary";
 const _SCRSL = "ServiceCurrentRevisionSummaryList";
 const _SCS = "ServiceConnectService";
@@ -634,6 +636,7 @@ const _cB = "circuitBreaker";
 const _cBTIM = "canaryBakeTimeInMinutes";
 const _cBr = "createdBy";
 const _cC = "canaryConfiguration";
+const _cCo = "containerConfigurations";
 const _cD = "containerDefinitions";
 const _cDC = "computedDesiredCount";
 const _cDu = "currentDeployment";
@@ -847,6 +850,7 @@ const _lGN = "logGroupName";
 const _lGo = "logGroup";
 const _lH = "lifecycleHooks";
 const _lHD = "lifecycleHookDetails";
+const _lL = "logLevel";
 const _lP = "linuxParameters";
 const _lS = "lastStatus";
 const _lSA = "lastStartedAt";
@@ -1152,6 +1156,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { ECSServiceException } from "../models/ECSServiceException";
@@ -2710,8 +2715,8 @@ export var ServiceConnectClientAlias$: StaticStructureSchema = [3, n0, _SCCA,
 ];
 export var ServiceConnectConfiguration$: StaticStructureSchema = [3, n0, _SCC,
   0,
-  [_ena, _na, _serv, _lC, _aLCc],
-  [2, 0, () => ServiceConnectServiceList, () => LogConfiguration$, () => ServiceConnectAccessLogConfiguration$], 1
+  [_ena, _na, _serv, _lC, _aLCc, _cCo],
+  [2, 0, () => ServiceConnectServiceList, () => LogConfiguration$, () => ServiceConnectAccessLogConfiguration$, () => ServiceConnectContainerConfigurations], 1
 ];
 export var ServiceConnectService$: StaticStructureSchema = [3, n0, _SCS,
   0,
@@ -3383,6 +3388,9 @@ var SecretList: StaticListSchema = [1, n0, _SL,
 var ServiceConnectClientAliasList: StaticListSchema = [1, n0, _SCCAL,
   0, () => ServiceConnectClientAlias$
 ];
+var ServiceConnectContainerConfigurations: StaticListSchema = [1, n0, _SCCC,
+  0, () => ServiceConnectContainerConfiguration$
+];
 var ServiceConnectServiceList: StaticListSchema = [1, n0, _SCSL,
   0, () => ServiceConnectService$
 ];
@@ -3477,6 +3485,11 @@ var DockerLabelsMap = 128 | 0;
 var FirelensConfigurationOptionsMap = 128 | 0;
 var LogConfigurationOptionsMap = 128 | 0;
 var StringMap = 128 | 0;
+export var ServiceConnectContainerConfiguration$: StaticUnionSchema = [4, n0, _SCCCe,
+  0,
+  [_lL],
+  [0]
+];
 export var ContinueServiceDeployment$: StaticOperationSchema = [9, n0, _CSD,
   0, () => ContinueServiceDeploymentRequest$, () => ContinueServiceDeploymentResponse$
 ];

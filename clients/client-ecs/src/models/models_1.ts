@@ -33,7 +33,6 @@ import type {
   LoadBalancer,
   ManagedAutoScaling,
   ManagedIngressPath,
-  ManagedLogGroup,
   ManagedSecurityGroup,
   MonitoringConfiguration,
   NetworkBinding,
@@ -54,6 +53,42 @@ import type {
   Volume,
   VpcLatticeConfiguration,
 } from "./models_0";
+
+/**
+ * <p>The Cloudwatch Log Group created by Amazon ECS for an Express service.</p>
+ * @public
+ */
+export interface ManagedLogGroup {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Cloudwatch Log Group associated with the Express service.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The status of the Cloudwatch LogGroup.</p>
+   * @public
+   */
+  status: ManagedResourceStatus | undefined;
+
+  /**
+   * <p>Information about why the Cloudwatch LogGroup is in the current status.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp for when the Cloudwatch LogGroup was last updated</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The name of the Cloudwatch Log Group associated with the Express service.</p>
+   * @public
+   */
+  logGroupName: string | undefined;
+}
 
 /**
  * <p>The CloudWatch metric alarm associated with the Express service's scaling policy.</p>

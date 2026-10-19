@@ -521,6 +521,8 @@ import {
   ServiceConnectAccessLoggingFormat,
   ServiceConnectClientAlias$,
   ServiceConnectConfiguration$,
+  ServiceConnectContainerConfiguration$,
+  ServiceConnectContainerLogLevel,
   ServiceConnectIncludeQueryParameters,
   ServiceConnectService$,
   ServiceConnectServiceResource$,
@@ -1129,6 +1131,7 @@ assert(typeof Service$ === "object");
 assert(typeof ServiceConnectAccessLogConfiguration$ === "object");
 assert(typeof ServiceConnectClientAlias$ === "object");
 assert(typeof ServiceConnectConfiguration$ === "object");
+assert(typeof ServiceConnectContainerConfiguration$ === "object");
 assert(typeof ServiceConnectService$ === "object");
 assert(typeof ServiceConnectServiceResource$ === "object");
 assert(typeof ServiceConnectTestTrafficHeaderMatchRules$ === "object");
@@ -1299,6 +1302,7 @@ assert(typeof ScaleUnit === "object");
 assert(typeof SchedulingStrategy === "object");
 assert(typeof Scope === "object");
 assert(typeof ServiceConnectAccessLoggingFormat === "object");
+assert(typeof ServiceConnectContainerLogLevel === "object");
 assert(typeof ServiceConnectIncludeQueryParameters === "object");
 assert(typeof ServiceDeploymentLifecycleStage === "object");
 assert(typeof ServiceDeploymentRollbackMonitorsStatus === "object");

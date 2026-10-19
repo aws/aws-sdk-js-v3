@@ -1384,6 +1384,20 @@ export type ServiceConnectIncludeQueryParameters =
  * @public
  * @enum
  */
+export const ServiceConnectContainerLogLevel = {
+  DEBUG: "debug",
+  INFO: "info",
+} as const;
+/**
+ * @public
+ */
+export type ServiceConnectContainerLogLevel =
+  (typeof ServiceConnectContainerLogLevel)[keyof typeof ServiceConnectContainerLogLevel];
+
+/**
+ * @public
+ * @enum
+ */
 export const TaskFilesystemType = {
   EXT3: "ext3",
   EXT4: "ext4",

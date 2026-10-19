@@ -296,6 +296,11 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * //               format: "TEXT" || "JSON", // required
  * //               includeQueryParameters: "DISABLED" || "ENABLED",
  * //             },
+ * //             containerConfigurations: [ // ServiceConnectContainerConfigurations
+ * //               { // ServiceConnectContainerConfiguration Union: only one key present
+ * //                 logLevel: "debug" || "info",
+ * //               },
+ * //             ],
  * //           },
  * //           serviceConnectResources: [ // ServiceConnectServiceResourceList
  * //             { // ServiceConnectServiceResource
