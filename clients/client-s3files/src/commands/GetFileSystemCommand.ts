@@ -45,7 +45,7 @@ export interface GetFileSystemCommandOutput extends GetFileSystemResponse, __Met
  * //   prefix: "STRING_VALUE",
  * //   clientToken: "STRING_VALUE",
  * //   kmsKeyId: "STRING_VALUE",
- * //   status: "available" || "creating" || "deleting" || "deleted" || "error" || "updating",
+ * //   status: "available" || "creating" || "deleting" || "deleted" || "error" || "updating" || "misconfigured",
  * //   statusMessage: "STRING_VALUE",
  * //   roleArn: "STRING_VALUE",
  * //   ownerId: "STRING_VALUE",

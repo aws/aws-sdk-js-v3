@@ -42,7 +42,7 @@ export interface GetAccessPointCommandOutput extends GetAccessPointResponse, __M
  * //   accessPointId: "STRING_VALUE", // required
  * //   clientToken: "STRING_VALUE", // required
  * //   fileSystemId: "STRING_VALUE", // required
- * //   status: "available" || "creating" || "deleting" || "deleted" || "error" || "updating", // required
+ * //   status: "available" || "creating" || "deleting" || "deleted" || "error" || "updating" || "misconfigured", // required
  * //   ownerId: "STRING_VALUE", // required
  * //   posixUser: { // PosixUser
  * //     uid: Number("long"), // required

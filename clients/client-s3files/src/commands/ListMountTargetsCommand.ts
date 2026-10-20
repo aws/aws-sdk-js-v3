@@ -48,7 +48,7 @@ export interface ListMountTargetsCommandOutput extends ListMountTargetsResponse,
  * //       fileSystemId: "STRING_VALUE",
  * //       ipv4Address: "STRING_VALUE",
  * //       ipv6Address: "STRING_VALUE",
- * //       status: "available" || "creating" || "deleting" || "deleted" || "error" || "updating",
+ * //       status: "available" || "creating" || "deleting" || "deleted" || "error" || "updating" || "misconfigured",
  * //       statusMessage: "STRING_VALUE",
  * //       mountTargetId: "STRING_VALUE", // required
  * //       networkInterfaceId: "STRING_VALUE",
