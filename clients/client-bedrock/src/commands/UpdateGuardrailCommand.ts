@@ -130,6 +130,9 @@ export interface UpdateGuardrailCommandOutput extends UpdateGuardrailResponse, _
  *         enabled: true || false,
  *       },
  *     ],
+ *     tierConfig: { // GuardrailContextualGroundingTierConfig
+ *       tierName: "CLASSIC" || "STANDARD", // required
+ *     },
  *   },
  *   automatedReasoningPolicyConfig: { // GuardrailAutomatedReasoningPolicyConfig
  *     policies: [ // AutomatedReasoningPolicyArnList // required

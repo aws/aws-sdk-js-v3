@@ -139,6 +139,9 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //         enabled: true || false,
  * //       },
  * //     ],
+ * //     tier: { // GuardrailContextualGroundingTier
+ * //       tierName: "CLASSIC" || "STANDARD", // required
+ * //     },
  * //   },
  * //   automatedReasoningPolicy: { // GuardrailAutomatedReasoningPolicy
  * //     policies: [ // AutomatedReasoningPolicyArnList // required

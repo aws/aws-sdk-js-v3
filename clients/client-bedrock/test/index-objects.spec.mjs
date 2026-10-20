@@ -454,6 +454,9 @@ import {
   GuardrailContextualGroundingFilterType,
   GuardrailContextualGroundingPolicy$,
   GuardrailContextualGroundingPolicyConfig$,
+  GuardrailContextualGroundingTier$,
+  GuardrailContextualGroundingTierConfig$,
+  GuardrailContextualGroundingTierName,
   GuardrailCrossRegionConfig$,
   GuardrailCrossRegionDetails$,
   GuardrailFilterStrength,
@@ -1312,6 +1315,8 @@ assert(typeof GuardrailContextualGroundingFilter$ === "object");
 assert(typeof GuardrailContextualGroundingFilterConfig$ === "object");
 assert(typeof GuardrailContextualGroundingPolicy$ === "object");
 assert(typeof GuardrailContextualGroundingPolicyConfig$ === "object");
+assert(typeof GuardrailContextualGroundingTier$ === "object");
+assert(typeof GuardrailContextualGroundingTierConfig$ === "object");
 assert(typeof GuardrailCrossRegionConfig$ === "object");
 assert(typeof GuardrailCrossRegionDetails$ === "object");
 assert(typeof GuardrailManagedWords$ === "object");
@@ -1533,6 +1538,7 @@ assert(typeof GuardrailContentFiltersTierName === "object");
 assert(typeof GuardrailContentFilterType === "object");
 assert(typeof GuardrailContextualGroundingAction === "object");
 assert(typeof GuardrailContextualGroundingFilterType === "object");
+assert(typeof GuardrailContextualGroundingTierName === "object");
 assert(typeof GuardrailFilterStrength === "object");
 assert(typeof GuardrailManagedWordsType === "object");
 assert(typeof GuardrailModality === "object");

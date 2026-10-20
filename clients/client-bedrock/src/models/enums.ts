@@ -650,6 +650,20 @@ export type GuardrailContextualGroundingFilterType =
  * @public
  * @enum
  */
+export const GuardrailContextualGroundingTierName = {
+  CLASSIC: "CLASSIC",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type GuardrailContextualGroundingTierName =
+  (typeof GuardrailContextualGroundingTierName)[keyof typeof GuardrailContextualGroundingTierName];
+
+/**
+ * @public
+ * @enum
+ */
 export const GuardrailSensitiveInformationAction = {
   ANONYMIZE: "ANONYMIZE",
   BLOCK: "BLOCK",
