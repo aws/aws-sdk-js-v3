@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.978.4",
-    "@smithy/core": "^3.36.0",
+    "@smithy/core": "^3.36.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
