@@ -4,6 +4,7 @@ import type {
   AnalysisType,
   DifferentialPrivacyAggregationType,
   IntermediateTableAnalysisRuleType,
+  IntermediateTableVersionStatus,
   LogExportAnalysisType,
   MemberAbility,
   MembershipJobLogStatus,
@@ -36,6 +37,106 @@ import type {
   PrivacyBudget,
   PrivacyBudgetTemplateParametersOutput,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListIntermediateTableVersionsInput {
+  /**
+   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the intermediate table for which to list versions.</p>
+   * @public
+   */
+  intermediateTableIdentifier: string | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a <code>nextToken</code> even if the <code>maxResults</code> value has not been met.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains summary information about a version of an intermediate table.</p>
+ * @public
+ */
+export interface IntermediateTableVersionSummary {
+  /**
+   * <p>The unique identifier of the version.</p>
+   * @public
+   */
+  versionId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the intermediate table that this version belongs to.</p>
+   * @public
+   */
+  tableId: string | undefined;
+
+  /**
+   * <p>The time the version was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The identifier of the protected query that created this version.</p>
+   * @public
+   */
+  analysisId: string | undefined;
+
+  /**
+   * <p>The status of the version.</p>
+   * @public
+   */
+  status: IntermediateTableVersionStatus | undefined;
+
+  /**
+   * <p>The type of analysis that created this version.</p>
+   * @public
+   */
+  analysisType: PopulateIntermediateTableAnalysisType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt this version's data.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The time when this version expires based on the retention period.</p>
+   * @public
+   */
+  expirationTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIntermediateTableVersionsOutput {
+  /**
+   * <p>The list of intermediate table version summaries.</p>
+   * @public
+   */
+  intermediateTableVersionSummaries: IntermediateTableVersionSummary[] | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * <p>The configuration properties that define the compute environment settings for workers in Clean Rooms. These properties enable customization of the underlying compute environment to optimize performance for your specific workloads.</p>

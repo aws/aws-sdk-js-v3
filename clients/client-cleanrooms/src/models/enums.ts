@@ -867,6 +867,21 @@ export type ConfiguredTableAnalysisRuleType =
  * @public
  * @enum
  */
+export const TableReferenceType = {
+  ATHENA: "ATHENA",
+  DATABRICKS: "DATABRICKS",
+  GLUE: "GLUE",
+  SNOWFLAKE: "SNOWFLAKE",
+} as const;
+/**
+ * @public
+ */
+export type TableReferenceType = (typeof TableReferenceType)[keyof typeof TableReferenceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const JobType = {
   BATCH: "BATCH",
   DELETE_ONLY: "DELETE_ONLY",
