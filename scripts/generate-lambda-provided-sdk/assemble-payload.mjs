@@ -30,10 +30,16 @@ import {
   writeFileSync,
 } from "node:fs";
 import { dirname, join, relative } from "node:path";
-import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 
 import { getWorkspacePaths } from "../utils/getWorkspacePaths.mjs";
+import {
+  smokeTest,
+  verifyMainEntries,
+  verifyShimExports,
+  verifySubpathExports,
+  verifyTreeComplete,
+} from "./verify-payload.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = join(__dirname, "..", "..");
@@ -268,118 +274,6 @@ const applyLayout = () => {
   symlinkSync(join(".", "@aws-sdk", "node_modules", "@smithy"), join(nodeModulesDir, "@smithy"));
 };
 
-// ---------------------------------------------------------------- verification
-
-/**
- * Assert every `dependencies` entry of every package in the tree resolves to something
- * inside the tree. A backstop for the dependency walk: a miss here is a MODULE_NOT_FOUND
- * for a customer function.
- *
- * Resolution stops at `outDir`. The payload is usually assembled inside this repo, so an
- * unbounded upward walk finds the repo's own node_modules and passes a tree that cannot
- * load. `dependencies` only, matching step 3.
- */
-const verifyTreeComplete = () => {
-  /** @type {string[]} */
-  const packages = [];
-  const collect = (dir) => {
-    for (const entry of readdirSync(dir, { withFileTypes: true })) {
-      if (entry.isSymbolicLink() || !entry.isDirectory()) {
-        continue;
-      }
-      const full = join(dir, entry.name);
-      if (entry.name.startsWith("@") || entry.name === "node_modules") {
-        collect(full);
-        continue;
-      }
-      if (!existsSync(join(full, "package.json"))) {
-        continue;
-      }
-      packages.push(full);
-      const nested = join(full, "node_modules");
-      if (existsSync(nested)) {
-        collect(nested);
-      }
-    }
-  };
-  collect(nodeModulesDir);
-
-  /** Node's upward node_modules search, stopped at the payload root. */
-  const resolves = (fromDir, name) => {
-    let dir = fromDir;
-    for (;;) {
-      if (existsSync(join(dir, "node_modules", name, "package.json"))) {
-        return true;
-      }
-      if (dir === outDir) {
-        return false;
-      }
-      const parent = dirname(dir);
-      if (parent === dir || !dir.startsWith(outDir)) {
-        return false;
-      }
-      dir = parent;
-    }
-  };
-
-  const missing = [];
-  let edges = 0;
-  for (const pkgDir of packages) {
-    let manifest;
-    try {
-      manifest = JSON.parse(readFileSync(join(pkgDir, "package.json"), "utf-8"));
-    } catch {
-      continue; // not a real manifest
-    }
-    for (const [dep, range] of Object.entries(manifest.dependencies ?? {})) {
-      // file:/link:/git: specifiers are not resolved from node_modules.
-      if (typeof range === "string" && /^(?:file|link|workspace|git|https?):/.test(range)) {
-        continue;
-      }
-      edges += 1;
-      if (!resolves(pkgDir, dep)) {
-        missing.push(
-          `${manifest.name}@${manifest.version} requires ${dep} (${range}), absent from the tree\n` +
-            `      at ${relative(nodeModulesDir, pkgDir)}`
-        );
-      }
-    }
-  }
-
-  if (missing.length) {
-    throw new Error(
-      `the assembled tree is not self-contained — ${missing.length} dependency ` +
-        `${missing.length === 1 ? "edge" : "edges"} cannot resolve:\n  ` +
-        missing.join("\n  ") +
-        `\n\n  A require of the package named on the left will throw MODULE_NOT_FOUND for a ` +
-        `customer.\n  Most likely cause: step 3 copied a package whose nested node_modules ` +
-        `came along with it,\n  but only the outer package's manifest was walked, so the ` +
-        `nested copy's own\n  dependencies were never collected.`
-    );
-  }
-
-  log(`5b. tree is self-contained: ${edges} dependency edges across ${packages.length} packages`);
-};
-
-/**
- * Import a few packages from the finished tree as an outside consumer would, including
- * one that is only reachable through the root @smithy symlink.
- */
-const smokeTest = () => {
-  const targets = ["@aws-sdk/client-s3", "@aws-sdk/core", "@aws-sdk/credential-provider-node", "@smithy/core"];
-  const consumer = join(outDir, ".smoke-test.cjs");
-  writeFileSync(
-    consumer,
-    targets.map((t) => `require(${JSON.stringify(t)});`).join("\n") +
-      `\nconsole.log("smoke test passed: ${targets.length} packages");\n`
-  );
-  try {
-    execFileSync(process.execPath, [consumer], { stdio: "inherit" });
-  } finally {
-    rmSync(consumer, { force: true });
-  }
-};
-
 // ---------------------------------------------------------------- assemblePayload
 
 export const assemblePayload = () => {
@@ -547,51 +441,9 @@ export const assemblePayload = () => {
     log(`4. ${generated} forwarders generated, ${copied} declared packages copied`);
 
     // 4b. Assert every forwarder delivers what the compatibility snapshot records.
-    // A forwarder pointing at the wrong package is silently short rather than broken,
-    // since __exportStar copies whatever the target happens to export. The recorded
-    // surface is a floor: extra exports are fine, missing ones are not.
-    const requireFromTree = createRequire(join(outDir, "verify-shims.cjs"));
-    const shortfalls = [];
-    for (const [name, entry] of Object.entries(awsSdkShims)) {
-      if (!entry.exports.length) {
-        continue;
-      }
-      try {
-        const actual = new Set(Object.keys(requireFromTree(name)));
-        const missing = entry.exports.filter((symbol) => !actual.has(symbol));
-        if (missing.length) {
-          shortfalls.push(`${name} -> ${entry.target ?? "(copied)"} is missing ${missing.join(", ")}`);
-        }
-      } catch (error) {
-        // A failure here is usually a missing package rather than a missing symbol,
-        // which is how a version bump breaks this step. Name the absent module.
-        const unresolved =
-          error.code === "MODULE_NOT_FOUND" ? /Cannot find module '([^']+)'/.exec(error.message)?.[1] : undefined;
-        // Only bare package names can be declared as dependencies, so a relative
-        // request gets the diagnosis without the remedy.
-        const declarable = unresolved !== undefined && /^(?:@[^/:]+\/)?[^@./:][^/:]*$/.test(unresolved);
-        if (declarable) {
-          shortfalls.push(
-            `${name} -> ${entry.target ?? "(copied)"} cannot load: ${unresolved} is not in the ` +
-              `assembled tree.\n    Neither this workspace nor its dependency closure provides ` +
-              `it, so it has to be declared. Add it to ${legacyDepsPackage} and re-run\n` +
-              `    yarn install.`
-          );
-        } else if (unresolved !== undefined) {
-          shortfalls.push(
-            `${name} -> ${entry.target ?? "(copied)"} cannot load: ${unresolved} is not ` +
-              `resolvable from the assembled tree. It is not a bare package name, so it is a ` +
-              `file missing from inside an already-present package rather than a missing package.`
-          );
-        } else {
-          shortfalls.push(`${name} failed to load: ${error.code ?? error.message}`);
-        }
-      }
-    }
-    if (shortfalls.length) {
-      throw new Error(`deprecated packages are not usable as recorded:\n  ` + shortfalls.join("\n  "));
-    }
-    log(`4b. verified ${Object.keys(awsSdkShims).length} deprecated packages against their recorded exports`);
+    // Runs before applyLayout(): every package still sits directly under
+    // node_modules and resolves from the output root.
+    verifyShimExports({ shims: awsSdkShims, outDir, legacyDepsPackage });
   }
 
   // 5. Rearrange into the layout consumers expect.
@@ -599,10 +451,18 @@ export const assemblePayload = () => {
   log(`5. layout applied (@aws-sdk/node_modules + root @smithy symlink)`);
 
   // 5b. Prove the tree is self-contained.
-  verifyTreeComplete();
+  // These four run after the layout move: non-@aws-sdk packages are under
+  // @aws-sdk/node_modules and @smithy is a root symlink, which is what they anchor on.
+  verifyTreeComplete({ outDir });
+
+  // 5c. Prove every subpath an exports map declares can actually be required.
+  verifySubpathExports({ outDir });
+
+  // 5d. Prove every package's main entry loads, which 5b and 5c never open.
+  verifyMainEntries({ outDir });
 
   // 6. Prove the result loads before anyone publishes it.
-  smokeTest();
+  smokeTest({ outDir });
 
   if (treeOnly) {
     log(`\ntree at ${nodeModulesDir}`);
