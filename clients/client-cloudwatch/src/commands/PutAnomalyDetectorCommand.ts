@@ -56,6 +56,8 @@ export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutpu
  *       },
  *     ],
  *     MetricTimezone: "STRING_VALUE",
+ *     AdaptationSpeed: "FAST" || "NORMAL" || "SLOW",
+ *     OutlierFilteringStrength: "MINIMAL" || "MODERATE" || "STRICT",
  *   },
  *   MetricCharacteristics: { // MetricCharacteristics
  *     PeriodicSpikes: true || false,

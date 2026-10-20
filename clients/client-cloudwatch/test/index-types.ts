@@ -170,6 +170,8 @@ export type {
   ActionsSuppressedBy,
   AlarmMuteRuleStatus,
   AlarmType,
+  AnomalyDetectorAdaptationSpeed,
+  AnomalyDetectorOutlierFilteringStrength,
   AnomalyDetectorStateValue,
   AnomalyDetectorType,
   ComparisonOperator,

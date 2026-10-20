@@ -61,6 +61,36 @@ export type AlarmMuteRuleStatus = (typeof AlarmMuteRuleStatus)[keyof typeof Alar
  * @public
  * @enum
  */
+export const AnomalyDetectorAdaptationSpeed = {
+  FAST: "FAST",
+  NORMAL: "NORMAL",
+  SLOW: "SLOW",
+} as const;
+/**
+ * @public
+ */
+export type AnomalyDetectorAdaptationSpeed =
+  (typeof AnomalyDetectorAdaptationSpeed)[keyof typeof AnomalyDetectorAdaptationSpeed];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnomalyDetectorOutlierFilteringStrength = {
+  MINIMAL: "MINIMAL",
+  MODERATE: "MODERATE",
+  STRICT: "STRICT",
+} as const;
+/**
+ * @public
+ */
+export type AnomalyDetectorOutlierFilteringStrength =
+  (typeof AnomalyDetectorOutlierFilteringStrength)[keyof typeof AnomalyDetectorOutlierFilteringStrength];
+
+/**
+ * @public
+ * @enum
+ */
 export const StandardUnit = {
   Bits: "Bits",
   Bits_Second: "Bits/Second",
