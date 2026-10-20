@@ -215,6 +215,7 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //       LastUpdateDateTime: new Date("TIMESTAMP"),
  * //     },
  * //     DeletionProtectionEnabled: true || false,
+ * //     DisassociationProtectionEnabled: true || false,
  * //     OnDemandThroughput: {
  * //       MaxReadRequestUnits: Number("long"),
  * //       MaxWriteRequestUnits: Number("long"),

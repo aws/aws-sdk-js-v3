@@ -342,6 +342,7 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * //       LastUpdateDateTime: new Date("TIMESTAMP"),
  * //     },
  * //     DeletionProtectionEnabled: true || false,
+ * //     DisassociationProtectionEnabled: true || false,
  * //     OnDemandThroughput: {
  * //       MaxReadRequestUnits: Number("long"),
  * //       MaxWriteRequestUnits: Number("long"),

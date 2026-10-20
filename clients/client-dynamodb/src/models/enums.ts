@@ -652,6 +652,18 @@ export type DestinationStatus = (typeof DestinationStatus)[keyof typeof Destinat
  * @public
  * @enum
  */
+export const DisassociationMode = {
+  WAIT_FOR_REPLICATION: "WAIT_FOR_REPLICATION",
+} as const;
+/**
+ * @public
+ */
+export type DisassociationMode = (typeof DisassociationMode)[keyof typeof DisassociationMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const Select = {
   ALL_ATTRIBUTES: "ALL_ATTRIBUTES",
   ALL_PROJECTED_ATTRIBUTES: "ALL_PROJECTED_ATTRIBUTES",

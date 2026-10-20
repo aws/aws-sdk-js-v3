@@ -224,6 +224,7 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  * //       LastUpdateDateTime: new Date("TIMESTAMP"),
  * //     },
  * //     DeletionProtectionEnabled: true || false,
+ * //     DisassociationProtectionEnabled: true || false,
  * //     OnDemandThroughput: {
  * //       MaxReadRequestUnits: Number("long"),
  * //       MaxWriteRequestUnits: Number("long"),

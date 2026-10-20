@@ -313,6 +313,7 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * //       LastUpdateDateTime: new Date("TIMESTAMP"),
  * //     },
  * //     DeletionProtectionEnabled: true || false,
+ * //     DisassociationProtectionEnabled: true || false,
  * //     OnDemandThroughput: {
  * //       MaxReadRequestUnits: Number("long"),
  * //       MaxWriteRequestUnits: Number("long"),

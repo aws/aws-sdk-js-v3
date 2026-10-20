@@ -153,10 +153,13 @@ const _DKSDi = "DisableKinesisStreamingDestination";
 const _DL = "DescribeLimits";
 const _DLI = "DescribeLimitsInput";
 const _DLO = "DescribeLimitsOutput";
+const _DM = "DisassociationMode";
 const _DPE = "DeletionProtectionEnabled";
+const _DPEi = "DisassociationProtectionEnabled";
 const _DR = "DeleteRequest";
 const _DRA = "DeleteReplicaAction";
 const _DRGMA = "DeleteReplicationGroupMemberAction";
+const _DRGMAi = "DisassociateReplicationGroupMemberAction";
 const _DRP = "DeleteResourcePolicy";
 const _DRPI = "DeleteResourcePolicyInput";
 const _DRPO = "DeleteResourcePolicyOutput";
@@ -178,6 +181,7 @@ const _DTe = "DescribeTable";
 const _DVIA = "DeleteVectorIndexAction";
 const _De = "Delimiter";
 const _Del = "Delete";
+const _Di = "Disassociate";
 const _E = "Error";
 const _EA = "ExportArn";
 const _EAM = "ExpectedAttributeMap";
@@ -1375,6 +1379,11 @@ export var DescribeTimeToLiveOutput$: StaticStructureSchema = [3, n0, _DTTLO,
   [_TTLD],
   [() => TimeToLiveDescription$]
 ];
+export var DisassociateReplicationGroupMemberAction$: StaticStructureSchema = [3, n0, _DRGMAi,
+  0,
+  [_RN, _DM],
+  [0, 0], 2
+];
 export var EnableKinesisStreamingConfiguration$: StaticStructureSchema = [3, n0, _EKSC,
   0,
   [_ACDTP],
@@ -1817,8 +1826,8 @@ export var ReplicaSettingsUpdate$: StaticStructureSchema = [3, n0, _RSU,
 ];
 export var ReplicationGroupUpdate$: StaticStructureSchema = [3, n0, _RGU,
   0,
-  [_Cr, _U, _Del],
-  [() => CreateReplicationGroupMemberAction$, () => UpdateReplicationGroupMemberAction$, () => DeleteReplicationGroupMemberAction$]
+  [_Cr, _U, _Del, _Di],
+  [() => CreateReplicationGroupMemberAction$, () => UpdateReplicationGroupMemberAction$, () => DeleteReplicationGroupMemberAction$, () => DisassociateReplicationGroupMemberAction$]
 ];
 export var ReplicaUpdate$: StaticStructureSchema = [3, n0, _RU,
   0,
@@ -1927,8 +1936,8 @@ export var TableCreationParameters$: StaticStructureSchema = [3, n0, _TCP,
 ];
 export var TableDescription$: StaticStructureSchema = [3, n0, _TD,
   0,
-  [_ADt, _TN, _KS, _TSa, _CDT, _PT, _TSB, _IC, _TA, _TI, _BMS, _LSI, _GSI, _SS, _LSL, _LSA, _GTV, _Rep, _GTW, _GTSRM, _RSes, _SSED, _AS, _TCS, _DPE, _ODT, _WT, _MRC, _VI],
-  [() => AttributeDefinitions, 0, () => KeySchema, 0, 4, () => ProvisionedThroughputDescription$, 1, 1, 0, 0, () => BillingModeSummary$, () => LocalSecondaryIndexDescriptionList, () => GlobalSecondaryIndexDescriptionList, () => StreamSpecification$, 0, 0, 0, () => ReplicaDescriptionList, () => GlobalTableWitnessDescriptionList, 0, () => RestoreSummary$, () => SSEDescription$, () => ArchivalSummary$, () => TableClassSummary$, 2, () => OnDemandThroughput$, () => TableWarmThroughputDescription$, 0, () => VectorIndexDescriptionList]
+  [_ADt, _TN, _KS, _TSa, _CDT, _PT, _TSB, _IC, _TA, _TI, _BMS, _LSI, _GSI, _SS, _LSL, _LSA, _GTV, _Rep, _GTW, _GTSRM, _RSes, _SSED, _AS, _TCS, _DPE, _DPEi, _ODT, _WT, _MRC, _VI],
+  [() => AttributeDefinitions, 0, () => KeySchema, 0, 4, () => ProvisionedThroughputDescription$, 1, 1, 0, 0, () => BillingModeSummary$, () => LocalSecondaryIndexDescriptionList, () => GlobalSecondaryIndexDescriptionList, () => StreamSpecification$, 0, 0, 0, () => ReplicaDescriptionList, () => GlobalTableWitnessDescriptionList, 0, () => RestoreSummary$, () => SSEDescription$, () => ArchivalSummary$, () => TableClassSummary$, 2, 2, () => OnDemandThroughput$, () => TableWarmThroughputDescription$, 0, () => VectorIndexDescriptionList]
 ];
 export var TableWarmThroughputDescription$: StaticStructureSchema = [3, n0, _TWTD,
   0,
@@ -2077,8 +2086,8 @@ export var UpdateReplicationGroupMemberAction$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateTableInput$: StaticStructureSchema = [3, n0, _UTI,
   0,
-  [_TN, _ADt, _BM, _PT, _GSIUl, _SS, _SSES, _RUe, _TC, _DPE, _MRC, _GTWU, _ODT, _WT, _GTSRM, _VIU],
-  [0, () => AttributeDefinitions, 0, () => ProvisionedThroughput$, () => GlobalSecondaryIndexUpdateList, () => StreamSpecification$, () => SSESpecification$, () => ReplicationGroupUpdateList, 0, 2, 0, () => GlobalTableWitnessGroupUpdateList, () => OnDemandThroughput$, () => WarmThroughput$, 0, () => VectorIndexUpdateList], 1
+  [_TN, _ADt, _BM, _PT, _GSIUl, _SS, _SSES, _RUe, _TC, _DPE, _MRC, _GTWU, _ODT, _WT, _GTSRM, _DPEi, _VIU],
+  [0, () => AttributeDefinitions, 0, () => ProvisionedThroughput$, () => GlobalSecondaryIndexUpdateList, () => StreamSpecification$, () => SSESpecification$, () => ReplicationGroupUpdateList, 0, 2, 0, () => GlobalTableWitnessGroupUpdateList, () => OnDemandThroughput$, () => WarmThroughput$, 0, 2, () => VectorIndexUpdateList], 1
 ];
 export var UpdateTableOutput$: StaticStructureSchema = [3, n0, _UTO,
   0,
