@@ -2,14 +2,14 @@ POST https://rds.us-east-1.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 3583
+content-length: 3651
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rds#_.__ m/E,e
 host: rds.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: d932d02b9a11e45173e4f4a88ba5e6a4c4df45e3d1dac61235104b10ec863d1f
+x-amz-content-sha256: a2ebb496e1bd2b7bcb0b66b293d925eb2841094f29ac2ef94308d4e3b37d7ba6
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/rds/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -76,6 +76,7 @@ CustomIamInstanceProfile=__CustomIamInstanceProfile__&
 AllocatedStorage=0&
 BackupRetentionPeriod=0&
 PreferredBackupWindow=__PreferredBackupWindow__&
+DBCapacityReservationIdentifier=__DBCapacityReservationIdentifier__&
 DedicatedLogVolume=false&
 CACertificateIdentifier=__CACertificateIdentifier__&
 EngineLifecycleSupport=__EngineLifecycleSupport__&

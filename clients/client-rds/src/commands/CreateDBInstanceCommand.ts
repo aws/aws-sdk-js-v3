@@ -136,6 +136,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *       ],
  *     },
  *   ],
+ *   DBCapacityReservationIdentifier: "STRING_VALUE",
  *   MasterUserAuthenticationType: "password" || "iam-db-auth",
  * };
  * const command = new CreateDBInstanceCommand(input);
@@ -245,6 +246,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * //           StorageType: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       DBCapacityReservationIdentifier: "STRING_VALUE",
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -393,6 +395,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * //     StorageVolumeStatus: "STRING_VALUE",
  * //     StorageOperationStatus: "STRING_VALUE",
  * //     StorageOperationPercentProgress: Number("int"),
+ * //     DBCapacityReservationIdentifier: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -412,6 +415,9 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *
  * @throws {@link CertificateNotFoundFault} (client fault)
  *  <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
+ *
+ * @throws {@link DBCapacityReservationNotFoundFault} (client fault)
+ *  <p> <code>DBCapacityReservationIdentifier</code> doesn't refer to an existing DB capacity reservation.</p>
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
  *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
@@ -439,6 +445,9 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
  *  <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+ *
+ * @throws {@link InvalidDBCapacityReservationStateFault} (client fault)
+ *  <p>The DB capacity reservation isn't in a valid state.</p>
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>

@@ -7,6 +7,9 @@ const _AASVO = "AvailableAdditionalStorageVolumesOption";
 const _AASVOL = "AvailableAdditionalStorageVolumesOptionList";
 const _AASVOv = "AvailableAdditionalStorageVolumesOptions";
 const _ABRPA = "AwsBackupRecoveryPointArn";
+const _AC = "AvailableCapacity";
+const _ACPAZ = "AvailableCapacityPerAvailabilityZone";
+const _ACPAZL = "AvailableCapacityPerAvailabilityZoneList";
 const _ADBSGI = "AuthorizeDBSecurityGroupIngress";
 const _ADBSGIM = "AuthorizeDBSecurityGroupIngressMessage";
 const _ADBSGIR = "AuthorizeDBSecurityGroupIngressResult";
@@ -119,6 +122,7 @@ const _CCA = "CopyableCrossAccount";
 const _CCDBEV = "CreateCustomDBEngineVersion";
 const _CCDBEVF = "CreateCustomDBEngineVersionFault";
 const _CCDBEVM = "CreateCustomDBEngineVersionMessage";
+const _CCPAZ = "CommittedCapacityPerAvailabilityZone";
 const _CCT = "ClusterCreateTime";
 const _CCu = "CurrencyCode";
 const _CD = "CertificateDetails";
@@ -133,6 +137,12 @@ const _CDBCPGR = "CopyDBClusterParameterGroupResult";
 const _CDBCPGRr = "CreateDBClusterParameterGroupResult";
 const _CDBCPGr = "CreateDBClusterParameterGroup";
 const _CDBCR = "CreateDBClusterResult";
+const _CDBCRR = "CancelDBCapacityReservationRequest";
+const _CDBCRRa = "CancelDBCapacityReservationResponse";
+const _CDBCRRr = "CreateDBCapacityReservationRequest";
+const _CDBCRRre = "CreateDBCapacityReservationResponse";
+const _CDBCRa = "CancelDBCapacityReservation";
+const _CDBCRr = "CreateDBCapacityReservation";
 const _CDBCS = "CopyDBClusterSnapshot";
 const _CDBCSM = "CopyDBClusterSnapshotMessage";
 const _CDBCSMr = "CreateDBClusterSnapshotMessage";
@@ -176,8 +186,11 @@ const _CDBSMr = "CreateDBSnapshotMessage";
 const _CDBSR = "CopyDBSnapshotResult";
 const _CDBSRr = "CreateDBSnapshotResult";
 const _CDBSr = "CreateDBSnapshot";
-const _CDr = "CreatedDate";
+const _CDo = "CommitmentDuration";
+const _CDr = "CreateDate";
+const _CDre = "CreatedDate";
 const _CE = "CustomEndpoints";
+const _CED = "CommitmentEndDate";
 const _CES = "CreateEventSubscription";
 const _CESM = "CreateEventSubscriptionMessage";
 const _CESR = "CreateEventSubscriptionResult";
@@ -192,6 +205,7 @@ const _CI = "CertificateIdentifier";
 const _CIDRIP = "CIDRIP";
 const _CIIP = "CustomIamInstanceProfile";
 const _CIM = "CreateIntegrationMessage";
+const _CIo = "CommitmentInfo";
 const _CIr = "CreateIntegration";
 const _CL = "CertificateList";
 const _CLEC = "CloudwatchLogsExportConfiguration";
@@ -207,6 +221,7 @@ const _COGr = "CreateOptionGroup";
 const _COIE = "CustomerOwnedIpEnabled";
 const _COVT = "CustomerOverrideValidTill";
 const _CPAT = "ClientPasswordAuthType";
+const _CPAZ = "CapacityPerAvailabilityZone";
 const _CPC = "ConnectionPoolConfiguration";
 const _CPCI = "ConnectionPoolConfigurationInfo";
 const _CPCo = "ConnectionPoolConfig";
@@ -288,11 +303,21 @@ const _DBCPGNM = "DBClusterParameterGroupNameMessage";
 const _DBCPGS = "DBClusterParameterGroupStatus";
 const _DBCPGl = "DBClusterParameterGroups";
 const _DBCQEF = "DBClusterQuotaExceededFault";
-const _DBCR = "DBClusterRole";
-const _DBCRAEF = "DBClusterRoleAlreadyExistsFault";
-const _DBCRNFF = "DBClusterRoleNotFoundFault";
+const _DBCR = "DBCapacityReservation";
+const _DBCRA = "DBCapacityReservationArn";
+const _DBCRAEF = "DBCapacityReservationAlreadyExistsFault";
+const _DBCRAEFl = "DBClusterRoleAlreadyExistsFault";
+const _DBCRCI = "DBCapacityReservationCommitmentInfo";
+const _DBCRI = "DBCapacityReservationIdentifier";
+const _DBCRL = "DBCapacityReservationList";
+const _DBCRN = "DBCapacityReservationName";
+const _DBCRNFF = "DBCapacityReservationNotFoundFault";
+const _DBCRNFFl = "DBClusterRoleNotFoundFault";
 const _DBCRQEF = "DBClusterRoleQuotaExceededFault";
-const _DBCRl = "DBClusterRoles";
+const _DBCRUF = "DBCapacityReservationUnsupportedFault";
+const _DBCRa = "DBCapacityReservations";
+const _DBCRl = "DBClusterRole";
+const _DBCRlu = "DBClusterRoles";
 const _DBCS = "DBClusterSnapshot";
 const _DBCSA = "DBClusterSnapshotArn";
 const _DBCSAEF = "DBClusterSnapshotAlreadyExistsFault";
@@ -484,6 +509,9 @@ const _DDBCPGMe = "DescribeDBClusterParameterGroupsMessage";
 const _DDBCPGe = "DescribeDBClusterParameterGroups";
 const _DDBCPM = "DescribeDBClusterParametersMessage";
 const _DDBCR = "DeleteDBClusterResult";
+const _DDBCRR = "DescribeDBCapacityReservationsRequest";
+const _DDBCRRe = "DescribeDBCapacityReservationsResponse";
+const _DDBCRe = "DescribeDBCapacityReservations";
 const _DDBCS = "DeleteDBClusterSnapshot";
 const _DDBCSA = "DescribeDBClusterSnapshotAttributes";
 const _DDBCSAM = "DescribeDBClusterSnapshotAttributesMessage";
@@ -587,6 +615,7 @@ const _DESe = "DescribeEventSubscriptions";
 const _DET = "DescribeExportTasks";
 const _DETM = "DescribeExportTasksMessage";
 const _DF = "DomainFqdn";
+const _DFDBCR = "DetachFromDBCapacityReservation";
 const _DFa = "DataFilter";
 const _DGC = "DeleteGlobalCluster";
 const _DGCM = "DeleteGlobalClusterMessage";
@@ -678,7 +707,9 @@ const _ECSGOI = "EC2SecurityGroupOwnerId";
 const _ECSGe = "EC2SecurityGroup";
 const _ECr = "ErrorCode";
 const _ECv = "EventCategory";
-const _ED = "EngineDefaults";
+const _ED = "EndDate";
+const _EDT = "EndDateType";
+const _EDn = "EngineDefaults";
 const _EF = "EngineFamily";
 const _EGWF = "EnableGlobalWriteForwarding";
 const _EHE = "EnableHttpEndpoint";
@@ -793,6 +824,7 @@ const _IDBCABSF = "InvalidDBClusterAutomatedBackupStateFault";
 const _IDBCCF = "InsufficientDBClusterCapacityFault";
 const _IDBCCFn = "InvalidDBClusterCapacityFault";
 const _IDBCESF = "InvalidDBClusterEndpointStateFault";
+const _IDBCRSF = "InvalidDBCapacityReservationStateFault";
 const _IDBCSF = "InvalidDBClusterStateFault";
 const _IDBCSSF = "InvalidDBClusterSnapshotStateFault";
 const _IDBIABSF = "InvalidDBInstanceAutomatedBackupStateFault";
@@ -910,6 +942,9 @@ const _MDBCM = "ModifyDBClusterMessage";
 const _MDBCPG = "ModifyDBClusterParameterGroup";
 const _MDBCPGM = "ModifyDBClusterParameterGroupMessage";
 const _MDBCR = "ModifyDBClusterResult";
+const _MDBCRR = "ModifyDBCapacityReservationRequest";
+const _MDBCRRo = "ModifyDBCapacityReservationResponse";
+const _MDBCRo = "ModifyDBCapacityReservation";
 const _MDBCSA = "ModifyDBClusterSnapshotAttribute";
 const _MDBCSAM = "ModifyDBClusterSnapshotAttributeMessage";
 const _MDBCSAR = "ModifyDBClusterSnapshotAttributeResult";
@@ -1128,6 +1163,7 @@ const _RCCC = "RdsCustomClusterConfiguration";
 const _RCF = "RecurringChargeFrequency";
 const _RCL = "RecurringChargeList";
 const _RCO = "RemoveCustomerOverride";
+const _RCPAZ = "ReservedCapacityPerAvailabilityZone";
 const _RCe = "RecurringCharges";
 const _RD = "ReferenceDetails";
 const _RDBC = "RebootDBCluster";
@@ -1304,7 +1340,8 @@ const _SDRI = "SourceDbiResourceId";
 const _SDT = "SnapshotDatabaseTime";
 const _SDe = "SettingDescription";
 const _SDt = "StatusDetails";
-const _SDta = "StatisticsDetails";
+const _SDta = "StartDate";
+const _SDtat = "StatisticsDetails";
 const _SDw = "SwitchoverDetail";
 const _SE = "StorageEncrypted";
 const _SEL = "SupportedEngineLifecycles";
@@ -1582,6 +1619,9 @@ import {
   CustomDBEngineVersionAlreadyExistsFault,
   CustomDBEngineVersionNotFoundFault,
   CustomDBEngineVersionQuotaExceededFault,
+  DBCapacityReservationAlreadyExistsFault,
+  DBCapacityReservationNotFoundFault,
+  DBCapacityReservationUnsupportedFault,
   DBClusterAlreadyExistsFault,
   DBClusterAutomatedBackupNotFoundFault,
   DBClusterAutomatedBackupQuotaExceededFault,
@@ -1655,6 +1695,7 @@ import {
   IntegrationQuotaExceededFault,
   InvalidBlueGreenDeploymentStateFault,
   InvalidCustomDBEngineVersionStateFault,
+  InvalidDBCapacityReservationStateFault,
   InvalidDBClusterAutomatedBackupStateFault,
   InvalidDBClusterCapacityFault,
   InvalidDBClusterEndpointStateFault,
@@ -1796,6 +1837,24 @@ export var CustomDBEngineVersionQuotaExceededFault$: StaticErrorSchema = [-3, n0
   [0]
 ];
 n0_registry.registerError(CustomDBEngineVersionQuotaExceededFault$, CustomDBEngineVersionQuotaExceededFault);
+export var DBCapacityReservationAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBCRAEF,
+  { [_aQE]: [`DBCapacityReservationAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DBCapacityReservationAlreadyExistsFault$, DBCapacityReservationAlreadyExistsFault);
+export var DBCapacityReservationNotFoundFault$: StaticErrorSchema = [-3, n0, _DBCRNFF,
+  { [_aQE]: [`DBCapacityReservationNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DBCapacityReservationNotFoundFault$, DBCapacityReservationNotFoundFault);
+export var DBCapacityReservationUnsupportedFault$: StaticErrorSchema = [-3, n0, _DBCRUF,
+  { [_aQE]: [`DBCapacityReservationUnsupported`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DBCapacityReservationUnsupportedFault$, DBCapacityReservationUnsupportedFault);
 export var DBClusterAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBCAEF,
   { [_aQE]: [`DBClusterAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
@@ -1856,13 +1915,13 @@ export var DBClusterQuotaExceededFault$: StaticErrorSchema = [-3, n0, _DBCQEF,
   [0]
 ];
 n0_registry.registerError(DBClusterQuotaExceededFault$, DBClusterQuotaExceededFault);
-export var DBClusterRoleAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBCRAEF,
+export var DBClusterRoleAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBCRAEFl,
   { [_aQE]: [`DBClusterRoleAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
 n0_registry.registerError(DBClusterRoleAlreadyExistsFault$, DBClusterRoleAlreadyExistsFault);
-export var DBClusterRoleNotFoundFault$: StaticErrorSchema = [-3, n0, _DBCRNFF,
+export var DBClusterRoleNotFoundFault$: StaticErrorSchema = [-3, n0, _DBCRNFFl,
   { [_aQE]: [`DBClusterRoleNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0]
@@ -2234,6 +2293,12 @@ export var InvalidCustomDBEngineVersionStateFault$: StaticErrorSchema = [-3, n0,
   [0]
 ];
 n0_registry.registerError(InvalidCustomDBEngineVersionStateFault$, InvalidCustomDBEngineVersionStateFault);
+export var InvalidDBCapacityReservationStateFault$: StaticErrorSchema = [-3, n0, _IDBCRSF,
+  { [_aQE]: [`InvalidDBCapacityReservationState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidDBCapacityReservationStateFault$, InvalidDBCapacityReservationStateFault);
 export var InvalidDBClusterAutomatedBackupStateFault$: StaticErrorSchema = [-3, n0, _IDBCABSF,
   { [_aQE]: [`InvalidDBClusterAutomatedBackupStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
@@ -2687,6 +2752,11 @@ export var AvailableAdditionalStorageVolumesOption$: StaticStructureSchema = [3,
   [_SSA, _SST, _SIu, _STt, _MSS, _MSSa, _MI, _MIa, _MIPG, _MIPGa, _MST, _MSTa],
   [2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
+export var AvailableCapacityPerAvailabilityZone$: StaticStructureSchema = [3, n0, _ACPAZ,
+  0,
+  [_AZ, _AC],
+  [0, 1]
+];
 export var AvailableProcessorFeature$: StaticStructureSchema = [3, n0, _APF,
   0,
   [_N, _DV, _AV],
@@ -2706,6 +2776,16 @@ export var BlueGreenDeploymentTask$: StaticStructureSchema = [3, n0, _BGDT,
   0,
   [_N, _St],
   [0, 0]
+];
+export var CancelDBCapacityReservationRequest$: StaticStructureSchema = [3, n0, _CDBCRR,
+  0,
+  [_DBCRI],
+  [0], 1
+];
+export var CancelDBCapacityReservationResponse$: StaticStructureSchema = [3, n0, _CDBCRRa,
+  0,
+  [_DBCR],
+  [[() => DBCapacityReservation$, 0]]
 ];
 export var CancelExportTaskMessage$: StaticStructureSchema = [3, n0, _CETM,
   0,
@@ -2822,6 +2902,16 @@ export var CreateCustomDBEngineVersionMessage$: StaticStructureSchema = [3, n0, 
   [_E, _EV, _DIFSBN, _DIFSP, _DIF, _II, _KMSKI, _SCDEVI, _UAPLI, _D, _Man, _T],
   [0, 0, 0, 0, 64 | 0, 0, 0, 0, 2, 0, 0, [() => TagList, 0]], 2
 ];
+export var CreateDBCapacityReservationRequest$: StaticStructureSchema = [3, n0, _CDBCRRr,
+  0,
+  [_DBCRN, _DBIC, _E, _CPAZ, _AZv, _ED, _SDta, _CDo, _LM, _T],
+  [0, 0, 0, 1, [() => AvailabilityZones, 0], 4, 4, 1, 0, [() => TagList, 0]], 5
+];
+export var CreateDBCapacityReservationResponse$: StaticStructureSchema = [3, n0, _CDBCRRre,
+  0,
+  [_DBCR],
+  [[() => DBCapacityReservation$, 0]]
+];
 export var CreateDBClusterEndpointMessage$: StaticStructureSchema = [3, n0, _CDBCEM,
   0,
   [_DBCI, _DBCEI, _ET, _SM, _EM, _T],
@@ -2859,13 +2949,13 @@ export var CreateDBClusterSnapshotResult$: StaticStructureSchema = [3, n0, _CDBC
 ];
 export var CreateDBInstanceMessage$: StaticStructureSchema = [3, n0, _CDBIM,
   0,
-  [_DBII, _DBIC, _E, _DBN, _AS, _MU, _MUP, _DBSGe, _VSGI, _AZ, _DBSGNu, _PMW, _DBPGN, _BRP, _PBW, _P, _MAZ, _EV, _AMVU, _LM, _I, _ST, _OGN, _CSN, _NCSN, _PA, _T, _DBCI, _STt, _TCA, _TCP, _SE, _KKI, _Do, _DF, _DO, _DASA, _DDI, _CTTS, _MIo, _MRA, _DIAMRN, _PT, _Ti, _EIAMDA, _DIM, _EPI, _PIKMSKI, _PIRP, _ECLE, _PF, _DP, _MAS, _ECOI, _NT, _BTa, _CIIP, _DBSI, _CACI, _MMUP, _MUSKKI, _MT, _DLV, _ELS, _ASVd, _TS, _MUAT],
-  [0, 0, 0, 0, 1, 0, [() => SensitiveString, 0], [() => DBSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 0, 1, 0, 1, 2, 0, 2, 0, 1, 1, 0, 0, 0, 2, [() => TagList, 0], 0, 0, 0, [() => SensitiveString, 0], 2, 0, 0, 0, 0, 0, 64 | 0, 2, 1, 0, 0, 1, 0, 2, 0, 2, 0, 1, 64 | 0, [() => ProcessorFeatureList, 0], 2, 1, 2, 0, 0, 0, 0, 0, 2, 0, 2, 2, 0, () => AdditionalStorageVolumesList, [() => TagSpecificationList, 0], 0], 3
+  [_DBII, _DBIC, _E, _DBN, _AS, _MU, _MUP, _DBSGe, _VSGI, _AZ, _DBSGNu, _PMW, _DBPGN, _BRP, _PBW, _P, _MAZ, _EV, _AMVU, _LM, _I, _ST, _OGN, _CSN, _NCSN, _PA, _T, _DBCI, _STt, _TCA, _TCP, _SE, _KKI, _Do, _DF, _DO, _DASA, _DDI, _CTTS, _MIo, _MRA, _DIAMRN, _PT, _Ti, _EIAMDA, _DIM, _EPI, _PIKMSKI, _PIRP, _ECLE, _PF, _DP, _MAS, _ECOI, _NT, _BTa, _CIIP, _DBSI, _CACI, _MMUP, _MUSKKI, _MT, _DLV, _ELS, _ASVd, _TS, _DBCRI, _MUAT],
+  [0, 0, 0, 0, 1, 0, [() => SensitiveString, 0], [() => DBSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 0, 1, 0, 1, 2, 0, 2, 0, 1, 1, 0, 0, 0, 2, [() => TagList, 0], 0, 0, 0, [() => SensitiveString, 0], 2, 0, 0, 0, 0, 0, 64 | 0, 2, 1, 0, 0, 1, 0, 2, 0, 2, 0, 1, 64 | 0, [() => ProcessorFeatureList, 0], 2, 1, 2, 0, 0, 0, 0, 0, 2, 0, 2, 2, 0, () => AdditionalStorageVolumesList, [() => TagSpecificationList, 0], 0, 0], 3
 ];
 export var CreateDBInstanceReadReplicaMessage$: StaticStructureSchema = [3, n0, _CDBIRRM,
   0,
-  [_DBII, _SDBII, _DBIC, _AZ, _P, _MAZ, _AMVU, _I, _ST, _OGN, _DBPGN, _PA, _T, _DBSGNu, _VSGI, _STt, _CTTS, _MIo, _MRA, _KKI, _PSU, _EIAMDA, _DIM, _EPI, _PIKMSKI, _PIRP, _ECLE, _PF, _UDPF, _DP, _Do, _DIAMRN, _DF, _DO, _DASA, _DDI, _RM, _ECOI, _NT, _MAS, _BTa, _CIIP, _AS, _SDBCI, _DLV, _USC, _CACI, _ASVd, _TS],
-  [0, 0, 0, 0, 1, 2, 2, 1, 1, 0, 0, 2, [() => TagList, 0], 0, [() => VpcSecurityGroupIdList, 0], 0, 2, 1, 0, 0, [() => SensitiveString, 0], 2, 0, 2, 0, 1, 64 | 0, [() => ProcessorFeatureList, 0], 2, 2, 0, 0, 0, 0, 0, 64 | 0, 0, 2, 0, 1, 0, 0, 1, 0, 2, 2, 0, () => AdditionalStorageVolumesList, [() => TagSpecificationList, 0]], 1
+  [_DBII, _SDBII, _DBIC, _AZ, _P, _MAZ, _AMVU, _I, _ST, _OGN, _DBPGN, _PA, _T, _DBSGNu, _VSGI, _STt, _CTTS, _MIo, _MRA, _KKI, _PSU, _EIAMDA, _DIM, _EPI, _PIKMSKI, _PIRP, _ECLE, _PF, _UDPF, _DP, _Do, _DIAMRN, _DF, _DO, _DASA, _DDI, _RM, _ECOI, _NT, _MAS, _BTa, _CIIP, _AS, _SDBCI, _DLV, _USC, _CACI, _ASVd, _TS, _DBCRI],
+  [0, 0, 0, 0, 1, 2, 2, 1, 1, 0, 0, 2, [() => TagList, 0], 0, [() => VpcSecurityGroupIdList, 0], 0, 2, 1, 0, 0, [() => SensitiveString, 0], 2, 0, 2, 0, 1, 64 | 0, [() => ProcessorFeatureList, 0], 2, 2, 0, 0, 0, 0, 0, 64 | 0, 0, 2, 0, 1, 0, 0, 1, 0, 2, 2, 0, () => AdditionalStorageVolumesList, [() => TagSpecificationList, 0], 0], 1
 ];
 export var CreateDBInstanceReadReplicaResult$: StaticStructureSchema = [3, n0, _CDBIRRR,
   0,
@@ -2992,6 +3082,16 @@ export var CustomDBEngineVersionAMI$: StaticStructureSchema = [3, n0, _CDBEVAMI,
   [_II, _St],
   [0, 0]
 ];
+export var DBCapacityReservation$: StaticStructureSchema = [3, n0, _DBCR,
+  0,
+  [_DBCRN, _DBIC, _E, _LM, _RCPAZ, _ACPAZL, _ED, _CDr, _SDta, _CIo, _Sta, _DBCRA, _DBCRI, _TL],
+  [0, 0, 0, 0, 1, [() => AvailableCapacityPerAvailabilityZoneList, 0], 4, 4, 4, () => DBCapacityReservationCommitmentInfo$, 0, 0, 0, [() => TagList, 0]]
+];
+export var DBCapacityReservationCommitmentInfo$: StaticStructureSchema = [3, n0, _DBCRCI,
+  0,
+  [_CCPAZ, _CED],
+  [1, 4]
+];
 export var DBCluster$: StaticStructureSchema = [3, n0, _DBC,
   0,
   [_AS, _AZv, _BRP, _CSN, _DN, _DBCI, _DBCPG, _DBSGu, _St, _PP, _ERT, _End, _RE, _CE, _MAZ, _E, _EV, _LRT, _P, _MU, _DBCOGM, _PBW, _PMW, _URO, _RSI, _RRI, _SIt, _DBCM, _VSG, _HZI, _SE, _SET, _KKI, _DCRI, _DBCA, _AR, _IAMDAE, _CGI, _CCT, _EBT, _BW, _BCCR, _ECLEn, _Ca, _PMV, _EMn, _SCI, _RCCC, _DBCIC, _STt, _I, _ST, _IOONAMT, _PA, _AMVU, _DP, _HEE, _ASM, _ASS, _ASKKI, _ASKSN, _CTTS, _CAC, _DM, _TL, _GCI, _GWFS, _GWFR, _NT, _ART, _SVSC, _SVPV, _MIo, _MRA, _DIM, _PIE, _PIKMSKI, _PIRP, _DBSI, _MUS, _LWFS, _ABRPA, _LD, _CST, _CD, _ELS, _VPCNE, _IAGE],
@@ -3072,7 +3172,7 @@ export var DBClusterParameterGroupsMessage$: StaticStructureSchema = [3, n0, _DB
   [_Ma, _DBCPGl],
   [0, [() => DBClusterParameterGroupList, 0]]
 ];
-export var DBClusterRole$: StaticStructureSchema = [3, n0, _DBCR,
+export var DBClusterRole$: StaticStructureSchema = [3, n0, _DBCRl,
   0,
   [_RA, _St, _FN],
   [0, 0, 0]
@@ -3114,8 +3214,8 @@ export var DBEngineVersionMessage$: StaticStructureSchema = [3, n0, _DBEVM,
 ];
 export var DBInstance$: StaticStructureSchema = [3, n0, _DBI,
   0,
-  [_DBII, _DBIC, _E, _DBIS, _MU, _DBN, _End, _AS, _ICTn, _PBW, _BRP, _DBSGe, _VSG, _DBPGa, _AZ, _DBSGu, _PMW, _URO, _PMV, _LRT, _MAZ, _EV, _AMVU, _RRSDBII, _RRDBII, _RRDBCI, _RM, _LM, _I, _ST, _OGM, _CSN, _NCSN, _SAZe, _PA, _SIt, _STt, _SET, _TCA, _DIP, _DBCI, _SE, _KKI, _DRI, _CACI, _DM, _CTTS, _MIo, _EMRA, _MRA, _PT, _DBIA, _Ti, _IAMDAE, _DIM, _PIE, _PIKMSKI, _PIRP, _ECLEn, _PF, _DP, _AR, _LE, _MAS, _TL, _AM, _RFAMT, _COIE, _NT, _ASS, _ASKKI, _ASKSN, _ASM, _ASENAFI, _ABRPA, _DBIABR, _BTa, _ART, _CIIP, _ASPS, _CD, _DBSI, _MUS, _RRSDBCI, _PP, _MT, _DLV, _ISCUA, _ELS, _ASVd, _SVS, _SOS, _SOPP],
-  [0, 0, 0, 0, 0, 0, () => Endpoint$, 1, 4, 0, 1, [() => DBSecurityGroupMembershipList, 0], [() => VpcSecurityGroupMembershipList, 0], [() => DBParameterGroupStatusList, 0], 0, [() => DBSubnetGroup$, 0], 0, 0, [() => PendingModifiedValues$, 0], 4, 2, 0, 2, 0, [() => ReadReplicaDBInstanceIdentifierList, 0], [() => ReadReplicaDBClusterIdentifierList, 0], 0, 0, 1, 1, [() => OptionGroupMembershipList, 0], 0, 0, 0, 2, [() => DBInstanceStatusInfoList, 0], 0, 0, 0, 1, 0, 2, 0, 0, 0, [() => DomainMembershipList, 0], 2, 1, 0, 0, 1, 0, 0, 2, 0, 2, 0, 1, 64 | 0, [() => ProcessorFeatureList, 0], 2, [() => DBInstanceRoles, 0], () => Endpoint$, 1, [() => TagList, 0], 0, 4, 2, 0, 0, 0, 0, 0, 2, 0, [() => DBInstanceAutomatedBackupsReplicationList, 0], 0, 4, 0, 0, () => CertificateDetails$, 0, () => MasterUserSecret$, 0, 0, 2, 2, 2, 0, () => AdditionalStorageVolumesOutputList, 0, 0, 1]
+  [_DBII, _DBIC, _E, _DBIS, _MU, _DBN, _End, _AS, _ICTn, _PBW, _BRP, _DBSGe, _VSG, _DBPGa, _AZ, _DBSGu, _PMW, _URO, _PMV, _LRT, _MAZ, _EV, _AMVU, _RRSDBII, _RRDBII, _RRDBCI, _RM, _LM, _I, _ST, _OGM, _CSN, _NCSN, _SAZe, _PA, _SIt, _STt, _SET, _TCA, _DIP, _DBCI, _SE, _KKI, _DRI, _CACI, _DM, _CTTS, _MIo, _EMRA, _MRA, _PT, _DBIA, _Ti, _IAMDAE, _DIM, _PIE, _PIKMSKI, _PIRP, _ECLEn, _PF, _DP, _AR, _LE, _MAS, _TL, _AM, _RFAMT, _COIE, _NT, _ASS, _ASKKI, _ASKSN, _ASM, _ASENAFI, _ABRPA, _DBIABR, _BTa, _ART, _CIIP, _ASPS, _CD, _DBSI, _MUS, _RRSDBCI, _PP, _MT, _DLV, _ISCUA, _ELS, _ASVd, _SVS, _SOS, _SOPP, _DBCRI],
+  [0, 0, 0, 0, 0, 0, () => Endpoint$, 1, 4, 0, 1, [() => DBSecurityGroupMembershipList, 0], [() => VpcSecurityGroupMembershipList, 0], [() => DBParameterGroupStatusList, 0], 0, [() => DBSubnetGroup$, 0], 0, 0, [() => PendingModifiedValues$, 0], 4, 2, 0, 2, 0, [() => ReadReplicaDBInstanceIdentifierList, 0], [() => ReadReplicaDBClusterIdentifierList, 0], 0, 0, 1, 1, [() => OptionGroupMembershipList, 0], 0, 0, 0, 2, [() => DBInstanceStatusInfoList, 0], 0, 0, 0, 1, 0, 2, 0, 0, 0, [() => DomainMembershipList, 0], 2, 1, 0, 0, 1, 0, 0, 2, 0, 2, 0, 1, 64 | 0, [() => ProcessorFeatureList, 0], 2, [() => DBInstanceRoles, 0], () => Endpoint$, 1, [() => TagList, 0], 0, 4, 2, 0, 0, 0, 0, 0, 2, 0, [() => DBInstanceAutomatedBackupsReplicationList, 0], 0, 4, 0, 0, () => CertificateDetails$, 0, () => MasterUserSecret$, 0, 0, 2, 2, 2, 0, () => AdditionalStorageVolumesOutputList, 0, 0, 1, 0]
 ];
 export var DBInstanceAutomatedBackup$: StaticStructureSchema = [3, n0, _DBIAB,
   0,
@@ -3179,12 +3279,12 @@ export var DBParameterGroupStatus$: StaticStructureSchema = [3, n0, _DBPGS,
 ];
 export var DBProxy$: StaticStructureSchema = [3, n0, _DBP,
   0,
-  [_DBPN, _DBPA, _St, _EF, _VI, _VSGI, _VSI, _DAS, _A, _RA, _End, _RTLS, _ICT, _DL, _CDr, _UD, _ENT, _TCNT],
+  [_DBPN, _DBPA, _St, _EF, _VI, _VSGI, _VSI, _DAS, _A, _RA, _End, _RTLS, _ICT, _DL, _CDre, _UD, _ENT, _TCNT],
   [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, () => UserAuthConfigInfoList, 0, 0, 2, 1, 2, 4, 4, 0, 0]
 ];
 export var DBProxyEndpoint$: StaticStructureSchema = [3, n0, _DBPE,
   0,
-  [_DBPEN, _DBPEA, _DBPN, _St, _VI, _VSGI, _VSI, _End, _CDr, _TR, _ID, _ENT],
+  [_DBPEN, _DBPEA, _DBPN, _St, _VI, _VSGI, _VSI, _End, _CDre, _TR, _ID, _ENT],
   [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 4, 0, 2, 0]
 ];
 export var DBProxyTarget$: StaticStructureSchema = [3, n0, _DBPT,
@@ -3194,7 +3294,7 @@ export var DBProxyTarget$: StaticStructureSchema = [3, n0, _DBPT,
 ];
 export var DBProxyTargetGroup$: StaticStructureSchema = [3, n0, _DBPTG,
   0,
-  [_DBPN, _TGN, _TGA, _ID, _St, _CPCo, _CDr, _UD],
+  [_DBPN, _TGN, _TGA, _ID, _St, _CPCo, _CDre, _UD],
   [0, 0, 0, 2, 0, [() => ConnectionPoolConfigurationInfo$, 0], 4, 4]
 ];
 export var DBRecommendation$: StaticStructureSchema = [3, n0, _DBR,
@@ -3467,6 +3567,16 @@ export var DescribeCertificatesMessage$: StaticStructureSchema = [3, n0, _DCM,
   [_CI, _Fi, _MR, _Ma],
   [0, [() => FilterList, 0], 1, 0]
 ];
+export var DescribeDBCapacityReservationsRequest$: StaticStructureSchema = [3, n0, _DDBCRR,
+  0,
+  [_DBCRI, _Ma, _MR, _Fi],
+  [0, 0, 1, [() => FilterList, 0]]
+];
+export var DescribeDBCapacityReservationsResponse$: StaticStructureSchema = [3, n0, _DDBCRRe,
+  0,
+  [_DBCRa, _Ma],
+  [[() => DBCapacityReservationList, 0], 0]
+];
 export var DescribeDBClusterAutomatedBackupsMessage$: StaticStructureSchema = [3, n0, _DDBCABMe,
   0,
   [_DCRI, _DBCI, _Fi, _MR, _Ma],
@@ -3654,7 +3764,7 @@ export var DescribeEngineDefaultClusterParametersMessage$: StaticStructureSchema
 ];
 export var DescribeEngineDefaultClusterParametersResult$: StaticStructureSchema = [3, n0, _DEDCPR,
   0,
-  [_ED],
+  [_EDn],
   [[() => EngineDefaults$, 0]]
 ];
 export var DescribeEngineDefaultParametersMessage$: StaticStructureSchema = [3, n0, _DEDPM,
@@ -3664,7 +3774,7 @@ export var DescribeEngineDefaultParametersMessage$: StaticStructureSchema = [3, 
 ];
 export var DescribeEngineDefaultParametersResult$: StaticStructureSchema = [3, n0, _DEDPR,
   0,
-  [_ED],
+  [_EDn],
   [[() => EngineDefaults$, 0]]
 ];
 export var DescribeEventCategoriesMessage$: StaticStructureSchema = [3, n0, _DECM,
@@ -3812,7 +3922,7 @@ export var Endpoint$: StaticStructureSchema = [3, n0, _End,
   [_Ad, _P, _HZI],
   [0, 1, 0]
 ];
-export var EngineDefaults$: StaticStructureSchema = [3, n0, _ED,
+export var EngineDefaults$: StaticStructureSchema = [3, n0, _EDn,
   0,
   [_DBPGF, _Ma, _Pa],
   [0, 0, [() => ParametersList, 0]]
@@ -3939,7 +4049,7 @@ export var MasterUserSecret$: StaticStructureSchema = [3, n0, _MUS,
 ];
 export var Metric$: StaticStructureSchema = [3, n0, _Met,
   0,
-  [_N, _Ref, _SDta, _MQ],
+  [_N, _Ref, _SDtat, _MQ],
   [0, () => MetricReferenceList, 0, () => MetricQuery$]
 ];
 export var MetricQuery$: StaticStructureSchema = [3, n0, _MQ,
@@ -3992,6 +4102,16 @@ export var ModifyCustomDBEngineVersionMessage$: StaticStructureSchema = [3, n0, 
   [_E, _EV, _D, _St],
   [0, 0, 0, 0], 2
 ];
+export var ModifyDBCapacityReservationRequest$: StaticStructureSchema = [3, n0, _MDBCRR,
+  0,
+  [_DBCRI, _CPAZ, _EDT, _ED],
+  [0, 1, 0, 4], 1
+];
+export var ModifyDBCapacityReservationResponse$: StaticStructureSchema = [3, n0, _MDBCRRo,
+  0,
+  [_DBCR],
+  [[() => DBCapacityReservation$, 0]]
+];
 export var ModifyDBClusterEndpointMessage$: StaticStructureSchema = [3, n0, _MDBCEM,
   0,
   [_DBCEI, _ET, _SM, _EM],
@@ -4024,8 +4144,8 @@ export var ModifyDBClusterSnapshotAttributeResult$: StaticStructureSchema = [3, 
 ];
 export var ModifyDBInstanceMessage$: StaticStructureSchema = [3, n0, _MDBIM,
   0,
-  [_DBII, _AS, _DBIC, _DBSGNu, _DBSGe, _VSGI, _AIp, _MUP, _DBPGN, _BRP, _PBW, _PMW, _MAZ, _EV, _AMVUl, _AMVU, _LM, _I, _ST, _OGN, _NDBII, _STt, _TCA, _TCP, _CACI, _Do, _DF, _DO, _DASA, _DDI, _DD, _CTTS, _MIo, _DBPNo, _PA, _MRA, _DIAMRN, _PT, _EIAMDA, _DIM, _EPI, _PIKMSKI, _PIRP, _CLEC, _PF, _UDPF, _DP, _MAS, _CRR, _RM, _AM, _RFAMM, _ECOI, _NT, _ABRPA, _MMUP, _RMUP, _MUSKKI, _MT, _DLV, _E, _ASVd, _TS, _MUAT, _ELS],
-  [0, 1, 0, 0, [() => DBSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 2, [() => SensitiveString, 0], 0, 1, 0, 0, 2, 0, 2, 2, 0, 1, 1, 0, 0, 0, 0, [() => SensitiveString, 0], 0, 0, 0, 0, 0, 64 | 0, 2, 2, 1, 1, 2, 0, 0, 1, 2, 0, 2, 0, 1, () => CloudwatchLogsExportConfiguration$, [() => ProcessorFeatureList, 0], 2, 2, 1, 2, 0, 0, 1, 2, 0, 0, 2, 2, 0, 2, 2, 0, () => ModifyAdditionalStorageVolumesList, [() => TagSpecificationList, 0], 0, 0], 1
+  [_DBII, _AS, _DBIC, _DBSGNu, _DBSGe, _VSGI, _AIp, _MUP, _DBPGN, _BRP, _PBW, _PMW, _MAZ, _EV, _AMVUl, _AMVU, _LM, _I, _ST, _OGN, _NDBII, _STt, _TCA, _TCP, _CACI, _Do, _DF, _DO, _DASA, _DDI, _DD, _CTTS, _MIo, _DBPNo, _PA, _MRA, _DIAMRN, _PT, _EIAMDA, _DIM, _EPI, _PIKMSKI, _PIRP, _CLEC, _PF, _UDPF, _DP, _MAS, _CRR, _RM, _AM, _RFAMM, _ECOI, _NT, _ABRPA, _MMUP, _RMUP, _MUSKKI, _MT, _DLV, _E, _ASVd, _DBCRI, _TS, _MUAT, _ELS],
+  [0, 1, 0, 0, [() => DBSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 2, [() => SensitiveString, 0], 0, 1, 0, 0, 2, 0, 2, 2, 0, 1, 1, 0, 0, 0, 0, [() => SensitiveString, 0], 0, 0, 0, 0, 0, 64 | 0, 2, 2, 1, 1, 2, 0, 0, 1, 2, 0, 2, 0, 1, () => CloudwatchLogsExportConfiguration$, [() => ProcessorFeatureList, 0], 2, 2, 1, 2, 0, 0, 1, 2, 0, 0, 2, 2, 0, 2, 2, 0, () => ModifyAdditionalStorageVolumesList, 0, [() => TagSpecificationList, 0], 0, 0], 1
 ];
 export var ModifyDBInstanceResult$: StaticStructureSchema = [3, n0, _MDBIR,
   0,
@@ -4239,8 +4359,8 @@ export var PendingMaintenanceActionsMessage$: StaticStructureSchema = [3, n0, _P
 ];
 export var PendingModifiedValues$: StaticStructureSchema = [3, n0, _PMV,
   0,
-  [_DBIC, _AS, _MUP, _P, _BRP, _MAZ, _EV, _LM, _I, _ST, _DBII, _STt, _CACI, _DBSGNu, _PCLE, _PF, _AM, _RFAMT, _MT, _IAMDAE, _DLV, _E, _ASVd],
-  [0, 1, [() => SensitiveString, 0], 1, 1, 2, 0, 0, 1, 1, 0, 0, 0, 0, () => PendingCloudwatchLogsExports$, [() => ProcessorFeatureList, 0], 0, 4, 2, 2, 2, 0, () => AdditionalStorageVolumesList]
+  [_DBIC, _AS, _MUP, _P, _BRP, _MAZ, _EV, _LM, _I, _ST, _DBII, _STt, _CACI, _DBSGNu, _PCLE, _PF, _AM, _RFAMT, _MT, _IAMDAE, _DLV, _E, _ASVd, _DBCRI],
+  [0, 1, [() => SensitiveString, 0], 1, 1, 2, 0, 0, 1, 1, 0, 0, 0, 0, () => PendingCloudwatchLogsExports$, [() => ProcessorFeatureList, 0], 0, 4, 2, 2, 2, 0, () => AdditionalStorageVolumesList, 0]
 ];
 export var PerformanceInsightsMetricDimensionGroup$: StaticStructureSchema = [3, n0, _PIMDG,
   0,
@@ -4464,8 +4584,8 @@ export var RestoreDBClusterToPointInTimeResult$: StaticStructureSchema = [3, n0,
 ];
 export var RestoreDBInstanceFromDBSnapshotMessage$: StaticStructureSchema = [3, n0, _RDBIFDBSM,
   0,
-  [_DBII, _DBSIn, _DBIC, _P, _AZ, _DBSGNu, _MAZ, _PA, _AMVU, _LM, _DBN, _E, _I, _ST, _OGN, _T, _STt, _TCA, _TCP, _VSGI, _Do, _DF, _DO, _DASA, _DDI, _CTTS, _DIAMRN, _EIAMDA, _ECLE, _PF, _UDPF, _DBPGN, _DP, _ECOI, _NT, _BTa, _CIIP, _AS, _DBCSI, _BRP, _PBW, _DLV, _CACI, _ELS, _ASVd, _TS, _MMUP, _MUSKKI],
-  [0, 0, 0, 1, 0, 0, 2, 2, 2, 0, 0, 0, 1, 1, 0, [() => TagList, 0], 0, 0, [() => SensitiveString, 0], [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 0, 64 | 0, 2, 0, 2, 64 | 0, [() => ProcessorFeatureList, 0], 2, 0, 2, 2, 0, 0, 0, 1, 0, 1, 0, 2, 0, 0, () => AdditionalStorageVolumesList, [() => TagSpecificationList, 0], 2, 0], 1
+  [_DBII, _DBSIn, _DBIC, _P, _AZ, _DBSGNu, _MAZ, _PA, _AMVU, _LM, _DBN, _E, _I, _ST, _OGN, _T, _STt, _TCA, _TCP, _VSGI, _Do, _DF, _DO, _DASA, _DDI, _CTTS, _DIAMRN, _EIAMDA, _ECLE, _PF, _UDPF, _DBPGN, _DP, _ECOI, _NT, _BTa, _CIIP, _AS, _DBCSI, _BRP, _PBW, _DBCRI, _DLV, _CACI, _ELS, _ASVd, _TS, _MMUP, _MUSKKI],
+  [0, 0, 0, 1, 0, 0, 2, 2, 2, 0, 0, 0, 1, 1, 0, [() => TagList, 0], 0, 0, [() => SensitiveString, 0], [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 0, 64 | 0, 2, 0, 2, 64 | 0, [() => ProcessorFeatureList, 0], 2, 0, 2, 2, 0, 0, 0, 1, 0, 1, 0, 0, 2, 0, 0, () => AdditionalStorageVolumesList, [() => TagSpecificationList, 0], 2, 0], 1
 ];
 export var RestoreDBInstanceFromDBSnapshotResult$: StaticStructureSchema = [3, n0, _RDBIFDBSR,
   0,
@@ -4474,8 +4594,8 @@ export var RestoreDBInstanceFromDBSnapshotResult$: StaticStructureSchema = [3, n
 ];
 export var RestoreDBInstanceFromS3Message$: StaticStructureSchema = [3, n0, _RDBIFSM,
   0,
-  [_DBII, _DBIC, _E, _SEo, _SEV, _SBN, _SIRA, _DBN, _AS, _MU, _MUP, _DBSGe, _VSGI, _AZ, _DBSGNu, _PMW, _DBPGN, _BRP, _PBW, _P, _MAZ, _EV, _AMVU, _LM, _I, _ST, _OGN, _PA, _T, _STt, _SE, _KKI, _CTTS, _MIo, _MRA, _EIAMDA, _SP, _DIM, _EPI, _PIKMSKI, _PIRP, _ECLE, _PF, _UDPF, _DP, _MAS, _NT, _MMUP, _MUSKKI, _DLV, _CACI, _ELS, _ASVd, _TS],
-  [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, [() => SensitiveString, 0], [() => DBSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 0, 1, 0, 1, 2, 0, 2, 0, 1, 1, 0, 2, [() => TagList, 0], 0, 2, 0, 2, 1, 0, 2, 0, 0, 2, 0, 1, 64 | 0, [() => ProcessorFeatureList, 0], 2, 2, 1, 0, 2, 0, 2, 0, 0, () => AdditionalStorageVolumesList, [() => TagSpecificationList, 0]], 7
+  [_DBII, _DBIC, _E, _SEo, _SEV, _SBN, _SIRA, _DBN, _AS, _MU, _MUP, _DBSGe, _VSGI, _AZ, _DBSGNu, _PMW, _DBPGN, _BRP, _PBW, _P, _MAZ, _EV, _AMVU, _LM, _I, _ST, _OGN, _PA, _T, _STt, _SE, _KKI, _CTTS, _MIo, _MRA, _EIAMDA, _SP, _DIM, _EPI, _PIKMSKI, _PIRP, _ECLE, _PF, _UDPF, _DP, _MAS, _NT, _MMUP, _MUSKKI, _DBCRI, _DLV, _CACI, _ELS, _ASVd, _TS],
+  [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, [() => SensitiveString, 0], [() => DBSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 0, 1, 0, 1, 2, 0, 2, 0, 1, 1, 0, 2, [() => TagList, 0], 0, 2, 0, 2, 1, 0, 2, 0, 0, 2, 0, 1, 64 | 0, [() => ProcessorFeatureList, 0], 2, 2, 1, 0, 2, 0, 0, 2, 0, 0, () => AdditionalStorageVolumesList, [() => TagSpecificationList, 0]], 7
 ];
 export var RestoreDBInstanceFromS3Result$: StaticStructureSchema = [3, n0, _RDBIFSR,
   0,
@@ -4484,8 +4604,8 @@ export var RestoreDBInstanceFromS3Result$: StaticStructureSchema = [3, n0, _RDBI
 ];
 export var RestoreDBInstanceToPointInTimeMessage$: StaticStructureSchema = [3, n0, _RDBITPITM,
   0,
-  [_TDBII, _SDBII, _RTe, _ULRT, _DBIC, _P, _AZ, _DBSGNu, _MAZ, _PA, _AMVU, _LM, _DBN, _E, _I, _ST, _OGN, _CTTS, _T, _STt, _TCA, _TCP, _VSGI, _Do, _DIAMRN, _DF, _DO, _DASA, _DDI, _EIAMDA, _ECLE, _PF, _UDPF, _DBPGN, _DP, _SDRI, _MAS, _ECOI, _NT, _SDBIABA, _BTa, _CIIP, _AS, _BRP, _PBW, _DLV, _CACI, _ELS, _ASVd, _TS, _MMUP, _MUSKKI],
-  [0, 0, 4, 2, 0, 1, 0, 0, 2, 2, 2, 0, 0, 0, 1, 1, 0, 2, [() => TagList, 0], 0, 0, [() => SensitiveString, 0], [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 0, 0, 64 | 0, 2, 64 | 0, [() => ProcessorFeatureList, 0], 2, 0, 2, 0, 1, 2, 0, 0, 0, 0, 1, 1, 0, 2, 0, 0, () => AdditionalStorageVolumesList, [() => TagSpecificationList, 0], 2, 0], 1
+  [_TDBII, _SDBII, _RTe, _ULRT, _DBIC, _P, _AZ, _DBSGNu, _MAZ, _PA, _AMVU, _LM, _DBN, _E, _I, _ST, _OGN, _CTTS, _T, _STt, _TCA, _TCP, _VSGI, _Do, _DIAMRN, _DF, _DO, _DASA, _DDI, _EIAMDA, _ECLE, _PF, _UDPF, _DBPGN, _DP, _SDRI, _MAS, _ECOI, _NT, _SDBIABA, _BTa, _CIIP, _AS, _BRP, _PBW, _DBCRI, _DLV, _CACI, _ELS, _ASVd, _TS, _MMUP, _MUSKKI],
+  [0, 0, 4, 2, 0, 1, 0, 0, 2, 2, 2, 0, 0, 0, 1, 1, 0, 2, [() => TagList, 0], 0, 0, [() => SensitiveString, 0], [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 0, 0, 64 | 0, 2, 64 | 0, [() => ProcessorFeatureList, 0], 2, 0, 2, 0, 1, 2, 0, 0, 0, 0, 1, 1, 0, 0, 2, 0, 0, () => AdditionalStorageVolumesList, [() => TagSpecificationList, 0], 2, 0], 1
 ];
 export var RestoreDBInstanceToPointInTimeResult$: StaticStructureSchema = [3, n0, _RDBITPITR,
   0,
@@ -4589,8 +4709,8 @@ export var StartDBInstanceAutomatedBackupsReplicationResult$: StaticStructureSch
 ];
 export var StartDBInstanceMessage$: StaticStructureSchema = [3, n0, _SDBIM,
   0,
-  [_DBII],
-  [0], 1
+  [_DBII, _DBCRI],
+  [0, 0], 1
 ];
 export var StartDBInstanceResult$: StaticStructureSchema = [3, n0, _SDBIR,
   0,
@@ -4634,8 +4754,8 @@ export var StopDBInstanceAutomatedBackupsReplicationResult$: StaticStructureSche
 ];
 export var StopDBInstanceMessage$: StaticStructureSchema = [3, n0, _SDBIMt,
   0,
-  [_DBII, _DBSIn],
-  [0, 0], 1
+  [_DBII, _DBSIn, _DFDBCR],
+  [0, 0, 2], 1
 ];
 export var StopDBInstanceResult$: StaticStructureSchema = [3, n0, _SDBIRt,
   0,
@@ -4800,6 +4920,10 @@ var AvailableAdditionalStorageVolumesOptionList: StaticListSchema = [1, n0, _AAS
   0, [() => AvailableAdditionalStorageVolumesOption$,
     { [_xN]: _AASVO }]
 ];
+var AvailableCapacityPerAvailabilityZoneList: StaticListSchema = [1, n0, _ACPAZL,
+  0, [() => AvailableCapacityPerAvailabilityZone$,
+    { [_xN]: _ACPAZ }]
+];
 var AvailableProcessorFeatureList: StaticListSchema = [1, n0, _APFL,
   0, [() => AvailableProcessorFeature$,
     { [_xN]: _APF }]
@@ -4818,6 +4942,10 @@ var CertificateList: StaticListSchema = [1, n0, _CL,
 ];
 var ContextAttributeList: StaticListSchema = [1, n0, _CAL,
   0, () => ContextAttribute$
+];
+var DBCapacityReservationList: StaticListSchema = [1, n0, _DBCRL,
+  0, [() => DBCapacityReservation$,
+    0]
 ];
 var DBClusterAssociatedRoles: StaticListSchema = [1, n0, _DBCARl,
   0, [() => DBClusterAssociatedRole$,
@@ -4851,9 +4979,9 @@ var DBClusterParameterGroupList: StaticListSchema = [1, n0, _DBCPGL,
   0, [() => DBClusterParameterGroup$,
     { [_xN]: _DBCPG }]
 ];
-var DBClusterRoles: StaticListSchema = [1, n0, _DBCRl,
+var DBClusterRoles: StaticListSchema = [1, n0, _DBCRlu,
   0, [() => DBClusterRole$,
-    { [_xN]: _DBCR }]
+    { [_xN]: _DBCRl }]
 ];
 var DBClusterSnapshotAttributeList: StaticListSchema = [1, n0, _DBCSAL,
   0, [() => DBClusterSnapshotAttribute$,
@@ -5237,6 +5365,9 @@ export var AuthorizeDBSecurityGroupIngress$: StaticOperationSchema = [9, n0, _AD
 export var BacktrackDBCluster$: StaticOperationSchema = [9, n0, _BDBC,
   0, () => BacktrackDBClusterMessage$, () => DBClusterBacktrack$
 ];
+export var CancelDBCapacityReservation$: StaticOperationSchema = [9, n0, _CDBCRa,
+  0, () => CancelDBCapacityReservationRequest$, () => CancelDBCapacityReservationResponse$
+];
 export var CancelExportTask$: StaticOperationSchema = [9, n0, _CETa,
   0, () => CancelExportTaskMessage$, () => ExportTask$
 ];
@@ -5260,6 +5391,9 @@ export var CreateBlueGreenDeployment$: StaticOperationSchema = [9, n0, _CBGD,
 ];
 export var CreateCustomDBEngineVersion$: StaticOperationSchema = [9, n0, _CCDBEV,
   0, () => CreateCustomDBEngineVersionMessage$, () => DBEngineVersion$
+];
+export var CreateDBCapacityReservation$: StaticOperationSchema = [9, n0, _CDBCRr,
+  0, () => CreateDBCapacityReservationRequest$, () => CreateDBCapacityReservationResponse$
 ];
 export var CreateDBCluster$: StaticOperationSchema = [9, n0, _CDBC,
   0, () => CreateDBClusterMessage$, () => CreateDBClusterResult$
@@ -5389,6 +5523,9 @@ export var DescribeBlueGreenDeployments$: StaticOperationSchema = [9, n0, _DBGDe
 ];
 export var DescribeCertificates$: StaticOperationSchema = [9, n0, _DC,
   0, () => DescribeCertificatesMessage$, () => CertificateMessage$
+];
+export var DescribeDBCapacityReservations$: StaticOperationSchema = [9, n0, _DDBCRe,
+  0, () => DescribeDBCapacityReservationsRequest$, () => DescribeDBCapacityReservationsResponse$
 ];
 export var DescribeDBClusterAutomatedBackups$: StaticOperationSchema = [9, n0, _DDBCABe,
   0, () => DescribeDBClusterAutomatedBackupsMessage$, () => DBClusterAutomatedBackupMessage$
@@ -5551,6 +5688,9 @@ export var ModifyCurrentDBClusterCapacity$: StaticOperationSchema = [9, n0, _MCD
 ];
 export var ModifyCustomDBEngineVersion$: StaticOperationSchema = [9, n0, _MCDBEV,
   0, () => ModifyCustomDBEngineVersionMessage$, () => DBEngineVersion$
+];
+export var ModifyDBCapacityReservation$: StaticOperationSchema = [9, n0, _MDBCRo,
+  0, () => ModifyDBCapacityReservationRequest$, () => ModifyDBCapacityReservationResponse$
 ];
 export var ModifyDBCluster$: StaticOperationSchema = [9, n0, _MDBC,
   0, () => ModifyDBClusterMessage$, () => ModifyDBClusterResult$

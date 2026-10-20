@@ -34,6 +34,7 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  * const client = new RDSClient(config);
  * const input = { // StartDBInstanceMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   DBCapacityReservationIdentifier: "STRING_VALUE",
  * };
  * const command = new StartDBInstanceCommand(input);
  * const response = await client.send(command);
@@ -142,6 +143,7 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  * //           StorageType: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       DBCapacityReservationIdentifier: "STRING_VALUE",
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -290,6 +292,7 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  * //     StorageVolumeStatus: "STRING_VALUE",
  * //     StorageOperationStatus: "STRING_VALUE",
  * //     StorageOperationPercentProgress: Number("int"),
+ * //     DBCapacityReservationIdentifier: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -303,6 +306,9 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  *
  * @throws {@link AuthorizationNotFoundFault} (client fault)
  *  <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.</p> <p>Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.</p>
+ *
+ * @throws {@link DBCapacityReservationNotFoundFault} (client fault)
+ *  <p> <code>DBCapacityReservationIdentifier</code> doesn't refer to an existing DB capacity reservation.</p>
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
  *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
@@ -318,6 +324,9 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
  *  <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+ *
+ * @throws {@link InvalidDBCapacityReservationStateFault} (client fault)
+ *  <p>The DB capacity reservation isn't in a valid state.</p>
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>

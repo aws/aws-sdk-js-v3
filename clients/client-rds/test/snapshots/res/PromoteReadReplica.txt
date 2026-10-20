@@ -414,6 +414,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     </StorageType>
                 </member>
             </AdditionalStorageVolumes>
+            <DBCapacityReservationIdentifier>
+                __DBCapacityReservationIdentifier__
+            </DBCapacityReservationIdentifier>
         </PendingModifiedValues>
         <LatestRestorableTime>
             2000-01-01T04:59:59.999Z
@@ -1016,6 +1019,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <StorageOperationPercentProgress>
             0
         </StorageOperationPercentProgress>
+        <DBCapacityReservationIdentifier>
+            __DBCapacityReservationIdentifier__
+        </DBCapacityReservationIdentifier>
     </DBInstance>
 </PromoteReadReplicaResult>
 

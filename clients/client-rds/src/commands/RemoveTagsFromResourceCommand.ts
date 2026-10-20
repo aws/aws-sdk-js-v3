@@ -53,6 +53,9 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link BlueGreenDeploymentNotFoundFault} (client fault)
  *  <p> <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
  *
+ * @throws {@link DBCapacityReservationNotFoundFault} (client fault)
+ *  <p> <code>DBCapacityReservationIdentifier</code> doesn't refer to an existing DB capacity reservation.</p>
+ *
  * @throws {@link DBClusterNotFoundFault} (client fault)
  *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *

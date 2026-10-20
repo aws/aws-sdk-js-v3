@@ -117,6 +117,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *       ],
  *     },
  *   ],
+ *   DBCapacityReservationIdentifier: "STRING_VALUE",
  * };
  * const command = new CreateDBInstanceReadReplicaCommand(input);
  * const response = await client.send(command);
@@ -225,6 +226,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * //           StorageType: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       DBCapacityReservationIdentifier: "STRING_VALUE",
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -373,6 +375,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * //     StorageVolumeStatus: "STRING_VALUE",
  * //     StorageOperationStatus: "STRING_VALUE",
  * //     StorageOperationPercentProgress: Number("int"),
+ * //     DBCapacityReservationIdentifier: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -386,6 +389,9 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *
  * @throws {@link CertificateNotFoundFault} (client fault)
  *  <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
+ *
+ * @throws {@link DBCapacityReservationNotFoundFault} (client fault)
+ *  <p> <code>DBCapacityReservationIdentifier</code> doesn't refer to an existing DB capacity reservation.</p>
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
  *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
@@ -419,6 +425,9 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
  *  <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+ *
+ * @throws {@link InvalidDBCapacityReservationStateFault} (client fault)
+ *  <p>The DB capacity reservation isn't in a valid state.</p>
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>

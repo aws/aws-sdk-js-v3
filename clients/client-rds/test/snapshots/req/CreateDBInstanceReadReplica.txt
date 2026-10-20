@@ -2,14 +2,14 @@ POST https://rds.us-east-1.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 3417
+content-length: 3485
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rds#_.__ m/E,e
 host: rds.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: b68746cf95de3ae4f41e5927e4db2b47bfc64c742635a1dd62a1ad61831c8eda
+x-amz-content-sha256: aaa2da7a76a3c3dc4d55fa1f4b68c2f489c87dc6d35611a853564a1222e180d3
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/rds/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -98,4 +98,5 @@ AdditionalStorageVolumes.member.3.StorageThroughput=0&
 AdditionalStorageVolumes.member.3.StorageType=__StorageType__&
 TagSpecifications.item.1.ResourceType=__ResourceType__&
 TagSpecifications.item.2.ResourceType=__ResourceType__&
-TagSpecifications.item.3.ResourceType=__ResourceType__
+TagSpecifications.item.3.ResourceType=__ResourceType__&
+DBCapacityReservationIdentifier=__DBCapacityReservationIdentifier__

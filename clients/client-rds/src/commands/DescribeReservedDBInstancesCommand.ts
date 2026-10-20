@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeReservedDBInstancesMessage, ReservedDBInstanceMessage } from "../models/models_0";
+import type { DescribeReservedDBInstancesMessage, ReservedDBInstanceMessage } from "../models/models_1";
 import { DescribeReservedDBInstances$ } from "../schemas/schemas_0";
 
 /**
