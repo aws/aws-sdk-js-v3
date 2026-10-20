@@ -10505,6 +10505,7 @@ __metadata:
   dependencies:
     "@aws-sdk/checksums": "workspace:^3.1001.4"
     "@aws-sdk/client-s3": "workspace:3.1154.0"
+    "@aws-sdk/core": "workspace:^3.978.4"
     "@aws-sdk/xhr-http-handler": "workspace:3.1154.0"
     "@smithy/core": "npm:^3.36.0"
     "@smithy/node-http-handler": "npm:^4.12.1"

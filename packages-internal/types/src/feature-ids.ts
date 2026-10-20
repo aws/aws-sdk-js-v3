@@ -8,7 +8,9 @@ export type AwsSdkFeatures = Partial<{
   RETRY_MODE_LEGACY: "D";
   RETRY_MODE_STANDARD: "E";
   RETRY_MODE_ADAPTIVE: "F";
-  // S3_TRANSFER: "G"; // not applicable.
+  S3_TRANSFER: "G";
+  S3_TRANSFER_UPLOAD_DIRECTORY: "9";
+  S3_TRANSFER_DOWNLOAD_DIRECTORY: "+";
   // S3_CRYPTO_V1N: "H"; // not applicable.
   // S3_CRYPTO_V2: "I"; // not applicable.
   S3_EXPRESS_BUCKET: "J";
