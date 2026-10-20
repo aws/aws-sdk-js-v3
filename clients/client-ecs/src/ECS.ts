@@ -9,6 +9,11 @@ import type {
 } from "@smithy/types";
 
 import {
+  type AssociateGatewayWithClusterCommandInput,
+  type AssociateGatewayWithClusterCommandOutput,
+  AssociateGatewayWithClusterCommand,
+} from "./commands/AssociateGatewayWithClusterCommand";
+import {
   type ContinueServiceDeploymentCommandInput,
   type ContinueServiceDeploymentCommandOutput,
   ContinueServiceDeploymentCommand,
@@ -33,6 +38,11 @@ import {
   type CreateExpressGatewayServiceCommandOutput,
   CreateExpressGatewayServiceCommand,
 } from "./commands/CreateExpressGatewayServiceCommand";
+import {
+  type CreateGatewayCommandInput,
+  type CreateGatewayCommandOutput,
+  CreateGatewayCommand,
+} from "./commands/CreateGatewayCommand";
 import {
   type CreateServiceCommandInput,
   type CreateServiceCommandOutput,
@@ -78,6 +88,11 @@ import {
   type DeleteExpressGatewayServiceCommandOutput,
   DeleteExpressGatewayServiceCommand,
 } from "./commands/DeleteExpressGatewayServiceCommand";
+import {
+  type DeleteGatewayCommandInput,
+  type DeleteGatewayCommandOutput,
+  DeleteGatewayCommand,
+} from "./commands/DeleteGatewayCommand";
 import {
   type DeleteServiceCommandInput,
   type DeleteServiceCommandOutput,
@@ -144,6 +159,21 @@ import {
   DescribeExpressGatewayServiceCommand,
 } from "./commands/DescribeExpressGatewayServiceCommand";
 import {
+  type DescribeGatewayCommandInput,
+  type DescribeGatewayCommandOutput,
+  DescribeGatewayCommand,
+} from "./commands/DescribeGatewayCommand";
+import {
+  type DescribeGatewayResourcesCommandInput,
+  type DescribeGatewayResourcesCommandOutput,
+  DescribeGatewayResourcesCommand,
+} from "./commands/DescribeGatewayResourcesCommand";
+import {
+  type DescribeGatewayRouteCommandInput,
+  type DescribeGatewayRouteCommandOutput,
+  DescribeGatewayRouteCommand,
+} from "./commands/DescribeGatewayRouteCommand";
+import {
   type DescribeServiceDeploymentsCommandInput,
   type DescribeServiceDeploymentsCommandOutput,
   DescribeServiceDeploymentsCommand,
@@ -173,6 +203,11 @@ import {
   type DescribeTaskSetsCommandOutput,
   DescribeTaskSetsCommand,
 } from "./commands/DescribeTaskSetsCommand";
+import {
+  type DisassociateGatewayFromClusterCommandInput,
+  type DisassociateGatewayFromClusterCommandOutput,
+  DisassociateGatewayFromClusterCommand,
+} from "./commands/DisassociateGatewayFromClusterCommand";
 import {
   type DiscoverPollEndpointCommandInput,
   type DiscoverPollEndpointCommandOutput,
@@ -223,6 +258,21 @@ import {
   type ListDaemonTaskDefinitionsCommandOutput,
   ListDaemonTaskDefinitionsCommand,
 } from "./commands/ListDaemonTaskDefinitionsCommand";
+import {
+  type ListGatewayClusterAssociationsCommandInput,
+  type ListGatewayClusterAssociationsCommandOutput,
+  ListGatewayClusterAssociationsCommand,
+} from "./commands/ListGatewayClusterAssociationsCommand";
+import {
+  type ListGatewayRoutesCommandInput,
+  type ListGatewayRoutesCommandOutput,
+  ListGatewayRoutesCommand,
+} from "./commands/ListGatewayRoutesCommand";
+import {
+  type ListGatewaysCommandInput,
+  type ListGatewaysCommandOutput,
+  ListGatewaysCommand,
+} from "./commands/ListGatewaysCommand";
 import {
   type ListServiceDeploymentsCommandInput,
   type ListServiceDeploymentsCommandOutput,
@@ -358,6 +408,11 @@ import {
   UpdateExpressGatewayServiceCommand,
 } from "./commands/UpdateExpressGatewayServiceCommand";
 import {
+  type UpdateGatewayCommandInput,
+  type UpdateGatewayCommandOutput,
+  UpdateGatewayCommand,
+} from "./commands/UpdateGatewayCommand";
+import {
   type UpdateServiceCommandInput,
   type UpdateServiceCommandOutput,
   UpdateServiceCommand,
@@ -383,6 +438,9 @@ import { paginateListAccountSettings } from "./pagination/ListAccountSettingsPag
 import { paginateListAttributes } from "./pagination/ListAttributesPaginator";
 import { paginateListClusters } from "./pagination/ListClustersPaginator";
 import { paginateListContainerInstances } from "./pagination/ListContainerInstancesPaginator";
+import { paginateListGatewayClusterAssociations } from "./pagination/ListGatewayClusterAssociationsPaginator";
+import { paginateListGatewayRoutes } from "./pagination/ListGatewayRoutesPaginator";
+import { paginateListGateways } from "./pagination/ListGatewaysPaginator";
 import { paginateListServicesByNamespace } from "./pagination/ListServicesByNamespacePaginator";
 import { paginateListServices } from "./pagination/ListServicesPaginator";
 import { paginateListTaskDefinitionFamilies } from "./pagination/ListTaskDefinitionFamiliesPaginator";
@@ -399,11 +457,13 @@ import { waitUntilTasksRunning } from "./waiters/waitForTasksRunning";
 import { waitUntilTasksStopped } from "./waiters/waitForTasksStopped";
 
 const commands = {
+  AssociateGatewayWithClusterCommand,
   ContinueServiceDeploymentCommand,
   CreateCapacityProviderCommand,
   CreateClusterCommand,
   CreateDaemonCommand,
   CreateExpressGatewayServiceCommand,
+  CreateGatewayCommand,
   CreateServiceCommand,
   CreateTaskSetCommand,
   DeleteAccountSettingCommand,
@@ -413,6 +473,7 @@ const commands = {
   DeleteDaemonCommand,
   DeleteDaemonTaskDefinitionCommand,
   DeleteExpressGatewayServiceCommand,
+  DeleteGatewayCommand,
   DeleteServiceCommand,
   DeleteTaskDefinitionsCommand,
   DeleteTaskSetCommand,
@@ -426,12 +487,16 @@ const commands = {
   DescribeDaemonRevisionsCommand,
   DescribeDaemonTaskDefinitionCommand,
   DescribeExpressGatewayServiceCommand,
+  DescribeGatewayCommand,
+  DescribeGatewayResourcesCommand,
+  DescribeGatewayRouteCommand,
   DescribeServiceDeploymentsCommand,
   DescribeServiceRevisionsCommand,
   DescribeServicesCommand,
   DescribeTaskDefinitionCommand,
   DescribeTasksCommand,
   DescribeTaskSetsCommand,
+  DisassociateGatewayFromClusterCommand,
   DiscoverPollEndpointCommand,
   ExecuteCommandCommand,
   GetTaskProtectionCommand,
@@ -442,6 +507,9 @@ const commands = {
   ListDaemonDeploymentsCommand,
   ListDaemonsCommand,
   ListDaemonTaskDefinitionsCommand,
+  ListGatewayClusterAssociationsCommand,
+  ListGatewayRoutesCommand,
+  ListGatewaysCommand,
   ListServiceDeploymentsCommand,
   ListServicesCommand,
   ListServicesByNamespaceCommand,
@@ -472,6 +540,7 @@ const commands = {
   UpdateContainerInstancesStateCommand,
   UpdateDaemonCommand,
   UpdateExpressGatewayServiceCommand,
+  UpdateGatewayCommand,
   UpdateServiceCommand,
   UpdateServicePrimaryTaskSetCommand,
   UpdateTaskProtectionCommand,
@@ -482,6 +551,9 @@ const paginators = {
   paginateListAttributes,
   paginateListClusters,
   paginateListContainerInstances,
+  paginateListGatewayClusterAssociations,
+  paginateListGatewayRoutes,
+  paginateListGateways,
   paginateListServices,
   paginateListServicesByNamespace,
   paginateListTaskDefinitionFamilies,
@@ -508,6 +580,23 @@ export interface ECSRequestOptions extends __HttpHandlerOptions {
 }
 
 export interface ECS {
+  /**
+   * @see {@link AssociateGatewayWithClusterCommand}
+   */
+  associateGatewayWithCluster(
+    args: AssociateGatewayWithClusterCommandInput,
+    options?: ECSRequestOptions
+  ): Promise<AssociateGatewayWithClusterCommandOutput>;
+  associateGatewayWithCluster(
+    args: AssociateGatewayWithClusterCommandInput,
+    cb: (err: any, data?: AssociateGatewayWithClusterCommandOutput) => void
+  ): void;
+  associateGatewayWithCluster(
+    args: AssociateGatewayWithClusterCommandInput,
+    options: ECSRequestOptions,
+    cb: (err: any, data?: AssociateGatewayWithClusterCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link ContinueServiceDeploymentCommand}
    */
@@ -592,6 +681,23 @@ export interface ECS {
     args: CreateExpressGatewayServiceCommandInput,
     options: ECSRequestOptions,
     cb: (err: any, data?: CreateExpressGatewayServiceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateGatewayCommand}
+   */
+  createGateway(
+    args: CreateGatewayCommandInput,
+    options?: ECSRequestOptions
+  ): Promise<CreateGatewayCommandOutput>;
+  createGateway(
+    args: CreateGatewayCommandInput,
+    cb: (err: any, data?: CreateGatewayCommandOutput) => void
+  ): void;
+  createGateway(
+    args: CreateGatewayCommandInput,
+    options: ECSRequestOptions,
+    cb: (err: any, data?: CreateGatewayCommandOutput) => void
   ): void;
 
   /**
@@ -745,6 +851,23 @@ export interface ECS {
     args: DeleteExpressGatewayServiceCommandInput,
     options: ECSRequestOptions,
     cb: (err: any, data?: DeleteExpressGatewayServiceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteGatewayCommand}
+   */
+  deleteGateway(
+    args: DeleteGatewayCommandInput,
+    options?: ECSRequestOptions
+  ): Promise<DeleteGatewayCommandOutput>;
+  deleteGateway(
+    args: DeleteGatewayCommandInput,
+    cb: (err: any, data?: DeleteGatewayCommandOutput) => void
+  ): void;
+  deleteGateway(
+    args: DeleteGatewayCommandInput,
+    options: ECSRequestOptions,
+    cb: (err: any, data?: DeleteGatewayCommandOutput) => void
   ): void;
 
   /**
@@ -971,6 +1094,57 @@ export interface ECS {
   ): void;
 
   /**
+   * @see {@link DescribeGatewayCommand}
+   */
+  describeGateway(
+    args: DescribeGatewayCommandInput,
+    options?: ECSRequestOptions
+  ): Promise<DescribeGatewayCommandOutput>;
+  describeGateway(
+    args: DescribeGatewayCommandInput,
+    cb: (err: any, data?: DescribeGatewayCommandOutput) => void
+  ): void;
+  describeGateway(
+    args: DescribeGatewayCommandInput,
+    options: ECSRequestOptions,
+    cb: (err: any, data?: DescribeGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeGatewayResourcesCommand}
+   */
+  describeGatewayResources(
+    args: DescribeGatewayResourcesCommandInput,
+    options?: ECSRequestOptions
+  ): Promise<DescribeGatewayResourcesCommandOutput>;
+  describeGatewayResources(
+    args: DescribeGatewayResourcesCommandInput,
+    cb: (err: any, data?: DescribeGatewayResourcesCommandOutput) => void
+  ): void;
+  describeGatewayResources(
+    args: DescribeGatewayResourcesCommandInput,
+    options: ECSRequestOptions,
+    cb: (err: any, data?: DescribeGatewayResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeGatewayRouteCommand}
+   */
+  describeGatewayRoute(
+    args: DescribeGatewayRouteCommandInput,
+    options?: ECSRequestOptions
+  ): Promise<DescribeGatewayRouteCommandOutput>;
+  describeGatewayRoute(
+    args: DescribeGatewayRouteCommandInput,
+    cb: (err: any, data?: DescribeGatewayRouteCommandOutput) => void
+  ): void;
+  describeGatewayRoute(
+    args: DescribeGatewayRouteCommandInput,
+    options: ECSRequestOptions,
+    cb: (err: any, data?: DescribeGatewayRouteCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeServiceDeploymentsCommand}
    */
   describeServiceDeployments(
@@ -1070,6 +1244,23 @@ export interface ECS {
     args: DescribeTaskSetsCommandInput,
     options: ECSRequestOptions,
     cb: (err: any, data?: DescribeTaskSetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateGatewayFromClusterCommand}
+   */
+  disassociateGatewayFromCluster(
+    args: DisassociateGatewayFromClusterCommandInput,
+    options?: ECSRequestOptions
+  ): Promise<DisassociateGatewayFromClusterCommandOutput>;
+  disassociateGatewayFromCluster(
+    args: DisassociateGatewayFromClusterCommandInput,
+    cb: (err: any, data?: DisassociateGatewayFromClusterCommandOutput) => void
+  ): void;
+  disassociateGatewayFromCluster(
+    args: DisassociateGatewayFromClusterCommandInput,
+    options: ECSRequestOptions,
+    cb: (err: any, data?: DisassociateGatewayFromClusterCommandOutput) => void
   ): void;
 
   /**
@@ -1246,6 +1437,60 @@ export interface ECS {
     args: ListDaemonTaskDefinitionsCommandInput,
     options: ECSRequestOptions,
     cb: (err: any, data?: ListDaemonTaskDefinitionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGatewayClusterAssociationsCommand}
+   */
+  listGatewayClusterAssociations(): Promise<ListGatewayClusterAssociationsCommandOutput>;
+  listGatewayClusterAssociations(
+    args: ListGatewayClusterAssociationsCommandInput,
+    options?: ECSRequestOptions
+  ): Promise<ListGatewayClusterAssociationsCommandOutput>;
+  listGatewayClusterAssociations(
+    args: ListGatewayClusterAssociationsCommandInput,
+    cb: (err: any, data?: ListGatewayClusterAssociationsCommandOutput) => void
+  ): void;
+  listGatewayClusterAssociations(
+    args: ListGatewayClusterAssociationsCommandInput,
+    options: ECSRequestOptions,
+    cb: (err: any, data?: ListGatewayClusterAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGatewayRoutesCommand}
+   */
+  listGatewayRoutes(): Promise<ListGatewayRoutesCommandOutput>;
+  listGatewayRoutes(
+    args: ListGatewayRoutesCommandInput,
+    options?: ECSRequestOptions
+  ): Promise<ListGatewayRoutesCommandOutput>;
+  listGatewayRoutes(
+    args: ListGatewayRoutesCommandInput,
+    cb: (err: any, data?: ListGatewayRoutesCommandOutput) => void
+  ): void;
+  listGatewayRoutes(
+    args: ListGatewayRoutesCommandInput,
+    options: ECSRequestOptions,
+    cb: (err: any, data?: ListGatewayRoutesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGatewaysCommand}
+   */
+  listGateways(): Promise<ListGatewaysCommandOutput>;
+  listGateways(
+    args: ListGatewaysCommandInput,
+    options?: ECSRequestOptions
+  ): Promise<ListGatewaysCommandOutput>;
+  listGateways(
+    args: ListGatewaysCommandInput,
+    cb: (err: any, data?: ListGatewaysCommandOutput) => void
+  ): void;
+  listGateways(
+    args: ListGatewaysCommandInput,
+    options: ECSRequestOptions,
+    cb: (err: any, data?: ListGatewaysCommandOutput) => void
   ): void;
 
   /**
@@ -1766,6 +2011,23 @@ export interface ECS {
   ): void;
 
   /**
+   * @see {@link UpdateGatewayCommand}
+   */
+  updateGateway(
+    args: UpdateGatewayCommandInput,
+    options?: ECSRequestOptions
+  ): Promise<UpdateGatewayCommandOutput>;
+  updateGateway(
+    args: UpdateGatewayCommandInput,
+    cb: (err: any, data?: UpdateGatewayCommandOutput) => void
+  ): void;
+  updateGateway(
+    args: UpdateGatewayCommandInput,
+    options: ECSRequestOptions,
+    cb: (err: any, data?: UpdateGatewayCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateServiceCommand}
    */
   updateService(
@@ -1876,6 +2138,39 @@ export interface ECS {
     args?: ListContainerInstancesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListContainerInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListGatewayClusterAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGatewayClusterAssociationsCommandOutput}.
+   */
+  paginateListGatewayClusterAssociations(
+    args?: ListGatewayClusterAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGatewayClusterAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListGatewayRoutesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGatewayRoutesCommandOutput}.
+   */
+  paginateListGatewayRoutes(
+    args?: ListGatewayRoutesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGatewayRoutesCommandOutput>;
+
+  /**
+   * @see {@link ListGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGatewaysCommandOutput}.
+   */
+  paginateListGateways(
+    args?: ListGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGatewaysCommandOutput>;
 
   /**
    * @see {@link ListServicesCommand}

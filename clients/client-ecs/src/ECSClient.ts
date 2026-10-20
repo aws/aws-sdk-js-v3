@@ -55,6 +55,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  AssociateGatewayWithClusterCommandInput,
+  AssociateGatewayWithClusterCommandOutput,
+} from "./commands/AssociateGatewayWithClusterCommand";
+import type {
   ContinueServiceDeploymentCommandInput,
   ContinueServiceDeploymentCommandOutput,
 } from "./commands/ContinueServiceDeploymentCommand";
@@ -68,6 +72,7 @@ import type {
   CreateExpressGatewayServiceCommandInput,
   CreateExpressGatewayServiceCommandOutput,
 } from "./commands/CreateExpressGatewayServiceCommand";
+import type { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
 import type { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
 import type { CreateTaskSetCommandInput, CreateTaskSetCommandOutput } from "./commands/CreateTaskSetCommand";
 import type {
@@ -89,6 +94,7 @@ import type {
   DeleteExpressGatewayServiceCommandInput,
   DeleteExpressGatewayServiceCommandOutput,
 } from "./commands/DeleteExpressGatewayServiceCommand";
+import type { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
 import type { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
 import type {
   DeleteTaskDefinitionsCommandInput,
@@ -129,6 +135,15 @@ import type {
   DescribeExpressGatewayServiceCommandInput,
   DescribeExpressGatewayServiceCommandOutput,
 } from "./commands/DescribeExpressGatewayServiceCommand";
+import type { DescribeGatewayCommandInput, DescribeGatewayCommandOutput } from "./commands/DescribeGatewayCommand";
+import type {
+  DescribeGatewayResourcesCommandInput,
+  DescribeGatewayResourcesCommandOutput,
+} from "./commands/DescribeGatewayResourcesCommand";
+import type {
+  DescribeGatewayRouteCommandInput,
+  DescribeGatewayRouteCommandOutput,
+} from "./commands/DescribeGatewayRouteCommand";
 import type {
   DescribeServiceDeploymentsCommandInput,
   DescribeServiceDeploymentsCommandOutput,
@@ -144,6 +159,10 @@ import type {
 } from "./commands/DescribeTaskDefinitionCommand";
 import type { DescribeTasksCommandInput, DescribeTasksCommandOutput } from "./commands/DescribeTasksCommand";
 import type { DescribeTaskSetsCommandInput, DescribeTaskSetsCommandOutput } from "./commands/DescribeTaskSetsCommand";
+import type {
+  DisassociateGatewayFromClusterCommandInput,
+  DisassociateGatewayFromClusterCommandOutput,
+} from "./commands/DisassociateGatewayFromClusterCommand";
 import type {
   DiscoverPollEndpointCommandInput,
   DiscoverPollEndpointCommandOutput,
@@ -172,6 +191,15 @@ import type {
   ListDaemonTaskDefinitionsCommandInput,
   ListDaemonTaskDefinitionsCommandOutput,
 } from "./commands/ListDaemonTaskDefinitionsCommand";
+import type {
+  ListGatewayClusterAssociationsCommandInput,
+  ListGatewayClusterAssociationsCommandOutput,
+} from "./commands/ListGatewayClusterAssociationsCommand";
+import type {
+  ListGatewayRoutesCommandInput,
+  ListGatewayRoutesCommandOutput,
+} from "./commands/ListGatewayRoutesCommand";
+import type { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
 import type {
   ListServiceDeploymentsCommandInput,
   ListServiceDeploymentsCommandOutput,
@@ -262,6 +290,7 @@ import type {
   UpdateExpressGatewayServiceCommandInput,
   UpdateExpressGatewayServiceCommandOutput,
 } from "./commands/UpdateExpressGatewayServiceCommand";
+import type { UpdateGatewayCommandInput, UpdateGatewayCommandOutput } from "./commands/UpdateGatewayCommand";
 import type { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand";
 import type {
   UpdateServicePrimaryTaskSetCommandInput,
@@ -287,11 +316,13 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateGatewayWithClusterCommandInput
   | ContinueServiceDeploymentCommandInput
   | CreateCapacityProviderCommandInput
   | CreateClusterCommandInput
   | CreateDaemonCommandInput
   | CreateExpressGatewayServiceCommandInput
+  | CreateGatewayCommandInput
   | CreateServiceCommandInput
   | CreateTaskSetCommandInput
   | DeleteAccountSettingCommandInput
@@ -301,6 +332,7 @@ export type ServiceInputTypes =
   | DeleteDaemonCommandInput
   | DeleteDaemonTaskDefinitionCommandInput
   | DeleteExpressGatewayServiceCommandInput
+  | DeleteGatewayCommandInput
   | DeleteServiceCommandInput
   | DeleteTaskDefinitionsCommandInput
   | DeleteTaskSetCommandInput
@@ -314,12 +346,16 @@ export type ServiceInputTypes =
   | DescribeDaemonRevisionsCommandInput
   | DescribeDaemonTaskDefinitionCommandInput
   | DescribeExpressGatewayServiceCommandInput
+  | DescribeGatewayCommandInput
+  | DescribeGatewayResourcesCommandInput
+  | DescribeGatewayRouteCommandInput
   | DescribeServiceDeploymentsCommandInput
   | DescribeServiceRevisionsCommandInput
   | DescribeServicesCommandInput
   | DescribeTaskDefinitionCommandInput
   | DescribeTaskSetsCommandInput
   | DescribeTasksCommandInput
+  | DisassociateGatewayFromClusterCommandInput
   | DiscoverPollEndpointCommandInput
   | ExecuteCommandCommandInput
   | GetTaskProtectionCommandInput
@@ -330,6 +366,9 @@ export type ServiceInputTypes =
   | ListDaemonDeploymentsCommandInput
   | ListDaemonTaskDefinitionsCommandInput
   | ListDaemonsCommandInput
+  | ListGatewayClusterAssociationsCommandInput
+  | ListGatewayRoutesCommandInput
+  | ListGatewaysCommandInput
   | ListServiceDeploymentsCommandInput
   | ListServicesByNamespaceCommandInput
   | ListServicesCommandInput
@@ -360,6 +399,7 @@ export type ServiceInputTypes =
   | UpdateContainerInstancesStateCommandInput
   | UpdateDaemonCommandInput
   | UpdateExpressGatewayServiceCommandInput
+  | UpdateGatewayCommandInput
   | UpdateServiceCommandInput
   | UpdateServicePrimaryTaskSetCommandInput
   | UpdateTaskProtectionCommandInput
@@ -369,11 +409,13 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateGatewayWithClusterCommandOutput
   | ContinueServiceDeploymentCommandOutput
   | CreateCapacityProviderCommandOutput
   | CreateClusterCommandOutput
   | CreateDaemonCommandOutput
   | CreateExpressGatewayServiceCommandOutput
+  | CreateGatewayCommandOutput
   | CreateServiceCommandOutput
   | CreateTaskSetCommandOutput
   | DeleteAccountSettingCommandOutput
@@ -383,6 +425,7 @@ export type ServiceOutputTypes =
   | DeleteDaemonCommandOutput
   | DeleteDaemonTaskDefinitionCommandOutput
   | DeleteExpressGatewayServiceCommandOutput
+  | DeleteGatewayCommandOutput
   | DeleteServiceCommandOutput
   | DeleteTaskDefinitionsCommandOutput
   | DeleteTaskSetCommandOutput
@@ -396,12 +439,16 @@ export type ServiceOutputTypes =
   | DescribeDaemonRevisionsCommandOutput
   | DescribeDaemonTaskDefinitionCommandOutput
   | DescribeExpressGatewayServiceCommandOutput
+  | DescribeGatewayCommandOutput
+  | DescribeGatewayResourcesCommandOutput
+  | DescribeGatewayRouteCommandOutput
   | DescribeServiceDeploymentsCommandOutput
   | DescribeServiceRevisionsCommandOutput
   | DescribeServicesCommandOutput
   | DescribeTaskDefinitionCommandOutput
   | DescribeTaskSetsCommandOutput
   | DescribeTasksCommandOutput
+  | DisassociateGatewayFromClusterCommandOutput
   | DiscoverPollEndpointCommandOutput
   | ExecuteCommandCommandOutput
   | GetTaskProtectionCommandOutput
@@ -412,6 +459,9 @@ export type ServiceOutputTypes =
   | ListDaemonDeploymentsCommandOutput
   | ListDaemonTaskDefinitionsCommandOutput
   | ListDaemonsCommandOutput
+  | ListGatewayClusterAssociationsCommandOutput
+  | ListGatewayRoutesCommandOutput
+  | ListGatewaysCommandOutput
   | ListServiceDeploymentsCommandOutput
   | ListServicesByNamespaceCommandOutput
   | ListServicesCommandOutput
@@ -442,6 +492,7 @@ export type ServiceOutputTypes =
   | UpdateContainerInstancesStateCommandOutput
   | UpdateDaemonCommandOutput
   | UpdateExpressGatewayServiceCommandOutput
+  | UpdateGatewayCommandOutput
   | UpdateServiceCommandOutput
   | UpdateServicePrimaryTaskSetCommandOutput
   | UpdateTaskProtectionCommandOutput

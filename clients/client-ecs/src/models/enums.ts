@@ -57,7 +57,13 @@ export type AcceleratorType = (typeof AcceleratorType)[keyof typeof AcceleratorT
  * @enum
  */
 export const AccessType = {
+  /**
+   * <p>The resource is private and reachable only from within the VPC.</p>
+   */
   PRIVATE: "PRIVATE",
+  /**
+   * <p>The resource is publicly accessible from the internet.</p>
+   */
   PUBLIC: "PUBLIC",
 } as const;
 /**
@@ -1044,6 +1050,201 @@ export type TaskDefinitionField = (typeof TaskDefinitionField)[keyof typeof Task
  * @public
  * @enum
  */
+export const GatewayClusterAssociationStatus = {
+  /**
+   * <p>The association is active.</p>
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * <p>The association is being removed and remains in this state until all gateway routes for the cluster are removed.</p>
+   */
+  DISASSOCIATING: "DISASSOCIATING",
+  INACTIVE: "INACTIVE",
+} as const;
+/**
+ * @public
+ */
+export type GatewayClusterAssociationStatus =
+  (typeof GatewayClusterAssociationStatus)[keyof typeof GatewayClusterAssociationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const GatewayAlbDesyncMitigationMode = {
+  /**
+   * <p>The load balancers allow through most requests but drop those that pose a significant security risk.</p>
+   */
+  DEFENSIVE: "defensive",
+  /**
+   * <p>The load balancers forward requests that are considered ambiguous but allow them to be monitored.</p>
+   */
+  MONITOR: "monitor",
+  /**
+   * <p>The load balancers allow through only requests that comply with HTTP/1.1.</p>
+   */
+  STRICTEST: "strictest",
+} as const;
+/**
+ * @public
+ */
+export type GatewayAlbDesyncMitigationMode =
+  (typeof GatewayAlbDesyncMitigationMode)[keyof typeof GatewayAlbDesyncMitigationMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const GatewayElbIpAddressType = {
+  /**
+   * <p>The load balancers use both IPv4 and IPv6 addresses.</p>
+   */
+  DUALSTACK: "dualstack",
+  /**
+   * <p>The load balancers use IPv6 addresses and private IPv4 addresses, without public IPv4 addresses.</p>
+   */
+  DUALSTACK_WITHOUT_PUBLIC_IPV4: "dualstack-without-public-ipv4",
+  /**
+   * <p>The load balancers use IPv4 addresses only.</p>
+   */
+  IPV4: "ipv4",
+} as const;
+/**
+ * @public
+ */
+export type GatewayElbIpAddressType = (typeof GatewayElbIpAddressType)[keyof typeof GatewayElbIpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
+export const GatewayAlbProtocol = {
+  /**
+   * <p>The listener uses HTTP.</p>
+   */
+  HTTP: "HTTP",
+  /**
+   * <p>The listener uses HTTPS.</p>
+   */
+  HTTPS: "HTTPS",
+} as const;
+/**
+ * @public
+ */
+export type GatewayAlbProtocol = (typeof GatewayAlbProtocol)[keyof typeof GatewayAlbProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const GatewayElbScheme = {
+  /**
+   * <p>The load balancers are internal.</p>
+   */
+  INTERNAL: "internal",
+  /**
+   * <p>The load balancers are internet-facing.</p>
+   */
+  INTERNET_FACING: "internet-facing",
+} as const;
+/**
+ * @public
+ */
+export type GatewayElbScheme = (typeof GatewayElbScheme)[keyof typeof GatewayElbScheme];
+
+/**
+ * @public
+ * @enum
+ */
+export const PropagateGatewayTags = {
+  /**
+   * <p>Tags on the gateway are propagated to the infrastructure that the gateway manages.</p>
+   */
+  GATEWAY: "GATEWAY",
+  /**
+   * <p>Tags aren't propagated to managed infrastructure.</p>
+   */
+  NONE: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type PropagateGatewayTags = (typeof PropagateGatewayTags)[keyof typeof PropagateGatewayTags];
+
+/**
+ * @public
+ * @enum
+ */
+export const GatewayStatus = {
+  /**
+   * <p>The gateway is active and available for use.</p>
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * <p>The gateway is deleted.</p>
+   */
+  DELETED: "DELETED",
+  /**
+   * <p>The update to the gateway completed successfully.</p>
+   */
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  /**
+   * <p>The update to the gateway failed. See <code>statusReason</code> for details.</p>
+   */
+  UPDATE_FAILED: "UPDATE_FAILED",
+  /**
+   * <p>An update to the gateway is in progress.</p>
+   */
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type GatewayStatus = (typeof GatewayStatus)[keyof typeof GatewayStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const GatewayRouteStatus = {
+  /**
+   * <p>The gateway route is active and routing traffic.</p>
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * <p>The gateway route couldn't be created.</p>
+   */
+  CREATE_FAILED: "CREATE_FAILED",
+  /**
+   * <p>The gateway route is being created.</p>
+   */
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  /**
+   * <p>The gateway route couldn't be deleted.</p>
+   */
+  DELETE_FAILED: "DELETE_FAILED",
+  /**
+   * <p>The gateway route is being deleted.</p>
+   */
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  /**
+   * <p>The gateway route couldn't be updated.</p>
+   */
+  UPDATE_FAILED: "UPDATE_FAILED",
+  /**
+   * <p>The gateway route is being updated.</p>
+   */
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type GatewayRouteStatus = (typeof GatewayRouteStatus)[keyof typeof GatewayRouteStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const TaskDefinitionFamilyStatus = {
   ACTIVE: "ACTIVE",
   ALL: "ALL",
@@ -1284,6 +1485,26 @@ export const DeploymentControllerType = {
  * @public
  */
 export type DeploymentControllerType = (typeof DeploymentControllerType)[keyof typeof DeploymentControllerType];
+
+/**
+ * @public
+ * @enum
+ */
+export const GatewayConnectorHealthCheckProtocol = {
+  /**
+   * <p>The gateway performs health checks over HTTP.</p>
+   */
+  HTTP: "HTTP",
+  /**
+   * <p>The gateway performs health checks over HTTPS.</p>
+   */
+  HTTPS: "HTTPS",
+} as const;
+/**
+ * @public
+ */
+export type GatewayConnectorHealthCheckProtocol =
+  (typeof GatewayConnectorHealthCheckProtocol)[keyof typeof GatewayConnectorHealthCheckProtocol];
 
 /**
  * @public

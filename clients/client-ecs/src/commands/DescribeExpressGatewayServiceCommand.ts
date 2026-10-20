@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeExpressGatewayServiceRequest, DescribeExpressGatewayServiceResponse } from "../models/models_0";
+import type { DescribeExpressGatewayServiceRequest, DescribeExpressGatewayServiceResponse } from "../models/models_1";
 import { DescribeExpressGatewayService$ } from "../schemas/schemas_0";
 
 /**

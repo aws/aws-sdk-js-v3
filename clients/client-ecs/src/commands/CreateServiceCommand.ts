@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { CreateServiceRequest, CreateServiceResponse } from "../models/models_0";
+import type { CreateServiceRequest, CreateServiceResponse } from "../models/models_1";
 import { CreateService$ } from "../schemas/schemas_0";
 
 /**
@@ -253,6 +253,29 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *         alternateTargetGroupArn: "STRING_VALUE",
  *         productionListenerRule: "STRING_VALUE",
  *         testListenerRule: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   gatewayConnectors: [ // GatewayConnectorList
+ *     { // GatewayConnector
+ *       portName: "STRING_VALUE", // required
+ *       healthCheck: { // GatewayConnectorHealthCheck
+ *         healthCheckProtocol: "HTTP" || "HTTPS",
+ *         healthCheckPort: Number("int"),
+ *         healthCheckPath: "STRING_VALUE",
+ *         healthCheckTimeoutSeconds: Number("int"),
+ *         healthCheckIntervalSeconds: Number("int"),
+ *         healthyThresholdCount: Number("int"),
+ *         unhealthyThresholdCount: Number("int"),
+ *         matcher: { // GatewayConnectorHealthCheckMatcher
+ *           httpCode: "STRING_VALUE",
+ *           grpcCode: "STRING_VALUE",
+ *         },
+ *       },
+ *       filters: { // GatewayConnectorFilters
+ *         accessTypes: [ // AccessTypeList
+ *           "PUBLIC" || "PRIVATE",
+ *         ],
  *       },
  *     },
  *   ],
