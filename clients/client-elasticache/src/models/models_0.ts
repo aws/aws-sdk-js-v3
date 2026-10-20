@@ -30,6 +30,7 @@ import type {
   SlaMet,
   SourceType,
   StorageEncryptionType,
+  TlsMode,
   TransitEncryptionMode,
   UpdateActionStatus,
 } from "./enums";
@@ -392,7 +393,13 @@ export interface CompleteMigrationMessage {
    * <p>The ID of the replication group to which data is being migrated.</p>
    * @public
    */
-  ReplicationGroupId: string | undefined;
+  ReplicationGroupId?: string | undefined;
+
+  /**
+   * <p>The name of the serverless cache to which data is being migrated.</p>
+   * @public
+   */
+  ServerlessCacheName?: string | undefined;
 
   /**
    * <p>Forces the migration to stop without ensuring that data is in sync. It is recommended
@@ -1048,6 +1055,239 @@ export interface ReplicationGroup {
 }
 
 /**
+ * <p>The data storage limit.</p>
+ * @public
+ */
+export interface DataStorage {
+  /**
+   * <p>The upper limit for data storage the cache is set to use.</p>
+   * @public
+   */
+  Maximum?: number | undefined;
+
+  /**
+   * <p>The lower limit for data storage the cache is set to use.</p>
+   * @public
+   */
+  Minimum?: number | undefined;
+
+  /**
+   * <p>The unit that the storage is measured in, in GB.</p>
+   * @public
+   */
+  Unit: DataStorageUnit | undefined;
+}
+
+/**
+ * <p>The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.</p>
+ * @public
+ */
+export interface ECPUPerSecond {
+  /**
+   * <p>The configuration for the maximum number of ECPUs the cache can consume per second.</p>
+   * @public
+   */
+  Maximum?: number | undefined;
+
+  /**
+   * <p>The configuration for the minimum number of ECPUs the cache should be able consume per second.</p>
+   * @public
+   */
+  Minimum?: number | undefined;
+}
+
+/**
+ * <p>The usage limits for storage and ElastiCache Processing Units for the cache.</p>
+ * @public
+ */
+export interface CacheUsageLimits {
+  /**
+   * <p>
+   *             The maximum data storage limit in the cache, expressed in Gigabytes.
+   *         </p>
+   * @public
+   */
+  DataStorage?: DataStorage | undefined;
+
+  /**
+   * <p>The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.</p>
+   * @public
+   */
+  ECPUPerSecond?: ECPUPerSecond | undefined;
+}
+
+/**
+ * <p>Provides a summary of the current migration status for a serverless cache.</p>
+ * @public
+ */
+export interface MigrationSummary {
+  /**
+   * <p>The current status of the migration.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The migration endpoint, which is the standard endpoint of the serverless cache. Point your
+   *             application at this endpoint during the migration. Until cutover, ElastiCache routes requests
+   *             on this endpoint to your source.</p>
+   * @public
+   */
+  MigrationEndpoint?: Endpoint | undefined;
+
+  /**
+   * <p>The cutover configuration for the migration.</p>
+   * @public
+   */
+  CutoverMode?: string | undefined;
+}
+
+/**
+ * <p>The resource representing a serverless cache.</p>
+ * @public
+ */
+export interface ServerlessCache {
+  /**
+   * <p>The unique identifier of the serverless cache.</p>
+   * @public
+   */
+  ServerlessCacheName?: string | undefined;
+
+  /**
+   * <p>A description of the serverless cache.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>When the serverless cache was created. </p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The engine the serverless cache is compatible with.</p>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>The version number of the engine the serverless cache is compatible with.</p>
+   * @public
+   */
+  MajorEngineVersion?: string | undefined;
+
+  /**
+   * <p>The name and version number of the engine the serverless cache is compatible with.</p>
+   * @public
+   */
+  FullEngineVersion?: string | undefined;
+
+  /**
+   * <p>The cache usage limit for the serverless cache.</p>
+   * @public
+   */
+  CacheUsageLimits?: CacheUsageLimits | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services Key Management Service (KMS) key that is used to encrypt data at rest in the serverless cache.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>Indicates the type of encryption for data stored at rest in the serverless cache.
+   *             Serverless caches are always encrypted at rest. The value is
+   *             <code>sse-elasticache</code> if an ElastiCache service-managed key is used, or
+   *             <code>sse-kms</code> if a customer-managed KMS key is used.</p>
+   * @public
+   */
+  StorageEncryptionType?: StorageEncryptionType | undefined;
+
+  /**
+   * <p>The IDs of the EC2 security groups associated with the serverless
+   *            cache.</p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>Represents the information required for client programs to connect to a cache
+   *             node. This value is read-only.</p>
+   * @public
+   */
+  Endpoint?: Endpoint | undefined;
+
+  /**
+   * <p>Represents the information required for client programs to connect to a cache
+   *             node. This value is read-only.</p>
+   * @public
+   */
+  ReaderEndpoint?: Endpoint | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the serverless cache.</p>
+   * @public
+   */
+  ARN?: string | undefined;
+
+  /**
+   * <p>The identifier of the user group associated with the serverless cache. Available for Valkey and Redis OSS only. Default is NULL.</p>
+   * @public
+   */
+  UserGroupId?: string | undefined;
+
+  /**
+   * <p>If no subnet IDs are given and your VPC is in us-west-1, then ElastiCache will select 2 default subnets across AZs in your VPC.
+   *            For all other Regions, if no subnet IDs are given then ElastiCache will select 3 default subnets across AZs in your default VPC.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The number of days for which ElastiCache retains automatic snapshots before deleting them. Available for Valkey, Redis OSS and Serverless Memcached only. The maximum value allowed is 35 days.</p>
+   * @public
+   */
+  SnapshotRetentionLimit?: number | undefined;
+
+  /**
+   * <p>The daily time that a cache snapshot will be created. Default is NULL, i.e. snapshots will not be created at a
+   *            specific time on a daily basis. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+   * @public
+   */
+  DailySnapshotTime?: string | undefined;
+
+  /**
+   * <p>The type of IP address protocol used by the serverless cache.
+   *            Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>.
+   *            <code>ipv6</code> is only supported with IPv6-only subnets.
+   *            If not specified, defaults to <code>ipv4</code>, unless all provided subnets are IPv6-only, in which case it defaults to <code>ipv6</code>.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
+
+  /**
+   * <p>The connection type for the serverless cache.
+   *            Must be either <code>vpc</code> | <code>public</code>.
+   *            If not specified, defaults to <code>vpc</code>.</p>
+   * @public
+   */
+  ConnectionType?: ConnectionType | undefined;
+
+  /**
+   * <p>Provides a summary of the migration status for the serverless cache.</p>
+   * @public
+   */
+  Migration?: MigrationSummary | undefined;
+}
+
+/**
  * @public
  */
 export interface CompleteMigrationResponse {
@@ -1056,6 +1296,12 @@ export interface CompleteMigrationResponse {
    * @public
    */
   ReplicationGroup?: ReplicationGroup | undefined;
+
+  /**
+   * <p>Provides the details of the serverless cache for which the migration completed.</p>
+   * @public
+   */
+  ServerlessCache?: ServerlessCache | undefined;
 }
 
 /**
@@ -4492,68 +4738,6 @@ export interface CreateReplicationGroupResult {
 }
 
 /**
- * <p>The data storage limit.</p>
- * @public
- */
-export interface DataStorage {
-  /**
-   * <p>The upper limit for data storage the cache is set to use.</p>
-   * @public
-   */
-  Maximum?: number | undefined;
-
-  /**
-   * <p>The lower limit for data storage the cache is set to use.</p>
-   * @public
-   */
-  Minimum?: number | undefined;
-
-  /**
-   * <p>The unit that the storage is measured in, in GB.</p>
-   * @public
-   */
-  Unit: DataStorageUnit | undefined;
-}
-
-/**
- * <p>The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.</p>
- * @public
- */
-export interface ECPUPerSecond {
-  /**
-   * <p>The configuration for the maximum number of ECPUs the cache can consume per second.</p>
-   * @public
-   */
-  Maximum?: number | undefined;
-
-  /**
-   * <p>The configuration for the minimum number of ECPUs the cache should be able consume per second.</p>
-   * @public
-   */
-  Minimum?: number | undefined;
-}
-
-/**
- * <p>The usage limits for storage and ElastiCache Processing Units for the cache.</p>
- * @public
- */
-export interface CacheUsageLimits {
-  /**
-   * <p>
-   *             The maximum data storage limit in the cache, expressed in Gigabytes.
-   *         </p>
-   * @public
-   */
-  DataStorage?: DataStorage | undefined;
-
-  /**
-   * <p>The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.</p>
-   * @public
-   */
-  ECPUPerSecond?: ECPUPerSecond | undefined;
-}
-
-/**
  * @public
  */
 export interface CreateServerlessCacheRequest {
@@ -4660,145 +4844,6 @@ export interface CreateServerlessCacheRequest {
    *            If not specified, defaults to <code>vpc</code>.
    *            This value cannot be changed after the serverless cache is created.
    *            Setting this to <code>public</code> requires Valkey 9 or above.</p>
-   * @public
-   */
-  ConnectionType?: ConnectionType | undefined;
-}
-
-/**
- * <p>The resource representing a serverless cache.</p>
- * @public
- */
-export interface ServerlessCache {
-  /**
-   * <p>The unique identifier of the serverless cache.</p>
-   * @public
-   */
-  ServerlessCacheName?: string | undefined;
-
-  /**
-   * <p>A description of the serverless cache.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>When the serverless cache was created. </p>
-   * @public
-   */
-  CreateTime?: Date | undefined;
-
-  /**
-   * <p>The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.</p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>The engine the serverless cache is compatible with.</p>
-   * @public
-   */
-  Engine?: string | undefined;
-
-  /**
-   * <p>The version number of the engine the serverless cache is compatible with.</p>
-   * @public
-   */
-  MajorEngineVersion?: string | undefined;
-
-  /**
-   * <p>The name and version number of the engine the serverless cache is compatible with.</p>
-   * @public
-   */
-  FullEngineVersion?: string | undefined;
-
-  /**
-   * <p>The cache usage limit for the serverless cache.</p>
-   * @public
-   */
-  CacheUsageLimits?: CacheUsageLimits | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services Key Management Service (KMS) key that is used to encrypt data at rest in the serverless cache.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>Indicates the type of encryption for data stored at rest in the serverless cache.
-   *             Serverless caches are always encrypted at rest. The value is
-   *             <code>sse-elasticache</code> if an ElastiCache service-managed key is used, or
-   *             <code>sse-kms</code> if a customer-managed KMS key is used.</p>
-   * @public
-   */
-  StorageEncryptionType?: StorageEncryptionType | undefined;
-
-  /**
-   * <p>The IDs of the EC2 security groups associated with the serverless
-   *            cache.</p>
-   * @public
-   */
-  SecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>Represents the information required for client programs to connect to a cache
-   *             node. This value is read-only.</p>
-   * @public
-   */
-  Endpoint?: Endpoint | undefined;
-
-  /**
-   * <p>Represents the information required for client programs to connect to a cache
-   *             node. This value is read-only.</p>
-   * @public
-   */
-  ReaderEndpoint?: Endpoint | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the serverless cache.</p>
-   * @public
-   */
-  ARN?: string | undefined;
-
-  /**
-   * <p>The identifier of the user group associated with the serverless cache. Available for Valkey and Redis OSS only. Default is NULL.</p>
-   * @public
-   */
-  UserGroupId?: string | undefined;
-
-  /**
-   * <p>If no subnet IDs are given and your VPC is in us-west-1, then ElastiCache will select 2 default subnets across AZs in your VPC.
-   *            For all other Regions, if no subnet IDs are given then ElastiCache will select 3 default subnets across AZs in your default VPC.</p>
-   * @public
-   */
-  SubnetIds?: string[] | undefined;
-
-  /**
-   * <p>The number of days for which ElastiCache retains automatic snapshots before deleting them. Available for Valkey, Redis OSS and Serverless Memcached only. The maximum value allowed is 35 days.</p>
-   * @public
-   */
-  SnapshotRetentionLimit?: number | undefined;
-
-  /**
-   * <p>The daily time that a cache snapshot will be created. Default is NULL, i.e. snapshots will not be created at a
-   *            specific time on a daily basis. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
-   * @public
-   */
-  DailySnapshotTime?: string | undefined;
-
-  /**
-   * <p>The type of IP address protocol used by the serverless cache.
-   *            Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>.
-   *            <code>ipv6</code> is only supported with IPv6-only subnets.
-   *            If not specified, defaults to <code>ipv4</code>, unless all provided subnets are IPv6-only, in which case it defaults to <code>ipv6</code>.</p>
-   * @public
-   */
-  NetworkType?: NetworkType | undefined;
-
-  /**
-   * <p>The connection type for the serverless cache.
-   *            Must be either <code>vpc</code> | <code>public</code>.
-   *            If not specified, defaults to <code>vpc</code>.</p>
    * @public
    */
   ConnectionType?: ConnectionType | undefined;
@@ -9902,6 +9947,108 @@ export interface ModifyUserGroupMessage {
 }
 
 /**
+ * <p>The endpoint from which data should be migrated.</p>
+ * @public
+ */
+export interface CustomerNodeEndpoint {
+  /**
+   * <p>The address of the node endpoint</p>
+   * @public
+   */
+  Address?: string | undefined;
+
+  /**
+   * <p>The port of the node endpoint</p>
+   * @public
+   */
+  Port?: number | undefined;
+}
+
+/**
+ * <p>Configuration for authenticating with the source using Secrets Manager during migration.</p>
+ * @public
+ */
+export interface SecretManagerAuthConfig {
+  /**
+   * <p>The ARN of the secret in AWS Secrets Manager that contains the credentials for authenticating
+   *             with the source.</p>
+   * @public
+   */
+  SecretArn?: string | undefined;
+}
+
+/**
+ * <p>The authentication configuration for connecting to the source during migration.</p>
+ * @public
+ */
+export interface SourceAuthenticationConfiguration {
+  /**
+   * <p>The Secrets Manager configuration used for authenticating with the source during migration.</p>
+   * @public
+   */
+  SecretManagerConfig?: SecretManagerAuthConfig | undefined;
+}
+
+/**
+ * <p>The TLS configuration for connecting to the source during migration.</p>
+ * @public
+ */
+export interface SourceTlsConfiguration {
+  /**
+   * <p>The TLS mode to use when connecting to the source. Valid values are <code>none</code> and <code>verify-ca</code>.</p>
+   * @public
+   */
+  SourceTlsMode?: TlsMode | undefined;
+
+  /**
+   * <p>The TLS certificate used to verify the identity of the source during migration.</p>
+   * @public
+   */
+  SourceTlsCertificate?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PrepareMigrationRequest {
+  /**
+   * <p>The name of the serverless cache to prepare for migration.</p>
+   * @public
+   */
+  ServerlessCacheName: string | undefined;
+
+  /**
+   * <p>The list of endpoints from which to migrate data. For serverless cache migrations, the
+   *             list should have only one element.</p>
+   * @public
+   */
+  CustomerNodeEndpointList: CustomerNodeEndpoint[] | undefined;
+
+  /**
+   * <p>The authentication configuration for connecting to the source during migration.</p>
+   * @public
+   */
+  SourceAuthenticationConfiguration?: SourceAuthenticationConfiguration | undefined;
+
+  /**
+   * <p>The TLS configuration for connecting to the source during migration.</p>
+   * @public
+   */
+  SourceTlsConfiguration?: SourceTlsConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PrepareMigrationResponse {
+  /**
+   * <p>Provides the details of the serverless cache prepared for migration.</p>
+   * @public
+   */
+  ServerlessCache?: ServerlessCache | undefined;
+}
+
+/**
  * <p>Represents the input of a <code>PurchaseReservedCacheNodesOffering</code>
  *             operation.</p>
  * @public
@@ -10133,39 +10280,43 @@ export interface RevokeCacheSecurityGroupIngressResult {
 }
 
 /**
- * <p>The endpoint from which data should be migrated.</p>
- * @public
- */
-export interface CustomerNodeEndpoint {
-  /**
-   * <p>The address of the node endpoint</p>
-   * @public
-   */
-  Address?: string | undefined;
-
-  /**
-   * <p>The port of the node endpoint</p>
-   * @public
-   */
-  Port?: number | undefined;
-}
-
-/**
  * @public
  */
 export interface StartMigrationMessage {
   /**
+   * <p>The name of the serverless cache to which data is being migrated.</p>
+   * @public
+   */
+  ServerlessCacheName?: string | undefined;
+
+  /**
    * <p>The ID of the replication group to which data should be migrated.</p>
    * @public
    */
-  ReplicationGroupId: string | undefined;
+  ReplicationGroupId?: string | undefined;
 
   /**
-   * <p>List of endpoints from which data should be migrated. For Valkey or Redis OSS (cluster mode
-   *             disabled), the list should have only one element.</p>
+   * <p>The list of endpoints from which to migrate data. For Valkey or Redis OSS (cluster mode
+   *             disabled), the list should have only one element. For serverless cache migrations, ElastiCache
+   *             uses the endpoint that you provided in <code>PrepareMigration</code>.</p>
    * @public
    */
-  CustomerNodeEndpointList: CustomerNodeEndpoint[] | undefined;
+  CustomerNodeEndpointList?: CustomerNodeEndpoint[] | undefined;
+
+  /**
+   * <p>Specifies whether ElastiCache automatically attempts to complete the migration after data
+   *             sync is established.</p>
+   * @public
+   */
+  AutoCutover?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether ElastiCache deletes existing data in the serverless cache before migration
+   *             begins. After <code>StopMigration</code>, <code>StartMigration</code> requires this option to
+   *             restart the data sync.</p>
+   * @public
+   */
+  ClearTargetCacheData?: boolean | undefined;
 }
 
 /**
@@ -10177,6 +10328,34 @@ export interface StartMigrationResponse {
    * @public
    */
   ReplicationGroup?: ReplicationGroup | undefined;
+
+  /**
+   * <p>Provides the details of the serverless cache to which ElastiCache is migrating data.</p>
+   * @public
+   */
+  ServerlessCache?: ServerlessCache | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopMigrationRequest {
+  /**
+   * <p>The name of the serverless cache for which to stop the data sync.</p>
+   * @public
+   */
+  ServerlessCacheName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopMigrationResponse {
+  /**
+   * <p>Provides the details of the serverless cache for which the data sync stopped.</p>
+   * @public
+   */
+  ServerlessCache?: ServerlessCache | undefined;
 }
 
 /**

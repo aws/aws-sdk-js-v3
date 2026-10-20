@@ -244,6 +244,31 @@ export type StorageEncryptionType = (typeof StorageEncryptionType)[keyof typeof 
  * @public
  * @enum
  */
+export const DataStorageUnit = {
+  GB: "GB",
+} as const;
+/**
+ * @public
+ */
+export type DataStorageUnit = (typeof DataStorageUnit)[keyof typeof DataStorageUnit];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionType = {
+  PUBLIC: "public",
+  VPC: "vpc",
+} as const;
+/**
+ * @public
+ */
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AZMode = {
   CROSS_AZ: "cross-az",
   SINGLE_AZ: "single-az",
@@ -265,31 +290,6 @@ export const OutpostMode = {
  * @public
  */
 export type OutpostMode = (typeof OutpostMode)[keyof typeof OutpostMode];
-
-/**
- * @public
- * @enum
- */
-export const DataStorageUnit = {
-  GB: "GB",
-} as const;
-/**
- * @public
- */
-export type DataStorageUnit = (typeof DataStorageUnit)[keyof typeof DataStorageUnit];
-
-/**
- * @public
- * @enum
- */
-export const ConnectionType = {
-  PUBLIC: "public",
-  VPC: "vpc",
-} as const;
-/**
- * @public
- */
-export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
 
 /**
  * @public
@@ -451,3 +451,16 @@ export const AuthTokenUpdateStrategyType = {
  */
 export type AuthTokenUpdateStrategyType =
   (typeof AuthTokenUpdateStrategyType)[keyof typeof AuthTokenUpdateStrategyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TlsMode = {
+  none: "none",
+  verify_ca: "verify-ca",
+} as const;
+/**
+ * @public
+ */
+export type TlsMode = (typeof TlsMode)[keyof typeof TlsMode];

@@ -178,6 +178,12 @@ export interface TestMigrationCommandOutput extends TestMigrationResponse, __Met
  * @see {@link TestMigrationCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link InvalidCacheClusterStateFault} (client fault)
+ *  <p>The requested cluster is not in the <code>available</code> state.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value for a parameter is invalid.</p>
  *

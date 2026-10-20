@@ -339,6 +339,11 @@ import {
   ModifyUserGroupCommand,
 } from "./commands/ModifyUserGroupCommand";
 import {
+  type PrepareMigrationCommandInput,
+  type PrepareMigrationCommandOutput,
+  PrepareMigrationCommand,
+} from "./commands/PrepareMigrationCommand";
+import {
   type PurchaseReservedCacheNodesOfferingCommandInput,
   type PurchaseReservedCacheNodesOfferingCommandOutput,
   PurchaseReservedCacheNodesOfferingCommand,
@@ -373,6 +378,11 @@ import {
   type StartMigrationCommandOutput,
   StartMigrationCommand,
 } from "./commands/StartMigrationCommand";
+import {
+  type StopMigrationCommandInput,
+  type StopMigrationCommandOutput,
+  StopMigrationCommand,
+} from "./commands/StopMigrationCommand";
 import {
   type TestFailoverCommandInput,
   type TestFailoverCommandOutput,
@@ -477,6 +487,7 @@ const commands = {
   ModifyServerlessCacheCommand,
   ModifyUserCommand,
   ModifyUserGroupCommand,
+  PrepareMigrationCommand,
   PurchaseReservedCacheNodesOfferingCommand,
   RebalanceSlotsInGlobalReplicationGroupCommand,
   RebootCacheClusterCommand,
@@ -484,6 +495,7 @@ const commands = {
   ResetCacheParameterGroupCommand,
   RevokeCacheSecurityGroupIngressCommand,
   StartMigrationCommand,
+  StopMigrationCommand,
   TestFailoverCommand,
   TestMigrationCommand,
 };
@@ -594,6 +606,7 @@ export interface ElastiCache {
   /**
    * @see {@link CompleteMigrationCommand}
    */
+  completeMigration(): Promise<CompleteMigrationCommandOutput>;
   completeMigration(
     args: CompleteMigrationCommandInput,
     options?: ElastiCacheRequestOptions
@@ -1664,6 +1677,23 @@ export interface ElastiCache {
   ): void;
 
   /**
+   * @see {@link PrepareMigrationCommand}
+   */
+  prepareMigration(
+    args: PrepareMigrationCommandInput,
+    options?: ElastiCacheRequestOptions
+  ): Promise<PrepareMigrationCommandOutput>;
+  prepareMigration(
+    args: PrepareMigrationCommandInput,
+    cb: (err: any, data?: PrepareMigrationCommandOutput) => void
+  ): void;
+  prepareMigration(
+    args: PrepareMigrationCommandInput,
+    options: ElastiCacheRequestOptions,
+    cb: (err: any, data?: PrepareMigrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PurchaseReservedCacheNodesOfferingCommand}
    */
   purchaseReservedCacheNodesOffering(
@@ -1768,6 +1798,7 @@ export interface ElastiCache {
   /**
    * @see {@link StartMigrationCommand}
    */
+  startMigration(): Promise<StartMigrationCommandOutput>;
   startMigration(
     args: StartMigrationCommandInput,
     options?: ElastiCacheRequestOptions
@@ -1780,6 +1811,23 @@ export interface ElastiCache {
     args: StartMigrationCommandInput,
     options: ElastiCacheRequestOptions,
     cb: (err: any, data?: StartMigrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopMigrationCommand}
+   */
+  stopMigration(
+    args: StopMigrationCommandInput,
+    options?: ElastiCacheRequestOptions
+  ): Promise<StopMigrationCommandOutput>;
+  stopMigration(
+    args: StopMigrationCommandInput,
+    cb: (err: any, data?: StopMigrationCommandOutput) => void
+  ): void;
+  stopMigration(
+    args: StopMigrationCommandInput,
+    options: ElastiCacheRequestOptions,
+    cb: (err: any, data?: StopMigrationCommandOutput) => void
   ): void;
 
   /**

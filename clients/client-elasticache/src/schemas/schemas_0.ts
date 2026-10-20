@@ -1,6 +1,7 @@
 const _A = "Authentication";
 const _AAEF = "AuthorizationAlreadyExistsFault";
 const _AAS = "AppendAccessString";
+const _AC = "AutoCutover";
 const _ACSGI = "AuthorizeCacheSecurityGroupIngress";
 const _ACSGIM = "AuthorizeCacheSecurityGroupIngressMessage";
 const _ACSGIR = "AuthorizeCacheSecurityGroupIngressResult";
@@ -75,6 +76,7 @@ const _CM = "ClusterMode";
 const _CMM = "CompleteMigrationMessage";
 const _CMR = "CompleteMigrationResponse";
 const _CMo = "CompleteMigration";
+const _CMu = "CutoverMode";
 const _CN = "CacheNodes";
 const _CNC = "CacheNodeCount";
 const _CNCT = "CacheNodeCreateTime";
@@ -153,6 +155,7 @@ const _CSa = "CacheSize";
 const _CSo = "CopySnapshot";
 const _CSr = "CreateSnapshot";
 const _CT = "ChangeType";
+const _CTCD = "ClearTargetCacheData";
 const _CTo = "ConnectionType";
 const _CTr = "CreateTime";
 const _CU = "CreateUser";
@@ -370,11 +373,13 @@ const _MCPGM = "ModifyCacheParameterGroupMessage";
 const _MCSG = "ModifyCacheSubnetGroup";
 const _MCSGM = "ModifyCacheSubnetGroupMessage";
 const _MCSGR = "ModifyCacheSubnetGroupResult";
+const _ME = "MigrationEndpoint";
 const _MEV = "MinimumEngineVersion";
 const _MEVa = "MajorEngineVersion";
 const _MGRG = "ModifyGlobalReplicationGroup";
 const _MGRGM = "ModifyGlobalReplicationGroupMessage";
 const _MGRGR = "ModifyGlobalReplicationGroupResult";
+const _MHF = "MigrationHealthFault";
 const _MR = "MaxRecords";
 const _MRG = "ModifyReplicationGroup";
 const _MRGM = "ModifyReplicationGroupMessage";
@@ -383,6 +388,7 @@ const _MRGSC = "ModifyReplicationGroupShardConfiguration";
 const _MRGSCM = "ModifyReplicationGroupShardConfigurationMessage";
 const _MRGSCR = "ModifyReplicationGroupShardConfigurationResult";
 const _MRa = "MaxResults";
+const _MS = "MigrationSummary";
 const _MSC = "ModifyServerlessCache";
 const _MSCR = "ModifyServerlessCacheRequest";
 const _MSCRo = "ModifyServerlessCacheResponse";
@@ -394,6 +400,7 @@ const _Ma = "Maximum";
 const _Me = "Message";
 const _Mem = "Members";
 const _Mi = "Minimum";
+const _Mig = "Migration";
 const _N = "Name";
 const _NAZ = "NewAvailabilityZones";
 const _NC = "NotificationConfiguration";
@@ -463,6 +470,9 @@ const _PGS = "ParameterGroupStatus";
 const _PL = "ParametersList";
 const _PLDC = "PendingLogDeliveryConfiguration";
 const _PLDCL = "PendingLogDeliveryConfigurationList";
+const _PM = "PrepareMigration";
+const _PMR = "PrepareMigrationRequest";
+const _PMRr = "PrepareMigrationResponse";
 const _PMV = "PendingModifiedValues";
 const _PMW = "PreferredMaintenanceWindow";
 const _PN = "ParameterName";
@@ -561,14 +571,17 @@ const _RUGe = "RemoveUserGroup";
 const _Re = "Resharding";
 const _S = "Source";
 const _SA = "SnapshotArns";
+const _SAC = "SourceAuthenticationConfiguration";
 const _SAEF = "SnapshotAlreadyExistsFault";
 const _SAL = "SnapshotArnsList";
 const _SATR = "SnapshotArnsToRestore";
 const _SAZ = "SubnetAvailabilityZone";
+const _SAe = "SecretArn";
 const _SAn = "SnapshotArn";
 const _SBN = "S3BucketName";
 const _SC = "ServerlessCache";
 const _SCAEF = "ServerlessCacheAlreadyExistsFault";
+const _SCAUMF = "ServerlessCacheAlreadyUnderMigrationFault";
 const _SCC = "ServerlessCacheConfiguration";
 const _SCCNIRG = "ShowCacheClustersNotInReplicationGroups";
 const _SCI = "SnapshottingClusterId";
@@ -577,6 +590,7 @@ const _SCN = "ServerlessCacheName";
 const _SCNFF = "ServerlessCacheNotFoundFault";
 const _SCNI = "SourceCacheNodeId";
 const _SCNIh = "ShowCacheNodeInfo";
+const _SCNUMF = "ServerlessCacheNotUnderMigrationFault";
 const _SCQFCEF = "ServerlessCacheQuotaForCustomerExceededFault";
 const _SCS = "ServerlessCacheSnapshot";
 const _SCSAEF = "ServerlessCacheSnapshotAlreadyExistsFault";
@@ -609,11 +623,16 @@ const _SL = "SnapshotList";
 const _SLRNFF = "ServiceLinkedRoleNotFoundFault";
 const _SLu = "SubnetList";
 const _SM = "SlotMigration";
+const _SMAC = "SecretManagerAuthConfig";
+const _SMC = "SecretManagerConfig";
 const _SMI = "ShowMemberInfo";
 const _SMM = "StartMigrationMessage";
 const _SMR = "StartMigrationResponse";
+const _SMRt = "StopMigrationRequest";
+const _SMRto = "StopMigrationResponse";
 const _SMl = "SlaMet";
 const _SMt = "StartMigration";
+const _SMto = "StopMigration";
 const _SN = "SnapshotName";
 const _SNAF = "SubnetNotAllowedFault";
 const _SNFF = "SnapshotNotFoundFault";
@@ -630,6 +649,9 @@ const _SSCSN = "SourceServerlessCacheSnapshotName";
 const _SSN = "SourceSnapshotName";
 const _SSn = "SnapshotStatus";
 const _ST = "SourceType";
+const _STC = "SourceTlsConfiguration";
+const _STCo = "SourceTlsCertificate";
+const _STM = "SourceTlsMode";
 const _STn = "SnapshotType";
 const _STt = "StartTime";
 const _SU = "ServiceUpdate";
@@ -772,6 +794,7 @@ import {
   InvalidUserGroupStateFault,
   InvalidUserStateFault,
   InvalidVPCNetworkStateFault,
+  MigrationHealthFault,
   NodeGroupNotFoundFault,
   NodeGroupsPerReplicationGroupQuotaExceededFault,
   NodeQuotaForClusterExceededFault,
@@ -786,7 +809,9 @@ import {
   ReservedCacheNodeQuotaExceededFault,
   ReservedCacheNodesOfferingNotFoundFault,
   ServerlessCacheAlreadyExistsFault,
+  ServerlessCacheAlreadyUnderMigrationFault,
   ServerlessCacheNotFoundFault,
+  ServerlessCacheNotUnderMigrationFault,
   ServerlessCacheQuotaForCustomerExceededFault,
   ServerlessCacheSnapshotAlreadyExistsFault,
   ServerlessCacheSnapshotNotFoundFault,
@@ -1055,6 +1080,12 @@ export var InvalidVPCNetworkStateFault$: StaticErrorSchema = [-3, n0, _IVPCNSF,
   [0]
 ];
 n0_registry.registerError(InvalidVPCNetworkStateFault$, InvalidVPCNetworkStateFault);
+export var MigrationHealthFault$: StaticErrorSchema = [-3, n0, _MHF,
+  { [_aQE]: [`MigrationHealthFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MigrationHealthFault$, MigrationHealthFault);
 export var NodeGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _NGNFF,
   { [_aQE]: [`NodeGroupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
@@ -1139,12 +1170,24 @@ export var ServerlessCacheAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _SCA
   [0]
 ];
 n0_registry.registerError(ServerlessCacheAlreadyExistsFault$, ServerlessCacheAlreadyExistsFault);
+export var ServerlessCacheAlreadyUnderMigrationFault$: StaticErrorSchema = [-3, n0, _SCAUMF,
+  { [_aQE]: [`ServerlessCacheAlreadyUnderMigrationFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServerlessCacheAlreadyUnderMigrationFault$, ServerlessCacheAlreadyUnderMigrationFault);
 export var ServerlessCacheNotFoundFault$: StaticErrorSchema = [-3, n0, _SCNFF,
   { [_aQE]: [`ServerlessCacheNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0]
 ];
 n0_registry.registerError(ServerlessCacheNotFoundFault$, ServerlessCacheNotFoundFault);
+export var ServerlessCacheNotUnderMigrationFault$: StaticErrorSchema = [-3, n0, _SCNUMF,
+  { [_aQE]: [`ServerlessCacheNotUnderMigrationFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServerlessCacheNotUnderMigrationFault$, ServerlessCacheNotUnderMigrationFault);
 export var ServerlessCacheQuotaForCustomerExceededFault$: StaticErrorSchema = [-3, n0, _SCQFCEF,
   { [_aQE]: [`ServerlessCacheQuotaForCustomerExceededFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
@@ -1427,13 +1470,13 @@ export var CloudWatchLogsDestinationDetails$: StaticStructureSchema = [3, n0, _C
 ];
 export var CompleteMigrationMessage$: StaticStructureSchema = [3, n0, _CMM,
   0,
-  [_RGIe, _F],
-  [0, 2], 1
+  [_RGIe, _SCN, _F],
+  [0, 0, 2]
 ];
 export var CompleteMigrationResponse$: StaticStructureSchema = [3, n0, _CMR,
   0,
-  [_RG],
-  [[() => ReplicationGroup$, 0]]
+  [_RG, _SC],
+  [[() => ReplicationGroup$, 0], [() => ServerlessCache$, 0]]
 ];
 export var ConfigureShard$: StaticStructureSchema = [3, n0, _CS,
   0,
@@ -1940,6 +1983,11 @@ export var LogDeliveryConfigurationRequest$: StaticStructureSchema = [3, n0, _LD
   [_LT, _DTe, _DD, _LF, _Ena],
   [0, 0, () => DestinationDetails$, 0, 2]
 ];
+export var MigrationSummary$: StaticStructureSchema = [3, n0, _MS,
+  0,
+  [_St, _ME, _CMu],
+  [0, () => Endpoint$, 0]
+];
 export var ModifyCacheClusterMessage$: StaticStructureSchema = [3, n0, _MCCM,
   0,
   [_CCIa, _NCN, _CNITRa, _AZM, _NAZ, _CSGNac, _SGI, _PMW, _NTA, _CPGN, _NTS, _AI, _E, _EV, _AMVU, _SRL, _SW, _CNT, _AT, _ATUS, _LDC, _ID, _SCc],
@@ -2070,6 +2118,16 @@ export var PendingModifiedValues$: StaticStructureSchema = [3, n0, _PMV,
   [_NCN, _CNITRa, _EV, _CNT, _ATS, _LDC, _TEE, _TEM, _SCc],
   [1, [() => CacheNodeIdsList, 0], 0, 0, 0, () => PendingLogDeliveryConfigurationList, 2, 0, () => ScaleConfig$]
 ];
+export var PrepareMigrationRequest$: StaticStructureSchema = [3, n0, _PMR,
+  0,
+  [_SCN, _CNEL, _SAC, _STC],
+  [0, () => CustomerNodeEndpointList, () => SourceAuthenticationConfiguration$, () => SourceTlsConfiguration$], 2
+];
+export var PrepareMigrationResponse$: StaticStructureSchema = [3, n0, _PMRr,
+  0,
+  [_SC],
+  [[() => ServerlessCache$, 0]]
+];
 export var ProcessedUpdateAction$: StaticStructureSchema = [3, n0, _PUA,
   0,
   [_RGIe, _CCIa, _SUN, _UAS],
@@ -2185,6 +2243,11 @@ export var ScaleConfig$: StaticStructureSchema = [3, n0, _SCc,
   [_SP, _SIM],
   [1, 1]
 ];
+export var SecretManagerAuthConfig$: StaticStructureSchema = [3, n0, _SMAC,
+  0,
+  [_SAe],
+  [0]
+];
 export var SecurityGroupMembership$: StaticStructureSchema = [3, n0, _SGM,
   0,
   [_SGIe, _St],
@@ -2192,8 +2255,8 @@ export var SecurityGroupMembership$: StaticStructureSchema = [3, n0, _SGM,
 ];
 export var ServerlessCache$: StaticStructureSchema = [3, n0, _SC,
   0,
-  [_SCN, _D, _CTr, _St, _E, _MEVa, _FEV, _CUL, _KKI, _SET, _SGI, _En, _RE, _ARN, _UGIs, _SI, _SRL, _DST, _NT, _CTo],
-  [0, 0, 4, 0, 0, 0, 0, () => CacheUsageLimits$, 0, 0, [() => SecurityGroupIdsList, 0], () => Endpoint$, () => Endpoint$, 0, 0, [() => SubnetIdsList, 0], 1, 0, 0, 0]
+  [_SCN, _D, _CTr, _St, _E, _MEVa, _FEV, _CUL, _KKI, _SET, _SGI, _En, _RE, _ARN, _UGIs, _SI, _SRL, _DST, _NT, _CTo, _Mig],
+  [0, 0, 4, 0, 0, 0, 0, () => CacheUsageLimits$, 0, 0, [() => SecurityGroupIdsList, 0], () => Endpoint$, () => Endpoint$, 0, 0, [() => SubnetIdsList, 0], 1, 0, 0, 0, () => MigrationSummary$]
 ];
 export var ServerlessCacheConfiguration$: StaticStructureSchema = [3, n0, _SCC,
   0,
@@ -2225,15 +2288,35 @@ export var Snapshot$: StaticStructureSchema = [3, n0, _Sn,
   [_SN, _RGIe, _RGD, _CCIa, _SSn, _SS, _CNT, _E, _EV, _NCN, _PAZ, _POA, _CCCT, _PMW, _TA, _Po, _CPGN, _CSGNa, _VI, _AMVU, _SRL, _SW, _NNG, _AF, _NSo, _KKI, _ARN, _DTa, _Du],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 4, 0, 0, 1, 0, 0, 0, 2, 1, 0, 1, 0, [() => NodeSnapshotList, 0], 0, 0, 0, 0]
 ];
+export var SourceAuthenticationConfiguration$: StaticStructureSchema = [3, n0, _SAC,
+  0,
+  [_SMC],
+  [() => SecretManagerAuthConfig$]
+];
+export var SourceTlsConfiguration$: StaticStructureSchema = [3, n0, _STC,
+  0,
+  [_STM, _STCo],
+  [0, 0]
+];
 export var StartMigrationMessage$: StaticStructureSchema = [3, n0, _SMM,
   0,
-  [_RGIe, _CNEL],
-  [0, () => CustomerNodeEndpointList], 2
+  [_SCN, _RGIe, _CNEL, _AC, _CTCD],
+  [0, 0, () => CustomerNodeEndpointList, 2, 2]
 ];
 export var StartMigrationResponse$: StaticStructureSchema = [3, n0, _SMR,
   0,
-  [_RG],
-  [[() => ReplicationGroup$, 0]]
+  [_RG, _SC],
+  [[() => ReplicationGroup$, 0], [() => ServerlessCache$, 0]]
+];
+export var StopMigrationRequest$: StaticStructureSchema = [3, n0, _SMRt,
+  0,
+  [_SCN],
+  [0], 1
+];
+export var StopMigrationResponse$: StaticStructureSchema = [3, n0, _SMRto,
+  0,
+  [_SC],
+  [[() => ServerlessCache$, 0]]
 ];
 export var Subnet$: StaticStructureSchema = [3, n0, _Sub,
   0,
@@ -2777,6 +2860,9 @@ export var ModifyUser$: StaticOperationSchema = [9, n0, _MU,
 export var ModifyUserGroup$: StaticOperationSchema = [9, n0, _MUG,
   0, () => ModifyUserGroupMessage$, () => UserGroup$
 ];
+export var PrepareMigration$: StaticOperationSchema = [9, n0, _PM,
+  0, () => PrepareMigrationRequest$, () => PrepareMigrationResponse$
+];
 export var PurchaseReservedCacheNodesOffering$: StaticOperationSchema = [9, n0, _PRCNO,
   0, () => PurchaseReservedCacheNodesOfferingMessage$, () => PurchaseReservedCacheNodesOfferingResult$
 ];
@@ -2797,6 +2883,9 @@ export var RevokeCacheSecurityGroupIngress$: StaticOperationSchema = [9, n0, _RC
 ];
 export var StartMigration$: StaticOperationSchema = [9, n0, _SMt,
   0, () => StartMigrationMessage$, () => StartMigrationResponse$
+];
+export var StopMigration$: StaticOperationSchema = [9, n0, _SMto,
+  0, () => StopMigrationRequest$, () => StopMigrationResponse$
 ];
 export var TestFailover$: StaticOperationSchema = [9, n0, _TF,
   0, () => TestFailoverMessage$, () => TestFailoverResult$

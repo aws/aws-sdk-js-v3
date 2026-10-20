@@ -652,6 +652,13 @@ ModifyUserGroup
 </details>
 <details>
 <summary>
+PrepareMigration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticache/command/PrepareMigrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/PrepareMigrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/PrepareMigrationCommandOutput/)
+</details>
+<details>
+<summary>
 PurchaseReservedCacheNodesOffering
 </summary>
 
@@ -698,6 +705,13 @@ StartMigration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticache/command/StartMigrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/StartMigrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/StartMigrationCommandOutput/)
+</details>
+<details>
+<summary>
+StopMigration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticache/command/StopMigrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/StopMigrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/StopMigrationCommandOutput/)
 </details>
 <details>
 <summary>
