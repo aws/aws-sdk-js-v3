@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1153.0...v3.1154.0) (2026-10-20)
+
+
+### Features
+
+* **client-rds:** Amazon RDS now supports On-Demand Capacity Reservations for DB instances. ([4a9c582](https://github.com/aws/aws-sdk-js-v3/commit/4a9c582bcbcf3c15de71e0557a07e01a91bcbf06))
+
+
+
+
+
 # [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

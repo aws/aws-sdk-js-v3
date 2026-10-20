@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1153.0...v3.1154.0) (2026-10-20)
+
+
+### Features
+
+* **client-bedrock:** Amazon Bedrock Guardrails now supports a configurable tier for the contextual grounding policy via a new tier option. Select the Standard tier for grounding that better supports conversations and reasoning, with expanded language coverage. ([7b18033](https://github.com/aws/aws-sdk-js-v3/commit/7b180331b5f82144fbfe828d4bf59bdaa88c5997))
+
+
+
+
+
 # [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock

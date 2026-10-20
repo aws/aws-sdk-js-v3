@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1153.0...v3.1154.0) (2026-10-20)
+
+
+### Features
+
+* **client-ecs:** ECS Service Gateway makes it easier for developers to deploy ECS services without having to worry about complex ingress networking constructs. ([db0d143](https://github.com/aws/aws-sdk-js-v3/commit/db0d1430a64c6455d0254f34837507f82d339dd6))
+
+
+
+
+
 # [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
 
 

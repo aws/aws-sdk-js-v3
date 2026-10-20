@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1153.0...v3.1154.0) (2026-10-20)
+
+
+### Features
+
+* **client-bedrock:** Amazon Bedrock Guardrails now supports a configurable tier for the contextual grounding policy via a new tier option. Select the Standard tier for grounding that better supports conversations and reasoning, with expanded language coverage. ([7b18033](https://github.com/aws/aws-sdk-js-v3/commit/7b180331b5f82144fbfe828d4bf59bdaa88c5997))
+* **client-cleanrooms:** This release allows customers and their partners to easily collaborate with data stored in Databricks, without having to move or share their underlying data among collaborators. ([0d7bcd9](https://github.com/aws/aws-sdk-js-v3/commit/0d7bcd99e437852b03f46307e84166866ae47e96))
+* **client-cloudwatch:** Amazon CloudWatch now supports two new anomaly detector settings. AdaptationSpeed (FAST, NORMAL, SLOW) controls how fast the model adapts to baseline changes, and OutlierFilteringStrength (MINIMAL, MODERATE, STRICT) controls how aggressively outliers are filtered. ([4ab3926](https://github.com/aws/aws-sdk-js-v3/commit/4ab3926140917afbd90a52fd3fb5b78d78e8fa27))
+* **client-cloudwatchomni:** Updating max value for maxResults in SearchPrincipals API ([b0304f5](https://github.com/aws/aws-sdk-js-v3/commit/b0304f534e781e0a43966d89c797df9b4c0583d3))
+* **client-dynamodb:** Adds support for disassociating a replica from an Amazon DynamoDB multi-Region eventual consistency global table, so you can keep it as a single-Region table with its existing data. Also adds disassociation protection, on by default, to help prevent accidental disassociation. ([47fab49](https://github.com/aws/aws-sdk-js-v3/commit/47fab49d153a3dab10e2b075ec437a421bc4f2a1))
+* **client-ecs:** ECS Service Gateway makes it easier for developers to deploy ECS services without having to worry about complex ingress networking constructs. ([db0d143](https://github.com/aws/aws-sdk-js-v3/commit/db0d1430a64c6455d0254f34837507f82d339dd6))
+* **client-elasticache:** LiveMigration enables customers to migrate from self-hosted EC2 Redis and Valkey clusters to ElastiCache Serverless with near-zero downtime. Customers control the migration through three API-driven phases (prepare, start, complete) that handle traffic proxying, data replication, and cutover. ([eefeb2a](https://github.com/aws/aws-sdk-js-v3/commit/eefeb2a2599096fcddba9a9c85326da4fc23d2bc))
+* **client-marketplace-catalog:** Adds ListEntities filter, sort, and summary support for the ExpressPrivateOfferConfiguration entity type, including filtering by ProductId. ([eca81e1](https://github.com/aws/aws-sdk-js-v3/commit/eca81e1f7ba32c0584ee7a84a4612b770a92f684))
+* **client-rds:** Amazon RDS now supports On-Demand Capacity Reservations for DB instances. ([4a9c582](https://github.com/aws/aws-sdk-js-v3/commit/4a9c582bcbcf3c15de71e0557a07e01a91bcbf06))
+* **client-s3files:** S3 Files adds support for the "Misconfigured" file system status. ([398f9d1](https://github.com/aws/aws-sdk-js-v3/commit/398f9d108747e8b9725b7d3ed9394d7c5a115334))
+* **client-workspaces-instances:** Documentation update release for AWS service ([9dc1264](https://github.com/aws/aws-sdk-js-v3/commit/9dc126403f7599980799add0eefcfbe599bdc883))
+
+
+
+
+
 # [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
 
 

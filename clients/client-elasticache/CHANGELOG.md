@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1153.0...v3.1154.0) (2026-10-20)
+
+
+### Features
+
+* **client-elasticache:** LiveMigration enables customers to migrate from self-hosted EC2 Redis and Valkey clusters to ElastiCache Serverless with near-zero downtime. Customers control the migration through three API-driven phases (prepare, start, complete) that handle traffic proxying, data replication, and cutover. ([eefeb2a](https://github.com/aws/aws-sdk-js-v3/commit/eefeb2a2599096fcddba9a9c85326da4fc23d2bc))
+
+
+
+
+
 # [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
 
 **Note:** Version bump only for package @aws-sdk/client-elasticache
