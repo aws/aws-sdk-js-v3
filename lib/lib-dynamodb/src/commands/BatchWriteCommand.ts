@@ -19,21 +19,21 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
-export type BatchWritePutRequest = Omit<PutRequest, 'Item'> & {
+export type BatchWritePutRequest = Omit<PutRequest, "Item"> & {
   Item: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**
  * @public
  */
-export type BatchWriteDeleteRequest = Omit<DeleteRequest, 'Key'> & {
+export type BatchWriteDeleteRequest = Omit<DeleteRequest, "Key"> & {
   Key: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**
  * @public
  */
-export type BatchWriteWriteRequest = Omit<WriteRequest, 'PutRequest' | 'DeleteRequest'> & {
+export type BatchWriteWriteRequest = Omit<WriteRequest, "PutRequest" | "DeleteRequest"> & {
   PutRequest?: BatchWritePutRequest | undefined;
   DeleteRequest?: BatchWriteDeleteRequest | undefined;
 };
@@ -41,7 +41,7 @@ export type BatchWriteWriteRequest = Omit<WriteRequest, 'PutRequest' | 'DeleteRe
 /**
  * @public
  */
-export type BatchWriteItemCollectionMetrics = Omit<ItemCollectionMetrics, 'ItemCollectionKey'> & {
+export type BatchWriteItemCollectionMetrics = Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
   ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
 };
 

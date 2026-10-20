@@ -19,7 +19,7 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
-export type QueryCondition = Omit<Condition, 'AttributeValueList'> & {
+export type QueryCondition = Omit<Condition, "AttributeValueList"> & {
   AttributeValueList?: NativeAttributeValue[] | undefined;
 };
 

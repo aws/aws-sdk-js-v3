@@ -19,14 +19,14 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
-export type UpdateAttributeValueUpdate = Omit<AttributeValueUpdate, 'Value'> & {
+export type UpdateAttributeValueUpdate = Omit<AttributeValueUpdate, "Value"> & {
   Value?: NativeAttributeValue | undefined;
 };
 
 /**
  * @public
  */
-export type UpdateExpectedAttributeValue = Omit<ExpectedAttributeValue, 'Value' | 'AttributeValueList'> & {
+export type UpdateExpectedAttributeValue = Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
   Value?: NativeAttributeValue | undefined;
   AttributeValueList?: NativeAttributeValue[] | undefined;
 };
@@ -34,7 +34,7 @@ export type UpdateExpectedAttributeValue = Omit<ExpectedAttributeValue, 'Value' 
 /**
  * @public
  */
-export type UpdateItemCollectionMetrics = Omit<ItemCollectionMetrics, 'ItemCollectionKey'> & {
+export type UpdateItemCollectionMetrics = Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
   ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
 };
 

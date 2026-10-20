@@ -19,7 +19,7 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
-export type BatchGetKeysAndAttributes = Omit<KeysAndAttributes, 'Keys'> & {
+export type BatchGetKeysAndAttributes = Omit<KeysAndAttributes, "Keys"> & {
   Keys: Record<string, NativeAttributeValue>[] | undefined;
 };
 

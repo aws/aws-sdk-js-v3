@@ -454,7 +454,7 @@ final class DocumentClientCommandGenerator implements Runnable {
     private void writeNamedStructureOmitType(StructureShape structureTarget) {
         List<MemberShape> membersWithAttr = getStructureMembersWithAttr(Optional.of(structureTarget));
         String memberUnionToOmit = membersWithAttr.stream()
-            .map(memberWithAttr -> "'" + symbolProvider.toMemberName(memberWithAttr) + "'")
+            .map(memberWithAttr -> "\"" + symbolProvider.toMemberName(memberWithAttr) + "\"")
             .collect(Collectors.joining(" | "));
         String typeNameToOmit = getStructureBaseTypeName(structureTarget);
 

@@ -19,7 +19,7 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
-export type TransactWriteConditionCheck = Omit<ConditionCheck, 'Key' | 'ExpressionAttributeValues'> & {
+export type TransactWriteConditionCheck = Omit<ConditionCheck, "Key" | "ExpressionAttributeValues"> & {
   Key: Record<string, NativeAttributeValue> | undefined;
   ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
 };
@@ -27,7 +27,7 @@ export type TransactWriteConditionCheck = Omit<ConditionCheck, 'Key' | 'Expressi
 /**
  * @public
  */
-export type TransactWritePut = Omit<Put, 'Item' | 'ExpressionAttributeValues'> & {
+export type TransactWritePut = Omit<Put, "Item" | "ExpressionAttributeValues"> & {
   Item: Record<string, NativeAttributeValue> | undefined;
   ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
 };
@@ -35,7 +35,7 @@ export type TransactWritePut = Omit<Put, 'Item' | 'ExpressionAttributeValues'> &
 /**
  * @public
  */
-export type TransactWriteDelete = Omit<Delete, 'Key' | 'ExpressionAttributeValues'> & {
+export type TransactWriteDelete = Omit<Delete, "Key" | "ExpressionAttributeValues"> & {
   Key: Record<string, NativeAttributeValue> | undefined;
   ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
 };
@@ -43,7 +43,7 @@ export type TransactWriteDelete = Omit<Delete, 'Key' | 'ExpressionAttributeValue
 /**
  * @public
  */
-export type TransactWriteUpdate = Omit<Update, 'Key' | 'ExpressionAttributeValues'> & {
+export type TransactWriteUpdate = Omit<Update, "Key" | "ExpressionAttributeValues"> & {
   Key: Record<string, NativeAttributeValue> | undefined;
   ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
 };
@@ -51,7 +51,7 @@ export type TransactWriteUpdate = Omit<Update, 'Key' | 'ExpressionAttributeValue
 /**
  * @public
  */
-export type TransactWriteItem = Omit<ClientTransactWriteItem, 'ConditionCheck' | 'Put' | 'Delete' | 'Update'> & {
+export type TransactWriteItem = Omit<ClientTransactWriteItem, "ConditionCheck" | "Put" | "Delete" | "Update"> & {
   ConditionCheck?: TransactWriteConditionCheck | undefined;
   Put?: TransactWritePut | undefined;
   Delete?: TransactWriteDelete | undefined;
@@ -61,7 +61,7 @@ export type TransactWriteItem = Omit<ClientTransactWriteItem, 'ConditionCheck' |
 /**
  * @public
  */
-export type TransactWriteItemCollectionMetrics = Omit<ItemCollectionMetrics, 'ItemCollectionKey'> & {
+export type TransactWriteItemCollectionMetrics = Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
   ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
 };
 

@@ -19,14 +19,14 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
-export type DescribeExportFilterSpecification = Omit<FilterSpecification, 'ExpressionAttributeValues'> & {
+export type DescribeExportFilterSpecification = Omit<FilterSpecification, "ExpressionAttributeValues"> & {
   ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**
  * @public
  */
-export type DescribeExportExportDescription = Omit<ExportDescription, 'FilterSpecification'> & {
+export type DescribeExportExportDescription = Omit<ExportDescription, "FilterSpecification"> & {
   FilterSpecification?: DescribeExportFilterSpecification | undefined;
 };
 

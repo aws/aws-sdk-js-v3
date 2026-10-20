@@ -19,21 +19,21 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
-export type BatchExecuteStatementBatchStatementRequest = Omit<BatchStatementRequest, 'Parameters'> & {
+export type BatchExecuteStatementBatchStatementRequest = Omit<BatchStatementRequest, "Parameters"> & {
   Parameters?: NativeAttributeValue[] | undefined;
 };
 
 /**
  * @public
  */
-export type BatchExecuteStatementBatchStatementError = Omit<BatchStatementError, 'Item'> & {
+export type BatchExecuteStatementBatchStatementError = Omit<BatchStatementError, "Item"> & {
   Item?: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**
  * @public
  */
-export type BatchExecuteStatementBatchStatementResponse = Omit<BatchStatementResponse, 'Error' | 'Item'> & {
+export type BatchExecuteStatementBatchStatementResponse = Omit<BatchStatementResponse, "Error" | "Item"> & {
   Error?: BatchExecuteStatementBatchStatementError | undefined;
   Item?: Record<string, NativeAttributeValue> | undefined;
 };

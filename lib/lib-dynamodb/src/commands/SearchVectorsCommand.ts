@@ -19,7 +19,7 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
-export type SearchVectorsSearchResultItem = Omit<SearchResultItem, 'Item'> & {
+export type SearchVectorsSearchResultItem = Omit<SearchResultItem, "Item"> & {
   Item?: Record<string, NativeAttributeValue> | undefined;
 };
 

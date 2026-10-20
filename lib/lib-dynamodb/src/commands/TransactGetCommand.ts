@@ -19,21 +19,21 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
-export type TransactGetGet = Omit<Get, 'Key'> & {
+export type TransactGetGet = Omit<Get, "Key"> & {
   Key: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**
  * @public
  */
-export type TransactGetItem = Omit<ClientTransactGetItem, 'Get'> & {
+export type TransactGetItem = Omit<ClientTransactGetItem, "Get"> & {
   Get: TransactGetGet | undefined;
 };
 
 /**
  * @public
  */
-export type TransactGetItemResponse = Omit<ItemResponse, 'Item'> & {
+export type TransactGetItemResponse = Omit<ItemResponse, "Item"> & {
   Item?: Record<string, NativeAttributeValue> | undefined;
 };
 

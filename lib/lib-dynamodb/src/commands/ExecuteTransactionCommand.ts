@@ -19,14 +19,14 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
-export type ExecuteTransactionParameterizedStatement = Omit<ParameterizedStatement, 'Parameters'> & {
+export type ExecuteTransactionParameterizedStatement = Omit<ParameterizedStatement, "Parameters"> & {
   Parameters?: NativeAttributeValue[] | undefined;
 };
 
 /**
  * @public
  */
-export type ExecuteTransactionItemResponse = Omit<ItemResponse, 'Item'> & {
+export type ExecuteTransactionItemResponse = Omit<ItemResponse, "Item"> & {
   Item?: Record<string, NativeAttributeValue> | undefined;
 };
 
