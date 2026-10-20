@@ -274,6 +274,49 @@ const applyLayout = () => {
   symlinkSync(join(".", "@aws-sdk", "node_modules", "@smithy"), join(nodeModulesDir, "@smithy"));
 };
 
+/** Byte size of every file beneath `dir`. */
+const dirSize = (dir) =>
+  readdirSync(dir, { withFileTypes: true }).reduce((total, entry) => {
+    const full = join(dir, entry.name);
+    return total + (entry.isDirectory() ? dirSize(full) : statSync(full).size);
+  }, 0);
+
+/**
+ * Delete dist-es and dist-types from every @aws-sdk and @smithy package
+ */
+const trimScopedBuilds = () => {
+  let dirs = 0;
+  let bytes = 0;
+  const walk = (dir, scope) => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (entry.isSymbolicLink() || !entry.isDirectory()) {
+        continue;
+      }
+      const full = join(dir, entry.name);
+      const scoped = entry.name.startsWith("@");
+      if (scoped || entry.name === "node_modules") {
+        walk(full, scoped ? entry.name : null);
+        continue;
+      }
+      if (scope === "@aws-sdk" || scope === "@smithy") {
+        for (const name of ["dist-es", "dist-types"]) {
+          const target = join(full, name);
+          if (existsSync(target)) {
+            bytes += dirSize(target);
+            rmSync(target, { recursive: true, force: true });
+            dirs += 1;
+          }
+        }
+      }
+      if (existsSync(join(full, "node_modules"))) {
+        walk(join(full, "node_modules"), null);
+      }
+    }
+  };
+  walk(nodeModulesDir, null);
+  return { dirs, bytes };
+};
+
 // ---------------------------------------------------------------- assemblePayload
 
 export const assemblePayload = () => {
@@ -450,6 +493,10 @@ export const assemblePayload = () => {
   applyLayout();
   log(`5. layout applied (@aws-sdk/node_modules + root @smithy symlink)`);
 
+  // 5a. Drop the ESM and type builds; no CJS consumer in the payload can reach them.
+  const { dirs, bytes } = trimScopedBuilds();
+  log(`5a. trimmed ${dirs} dist-es/dist-types dirs (${(bytes / 1024 / 1024).toFixed(1)} MB reclaimed)`);
+
   // 5b. Prove the tree is self-contained.
   // These four run after the layout move: non-@aws-sdk packages are under
   // @aws-sdk/node_modules and @smithy is a root symlink, which is what they anchor on.
@@ -494,7 +541,7 @@ export const assemblePayload = () => {
       external,
       legacy: skipLegacy ? 0 : legacyAdded,
     },
-    trimmed: false,
+    trimmed: true,
     legacyPackagesFrom: skipLegacy ? null : "shim-targets.json",
   };
   writeFileSync(join(outDir, "metadata.json"), JSON.stringify(metadata, null, 2) + "\n");

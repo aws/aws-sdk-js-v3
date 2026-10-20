@@ -1,18 +1,8 @@
 #!/usr/bin/env node
 // @ts-check
 /**
- * The verification gates the Lambda-provided-SDK assembler runs over the payload it
- * builds. Each is exported for `assemble-payload.mjs` to call at the right point in the
- * assembly, and the four that read a finished tree are also reachable from the CLI
- * below, so an already-built payload can be re-checked without rebuilding it.
- *
- * Step 4b (`verifyShimExports`) is deliberately not in the CLI: it asserts the pre-layout
- * tree, which only exists part-way through an assembly run.
- *
- * @example
- * ```
- * node scripts/generate-lambda-provided-sdk/verify-payload.mjs --tree /tmp/out
- * ```
+ * Verification gates over the Lambda-provided-SDK payload. The assembler calls each at
+ * its point in the assembly; the four that read a finished tree also run from the CLI.
  */
 
 import { execFileSync as _execFileSync } from "node:child_process";
@@ -21,16 +11,15 @@ import { createRequire, isBuiltin } from "node:module";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
-// Kept local rather than imported from the assembler, which imports this module: the
-// `executing:` echo is part of the run output, and both files stay standalone.
+// Local copy: the assembler imports this module, and the echo is part of the run output.
 const execFileSync = (cmd, args, opts) => {
   console.log(`executing: ${[cmd, ...args].join(" ")}`);
   return _execFileSync(cmd, args, opts);
 };
 
 /**
- * Every package directory in the assembled tree, at any nesting depth. Symlinks are
- * skipped so the root @smithy link does not yield a second copy of every @smithy package.
+ * Every package directory in the tree, any depth. Symlinks skipped so the root @smithy
+ * link does not duplicate every @smithy package.
  *
  * @param {string} nodeModulesDir
  * @returns {string[]}
@@ -63,13 +52,10 @@ const treePackages = (nodeModulesDir) => {
 };
 
 /**
- * Assert every `dependencies` entry of every package in the tree resolves to something
- * inside the tree. A backstop for the dependency walk: a miss here is a MODULE_NOT_FOUND
- * for a customer function.
+ * Assert every `dependencies` entry in the tree resolves inside the tree.
  *
- * Resolution stops at `outDir`. The payload is usually assembled inside this repo, so an
- * unbounded upward walk finds the repo's own node_modules and passes a tree that cannot
- * load. `dependencies` only, matching step 3.
+ * Resolution stops at `outDir`: payloads are usually assembled inside this repo, and an
+ * unbounded upward walk would find the repo's own node_modules and pass a broken tree.
  *
  * @param {{ outDir: string }} options
  */
@@ -102,7 +88,7 @@ export const verifyTreeComplete = ({ outDir }) => {
     try {
       manifest = JSON.parse(readFileSync(join(pkgDir, "package.json"), "utf-8"));
     } catch {
-      continue; // not a real manifest
+      continue;
     }
     for (const [dep, range] of Object.entries(manifest.dependencies ?? {})) {
       // file:/link:/git: specifiers are not resolved from node_modules.
@@ -134,14 +120,12 @@ export const verifyTreeComplete = ({ outDir }) => {
   console.log(`5b. tree is self-contained: ${edges} dependency edges across ${packages.length} packages`);
 };
 
-// A CJS `require()` matches only these conditions; `import`, `types`, `module`,
-// `browser` and the rest are never matched, so an entry offering only those is not
-// requirable and must not be reported as broken.
+// A CJS `require()` matches only these. An entry offering only `import`/`types`/`module`/
+// `browser` is not requirable, so it must not be reported as broken.
 const REQUIRE_CONDITIONS = new Set(["node", "require", "default", "node-addons"]);
 
 /**
- * Whether `require()` can reach a string target through this exports entry: recurse
- * through the require-matched conditions of nested condition objects, and through
+ * Whether `require()` can reach a string target: recurse require-matched conditions and
  * fallback arrays, where any reachable element wins.
  */
 const isRequireReachable = (target) => {
@@ -160,11 +144,8 @@ const isRequireReachable = (target) => {
 };
 
 /**
- * The directory that owns the node_modules a package copy sits in, which is where a
- * require of it has to come from. For a top-level @aws-sdk package that is the payload
- * root, exactly a customer's view; for a copy under @aws-sdk/node_modules (axios,
- * @smithy/core) it is node_modules/@aws-sdk, since step 5's layout deliberately leaves
- * those unreachable from the root.
+ * Where a require of this package copy has to come from: the payload root for a
+ * top-level @aws-sdk package, node_modules/@aws-sdk for a copy step 5 pushed down there.
  */
 const anchorDir = (pkgDir, name) => {
   let dir = pkgDir;
@@ -175,8 +156,8 @@ const anchorDir = (pkgDir, name) => {
 };
 
 /**
- * Every subpath an `exports` map in the tree declares and a `require()` can reach, as
- * `{ package, subpath, request, anchor }`, with the tallies of what was skipped.
+ * Every require-reachable subpath declared by an `exports` map in the tree, plus tallies
+ * of what was skipped.
  *
  * @param {string} nodeModulesDir
  */
@@ -190,7 +171,7 @@ const subpathRequests = (nodeModulesDir) => {
     try {
       manifest = JSON.parse(readFileSync(join(pkgDir, "package.json"), "utf-8"));
     } catch {
-      continue; // not a real manifest
+      continue;
     }
     const map = manifest.exports;
     if (!manifest.name || map === undefined || map === null) {
@@ -207,8 +188,8 @@ const subpathRequests = (nodeModulesDir) => {
       if (!key.startsWith(".") || key === "./package.json") {
         continue;
       }
-      // A `*` cannot be requested literally, and a trailing `/` is a folder mapping Node
-      // removed in v17; both are counted so the tally is never silently zero.
+      // `*` cannot be requested literally; a trailing `/` is a folder mapping Node 17
+      // dropped. Counted so the tally is never silently zero.
       if (key.includes("*") || key.endsWith("/")) {
         patternKeys += 1;
         continue;
@@ -230,12 +211,9 @@ const subpathRequests = (nodeModulesDir) => {
 };
 
 /**
- * Require every subpath an exports map declares, from the finished tree. The existing
- * gates load main entries only, so a file removed from the payload while the map still
- * names it passes everything else and throws for a customer.
- *
- * Runs in a child process for the same reason smokeTest does: these requests pull most
- * of the SDK into the heap, and any require side effect stays out of the assembler.
+ * Require every subpath an exports map declares. A file removed while the map still
+ * names it passes every other gate and throws for a customer. Child process: these
+ * requires pull most of the SDK into one heap.
  *
  * @param {{ outDir: string }} options
  */
@@ -287,8 +265,7 @@ export const verifySubpathExports = ({ outDir }) => {
     try {
       execFileSync(process.execPath, [consumer, reportPath], { stdio: "inherit" });
     } catch (error) {
-      // The child exits 1 when it has findings, so its own failure is only fatal when
-      // no report came back: then the gate did not run and must not read as a pass.
+      // Child exits 1 on findings; only a missing report means the gate never ran.
       childError = error;
     }
     try {
@@ -328,13 +305,13 @@ export const verifySubpathExports = ({ outDir }) => {
   );
 };
 
-// Types-only packages: `.d.ts` and nothing else, so there is no main entry to lose.
-// By name rather than by content, so a trim that deletes a real entry still fails.
+// `.d.ts` only, so no main entry to lose. By name rather than by content, so a trim
+// that deletes a real entry still fails.
 const TYPES_ONLY_PACKAGES = new Set(["@types/node", "@types/ws", "undici-types"]);
 
 /**
- * The `"."` target of an exports map, through Node's sugar: a string, or an object with
- * no subpath keys, is itself the `"."` entry.
+ * The `"."` target of an exports map: a string, or an object with no subpath keys, is
+ * itself the `"."` entry.
  */
 const exportsDotTarget = (map) => {
   if (map === null || typeof map !== "object" || Array.isArray(map)) {
@@ -344,12 +321,9 @@ const exportsDotTarget = (map) => {
 };
 
 /**
- * Every package in the tree whose bare name a `require()` must be able to load, as
- * `{ package, version, location, request, anchor }`, with the exempt copies tallied by
- * the rule that excused them.
- *
- * Exemption is decided from the manifest before any require is attempted, so a package
- * that is not exempt has no path to a pass other than actually loading.
+ * Every package whose bare name must load, plus exempt copies tallied by the rule that
+ * excused them. Exemption is decided from the manifest before any require runs, so a
+ * package that is not exempt can only pass by actually loading.
  *
  * @param {string} nodeModulesDir
  */
@@ -362,7 +336,7 @@ const mainEntryTargets = (nodeModulesDir) => {
     try {
       manifest = JSON.parse(readFileSync(join(pkgDir, "package.json"), "utf-8"));
     } catch {
-      continue; // not a real manifest
+      continue;
     }
     if (!manifest.name) {
       continue;
@@ -372,8 +346,8 @@ const mainEntryTargets = (nodeModulesDir) => {
       exempt.builtin += 1;
       continue;
     }
-    // An exports map is a closed list that overrides `main`, so a package declaring no
-    // require-reachable "." deliberately has no main entry; 5c covers what it does declare.
+    // An exports map overrides `main`, so no require-reachable "." means no main entry
+    // by design; 5c covers the subpaths it does declare.
     const map = manifest.exports;
     if (map !== undefined && map !== null && !isRequireReachable(exportsDotTarget(map))) {
       exempt.noDot += 1;
@@ -396,12 +370,9 @@ const mainEntryTargets = (nodeModulesDir) => {
 };
 
 /**
- * Require every package in the tree by its bare name, from the tree. 5b proves the
- * dependency directories are present and 5c the subpaths an exports map names; neither
- * opens a package whose `main` points at a file the payload does not contain.
- *
- * Runs in a child process for the same reason 5c does: these requires pull most of the
- * SDK into one heap and run every package's top-level code.
+ * Require every package by its bare name. 5b proves dependency directories exist and 5c
+ * the subpaths a map names; neither opens a package whose `main` points at a missing
+ * file. Child process: this runs every package's top-level code.
  *
  * @param {{ outDir: string }} options
  */
@@ -411,8 +382,7 @@ export const verifyMainEntries = ({ outDir }) => {
   const consumer = join(outDir, ".main-entry-check.cjs");
   const reportPath = join(outDir, ".main-entry-check.json");
 
-  // realpath both sides, as 5c does: /home is a symlink on some hosts, and @smithy at
-  // the tree root is a symlink into @aws-sdk/node_modules.
+  // realpath both sides, as 5c does.
   writeFileSync(
     consumer,
     `"use strict";\n` +
@@ -454,8 +424,7 @@ export const verifyMainEntries = ({ outDir }) => {
     try {
       execFileSync(process.execPath, [consumer, reportPath], { stdio: "inherit" });
     } catch (error) {
-      // The child exits 1 when it has findings, so its own failure is only fatal when
-      // no report came back: then the gate did not run and must not read as a pass.
+      // Child exits 1 on findings; only a missing report means the gate never ran.
       childError = error;
     }
     try {
@@ -495,8 +464,8 @@ export const verifyMainEntries = ({ outDir }) => {
 };
 
 /**
- * Import a few packages from the finished tree as an outside consumer would, including
- * one that is only reachable through the root @smithy symlink.
+ * Require a few packages as an outside consumer would, including one reachable only
+ * through the root @smithy symlink.
  *
  * @param {{ outDir: string }} options
  */
@@ -518,19 +487,16 @@ export const smokeTest = ({ outDir }) => {
 /**
  * Assert every forwarder delivers what the compatibility snapshot records.
  *
- * Anchored at the payload root, so it only holds before the step 5 layout move, while
- * every package still sits directly under node_modules. Call it after the move and it
- * still passes, but it is asserting the nested resolution rather than the flat one.
- * `shims` is the same object the assembler generated the forwarders from, so the asserted
- * surface cannot drift from the tree; `legacyDepsPackage` is the workspace path the
- * remedy sentence names.
+ * Anchored at the payload root, so it only holds before the step 5 layout move. Called
+ * after the move it still passes, but asserts the nested resolution rather than the flat
+ * one. `shims` is the object the forwarders were generated from, so the asserted surface
+ * cannot drift from the tree.
  *
  * @param {{ shims: Record<string, any>, outDir: string, legacyDepsPackage: string }} options
  */
 export const verifyShimExports = ({ shims, outDir, legacyDepsPackage }) => {
-  // A forwarder pointing at the wrong package is silently short rather than broken,
-  // since __exportStar copies whatever the target happens to export. The recorded
-  // surface is a floor: extra exports are fine, missing ones are not.
+  // __exportStar copies whatever the target exports, so a forwarder aimed at the wrong
+  // package is silently short, not broken. The recorded surface is a floor.
   const requireFromTree = createRequire(join(outDir, "verify-shims.cjs"));
   const shortfalls = [];
   for (const [name, entry] of Object.entries(shims)) {
@@ -544,12 +510,10 @@ export const verifyShimExports = ({ shims, outDir, legacyDepsPackage }) => {
         shortfalls.push(`${name} -> ${entry.target ?? "(copied)"} is missing ${missing.join(", ")}`);
       }
     } catch (error) {
-      // A failure here is usually a missing package rather than a missing symbol,
-      // which is how a version bump breaks this step. Name the absent module.
+      // Usually a missing package, not a missing symbol — how a version bump breaks this.
       const unresolved =
         error.code === "MODULE_NOT_FOUND" ? /Cannot find module '([^']+)'/.exec(error.message)?.[1] : undefined;
-      // Only bare package names can be declared as dependencies, so a relative
-      // request gets the diagnosis without the remedy.
+      // Only bare names are declarable, so a relative request gets no remedy sentence.
       const declarable = unresolved !== undefined && /^(?:@[^/:]+\/)?[^@./:][^/:]*$/.test(unresolved);
       if (declarable) {
         shortfalls.push(
@@ -577,9 +541,8 @@ export const verifyShimExports = ({ shims, outDir, legacyDepsPackage }) => {
 
 // ---------------------------------------------------------------- cli
 
-// The assembler imports this module, so a bare top-level CLI body would run on import.
-// realpathSync is required, not decoration: /home is a symlink on some hosts and Node's
-// ESM loader already realpaths import.meta.url, so raw argv would never match.
+// The assembler imports this module, so a bare CLI body would run on import. realpathSync
+// is load-bearing: the ESM loader realpaths import.meta.url, so raw argv never matches.
 const isMain =
   process.argv[1] !== undefined &&
   existsSync(process.argv[1]) &&
@@ -617,7 +580,6 @@ if (isMain) {
     verifyMainEntries({ outDir });
     smokeTest({ outDir });
   } catch (error) {
-    // The gates carry their own diagnosis in the message; nothing to add to it.
     console.error(error.message);
     process.exit(1);
   }
