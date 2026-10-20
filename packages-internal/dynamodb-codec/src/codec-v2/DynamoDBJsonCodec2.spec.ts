@@ -126,4 +126,14 @@ describe(DynamoDBJsonCodec2.name, () => {
     const baseDeserialization = await baseDeserializer.read(AttributeValue, JSON.stringify(canonicalSerialization));
     expect(baseDeserialization).toEqual(avInput);
   });
+
+  it("keeps the buffer reservation when 6-byte escapes precede multi-byte characters", () => {
+    // "\u0001" serializes as a 6-byte escape. Before the @smithy/core fix, a run of them
+    // exhausted the 3-bytes-per-code-unit reservation, so the multi-byte characters that
+    // followed overran the buffer and the output held uninitialized bytes in their place.
+    const value = "\u0001".repeat(675) + "中".repeat(200) + "\u0001" + "END";
+    serializer.write(AttributeValue, { S: value });
+    const serialization = serializer.flush();
+    expect(toUtf8(serialization)).toEqual(JSON.stringify({ S: value }));
+  });
 });
