@@ -11,6 +11,8 @@ import type {
   ControlAssessmentResult,
   DataProductSortBy,
   DataProductVisibilityString,
+  ExpressPrivateOfferConfigurationSortBy,
+  ExpressPrivateOfferConfigurationStateString,
   FailureCode,
   Intent,
   MachineLearningProductSortBy,
@@ -1555,6 +1557,76 @@ export interface DataProductFilters {
 }
 
 /**
+ * <p>The filter for the <code>EntityId</code> of an express private offer configuration.</p>
+ * @public
+ */
+export interface ExpressPrivateOfferConfigurationEntityIdFilter {
+  /**
+   * <p>A list of <code>EntityId</code> values to filter on.</p>
+   * @public
+   */
+  ValueList?: string[] | undefined;
+}
+
+/**
+ * <p>The filter for the <code>ProductId</code> of an express private offer configuration.</p>
+ * @public
+ */
+export interface ExpressPrivateOfferConfigurationProductIdFilter {
+  /**
+   * <p>A list of <code>ProductId</code> values to filter on.</p>
+   * @public
+   */
+  ValueList?: string[] | undefined;
+}
+
+/**
+ * <p>The filter for the <code>State</code> of an express private offer configuration.</p>
+ * @public
+ */
+export interface ExpressPrivateOfferConfigurationStateFilter {
+  /**
+   * <p>A list of <code>State</code> values to filter on. Valid values are <code>ACTIVE</code> and <code>INACTIVE</code>.</p>
+   * @public
+   */
+  ValueList?: ExpressPrivateOfferConfigurationStateString[] | undefined;
+}
+
+/**
+ * <p>The filter fields for the express private offer configuration entity.</p>
+ * @public
+ */
+export interface ExpressPrivateOfferConfigurationFilters {
+  /**
+   * <p>You can filter on the <code>EntityId</code> of an express private offer configuration.</p>
+   * @public
+   */
+  EntityId?: ExpressPrivateOfferConfigurationEntityIdFilter | undefined;
+
+  /**
+   * <p>You can filter on the <code>ProductId</code> of an express private offer configuration.</p>
+   * @public
+   */
+  ProductId?: ExpressPrivateOfferConfigurationProductIdFilter | undefined;
+
+  /**
+   * <p>The state of the express private offer configuration to filter on. Valid values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> – The configuration is active and you can use it to generate offers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INACTIVE</code> – The configuration is deprecated or deleted.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: ExpressPrivateOfferConfigurationStateFilter | undefined;
+}
+
+/**
  * <p>The filter for machine learning product entity IDs.</p>
  * @public
  */
@@ -2663,6 +2735,7 @@ export type EntityTypeFilters =
   | EntityTypeFilters.AmiProductFiltersMember
   | EntityTypeFilters.ContainerProductFiltersMember
   | EntityTypeFilters.DataProductFiltersMember
+  | EntityTypeFilters.ExpressPrivateOfferConfigurationFiltersMember
   | EntityTypeFilters.MachineLearningProductFiltersMember
   | EntityTypeFilters.OfferFiltersMember
   | EntityTypeFilters.OfferSetFiltersMember
@@ -2687,6 +2760,7 @@ export namespace EntityTypeFilters {
     ResaleAuthorizationFilters?: never;
     MachineLearningProductFilters?: never;
     OfferSetFilters?: never;
+    ExpressPrivateOfferConfigurationFilters?: never;
     $unknown?: never;
   }
 
@@ -2703,6 +2777,7 @@ export namespace EntityTypeFilters {
     ResaleAuthorizationFilters?: never;
     MachineLearningProductFilters?: never;
     OfferSetFilters?: never;
+    ExpressPrivateOfferConfigurationFilters?: never;
     $unknown?: never;
   }
 
@@ -2719,6 +2794,7 @@ export namespace EntityTypeFilters {
     ResaleAuthorizationFilters?: never;
     MachineLearningProductFilters?: never;
     OfferSetFilters?: never;
+    ExpressPrivateOfferConfigurationFilters?: never;
     $unknown?: never;
   }
 
@@ -2735,6 +2811,7 @@ export namespace EntityTypeFilters {
     ResaleAuthorizationFilters?: never;
     MachineLearningProductFilters?: never;
     OfferSetFilters?: never;
+    ExpressPrivateOfferConfigurationFilters?: never;
     $unknown?: never;
   }
 
@@ -2751,6 +2828,7 @@ export namespace EntityTypeFilters {
     ResaleAuthorizationFilters?: never;
     MachineLearningProductFilters?: never;
     OfferSetFilters?: never;
+    ExpressPrivateOfferConfigurationFilters?: never;
     $unknown?: never;
   }
 
@@ -2767,6 +2845,7 @@ export namespace EntityTypeFilters {
     ResaleAuthorizationFilters: ResaleAuthorizationFilters;
     MachineLearningProductFilters?: never;
     OfferSetFilters?: never;
+    ExpressPrivateOfferConfigurationFilters?: never;
     $unknown?: never;
   }
 
@@ -2784,6 +2863,7 @@ export namespace EntityTypeFilters {
     ResaleAuthorizationFilters?: never;
     MachineLearningProductFilters: MachineLearningProductFilters;
     OfferSetFilters?: never;
+    ExpressPrivateOfferConfigurationFilters?: never;
     $unknown?: never;
   }
 
@@ -2800,6 +2880,24 @@ export namespace EntityTypeFilters {
     ResaleAuthorizationFilters?: never;
     MachineLearningProductFilters?: never;
     OfferSetFilters: OfferSetFilters;
+    ExpressPrivateOfferConfigurationFilters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A filter for express private offer configurations.</p>
+   * @public
+   */
+  export interface ExpressPrivateOfferConfigurationFiltersMember {
+    DataProductFilters?: never;
+    SaaSProductFilters?: never;
+    AmiProductFilters?: never;
+    OfferFilters?: never;
+    ContainerProductFilters?: never;
+    ResaleAuthorizationFilters?: never;
+    MachineLearningProductFilters?: never;
+    OfferSetFilters?: never;
+    ExpressPrivateOfferConfigurationFilters: ExpressPrivateOfferConfigurationFilters;
     $unknown?: never;
   }
 
@@ -2815,6 +2913,7 @@ export namespace EntityTypeFilters {
     ResaleAuthorizationFilters?: never;
     MachineLearningProductFilters?: never;
     OfferSetFilters?: never;
+    ExpressPrivateOfferConfigurationFilters?: never;
     $unknown: [string, any];
   }
 
@@ -2831,6 +2930,7 @@ export namespace EntityTypeFilters {
     ResaleAuthorizationFilters: (value: ResaleAuthorizationFilters) => T;
     MachineLearningProductFilters: (value: MachineLearningProductFilters) => T;
     OfferSetFilters: (value: OfferSetFilters) => T;
+    ExpressPrivateOfferConfigurationFilters: (value: ExpressPrivateOfferConfigurationFilters) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2866,6 +2966,24 @@ export interface DataProductSort {
 
   /**
    * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
+
+/**
+ * <p>The sort fields for express private offer configurations.</p>
+ * @public
+ */
+export interface ExpressPrivateOfferConfigurationSort {
+  /**
+   * <p>The field to sort by. Valid values are <code>EntityId</code>, <code>LastModifiedDate</code>, <code>ProductId</code>, and <code>State</code>.</p>
+   * @public
+   */
+  SortBy?: ExpressPrivateOfferConfigurationSortBy | undefined;
+
+  /**
+   * <p>The sorting order. Valid values are <code>ASCENDING</code> and <code>DESCENDING</code>.</p>
    * @public
    */
   SortOrder?: SortOrder | undefined;
@@ -2969,6 +3087,7 @@ export type EntityTypeSort =
   | EntityTypeSort.AmiProductSortMember
   | EntityTypeSort.ContainerProductSortMember
   | EntityTypeSort.DataProductSortMember
+  | EntityTypeSort.ExpressPrivateOfferConfigurationSortMember
   | EntityTypeSort.MachineLearningProductSortMember
   | EntityTypeSort.OfferSetSortMember
   | EntityTypeSort.OfferSortMember
@@ -2993,6 +3112,7 @@ export namespace EntityTypeSort {
     ResaleAuthorizationSort?: never;
     MachineLearningProductSort?: never;
     OfferSetSort?: never;
+    ExpressPrivateOfferConfigurationSort?: never;
     $unknown?: never;
   }
 
@@ -3009,6 +3129,7 @@ export namespace EntityTypeSort {
     ResaleAuthorizationSort?: never;
     MachineLearningProductSort?: never;
     OfferSetSort?: never;
+    ExpressPrivateOfferConfigurationSort?: never;
     $unknown?: never;
   }
 
@@ -3025,6 +3146,7 @@ export namespace EntityTypeSort {
     ResaleAuthorizationSort?: never;
     MachineLearningProductSort?: never;
     OfferSetSort?: never;
+    ExpressPrivateOfferConfigurationSort?: never;
     $unknown?: never;
   }
 
@@ -3041,6 +3163,7 @@ export namespace EntityTypeSort {
     ResaleAuthorizationSort?: never;
     MachineLearningProductSort?: never;
     OfferSetSort?: never;
+    ExpressPrivateOfferConfigurationSort?: never;
     $unknown?: never;
   }
 
@@ -3057,6 +3180,7 @@ export namespace EntityTypeSort {
     ResaleAuthorizationSort?: never;
     MachineLearningProductSort?: never;
     OfferSetSort?: never;
+    ExpressPrivateOfferConfigurationSort?: never;
     $unknown?: never;
   }
 
@@ -3073,6 +3197,7 @@ export namespace EntityTypeSort {
     ResaleAuthorizationSort: ResaleAuthorizationSort;
     MachineLearningProductSort?: never;
     OfferSetSort?: never;
+    ExpressPrivateOfferConfigurationSort?: never;
     $unknown?: never;
   }
 
@@ -3089,6 +3214,7 @@ export namespace EntityTypeSort {
     ResaleAuthorizationSort?: never;
     MachineLearningProductSort: MachineLearningProductSort;
     OfferSetSort?: never;
+    ExpressPrivateOfferConfigurationSort?: never;
     $unknown?: never;
   }
 
@@ -3105,6 +3231,24 @@ export namespace EntityTypeSort {
     ResaleAuthorizationSort?: never;
     MachineLearningProductSort?: never;
     OfferSetSort: OfferSetSort;
+    ExpressPrivateOfferConfigurationSort?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A sort for express private offer configurations.</p>
+   * @public
+   */
+  export interface ExpressPrivateOfferConfigurationSortMember {
+    DataProductSort?: never;
+    SaaSProductSort?: never;
+    AmiProductSort?: never;
+    OfferSort?: never;
+    ContainerProductSort?: never;
+    ResaleAuthorizationSort?: never;
+    MachineLearningProductSort?: never;
+    OfferSetSort?: never;
+    ExpressPrivateOfferConfigurationSort: ExpressPrivateOfferConfigurationSort;
     $unknown?: never;
   }
 
@@ -3120,6 +3264,7 @@ export namespace EntityTypeSort {
     ResaleAuthorizationSort?: never;
     MachineLearningProductSort?: never;
     OfferSetSort?: never;
+    ExpressPrivateOfferConfigurationSort?: never;
     $unknown: [string, any];
   }
 
@@ -3136,6 +3281,7 @@ export namespace EntityTypeSort {
     ResaleAuthorizationSort: (value: ResaleAuthorizationSort) => T;
     MachineLearningProductSort: (value: MachineLearningProductSort) => T;
     OfferSetSort: (value: OfferSetSort) => T;
+    ExpressPrivateOfferConfigurationSort: (value: ExpressPrivateOfferConfigurationSort) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3252,6 +3398,34 @@ export interface DataProductSummary {
    * @public
    */
   Visibility?: DataProductVisibilityString | undefined;
+}
+
+/**
+ * <p>Summarized information about an express private offer configuration.</p>
+ * @public
+ */
+export interface ExpressPrivateOfferConfigurationSummary {
+  /**
+   * <p>The product ID associated with the express private offer configuration.</p>
+   * @public
+   */
+  ProductId?: string | undefined;
+
+  /**
+   * <p>The state of the express private offer configuration. Valid values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> – The configuration is active and you can use it to generate offers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INACTIVE</code> – The configuration is deprecated or deleted.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: ExpressPrivateOfferConfigurationStateString | undefined;
 }
 
 /**
@@ -3588,6 +3762,12 @@ export interface EntitySummary {
    * @public
    */
   OfferSetSummary?: OfferSetSummary | undefined;
+
+  /**
+   * <p>An object that contains summary information about the express private offer configuration.</p>
+   * @public
+   */
+  ExpressPrivateOfferConfigurationSummary?: ExpressPrivateOfferConfigurationSummary | undefined;
 }
 
 /**

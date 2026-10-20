@@ -164,6 +164,20 @@ export type DataProductVisibilityString =
  * @public
  * @enum
  */
+export const ExpressPrivateOfferConfigurationStateString = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+/**
+ * @public
+ */
+export type ExpressPrivateOfferConfigurationStateString =
+  (typeof ExpressPrivateOfferConfigurationStateString)[keyof typeof ExpressPrivateOfferConfigurationStateString];
+
+/**
+ * @public
+ * @enum
+ */
 export const MachineLearningProductVisibilityString = {
   Draft: "Draft",
   Limited: "Limited",
@@ -318,6 +332,22 @@ export const DataProductSortBy = {
  * @public
  */
 export type DataProductSortBy = (typeof DataProductSortBy)[keyof typeof DataProductSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExpressPrivateOfferConfigurationSortBy = {
+  EntityId: "EntityId",
+  LastModifiedDate: "LastModifiedDate",
+  ProductId: "ProductId",
+  State: "State",
+} as const;
+/**
+ * @public
+ */
+export type ExpressPrivateOfferConfigurationSortBy =
+  (typeof ExpressPrivateOfferConfigurationSortBy)[keyof typeof ExpressPrivateOfferConfigurationSortBy];
 
 /**
  * @public

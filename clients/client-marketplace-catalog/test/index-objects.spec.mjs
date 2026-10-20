@@ -79,6 +79,14 @@ import {
   EntityTypeSort$,
   ErrorDetail$,
   ErrorScope$,
+  ExpressPrivateOfferConfigurationEntityIdFilter$,
+  ExpressPrivateOfferConfigurationFilters$,
+  ExpressPrivateOfferConfigurationProductIdFilter$,
+  ExpressPrivateOfferConfigurationSort$,
+  ExpressPrivateOfferConfigurationSortBy,
+  ExpressPrivateOfferConfigurationStateFilter$,
+  ExpressPrivateOfferConfigurationStateString,
+  ExpressPrivateOfferConfigurationSummary$,
   FailureCode,
   Filter$,
   FrameworkFilters$,
@@ -325,6 +333,12 @@ assert(typeof EntityTypeFilters$ === "object");
 assert(typeof EntityTypeSort$ === "object");
 assert(typeof ErrorDetail$ === "object");
 assert(typeof ErrorScope$ === "object");
+assert(typeof ExpressPrivateOfferConfigurationEntityIdFilter$ === "object");
+assert(typeof ExpressPrivateOfferConfigurationFilters$ === "object");
+assert(typeof ExpressPrivateOfferConfigurationProductIdFilter$ === "object");
+assert(typeof ExpressPrivateOfferConfigurationSort$ === "object");
+assert(typeof ExpressPrivateOfferConfigurationStateFilter$ === "object");
+assert(typeof ExpressPrivateOfferConfigurationSummary$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof FrameworkFilters$ === "object");
 assert(typeof FrameworkSummary$ === "object");
@@ -429,6 +443,8 @@ assert(typeof ContainerProductVisibilityString === "object");
 assert(typeof ControlAssessmentResult === "object");
 assert(typeof DataProductSortBy === "object");
 assert(typeof DataProductVisibilityString === "object");
+assert(typeof ExpressPrivateOfferConfigurationSortBy === "object");
+assert(typeof ExpressPrivateOfferConfigurationStateString === "object");
 assert(typeof FailureCode === "object");
 assert(typeof Intent === "object");
 assert(typeof MachineLearningProductSortBy === "object");

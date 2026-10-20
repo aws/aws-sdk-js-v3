@@ -100,6 +100,12 @@ const _EI = "EntityId";
 const _EIL = "EntityIdList";
 const _EIn = "EntityIdentifier";
 const _EM = "ErrorMessage";
+const _EPOCEIF = "ExpressPrivateOfferConfigurationEntityIdFilter";
+const _EPOCF = "ExpressPrivateOfferConfigurationFilters";
+const _EPOCPIF = "ExpressPrivateOfferConfigurationProductIdFilter";
+const _EPOCS = "ExpressPrivateOfferConfigurationSummary";
+const _EPOCSF = "ExpressPrivateOfferConfigurationStateFilter";
+const _EPOCSx = "ExpressPrivateOfferConfigurationSort";
 const _ER = "EntityRequest";
 const _ERL = "EntityRequestList";
 const _ES = "EntitySummary";
@@ -633,8 +639,8 @@ export var EntityRequest$: StaticStructureSchema = [3, n0, _ER,
 ];
 export var EntitySummary$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_N, _ETnt, _EI, _EAn, _LMD, _V, _APSm, _CPSo, _DPSa, _SSPS, _OS, _RAS, _MLPS, _OSS],
-  [0, 0, 0, 0, 0, 0, () => AmiProductSummary$, () => ContainerProductSummary$, () => DataProductSummary$, () => SaaSProductSummary$, () => OfferSummary$, () => ResaleAuthorizationSummary$, () => MachineLearningProductSummary$, () => OfferSetSummary$]
+  [_N, _ETnt, _EI, _EAn, _LMD, _V, _APSm, _CPSo, _DPSa, _SSPS, _OS, _RAS, _MLPS, _OSS, _EPOCS],
+  [0, 0, 0, 0, 0, 0, () => AmiProductSummary$, () => ContainerProductSummary$, () => DataProductSummary$, () => SaaSProductSummary$, () => OfferSummary$, () => ResaleAuthorizationSummary$, () => MachineLearningProductSummary$, () => OfferSetSummary$, () => ExpressPrivateOfferConfigurationSummary$]
 ];
 export var ErrorDetail$: StaticStructureSchema = [3, n0, _EDr,
   0,
@@ -644,6 +650,36 @@ export var ErrorDetail$: StaticStructureSchema = [3, n0, _EDr,
 export var ErrorScope$: StaticStructureSchema = [3, n0, _ESr,
   0,
   [_N, _Va],
+  [0, 0]
+];
+export var ExpressPrivateOfferConfigurationEntityIdFilter$: StaticStructureSchema = [3, n0, _EPOCEIF,
+  0,
+  [_VL],
+  [64 | 0]
+];
+export var ExpressPrivateOfferConfigurationFilters$: StaticStructureSchema = [3, n0, _EPOCF,
+  0,
+  [_EI, _PI, _St],
+  [() => ExpressPrivateOfferConfigurationEntityIdFilter$, () => ExpressPrivateOfferConfigurationProductIdFilter$, () => ExpressPrivateOfferConfigurationStateFilter$]
+];
+export var ExpressPrivateOfferConfigurationProductIdFilter$: StaticStructureSchema = [3, n0, _EPOCPIF,
+  0,
+  [_VL],
+  [64 | 0]
+];
+export var ExpressPrivateOfferConfigurationSort$: StaticStructureSchema = [3, n0, _EPOCSx,
+  0,
+  [_SB, _SO],
+  [0, 0]
+];
+export var ExpressPrivateOfferConfigurationStateFilter$: StaticStructureSchema = [3, n0, _EPOCSF,
+  0,
+  [_VL],
+  [64 | 0]
+];
+export var ExpressPrivateOfferConfigurationSummary$: StaticStructureSchema = [3, n0, _EPOCS,
+  0,
+  [_PI, _St],
   [0, 0]
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
@@ -1142,6 +1178,9 @@ var ErrorDetailList: StaticListSchema = [1, n0, _EDL,
 var ErrorScopeList: StaticListSchema = [1, n0, _ESLr,
   0, () => ErrorScope$
 ];
+var ExpressPrivateOfferConfigurationEntityIdFilterValueList = 64 | 0;
+var ExpressPrivateOfferConfigurationProductIdFilterValueList = 64 | 0;
+var ExpressPrivateOfferConfigurationStateFilterValueList = 64 | 0;
 var FilterList: StaticListSchema = [1, n0, _FL,
   0, () => Filter$
 ];
@@ -1204,13 +1243,13 @@ var Errors: StaticMapSchema = [2, n0, _E,
 ];
 export var EntityTypeFilters$: StaticUnionSchema = [4, n0, _ETF,
   0,
-  [_DPF, _SSPF, _APF, _OF, _CPF, _RAF, _MLPF, _OSF],
-  [() => DataProductFilters$, () => SaaSProductFilters$, () => AmiProductFilters$, () => OfferFilters$, () => ContainerProductFilters$, () => ResaleAuthorizationFilters$, () => MachineLearningProductFilters$, () => OfferSetFilters$]
+  [_DPF, _SSPF, _APF, _OF, _CPF, _RAF, _MLPF, _OSF, _EPOCF],
+  [() => DataProductFilters$, () => SaaSProductFilters$, () => AmiProductFilters$, () => OfferFilters$, () => ContainerProductFilters$, () => ResaleAuthorizationFilters$, () => MachineLearningProductFilters$, () => OfferSetFilters$, () => ExpressPrivateOfferConfigurationFilters$]
 ];
 export var EntityTypeSort$: StaticUnionSchema = [4, n0, _ETS,
   0,
-  [_DPS, _SSPSa, _APS, _OSf, _CPS, _RASe, _MLPSa, _OSSf],
-  [() => DataProductSort$, () => SaaSProductSort$, () => AmiProductSort$, () => OfferSort$, () => ContainerProductSort$, () => ResaleAuthorizationSort$, () => MachineLearningProductSort$, () => OfferSetSort$]
+  [_DPS, _SSPSa, _APS, _OSf, _CPS, _RASe, _MLPSa, _OSSf, _EPOCSx],
+  [() => DataProductSort$, () => SaaSProductSort$, () => AmiProductSort$, () => OfferSort$, () => ContainerProductSort$, () => ResaleAuthorizationSort$, () => MachineLearningProductSort$, () => OfferSetSort$, () => ExpressPrivateOfferConfigurationSort$]
 ];
 export var FrameworkFilters$: StaticUnionSchema = [4, n0, _FF,
   0,
