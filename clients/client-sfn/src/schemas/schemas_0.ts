@@ -211,6 +211,7 @@ const _TSFEDa = "TaskSubmitFailedEventDetails";
 const _TSI = "TestStateInput";
 const _TSO = "TestStateOutput";
 const _TSSN = "TestStateStateName";
+const _TT = "TaskToken";
 const _TTO = "TaskTimedOut";
 const _TTOED = "TaskTimedOutEventDetails";
 const _UMR = "UpdateMapRun";
@@ -703,6 +704,7 @@ var SensitiveCause: StaticSimpleSchema = [0, n0, _SC, 8, 0];
 var SensitiveData: StaticSimpleSchema = [0, n0, _SD, 8, 0];
 var SensitiveDataJobInput: StaticSimpleSchema = [0, n0, _SDJI, 8, 0];
 var SensitiveError: StaticSimpleSchema = [0, n0, _SE, 8, 0];
+var TaskToken: StaticSimpleSchema = [0, n0, _TT, 8, 0];
 var TestStateStateName: StaticSimpleSchema = [0, n0, _TSSN, 8, 0];
 var ValidateStateMachineDefinitionCode: StaticSimpleSchema = [0, n0, _VSMDC, 8, 0];
 var ValidateStateMachineDefinitionLocation: StaticSimpleSchema = [0, n0, _VSMDL, 8, 0];
@@ -948,7 +950,7 @@ export var GetActivityTaskInput$: StaticStructureSchema = [3, n0, _GATI,
 export var GetActivityTaskOutput$: StaticStructureSchema = [3, n0, _GATO,
   0,
   [_tT, _i],
-  [0, [() => SensitiveDataJobInput, 0]]
+  [[() => TaskToken, 0], [() => SensitiveDataJobInput, 0]]
 ];
 export var GetExecutionHistoryInput$: StaticStructureSchema = [3, n0, _GEHI,
   0,
@@ -1178,7 +1180,7 @@ export var RoutingConfigurationListItem$: StaticStructureSchema = [3, n0, _RCLI,
 export var SendTaskFailureInput$: StaticStructureSchema = [3, n0, _STFI,
   0,
   [_tT, _e, _ca],
-  [0, [() => SensitiveError, 0], [() => SensitiveCause, 0]], 1
+  [[() => TaskToken, 0], [() => SensitiveError, 0], [() => SensitiveCause, 0]], 1
 ];
 export var SendTaskFailureOutput$: StaticStructureSchema = [3, n0, _STFO,
   0,
@@ -1188,7 +1190,7 @@ export var SendTaskFailureOutput$: StaticStructureSchema = [3, n0, _STFO,
 export var SendTaskHeartbeatInput$: StaticStructureSchema = [3, n0, _STHI,
   0,
   [_tT],
-  [0], 1
+  [[() => TaskToken, 0]], 1
 ];
 export var SendTaskHeartbeatOutput$: StaticStructureSchema = [3, n0, _STHO,
   0,
@@ -1198,7 +1200,7 @@ export var SendTaskHeartbeatOutput$: StaticStructureSchema = [3, n0, _STHO,
 export var SendTaskSuccessInput$: StaticStructureSchema = [3, n0, _STSI,
   0,
   [_tT, _o],
-  [0, [() => SensitiveData, 0]], 2
+  [[() => TaskToken, 0], [() => SensitiveData, 0]], 2
 ];
 export var SendTaskSuccessOutput$: StaticStructureSchema = [3, n0, _STSO,
   0,
