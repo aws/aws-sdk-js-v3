@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1155.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1154.0...v3.1155.0) (2026-10-21)
+
+
+### Features
+
+* **client-auto-scaling:** EC2 Auto Scaling now supports account settings, letting you manage account-level configuration for Auto Scaling. ([d0cdb39](https://github.com/aws/aws-sdk-js-v3/commit/d0cdb3960ad0f9178bbd3424f64a2f67bc4c981d))
+* **client-connect:** Added support for AWS-managed security profiles. ([04f0c0b](https://github.com/aws/aws-sdk-js-v3/commit/04f0c0b5b605a7e946574df2a8b75609c97ed012))
+* **client-datazone:** Added custom designations support with new CRUD APIs. The designation field in project membership and policy grant APIs supports a new enum for custom designations. These APIs also support a new field for custom designation id. ([1002156](https://github.com/aws/aws-sdk-js-v3/commit/10021565d106f6d0beba65301a848c85de4e7b41))
+* **client-devops-agent:** Adds support for Microsoft Teams as a notification service. Associations can now be created and updated with a Microsoft Teams team and channel configuration using the DevOps Agent API and SDKs. ([c5d8365](https://github.com/aws/aws-sdk-js-v3/commit/c5d8365175b93e38932d1aad1e07bed07a1b3641))
+* **client-ec2:** Adds new response fields to DescribeInstanceStatus and Network Insights analysis results. ([8e37969](https://github.com/aws/aws-sdk-js-v3/commit/8e3796951062c3771c28ae881296628ae483d70b))
+* **client-healthlake:** Update the UpdateProfileWithAgent API to return a streaming response to provide more frequent updates on what the agent is doing. ([c2730b3](https://github.com/aws/aws-sdk-js-v3/commit/c2730b304f9e2413e3a8bf24a88e1d829defaf43))
+* **client-lex-models-v2:** Adds support for Assisted NLU - Dialog Manager mode allowing usage of LLMs as the default NLU system and dialog management ([671f212](https://github.com/aws/aws-sdk-js-v3/commit/671f2125f9e2b1a6391ed6617d38320526262a45))
+* **client-lightsail:** This release adds support for metrics related to system-disk performance. ([d21dd9d](https://github.com/aws/aws-sdk-js-v3/commit/d21dd9d963b0cfb5b7d502fdc71618f99498b451))
+* **client-mediaconvert:** Adds AV1 CBR rate control and scene change detection. New sliding window peak bitrate setting for all codecs. DASH adaptation set grouping update. Option to disable the AV1 perceptual quality filter. Support for vertical (portrait) AV1 encoding. ([7e0a426](https://github.com/aws/aws-sdk-js-v3/commit/7e0a4261ef68fd7ece5dcdcf9c4a674ad4ab27d2))
+* **client-network-firewall:** Adds support for Network Firewall Resolved IP validation. ([6a63436](https://github.com/aws/aws-sdk-js-v3/commit/6a6343601e54cdd8fba0f9e6f5125e819722c0de))
+* **client-polly:** Added support for the new voices - Kenneth (en-US), Nate (en-US), Tina (de-DE), Carlos (es-US), Carolina (pt-BR), Leo (pt-BR), Curtis (en-AU), Kiara (en-IN), Arjun (en-IN) and Hyunduk (ko-KR). They are available as a Generative voices only. ([4494f47](https://github.com/aws/aws-sdk-js-v3/commit/4494f473533076ef6ce315ed468028efe1eb717e))
+* **client-quicksight:** Adds support for SharePoint and OneDrive two-legged OAuth certificate credentials and Google Workspace service account credentials when creating data sources ([d0d47ac](https://github.com/aws/aws-sdk-js-v3/commit/d0d47ac9e51ccff5e8d4a39220648e964c9a7e6b))
+* **client-redshift-data:** Add Redshift QueryUUID field to DescribeStatement response ([6a328ab](https://github.com/aws/aws-sdk-js-v3/commit/6a328ab71b031e567f249eae1995cdc5f1d9d4d4))
+* **client-sfn:** Release minor updates to API model ([6bb8593](https://github.com/aws/aws-sdk-js-v3/commit/6bb8593f440b172dd52eb92f05403edd91d28b4e))
+* **dynamodb:** add batch get item paginators for low level and document client ([#8340](https://github.com/aws/aws-sdk-js-v3/issues/8340)) ([8ec1336](https://github.com/aws/aws-sdk-js-v3/commit/8ec1336271054aa9c9e31233e53145b970e1164d))
+* **lib-dynamodb:** expose transact write item types ([#8334](https://github.com/aws/aws-sdk-js-v3/issues/8334)) ([2fdb917](https://github.com/aws/aws-sdk-js-v3/commit/2fdb917af4e8720bac65ef39c98ae350908d4744))
+* **lib-transfer-manager:** add featureId tracking for TM ([#8367](https://github.com/aws/aws-sdk-js-v3/issues/8367)) ([edb912d](https://github.com/aws/aws-sdk-js-v3/commit/edb912d5b2f6ca25f82d6c7756a90bde04be5564))
+
+
+
+
+
 # [3.1154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1153.0...v3.1154.0) (2026-10-20)
 
 

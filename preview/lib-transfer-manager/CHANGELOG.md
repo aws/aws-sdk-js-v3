@@ -12,6 +12,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 0.2.0 (2026-10-21)
+### Features
+* **lib-transfer-manager:** add featureId tracking for TM ([#8367](https://github.com/aws/aws-sdk-js-v3/issues/8367)) ([edb912d](https://github.com/aws/aws-sdk-js-v3/commit/edb912d5b2f6ca25f82d6c7756a90bde04be5564))
+### Chores
+* **codegen:** sync for JSON string serializer buffer fix and retryMode docs link ([#8373](https://github.com/aws/aws-sdk-js-v3/issues/8373)) ([5f53137](https://github.com/aws/aws-sdk-js-v3/commit/5f53137d303161693250579a6a6dd3c501655276))
+
+
+
 # 0.1.1 (2026-10-15)
 ### Chores
 * **codegen:** sync for JSON codec and schema server plugin ([#8353](https://github.com/aws/aws-sdk-js-v3/issues/8353)) ([3e350b5](https://github.com/aws/aws-sdk-js-v3/commit/3e350b59848e2bffcfe4d34a628e7adc136a6a55))

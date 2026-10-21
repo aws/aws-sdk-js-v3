@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/weather",
-  "version": "3.1154.0",
+  "version": "3.1155.0",
   "private": true,
   "description": "@aws-sdk/weather client",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/weather",
@@ -46,9 +46,9 @@
     "test:watch": "yarn g:vitest watch --passWithNoTests"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.978.4",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.87",
-    "@aws-sdk/types": "workspace:^3.974.6",
+    "@aws-sdk/core": "workspace:^3.978.5",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.88",
+    "@aws-sdk/types": "workspace:^3.975.0",
     "@smithy/core": "^3.36.1",
     "@smithy/experimental-identity-and-auth": "^0.8.2",
     "@smithy/fetch-http-handler": "^5.8.0",

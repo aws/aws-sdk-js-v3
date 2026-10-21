@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/core",
-  "version": "3.978.4",
+  "version": "3.978.5",
   "description": "Core functions & classes shared by multiple AWS SDK clients.",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/core",
   "license": "Apache-2.0",
@@ -124,7 +124,7 @@
     "test:temp:retry": "SMITHY_NEW_RETRIES_2026=true node ./integ/retry.integ.spec && AWS_NEW_RETRIES_2026=true node ./integ/retry.integ.spec && node ./integ/retry.integ.spec"
   },
   "dependencies": {
-    "@aws-sdk/types": "workspace:^3.974.6",
+    "@aws-sdk/types": "workspace:^3.975.0",
     "@aws-sdk/xml-builder": "workspace:^3.972.41",
     "@aws/lambda-invoke-store": "^0.3.0",
     "@smithy/core": "^3.36.1",
