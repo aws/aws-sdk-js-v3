@@ -18,13 +18,14 @@ import {
   NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS,
   resolveDefaultsModeConfig,
 } from "@smithy/core/config";
+import { eventStreamSerdeProvider } from "@smithy/core/event-streams";
 import {
   DEFAULT_RETRY_MODE,
   NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
   NODE_RETRY_MODE_CONFIG_OPTIONS,
 } from "@smithy/core/retry";
 import { calculateBodyLength } from "@smithy/core/serde";
-import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
+import { NodeHttp2Handler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
 
 import type { HealthLakeClientConfig } from "./HealthLakeClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
@@ -51,12 +52,16 @@ export const getRuntimeConfig = (config: HealthLakeClientConfig) => {
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
+    eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
     region: config?.region ?? loadNodeConfig(
         NODE_REGION_CONFIG_OPTIONS,
         {...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig}
     ),
-    requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
+    requestHandler: RequestHandler.create(config?.requestHandler ?? (async () => ({
+      ...await defaultConfigProvider(),
+      disableConcurrentStreams: true
+    }))),
     retryMode:
       config?.retryMode ??
       loadNodeConfig(

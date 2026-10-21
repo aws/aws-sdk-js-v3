@@ -1,9 +1,8 @@
 const _AC = "AnalyticsConfiguration";
 const _ADE = "AccessDeniedException";
 const _AIM = "AgentInputMessage";
-const _AMOOCE = "AgentMessageOutOfContextException";
 const _AMS = "AgentMessageString";
-const _AOM = "AgentOutputMessage";
+const _AOMS = "AgentOutputMessageStream";
 const _AR = "AgentResponse";
 const _AS = "AuthorizationStrategy";
 const _B = "Body";
@@ -27,7 +26,6 @@ const _CFHIRD = "CreateFHIRDatastore";
 const _CFHIRDR = "CreateFHIRDatastoreRequest";
 const _CFHIRDRr = "CreateFHIRDatastoreResponse";
 const _CI = "ConversationId";
-const _CNFE = "ConversationNotFoundException";
 const _CT = "ClientToken";
 const _CTm = "CmkType";
 const _DA = "DatastoreArn";
@@ -69,11 +67,14 @@ const _DTPVS = "DataTransformationProfileVersionSummary";
 const _DTPVSL = "DataTransformationProfileVersionSummaryList";
 const _DTSC = "DataTransformationS3Configuration";
 const _DTV = "DatastoreTypeVersion";
+const _E = "Error";
 const _EC = "ErrorCause";
 const _ECr = "ErrorCategory";
+const _EE = "ErrorEvent";
 const _EJP = "ExportJobProperties";
 const _EJPL = "ExportJobPropertiesList";
 const _EM = "ErrorMessage";
+const _EOOE = "EndOfOutputEvent";
 const _ERP = "EarliestRestorePoint";
 const _ET = "EndTime";
 const _EVPI = "ExistingVersionedProfileId";
@@ -82,9 +83,11 @@ const _F = "Filter";
 const _FDE = "FailedDependencyException";
 const _FEV = "FromExistingVersion";
 const _FGAE = "FineGrainedAuthorizationEnabled";
+const _FRM = "FinalResponseMessage";
 const _GDTP = "GetDataTransformationProfile";
 const _GDTPR = "GetDataTransformationProfileRequest";
 const _GDTPRe = "GetDataTransformationProfileResponse";
+const _HE = "HeartbeatEvent";
 const _I = "Items";
 const _IDC = "InputDataConfig";
 const _IF = "InputFormat";
@@ -129,10 +132,9 @@ const _M = "Message";
 const _MR = "MaxResults";
 const _Me = "Metadata";
 const _NC = "NlpConfiguration";
-const _NIOE = "NotImplementedOperationException";
 const _NT = "NextToken";
+const _O = "Options";
 const _ODC = "OutputDataConfig";
-const _OL = "OptionsList";
 const _PC = "ProfileConfiguration";
 const _PD = "ProfileDescription";
 const _PDC = "PreloadDataConfig";
@@ -140,7 +142,8 @@ const _PDT = "PreloadDataType";
 const _PDTP = "PublishDataTransformationProfile";
 const _PDTPR = "PublishDataTransformationProfileRequest";
 const _PDTPRu = "PublishDataTransformationProfileResponse";
-const _PE = "ProvenanceEnabled";
+const _PE = "ProgressEvent";
+const _PEr = "ProvenanceEnabled";
 const _PI = "ProfileId";
 const _PM = "ProfileMapping";
 const _PMS = "ProfileMappingSource";
@@ -193,6 +196,7 @@ const _TJS = "TransformationJobSummary";
 const _TJSL = "TransformationJobSummaryList";
 const _TK = "TagKeys";
 const _TL = "TagList";
+const _TME = "TextMessageEvent";
 const _TNOFRWCE = "TotalNumberOfFilesReadWithCustomerError";
 const _TNOIF = "TotalNumberOfImportedFiles";
 const _TNOINFF = "TotalNumberOfImportedNonFhirFiles";
@@ -218,11 +222,9 @@ const _Th = "Throughput";
 const _UDTP = "UpdateDataTransformationProfile";
 const _UDTPR = "UpdateDataTransformationProfileRequest";
 const _UDTPRp = "UpdateDataTransformationProfileResponse";
-const _UE = "UnauthorizedException";
 const _UFHIRD = "UpdateFHIRDatastore";
 const _UFHIRDR = "UpdateFHIRDatastoreRequest";
 const _UFHIRDRp = "UpdateFHIRDatastoreResponse";
-const _UMIMETE = "UnsupportedMIMETypeException";
 const _UPWA = "UpdateProfileWithAgent";
 const _UPWAR = "UpdateProfileWithAgentRequest";
 const _UPWARp = "UpdateProfileWithAgentResponse";
@@ -248,6 +250,7 @@ const _sA = "submittedAfter";
 const _sB = "submittedBefore";
 const _sF = "sourceFormat";
 const _se = "server";
+const _st = "streaming";
 const _v = "version";
 const n0 = "com.amazonaws.healthlake";
 
@@ -265,17 +268,12 @@ import type {
 
 import {
   AccessDeniedException,
-  AgentMessageOutOfContextException,
   ConflictException,
-  ConversationNotFoundException,
   FailedDependencyException,
   InternalServerException,
-  NotImplementedOperationException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   ThrottlingException,
-  UnauthorizedException,
-  UnsupportedMIMETypeException,
   ValidationException,
 } from "../models/errors";
 import { HealthLakeServiceException } from "../models/HealthLakeServiceException";
@@ -291,24 +289,12 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   [0]
 ];
 n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
-export var AgentMessageOutOfContextException$: StaticErrorSchema = [-3, n0, _AMOOCE,
-  { [_e]: _c },
-  [_M],
-  [0], 1
-];
-n0_registry.registerError(AgentMessageOutOfContextException$, AgentMessageOutOfContextException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
   [0]
 ];
 n0_registry.registerError(ConflictException$, ConflictException);
-export var ConversationNotFoundException$: StaticErrorSchema = [-3, n0, _CNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0], 1
-];
-n0_registry.registerError(ConversationNotFoundException$, ConversationNotFoundException);
 export var FailedDependencyException$: StaticErrorSchema = [-3, n0, _FDE,
   { [_e]: _c, [_hE]: 424 },
   [_M],
@@ -321,12 +307,6 @@ export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   [0]
 ];
 n0_registry.registerError(InternalServerException$, InternalServerException);
-export var NotImplementedOperationException$: StaticErrorSchema = [-3, n0, _NIOE,
-  { [_e]: _se, [_hE]: 501 },
-  [_M],
-  [0], 1
-];
-n0_registry.registerError(NotImplementedOperationException$, NotImplementedOperationException);
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M],
@@ -345,18 +325,6 @@ export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   [0]
 ];
 n0_registry.registerError(ThrottlingException$, ThrottlingException);
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_M],
-  [0], 1
-];
-n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
-export var UnsupportedMIMETypeException$: StaticErrorSchema = [-3, n0, _UMIMETE,
-  { [_e]: _c, [_hE]: 415 },
-  [_M],
-  [0], 1
-];
-n0_registry.registerError(UnsupportedMIMETypeException$, UnsupportedMIMETypeException);
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
@@ -378,11 +346,6 @@ export var AgentInputMessage$: StaticStructureSchema = [3, n0, _AIM,
   0,
   [_B, _T],
   [[() => AgentMessageString, 0], 0], 2
-];
-export var AgentOutputMessage$: StaticStructureSchema = [3, n0, _AOM,
-  0,
-  [_B, _T, _OL],
-  [[() => AgentMessageString, 0], 0, [() => DataTransformationChatOptionsList, 0]], 2
 ];
 export var AnalyticsConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
@@ -509,10 +472,20 @@ export var DescribeFHIRImportJobResponse$: StaticStructureSchema = [3, n0, _DFHI
   [_IJP],
   [() => ImportJobProperties$], 1
 ];
+export var EndOfOutputEvent$: StaticStructureSchema = [3, n0, _EOOE,
+  0,
+  [_FRM, _O, _CI],
+  [[() => AgentMessageString, 0], [() => DataTransformationChatOptionsList, 0], 0], 1
+];
 export var ErrorCause$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_EM, _ECr],
   [0, 0]
+];
+export var ErrorEvent$: StaticStructureSchema = [3, n0, _EE,
+  0,
+  [_E, _M],
+  [0, [() => AgentMessageString, 0]], 2
 ];
 export var ExistingVersionedProfileSource$: StaticStructureSchema = [3, n0, _EVPS,
   0,
@@ -533,6 +506,11 @@ export var GetDataTransformationProfileResponse$: StaticStructureSchema = [3, n0
   0,
   [_PI, _V, _SF, _TF, _PM, _LUA, _PN, _PD, _CD],
   [0, 1, 0, 0, [() => ProfileMapping, 0], 4, 0, 0, 0], 6
+];
+export var HeartbeatEvent$: StaticStructureSchema = [3, n0, _HE,
+  0,
+  [],
+  []
 ];
 export var IdentityProviderConfiguration$: StaticStructureSchema = [3, n0, _IPC,
   0,
@@ -644,6 +622,11 @@ export var ProfileMappingSource$: StaticStructureSchema = [3, n0, _PMS,
   [_PM],
   [128 | 0], 1
 ];
+export var ProgressEvent$: StaticStructureSchema = [3, n0, _PE,
+  0,
+  [_M],
+  [[() => AgentMessageString, 0]], 1
+];
 export var PublishDataTransformationProfileRequest$: StaticStructureSchema = [3, n0, _PDTPR,
   0,
   [_PI, _SF, _FEV, _CD],
@@ -681,7 +664,7 @@ export var SseConfiguration$: StaticStructureSchema = [3, n0, _SC,
 ];
 export var StartDataTransformationJobRequest$: StaticStructureSchema = [3, n0, _SDTJR,
   0,
-  [_IDC, _ODC, _DARA, _CT, _PI, _JN, _DDE, _PE],
+  [_IDC, _ODC, _DARA, _CT, _PI, _JN, _DDE, _PEr],
   [() => TransformationInputDataConfig$, () => TransformationOutputDataConfig$, 0, 0, 0, 0, 2, 2], 5
 ];
 export var StartDataTransformationJobResponse$: StaticStructureSchema = [3, n0, _SDTJRt,
@@ -706,7 +689,7 @@ export var StartFHIRExportJobResponse$: StaticStructureSchema = [3, n0, _SFHIREJ
 ];
 export var StartFHIRImportJobRequest$: StaticStructureSchema = [3, n0, _SFHIRIJR,
   0,
-  [_IDC, _JODC, _DI, _DARA, _JN, _CT, _VL, _PI, _IF, _DDE, _PE],
+  [_IDC, _JODC, _DI, _DARA, _JN, _CT, _VL, _PI, _IF, _DDE, _PEr],
   [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, [0, 4], 0, 0, 0, 2, 2], 4
 ];
 export var StartFHIRImportJobResponse$: StaticStructureSchema = [3, n0, _SFHIRIJRt,
@@ -729,6 +712,11 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
+export var TextMessageEvent$: StaticStructureSchema = [3, n0, _TME,
+  0,
+  [_M],
+  [[() => AgentMessageString, 0]], 1
+];
 export var TransformationInputDataConfig$: StaticStructureSchema = [3, n0, _TIDC,
   0,
   [_SU, _SF],
@@ -741,7 +729,7 @@ export var TransformationJobProgressReport$: StaticStructureSchema = [3, n0, _TJ
 ];
 export var TransformationJobProperties$: StaticStructureSchema = [3, n0, _TJP,
   0,
-  [_JI, _JS, _IDC, _ODC, _DARA, _ST, _JN, _PI, _PN, _PV, _ET, _DDE, _PE, _M, _JPR],
+  [_JI, _JS, _IDC, _ODC, _DARA, _ST, _JN, _PI, _PN, _PV, _ET, _DDE, _PEr, _M, _JPR],
   [0, 0, () => TransformationInputDataConfig$, () => TransformationOutputDataConfig$, 0, 4, 0, 0, 0, 1, 4, 2, 2, 0, () => TransformationJobProgressReport$], 6
 ];
 export var TransformationJobSummary$: StaticStructureSchema = [3, n0, _TJS,
@@ -786,13 +774,13 @@ export var UpdateFHIRDatastoreResponse$: StaticStructureSchema = [3, n0, _UFHIRD
 ];
 export var UpdateProfileWithAgentRequest$: StaticStructureSchema = [3, n0, _UPWAR,
   0,
-  [_PI, _SF, _IM, _CI],
-  [0, 0, [() => AgentInputMessage$, 0], 0], 3
+  [_PI, _IM, _CI],
+  [0, [() => AgentInputMessage$, 0], 0], 2
 ];
 export var UpdateProfileWithAgentResponse$: StaticStructureSchema = [3, n0, _UPWARp,
   0,
-  [_AR, _CI],
-  [[() => AgentOutputMessage$, 0], 0], 2
+  [_AR],
+  [[() => AgentOutputMessageStream$, 16]], 1
 ];
 var DatastorePropertiesList: StaticListSchema = [1, n0, _DPL,
   0, () => DatastoreProperties$
@@ -826,6 +814,11 @@ var ProfileMapping: StaticMapSchema = [2, n0, _PM,
 ];
 var StringMap = 128 | 0;
 var TagMap = 128 | 0;
+export var AgentOutputMessageStream$: StaticUnionSchema = [4, n0, _AOMS,
+  { [_st]: 1 },
+  [_TME, _PE, _HE, _EE, _EOOE],
+  [[() => TextMessageEvent$, 0], [() => ProgressEvent$, 0], () => HeartbeatEvent$, [() => ErrorEvent$, 0], [() => EndOfOutputEvent$, 0]]
+];
 export var CreateDataTransformationProfileSource$: StaticUnionSchema = [4, n0, _CDTPS,
   0,
   [_SP, _EVPI, _PM, _SD],
