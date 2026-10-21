@@ -4,6 +4,7 @@ import {
   AcceleratorName,
   AcceleratorTotalMemoryMiBRequest$,
   AcceleratorType,
+  AccountSetting$,
   ActiveInstanceRefreshNotFoundFault,
   ActiveInstanceRefreshNotFoundFault$,
   ActivitiesType$,
@@ -106,6 +107,10 @@ import {
   DescribeAccountLimits$,
   DescribeAccountLimitsAnswer$,
   DescribeAccountLimitsCommand,
+  DescribeAccountSettings$,
+  DescribeAccountSettingsAnswer$,
+  DescribeAccountSettingsCommand,
+  DescribeAccountSettingsType$,
   DescribeAdjustmentTypes$,
   DescribeAdjustmentTypesAnswer$,
   DescribeAdjustmentTypesCommand,
@@ -310,6 +315,10 @@ import {
   PredictiveScalingPredefinedScalingMetric$,
   ProcessesType$,
   ProcessType$,
+  PutAccountSetting$,
+  PutAccountSettingAnswer$,
+  PutAccountSettingCommand,
+  PutAccountSettingType$,
   PutLifecycleHook$,
   PutLifecycleHookAnswer$,
   PutLifecycleHookCommand,
@@ -449,6 +458,8 @@ assert(typeof DeleteWarmPoolCommand === "function");
 assert(typeof DeleteWarmPool$ === "object");
 assert(typeof DescribeAccountLimitsCommand === "function");
 assert(typeof DescribeAccountLimits$ === "object");
+assert(typeof DescribeAccountSettingsCommand === "function");
+assert(typeof DescribeAccountSettings$ === "object");
 assert(typeof DescribeAdjustmentTypesCommand === "function");
 assert(typeof DescribeAdjustmentTypes$ === "object");
 assert(typeof DescribeAutoScalingGroupsCommand === "function");
@@ -511,6 +522,8 @@ assert(typeof GetPredictiveScalingForecastCommand === "function");
 assert(typeof GetPredictiveScalingForecast$ === "object");
 assert(typeof LaunchInstancesCommand === "function");
 assert(typeof LaunchInstances$ === "object");
+assert(typeof PutAccountSettingCommand === "function");
+assert(typeof PutAccountSetting$ === "object");
 assert(typeof PutLifecycleHookCommand === "function");
 assert(typeof PutLifecycleHook$ === "object");
 assert(typeof PutNotificationConfigurationCommand === "function");
@@ -544,6 +557,7 @@ assert(typeof UpdateAutoScalingGroup$ === "object");
 // structural schemas
 assert(typeof AcceleratorCountRequest$ === "object");
 assert(typeof AcceleratorTotalMemoryMiBRequest$ === "object");
+assert(typeof AccountSetting$ === "object");
 assert(typeof ActivitiesType$ === "object");
 assert(typeof Activity$ === "object");
 assert(typeof ActivityType$ === "object");
@@ -593,6 +607,8 @@ assert(typeof DeleteTagsType$ === "object");
 assert(typeof DeleteWarmPoolAnswer$ === "object");
 assert(typeof DeleteWarmPoolType$ === "object");
 assert(typeof DescribeAccountLimitsAnswer$ === "object");
+assert(typeof DescribeAccountSettingsAnswer$ === "object");
+assert(typeof DescribeAccountSettingsType$ === "object");
 assert(typeof DescribeAdjustmentTypesAnswer$ === "object");
 assert(typeof DescribeAutoScalingInstancesType$ === "object");
 assert(typeof DescribeAutoScalingNotificationTypesAnswer$ === "object");
@@ -695,6 +711,8 @@ assert(typeof PredictiveScalingPredefinedMetricPair$ === "object");
 assert(typeof PredictiveScalingPredefinedScalingMetric$ === "object");
 assert(typeof ProcessesType$ === "object");
 assert(typeof ProcessType$ === "object");
+assert(typeof PutAccountSettingAnswer$ === "object");
+assert(typeof PutAccountSettingType$ === "object");
 assert(typeof PutLifecycleHookAnswer$ === "object");
 assert(typeof PutLifecycleHookType$ === "object");
 assert(typeof PutNotificationConfigurationType$ === "object");

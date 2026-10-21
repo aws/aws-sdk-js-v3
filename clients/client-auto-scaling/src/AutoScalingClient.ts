@@ -123,6 +123,10 @@ import type {
   DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
 import type {
+  DescribeAccountSettingsCommandInput,
+  DescribeAccountSettingsCommandOutput,
+} from "./commands/DescribeAccountSettingsCommand";
+import type {
   DescribeAdjustmentTypesCommandInput,
   DescribeAdjustmentTypesCommandOutput,
 } from "./commands/DescribeAdjustmentTypesCommand";
@@ -222,6 +226,10 @@ import type {
   GetPredictiveScalingForecastCommandOutput,
 } from "./commands/GetPredictiveScalingForecastCommand";
 import type { LaunchInstancesCommandInput, LaunchInstancesCommandOutput } from "./commands/LaunchInstancesCommand";
+import type {
+  PutAccountSettingCommandInput,
+  PutAccountSettingCommandOutput,
+} from "./commands/PutAccountSettingCommand";
 import type { PutLifecycleHookCommandInput, PutLifecycleHookCommandOutput } from "./commands/PutLifecycleHookCommand";
 import type {
   PutNotificationConfigurationCommandInput,
@@ -302,6 +310,7 @@ export type ServiceInputTypes =
   | DeleteTagsCommandInput
   | DeleteWarmPoolCommandInput
   | DescribeAccountLimitsCommandInput
+  | DescribeAccountSettingsCommandInput
   | DescribeAdjustmentTypesCommandInput
   | DescribeAutoScalingGroupsCommandInput
   | DescribeAutoScalingInstancesCommandInput
@@ -333,6 +342,7 @@ export type ServiceInputTypes =
   | ExitStandbyCommandInput
   | GetPredictiveScalingForecastCommandInput
   | LaunchInstancesCommandInput
+  | PutAccountSettingCommandInput
   | PutLifecycleHookCommandInput
   | PutNotificationConfigurationCommandInput
   | PutScalingPolicyCommandInput
@@ -373,6 +383,7 @@ export type ServiceOutputTypes =
   | DeleteTagsCommandOutput
   | DeleteWarmPoolCommandOutput
   | DescribeAccountLimitsCommandOutput
+  | DescribeAccountSettingsCommandOutput
   | DescribeAdjustmentTypesCommandOutput
   | DescribeAutoScalingGroupsCommandOutput
   | DescribeAutoScalingInstancesCommandOutput
@@ -404,6 +415,7 @@ export type ServiceOutputTypes =
   | ExitStandbyCommandOutput
   | GetPredictiveScalingForecastCommandOutput
   | LaunchInstancesCommandOutput
+  | PutAccountSettingCommandOutput
   | PutLifecycleHookCommandOutput
   | PutNotificationConfigurationCommandOutput
   | PutScalingPolicyCommandOutput
