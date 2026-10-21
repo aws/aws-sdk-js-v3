@@ -43,6 +43,7 @@ export interface StartFlowCaptureCommandOutput extends StartFlowCaptureResponse,
  * const input = { // StartFlowCaptureRequest
  *   FirewallArn: "STRING_VALUE", // required
  *   AvailabilityZone: "STRING_VALUE",
+ *   AvailabilityZoneId: "STRING_VALUE",
  *   VpcEndpointAssociationArn: "STRING_VALUE",
  *   VpcEndpointId: "STRING_VALUE",
  *   MinimumFlowAgeInSeconds: Number("int"),

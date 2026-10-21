@@ -44,7 +44,8 @@ export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyR
  * //     FirewallPolicyArn: "STRING_VALUE", // required
  * //     FirewallPolicyId: "STRING_VALUE", // required
  * //     Description: "STRING_VALUE",
- * //     FirewallPolicyStatus: "ACTIVE" || "DELETING" || "ERROR",
+ * //     FirewallPolicyStatus: "ACTIVE" || "DELETING" || "ERROR" || "UPDATING",
+ * //     StatusMessage: "STRING_VALUE",
  * //     Tags: [ // TagList
  * //       { // Tag
  * //         Key: "STRING_VALUE", // required
@@ -59,6 +60,13 @@ export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyR
  * //       KeyId: "STRING_VALUE",
  * //       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
  * //     },
+ * //     Errors: [ // FirewallPolicyErrors
+ * //       { // FirewallPolicyError
+ * //         Code: "DNS_FIREWALL_RULE_GROUP_UNAVAILABLE" || "ROUTE53_RESOLVED_IP_VALIDATION_MISSING", // required
+ * //         Message: "STRING_VALUE", // required
+ * //         ResourceId: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     LastModifiedTime: new Date("TIMESTAMP"),
  * //   },
  * // };

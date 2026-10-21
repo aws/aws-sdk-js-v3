@@ -73,7 +73,7 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  * //           "STRING_VALUE",
  * //         ],
  * //         TargetTypes: [ // TargetTypes // required
- * //           "TLS_SNI" || "HTTP_HOST",
+ * //           "TLS_SNI" || "HTTP_HOST" || "AWS_ROUTE_53_RESOLVED_DOMAIN",
  * //         ],
  * //         GeneratedRulesType: "ALLOWLIST" || "DENYLIST" || "REJECTLIST" || "ALERTLIST", // required
  * //       },
@@ -173,7 +173,7 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  * //     Description: "STRING_VALUE",
  * //     Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN",
  * //     Capacity: Number("int"),
- * //     RuleGroupStatus: "ACTIVE" || "DELETING" || "ERROR",
+ * //     RuleGroupStatus: "ACTIVE" || "DELETING" || "ERROR" || "UPDATING",
  * //     Tags: [ // TagList
  * //       { // Tag
  * //         Key: "STRING_VALUE", // required

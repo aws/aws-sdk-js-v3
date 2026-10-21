@@ -42,6 +42,7 @@ export interface StartFlowFlushCommandOutput extends StartFlowFlushResponse, __M
  * const input = { // StartFlowFlushRequest
  *   FirewallArn: "STRING_VALUE", // required
  *   AvailabilityZone: "STRING_VALUE",
+ *   AvailabilityZoneId: "STRING_VALUE",
  *   VpcEndpointAssociationArn: "STRING_VALUE",
  *   VpcEndpointId: "STRING_VALUE",
  *   MinimumFlowAgeInSeconds: Number("int"),

@@ -207,12 +207,15 @@ import {
   DisassociateSubnetsCommand,
   DisassociateSubnetsRequest$,
   DisassociateSubnetsResponse$,
+  DNSExpiryExceptionPolicy,
   EnabledAnalysisType,
   EncryptionConfiguration$,
   EncryptionType,
   Firewall$,
   FirewallMetadata$,
   FirewallPolicy$,
+  FirewallPolicyError$,
+  FirewallPolicyErrorCode,
   FirewallPolicyMetadata$,
   FirewallPolicyResponse$,
   FirewallStatus$,
@@ -375,6 +378,8 @@ import {
   ResourceOwnerCheckException$,
   ResourceStatus,
   RevocationCheckAction,
+  Route53ResolvedIPValidation$,
+  Route53ResolvedIPValidationAction,
   RuleDefinition$,
   RuleGroup$,
   RuleGroupMetadata$,
@@ -523,6 +528,8 @@ import {
   VpcEndpointAssociation$,
   VpcEndpointAssociationMetadata$,
   VpcEndpointAssociationStatus$,
+  waitForFirewallPolicyActive,
+  waitUntilFirewallPolicyActive,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -816,6 +823,7 @@ assert(typeof EncryptionConfiguration$ === "object");
 assert(typeof Firewall$ === "object");
 assert(typeof FirewallMetadata$ === "object");
 assert(typeof FirewallPolicy$ === "object");
+assert(typeof FirewallPolicyError$ === "object");
 assert(typeof FirewallPolicyMetadata$ === "object");
 assert(typeof FirewallPolicyResponse$ === "object");
 assert(typeof FirewallStatus$ === "object");
@@ -890,6 +898,7 @@ assert(typeof PutResourcePolicyResponse$ === "object");
 assert(typeof ReferenceSets$ === "object");
 assert(typeof RejectNetworkFirewallTransitGatewayAttachmentRequest$ === "object");
 assert(typeof RejectNetworkFirewallTransitGatewayAttachmentResponse$ === "object");
+assert(typeof Route53ResolvedIPValidation$ === "object");
 assert(typeof RuleDefinition$ === "object");
 assert(typeof RuleGroup$ === "object");
 assert(typeof RuleGroupMetadata$ === "object");
@@ -980,8 +989,10 @@ assert(typeof AttachmentStatus === "object");
 assert(typeof ConfigurationSyncState === "object");
 assert(typeof ContainerAssociationStatus === "object");
 assert(typeof ContainerMonitoringType === "object");
+assert(typeof DNSExpiryExceptionPolicy === "object");
 assert(typeof EnabledAnalysisType === "object");
 assert(typeof EncryptionType === "object");
+assert(typeof FirewallPolicyErrorCode === "object");
 assert(typeof FirewallStatusValue === "object");
 assert(typeof FlowOperationStatus === "object");
 assert(typeof FlowOperationType === "object");
@@ -1001,6 +1012,7 @@ assert(typeof ResourceManagedStatus === "object");
 assert(typeof ResourceManagedType === "object");
 assert(typeof ResourceStatus === "object");
 assert(typeof RevocationCheckAction === "object");
+assert(typeof Route53ResolvedIPValidationAction === "object");
 assert(typeof RuleGroupRequestPhase === "object");
 assert(typeof RuleGroupType === "object");
 assert(typeof RuleOrder === "object");
@@ -1040,6 +1052,9 @@ assert(typeof ThrottlingException$ === "object");
 assert(UnsupportedOperationException.prototype instanceof NetworkFirewallServiceException);
 assert(typeof UnsupportedOperationException$ === "object");
 assert(NetworkFirewallServiceException.prototype instanceof Error);
+// waiters
+assert(typeof waitForFirewallPolicyActive === "function");
+assert(typeof waitUntilFirewallPolicyActive === "function");
 // paginators
 assert(typeof paginateGetAnalysisReportResults === "function");
 assert(typeof paginateListAnalysisReports === "function");

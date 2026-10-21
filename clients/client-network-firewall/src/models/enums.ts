@@ -224,6 +224,35 @@ export type NatGatewayAttachmentStatus = (typeof NatGatewayAttachmentStatus)[key
  * @public
  * @enum
  */
+export const Route53ResolvedIPValidationAction = {
+  ALERT: "ALERT",
+  DROP: "DROP",
+  REJECT: "REJECT",
+} as const;
+/**
+ * @public
+ */
+export type Route53ResolvedIPValidationAction =
+  (typeof Route53ResolvedIPValidationAction)[keyof typeof Route53ResolvedIPValidationAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const DNSExpiryExceptionPolicy = {
+  CONTINUE: "CONTINUE",
+  DROP: "DROP",
+  REJECT: "REJECT",
+} as const;
+/**
+ * @public
+ */
+export type DNSExpiryExceptionPolicy = (typeof DNSExpiryExceptionPolicy)[keyof typeof DNSExpiryExceptionPolicy];
+
+/**
+ * @public
+ * @enum
+ */
 export const RuleOrder = {
   DEFAULT_ACTION_ORDER: "DEFAULT_ACTION_ORDER",
   STRICT_ORDER: "STRICT_ORDER",
@@ -263,10 +292,24 @@ export type OverrideAction = (typeof OverrideAction)[keyof typeof OverrideAction
  * @public
  * @enum
  */
+export const FirewallPolicyErrorCode = {
+  DNS_FIREWALL_RULE_GROUP_UNAVAILABLE: "DNS_FIREWALL_RULE_GROUP_UNAVAILABLE",
+  ROUTE53_RESOLVED_IP_VALIDATION_MISSING: "ROUTE53_RESOLVED_IP_VALIDATION_MISSING",
+} as const;
+/**
+ * @public
+ */
+export type FirewallPolicyErrorCode = (typeof FirewallPolicyErrorCode)[keyof typeof FirewallPolicyErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResourceStatus = {
   ACTIVE: "ACTIVE",
   DELETING: "DELETING",
   ERROR: "ERROR",
+  UPDATING: "UPDATING",
 } as const;
 /**
  * @public
@@ -337,6 +380,7 @@ export type GeneratedRulesType = (typeof GeneratedRulesType)[keyof typeof Genera
  * @enum
  */
 export const TargetType = {
+  AWS_ROUTE_53_RESOLVED_DOMAIN: "AWS_ROUTE_53_RESOLVED_DOMAIN",
   HTTP_HOST: "HTTP_HOST",
   TLS_SNI: "TLS_SNI",
 } as const;
