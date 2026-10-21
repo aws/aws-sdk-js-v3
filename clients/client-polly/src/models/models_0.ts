@@ -225,7 +225,9 @@ export interface Lexicon {
 export interface LexiconAttributes {
   /**
    * <p>Phonetic alphabet used in the lexicon. Valid values are
-   *         <code>ipa</code> and <code>x-sampa</code>.</p>
+   *         <code>ipa</code>, <code>x-sampa</code>, <code>x-amazon-pinyin</code>,
+   *         <code>x-amazon-jyutping</code>, <code>x-amazon-pron-kana</code>, and
+   *         <code>x-amazon-yomigana</code>.</p>
    * @public
    */
   Alphabet?: string | undefined;
@@ -668,7 +670,7 @@ export interface StartSpeechSynthesisStreamInput {
   SampleRate?: string | undefined;
 
   /**
-   * <p>The voice to use in synthesis. To get a list of available voice IDs, use the <a href="https://docs.aws.amazon.com/polly/latest/API/API_DescribeVoices.html">DescribeVoices</a> operation.</p>
+   * <p>The voice to use in synthesis. To get a list of available voice IDs, use the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation.</p>
    * @public
    */
   VoiceId: VoiceId | undefined;

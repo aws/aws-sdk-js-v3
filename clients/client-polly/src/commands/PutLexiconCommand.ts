@@ -74,7 +74,11 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  *
  * @throws {@link UnsupportedPlsAlphabetException} (client fault)
  *  <p>The alphabet specified by the lexicon is not a supported alphabet.
- *       Valid values are <code>x-sampa</code> and <code>ipa</code>.</p>
+ *       Valid values are <code>ipa</code>, <code>x-sampa</code>,
+ *       <code>x-amazon-pinyin</code>, <code>x-amazon-jyutping</code>,
+ *       <code>x-amazon-pron-kana</code>, and
+ *       <code>x-amazon-yomigana</code>. Replace the unsupported alphabet
+ *       with one of the valid values and resubmit your request.</p>
  *
  * @throws {@link UnsupportedPlsLanguageException} (client fault)
  *  <p>The language specified in the lexicon is unsupported. For a list of
