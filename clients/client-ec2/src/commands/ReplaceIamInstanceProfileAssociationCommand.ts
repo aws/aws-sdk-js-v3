@@ -2,10 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type {
-  ReplaceIamInstanceProfileAssociationRequest,
-  ReplaceIamInstanceProfileAssociationResult,
-} from "../models/models_7";
+import type { ReplaceIamInstanceProfileAssociationRequest } from "../models/models_7";
+import type { ReplaceIamInstanceProfileAssociationResult } from "../models/models_8";
 import { ReplaceIamInstanceProfileAssociation$ } from "../schemas/schemas_0";
 
 /**

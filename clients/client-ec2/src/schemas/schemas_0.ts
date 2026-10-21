@@ -361,6 +361,7 @@ const _ATGPA = "AcceptTransitGatewayPeeringAttachment";
 const _ATGPAR = "AcceptTransitGatewayPeeringAttachmentRequest";
 const _ATGPARc = "AcceptTransitGatewayPeeringAttachmentResult";
 const _ATGPT = "AssociateTransitGatewayPolicyTable";
+const _ATGPTE = "AnalysisTransitGatewayPolicyTableEntry";
 const _ATGPTR = "AssociateTransitGatewayPolicyTableRequest";
 const _ATGPTRs = "AssociateTransitGatewayPolicyTableResult";
 const _ATGRT = "AssociateTransitGatewayRouteTable";
@@ -4889,11 +4890,13 @@ const _PSL = "PriceScheduleList";
 const _PSPN = "PublicSsmParameterName";
 const _PSR = "ProvisioningStatusReason";
 const _PSRa = "PathStatementRequest";
-const _PSS = "PriceScheduleSpecification";
+const _PSS = "PerformanceStatusSummary";
 const _PSSL = "PriceScheduleSpecificationList";
+const _PSSr = "PriceScheduleSpecification";
 const _PSa = "PathStatement";
-const _PSe = "PermissionState";
+const _PSe = "PerformanceStatus";
 const _PSee = "PeeringStatus";
+const _PSer = "PermissionState";
 const _PSh = "PhcSupport";
 const _PSr = "PreviousState";
 const _PSre = "PreviousStatus";
@@ -5362,6 +5365,7 @@ const _Refe = "Reference";
 const _Reg = "Regions";
 const _Regi = "Region";
 const _Rem = "Remove";
+const _Reme = "Remediation";
 const _Rep = "Reports";
 const _Req = "Requested";
 const _Res = "Resources";
@@ -5400,7 +5404,7 @@ const _SBM = "SupportedBootModes";
 const _SBN = "S3BucketName";
 const _SBP = "S3BucketPrefix";
 const _SBu = "S3Bucket";
-const _SC = "StatusCode";
+const _SC = "SourceCidr";
 const _SCA = "ServerCertificateArn";
 const _SCAE = "SerialConsoleAccessEnabled";
 const _SCB = "SourceCidrBlock";
@@ -5420,7 +5424,8 @@ const _SCc = "ScopeCount";
 const _SCe = "ServiceConfiguration";
 const _SCer = "ServiceConfigurations";
 const _SCn = "SnapshotConfiguration";
-const _SCt = "StaticCidr";
+const _SCt = "StatusCode";
+const _SCta = "StaticCidr";
 const _SCu = "SubnetConfigurations";
 const _SCub = "SubnetConfiguration";
 const _SD = "StartDate";
@@ -7916,8 +7921,9 @@ const _pSKE = "publicSigningKeyEndpoint";
 const _pSKU = "publicSigningKeyUrl";
 const _pSPN = "publicSsmParameterName";
 const _pSR = "provisioningStatusReason";
-const _pSe = "permissionState";
+const _pSe = "performanceStatus";
 const _pSee = "peeringStatus";
+const _pSer = "permissionState";
 const _pSh = "phcSupport";
 const _pSr = "previousState";
 const _pSre = "previousStatus";
@@ -8109,6 +8115,7 @@ const _ra = "ramdisk";
 const _re = "reason";
 const _rec = "recurrence";
 const _reg = "region";
+const _rem = "remediation";
 const _req = "requested";
 const _res = "resource";
 const _resu = "result";
@@ -8129,7 +8136,7 @@ const _sB = "s3Bucket";
 const _sBM = "supportedBootModes";
 const _sBN = "s3BucketName";
 const _sBP = "s3BucketPrefix";
-const _sC = "statusCode";
+const _sC = "sourceCidr";
 const _sCA = "serverCertificateArn";
 const _sCAE = "serialConsoleAccessEnabled";
 const _sCB = "sourceCidrBlock";
@@ -8143,7 +8150,8 @@ const _sCSIG = "sustainedClockSpeedInGhz";
 const _sCc = "scopeCount";
 const _sCe = "serviceConfiguration";
 const _sCn = "snapshotConfiguration";
-const _sCt = "staticCidr";
+const _sCt = "statusCode";
+const _sCta = "staticCidr";
 const _sD = "startDate";
 const _sDC = "sourceDestCheck";
 const _sDIH = "slotDurationInHours";
@@ -9114,6 +9122,18 @@ export var AnalysisSecurityGroupRule$: StaticStructureSchema = [3, n0, _ASGR,
   , [_xN]: _pLI }], [0, { [_eQN]: `Protocol`
   , [_xN]: _pr }]]
 ];
+export var AnalysisTransitGatewayPolicyTableEntry$: StaticStructureSchema = [3, n0, _ATGPTE,
+  0,
+  [_RNu, _Pr, _SC, _DCe, _SPRo, _DPRe, _TRTI],
+  [[1, { [_eQN]: `RuleNumber`
+  , [_xN]: _rN }], [0, { [_eQN]: `Protocol`
+  , [_xN]: _pr }], [0, { [_eQN]: `SourceCidr`
+  , [_xN]: _sC }], [0, { [_eQN]: `DestinationCidr`
+  , [_xN]: _dC }], [() => PortRange$, { [_eQN]: `SourcePortRange`
+  , [_xN]: _sPR }], [() => PortRange$, { [_eQN]: `DestinationPortRange`
+  , [_xN]: _dPR }], [0, { [_eQN]: `TargetRouteTableId`
+  , [_xN]: _tRTI }]]
+];
 export var ApplicationStatus$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_Sta, _STS, _SSt, _RAe, _Det],
@@ -9179,10 +9199,10 @@ export var ApplicationStatusesResponseType$: StaticStructureSchema = [3, n0, _AS
 ];
 export var ApplicationStatusReason$: StaticStructureSchema = [3, n0, _ASR,
   0,
-  [_Co, _SC, _Pr],
+  [_Co, _SCt, _Pr],
   [[0, { [_eQN]: `Code`
   , [_xN]: _co }], [1, { [_eQN]: `StatusCode`
-  , [_xN]: _sC }], [0, { [_eQN]: `Protocol`
+  , [_xN]: _sCt }], [0, { [_eQN]: `Protocol`
   , [_xN]: _pr }]]
 ];
 export var ApplicationStatusSummary$: StaticStructureSchema = [3, n0, _ASS,
@@ -17157,7 +17177,7 @@ export var EventInformation$: StaticStructureSchema = [3, n0, _EIv,
 ];
 export var Explanation$: StaticStructureSchema = [3, n0, _Ex,
   0,
-  [_Ac, _ARcl, _A, _Add, _ATtta, _AZv, _AZIv, _Cid, _C, _CGu, _D, _DVe, _Di, _ECx, _IRT, _IG, _LBAo, _CLBL, _LBLP, _LBT, _LBTG, _LBTGo, _LBTP, _ELBL, _MCi, _NG, _NIe, _PF, _VPC, _Po, _PRor, _PL, _Prot, _RTR, _RTo, _SGec, _SGRe, _SGe, _SVo, _St, _Su, _SRT, _Vp, _VE, _VCp, _VG, _TG, _TGRT, _TGRTR, _TGAra, _CAo, _CRo, _FSRi, _FSRir],
+  [_Ac, _ARcl, _A, _Add, _ATtta, _AZv, _AZIv, _Cid, _C, _CGu, _D, _DVe, _Di, _ECx, _IRT, _IG, _LBAo, _CLBL, _LBLP, _LBT, _LBTG, _LBTGo, _LBTP, _ELBL, _MCi, _NG, _NIe, _PF, _VPC, _Po, _PRor, _PL, _Prot, _RTR, _RTo, _SGec, _SGRe, _SGe, _SVo, _St, _Su, _SRT, _Vp, _VE, _VCp, _VG, _TG, _TGRT, _TGRTR, _TGPT, _TGPTE, _TGAra, _CAo, _CRo, _FSRi, _FSRir],
   [[() => AnalysisComponent$, { [_eQN]: `Acl`
   , [_xN]: _ac }], [() => AnalysisAclRule$, { [_eQN]: `AclRule`
   , [_xN]: _aRc }], [0, { [_eQN]: `Address`
@@ -17207,7 +17227,9 @@ export var Explanation$: StaticStructureSchema = [3, n0, _Ex,
   , [_xN]: _vG }], [() => AnalysisComponent$, { [_eQN]: `TransitGateway`
   , [_xN]: _tG }], [() => AnalysisComponent$, { [_eQN]: `TransitGatewayRouteTable`
   , [_xN]: _tGRT }], [() => TransitGatewayRouteTableRoute$, { [_eQN]: `TransitGatewayRouteTableRoute`
-  , [_xN]: _tGRTR }], [() => AnalysisComponent$, { [_eQN]: `TransitGatewayAttachment`
+  , [_xN]: _tGRTR }], [() => AnalysisComponent$, { [_eQN]: `TransitGatewayPolicyTable`
+  , [_xN]: _tGPT }], [() => AnalysisTransitGatewayPolicyTableEntry$, { [_eQN]: `TransitGatewayPolicyTableEntry`
+  , [_xN]: _tGPTE }], [() => AnalysisComponent$, { [_eQN]: `TransitGatewayAttachment`
   , [_xN]: _tGAr }], [0, { [_eQN]: `ComponentAccount`
   , [_xN]: _cAo }], [0, { [_eQN]: `ComponentRegion`
   , [_xN]: _cRo }], [() => FirewallStatelessRule$, { [_eQN]: `FirewallStatelessRule`
@@ -19790,7 +19812,7 @@ export var InstanceStateChange$: StaticStructureSchema = [3, n0, _ISC,
 ];
 export var InstanceStatus$: StaticStructureSchema = [3, n0, _ISnstan,
   0,
-  [_AZ, _AZI, _OA, _Op, _Ev, _II, _ISnsta, _ISnstan, _SSy, _AES, _AS],
+  [_AZ, _AZI, _OA, _Op, _Ev, _II, _ISnsta, _ISnstan, _SSy, _AES, _AS, _PSe],
   [[0, { [_eQN]: `AvailabilityZone`
   , [_xN]: _aZ }], [0, { [_eQN]: `AvailabilityZoneId`
   , [_xN]: _aZI }], [0, { [_eQN]: `OutpostArn`
@@ -19802,7 +19824,8 @@ export var InstanceStatus$: StaticStructureSchema = [3, n0, _ISnstan,
   , [_xN]: _iSnsta }], [() => InstanceStatusSummary$, { [_eQN]: `SystemStatus`
   , [_xN]: _sSy }], [() => EbsStatusSummary$, { [_eQN]: `AttachedEbsStatus`
   , [_xN]: _aES }], [() => ApplicationStatusSummary$, { [_eQN]: `ApplicationStatus`
-  , [_xN]: _aSp }]]
+  , [_xN]: _aSp }], [() => PerformanceStatusSummary$, { [_eQN]: `PerformanceStatus`
+  , [_xN]: _pSe }]]
 ];
 export var InstanceStatusDetails$: StaticStructureSchema = [3, n0, _ISDn,
   0,
@@ -20283,10 +20306,10 @@ export var IpamPrefixListResolver$: StaticStructureSchema = [3, n0, _IPLR,
 ];
 export var IpamPrefixListResolverRule$: StaticStructureSchema = [3, n0, _IPLRR,
   0,
-  [_RTu, _SCt, _ISI, _RTe, _Cond],
+  [_RTu, _SCta, _ISI, _RTe, _Cond],
   [[0, { [_eQN]: `RuleType`
   , [_xN]: _rTu }], [0, { [_eQN]: `StaticCidr`
-  , [_xN]: _sCt }], [0, { [_eQN]: `IpamScopeId`
+  , [_xN]: _sCta }], [0, { [_eQN]: `IpamScopeId`
   , [_xN]: _iSIp }], [0, { [_eQN]: `ResourceType`
   , [_xN]: _rTe }], [() => IpamPrefixListResolverRuleConditionSet, { [_eQN]: `ConditionSet`
   , [_xN]: _cSo }]]
@@ -20310,7 +20333,7 @@ export var IpamPrefixListResolverRuleConditionRequest$: StaticStructureSchema = 
 ];
 export var IpamPrefixListResolverRuleRequest$: StaticStructureSchema = [3, n0, _IPLRRR,
   0,
-  [_RTu, _SCt, _ISI, _RTe, _Cond],
+  [_RTu, _SCta, _ISI, _RTe, _Cond],
   [0, 0, 0, 0, [() => IpamPrefixListResolverRuleConditionRequestSet, { [_xN]: _Condi }]], 1
 ];
 export var IpamPrefixListResolverTarget$: StaticStructureSchema = [3, n0, _IPLRT,
@@ -22754,14 +22777,14 @@ export var NetworkInterfaceIpv6Address$: StaticStructureSchema = [3, n0, _NIIA,
 ];
 export var NetworkInterfacePermission$: StaticStructureSchema = [3, n0, _NIPetw,
   0,
-  [_NIPIe, _NII, _AAI, _ASw, _Pe, _PSe],
+  [_NIPIe, _NII, _AAI, _ASw, _Pe, _PSer],
   [[0, { [_eQN]: `NetworkInterfacePermissionId`
   , [_xN]: _nIPIe }], [0, { [_eQN]: `NetworkInterfaceId`
   , [_xN]: _nII }], [0, { [_eQN]: `AwsAccountId`
   , [_xN]: _aAI }], [0, { [_eQN]: `AwsService`
   , [_xN]: _aSw }], [0, { [_eQN]: `Permission`
   , [_xN]: _per }], [() => NetworkInterfacePermissionState$, { [_eQN]: `PermissionState`
-  , [_xN]: _pSe }]]
+  , [_xN]: _pSer }]]
 ];
 export var NetworkInterfacePermissionState$: StaticStructureSchema = [3, n0, _NIPS,
   0,
@@ -22892,7 +22915,7 @@ export var PacketHeaderStatementRequest$: StaticStructureSchema = [3, n0, _PHSR,
 ];
 export var PathComponent$: StaticStructureSchema = [3, n0, _PCat,
   0,
-  [_SNeq, _ARcl, _ATtta, _C, _DVe, _OHu, _IHn, _RTR, _SGRe, _SVo, _Su, _Vp, _ADdd, _TG, _TGRTR, _Expl, _ELBL, _FSRi, _FSRir, _SN],
+  [_SNeq, _ARcl, _ATtta, _C, _DVe, _OHu, _IHn, _RTR, _SGRe, _SVo, _Su, _Vp, _ADdd, _TG, _TGRTR, _TGPTE, _Expl, _ELBL, _FSRi, _FSRir, _SN],
   [[1, { [_eQN]: `SequenceNumber`
   , [_xN]: _sNeq }], [() => AnalysisAclRule$, { [_eQN]: `AclRule`
   , [_xN]: _aRc }], [() => AnalysisComponent$, { [_eQN]: `AttachedTo`
@@ -22908,7 +22931,8 @@ export var PathComponent$: StaticStructureSchema = [3, n0, _PCat,
   , [_xN]: _vp }], [() => AdditionalDetailList, { [_eQN]: `AdditionalDetailSet`
   , [_xN]: _aDS }], [() => AnalysisComponent$, { [_eQN]: `TransitGateway`
   , [_xN]: _tG }], [() => TransitGatewayRouteTableRoute$, { [_eQN]: `TransitGatewayRouteTableRoute`
-  , [_xN]: _tGRTR }], [() => ExplanationList, { [_eQN]: `ExplanationSet`
+  , [_xN]: _tGRTR }], [() => AnalysisTransitGatewayPolicyTableEntry$, { [_eQN]: `TransitGatewayPolicyTableEntry`
+  , [_xN]: _tGPTE }], [() => ExplanationList, { [_eQN]: `ExplanationSet`
   , [_xN]: _eSx }], [() => AnalysisComponent$, { [_eQN]: `ElasticLoadBalancerListener`
   , [_xN]: _eLBL }], [() => FirewallStatelessRule$, { [_eQN]: `FirewallStatelessRule`
   , [_xN]: _fSR }], [() => FirewallStatefulRule$, { [_eQN]: `FirewallStatefulRule`
@@ -22992,6 +23016,14 @@ export var PerformanceFactorReferenceRequest$: StaticStructureSchema = [3, n0, _
   0,
   [_IF],
   [0]
+];
+export var PerformanceStatusSummary$: StaticStructureSchema = [3, n0, _PSS,
+  0,
+  [_Sta, _ISm, _Reme],
+  [[0, { [_eQN]: `Status`
+  , [_xN]: _sta }], [4, { [_eQN]: `ImpairedSince`
+  , [_xN]: _iSm }], [0, { [_eQN]: `Remediation`
+  , [_xN]: _rem }]]
 ];
 export var Phase1DHGroupNumbersListValue$: StaticStructureSchema = [3, n0, _PDHGNLV,
   0,
@@ -23153,7 +23185,7 @@ export var PriceSchedule$: StaticStructureSchema = [3, n0, _PSric,
   , [_xN]: _pric }], [1, { [_eQN]: `Term`
   , [_xN]: _ter }]]
 ];
-export var PriceScheduleSpecification$: StaticStructureSchema = [3, n0, _PSS,
+export var PriceScheduleSpecification$: StaticStructureSchema = [3, n0, _PSSr,
   0,
   [_Ter, _Pric, _CC],
   [[1, { [_eQN]: `Term`

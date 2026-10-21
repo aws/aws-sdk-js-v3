@@ -128,7 +128,7 @@ import type {
   VpcPeeringConnection,
 } from "./models_0";
 import type {
-  AttachmentEnaSrdSpecification,
+  AttachmentEnaSrdUdpSpecification,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipCidr,
@@ -143,13 +143,37 @@ import type {
   IpamPrefixListResolverTarget,
   IpamResourceDiscovery,
   IpamScope,
-  LaunchTemplate,
   NetworkInterfaceAssociation,
   OperatorRequest,
   Subnet,
   Vpc,
   VpcEncryptionControl,
 } from "./models_1";
+
+/**
+ * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
+ * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
+ * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
+ * 			account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p>
+ *          <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the
+ * 			receiving end by default. However, some UDP-based applications are designed to handle network packets
+ * 			that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express
+ * 			is enabled, you can specify whether UDP network traffic uses it.</p>
+ * @public
+ */
+export interface AttachmentEnaSrdSpecification {
+  /**
+   * <p>Indicates whether ENA Express is enabled for the network interface.</p>
+   * @public
+   */
+  EnaSrdEnabled?: boolean | undefined;
+
+  /**
+   * <p>Configures ENA Express for UDP network traffic.</p>
+   * @public
+   */
+  EnaSrdUdpSpecification?: AttachmentEnaSrdUdpSpecification | undefined;
+}
 
 /**
  * <p>Describes a network interface attachment.</p>
@@ -10819,15 +10843,4 @@ export interface DeleteLaunchTemplateRequest {
    * @public
    */
   LaunchTemplateName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLaunchTemplateResult {
-  /**
-   * <p>Information about the launch template.</p>
-   * @public
-   */
-  LaunchTemplate?: LaunchTemplate | undefined;
 }

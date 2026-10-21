@@ -205,6 +205,15 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput exte
  * //             ResourceId: "STRING_VALUE",
  * //             ResourceType: "STRING_VALUE",
  * //           },
+ * //           TransitGatewayPolicyTableEntry: { // AnalysisTransitGatewayPolicyTableEntry
+ * //             RuleNumber: Number("int"),
+ * //             Protocol: "STRING_VALUE",
+ * //             SourceCidr: "STRING_VALUE",
+ * //             DestinationCidr: "STRING_VALUE",
+ * //             SourcePortRange: "<PortRange>",
+ * //             DestinationPortRange: "<PortRange>",
+ * //             TargetRouteTableId: "STRING_VALUE",
+ * //           },
  * //           Explanations: [ // ExplanationList
  * //             { // Explanation
  * //               Acl: "<AnalysisComponent>",
@@ -315,6 +324,16 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput exte
  * //                 AttachmentId: "STRING_VALUE",
  * //                 ResourceId: "STRING_VALUE",
  * //                 ResourceType: "STRING_VALUE",
+ * //               },
+ * //               TransitGatewayPolicyTable: "<AnalysisComponent>",
+ * //               TransitGatewayPolicyTableEntry: {
+ * //                 RuleNumber: Number("int"),
+ * //                 Protocol: "STRING_VALUE",
+ * //                 SourceCidr: "STRING_VALUE",
+ * //                 DestinationCidr: "STRING_VALUE",
+ * //                 SourcePortRange: "<PortRange>",
+ * //                 DestinationPortRange: "<PortRange>",
+ * //                 TargetRouteTableId: "STRING_VALUE",
  * //               },
  * //               TransitGatewayAttachment: "<AnalysisComponent>",
  * //               ComponentAccount: "STRING_VALUE",

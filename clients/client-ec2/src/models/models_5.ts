@@ -85,7 +85,6 @@ import type {
   TagSpecification,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
-  TransitGatewayPolicyTableAssociation,
   TransitGatewayVpcAttachment,
   TrunkInterfaceAssociation,
   UnsuccessfulAssociationResponseObject,
@@ -151,7 +150,216 @@ import type {
   FastLaunchSnapshotConfigurationResponse,
   Filter,
 } from "./models_3";
-import type { AttributeBooleanValue, ProductCode, RecurringCharge, RegisteredInstance } from "./models_4";
+import type {
+  AttributeBooleanValue,
+  ProductCode,
+  RecurringCharge,
+  RegisteredInstance,
+  ReservedInstancesModification,
+} from "./models_4";
+
+/**
+ * <p>Contains the output of DescribeReservedInstancesModifications.</p>
+ * @public
+ */
+export interface DescribeReservedInstancesModificationsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *       when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Reserved Instance modification information.</p>
+   * @public
+   */
+  ReservedInstancesModifications?: ReservedInstancesModification[] | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DescribeReservedInstancesOfferings.</p>
+ * @public
+ */
+export interface DescribeReservedInstancesOfferingsRequest {
+  /**
+   * <p>The Availability Zone in which the Reserved Instance can be used.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified,
+   *       but not both.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>Include Reserved Instance Marketplace offerings in the response.</p>
+   * @public
+   */
+  IncludeMarketplace?: boolean | undefined;
+
+  /**
+   * <p>The instance type that the reservation will cover (for example, <code>m1.small</code>).
+   *       For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Amazon EC2 instance types</a> in the
+   *         <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The maximum duration (in seconds) to filter when searching for offerings.</p>
+   *          <p>Default: 94608000 (3 years)</p>
+   * @public
+   */
+  MaxDuration?: number | undefined;
+
+  /**
+   * <p>The maximum number of instances to filter when searching for offerings.</p>
+   *          <p>Default: 20</p>
+   * @public
+   */
+  MaxInstanceCount?: number | undefined;
+
+  /**
+   * <p>The minimum duration (in seconds) to filter when searching for offerings.</p>
+   *          <p>Default: 2592000 (1 month)</p>
+   * @public
+   */
+  MinDuration?: number | undefined;
+
+  /**
+   * <p>The offering class of the Reserved Instance. Can be <code>standard</code> or
+   *         <code>convertible</code>.</p>
+   * @public
+   */
+  OfferingClass?: OfferingClassType | undefined;
+
+  /**
+   * <p>The Reserved Instance product platform description. Instances that include <code>(Amazon
+   *         VPC)</code> in the description are for use with Amazon VPC.</p>
+   * @public
+   */
+  ProductDescription?: RIProductDescription | undefined;
+
+  /**
+   * <p>One or more Reserved Instances offering IDs.</p>
+   * @public
+   */
+  ReservedInstancesOfferingIds?: string[] | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified,
+   *       but not both.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making
+   *       the request, and provides an error response. If you have the required permissions, the error
+   *       response is <code>DryRunOperation</code>. Otherwise, it is
+   *       <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone where the Reserved Instance can be
+   *           used.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code> - The ID of the Availability Zone where the Reserved
+   *           Instance can be used.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>duration</code> - The duration of the Reserved Instance (for example, one year or
+   *           three years), in seconds (<code>31536000</code> | <code>94608000</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fixed-price</code> - The purchase price of the Reserved Instance (for example,
+   *           9800.0).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type that is covered by the reservation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>marketplace</code> - Set to <code>true</code> to show only Reserved Instance
+   *           Marketplace offerings. When this filter is not used, which is the default behavior, all
+   *           offerings from both Amazon Web Services and the Reserved Instance Marketplace are listed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>product-description</code> - The Reserved Instance product platform description
+   *             (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> | <code>Linux
+   *             with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> | <code>SUSE
+   *             Linux</code> | <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux
+   *             with HA</code> | <code>Windows</code> | <code>Windows with SQL Server Standard</code> |
+   *             <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server
+   *             Enterprise</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-offering-id</code> - The Reserved Instances offering ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scope</code> - The scope of the Reserved Instance (<code>Availability Zone</code> or
+   *             <code>Region</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for
+   *           example, 0.84).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The tenancy of the instances covered by the reservation. A Reserved Instance with a
+   *       tenancy of <code>dedicated</code> is applied to instances that run in a VPC on single-tenant
+   *       hardware (i.e., Dedicated Instances).</p>
+   *          <p>
+   *             <b>Important:</b> The <code>host</code> value cannot be used with
+   *       this parameter. Use the <code>default</code> or <code>dedicated</code> values only.</p>
+   *          <p>Default: <code>default</code>
+   *          </p>
+   * @public
+   */
+  InstanceTenancy?: Tenancy | undefined;
+
+  /**
+   * <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01
+   *       API version, you only have access to the <code>Medium Utilization</code> Reserved Instance
+   *       offering type. </p>
+   * @public
+   */
+  OfferingType?: OfferingTypeValues | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining
+   *       results of the initial request can be seen by sending another request with the returned
+   *         <code>NextToken</code> value. The maximum is 100.</p>
+   *          <p>Default: 100</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
 
 /**
  * <p>Describes a Reserved Instance offering.</p>
@@ -11471,42 +11679,6 @@ export interface DisassociateTransitGatewayPolicyTableRequest {
 
   /**
    * <p>The ID of the transit gateway attachment to disassociate from the policy table.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTransitGatewayPolicyTableResult {
-  /**
-   * <p>Returns details about the transit gateway policy table disassociation.</p>
-   * @public
-   */
-  Association?: TransitGatewayPolicyTableAssociation | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTransitGatewayRouteTableRequest {
-  /**
-   * <p>The ID of the transit gateway route table.</p>
-   * @public
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>The ID of the attachment.</p>
    * @public
    */
   TransitGatewayAttachmentId: string | undefined;

@@ -37,6 +37,7 @@ import type {
   AddressAttribute,
   ByoipCidr,
   ClientVpnAuthorizationRuleStatus,
+  IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   IpPermission,
   NatGatewayAddress,
@@ -66,12 +67,31 @@ import type {
   SpotPlacement,
 } from "./models_5";
 import type { CapacityManagerMonitoredTagKey } from "./models_6";
-import type {
-  CapacityReservationSpecification,
-  CreationDateConditionRequest,
-  EnclaveOptionsRequest,
-  InstanceMonitoring,
-} from "./models_7";
+import type { CapacityReservationSpecification, EnclaveOptionsRequest, InstanceMonitoring } from "./models_7";
+
+/**
+ * @public
+ */
+export interface ReplaceIamInstanceProfileAssociationResult {
+  /**
+   * <p>Information about the IAM instance profile association.</p>
+   * @public
+   */
+  IamInstanceProfileAssociation?: IamInstanceProfileAssociation | undefined;
+}
+
+/**
+ * <p>The maximum age for allowed images.</p>
+ * @public
+ */
+export interface CreationDateConditionRequest {
+  /**
+   * <p>The maximum number of days that have elapsed since the image was created. For example, a
+   *       value of <code>300</code> allows images that were created within the last 300 days.</p>
+   * @public
+   */
+  MaximumDaysSinceCreated?: number | undefined;
+}
 
 /**
  * <p>The maximum period since deprecation for allowed images.</p>

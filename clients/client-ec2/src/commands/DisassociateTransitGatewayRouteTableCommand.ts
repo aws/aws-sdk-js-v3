@@ -2,8 +2,10 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DisassociateTransitGatewayRouteTableRequest } from "../models/models_5";
-import type { DisassociateTransitGatewayRouteTableResult } from "../models/models_6";
+import type {
+  DisassociateTransitGatewayRouteTableRequest,
+  DisassociateTransitGatewayRouteTableResult,
+} from "../models/models_6";
 import { DisassociateTransitGatewayRouteTable$ } from "../schemas/schemas_0";
 
 /**

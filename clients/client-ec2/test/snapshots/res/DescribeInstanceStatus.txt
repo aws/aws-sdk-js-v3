@@ -251,6 +251,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     2000-01-01T04:59:59.999Z
                 </impairedSince>
             </applicationStatus>
+            <performanceStatus>
+                <status>
+                    __Status__
+                </status>
+                <impairedSince>
+                    2000-01-01T04:59:59.999Z
+                </impairedSince>
+                <remediation>
+                    __Remediation__
+                </remediation>
+            </performanceStatus>
         </item>
         <item>
             <availabilityZone>
@@ -474,6 +485,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     2000-01-01T04:59:59.999Z
                 </impairedSince>
             </applicationStatus>
+            <performanceStatus>
+                <status>
+                    __Status__
+                </status>
+                <impairedSince>
+                    2000-01-01T04:59:59.999Z
+                </impairedSince>
+                <remediation>
+                    __Remediation__
+                </remediation>
+            </performanceStatus>
         </item>
         <item>
             <availabilityZone>
@@ -697,6 +719,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     2000-01-01T04:59:59.999Z
                 </impairedSince>
             </applicationStatus>
+            <performanceStatus>
+                <status>
+                    __Status__
+                </status>
+                <impairedSince>
+                    2000-01-01T04:59:59.999Z
+                </impairedSince>
+                <remediation>
+                    __Remediation__
+                </remediation>
+            </performanceStatus>
         </item>
     </instanceStatusSet>
     <nextToken>
@@ -811,6 +844,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ApplicationStatus: {
         Status: "__Status__",
         ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      },
+      PerformanceStatus: {
+        Status: "__Status__",
+        ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        Remediation: "__Remediation__"
       }
     },
     {
@@ -916,6 +954,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ApplicationStatus: {
         Status: "__Status__",
         ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      },
+      PerformanceStatus: {
+        Status: "__Status__",
+        ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        Remediation: "__Remediation__"
       }
     },
     {
@@ -1021,6 +1064,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ApplicationStatus: {
         Status: "__Status__",
         ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      },
+      PerformanceStatus: {
+        Status: "__Status__",
+        ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        Remediation: "__Remediation__"
       }
     }
   ],

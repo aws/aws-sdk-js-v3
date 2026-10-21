@@ -121,6 +121,42 @@ import type {
 /**
  * @public
  */
+export interface DisassociateTransitGatewayPolicyTableResult {
+  /**
+   * <p>Returns details about the transit gateway policy table disassociation.</p>
+   * @public
+   */
+  Association?: TransitGatewayPolicyTableAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTransitGatewayRouteTableRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DisassociateTransitGatewayRouteTableResult {
   /**
    * <p>Information about the association.</p>
@@ -9190,49 +9226,4 @@ export interface VpnConnectionDeviceType {
    * @public
    */
   Software?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVpnConnectionDeviceTypesResult {
-  /**
-   * <p>List of customer gateway devices that have a sample configuration file available for
-   *             use.</p>
-   * @public
-   */
-  VpnConnectionDeviceTypes?: VpnConnectionDeviceType[] | undefined;
-
-  /**
-   * <p>The <code>NextToken</code> value to include in a future
-   *                 <code>GetVpnConnectionDeviceTypes</code> request. When the results of a
-   *                 <code>GetVpnConnectionDeviceTypes</code> request exceed <code>MaxResults</code>,
-   *             this value can be used to retrieve the next page of results. This value is null when
-   *             there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVpnTunnelReplacementStatusRequest {
-  /**
-   * <p>The ID of the Site-to-Site VPN connection. </p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   * @public
-   */
-  VpnTunnelOutsideIpAddress: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

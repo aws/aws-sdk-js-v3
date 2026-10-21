@@ -102,7 +102,6 @@ import type {
   CapacityReservationAdjustmentDetails,
   EnaSrdSpecification,
   HealthCheckPathRequestObject,
-  IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   InstanceEventWindow,
   IpamPoolAllocation,
@@ -211,7 +210,53 @@ import type {
   IpamResourceCidr,
   ManagedResourceVisibilitySettings,
   Purchase,
+  VpnConnectionDeviceType,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetVpnConnectionDeviceTypesResult {
+  /**
+   * <p>List of customer gateway devices that have a sample configuration file available for
+   *             use.</p>
+   * @public
+   */
+  VpnConnectionDeviceTypes?: VpnConnectionDeviceType[] | undefined;
+
+  /**
+   * <p>The <code>NextToken</code> value to include in a future
+   *                 <code>GetVpnConnectionDeviceTypes</code> request. When the results of a
+   *                 <code>GetVpnConnectionDeviceTypes</code> request exceed <code>MaxResults</code>,
+   *             this value can be used to retrieve the next page of results. This value is null when
+   *             there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpnTunnelReplacementStatusRequest {
+  /**
+   * <p>The ID of the Site-to-Site VPN connection. </p>
+   * @public
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>The external IP address of the VPN tunnel.</p>
+   * @public
+   */
+  VpnTunnelOutsideIpAddress: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * <p>Details for Site-to-Site VPN tunnel endpoint maintenance events.</p>
@@ -2271,7 +2316,7 @@ export interface ModifyClientVpnEndpointRequest {
   TransitGatewayConfiguration?: TransitGatewayConfigurationInputStructure | undefined;
 
   /**
-   * <p>The device posture options for the Client VPN endpoint. Specifying this parameter replaces the entire device posture configuration for the endpoint. To remove all device trust providers, specify an empty list.</p>
+   * <p>The device posture options for the Client VPN endpoint. Specifying this parameter replaces the entire device posture configuration for the endpoint. To disable device posture and remove all device trust providers, specify <code>false</code> for <code>Enabled</code>.</p>
    * @public
    */
   DevicePostureOptions?: DevicePostureOptions | undefined;
@@ -9805,28 +9850,4 @@ export interface ReplaceIamInstanceProfileAssociationRequest {
    * @public
    */
   AssociationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceIamInstanceProfileAssociationResult {
-  /**
-   * <p>Information about the IAM instance profile association.</p>
-   * @public
-   */
-  IamInstanceProfileAssociation?: IamInstanceProfileAssociation | undefined;
-}
-
-/**
- * <p>The maximum age for allowed images.</p>
- * @public
- */
-export interface CreationDateConditionRequest {
-  /**
-   * <p>The maximum number of days that have elapsed since the image was created. For example, a
-   *       value of <code>300</code> allows images that were created within the last 300 days.</p>
-   * @public
-   */
-  MaximumDaysSinceCreated?: number | undefined;
 }

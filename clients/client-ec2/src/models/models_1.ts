@@ -133,6 +133,7 @@ import type {
   AccessScopePathRequest,
   AddIpamOperatingRegion,
   AddPrefixListEntry,
+  CarrierGateway,
   InstanceEventWindow,
   IpamRoutingPolicyRegistrationDelta,
   NatGatewayAddress,
@@ -145,6 +146,17 @@ import type {
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateCarrierGatewayResult {
+  /**
+   * <p>Information about the carrier gateway.</p>
+   * @public
+   */
+  CarrierGateway?: CarrierGateway | undefined;
+}
 
 /**
  * <p>Describes the Active Directory to be used for client authentication.</p>
@@ -14146,29 +14158,4 @@ export interface AttachmentEnaSrdUdpSpecification {
    * @public
    */
   EnaSrdUdpEnabled?: boolean | undefined;
-}
-
-/**
- * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
- * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
- * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
- * 			account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p>
- *          <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the
- * 			receiving end by default. However, some UDP-based applications are designed to handle network packets
- * 			that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express
- * 			is enabled, you can specify whether UDP network traffic uses it.</p>
- * @public
- */
-export interface AttachmentEnaSrdSpecification {
-  /**
-   * <p>Indicates whether ENA Express is enabled for the network interface.</p>
-   * @public
-   */
-  EnaSrdEnabled?: boolean | undefined;
-
-  /**
-   * <p>Configures ENA Express for UDP network traffic.</p>
-   * @public
-   */
-  EnaSrdUdpSpecification?: AttachmentEnaSrdUdpSpecification | undefined;
 }

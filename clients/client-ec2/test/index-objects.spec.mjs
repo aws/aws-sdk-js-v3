@@ -103,6 +103,7 @@ import {
   AnalysisRouteTableRoute$,
   AnalysisSecurityGroupRule$,
   AnalysisStatus,
+  AnalysisTransitGatewayPolicyTableEntry$,
   ApplianceModeSupportValue,
   ApplicationStatus$,
   ApplicationStatusCheckAssociationObject$,
@@ -3988,6 +3989,7 @@ import {
   PeeringTgwInfo$,
   PerformanceFactorReference$,
   PerformanceFactorReferenceRequest$,
+  PerformanceStatusSummary$,
   PeriodType,
   PermissionGroup,
   Phase1DHGroupNumbersListValue$,
@@ -6563,6 +6565,7 @@ assert(typeof AnalysisLoadBalancerTarget$ === "object");
 assert(typeof AnalysisPacketHeader$ === "object");
 assert(typeof AnalysisRouteTableRoute$ === "object");
 assert(typeof AnalysisSecurityGroupRule$ === "object");
+assert(typeof AnalysisTransitGatewayPolicyTableEntry$ === "object");
 assert(typeof ApplicationStatus$ === "object");
 assert(typeof ApplicationStatusCheckAssociationObject$ === "object");
 assert(typeof ApplicationStatusCheckResponseObject$ === "object");
@@ -8549,6 +8552,7 @@ assert(typeof PeeringConnectionOptionsRequest$ === "object");
 assert(typeof PeeringTgwInfo$ === "object");
 assert(typeof PerformanceFactorReference$ === "object");
 assert(typeof PerformanceFactorReferenceRequest$ === "object");
+assert(typeof PerformanceStatusSummary$ === "object");
 assert(typeof Phase1DHGroupNumbersListValue$ === "object");
 assert(typeof Phase1DHGroupNumbersRequestListValue$ === "object");
 assert(typeof Phase1EncryptionAlgorithmsListValue$ === "object");
