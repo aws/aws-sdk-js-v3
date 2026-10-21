@@ -80,7 +80,7 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  *       },
  *       nluImprovement: { // NluImprovementSpecification
  *         enabled: true || false, // required
- *         assistedNluMode: "Primary" || "Fallback",
+ *         assistedNluMode: "Primary" || "Fallback" || "DialogManager",
  *         intentDisambiguationSettings: { // IntentDisambiguationSettings
  *           enabled: true || false, // required
  *           maxDisambiguationIntents: Number("int"),
@@ -180,7 +180,7 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  * //       },
  * //       nluImprovement: { // NluImprovementSpecification
  * //         enabled: true || false, // required
- * //         assistedNluMode: "Primary" || "Fallback",
+ * //         assistedNluMode: "Primary" || "Fallback" || "DialogManager",
  * //         intentDisambiguationSettings: { // IntentDisambiguationSettings
  * //           enabled: true || false, // required
  * //           maxDisambiguationIntents: Number("int"),

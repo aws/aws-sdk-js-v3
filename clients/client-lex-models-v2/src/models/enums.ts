@@ -436,6 +436,7 @@ export type AnalyticsUtteranceSortByName =
  * @enum
  */
 export const AssistedNluMode = {
+  DialogManager: "DialogManager",
   Fallback: "Fallback",
   Primary: "Primary",
 } as const;
