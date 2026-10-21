@@ -3176,8 +3176,10 @@ export interface PutAlarmRequest {
    *                   <b>Instances</b>: <code>BurstCapacityPercentage</code>,
    *             <code>BurstCapacityTime</code>, <code>CPUUtilization</code>, <code>NetworkIn</code>,
    *             <code>NetworkOut</code>, <code>StatusCheckFailed</code>,
-   *             <code>StatusCheckFailed_Instance</code>, and
-   *           <code>StatusCheckFailed_System</code>.</p>
+   *             <code>StatusCheckFailed_Instance</code>, <code>StatusCheckFailed_System</code>,
+   *             <code>DiskReadOps</code>, <code>DiskWriteOps</code>, <code>DiskReadBytes</code>,
+   *             <code>DiskWriteBytes</code>, <code>DiskTotalReadTime</code>,
+   *             <code>DiskTotalWriteTime</code>, and <code>DiskQueueLength</code>.</p>
    *             </li>
    *             <li>
    *                <p>

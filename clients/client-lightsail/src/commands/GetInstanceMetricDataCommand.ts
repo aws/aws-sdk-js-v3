@@ -38,7 +38,7 @@ export interface GetInstanceMetricDataCommandOutput extends GetInstanceMetricDat
  * const client = new LightsailClient(config);
  * const input = { // GetInstanceMetricDataRequest
  *   instanceName: "STRING_VALUE", // required
- *   metricName: "CPUUtilization" || "NetworkIn" || "NetworkOut" || "StatusCheckFailed" || "StatusCheckFailed_Instance" || "StatusCheckFailed_System" || "BurstCapacityTime" || "BurstCapacityPercentage" || "MetadataNoToken", // required
+ *   metricName: "CPUUtilization" || "NetworkIn" || "NetworkOut" || "StatusCheckFailed" || "StatusCheckFailed_Instance" || "StatusCheckFailed_System" || "BurstCapacityTime" || "BurstCapacityPercentage" || "MetadataNoToken" || "DiskReadOps" || "DiskWriteOps" || "DiskReadBytes" || "DiskWriteBytes" || "DiskTotalReadTime" || "DiskTotalWriteTime" || "DiskQueueLength", // required
  *   period: Number("int"), // required
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required
@@ -50,7 +50,7 @@ export interface GetInstanceMetricDataCommandOutput extends GetInstanceMetricDat
  * const command = new GetInstanceMetricDataCommand(input);
  * const response = await client.send(command);
  * // { // GetInstanceMetricDataResult
- * //   metricName: "CPUUtilization" || "NetworkIn" || "NetworkOut" || "StatusCheckFailed" || "StatusCheckFailed_Instance" || "StatusCheckFailed_System" || "BurstCapacityTime" || "BurstCapacityPercentage" || "MetadataNoToken",
+ * //   metricName: "CPUUtilization" || "NetworkIn" || "NetworkOut" || "StatusCheckFailed" || "StatusCheckFailed_Instance" || "StatusCheckFailed_System" || "BurstCapacityTime" || "BurstCapacityPercentage" || "MetadataNoToken" || "DiskReadOps" || "DiskWriteOps" || "DiskReadBytes" || "DiskWriteBytes" || "DiskTotalReadTime" || "DiskTotalWriteTime" || "DiskQueueLength",
  * //   metricData: [ // MetricDatapointList
  * //     { // MetricDatapoint
  * //       average: Number("double"),
