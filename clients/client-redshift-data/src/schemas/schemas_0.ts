@@ -79,6 +79,7 @@ const _RL = "RoleLevel";
 const _RNFE = "ResourceNotFoundException";
 const _RP = "RedshiftPid";
 const _RQI = "RedshiftQueryId";
+const _RQU = "RedshiftQueryUuid";
 const _RR = "ResultRows";
 const _RS = "ResultSize";
 const _S = "Sqls";
@@ -277,8 +278,8 @@ export var DescribeStatementRequest$: StaticStructureSchema = [3, n0, _DSR,
 ];
 export var DescribeStatementResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
-  [_I, _SA, _DU, _D, _CI, _Du, _E, _St, _CA, _UA, _RP, _HRS, _QS, _RR, _RS, _RQI, _QP, _SS, _WN, _RF, _SIe, _EM],
-  [0, 0, 0, 0, 0, 1, 0, 0, 4, 4, 1, 2, 0, 1, 1, 1, () => SqlParametersList, () => SubStatementList, 0, 0, 0, 0], 1
+  [_I, _SA, _DU, _D, _CI, _Du, _E, _St, _CA, _UA, _RP, _HRS, _QS, _RR, _RS, _RQI, _RQU, _QP, _SS, _WN, _RF, _SIe, _EM],
+  [0, 0, 0, 0, 0, 1, 0, 0, 4, 4, 1, 2, 0, 1, 1, 1, 0, () => SqlParametersList, () => SubStatementList, 0, 0, 0, 0], 1
 ];
 export var DescribeTableRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
@@ -387,8 +388,8 @@ export var StatementData$: StaticStructureSchema = [3, n0, _SDt,
 ];
 export var SubStatementData$: StaticStructureSchema = [3, n0, _SSD,
   0,
-  [_I, _Du, _E, _St, _CA, _UA, _QS, _RR, _RS, _RQI, _HRS],
-  [0, 1, 0, 0, 4, 4, 0, 1, 1, 1, 2], 1
+  [_I, _Du, _E, _St, _CA, _UA, _QS, _RR, _RS, _RQI, _RQU, _HRS],
+  [0, 1, 0, 0, 4, 4, 0, 1, 1, 1, 0, 2], 1
 ];
 export var TableMember$: StaticStructureSchema = [3, n0, _TM,
   0,
