@@ -48,6 +48,7 @@ import type {
   Av1FramerateControl,
   Av1FramerateConversionAlgorithm,
   Av1RateControlMode,
+  Av1SceneChangeDetect,
   Av1SpatialAdaptiveQuantization,
   AvcIntraClass,
   AvcIntraFramerateControl,
@@ -115,6 +116,7 @@ import type {
   Commitment,
   ContainerType,
   CopyProtectionAction,
+  DashAdaptationSetGrouping,
   DashIsoGroupAudioChannelConfigSchemeIdUri,
   DashIsoHbbtvCompliance,
   DashIsoImageBasedTrickPlay,
@@ -4739,6 +4741,12 @@ export interface CmafGroupSettings {
   CodecSpecification?: CmafCodecSpecification | undefined;
 
   /**
+   * Specify additional criteria for partitioning video outputs into separate AdaptationSets. These criteria are applied on top of the grouping produced by DashManifestStyle.
+   * @public
+   */
+  DashAdaptationSetGrouping?: DashAdaptationSetGrouping[] | undefined;
+
+  /**
    * Specify whether MediaConvert generates I-frame only video segments for DASH trick play, also known as trick mode. When specified, the I-frame only video segments are included within an additional AdaptationSet in your DASH output manifest. To generate I-frame only video segments: Enter a name as a text string, up to 256 character long. This name is appended to the end of this output group's base filename, that you specify as part of your destination URI, and used for the I-frame only video segment files. You may also include format identifiers. For more information, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/using-variables-in-your-job-settings.html#using-settings-variables-with-streaming-outputs To not generate I-frame only video segments: Leave blank.
    * @public
    */
@@ -5007,6 +5015,12 @@ export interface DashIsoGroupSettings {
    * @public
    */
   BaseUrl?: string | undefined;
+
+  /**
+   * Specify additional criteria for partitioning video outputs into separate AdaptationSets. These criteria are applied on top of the grouping produced by DashManifestStyle.
+   * @public
+   */
+  DashAdaptationSetGrouping?: DashAdaptationSetGrouping[] | undefined;
 
   /**
    * Specify whether MediaConvert generates I-frame only video segments for DASH trick play, also known as trick mode. When specified, the I-frame only video segments are included within an additional AdaptationSet in your DASH output manifest. To generate I-frame only video segments: Enter a name as a text string, up to 256 character long. This name is appended to the end of this output group's base filename, that you specify as part of your destination URI, and used for the I-frame only video segment files. You may also include format identifiers. For more information, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/using-variables-in-your-job-settings.html#using-settings-variables-with-streaming-outputs To not generate I-frame only video segments: Leave blank.
@@ -6575,6 +6589,12 @@ export interface Av1Settings {
   BitDepth?: Av1BitDepth | undefined;
 
   /**
+   * Specify the average bitrate in bits per second. Required when Rate control mode is CBR.
+   * @public
+   */
+  Bitrate?: number | undefined;
+
+  /**
    * Film grain synthesis replaces film grain present in your content with similar quality synthesized AV1 film grain. We recommend that you choose Enabled to reduce the bandwidth of your QVBR quality level 5, 6, 7, or 8 outputs. For QVBR quality level 9 or 10 outputs we recommend that you keep the default value, Disabled. When you include Film grain synthesis, you cannot include the Noise reducer preprocessor.
    * @public
    */
@@ -6629,22 +6649,40 @@ export interface Av1Settings {
   PerFrameMetrics?: FrameMetricType[] | undefined;
 
   /**
-   * Settings for quality-defined variable bitrate encoding with the H.265 codec. Use these settings only when you set QVBR for Rate control mode.
+   * Settings for quality-defined variable bitrate encoding with the AV1 codec. Use these settings only when you set QVBR for Rate control mode.
    * @public
    */
   QvbrSettings?: Av1QvbrSettings | undefined;
 
   /**
-   * 'With AV1 outputs, for rate control mode, MediaConvert supports only quality-defined variable bitrate (QVBR). You can''t use CBR or VBR.'
+   * 'With AV1 outputs, for rate control mode, MediaConvert supports quality-defined variable bitrate (QVBR) and constant bitrate (CBR). You can''t use VBR.'
    * @public
    */
   RateControlMode?: Av1RateControlMode | undefined;
+
+  /**
+   * Optional. Use this setting to have the service insert I-frames at scene changes that it automatically detects. For AV1, scene change detection is disabled by default. Choose Enabled to insert I-frames at detected scene changes, which can improve video quality. If this output uses QVBR, you can instead choose Transition detection for further video quality improvement. For more information about QVBR, see https://docs.aws.amazon.com/console/mediaconvert/cbr-vbr-qvbr.
+   * @public
+   */
+  SceneChangeDetect?: Av1SceneChangeDetect | undefined;
 
   /**
    * Specify the number of slices per picture. This value must be 1, 2, 4, 8, 16, or 32. For progressive pictures, this value must be less than or equal to the number of macroblock rows. For interlaced pictures, this value must be less than or equal to half the number of macroblock rows.
    * @public
    */
   Slices?: number | undefined;
+
+  /**
+   * Optional. Specify the duration, in milliseconds, of the sliding window over which MediaConvert enforces your Peak bitrate. When you specify a Peak bitrate but omit this value, MediaConvert uses a default sliding window of 1000.
+   * @public
+   */
+  SlidingWindowMs?: number | undefined;
+
+  /**
+   * Optional. Specify an instantaneous peak bitrate ceiling, in bits/second, that MediaConvert enforces over the sliding window set by Peak bitrate window. For example, enter fifty megabits per second as 50000000. Applies in the QVBR rate control mode. When you specify a value below Max bitrate, MediaConvert raises it to Max bitrate.
+   * @public
+   */
+  SlidingWindowPeakBitrate?: number | undefined;
 
   /**
    * Keep the default value, Enabled, to adjust quantization within each frame based on spatial variation of content complexity. When you enable this feature, the encoder uses fewer bits on areas that can sustain more distortion with no noticeable visual degradation and uses more bits on areas where any small distortion will be noticeable. For example, complex textured blocks are encoded with fewer bits and smooth textured blocks are encoded with more bits. Enabling this feature will almost always improve your video quality. Note, though, that this feature doesn't take into account where the viewer's attention is likely to be. If viewers are likely to be focusing their attention on a part of the screen with a lot of complex texture, you might choose to disable this feature. Related setting: When you enable spatial adaptive quantization, set the value for Adaptive quantization depending on your content. For homogeneous content, such as cartoons and video games, set it to Low. For content with a wider variety of textures, set it to High or Higher.
@@ -7079,6 +7117,18 @@ export interface H264Settings {
   Slices?: number | undefined;
 
   /**
+   * Optional. Specify the duration, in milliseconds, of the sliding window over which MediaConvert enforces your Peak bitrate. When you specify a Peak bitrate but omit this value, MediaConvert uses a default sliding window of 1000.
+   * @public
+   */
+  SlidingWindowMs?: number | undefined;
+
+  /**
+   * Optional. Specify an instantaneous peak bitrate ceiling, in bits/second, that MediaConvert enforces over the sliding window set by Peak bitrate window. For example, enter fifty megabits per second as 50000000. Applies in the VBR, CBR, and QVBR rate control modes. When you specify a value below Max bitrate, MediaConvert raises it to Max bitrate.
+   * @public
+   */
+  SlidingWindowPeakBitrate?: number | undefined;
+
+  /**
    * Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output. When you enable slow PAL, MediaConvert relabels the video frames to 25 fps and resamples your audio to keep it synchronized with the video. Note that enabling this setting will slightly reduce the duration of your video. Required settings: You must also set Framerate to 25.
    * @public
    */
@@ -7391,6 +7441,18 @@ export interface H265Settings {
   Slices?: number | undefined;
 
   /**
+   * Optional. Specify the duration, in milliseconds, of the sliding window over which MediaConvert enforces your Peak bitrate. When you specify a Peak bitrate but omit this value, MediaConvert uses a default sliding window of 1000.
+   * @public
+   */
+  SlidingWindowMs?: number | undefined;
+
+  /**
+   * Optional. Specify an instantaneous peak bitrate ceiling, in bits/second, that MediaConvert enforces over the sliding window set by Peak bitrate window. For example, enter fifty megabits per second as 50000000. Applies in the VBR, CBR, and QVBR rate control modes. When you specify a value below Max bitrate, MediaConvert raises it to Max bitrate.
+   * @public
+   */
+  SlidingWindowPeakBitrate?: number | undefined;
+
+  /**
    * Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output. When you enable slow PAL, MediaConvert relabels the video frames to 25 fps and resamples your audio to keep it synchronized with the video. Note that enabling this setting will slightly reduce the duration of your video. Required settings: You must also set Framerate to 25.
    * @public
    */
@@ -7635,6 +7697,18 @@ export interface Mpeg2Settings {
    * @public
    */
   SceneChangeDetect?: Mpeg2SceneChangeDetect | undefined;
+
+  /**
+   * Optional. Specify the duration, in milliseconds, of the sliding window over which MediaConvert enforces your Peak bitrate. When you specify a Peak bitrate but omit this value, MediaConvert uses a default sliding window of 1000.
+   * @public
+   */
+  SlidingWindowMs?: number | undefined;
+
+  /**
+   * Optional. Specify an instantaneous peak bitrate ceiling, in bits/second, that MediaConvert enforces over the sliding window set by Peak bitrate window. For example, enter fifty megabits per second as 50000000. Applies in the VBR and CBR rate control modes. When you specify a value below Max bitrate, MediaConvert raises it to Max bitrate.
+   * @public
+   */
+  SlidingWindowPeakBitrate?: number | undefined;
 
   /**
    * Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output. When you enable slow PAL, MediaConvert relabels the video frames to 25 fps and resamples your audio to keep it synchronized with the video. Note that enabling this setting will slightly reduce the duration of your video. Required settings: You must also set Framerate to 25.
@@ -8749,7 +8823,7 @@ export interface NoiseReducerTemporalFilterSettings {
  */
 export interface NoiseReducer {
   /**
-   * Use Noise reducer filter to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer. * Bilateral preserves edges while reducing noise. * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) do convolution filtering. * Conserve does min/max noise reduction. * Spatial does frequency-domain filtering based on JND principles. * Temporal optimizes video quality for complex motion.
+   * Use Noise reducer filter to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer. * Bilateral preserves edges while reducing noise. * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) do convolution filtering. * Conserve does min/max noise reduction. * Spatial does frequency-domain filtering based on JND principles. * Temporal optimizes video quality for complex motion. * Perceptual exploits perceptual masking, avoiding encoding bits spent on imperceptible detail. * None disables noise reduction, including the perceptual filter that MediaConvert otherwise applies by default for AVC, HEVC, AV1, MPEG-2, VP8, and VP9 outputs. MediaConvert doesn't apply that default to mezzanine and archival outputs (AVC-Intra, XAVC, Apple ProRes, VC3, Uncompressed), to frame capture outputs, or to outputs that use Dolby Vision, which doesn't support any noise reducer.
    * @public
    */
   Filter?: NoiseReducerFilter | undefined;

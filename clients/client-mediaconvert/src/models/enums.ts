@@ -1656,6 +1656,18 @@ export type ColorSpace = (typeof ColorSpace)[keyof typeof ColorSpace];
  * @public
  * @enum
  */
+export const DashAdaptationSetGrouping = {
+  CODEC: "CODEC",
+} as const;
+/**
+ * @public
+ */
+export type DashAdaptationSetGrouping = (typeof DashAdaptationSetGrouping)[keyof typeof DashAdaptationSetGrouping];
+
+/**
+ * @public
+ * @enum
+ */
 export const DashIsoIntervalCadence = {
   FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
   FOLLOW_IFRAME: "FOLLOW_IFRAME",
@@ -4217,12 +4229,27 @@ export type Av1FramerateConversionAlgorithm =
  * @enum
  */
 export const Av1RateControlMode = {
+  CBR: "CBR",
   QVBR: "QVBR",
 } as const;
 /**
  * @public
  */
 export type Av1RateControlMode = (typeof Av1RateControlMode)[keyof typeof Av1RateControlMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Av1SceneChangeDetect = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  TRANSITION_DETECTION: "TRANSITION_DETECTION",
+} as const;
+/**
+ * @public
+ */
+export type Av1SceneChangeDetect = (typeof Av1SceneChangeDetect)[keyof typeof Av1SceneChangeDetect];
 
 /**
  * @public
@@ -6569,6 +6596,8 @@ export const NoiseReducerFilter = {
   GAUSSIAN: "GAUSSIAN",
   LANCZOS: "LANCZOS",
   MEAN: "MEAN",
+  NONE: "NONE",
+  PERCEPTUAL: "PERCEPTUAL",
   SHARPEN: "SHARPEN",
   SPATIAL: "SPATIAL",
   TEMPORAL: "TEMPORAL",
