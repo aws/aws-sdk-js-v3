@@ -177,6 +177,20 @@ export interface ListAssociationsCommandOutput extends ListAssociationsOutput, _
  * //         },
  * //         remoteagent: {},
  * //         remoteagentsigv4: {},
+ * //         msteams: { // MSTeamsConfiguration
+ * //           teamId: "STRING_VALUE", // required
+ * //           teamName: "STRING_VALUE", // required
+ * //           transmissionTarget: { // MSTeamsTransmissionTarget
+ * //             opsOncallTarget: { // MSTeamsChannel
+ * //               channelName: "STRING_VALUE", // required
+ * //               channelId: "STRING_VALUE", // required
+ * //             },
+ * //             opsSRETarget: {
+ * //               channelName: "STRING_VALUE", // required
+ * //               channelId: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
  * //         releaseManagement: { // ReleaseManagementConfiguration
  * //           name: "STRING_VALUE", // required
  * //           networkAccess: { // NetworkAccessConfiguration Union: only one key present

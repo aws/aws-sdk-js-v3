@@ -35,7 +35,7 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * const input = { // ListServicesInput
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   filterServiceType: "github" || "slack" || "azure" || "azuredevops" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4" || "remoteagent" || "remoteagentsigv4",
+ *   filterServiceType: "github" || "slack" || "azure" || "azuredevops" || "msteams" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4" || "remoteagent" || "remoteagentsigv4",
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
@@ -44,7 +44,7 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * //   services: [ // RegisteredServicesList // required
  * //     { // RegisteredService
  * //       serviceId: "STRING_VALUE", // required
- * //       serviceType: "github" || "slack" || "azure" || "azuredevops" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4" || "remoteagent" || "remoteagentsigv4", // required
+ * //       serviceType: "github" || "slack" || "azure" || "azuredevops" || "msteams" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4" || "remoteagent" || "remoteagentsigv4", // required
  * //       name: "STRING_VALUE",
  * //       accessibleResources: [ // DocumentList
  * //         "DOCUMENT_VALUE",

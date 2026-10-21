@@ -162,6 +162,20 @@ export interface AssociateServiceCommandOutput extends AssociateServiceOutput, _
  *     },
  *     remoteagent: {},
  *     remoteagentsigv4: {},
+ *     msteams: { // MSTeamsConfiguration
+ *       teamId: "STRING_VALUE", // required
+ *       teamName: "STRING_VALUE", // required
+ *       transmissionTarget: { // MSTeamsTransmissionTarget
+ *         opsOncallTarget: { // MSTeamsChannel
+ *           channelName: "STRING_VALUE", // required
+ *           channelId: "STRING_VALUE", // required
+ *         },
+ *         opsSRETarget: {
+ *           channelName: "STRING_VALUE", // required
+ *           channelId: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
  *     releaseManagement: { // ReleaseManagementConfiguration
  *       name: "STRING_VALUE", // required
  *       networkAccess: { // NetworkAccessConfiguration Union: only one key present
@@ -327,6 +341,20 @@ export interface AssociateServiceCommandOutput extends AssociateServiceOutput, _
  * //       },
  * //       remoteagent: {},
  * //       remoteagentsigv4: {},
+ * //       msteams: { // MSTeamsConfiguration
+ * //         teamId: "STRING_VALUE", // required
+ * //         teamName: "STRING_VALUE", // required
+ * //         transmissionTarget: { // MSTeamsTransmissionTarget
+ * //           opsOncallTarget: { // MSTeamsChannel
+ * //             channelName: "STRING_VALUE", // required
+ * //             channelId: "STRING_VALUE", // required
+ * //           },
+ * //           opsSRETarget: {
+ * //             channelName: "STRING_VALUE", // required
+ * //             channelId: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
  * //       releaseManagement: { // ReleaseManagementConfiguration
  * //         name: "STRING_VALUE", // required
  * //         networkAccess: { // NetworkAccessConfiguration Union: only one key present
@@ -384,6 +412,9 @@ export interface AssociateServiceCommandOutput extends AssociateServiceOutput, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would exceed the service quota limit.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the service.</p>
  *
@@ -392,9 +423,6 @@ export interface AssociateServiceCommandOutput extends AssociateServiceOutput, _
  *
  * @throws {@link ContentSizeExceededException} (client fault)
  *  <p>This exception is thrown when the content size exceeds the allowed limit.</p>
- *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would exceed the service quota limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled due to too many requests. Please slow down and try again.</p>

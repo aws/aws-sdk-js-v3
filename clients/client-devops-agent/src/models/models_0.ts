@@ -1267,6 +1267,66 @@ export interface MCPServerSigV4Configuration {
 export interface MCPServerSplunkConfiguration {}
 
 /**
+ * <p>Represents a channel in a Microsoft Teams team that the DevOps Agent service can send notifications to.</p>
+ * @public
+ */
+export interface MSTeamsChannel {
+  /**
+   * <p>The name of the Microsoft Teams channel.</p>
+   * @public
+   */
+  channelName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Microsoft Teams channel, for example 19:abc123def456@thread.tacv2.</p>
+   * @public
+   */
+  channelId: string | undefined;
+}
+
+/**
+ * <p>Specifies the Microsoft Teams channels that receive different types of agent notifications.</p>
+ * @public
+ */
+export interface MSTeamsTransmissionTarget {
+  /**
+   * <p>The Microsoft Teams channel that receives notifications from the On-call Agent.</p>
+   * @public
+   */
+  opsOncallTarget?: MSTeamsChannel | undefined;
+
+  /**
+   * <p>The Microsoft Teams channel that receives notifications from the SRE Agent.</p>
+   * @public
+   */
+  opsSRETarget?: MSTeamsChannel | undefined;
+}
+
+/**
+ * <p>Configuration for connecting a Microsoft Teams team to the DevOps Agent service. Use this configuration to specify which team to connect and how to route agent notifications to channels within that team.</p>
+ * @public
+ */
+export interface MSTeamsConfiguration {
+  /**
+   * <p>The identifier of the Microsoft Teams team to connect to the DevOps Agent service.</p>
+   * @public
+   */
+  teamId: string | undefined;
+
+  /**
+   * <p>The name of the Microsoft Teams team to connect to the DevOps Agent service.</p>
+   * @public
+   */
+  teamName: string | undefined;
+
+  /**
+   * <p>The Microsoft Teams channels that receive agent notifications.</p>
+   * @public
+   */
+  transmissionTarget: MSTeamsTransmissionTarget | undefined;
+}
+
+/**
  * <p>Configuration for Pagerduty integration.</p>
  * @public
  */
@@ -1533,6 +1593,7 @@ export type ServiceConfiguration =
   | ServiceConfiguration.McpservernewrelicMember
   | ServiceConfiguration.Mcpserversigv4Member
   | ServiceConfiguration.McpserversplunkMember
+  | ServiceConfiguration.MsteamsMember
   | ServiceConfiguration.PagerdutyMember
   | ServiceConfiguration.ReleaseManagementMember
   | ServiceConfiguration.RemoteagentMember
@@ -1570,6 +1631,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -1598,6 +1660,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -1626,6 +1689,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -1654,6 +1718,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -1682,6 +1747,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -1710,6 +1776,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -1738,6 +1805,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -1766,6 +1834,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -1794,6 +1863,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -1822,6 +1892,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -1850,6 +1921,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -1878,6 +1950,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -1906,6 +1979,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -1934,6 +2008,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -1962,6 +2037,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -1990,6 +2066,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -2018,6 +2095,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4: MCPServerSigV4Configuration;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -2046,6 +2124,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent: RemoteAgentConfiguration;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -2074,6 +2153,36 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4: RemoteAgentSigV4Configuration;
+    msteams?: never;
+    releaseManagement?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for connecting a Microsoft Teams team to the DevOps Agent service.</p>
+   * @public
+   */
+  export interface MsteamsMember {
+    sourceAws?: never;
+    aws?: never;
+    github?: never;
+    slack?: never;
+    dynatrace?: never;
+    servicenow?: never;
+    mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
+    gitlab?: never;
+    mcpserversplunk?: never;
+    eventChannel?: never;
+    azure?: never;
+    azuredevops?: never;
+    mcpservergrafana?: never;
+    pagerduty?: never;
+    mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
+    msteams: MSTeamsConfiguration;
     releaseManagement?: never;
     $unknown?: never;
   }
@@ -2102,6 +2211,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement: ReleaseManagementConfiguration;
     $unknown?: never;
   }
@@ -2129,6 +2239,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4?: never;
     remoteagent?: never;
     remoteagentsigv4?: never;
+    msteams?: never;
     releaseManagement?: never;
     $unknown: [string, any];
   }
@@ -2157,6 +2268,7 @@ export namespace ServiceConfiguration {
     mcpserversigv4: (value: MCPServerSigV4Configuration) => T;
     remoteagent: (value: RemoteAgentConfiguration) => T;
     remoteagentsigv4: (value: RemoteAgentSigV4Configuration) => T;
+    msteams: (value: MSTeamsConfiguration) => T;
     releaseManagement: (value: ReleaseManagementConfiguration) => T;
     _: (name: string, value: any) => T;
   }

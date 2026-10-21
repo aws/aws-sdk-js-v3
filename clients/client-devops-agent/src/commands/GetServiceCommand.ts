@@ -40,7 +40,7 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * // { // GetServiceOutput
  * //   service: { // RegisteredService
  * //     serviceId: "STRING_VALUE", // required
- * //     serviceType: "github" || "slack" || "azure" || "azuredevops" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4" || "remoteagent" || "remoteagentsigv4", // required
+ * //     serviceType: "github" || "slack" || "azure" || "azuredevops" || "msteams" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4" || "remoteagent" || "remoteagentsigv4", // required
  * //     name: "STRING_VALUE",
  * //     accessibleResources: [ // DocumentList
  * //       "DOCUMENT_VALUE",
