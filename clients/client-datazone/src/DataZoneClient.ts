@@ -112,6 +112,10 @@ import type {
   CreateDataProductRevisionCommandOutput,
 } from "./commands/CreateDataProductRevisionCommand";
 import type { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
+import type {
+  CreateDesignationCommandInput,
+  CreateDesignationCommandOutput,
+} from "./commands/CreateDesignationCommand";
 import type { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
 import type { CreateDomainUnitCommandInput, CreateDomainUnitCommandOutput } from "./commands/CreateDomainUnitCommand";
 import type {
@@ -191,6 +195,10 @@ import type {
   DeleteDataProductCommandOutput,
 } from "./commands/DeleteDataProductCommand";
 import type { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import type {
+  DeleteDesignationCommandInput,
+  DeleteDesignationCommandOutput,
+} from "./commands/DeleteDesignationCommand";
 import type { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import type { DeleteDomainUnitCommandInput, DeleteDomainUnitCommandOutput } from "./commands/DeleteDomainUnitCommand";
 import type {
@@ -271,6 +279,7 @@ import type {
 import type { GetDataProductCommandInput, GetDataProductCommandOutput } from "./commands/GetDataProductCommand";
 import type { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
 import type { GetDataSourceRunCommandInput, GetDataSourceRunCommandOutput } from "./commands/GetDataSourceRunCommand";
+import type { GetDesignationCommandInput, GetDesignationCommandOutput } from "./commands/GetDesignationCommand";
 import type { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
 import type { GetDomainUnitCommandInput, GetDomainUnitCommandOutput } from "./commands/GetDomainUnitCommand";
 import type {
@@ -364,6 +373,7 @@ import type {
   ListDataSourceRunsCommandOutput,
 } from "./commands/ListDataSourceRunsCommand";
 import type { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
+import type { ListDesignationsCommandInput, ListDesignationsCommandOutput } from "./commands/ListDesignationsCommand";
 import type { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import type {
   ListDomainUnitsForParentCommandInput,
@@ -520,6 +530,10 @@ import type {
 } from "./commands/UpdateAssetFilterCommand";
 import type { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
 import type { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
+import type {
+  UpdateDesignationCommandInput,
+  UpdateDesignationCommandOutput,
+} from "./commands/UpdateDesignationCommand";
 import type { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
 import type { UpdateDomainUnitCommandInput, UpdateDomainUnitCommandOutput } from "./commands/UpdateDomainUnitCommand";
 import type {
@@ -608,6 +622,7 @@ export type ServiceInputTypes =
   | CreateDataProductCommandInput
   | CreateDataProductRevisionCommandInput
   | CreateDataSourceCommandInput
+  | CreateDesignationCommandInput
   | CreateDomainCommandInput
   | CreateDomainUnitCommandInput
   | CreateEnvironmentActionCommandInput
@@ -636,6 +651,7 @@ export type ServiceInputTypes =
   | DeleteDataExportConfigurationCommandInput
   | DeleteDataProductCommandInput
   | DeleteDataSourceCommandInput
+  | DeleteDesignationCommandInput
   | DeleteDomainCommandInput
   | DeleteDomainUnitCommandInput
   | DeleteEnvironmentActionCommandInput
@@ -668,6 +684,7 @@ export type ServiceInputTypes =
   | GetDataProductCommandInput
   | GetDataSourceCommandInput
   | GetDataSourceRunCommandInput
+  | GetDesignationCommandInput
   | GetDomainCommandInput
   | GetDomainUnitCommandInput
   | GetEnvironmentActionCommandInput
@@ -707,6 +724,7 @@ export type ServiceInputTypes =
   | ListDataSourceRunActivitiesCommandInput
   | ListDataSourceRunsCommandInput
   | ListDataSourcesCommandInput
+  | ListDesignationsCommandInput
   | ListDomainUnitsForParentCommandInput
   | ListDomainsCommandInput
   | ListEntityOwnersCommandInput
@@ -761,6 +779,7 @@ export type ServiceInputTypes =
   | UpdateAssetFilterCommandInput
   | UpdateConnectionCommandInput
   | UpdateDataSourceCommandInput
+  | UpdateDesignationCommandInput
   | UpdateDomainCommandInput
   | UpdateDomainUnitCommandInput
   | UpdateEnvironmentActionCommandInput
@@ -803,6 +822,7 @@ export type ServiceOutputTypes =
   | CreateDataProductCommandOutput
   | CreateDataProductRevisionCommandOutput
   | CreateDataSourceCommandOutput
+  | CreateDesignationCommandOutput
   | CreateDomainCommandOutput
   | CreateDomainUnitCommandOutput
   | CreateEnvironmentActionCommandOutput
@@ -831,6 +851,7 @@ export type ServiceOutputTypes =
   | DeleteDataExportConfigurationCommandOutput
   | DeleteDataProductCommandOutput
   | DeleteDataSourceCommandOutput
+  | DeleteDesignationCommandOutput
   | DeleteDomainCommandOutput
   | DeleteDomainUnitCommandOutput
   | DeleteEnvironmentActionCommandOutput
@@ -863,6 +884,7 @@ export type ServiceOutputTypes =
   | GetDataProductCommandOutput
   | GetDataSourceCommandOutput
   | GetDataSourceRunCommandOutput
+  | GetDesignationCommandOutput
   | GetDomainCommandOutput
   | GetDomainUnitCommandOutput
   | GetEnvironmentActionCommandOutput
@@ -902,6 +924,7 @@ export type ServiceOutputTypes =
   | ListDataSourceRunActivitiesCommandOutput
   | ListDataSourceRunsCommandOutput
   | ListDataSourcesCommandOutput
+  | ListDesignationsCommandOutput
   | ListDomainUnitsForParentCommandOutput
   | ListDomainsCommandOutput
   | ListEntityOwnersCommandOutput
@@ -956,6 +979,7 @@ export type ServiceOutputTypes =
   | UpdateAssetFilterCommandOutput
   | UpdateConnectionCommandOutput
   | UpdateDataSourceCommandOutput
+  | UpdateDesignationCommandOutput
   | UpdateDomainCommandOutput
   | UpdateDomainUnitCommandOutput
   | UpdateEnvironmentActionCommandOutput

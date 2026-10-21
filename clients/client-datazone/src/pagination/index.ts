@@ -9,6 +9,7 @@ export * from "./ListDataProductRevisionsPaginator";
 export * from "./ListDataSourceRunActivitiesPaginator";
 export * from "./ListDataSourceRunsPaginator";
 export * from "./ListDataSourcesPaginator";
+export * from "./ListDesignationsPaginator";
 export * from "./ListDomainsPaginator";
 export * from "./ListDomainUnitsForParentPaginator";
 export * from "./ListEntityOwnersPaginator";

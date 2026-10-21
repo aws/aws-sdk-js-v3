@@ -10,6 +10,7 @@ import type {
   DataSourceRunType,
   DataSourceStatus,
   DataZoneEntityType,
+  DesignationType,
   DomainStatus,
   DomainVersion,
   EdgeDirection,
@@ -32,8 +33,6 @@ import type {
   MetadataGenerationRunStatus,
   MetadataGenerationRunType,
   MetadataGenerationTargetType,
-  NotebookStatus,
-  NotebookType,
   NotificationResourceType,
   NotificationRole,
   NotificationType,
@@ -77,7 +76,6 @@ import type {
   AssetScope,
   AssetTargetNameMap,
   AssetTypesForRule,
-  CellInformation,
   ConfigurableEnvironmentAction,
   Configuration,
   ConnectionCredentials,
@@ -92,18 +90,14 @@ import type {
   DeploymentProperties,
   DetailedGlossaryTerm,
   DomainUnitOwnerProperties,
-  EnvironmentConfig,
   EnvironmentConfiguration,
   EnvironmentConfigurationUserParameter,
   EnvironmentDeploymentDetails,
   FormInput,
   FormOutput,
-  GitMetadata,
-  GlossaryTermEnforcementDetail,
   MatchRationaleItem,
   Member,
   Model,
-  NotebookError,
   Permissions,
   PhysicalEndpoint,
   PolicyGrantDetail,
@@ -122,6 +116,101 @@ import type {
   TimeSeriesDataPointSummaryFormOutput,
   UserProfileDetails,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateProjectProfileOutput {
+  /**
+   * <p>The ID of the domain where a project profile is created.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>Project profile ID.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Project profile name.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A project profile description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Project profile status.</p>
+   * @public
+   */
+  status?: Status | undefined;
+
+  /**
+   * <p>The resource tags of the project profile.</p>
+   * @public
+   */
+  projectResourceTags?: ResourceTagParameter[] | undefined;
+
+  /**
+   * <p>Specifies whether custom project resource tags are supported.</p>
+   * @public
+   */
+  allowCustomProjectResourceTags?: boolean | undefined;
+
+  /**
+   * <p>Field viewable through the UI that provides a project user with the allowed resource tag specifications.</p>
+   * @public
+   */
+  projectResourceTagsDescription?: string | undefined;
+
+  /**
+   * <p>Environment configurations of a project profile.</p>
+   * @public
+   */
+  environmentConfigurations?: EnvironmentConfiguration[] | undefined;
+
+  /**
+   * <p>A user who created a project profile.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>A timestamp at which a project profile is created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>A timestamp when a project profile was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The ID of the domain unit where a project profile is created.</p>
+   * @public
+   */
+  domainUnitId?: string | undefined;
+}
+
+/**
+ * <p>The enforcement details of a glossary term.</p>
+ * @public
+ */
+export interface GlossaryTermEnforcementDetail {
+  /**
+   * <p>The ID of the required glossary term.</p>
+   * @public
+   */
+  requiredGlossaryTermIds?: string[] | undefined;
+}
 
 /**
  * <p>The reference of a metadata form.</p>
@@ -3141,6 +3230,28 @@ export interface DeleteDataExportConfigurationOutput {}
 /**
  * @public
  */
+export interface DeleteDesignationInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain that contains the designation to delete.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The unique ID of the designation to delete.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDesignationOutput {}
+
+/**
+ * @public
+ */
 export interface DeleteEnvironmentInput {
   /**
    * <p>The ID of the Amazon DataZone domain in which the environment is deleted.</p>
@@ -5160,6 +5271,93 @@ export interface GetDataExportConfigurationOutput {
    * @public
    */
   updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDesignationInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain that contains the designation.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The unique ID of the designation to retrieve.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * A designation defines a named role with a Cedar permit policy that controls
+ * what actions members holding this designation can perform within a project.
+ * @public
+ */
+export interface GetDesignationOutput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain that contains the designation.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The unique ID of the designation.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the designation. The name is unique within the domain.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A human-readable description of the designation and its intended use.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * The classification of this designation. MANAGED designations are
+   * system-defined and cannot be modified or deleted.
+   * @public
+   */
+  designationType: DesignationType | undefined;
+
+  /**
+   * The Cedar permit policy that governs what actions holders of this
+   * designation are allowed to perform.
+   * @public
+   */
+  policy: string | undefined;
+
+  /**
+   * Whether deletion protection is enabled for this designation. When true,
+   * DeleteDesignation is rejected until protection is disabled via UpdateDesignation.
+   * @public
+   */
+  deletionProtection: boolean | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone user who created the designation.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The date and time when the designation was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the designation was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -7718,6 +7916,106 @@ export interface ListDataSourceRunActivitiesOutput {
 /**
  * @public
  */
+export interface ListDesignationsInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain that contains the designations to list.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>If the results exceed the value of <code>MaxResults</code>, the previous call returns a pagination token. Specify this token in a subsequent call to <code>ListDesignations</code> to retrieve the next set of results. If not specified, the operation returns the first page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of designations to return in a single call to <code>ListDesignations</code>. If the number of designations exceeds <code>MaxResults</code>, the response includes a <code>NextToken</code> value. Use that token in a subsequent call to <code>ListDesignations</code> to retrieve the next set of designations. The default value is 20.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * Summary representation of a designation returned by list operations.
+ * @public
+ */
+export interface DesignationSummary {
+  /**
+   * <p>The identifier of the Amazon DataZone domain that contains the designation.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The unique ID of the designation.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the designation. The name is unique within the domain.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A human-readable description of the designation and its intended use.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * The classification of this designation.
+   * @public
+   */
+  designationType?: DesignationType | undefined;
+
+  /**
+   * Whether deletion protection is enabled for this designation.
+   * @public
+   */
+  deletionProtection: boolean | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone user who created the designation.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The date and time when the designation was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the designation was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDesignationsOutput {
+  /**
+   * <p>The designation summaries that <code>ListDesignations</code> returned. Each item contains summary information about a designation in the domain.</p>
+   * @public
+   */
+  items?: DesignationSummary[] | undefined;
+
+  /**
+   * <p>A pagination token that indicates that more results are available. Pass this token to a subsequent call to <code>ListDesignations</code> to retrieve the next page of results. If there are no more results, this value is null.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListEntityOwnersInput {
   /**
    * <p>The ID of the domain where you want to list entity owners.</p>
@@ -9434,6 +9732,12 @@ export interface ProjectMember {
    * @public
    */
   designation: UserDesignation | undefined;
+
+  /**
+   * <p>The ID of the user-created designation held by the project member when <code>designation</code> is <code>USER_CREATED_DESIGNATION</code>.</p>
+   * @public
+   */
+  userCreatedDesignationId?: string | undefined;
 }
 
 /**
@@ -10902,524 +11206,3 @@ export interface DeleteNotebookInput {
  * @public
  */
 export interface DeleteNotebookOutput {}
-
-/**
- * @public
- */
-export interface GetNotebookInput {
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook exists.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the notebook.</p>
-   * @public
-   */
-  identifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetNotebookOutput {
-  /**
-   * <p>The identifier of the notebook.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the notebook.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The identifier of the project that owns the notebook.</p>
-   * @public
-   */
-  owningProjectId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The ordered list of cells in the notebook.</p>
-   * @public
-   */
-  cellOrder: CellInformation[] | undefined;
-
-  /**
-   * <p>The status of the notebook.</p>
-   * @public
-   */
-  status: NotebookStatus | undefined;
-
-  /**
-   * <p>The type of the notebook.</p>
-   * @public
-   */
-  type?: NotebookType | undefined;
-
-  /**
-   * <p>The description of the notebook.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the user who created the notebook.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook was last updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the user who last updated the notebook.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
-
-  /**
-   * <p>The identifier of the user who locked the notebook.</p>
-   * @public
-   */
-  lockedBy?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook was locked.</p>
-   * @public
-   */
-  lockedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook lock expires.</p>
-   * @public
-   */
-  lockExpiresAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the compute associated with the notebook.</p>
-   * @public
-   */
-  computeId?: string | undefined;
-
-  /**
-   * <p>The metadata of the notebook.</p>
-   * @public
-   */
-  metadata?: Record<string, string> | undefined;
-
-  /**
-   * <p>The sensitive parameters of the notebook.</p>
-   * @public
-   */
-  parameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>The environment configuration of the notebook.</p>
-   * @public
-   */
-  environmentConfiguration?: EnvironmentConfig | undefined;
-
-  /**
-   * <p>The error details if the notebook is in a failed state.</p>
-   * @public
-   */
-  error?: NotebookError | undefined;
-
-  /**
-   * <p>The Git metadata associated with the notebook.</p>
-   * @public
-   */
-  gitMetadata?: GitMetadata | undefined;
-}
-
-/**
- * @public
- */
-export interface ListNotebooksInput {
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which to list notebooks.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the project that owns the notebooks.</p>
-   * @public
-   */
-  owningProjectIdentifier: string | undefined;
-
-  /**
-   * <p>The maximum number of notebooks to return in a single call. When the number of notebooks exceeds the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The sort order for the results.</p>
-   * @public
-   */
-  sortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The field to sort the results by.</p>
-   * @public
-   */
-  sortBy?: SortKey | undefined;
-
-  /**
-   * <p>The status to filter notebooks by.</p>
-   * @public
-   */
-  status?: NotebookStatus | undefined;
-
-  /**
-   * <p>The type to filter notebooks by.</p>
-   * @public
-   */
-  type?: NotebookType | undefined;
-
-  /**
-   * <p>When the number of notebooks is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notebooks, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotebooks</code> to list the next set of notebooks.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>The summary of a notebook in Amazon SageMaker Unified Studio.</p>
- * @public
- */
-export interface NotebookSummary {
-  /**
-   * <p>The identifier of the notebook.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the notebook.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The identifier of the project that owns the notebook.</p>
-   * @public
-   */
-  owningProjectId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The status of the notebook.</p>
-   * @public
-   */
-  status: NotebookStatus | undefined;
-
-  /**
-   * <p>The type of the notebook.</p>
-   * @public
-   */
-  type?: NotebookType | undefined;
-
-  /**
-   * <p>The description of the notebook.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the user who created the notebook.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook was last updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the user who last updated the notebook.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListNotebooksOutput {
-  /**
-   * <p>The results of the <code>ListNotebooks</code> action.</p>
-   * @public
-   */
-  items?: NotebookSummary[] | undefined;
-
-  /**
-   * <p>When the number of notebooks is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notebooks, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotebooks</code> to list the next set of notebooks.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateNotebookInput {
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook exists.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the notebook to update.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The updated description of the notebook.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The updated status of the notebook.</p>
-   * @public
-   */
-  status?: NotebookStatus | undefined;
-
-  /**
-   * <p>The updated name of the notebook.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The updated ordered list of cells in the notebook.</p>
-   * @public
-   */
-  cellOrder?: CellInformation[] | undefined;
-
-  /**
-   * <p>The updated type of the notebook.</p>
-   * @public
-   */
-  type?: NotebookType | undefined;
-
-  /**
-   * <p>The updated metadata for the notebook, specified as key-value pairs.</p>
-   * @public
-   */
-  metadata?: Record<string, string> | undefined;
-
-  /**
-   * <p>The updated sensitive parameters for the notebook, specified as key-value pairs.</p>
-   * @public
-   */
-  parameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>The updated environment configuration for the notebook.</p>
-   * @public
-   */
-  environmentConfiguration?: EnvironmentConfig | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateNotebookOutput {
-  /**
-   * <p>The identifier of the notebook.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the notebook.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The identifier of the project that owns the notebook.</p>
-   * @public
-   */
-  owningProjectId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The ordered list of cells in the notebook.</p>
-   * @public
-   */
-  cellOrder: CellInformation[] | undefined;
-
-  /**
-   * <p>The status of the notebook.</p>
-   * @public
-   */
-  status: NotebookStatus | undefined;
-
-  /**
-   * <p>The type of the notebook.</p>
-   * @public
-   */
-  type?: NotebookType | undefined;
-
-  /**
-   * <p>The description of the notebook.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the user who created the notebook.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook was last updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the user who last updated the notebook.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
-
-  /**
-   * <p>The identifier of the user who locked the notebook.</p>
-   * @public
-   */
-  lockedBy?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook was locked.</p>
-   * @public
-   */
-  lockedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook lock expires.</p>
-   * @public
-   */
-  lockExpiresAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the compute associated with the notebook.</p>
-   * @public
-   */
-  computeId?: string | undefined;
-
-  /**
-   * <p>The metadata of the notebook.</p>
-   * @public
-   */
-  metadata?: Record<string, string> | undefined;
-
-  /**
-   * <p>The sensitive parameters of the notebook.</p>
-   * @public
-   */
-  parameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>The environment configuration of the notebook.</p>
-   * @public
-   */
-  environmentConfiguration?: EnvironmentConfig | undefined;
-
-  /**
-   * <p>The error details if the notebook is in a failed state.</p>
-   * @public
-   */
-  error?: NotebookError | undefined;
-
-  /**
-   * <p>The Git metadata associated with the notebook.</p>
-   * @public
-   */
-  gitMetadata?: GitMetadata | undefined;
-}
-
-/**
- * @public
- */
-export interface GetNotebookExportInput {
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook export exists.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the notebook export.</p>
-   * @public
-   */
-  identifier: string | undefined;
-}
-
-/**
- * <p>The error details of a failed notebook export in Amazon SageMaker Unified Studio.</p>
- * @public
- */
-export interface NotebookExportError {
-  /**
-   * <p>The error message. The maximum length is 256 characters.</p>
-   * @public
-   */
-  message: string | undefined;
-}

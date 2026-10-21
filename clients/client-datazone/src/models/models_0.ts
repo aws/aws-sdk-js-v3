@@ -20,6 +20,7 @@ import type {
   DeploymentMode,
   DeploymentStatus,
   DeploymentType,
+  DesignationType,
   DomainStatus,
   DomainUnitDesignation,
   DomainVersion,
@@ -1943,6 +1944,12 @@ export interface ProjectPolicyGrantPrincipal {
    * @public
    */
   projectDesignation: ProjectDesignation | undefined;
+
+  /**
+   * <p>The ID of the user-created designation granted to the project principal. Required when <code>projectDesignation</code> is <code>USER_CREATED_DESIGNATION</code>; must not be provided otherwise.</p>
+   * @public
+   */
+  userCreatedDesignationId?: string | undefined;
 
   /**
    * <p>The project ID of the project policy grant principal.</p>
@@ -9439,6 +9446,112 @@ export interface CreateDataSourceOutput {
 }
 
 /**
+ * @public
+ */
+export interface CreateDesignationInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the designation is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the designation. The name must be unique within the domain.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A human-readable description of the designation and its intended use.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * The Cedar permit policy that defines what actions holders of this
+   * designation are allowed to perform.
+   * @public
+   */
+  policy: string | undefined;
+
+  /**
+   * Whether deletion protection is enabled for this designation. Defaults to true when omitted.
+   * @public
+   */
+  deletionProtection?: boolean | undefined;
+}
+
+/**
+ * A designation defines a named role with a Cedar permit policy that controls
+ * what actions members holding this designation can perform within a project.
+ * @public
+ */
+export interface CreateDesignationOutput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the designation was created.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The unique ID of the designation.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the designation. The name is unique within the domain.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A human-readable description of the designation and its intended use.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * The classification of this designation. MANAGED designations are
+   * system-defined and cannot be modified or deleted.
+   * @public
+   */
+  designationType: DesignationType | undefined;
+
+  /**
+   * The Cedar permit policy that governs what actions holders of this
+   * designation are allowed to perform.
+   * @public
+   */
+  policy: string | undefined;
+
+  /**
+   * Whether deletion protection is enabled for this designation. When true,
+   * DeleteDesignation is rejected until protection is disabled via UpdateDesignation.
+   * @public
+   */
+  deletionProtection: boolean | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone user who created the designation.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The date and time when the designation was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the designation was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+}
+
+/**
  * <p>The single sign-on details in Amazon DataZone.</p>
  * @public
  */
@@ -11366,6 +11479,12 @@ export interface ProjectMembershipAssignment {
    * @public
    */
   designation: UserDesignation | undefined;
+
+  /**
+   * <p>The ID of the user-created designation to assign to this member when creating the project. Required when <code>designation</code> is <code>USER_CREATED_DESIGNATION</code>; must not be provided otherwise.</p>
+   * @public
+   */
+  userCreatedDesignationId?: string | undefined;
 }
 
 /**
@@ -11681,6 +11800,12 @@ export interface CreateProjectMembershipInput {
    * @public
    */
   designation: UserDesignation | undefined;
+
+  /**
+   * <p>The ID of the user-created designation to assign to the project member. Required when <code>designation</code> is <code>USER_CREATED_DESIGNATION</code>; must not be provided otherwise.</p>
+   * @public
+   */
+  userCreatedDesignationId?: string | undefined;
 }
 
 /**
@@ -11936,99 +12061,4 @@ export interface CreateProjectProfileInput {
    * @public
    */
   domainUnitIdentifier?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateProjectProfileOutput {
-  /**
-   * <p>The ID of the domain where a project profile is created.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>Project profile ID.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>Project profile name.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A project profile description.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Project profile status.</p>
-   * @public
-   */
-  status?: Status | undefined;
-
-  /**
-   * <p>The resource tags of the project profile.</p>
-   * @public
-   */
-  projectResourceTags?: ResourceTagParameter[] | undefined;
-
-  /**
-   * <p>Specifies whether custom project resource tags are supported.</p>
-   * @public
-   */
-  allowCustomProjectResourceTags?: boolean | undefined;
-
-  /**
-   * <p>Field viewable through the UI that provides a project user with the allowed resource tag specifications.</p>
-   * @public
-   */
-  projectResourceTagsDescription?: string | undefined;
-
-  /**
-   * <p>Environment configurations of a project profile.</p>
-   * @public
-   */
-  environmentConfigurations?: EnvironmentConfiguration[] | undefined;
-
-  /**
-   * <p>A user who created a project profile.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>A timestamp at which a project profile is created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>A timestamp when a project profile was last updated.</p>
-   * @public
-   */
-  lastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The ID of the domain unit where a project profile is created.</p>
-   * @public
-   */
-  domainUnitId?: string | undefined;
-}
-
-/**
- * <p>The enforcement details of a glossary term.</p>
- * @public
- */
-export interface GlossaryTermEnforcementDetail {
-  /**
-   * <p>The ID of the required glossary term.</p>
-   * @public
-   */
-  requiredGlossaryTermIds?: string[] | undefined;
 }
