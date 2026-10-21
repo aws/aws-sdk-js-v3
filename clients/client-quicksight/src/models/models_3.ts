@@ -2459,6 +2459,66 @@ export interface OAuthClientCredentials {
 }
 
 /**
+ * <p>The client credentials for connecting to a Microsoft OneDrive data source using two-legged OAuth (2LO) certificate-based authentication. OneDrive connections access files stored in your OneDrive storage. The tenant ID and client ID are supplied through <code>OneDriveParameters</code>.</p>
+ * @public
+ */
+export interface OneDriveClientCredentials {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key used to encrypt the OneDrive certificate credentials. This field is required.</p>
+   * @public
+   */
+  KmsKeyArn: string | undefined;
+
+  /**
+   * <p>The thumbprint of the certificate used for two-legged OAuth (2LO) authentication to OneDrive. This field is required.</p>
+   * @public
+   */
+  CertThumbprint: string | undefined;
+}
+
+/**
+ * <p>The service account credentials used for Google Workspace domain-wide delegation. Use this structure when you authenticate a data source connection using domain-wide delegation across your Google Workspace domain.</p>
+ * @public
+ */
+export interface ServiceAccountCredentials {
+  /**
+   * <p>The email address of the Google Workspace administrator account that the service account impersonates through domain-wide delegation. This field is required.</p>
+   * @public
+   */
+  AdminAccountEmail: string | undefined;
+
+  /**
+   * <p>The private key of the Google service account used for domain-wide delegation. This field is required.</p>
+   * @public
+   */
+  ServiceAccountPrivateKey: string | undefined;
+
+  /**
+   * <p>The client email address of the Google service account used for domain-wide delegation. This field is required.</p>
+   * @public
+   */
+  ClientEmail: string | undefined;
+}
+
+/**
+ * <p>The client credentials for connecting to a Microsoft SharePoint data source using two-legged OAuth (2LO) certificate-based authentication. SharePoint connections access documents stored in SharePoint sites and libraries. The tenant ID and client ID are supplied through <code>SharePointParameters</code>.</p>
+ * @public
+ */
+export interface SharePointClientCredentials {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key used to encrypt the SharePoint certificate credentials. This field is required.</p>
+   * @public
+   */
+  KmsKeyArn: string | undefined;
+
+  /**
+   * <p>The thumbprint of the certificate used for two-legged OAuth (2LO) authentication to SharePoint. This field is required.</p>
+   * @public
+   */
+  CertThumbprint: string | undefined;
+}
+
+/**
  * <p>The credentials for authenticating with a web proxy server.</p>
  * @public
  */
@@ -2527,6 +2587,24 @@ export interface DataSourceCredentials {
    * @public
    */
   OAuthClientCredentials?: OAuthClientCredentials | undefined;
+
+  /**
+   * <p>The service account credentials for connecting to a data source that uses Google Workspace domain-wide delegation.</p>
+   * @public
+   */
+  ServiceAccountCredentials?: ServiceAccountCredentials | undefined;
+
+  /**
+   * <p>The client credentials for connecting to a Microsoft SharePoint data source using two-legged OAuth (2LO) certificate-based authentication.</p>
+   * @public
+   */
+  SharePointClientCredentials?: SharePointClientCredentials | undefined;
+
+  /**
+   * <p>The client credentials for connecting to a Microsoft OneDrive data source using two-legged OAuth (2LO) certificate-based authentication.</p>
+   * @public
+   */
+  OneDriveClientCredentials?: OneDriveClientCredentials | undefined;
 }
 
 /**
@@ -9166,69 +9244,4 @@ export interface DeleteUserResponse {
    * @public
    */
   Status?: number | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DeleteUserByPrincipalIdRequest {
-  /**
-   * <p>The principal ID of the user.</p>
-   * @public
-   */
-  PrincipalId: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteUserByPrincipalIdResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteUserCustomPermissionRequest {
-  /**
-   * <p>The username of the user that you want to remove custom permissions from.</p>
-   * @public
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the custom permission configuration that you want to delete.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that the user belongs to.</p>
-   * @public
-   */
-  Namespace: string | undefined;
 }

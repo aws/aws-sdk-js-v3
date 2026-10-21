@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DeleteUserCustomPermissionRequest } from "../models/models_3";
-import type { DeleteUserCustomPermissionResponse } from "../models/models_4";
+import type { DeleteUserCustomPermissionRequest, DeleteUserCustomPermissionResponse } from "../models/models_4";
 import { DeleteUserCustomPermission$ } from "../schemas/schemas_0";
 
 /**

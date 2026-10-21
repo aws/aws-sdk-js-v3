@@ -1749,6 +1749,7 @@ import {
   OAuthClientAuthenticationType,
   OAuthClientCredentials$,
   OAuthParameters$,
+  OneDriveClientCredentials$,
   OneDriveParameters$,
   OracleParameters$,
   OtherCategories,
@@ -2114,6 +2115,7 @@ import {
   SemanticTable$,
   SemanticType$,
   SeriesItem$,
+  ServiceAccountCredentials$,
   ServiceNowParameters$,
   ServiceType,
   SessionLifetimeInMinutesInvalidException,
@@ -2123,6 +2125,7 @@ import {
   ShapeConditionalFormat$,
   SharedColumnSemanticMetadata$,
   SharedViewConfigurations$,
+  SharePointClientCredentials$,
   SharePointParameters$,
   SharingModel,
   Sheet$,
@@ -4480,6 +4483,7 @@ assert(typeof OAuthClientApplication$ === "object");
 assert(typeof OAuthClientApplicationSummary$ === "object");
 assert(typeof OAuthClientCredentials$ === "object");
 assert(typeof OAuthParameters$ === "object");
+assert(typeof OneDriveClientCredentials$ === "object");
 assert(typeof OneDriveParameters$ === "object");
 assert(typeof OracleParameters$ === "object");
 assert(typeof OutputColumn$ === "object");
@@ -4697,12 +4701,14 @@ assert(typeof SemanticModelConfiguration$ === "object");
 assert(typeof SemanticTable$ === "object");
 assert(typeof SemanticType$ === "object");
 assert(typeof SeriesItem$ === "object");
+assert(typeof ServiceAccountCredentials$ === "object");
 assert(typeof ServiceNowParameters$ === "object");
 assert(typeof SessionTag$ === "object");
 assert(typeof SetParameterValueConfiguration$ === "object");
 assert(typeof ShapeConditionalFormat$ === "object");
 assert(typeof SharedColumnSemanticMetadata$ === "object");
 assert(typeof SharedViewConfigurations$ === "object");
+assert(typeof SharePointClientCredentials$ === "object");
 assert(typeof SharePointParameters$ === "object");
 assert(typeof Sheet$ === "object");
 assert(typeof SheetBackgroundStyle$ === "object");

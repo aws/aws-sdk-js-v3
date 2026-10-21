@@ -3,6 +3,7 @@ const _AA = "ArcAngle";
 const _AAC = "ArcAxisConfiguration";
 const _AADR = "ArcAxisDisplayRange";
 const _AADS = "AdobeAnalyticsDataSource";
+const _AAE = "AdminAccountEmail";
 const _AAF = "AttributeAggregationFunction";
 const _AAI = "AwsAccountId";
 const _AANDS = "AccessAppsNativeDataStore";
@@ -650,6 +651,7 @@ const _CDr = "CrossDataset";
 const _CDre = "CreateDashboard";
 const _CE = "ConflictException";
 const _CEDS = "CreateExasolDataSource";
+const _CEl = "ClientEmail";
 const _CEo = "ConditionExpression";
 const _CF = "CalculatedFields";
 const _CFC = "CategoryFilterConfiguration";
@@ -909,7 +911,8 @@ const _CTUo = "ColumnsToUnpivot";
 const _CTV = "CreateTopicV2";
 const _CTVR = "CreateTopicV2Request";
 const _CTVRr = "CreateTopicV2Response";
-const _CTe = "CellType";
+const _CTe = "CertThumbprint";
+const _CTel = "CellType";
 const _CTl = "ClientToken";
 const _CTo = "ConstantType";
 const _CTol = "ColumnTag";
@@ -1378,6 +1381,7 @@ const _DSCIM = "DataSetColumnIdMapping";
 const _DSCIML = "DataSetColumnIdMappingList";
 const _DSCL = "DataSetConfigurationList";
 const _DSCO = "DefaultSliderControlOptions";
+const _DSCT = "DataSourceCertThumbprint";
 const _DSCa = "DataSetConfiguration";
 const _DSCat = "DataSourceCredentials";
 const _DSCata = "DataStoriesConfigurations";
@@ -1401,6 +1405,7 @@ const _DSIat = "DataSourceId";
 const _DSIata = "DataSourceIds";
 const _DSIatae = "DataSetIdentifier";
 const _DSIl = "DlpSettingId";
+const _DSKKA = "DataSourceKmsKeyArn";
 const _DSL = "DashboardSummaryList";
 const _DSLa = "DataSourceList";
 const _DSLe = "DecalSettingsList";
@@ -2219,6 +2224,7 @@ const _KBSBn = "KnowledgeBaseSortBy";
 const _KBSF = "KnowledgeBaseSearchFilter";
 const _KBSFn = "KnowledgeBaseSearchFilters";
 const _KBSn = "KnowledgeBaseSummaries";
+const _KKA = "KmsKeyArn";
 const _KPC = "KeyPairCredentials";
 const _KPIAVCF = "KPIActualValueConditionalFormatting";
 const _KPIC = "KPIConfiguration";
@@ -2666,6 +2672,7 @@ const _OCn = "OnClause";
 const _OCt = "OtherCategories";
 const _OCu = "OutputColumn";
 const _ODA = "OneDriveAction";
+const _ODCC = "OneDriveClientCredentials";
 const _ODKB = "OneDriveKnowledgeBase";
 const _ODP = "OneDriveParameters";
 const _ODPO = "OverrideDatasetParameterOperation";
@@ -3122,9 +3129,10 @@ const _SABIJ = "StartAssetBundleImportJob";
 const _SABIJR = "StartAssetBundleImportJobRequest";
 const _SABIJRt = "StartAssetBundleImportJobResponse";
 const _SABKRSA = "ShareAmazonBedrockKRSAction";
-const _SAC = "SearchActionConnectors";
+const _SAC = "ServiceAccountCredentials";
 const _SACR = "SearchActionConnectorsRequest";
 const _SACRe = "SearchActionConnectorsResponse";
+const _SACe = "SearchActionConnectors";
 const _SADS = "S3AnalyticsDataSource";
 const _SADSh = "ShareAthenaDataSource";
 const _SADSha = "ShareAuroraDataSource";
@@ -3141,6 +3149,7 @@ const _SAOe = "SelectAllOptions";
 const _SAPB = "SectionAfterPageBreak";
 const _SAPBOMA = "SAPBillOfMaterialAction";
 const _SAPBPA = "SAPBusinessPartnerAction";
+const _SAPK = "ServiceAccountPrivateKey";
 const _SAPMSA = "SAPMaterialStockAction";
 const _SAPPIA = "SAPPhysicalInventoryAction";
 const _SAPPMDA = "SAPProductMasterDataAction";
@@ -3472,6 +3481,7 @@ const _SPA = "SharePointAction";
 const _SPBC = "SectionPageBreakConfiguration";
 const _SPC = "ScatterPlotConfiguration";
 const _SPCAFW = "ScatterPlotCategoricallyAggregatedFieldWells";
+const _SPCC = "SharePointClientCredentials";
 const _SPCt = "StatePersistenceConfigurations";
 const _SPD = "StringParameterDeclaration";
 const _SPDA = "SharePagerDutyAction";
@@ -4855,6 +4865,8 @@ var CustomInstructionsString: StaticSimpleSchema = [0, n0, _CIS, 8, 0];
 var DataSetCalculatedFieldExpression: StaticSimpleSchema = [0, n0, _DSCFE, 8, 0];
 var DataSetDescriptiveText: StaticSimpleSchema = [0, n0, _DSDT, 8, 0];
 var DataSetStringFilterStaticValue: StaticSimpleSchema = [0, n0, _DSSFSV, 8, 0];
+var DataSourceCertThumbprint: StaticSimpleSchema = [0, n0, _DSCT, 8, 0];
+var DataSourceKmsKeyArn: StaticSimpleSchema = [0, n0, _DSKKA, 8, 0];
 var DescriptionSensitiveString: StaticSimpleSchema = [0, n0, _DSS, 8, 0];
 var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
 var EmbeddingUrl: StaticSimpleSchema = [0, n0, _EU, 8, 0];
@@ -6914,8 +6926,8 @@ export var DataSource$: StaticStructureSchema = [3, n0, _DSatao,
 ];
 export var DataSourceCredentials$: StaticStructureSchema = [3, n0, _DSCat,
   8,
-  [_CP, _CSA, _SA, _KPC, _WPC, _OACC],
-  [() => CredentialPair$, 0, 0, [() => KeyPairCredentials$, 0], () => WebProxyCredentials$, [() => OAuthClientCredentials$, 0]]
+  [_CP, _CSA, _SA, _KPC, _WPC, _OACC, _SAC, _SPCC, _ODCC],
+  [() => CredentialPair$, 0, 0, [() => KeyPairCredentials$, 0], () => WebProxyCredentials$, [() => OAuthClientCredentials$, 0], [() => ServiceAccountCredentials$, 0], [() => SharePointClientCredentials$, 0], [() => OneDriveClientCredentials$, 0]]
 ];
 export var DataSourceErrorInfo$: StaticStructureSchema = [3, n0, _DSEI,
   0,
@@ -10427,6 +10439,11 @@ export var OAuthParameters$: StaticStructureSchema = [3, n0, _OAP,
   [_TPU, _OASu, _IPVCP, _IPRU, _IPCACBSU],
   [0, 0, () => VpcConnectionProperties$, 0, 0], 1
 ];
+export var OneDriveClientCredentials$: StaticStructureSchema = [3, n0, _ODCC,
+  0,
+  [_KKA, _CTe],
+  [[() => DataSourceKmsKeyArn, 0], [() => DataSourceCertThumbprint, 0]], 2
+];
 export var OneDriveParameters$: StaticStructureSchema = [3, n0, _ODP,
   0,
   [_TIen, _CI, _ATut],
@@ -11487,6 +11504,11 @@ export var SeriesItem$: StaticStructureSchema = [3, n0, _SIer,
   [_FSI, _DFSI],
   [() => FieldSeriesItem$, [() => DataFieldSeriesItem$, 0]]
 ];
+export var ServiceAccountCredentials$: StaticStructureSchema = [3, n0, _SAC,
+  0,
+  [_AAE, _SAPK, _CEl],
+  [0, [() => PrivateKey, 0], 0], 3
+];
 export var ServiceNowParameters$: StaticStructureSchema = [3, n0, _SNP,
   0,
   [_SBU],
@@ -11516,6 +11538,11 @@ export var SharedViewConfigurations$: StaticStructureSchema = [3, n0, _SVC,
   0,
   [_En],
   [2], 1
+];
+export var SharePointClientCredentials$: StaticStructureSchema = [3, n0, _SPCC,
+  0,
+  [_KKA, _CTe],
+  [[() => DataSourceKmsKeyArn, 0], [() => DataSourceCertThumbprint, 0]], 2
 ];
 export var SharePointParameters$: StaticStructureSchema = [3, n0, _SPP,
   0,
@@ -12089,7 +12116,7 @@ export var TableSortConfiguration$: StaticStructureSchema = [3, n0, _TSC,
 ];
 export var TableStyleTarget$: StaticStructureSchema = [3, n0, _TST,
   0,
-  [_CTe],
+  [_CTel],
   [0], 1
 ];
 export var TableUnaggregatedFieldWells$: StaticStructureSchema = [3, n0, _TUFW,
@@ -15502,7 +15529,7 @@ export var RegisterUser$: StaticOperationSchema = [9, n0, _RUeg,
 export var RestoreAnalysis$: StaticOperationSchema = [9, n0, _RAest,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/restore/analyses/{AnalysisId}", 200] }, () => RestoreAnalysisRequest$, () => RestoreAnalysisResponse$
 ];
-export var SearchActionConnectors$: StaticOperationSchema = [9, n0, _SAC,
+export var SearchActionConnectors$: StaticOperationSchema = [9, n0, _SACe,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/search/action-connectors", 200] }, () => SearchActionConnectorsRequest$, () => SearchActionConnectorsResponse$
 ];
 export var SearchAgents$: StaticOperationSchema = [9, n0, _SAe,
