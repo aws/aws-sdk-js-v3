@@ -60,6 +60,7 @@ import type {
   SearchContactsMatchType,
   SearchContactsTimeRangeConditionType,
   SearchContactsTimeRangeType,
+  SecurityProfileType,
   SortableFieldName,
   SortOrder,
   StringComparisonType,
@@ -2897,6 +2898,12 @@ export interface SecurityProfileSearchSummary {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The type of the security profile: <code>AWS_MANAGED</code> or <code>CUSTOMER_MANAGED</code>.</p>
+   * @public
+   */
+  Type?: SecurityProfileType | undefined;
 }
 
 /**

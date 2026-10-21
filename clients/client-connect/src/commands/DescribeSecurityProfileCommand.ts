@@ -78,6 +78,7 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * //         },
  * //       },
  * //     },
+ * //     Type: "AWS_MANAGED" || "CUSTOMER_MANAGED",
  * //   },
  * // };
  *

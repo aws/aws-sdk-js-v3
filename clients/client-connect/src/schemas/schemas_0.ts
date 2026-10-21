@@ -8483,8 +8483,8 @@ export var SecurityKey$: StaticStructureSchema = [3, n0, _SKe,
 ];
 export var SecurityProfile$: StaticStructureSchema = [3, n0, _SPe,
   0,
-  [_I, _ORIr, _A, _SPNe, _D, _Ta, _AACT, _TRR, _LMT, _LMR, _HRR, _AACHGI, _GACC],
-  [0, 0, 0, 0, 0, 128 | 0, 128 | 0, 64 | 0, 4, 0, 64 | 0, 0, () => GranularAccessControlConfiguration$]
+  [_I, _ORIr, _A, _SPNe, _D, _Ta, _AACT, _TRR, _LMT, _LMR, _HRR, _AACHGI, _GACC, _T],
+  [0, 0, 0, 0, 0, 128 | 0, 128 | 0, 64 | 0, 4, 0, 64 | 0, 0, () => GranularAccessControlConfiguration$, 0]
 ];
 export var SecurityProfileItem$: StaticStructureSchema = [3, n0, _SPIec,
   0,
@@ -8498,8 +8498,8 @@ export var SecurityProfileSearchCriteria$: StaticStructureSchema = [3, n0, _SPSC
 ];
 export var SecurityProfileSearchSummary$: StaticStructureSchema = [3, n0, _SPSS,
   0,
-  [_I, _ORIr, _A, _SPNe, _D, _Ta],
-  [0, 0, 0, 0, 0, 128 | 0]
+  [_I, _ORIr, _A, _SPNe, _D, _Ta, _T],
+  [0, 0, 0, 0, 0, 128 | 0, 0]
 ];
 export var SecurityProfilesSearchFilter$: StaticStructureSchema = [3, n0, _SPSF,
   0,
@@ -8508,8 +8508,8 @@ export var SecurityProfilesSearchFilter$: StaticStructureSchema = [3, n0, _SPSF,
 ];
 export var SecurityProfileSummary$: StaticStructureSchema = [3, n0, _SPS,
   0,
-  [_I, _A, _N, _LMT, _LMR],
-  [0, 0, 0, 4, 0]
+  [_I, _A, _N, _LMT, _LMR, _T],
+  [0, 0, 0, 4, 0, 0]
 ];
 export var SegmentAttributeValue$: StaticStructureSchema = [3, n0, _SAV,
   0,

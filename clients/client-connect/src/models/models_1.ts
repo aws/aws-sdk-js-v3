@@ -51,6 +51,7 @@ import type {
   RecordingStatus,
   RuleCapabilityTier,
   RulePublishStatus,
+  SecurityProfileType,
   Status,
   StorageType,
   TaskTemplateFieldType,
@@ -6695,6 +6696,12 @@ export interface SecurityProfile {
    * @public
    */
   GranularAccessControlConfiguration?: GranularAccessControlConfiguration | undefined;
+
+  /**
+   * <p>The type of the security profile: <code>AWS_MANAGED</code> or <code>CUSTOMER_MANAGED</code>.</p>
+   * @public
+   */
+  Type?: SecurityProfileType | undefined;
 }
 
 /**

@@ -1382,6 +1382,7 @@ export type {
   SearchContactsMatchType,
   SearchContactsTimeRangeConditionType,
   SearchContactsTimeRangeType,
+  SecurityProfileType,
   SingleSelectQuestionRuleCategoryAutomationCondition,
   SlaAssignmentType,
   SlaType,

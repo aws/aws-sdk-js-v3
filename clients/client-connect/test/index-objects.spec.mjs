@@ -1968,6 +1968,7 @@ import {
   SecurityProfileSearchSummary$,
   SecurityProfilesSearchFilter$,
   SecurityProfileSummary$,
+  SecurityProfileType,
   SegmentAttributeValue$,
   SendChatIntegrationEvent$,
   SendChatIntegrationEventCommand,
@@ -4793,6 +4794,7 @@ assert(typeof SearchableQueueType === "object");
 assert(typeof SearchContactsMatchType === "object");
 assert(typeof SearchContactsTimeRangeConditionType === "object");
 assert(typeof SearchContactsTimeRangeType === "object");
+assert(typeof SecurityProfileType === "object");
 assert(typeof SingleSelectQuestionRuleCategoryAutomationCondition === "object");
 assert(typeof SlaAssignmentType === "object");
 assert(typeof SlaType === "object");

@@ -65,6 +65,7 @@ import type {
   ReferenceType,
   RuleCapabilityTier,
   RulePublishStatus,
+  SecurityProfileType,
   SortOrder,
   SourceType,
   Statistic,
@@ -10135,6 +10136,12 @@ export interface SecurityProfileSummary {
    * @public
    */
   LastModifiedRegion?: string | undefined;
+
+  /**
+   * <p>The type of the security profile: <code>AWS_MANAGED</code> or <code>CUSTOMER_MANAGED</code>.</p>
+   * @public
+   */
+  Type?: SecurityProfileType | undefined;
 }
 
 /**
