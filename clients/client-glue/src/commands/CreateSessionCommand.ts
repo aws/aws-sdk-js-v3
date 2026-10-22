@@ -52,7 +52,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *   },
  *   MaxCapacity: Number("double"),
  *   NumberOfWorkers: Number("int"),
- *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X" || "G.4X" || "G.8X" || "Z.2X",
+ *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.4X" || "G.8X" || "G.025X" || "Z.2X" || "G.12X" || "G.16X" || "R.1X" || "R.2X" || "R.4X" || "R.8X",
  *   SecurityConfiguration: "STRING_VALUE",
  *   GlueVersion: "STRING_VALUE",
  *   Tags: { // TagsMap
@@ -88,7 +88,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * //     SecurityConfiguration: "STRING_VALUE",
  * //     GlueVersion: "STRING_VALUE",
  * //     NumberOfWorkers: Number("int"),
- * //     WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X" || "G.4X" || "G.8X" || "Z.2X",
+ * //     WorkerType: "Standard" || "G.1X" || "G.2X" || "G.4X" || "G.8X" || "G.025X" || "Z.2X" || "G.12X" || "G.16X" || "R.1X" || "R.2X" || "R.4X" || "R.8X",
  * //     CompletedOn: new Date("TIMESTAMP"),
  * //     ExecutionTime: Number("double"),
  * //     DPUSeconds: Number("double"),
