@@ -44,18 +44,24 @@ export interface ListCoreNetworkRoutingInformationCommandOutput extends ListCore
  *       "STRING_VALUE",
  *     ],
  *   },
- *   LocalPreferenceMatches: [ // ConstrainedStringList
+ *   ExactPrefixMatches: [ // ConstrainedStringList
  *     "STRING_VALUE",
  *   ],
- *   ExactAsPathMatches: [
+ *   LongestPrefixMatches: [
  *     "STRING_VALUE",
  *   ],
- *   MedMatches: [
+ *   SubnetOfMatches: [
  *     "STRING_VALUE",
  *   ],
- *   CommunityMatches: [
+ *   SupernetOfMatches: [
  *     "STRING_VALUE",
  *   ],
+ *   LocalPreferenceMatches: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ExactAsPathMatches: "<ConstrainedStringList>",
+ *   MedMatches: "<ConstrainedStringList>",
+ *   CommunityMatches: "<ConstrainedStringList>",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

@@ -25,6 +25,7 @@ import {
   Attachment$,
   AttachmentError$,
   AttachmentErrorCode,
+  AttachmentNatConfiguration$,
   AttachmentRoutingPolicyAssociationSummary$,
   AttachmentState,
   AttachmentType,
@@ -326,6 +327,10 @@ import {
   LinkAssociation$,
   LinkAssociationState,
   LinkState,
+  ListAttachmentNatConfigurations$,
+  ListAttachmentNatConfigurationsCommand,
+  ListAttachmentNatConfigurationsRequest$,
+  ListAttachmentNatConfigurationsResponse$,
   ListAttachmentRoutingPolicyAssociations$,
   ListAttachmentRoutingPolicyAssociationsCommand,
   ListAttachmentRoutingPolicyAssociationsRequest$,
@@ -367,6 +372,11 @@ import {
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
   Location$,
+  NatGatewaySupportState,
+  NatGatewaySupportValue,
+  NatRule$,
+  NatRuleRequest$,
+  NatRuleState,
   NetworkFunctionGroup$,
   NetworkManager,
   NetworkManagerClient,
@@ -390,10 +400,12 @@ import {
   paginateGetNetworkResourceCounts,
   paginateGetNetworkResourceRelationships,
   paginateGetNetworkResources,
+  paginateGetNetworkRoutes,
   paginateGetNetworkTelemetry,
   paginateGetSites,
   paginateGetTransitGatewayConnectPeerAssociations,
   paginateGetTransitGatewayRegistrations,
+  paginateListAttachmentNatConfigurations,
   paginateListAttachmentRoutingPolicyAssociations,
   paginateListAttachments,
   paginateListConnectPeers,
@@ -494,6 +506,10 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  UpdateAttachmentNatConfiguration$,
+  UpdateAttachmentNatConfigurationCommand,
+  UpdateAttachmentNatConfigurationRequest$,
+  UpdateAttachmentNatConfigurationResponse$,
   UpdateConnection$,
   UpdateConnectionCommand,
   UpdateConnectionRequest$,
@@ -674,6 +690,8 @@ assert(typeof GetTransitGatewayRouteTableAttachmentCommand === "function");
 assert(typeof GetTransitGatewayRouteTableAttachment$ === "object");
 assert(typeof GetVpcAttachmentCommand === "function");
 assert(typeof GetVpcAttachment$ === "object");
+assert(typeof ListAttachmentNatConfigurationsCommand === "function");
+assert(typeof ListAttachmentNatConfigurations$ === "object");
 assert(typeof ListAttachmentRoutingPolicyAssociationsCommand === "function");
 assert(typeof ListAttachmentRoutingPolicyAssociations$ === "object");
 assert(typeof ListAttachmentsCommand === "function");
@@ -716,6 +734,8 @@ assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdateAttachmentNatConfigurationCommand === "function");
+assert(typeof UpdateAttachmentNatConfiguration$ === "object");
 assert(typeof UpdateConnectionCommand === "function");
 assert(typeof UpdateConnection$ === "object");
 assert(typeof UpdateCoreNetworkCommand === "function");
@@ -748,6 +768,7 @@ assert(typeof AssociateTransitGatewayConnectPeerRequest$ === "object");
 assert(typeof AssociateTransitGatewayConnectPeerResponse$ === "object");
 assert(typeof Attachment$ === "object");
 assert(typeof AttachmentError$ === "object");
+assert(typeof AttachmentNatConfiguration$ === "object");
 assert(typeof AttachmentRoutingPolicyAssociationSummary$ === "object");
 assert(typeof AWSLocation$ === "object");
 assert(typeof Bandwidth$ === "object");
@@ -904,6 +925,8 @@ assert(typeof GetVpcAttachmentResponse$ === "object");
 assert(typeof GlobalNetwork$ === "object");
 assert(typeof Link$ === "object");
 assert(typeof LinkAssociation$ === "object");
+assert(typeof ListAttachmentNatConfigurationsRequest$ === "object");
+assert(typeof ListAttachmentNatConfigurationsResponse$ === "object");
 assert(typeof ListAttachmentRoutingPolicyAssociationsRequest$ === "object");
 assert(typeof ListAttachmentRoutingPolicyAssociationsResponse$ === "object");
 assert(typeof ListAttachmentsRequest$ === "object");
@@ -925,6 +948,8 @@ assert(typeof ListPeeringsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof Location$ === "object");
+assert(typeof NatRule$ === "object");
+assert(typeof NatRuleRequest$ === "object");
 assert(typeof NetworkFunctionGroup$ === "object");
 assert(typeof NetworkResource$ === "object");
 assert(typeof NetworkResourceCount$ === "object");
@@ -981,6 +1006,8 @@ assert(typeof TransitGatewayRegistrationStateReason$ === "object");
 assert(typeof TransitGatewayRouteTableAttachment$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
+assert(typeof UpdateAttachmentNatConfigurationRequest$ === "object");
+assert(typeof UpdateAttachmentNatConfigurationResponse$ === "object");
 assert(typeof UpdateConnectionRequest$ === "object");
 assert(typeof UpdateConnectionResponse$ === "object");
 assert(typeof UpdateCoreNetworkRequest$ === "object");
@@ -1025,6 +1052,9 @@ assert(typeof DeviceState === "object");
 assert(typeof GlobalNetworkState === "object");
 assert(typeof LinkAssociationState === "object");
 assert(typeof LinkState === "object");
+assert(typeof NatGatewaySupportState === "object");
+assert(typeof NatGatewaySupportValue === "object");
+assert(typeof NatRuleState === "object");
 assert(typeof PeeringErrorCode === "object");
 assert(typeof PeeringState === "object");
 assert(typeof PeeringType === "object");
@@ -1073,10 +1103,12 @@ assert(typeof paginateGetLinks === "function");
 assert(typeof paginateGetNetworkResourceCounts === "function");
 assert(typeof paginateGetNetworkResourceRelationships === "function");
 assert(typeof paginateGetNetworkResources === "function");
+assert(typeof paginateGetNetworkRoutes === "function");
 assert(typeof paginateGetNetworkTelemetry === "function");
 assert(typeof paginateGetSites === "function");
 assert(typeof paginateGetTransitGatewayConnectPeerAssociations === "function");
 assert(typeof paginateGetTransitGatewayRegistrations === "function");
+assert(typeof paginateListAttachmentNatConfigurations === "function");
 assert(typeof paginateListAttachmentRoutingPolicyAssociations === "function");
 assert(typeof paginateListAttachments === "function");
 assert(typeof paginateListConnectPeers === "function");

@@ -66,13 +66,15 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  *     "ACTIVE" || "BLACKHOLE",
  *   ],
  *   Types: [ // RouteTypeList
- *     "PROPAGATED" || "STATIC",
+ *     "PROPAGATED" || "STATIC" || "SYSTEM",
  *   ],
  *   DestinationFilters: { // FilterMap
  *     "<keys>": [ // FilterValues
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
  * };
  * const command = new GetNetworkRoutesCommand(input);
  * const response = await client.send(command);
@@ -81,6 +83,11 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  * //   CoreNetworkSegmentEdge: { // CoreNetworkSegmentEdgeIdentifier
  * //     CoreNetworkId: "STRING_VALUE",
  * //     SegmentName: "STRING_VALUE",
+ * //     EdgeLocation: "STRING_VALUE",
+ * //   },
+ * //   CoreNetworkNetworkFunctionGroup: { // CoreNetworkNetworkFunctionGroupIdentifier
+ * //     CoreNetworkId: "STRING_VALUE",
+ * //     NetworkFunctionGroupName: "STRING_VALUE",
  * //     EdgeLocation: "STRING_VALUE",
  * //   },
  * //   RouteTableType: "TRANSIT_GATEWAY_ROUTE_TABLE" || "CORE_NETWORK_SEGMENT" || "NETWORK_FUNCTION_GROUP",
@@ -101,9 +108,10 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  * //       ],
  * //       PrefixListId: "STRING_VALUE",
  * //       State: "ACTIVE" || "BLACKHOLE",
- * //       Type: "PROPAGATED" || "STATIC",
+ * //       Type: "PROPAGATED" || "STATIC" || "SYSTEM",
  * //     },
  * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```

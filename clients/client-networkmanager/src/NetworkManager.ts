@@ -325,6 +325,11 @@ import {
   GetVpcAttachmentCommand,
 } from "./commands/GetVpcAttachmentCommand";
 import {
+  type ListAttachmentNatConfigurationsCommandInput,
+  type ListAttachmentNatConfigurationsCommandOutput,
+  ListAttachmentNatConfigurationsCommand,
+} from "./commands/ListAttachmentNatConfigurationsCommand";
+import {
   type ListAttachmentRoutingPolicyAssociationsCommandInput,
   type ListAttachmentRoutingPolicyAssociationsCommandOutput,
   ListAttachmentRoutingPolicyAssociationsCommand,
@@ -430,6 +435,11 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAttachmentNatConfigurationCommandInput,
+  type UpdateAttachmentNatConfigurationCommandOutput,
+  UpdateAttachmentNatConfigurationCommand,
+} from "./commands/UpdateAttachmentNatConfigurationCommand";
+import {
   type UpdateConnectionCommandInput,
   type UpdateConnectionCommandOutput,
   UpdateConnectionCommand,
@@ -487,12 +497,14 @@ import { paginateGetLinks } from "./pagination/GetLinksPaginator";
 import { paginateGetNetworkResourceCounts } from "./pagination/GetNetworkResourceCountsPaginator";
 import { paginateGetNetworkResourceRelationships } from "./pagination/GetNetworkResourceRelationshipsPaginator";
 import { paginateGetNetworkResources } from "./pagination/GetNetworkResourcesPaginator";
+import { paginateGetNetworkRoutes } from "./pagination/GetNetworkRoutesPaginator";
 import { paginateGetNetworkTelemetry } from "./pagination/GetNetworkTelemetryPaginator";
 import { paginateGetSites } from "./pagination/GetSitesPaginator";
 import {
   paginateGetTransitGatewayConnectPeerAssociations,
 } from "./pagination/GetTransitGatewayConnectPeerAssociationsPaginator";
 import { paginateGetTransitGatewayRegistrations } from "./pagination/GetTransitGatewayRegistrationsPaginator";
+import { paginateListAttachmentNatConfigurations } from "./pagination/ListAttachmentNatConfigurationsPaginator";
 import {
   paginateListAttachmentRoutingPolicyAssociations,
 } from "./pagination/ListAttachmentRoutingPolicyAssociationsPaginator";
@@ -572,6 +584,7 @@ const commands = {
   GetTransitGatewayRegistrationsCommand,
   GetTransitGatewayRouteTableAttachmentCommand,
   GetVpcAttachmentCommand,
+  ListAttachmentNatConfigurationsCommand,
   ListAttachmentRoutingPolicyAssociationsCommand,
   ListAttachmentsCommand,
   ListConnectPeersCommand,
@@ -593,6 +606,7 @@ const commands = {
   StartRouteAnalysisCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAttachmentNatConfigurationCommand,
   UpdateConnectionCommand,
   UpdateCoreNetworkCommand,
   UpdateDeviceCommand,
@@ -616,10 +630,12 @@ const paginators = {
   paginateGetNetworkResourceCounts,
   paginateGetNetworkResourceRelationships,
   paginateGetNetworkResources,
+  paginateGetNetworkRoutes,
   paginateGetNetworkTelemetry,
   paginateGetSites,
   paginateGetTransitGatewayConnectPeerAssociations,
   paginateGetTransitGatewayRegistrations,
+  paginateListAttachmentNatConfigurations,
   paginateListAttachmentRoutingPolicyAssociations,
   paginateListAttachments,
   paginateListConnectPeers,
@@ -1746,6 +1762,24 @@ export interface NetworkManager {
   ): void;
 
   /**
+   * @see {@link ListAttachmentNatConfigurationsCommand}
+   */
+  listAttachmentNatConfigurations(): Promise<ListAttachmentNatConfigurationsCommandOutput>;
+  listAttachmentNatConfigurations(
+    args: ListAttachmentNatConfigurationsCommandInput,
+    options?: NetworkManagerRequestOptions
+  ): Promise<ListAttachmentNatConfigurationsCommandOutput>;
+  listAttachmentNatConfigurations(
+    args: ListAttachmentNatConfigurationsCommandInput,
+    cb: (err: any, data?: ListAttachmentNatConfigurationsCommandOutput) => void
+  ): void;
+  listAttachmentNatConfigurations(
+    args: ListAttachmentNatConfigurationsCommandInput,
+    options: NetworkManagerRequestOptions,
+    cb: (err: any, data?: ListAttachmentNatConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAttachmentRoutingPolicyAssociationsCommand}
    */
   listAttachmentRoutingPolicyAssociations(
@@ -2108,6 +2142,23 @@ export interface NetworkManager {
   ): void;
 
   /**
+   * @see {@link UpdateAttachmentNatConfigurationCommand}
+   */
+  updateAttachmentNatConfiguration(
+    args: UpdateAttachmentNatConfigurationCommandInput,
+    options?: NetworkManagerRequestOptions
+  ): Promise<UpdateAttachmentNatConfigurationCommandOutput>;
+  updateAttachmentNatConfiguration(
+    args: UpdateAttachmentNatConfigurationCommandInput,
+    cb: (err: any, data?: UpdateAttachmentNatConfigurationCommandOutput) => void
+  ): void;
+  updateAttachmentNatConfiguration(
+    args: UpdateAttachmentNatConfigurationCommandInput,
+    options: NetworkManagerRequestOptions,
+    cb: (err: any, data?: UpdateAttachmentNatConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateConnectionCommand}
    */
   updateConnection(
@@ -2393,6 +2444,17 @@ export interface NetworkManager {
   ): Paginator<GetNetworkResourcesCommandOutput>;
 
   /**
+   * @see {@link GetNetworkRoutesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetNetworkRoutesCommandOutput}.
+   */
+  paginateGetNetworkRoutes(
+    args: GetNetworkRoutesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetNetworkRoutesCommandOutput>;
+
+  /**
    * @see {@link GetNetworkTelemetryCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2435,6 +2497,17 @@ export interface NetworkManager {
     args: GetTransitGatewayRegistrationsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<GetTransitGatewayRegistrationsCommandOutput>;
+
+  /**
+   * @see {@link ListAttachmentNatConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAttachmentNatConfigurationsCommandOutput}.
+   */
+  paginateListAttachmentNatConfigurations(
+    args?: ListAttachmentNatConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAttachmentNatConfigurationsCommandOutput>;
 
   /**
    * @see {@link ListAttachmentRoutingPolicyAssociationsCommand}

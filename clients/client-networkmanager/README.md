@@ -636,6 +636,13 @@ GetVpcAttachment
 </details>
 <details>
 <summary>
+ListAttachmentNatConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/ListAttachmentNatConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/ListAttachmentNatConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/ListAttachmentNatConfigurationsCommandOutput/)
+</details>
+<details>
+<summary>
 ListAttachmentRoutingPolicyAssociations
 </summary>
 
@@ -780,6 +787,13 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/UntagResourceCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateAttachmentNatConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/UpdateAttachmentNatConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/UpdateAttachmentNatConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/UpdateAttachmentNatConfigurationCommandOutput/)
 </details>
 <details>
 <summary>

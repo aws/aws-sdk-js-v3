@@ -65,7 +65,7 @@ export interface CreateTransitGatewayPeeringCommandOutput extends CreateTransitG
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       LastModificationErrors: [ // PeeringErrorList
  * //         { // PeeringError
- * //           Code: "TRANSIT_GATEWAY_NOT_FOUND" || "TRANSIT_GATEWAY_PEERS_LIMIT_EXCEEDED" || "MISSING_PERMISSIONS" || "INTERNAL_ERROR" || "EDGE_LOCATION_PEER_DUPLICATE" || "INVALID_TRANSIT_GATEWAY_STATE",
+ * //           Code: "TRANSIT_GATEWAY_NOT_FOUND" || "TRANSIT_GATEWAY_PEERS_LIMIT_EXCEEDED" || "MISSING_PERMISSIONS" || "INTERNAL_ERROR" || "EDGE_LOCATION_PEER_DUPLICATE" || "INVALID_TRANSIT_GATEWAY_STATE" || "TRANSIT_GATEWAY_ENCRYPTION_NOT_SUPPORTED" || "CREATION_FAILED" || "DELETION_FAILED",
  * //           Message: "STRING_VALUE",
  * //           ResourceArn: "STRING_VALUE",
  * //           RequestId: "STRING_VALUE",
