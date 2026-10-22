@@ -105,7 +105,9 @@ import type {
   ListWorkerConfigurationsCommandInput,
   ListWorkerConfigurationsCommandOutput,
 } from "./commands/ListWorkerConfigurationsCommand";
+import type { PauseConnectorCommandInput, PauseConnectorCommandOutput } from "./commands/PauseConnectorCommand";
 import type { RestartConnectorCommandInput, RestartConnectorCommandOutput } from "./commands/RestartConnectorCommand";
+import type { ResumeConnectorCommandInput, ResumeConnectorCommandOutput } from "./commands/ResumeConnectorCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateConnectorCommandInput, UpdateConnectorCommandOutput } from "./commands/UpdateConnectorCommand";
@@ -139,7 +141,9 @@ export type ServiceInputTypes =
   | ListCustomPluginsCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkerConfigurationsCommandInput
+  | PauseConnectorCommandInput
   | RestartConnectorCommandInput
+  | ResumeConnectorCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateConnectorCommandInput;
@@ -163,7 +167,9 @@ export type ServiceOutputTypes =
   | ListCustomPluginsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkerConfigurationsCommandOutput
+  | PauseConnectorCommandOutput
   | RestartConnectorCommandOutput
+  | ResumeConnectorCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateConnectorCommandOutput;

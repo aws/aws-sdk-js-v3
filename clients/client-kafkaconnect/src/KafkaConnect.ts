@@ -83,10 +83,20 @@ import {
   ListWorkerConfigurationsCommand,
 } from "./commands/ListWorkerConfigurationsCommand";
 import {
+  type PauseConnectorCommandInput,
+  type PauseConnectorCommandOutput,
+  PauseConnectorCommand,
+} from "./commands/PauseConnectorCommand";
+import {
   type RestartConnectorCommandInput,
   type RestartConnectorCommandOutput,
   RestartConnectorCommand,
 } from "./commands/RestartConnectorCommand";
+import {
+  type ResumeConnectorCommandInput,
+  type ResumeConnectorCommandOutput,
+  ResumeConnectorCommand,
+} from "./commands/ResumeConnectorCommand";
 import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
@@ -124,7 +134,9 @@ const commands = {
   ListCustomPluginsCommand,
   ListTagsForResourceCommand,
   ListWorkerConfigurationsCommand,
+  PauseConnectorCommand,
   RestartConnectorCommand,
+  ResumeConnectorCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateConnectorCommand,
@@ -403,6 +415,23 @@ export interface KafkaConnect {
   ): void;
 
   /**
+   * @see {@link PauseConnectorCommand}
+   */
+  pauseConnector(
+    args: PauseConnectorCommandInput,
+    options?: KafkaConnectRequestOptions
+  ): Promise<PauseConnectorCommandOutput>;
+  pauseConnector(
+    args: PauseConnectorCommandInput,
+    cb: (err: any, data?: PauseConnectorCommandOutput) => void
+  ): void;
+  pauseConnector(
+    args: PauseConnectorCommandInput,
+    options: KafkaConnectRequestOptions,
+    cb: (err: any, data?: PauseConnectorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RestartConnectorCommand}
    */
   restartConnector(
@@ -417,6 +446,23 @@ export interface KafkaConnect {
     args: RestartConnectorCommandInput,
     options: KafkaConnectRequestOptions,
     cb: (err: any, data?: RestartConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResumeConnectorCommand}
+   */
+  resumeConnector(
+    args: ResumeConnectorCommandInput,
+    options?: KafkaConnectRequestOptions
+  ): Promise<ResumeConnectorCommandOutput>;
+  resumeConnector(
+    args: ResumeConnectorCommandInput,
+    cb: (err: any, data?: ResumeConnectorCommandOutput) => void
+  ): void;
+  resumeConnector(
+    args: ResumeConnectorCommandInput,
+    options: KafkaConnectRequestOptions,
+    cb: (err: any, data?: ResumeConnectorCommandOutput) => void
   ): void;
 
   /**
