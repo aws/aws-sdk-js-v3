@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1156.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1155.0...v3.1156.0) (2026-10-22)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Adds the dimension name to evaluation results and batch evaluation summaries. For multi-dimensional LLM-as-a-Judge evaluators, each result and summary now identifies which dimension it corresponds to. ([185f264](https://github.com/aws/aws-sdk-js-v3/commit/185f264b93e18dfe5afa978d88f1ae6f199a1717))
+
+
+
+
+
 # [3.1155.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1154.0...v3.1155.0) (2026-10-21)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore

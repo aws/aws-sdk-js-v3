@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1156.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1155.0...v3.1156.0) (2026-10-22)
+
+
+### Features
+
+* **client-connect:** Adds support for customer queryable replication errors. ([4507ef0](https://github.com/aws/aws-sdk-js-v3/commit/4507ef013b057317b177240ad3b37a6a45ec73e3))
+
+
+
+
+
 # [3.1155.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1154.0...v3.1155.0) (2026-10-21)
 
 

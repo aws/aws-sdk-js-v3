@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1156.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1155.0...v3.1156.0) (2026-10-22)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds model-based routing and fallback to AgentCore Gateway rules. Rules can match the requested model, route to a specific model, and fall back across inference targets with an optional circuit breaker. Adds multi-dimensional rating scales for AgentCore Evaluations LLM-as-a-Judge evaluators. ([9c2b09c](https://github.com/aws/aws-sdk-js-v3/commit/9c2b09c2b3f5e04a170e40ba893c9eec12f0d14b))
+* **client-bedrock-agentcore:** Adds the dimension name to evaluation results and batch evaluation summaries. For multi-dimensional LLM-as-a-Judge evaluators, each result and summary now identifies which dimension it corresponds to. ([185f264](https://github.com/aws/aws-sdk-js-v3/commit/185f264b93e18dfe5afa978d88f1ae6f199a1717))
+* **client-connect:** Adds support for customer queryable replication errors. ([4507ef0](https://github.com/aws/aws-sdk-js-v3/commit/4507ef013b057317b177240ad3b37a6a45ec73e3))
+* **client-continuum:** Releasing Continuum for Code Vulnerabilities APIs for SDKs ([0cbbd64](https://github.com/aws/aws-sdk-js-v3/commit/0cbbd64c9788adf03c2fab0e02c24d4c903ab3b0))
+* **client-ec2:** AWS Transit Gateway now provides managed one-to-one NAT directly on its attachments, through integration with Regional Private NAT Gateway. Use ModifyTransitGatewayAttachmentNatConfiguration to enable NAT and configure NAT rules, and GetTransitGatewayAttachmentNatConfiguration to view them. ([68bea2c](https://github.com/aws/aws-sdk-js-v3/commit/68bea2cef8d723af4127391ac755fb37827d15c1))
+* **client-elementalinference:** Elemental Inference now supports feed scheduling, letting you apply feed configuration changes at a time you choose instead of building your own automation. ([b410882](https://github.com/aws/aws-sdk-js-v3/commit/b4108829c0d236ee64b6b852d2645df38b45d8c0))
+* **client-glue:** Add support for large worker types in AWS Glue ([89ac407](https://github.com/aws/aws-sdk-js-v3/commit/89ac4073929198d9fbb496d15a11753c081bb2b0))
+* **client-ivs-realtime:** Adds RevokeConnectionToken operation for Amazon IVS Real-Time Streaming. ([7c85a26](https://github.com/aws/aws-sdk-js-v3/commit/7c85a26a16849c3804e0cf382c0e47aa5218d071))
+* **client-kafkaconnect:** Amazon MSK Connect now supports pausing and resuming connectors via the asynchronous PauseConnector and ResumeConnector APIs. Paused connectors keep their configuration and committed offsets and resume where they left off. Each call returns an operation ARN to track with DescribeConnectorOperation. ([f5a4343](https://github.com/aws/aws-sdk-js-v3/commit/f5a4343af536cdfe64f67ba405a5c01c1b7bc0b6))
+* **client-networkmanager:** AWS Cloud WAN now provides managed one-to-one NAT directly on it's core network attachments, through integration with Regional Private NAT Gateway. Use UpdateAttachmentNatConfiguration to enable NAT and configure NAT rules, and ListAttachmentNatConfigurations to view them. ([944335d](https://github.com/aws/aws-sdk-js-v3/commit/944335d4abb673bd2eaa0eacdd2c920483a5beb3))
+* **client-opensearchserverless:** Adds APIs to create, get, list, and cancel ingestion jobs, and to create, get, list, and delete ingestion streams, for ingesting data from Amazon S3 into OpenSearch Serverless collections. ([7712bce](https://github.com/aws/aws-sdk-js-v3/commit/7712bce08df8738d71361f3bb7a7b12087d2fa5d))
+* **clients:** update client endpoints as of 2026-10-22 ([e5cd156](https://github.com/aws/aws-sdk-js-v3/commit/e5cd1562e01b10805983e5e9fc12ca09eb0fba80))
+
+
+
+
+
 # [3.1155.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1154.0...v3.1155.0) (2026-10-21)
 
 
