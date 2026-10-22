@@ -139,6 +139,10 @@ import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import type {
+  RevokeConnectionTokenCommandInput,
+  RevokeConnectionTokenCommandOutput,
+} from "./commands/RevokeConnectionTokenCommand";
 import type { StartCompositionCommandInput, StartCompositionCommandOutput } from "./commands/StartCompositionCommand";
 import type {
   StartParticipantReplicationCommandInput,
@@ -202,6 +206,7 @@ export type ServiceInputTypes =
   | ListStagesCommandInput
   | ListStorageConfigurationsCommandInput
   | ListTagsForResourceCommandInput
+  | RevokeConnectionTokenCommandInput
   | StartCompositionCommandInput
   | StartParticipantReplicationCommandInput
   | StopCompositionCommandInput
@@ -246,6 +251,7 @@ export type ServiceOutputTypes =
   | ListStagesCommandOutput
   | ListStorageConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | RevokeConnectionTokenCommandOutput
   | StartCompositionCommandOutput
   | StartParticipantReplicationCommandOutput
   | StopCompositionCommandOutput

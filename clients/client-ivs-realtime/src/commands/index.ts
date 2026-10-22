@@ -30,6 +30,7 @@ export * from "./ListStageSessionsCommand";
 export * from "./ListStagesCommand";
 export * from "./ListStorageConfigurationsCommand";
 export * from "./ListTagsForResourceCommand";
+export * from "./RevokeConnectionTokenCommand";
 export * from "./StartCompositionCommand";
 export * from "./StartParticipantReplicationCommand";
 export * from "./StopCompositionCommand";
