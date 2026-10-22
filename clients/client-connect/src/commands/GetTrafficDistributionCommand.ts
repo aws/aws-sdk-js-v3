@@ -64,6 +64,7 @@ export interface GetTrafficDistributionCommandOutput extends GetTrafficDistribut
  * //       },
  * //     ],
  * //   },
+ * //   LastFailoverTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```

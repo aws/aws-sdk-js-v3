@@ -237,6 +237,7 @@ export * from "./ListQueueQuickConnectsCommand";
 export * from "./ListQueuesCommand";
 export * from "./ListQuickConnectsCommand";
 export * from "./ListRealtimeContactAnalysisSegmentsV2Command";
+export * from "./ListReplicationFindingsCommand";
 export * from "./ListRoutingProfileManualAssignmentQueuesCommand";
 export * from "./ListRoutingProfileQueuesCommand";
 export * from "./ListRoutingProfilesCommand";

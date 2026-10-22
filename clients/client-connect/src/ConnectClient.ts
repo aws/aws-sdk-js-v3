@@ -836,6 +836,10 @@ import type {
   ListRealtimeContactAnalysisSegmentsV2CommandOutput,
 } from "./commands/ListRealtimeContactAnalysisSegmentsV2Command";
 import type {
+  ListReplicationFindingsCommandInput,
+  ListReplicationFindingsCommandOutput,
+} from "./commands/ListReplicationFindingsCommand";
+import type {
   ListRoutingProfileManualAssignmentQueuesCommandInput,
   ListRoutingProfileManualAssignmentQueuesCommandOutput,
 } from "./commands/ListRoutingProfileManualAssignmentQueuesCommand";
@@ -1636,6 +1640,7 @@ export type ServiceInputTypes =
   | ListQueuesCommandInput
   | ListQuickConnectsCommandInput
   | ListRealtimeContactAnalysisSegmentsV2CommandInput
+  | ListReplicationFindingsCommandInput
   | ListRoutingProfileManualAssignmentQueuesCommandInput
   | ListRoutingProfileQueuesCommandInput
   | ListRoutingProfilesCommandInput
@@ -2043,6 +2048,7 @@ export type ServiceOutputTypes =
   | ListQueuesCommandOutput
   | ListQuickConnectsCommandOutput
   | ListRealtimeContactAnalysisSegmentsV2CommandOutput
+  | ListReplicationFindingsCommandOutput
   | ListRoutingProfileManualAssignmentQueuesCommandOutput
   | ListRoutingProfileQueuesCommandOutput
   | ListRoutingProfilesCommandOutput

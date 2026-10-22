@@ -38,6 +38,7 @@ import type {
   IvrRecordingTrack,
   LocaleCode,
   MaskMode,
+  MediaType,
   MeetingFeatureStatus,
   MetricUnit,
   MonitorCapability,
@@ -70,6 +71,7 @@ import type {
   TimerEligibleParticipantRoles,
   TrafficType,
   TrendIndicator,
+  ViewType,
   Visibility,
   VocabularyLanguageCode,
   VocabularyState,
@@ -128,7 +130,140 @@ import type {
   View,
   VoiceEnhancementConfig,
 } from "./models_1";
-import type { MediaItem } from "./models_2";
+
+/**
+ * @public
+ */
+export interface ListViewVersionsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
+   *    instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
+   * @public
+   */
+  ViewId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>A summary of a view version's metadata.</p>
+ * @public
+ */
+export interface ViewVersionSummary {
+  /**
+   * <p>The identifier of the view version.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the view version.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The description of the view version.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The name of the view version.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The type of the view version.</p>
+   * @public
+   */
+  Type?: ViewType | undefined;
+
+  /**
+   * <p>The sequentially incremented version of the view version.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>The description of the view version.</p>
+   * @public
+   */
+  VersionDescription?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListViewVersionsResponse {
+  /**
+   * <p>A list of view version summaries.</p>
+   * @public
+   */
+  ViewVersionSummaryList?: ViewVersionSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkspaceMediaRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the workspace.</p>
+   * @public
+   */
+  WorkspaceId: string | undefined;
+}
+
+/**
+ * <p>Contains information about a media asset used in a workspace.</p>
+ * @public
+ */
+export interface MediaItem {
+  /**
+   * <p>The type of media. Valid values are: <code>IMAGE_LOGO_FAVICON</code> and
+   *    <code>IMAGE_LOGO_HORIZONTAL</code>.</p>
+   * @public
+   */
+  Type?: MediaType | undefined;
+
+  /**
+   * <p>The source URL or data for the media asset.</p>
+   * @public
+   */
+  Source?: string | undefined;
+}
 
 /**
  * @public
@@ -7670,133 +7805,4 @@ export interface UpdatePredefinedAttributeRequest {
    * @public
    */
   AttributeConfiguration?: InputPredefinedAttributeConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdatePromptRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the prompt.</p>
-   * @public
-   */
-  PromptId: string | undefined;
-
-  /**
-   * <p>The name of the prompt.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A description of the prompt.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The URI for the S3 bucket where the prompt is stored. You can provide S3 pre-signed URLs returned by the
-   * <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetPromptFile.html">GetPromptFile</a>
-   *  API instead of providing S3 URIs.</p>
-   * @public
-   */
-  S3Uri?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdatePromptResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the prompt.</p>
-   * @public
-   */
-  PromptARN?: string | undefined;
-
-  /**
-   * <p>A unique identifier for the prompt.</p>
-   * @public
-   */
-  PromptId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateQueueHoursOfOperationRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the queue.</p>
-   * @public
-   */
-  QueueId: string | undefined;
-
-  /**
-   * <p>The identifier for the hours of operation.</p>
-   * @public
-   */
-  HoursOfOperationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateQueueMaxContactsRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the queue.</p>
-   * @public
-   */
-  QueueId: string | undefined;
-
-  /**
-   * <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
-   * @public
-   */
-  MaxContacts?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateQueueNameRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the queue.</p>
-   * @public
-   */
-  QueueId: string | undefined;
-
-  /**
-   * <p>The name of the queue.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the queue.</p>
-   * @public
-   */
-  Description?: string | undefined;
 }
