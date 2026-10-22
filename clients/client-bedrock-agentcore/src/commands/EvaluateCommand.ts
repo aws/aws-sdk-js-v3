@@ -80,6 +80,7 @@ export interface EvaluateCommandOutput extends EvaluateResponse, __MetadataBeare
  * //       evaluatorArn: "STRING_VALUE", // required
  * //       evaluatorId: "STRING_VALUE", // required
  * //       evaluatorName: "STRING_VALUE", // required
+ * //       evaluationDimensionName: "STRING_VALUE",
  * //       explanation: "STRING_VALUE",
  * //       context: { // Context Union: only one key present
  * //         spanContext: { // SpanContext

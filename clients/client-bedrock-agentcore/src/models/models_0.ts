@@ -4191,6 +4191,12 @@ export interface EvaluationResultContent {
   evaluatorName: string | undefined;
 
   /**
+   * <p> The name of the dimension that this result scores. This field is set only on results produced by an evaluator that uses a multi-dimensional rating scale, where each dimension is scored independently. For evaluators with a single rating scale, this field is absent. </p>
+   * @public
+   */
+  evaluationDimensionName?: string | undefined;
+
+  /**
    * <p> The detailed explanation provided by the evaluator describing the reasoning behind the assigned score. This qualitative feedback helps understand why specific ratings were given and provides actionable insights for improvement. </p>
    * @public
    */
@@ -4574,6 +4580,12 @@ export interface EvaluatorSummary {
    * @public
    */
   evaluatorId?: string | undefined;
+
+  /**
+   * <p>The name of the dimension that this summary covers. This field is set only for evaluators that use a multi-dimensional rating scale, where each dimension is summarized separately. For single-scale evaluators, this field is not set.</p>
+   * @public
+   */
+  evaluationDimensionName?: string | undefined;
 
   /**
    * <p>The aggregated statistics for this evaluator.</p>

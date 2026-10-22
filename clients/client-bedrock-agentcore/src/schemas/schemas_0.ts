@@ -747,6 +747,7 @@ const _eCr = "errorCode";
 const _eCv = "evaluationConfig";
 const _eCx = "extractionConfig";
 const _eD = "errorDetails";
+const _eDN = "evaluationDimensionName";
 const _eF = "eventFilter";
 const _eI = "eventId";
 const _eIv = "evaluatorId";
@@ -1758,8 +1759,8 @@ export var EvaluationReferenceInput$: StaticStructureSchema = [3, n0, _ERI,
 ];
 export var EvaluationResultContent$: StaticStructureSchema = [3, n0, _ERC,
   0,
-  [_eA, _eIv, _eN, _con, _ex, _v, _la, _tU, _eMr, _eCr, _iRIF],
-  [0, 0, 0, () => Context$, [() => EvaluationExplanation, 0], 1, 0, () => TokenUsage$, 0, 0, 64 | 0], 4
+  [_eA, _eIv, _eN, _con, _eDN, _ex, _v, _la, _tU, _eMr, _eCr, _iRIF],
+  [0, 0, 0, () => Context$, 0, [() => EvaluationExplanation, 0], 1, 0, () => TokenUsage$, 0, 0, 64 | 0], 4
 ];
 export var Evaluator$: StaticStructureSchema = [3, n0, _Ev,
   0,
@@ -1778,8 +1779,8 @@ export var EvaluatorStatistics$: StaticStructureSchema = [3, n0, _ES,
 ];
 export var EvaluatorSummary$: StaticStructureSchema = [3, n0, _ESv,
   0,
-  [_eIv, _stat, _tE, _tF],
-  [0, () => EvaluatorStatistics$, 1, 1]
+  [_eIv, _eDN, _stat, _tE, _tF],
+  [0, 0, () => EvaluatorStatistics$, 1, 1]
 ];
 export var Event$: StaticStructureSchema = [3, n0, _Eve,
   0,
