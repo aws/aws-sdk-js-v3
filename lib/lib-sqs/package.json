@@ -36,7 +36,9 @@
     "clean": "premove dist-cjs dist-es dist-types",
     "extract:docs": "api-extractor run --local",
     "test": "yarn g:vitest run",
-    "test:watch": "yarn g:vitest watch"
+    "test:watch": "yarn g:vitest watch",
+    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts --mode development",
+    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
   "dependencies": {
     "tslib": "^2.6.2"

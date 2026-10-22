@@ -1,43 +1,52 @@
-import type {
-  SQSClient,
-  Message as SQSMessage,
-  MessageAttributeValue,
-  MessageSystemAttributeName,
-} from "@aws-sdk/client-sqs";
-import { ChangeMessageVisibilityCommand } from "@aws-sdk/client-sqs";
+import type { Message as SQSMessage, MessageAttributeValue, MessageSystemAttributeName } from "@aws-sdk/client-sqs";
 
 import type { PollerMessage } from "./types";
 
 /**
- * Lets a Message add itself to the poller's delete batch.
+ * Callbacks the poller injects so Message can perform SQS operations
+ * without holding a reference to the client.
  * @internal
  */
-export type EnqueueDeleteFn = (msg: Message) => void;
+export interface MessageCallbacks {
+  enqueueDelete: (msg: Message) => void;
+  keep: (receiptHandle: string) => void;
+  release: (receiptHandle: string) => Promise<void>;
+  changeVisibility: (receiptHandle: string, timeoutMs: number) => Promise<void>;
+}
 
 /**
  * Wrapper around an SQS `Message` with convenience methods.
  *
- * Instances are created internally by {@link SQSPoller} — consumers
+ * Instances are created internally by {@link SQSPoller}. Consumers
  * should not instantiate this class directly.
  *
  * @public
  */
 export class Message implements PollerMessage {
+  /** @public */
   public readonly raw: SQSMessage;
+  /** @public */
   public readonly body: string | undefined;
+  /** @public */
   public readonly messageId: string;
+  /** @public */
   public readonly receiptHandle: string;
+  /** @public */
   public readonly attributes: Partial<Record<MessageSystemAttributeName, string>>;
+  /** @public */
   public readonly messageAttributes: Record<string, MessageAttributeValue>;
+  /** @public */
   public readonly receivedAt: Date;
 
-  private readonly _client: SQSClient;
-  private readonly _queueUrl: string;
-  private readonly _enqueueDelete: EnqueueDeleteFn;
+  /** @internal */
+  private readonly _callbacks: MessageCallbacks;
+  /** @internal */
   private _handled = false;
 
-  /** @internal */
-  constructor(raw: SQSMessage, client: SQSClient, queueUrl: string, enqueueDelete: EnqueueDeleteFn) {
+  /**
+   * @internal
+   */
+  public constructor(raw: SQSMessage, callbacks: MessageCallbacks) {
     this.raw = raw;
     this.body = raw.Body;
     this.messageId = raw.MessageId ?? "";
@@ -45,65 +54,42 @@ export class Message implements PollerMessage {
     this.attributes = (raw.Attributes as Partial<Record<MessageSystemAttributeName, string>>) ?? {};
     this.messageAttributes = (raw.MessageAttributes as Record<string, MessageAttributeValue>) ?? {};
     this.receivedAt = new Date();
-
-    this._client = client;
-    this._queueUrl = queueUrl;
-    this._enqueueDelete = enqueueDelete;
+    this._callbacks = callbacks;
   }
 
   /**
    * Whether `enqueueDelete`, `keep`, or `release` has already run.
    * @internal
    */
-  get handled(): boolean {
+  public get handled(): boolean {
     return this._handled;
   }
 
-  /**
-   * Queue this message for batch deletion.
-   * The actual `DeleteMessageBatch` call happens when the batch fills
-   * or `deleteWaitMs` expires.
-   */
-  enqueueDelete(): void {
+  /** Queue this message for batch deletion. @public */
+  public enqueueDelete(): void {
     if (this._handled) return;
     this._handled = true;
-    this._enqueueDelete(this);
+    this._callbacks.enqueueDelete(this);
   }
 
-  /**
-   * Acknowledge the message without deleting it from the queue.
-   * The message will become visible again after its visibility timeout.
-   */
-  keep(): void {
+  /** Acknowledge the message without deleting it from the queue. @public */
+  public keep(): void {
     this._handled = true;
+    this._callbacks.keep(this.receiptHandle);
   }
 
-  /**
-   * Release the message back to the queue immediately by setting
-   * its visibility timeout to 0.
-   */
-  async release(): Promise<void> {
+  /** Release the message back to the queue immediately (visibility → 0). @public */
+  public async release(): Promise<void> {
     this._handled = true;
-    await this._client.send(
-      new ChangeMessageVisibilityCommand({
-        QueueUrl: this._queueUrl,
-        ReceiptHandle: this.receiptHandle,
-        VisibilityTimeout: 0,
-      })
-    );
+    await this._callbacks.release(this.receiptHandle);
   }
 
   /**
-   * Change the visibility timeout of this message.
+   * Change the visibility timeout of this message. Stops automatic extension for it.
    * @param timeoutMs - New visibility timeout, rounded up to whole seconds for SQS.
+   * @public
    */
-  async changeVisibility(timeoutMs: number): Promise<void> {
-    await this._client.send(
-      new ChangeMessageVisibilityCommand({
-        QueueUrl: this._queueUrl,
-        ReceiptHandle: this.receiptHandle,
-        VisibilityTimeout: Math.ceil(timeoutMs / 1000),
-      })
-    );
+  public async changeVisibility(timeoutMs: number): Promise<void> {
+    await this._callbacks.changeVisibility(this.receiptHandle, timeoutMs);
   }
 }

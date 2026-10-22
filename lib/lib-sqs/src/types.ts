@@ -176,11 +176,11 @@ export interface PollerConfig {
   shutdownTimeoutMs?: number;
 
   /**
-   * Callback invoked before each `ReceiveMessage` call.
-   * Throwing stops the polling loop and emits the error via the
+   * Callback invoked before each `ReceiveMessage` call. May be async.
+   * Throwing (or rejecting) stops the polling loop and emits the error via the
    * `error` event.  The poller will not make another request.
    */
-  beforeRequest?: (stats: PollerStats) => void;
+  beforeRequest?: (stats: PollerStats) => void | Promise<void>;
 }
 
 /**
@@ -231,7 +231,7 @@ export interface SQSPollerEvents {
   empty: () => void;
   /** The poller stopped due to `idleTimeoutMs` expiring. */
   idle: () => void;
-  /** The poller stopped (graceful or abort). */
+  /** The poller finished shutting down. Fires once per run, however it stopped. */
   stopped: (stats: PollerStats) => void;
   /** A non-fatal error occurred (receive, delete, extend). */
   error: (error: Error) => void;

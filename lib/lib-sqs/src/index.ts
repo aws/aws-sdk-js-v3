@@ -1,29 +1,23 @@
 /**
  * SQS message poller with auto-delete, backoff, and graceful shutdown.
  *
- * @example Event-based. Messages are deleted once the handler resolves.
+ * @example Event-based
  * ```typescript
- * import { SQSPoller } from "@aws-sdk/lib-sqs";
- *
  * const poller = new SQSPoller({ queueUrl: "https://sqs.us-east-1.amazonaws.com/1/q" });
- * poller.on("message", async (message) => console.log(message.body));
+ * const unsub = poller.on("message", async (msg) => console.log(msg.body));
  * poller.on("error", (err) => console.error(err));
  * poller.start();
  * ```
  *
  * @example Async iteration
  * ```typescript
- * for await (const message of poller) {
- *   console.log(message.body);
+ * for await (const msg of poller) {
+ *   console.log(msg.body);
+ *   if (msg.body === "last") {
+ *     msg.enqueueDelete(); // exiting early skips auto-delete for this message
+ *     break;
+ *   }
  * }
- * ```
- *
- * @example Graceful shutdown. Drains in-flight handlers and flushes pending deletes.
- * ```typescript
- * const ac = new AbortController();
- * process.on("SIGTERM", () => ac.abort());
- * const poller = new SQSPoller({ queueUrl: "...", abortSignal: ac.signal });
- * poller.start();
  * ```
  *
  * @packageDocumentation
