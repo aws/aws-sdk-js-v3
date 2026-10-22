@@ -27,7 +27,6 @@ import type {
   A2aDescriptor,
   AgentSkillsDescriptor,
   AuthorizerConfiguration,
-  CertificateConfiguration,
   PrivateEndpoint,
   SkillDefinition,
   SkillMdDefinition,
@@ -38,9 +37,9 @@ import type {
   ApiGatewayTargetConfiguration,
   ApiSchemaConfiguration,
   AuthorizationData,
+  CertificateConfiguration,
   ConnectorTargetConfiguration,
   CredentialProviderConfiguration,
-  CredentialsProviderConfiguration,
   HttpTargetConfiguration,
   InferenceTargetConfiguration,
   KmsConfiguration,
@@ -50,6 +49,312 @@ import type {
   S3Configuration,
   UpdatedAuthorizerConfiguration,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetPaymentManagerRequest {
+  /**
+   * <p>The unique identifier of the payment manager to retrieve.</p>
+   * @public
+   */
+  paymentManagerId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPaymentManagerResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the payment manager.</p>
+   * @public
+   */
+  paymentManagerArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the payment manager.</p>
+   * @public
+   */
+  paymentManagerId: string | undefined;
+
+  /**
+   * <p>The name of the payment manager.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the payment manager.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The type of authorizer used by the payment manager.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
+   * @public
+   */
+  authorizerType: PaymentsAuthorizerType | undefined;
+
+  /**
+   * <p>Represents inbound authorization configuration options used to authenticate incoming requests. </p>
+   * @public
+   */
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the payment manager.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The information about the workload identity.</p>
+   * @public
+   */
+  workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
+
+  /**
+   * <p>The timestamp when the payment manager was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the payment manager was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the payment manager. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * @public
+   */
+  status: PaymentManagerStatus | undefined;
+
+  /**
+   * <p>The tags associated with the payment manager.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPaymentManagersRequest {
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a payment manager.</p>
+ * @public
+ */
+export interface PaymentManagerSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the payment manager.</p>
+   * @public
+   */
+  paymentManagerArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the payment manager.</p>
+   * @public
+   */
+  paymentManagerId: string | undefined;
+
+  /**
+   * <p>The name of the payment manager.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the payment manager.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The type of authorizer used by the payment manager.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
+   * @public
+   */
+  authorizerType: PaymentsAuthorizerType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the payment manager.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The current status of the payment manager. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * @public
+   */
+  status: PaymentManagerStatus | undefined;
+
+  /**
+   * <p>The timestamp when the payment manager was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the payment manager was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPaymentManagersResponse {
+  /**
+   * <p>The list of payment manager summaries. For details about the fields in each summary, see the <code>PaymentManagerSummary</code> data type.</p>
+   * @public
+   */
+  paymentManagers: PaymentManagerSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Configuration for a payment credential provider that stores authentication credentials for a payment provider.</p>
+ * @public
+ */
+export interface PaymentCredentialProviderConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the credential provider that stores the authentication credentials for the payment provider.</p>
+   * @public
+   */
+  credentialProviderArn: string | undefined;
+}
+
+/**
+ * <p>The credential provider configuration for a payment connector. Specifies the payment provider type and its associated credential provider.</p>
+ * @public
+ */
+export type CredentialsProviderConfiguration =
+  | CredentialsProviderConfiguration.CoinbaseCDPMember
+  | CredentialsProviderConfiguration.StripePrivyMember
+  | CredentialsProviderConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CredentialsProviderConfiguration {
+  /**
+   * <p>The credential provider configuration for a Coinbase CDP payment connector.</p>
+   * @public
+   */
+  export interface CoinbaseCDPMember {
+    coinbaseCDP: PaymentCredentialProviderConfiguration;
+    stripePrivy?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The credential provider configuration for a Stripe Privy payment connector.</p>
+   * @public
+   */
+  export interface StripePrivyMember {
+    coinbaseCDP?: never;
+    stripePrivy: PaymentCredentialProviderConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    coinbaseCDP?: never;
+    stripePrivy?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    coinbaseCDP: (value: PaymentCredentialProviderConfiguration) => T;
+    stripePrivy: (value: PaymentCredentialProviderConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreatePaymentConnectorRequest {
+  /**
+   * <p>The unique identifier of the payment manager to create the connector for.</p>
+   * @public
+   */
+  paymentManagerId: string | undefined;
+
+  /**
+   * <p>The name of the payment connector.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the payment connector.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The type of payment connector, which determines the payment provider integration.</p>
+   * @public
+   */
+  type: PaymentConnectorType | undefined;
+
+  /**
+   * <p>The credential provider configurations for the payment connector. These configurations specify how the connector authenticates with the payment provider.</p>
+   * @public
+   */
+  credentialProviderConfigurations: CredentialsProviderConfiguration[] | undefined;
+
+  /**
+   * <p>The provision mode for creating the payment connector. If you don't specify a value, the default is <code>MANUAL</code>.</p> <ul> <li> <p> <code>MANUAL</code> - You provide the credential provider configurations directly.</p> </li> <li> <p> <code>QUICK_CREATE</code> - The service orchestrates OAuth consent and provisions the credential provider for you.</p> </li> </ul>
+   * @public
+   */
+  provisionMode?: PaymentConnectorProvisionMode | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
 
 /**
  * @public

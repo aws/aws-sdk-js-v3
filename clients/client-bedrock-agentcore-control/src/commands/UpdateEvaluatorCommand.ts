@@ -53,6 +53,27 @@ export interface UpdateEvaluatorCommandOutput extends UpdateEvaluatorResponse, _
  *             label: "STRING_VALUE", // required
  *           },
  *         ],
+ *         multiDimensional: [ // EvaluationDimensions
+ *           { // EvaluationDimension
+ *             dimensionName: "STRING_VALUE", // required
+ *             dimensionInstruction: "STRING_VALUE", // required
+ *             dimensionRatingScale: { // DimensionRatingScale Union: only one key present
+ *               numerical: [
+ *                 {
+ *                   definition: "STRING_VALUE", // required
+ *                   value: Number("double"), // required
+ *                   label: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *               categorical: [
+ *                 {
+ *                   definition: "STRING_VALUE", // required
+ *                   label: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         ],
  *       },
  *       modelConfig: { // EvaluatorModelConfig Union: only one key present
  *         bedrockEvaluatorModelConfig: { // BedrockEvaluatorModelConfig
