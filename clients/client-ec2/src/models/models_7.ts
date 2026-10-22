@@ -77,6 +77,9 @@ import type {
   TrafficMirrorNetworkService,
   TrafficMirrorRuleAction,
   TrafficMirrorSessionField,
+  TransitGatewayAttachmentNatGatewaySupportState,
+  TransitGatewayAttachmentNatGatewaySupportValue,
+  TransitGatewayAttachmentNatSystemRouteSupportValue,
   UnlimitedSupportedInstanceFamily,
   UnsuccessfulInstanceCreditSpecificationErrorCode,
   VerificationMethod,
@@ -102,7 +105,6 @@ import type {
   CapacityReservationAdjustmentDetails,
   EnaSrdSpecification,
   HealthCheckPathRequestObject,
-  IamInstanceProfileSpecification,
   InstanceEventWindow,
   IpamPoolAllocation,
   IpamRoutingPolicyRegistrationDelta,
@@ -210,8 +212,89 @@ import type {
   IpamResourceCidr,
   ManagedResourceVisibilitySettings,
   Purchase,
-  VpnConnectionDeviceType,
+  TransitGatewayNatRule,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetVpnConnectionDeviceSampleConfigurationResult {
+  /**
+   * <p>Sample configuration file for the specified customer gateway device.</p>
+   * @public
+   */
+  VpnConnectionDeviceSampleConfiguration?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpnConnectionDeviceTypesRequest {
+  /**
+   * <p>The maximum number of results returned by <code>GetVpnConnectionDeviceTypes</code> in
+   *             paginated output. When this parameter is used, <code>GetVpnConnectionDeviceTypes</code>
+   *             only returns <code>MaxResults</code> results in a single page along with a
+   *                 <code>NextToken</code> response element. The remaining results of the initial
+   *             request can be seen by sending another <code>GetVpnConnectionDeviceTypes</code> request
+   *             with the returned <code>NextToken</code> value. This value can be between 200 and 1000.
+   *             If this parameter is not used, then <code>GetVpnConnectionDeviceTypes</code> returns all
+   *             results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The <code>NextToken</code> value returned from a previous paginated
+   *                 <code>GetVpnConnectionDeviceTypes</code> request where <code>MaxResults</code> was
+   *             used and the results exceeded the value of that parameter. Pagination continues from the
+   *             end of the previous results that returned the <code>NextToken</code> value. This value
+   *             is null when there are no more results to return. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>List of customer gateway devices that have a sample configuration file available for
+ *             use. You can also see the list of device types with sample configuration files available
+ *             under <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html">Your customer
+ *                 gateway device</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+ * @public
+ */
+export interface VpnConnectionDeviceType {
+  /**
+   * <p>Customer gateway device identifier.</p>
+   * @public
+   */
+  VpnConnectionDeviceTypeId?: string | undefined;
+
+  /**
+   * <p>Customer gateway device vendor.</p>
+   * @public
+   */
+  Vendor?: string | undefined;
+
+  /**
+   * <p>Customer gateway device platform.</p>
+   * @public
+   */
+  Platform?: string | undefined;
+
+  /**
+   * <p>Customer gateway device software version.</p>
+   * @public
+   */
+  Software?: string | undefined;
+}
 
 /**
  * @public
@@ -6050,6 +6133,116 @@ export interface ModifyTransitGatewayResult {
 }
 
 /**
+ * <p>Describes a NAT gateway rule to apply to a transit gateway attachment. A NAT gateway rule translates source addresses in the
+ *          <code>MatchSourceCidr</code> range to the corresponding addresses in the <code>NatCidr</code> range.</p>
+ * @public
+ */
+export interface TransitGatewayNatRuleRequest {
+  /**
+   * <p>The rule number. Valid values are 1 to 32766. Each rule number must be unique within the request.</p>
+   * @public
+   */
+  RuleNumber?: number | undefined;
+
+  /**
+   * <p>The IPv4 CIDR block of the source addresses to translate. The CIDR block can't overlap the multicast
+   *          range (<code>224.0.0.0/4</code>) or the link-local range (<code>169.254.0.0/16</code>).</p>
+   * @public
+   */
+  MatchSourceCidr?: string | undefined;
+
+  /**
+   * <p>The IPv4 CIDR block to translate the source addresses to. The CIDR block must be in a private (RFC 1918)
+   *          or shared address space (RFC 6598) range, and must have the same prefix length as <code>MatchSourceCidr</code>.
+   *          The CIDR blocks in the rules for an attachment can't overlap each other.</p>
+   * @public
+   */
+  NatCidr?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayAttachmentNatConfigurationRequest {
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Specifies whether to enable or disable NAT gateway support for the attachment. To enable NAT gateway support, the attachment
+   *          must have at least one NAT gateway rule. You can't modify the NAT configuration while NAT gateway support is <code>enabling</code>
+   *          or <code>disabling</code>. If you omit this parameter, the current value doesn't change.</p>
+   * @public
+   */
+  NatGatewaySupport?: TransitGatewayAttachmentNatGatewaySupportValue | undefined;
+
+  /**
+   * <p>Specifies whether the transit gateway installs routes for the NAT CIDRs in the route tables to which the attachment
+   *          propagates. For VPC attachments, the transit gateway always installs these routes. You can enable or disable this option only for
+   *          Amazon Web Services Direct Connect gateway attachments and Site-to-Site VPN attachments that use dynamic routing. For these
+   *          attachments, the default is <code>enable</code>. If you omit this parameter, the current value doesn't change.</p>
+   * @public
+   */
+  NatSystemRouteSupport?: TransitGatewayAttachmentNatSystemRouteSupportValue | undefined;
+
+  /**
+   * <p>The NAT gateway rules for the attachment. The rules that you specify replace all existing NAT gateway rules for the attachment.
+   *          You can specify up to 50 rules for an attachment. If you omit this parameter, the existing rules don't change.
+   *          To remove all rules, use <code>ResetNatGatewayRules</code>.</p>
+   * @public
+   */
+  NatGatewayRules?: TransitGatewayNatRuleRequest[] | undefined;
+
+  /**
+   * <p>Specifies whether to remove all NAT gateway rules from the attachment. If you omit this parameter, the transit gateway doesn't
+   *          remove any rules. You can't specify this parameter together with <code>NatGatewayRules</code>. Because you can't enable
+   *          NAT gateway support without rules, also set <code>NatGatewaySupport</code> to <code>disable</code> in the same request
+   *          if NAT gateway support is currently enabled.</p>
+   * @public
+   */
+  ResetNatGatewayRules?: boolean | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayAttachmentNatConfigurationResult {
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The state of NAT gateway support for the attachment.</p>
+   * @public
+   */
+  NatGatewaySupport?: TransitGatewayAttachmentNatGatewaySupportState | undefined;
+
+  /**
+   * <p>Specifies whether the transit gateway installs routes for the NAT CIDRs in the route tables to which the attachment propagates.</p>
+   * @public
+   */
+  NatSystemRouteSupport?: TransitGatewayAttachmentNatSystemRouteSupportValue | undefined;
+
+  /**
+   * <p>The NAT gateway rules for the attachment.</p>
+   * @public
+   */
+  NatGatewayRules?: TransitGatewayNatRule[] | undefined;
+}
+
+/**
  * @public
  */
 export interface ModifyTransitGatewayMeteringPolicyRequest {
@@ -9729,125 +9922,4 @@ export interface RejectVpcPeeringConnectionResult {
    * @public
    */
   Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ReleaseAddressRequest {
-  /**
-   * <p>The allocation ID. This parameter is required.</p>
-   * @public
-   */
-  AllocationId?: string | undefined;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  PublicIp?: string | undefined;
-
-  /**
-   * <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services advertises
-   *       IP addresses.</p>
-   *          <p>If you provide an incorrect network border group, you receive an <code>InvalidAddress.NotFound</code> error.</p>
-   * @public
-   */
-  NetworkBorderGroup?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ReleaseHostsRequest {
-  /**
-   * <p>The IDs of the Dedicated Hosts to release.</p>
-   * @public
-   */
-  HostIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ReleaseHostsResult {
-  /**
-   * <p>The IDs of the Dedicated Hosts that were successfully released.</p>
-   * @public
-   */
-  Successful?: string[] | undefined;
-
-  /**
-   * <p>The IDs of the Dedicated Hosts that could not be released, including an error
-   *             message.</p>
-   * @public
-   */
-  Unsuccessful?: UnsuccessfulItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ReleaseIpamPoolAllocationRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM pool which contains the allocation you want to release.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>The CIDR of the allocation you want to release.</p>
-   * @public
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>The ID of the allocation.</p>
-   * @public
-   */
-  IpamPoolAllocationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ReleaseIpamPoolAllocationResult {
-  /**
-   * <p>Indicates if the release was successful.</p>
-   * @public
-   */
-  Success?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceIamInstanceProfileAssociationRequest {
-  /**
-   * <p>The IAM instance profile.</p>
-   * @public
-   */
-  IamInstanceProfile: IamInstanceProfileSpecification | undefined;
-
-  /**
-   * <p>The ID of the existing IAM instance profile association.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
 }

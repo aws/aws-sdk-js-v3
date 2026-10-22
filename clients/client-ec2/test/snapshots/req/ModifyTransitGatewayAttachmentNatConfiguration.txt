@@ -1,0 +1,31 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 618
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 856f93fe3e09599efa6f3db3f51bc99e0f85eae77a70693c69c293f0fb2bd0f3
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=ModifyTransitGatewayAttachmentNatConfiguration&
+Version=2016-11-15&
+TransitGatewayAttachmentId=__TransitGatewayAttachmentId__&
+NatGatewaySupport=__NatGatewaySupport__&
+NatSystemRouteSupport=__NatSystemRouteSupport__&
+NatGatewayRule.1.RuleNumber=0&
+NatGatewayRule.1.MatchSourceCidr=__MatchSourceCidr__&
+NatGatewayRule.1.NatCidr=__NatCidr__&
+NatGatewayRule.2.RuleNumber=0&
+NatGatewayRule.2.MatchSourceCidr=__MatchSourceCidr__&
+NatGatewayRule.2.NatCidr=__NatCidr__&
+NatGatewayRule.3.RuleNumber=0&
+NatGatewayRule.3.MatchSourceCidr=__MatchSourceCidr__&
+NatGatewayRule.3.NatCidr=__NatCidr__&
+ResetNatGatewayRules=false&
+DryRun=false

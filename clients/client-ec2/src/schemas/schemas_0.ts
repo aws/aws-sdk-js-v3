@@ -3071,6 +3071,9 @@ const _GSGFVRe = "GetSecurityGroupsForVpcResult";
 const _GSPS = "GetSpotPlacementScores";
 const _GSPSR = "GetSpotPlacementScoresRequest";
 const _GSPSRe = "GetSpotPlacementScoresResult";
+const _GTGANC = "GetTransitGatewayAttachmentNatConfiguration";
+const _GTGANCR = "GetTransitGatewayAttachmentNatConfigurationRequest";
+const _GTGANCRe = "GetTransitGatewayAttachmentNatConfigurationResult";
 const _GTGAP = "GetTransitGatewayAttachmentPropagations";
 const _GTGAPR = "GetTransitGatewayAttachmentPropagationsRequest";
 const _GTGAPRe = "GetTransitGatewayAttachmentPropagationsResult";
@@ -4255,6 +4258,7 @@ const _MSA = "ModifySnapshotAttribute";
 const _MSAR = "ModifySnapshotAttributeRequest";
 const _MSARo = "ModifySubnetAttributeRequest";
 const _MSAo = "ModifySubnetAttribute";
+const _MSC = "MatchSourceCidr";
 const _MSDIH = "MaxSlotDurationInHours";
 const _MSDIHi = "MinSlotDurationInHours";
 const _MSFR = "ModifySpotFleetRequest";
@@ -4282,6 +4286,9 @@ const _MTC = "MinTargetCapacity";
 const _MTDID = "MaxTermDurationInDays";
 const _MTDIDi = "MinTermDurationInDays";
 const _MTG = "ModifyTransitGateway";
+const _MTGANC = "ModifyTransitGatewayAttachmentNatConfiguration";
+const _MTGANCR = "ModifyTransitGatewayAttachmentNatConfigurationRequest";
+const _MTGANCRo = "ModifyTransitGatewayAttachmentNatConfigurationResult";
 const _MTGMP = "ModifyTransitGatewayMeteringPolicy";
 const _MTGMPR = "ModifyTransitGatewayMeteringPolicyRequest";
 const _MTGMPRo = "ModifyTransitGatewayMeteringPolicyResult";
@@ -4444,6 +4451,7 @@ const _NCIL = "NetworkCardInfoList";
 const _NCITL = "NetworkCardInterfaceTypeList";
 const _NCIe = "NetworkCardInfo";
 const _NCR = "NonCompliantResources";
+const _NCa = "NatCidr";
 const _ND = "NoDevice";
 const _NDC = "NewDhcpConfiguration";
 const _NDCI = "NeuronDeviceCoreInfo";
@@ -4464,6 +4472,9 @@ const _NGI = "NatGatewayId";
 const _NGISL = "NatGatewayIdStringList";
 const _NGIa = "NatGatewayIds";
 const _NGL = "NatGatewayList";
+const _NGR = "NatGatewayRules";
+const _NGRa = "NatGatewayRule";
+const _NGS = "NatGatewaySupport";
 const _NGa = "NatGateways";
 const _NHI = "NextHopIp";
 const _NI = "NetworkId";
@@ -4542,6 +4553,7 @@ const _NPet = "NetworkPlatform";
 const _NR = "NoReboot";
 const _NS = "NvmeSupport";
 const _NSD = "NewStartDate";
+const _NSRS = "NatSystemRouteSupport";
 const _NSST = "NextSlotStartTime";
 const _NSe = "NetworkServices";
 const _NT = "NetworkType";
@@ -5160,6 +5172,7 @@ const _RNAAR = "ReplaceNetworkAclAssociationRequest";
 const _RNAARe = "ReplaceNetworkAclAssociationResult";
 const _RNAE = "ReplaceNetworkAclEntry";
 const _RNAER = "ReplaceNetworkAclEntryRequest";
+const _RNGR = "ResetNatGatewayRules";
 const _RNIA = "ResetNetworkInterfaceAttribute";
 const _RNIAR = "ResetNetworkInterfaceAttributeRequest";
 const _RNII = "RegisteredNetworkInterfaceIds";
@@ -5915,6 +5928,10 @@ const _TGMPr = "TransitGatewayMeteringPolicies";
 const _TGMRGM = "TransitGatewayMulticastRegisteredGroupMembers";
 const _TGMRGS = "TransitGatewayMulticastRegisteredGroupSources";
 const _TGNIIL = "TransitGatewayNetworkInterfaceIdList";
+const _TGNR = "TransitGatewayNatRule";
+const _TGNRL = "TransitGatewayNatRuleList";
+const _TGNRR = "TransitGatewayNatRuleRequest";
+const _TGNRRL = "TransitGatewayNatRuleRequestList";
 const _TGO = "TransitGatewayOptions";
 const _TGOI = "TransitGatewayOwnerId";
 const _TGP = "TransitGatewayPropagation";
@@ -7621,6 +7638,7 @@ const _mPSa = "matchPathSet";
 const _mR = "maxResults";
 const _mRS = "modificationResultSet";
 const _mS = "messageSet";
+const _mSC = "matchSourceCidr";
 const _mSIPC = "macSystemIntegrityProtectionConfig";
 const _mSNI = "maximumSecondaryNetworkInterfaces";
 const _mSPAPOOODP = "maxSpotPriceAsPercentageOfOptimalOnDemandPrice";
@@ -7669,13 +7687,16 @@ const _nCD = "newCommitmentDuration";
 const _nCED = "newCommitmentEndDate";
 const _nCI = "networkCardIndex";
 const _nCRS = "nonCompliantResourceSet";
+const _nCa = "natCidr";
 const _nD = "noDevice";
 const _nDe = "neuronDevices";
 const _nES = "nitroEnclavesSupport";
 const _nG = "natGateway";
 const _nGAS = "natGatewayAddressSet";
 const _nGI = "natGatewayId";
+const _nGRS = "natGatewayRuleSet";
 const _nGS = "natGatewaySet";
+const _nGSa = "natGatewaySupport";
 const _nHI = "nextHopIp";
 const _nI = "networkId";
 const _nIA = "networkInsightsAnalysis";
@@ -7724,6 +7745,7 @@ const _nPet = "networkPlatform";
 const _nR = "noReboot";
 const _nS = "nvmeSupport";
 const _nSD = "newStartDate";
+const _nSRS = "natSystemRouteSupport";
 const _nSS = "networkServiceSet";
 const _nSST = "nextSlotStartTime";
 const _nSa = "nameserverSet";
@@ -18465,6 +18487,20 @@ export var GetSubnetCidrReservationsResult$: StaticStructureSchema = [3, n0, _GS
   , [_xN]: _sICRSu }], [0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }]]
 ];
+export var GetTransitGatewayAttachmentNatConfigurationRequest$: StaticStructureSchema = [3, n0, _GTGANCR,
+  0,
+  [_TGAI, _DR],
+  [0, 2], 1
+];
+export var GetTransitGatewayAttachmentNatConfigurationResult$: StaticStructureSchema = [3, n0, _GTGANCRe,
+  0,
+  [_TGAI, _NGS, _NSRS, _NGR],
+  [[0, { [_eQN]: `TransitGatewayAttachmentId`
+  , [_xN]: _tGAI }], [0, { [_eQN]: `NatGatewaySupport`
+  , [_xN]: _nGSa }], [0, { [_eQN]: `NatSystemRouteSupport`
+  , [_xN]: _nSRS }], [() => TransitGatewayNatRuleList, { [_eQN]: `NatGatewayRuleSet`
+  , [_xN]: _nGRS }]]
+];
 export var GetTransitGatewayAttachmentPropagationsRequest$: StaticStructureSchema = [3, n0, _GTGAPR,
   0,
   [_TGAI, _Fi, _MR, _NTe, _DR],
@@ -22018,6 +22054,20 @@ export var ModifyTrafficMirrorSessionResult$: StaticStructureSchema = [3, n0, _M
   [_TMS],
   [[() => TrafficMirrorSession$, { [_eQN]: `TrafficMirrorSession`
   , [_xN]: _tMS }]]
+];
+export var ModifyTransitGatewayAttachmentNatConfigurationRequest$: StaticStructureSchema = [3, n0, _MTGANCR,
+  0,
+  [_TGAI, _NGS, _NSRS, _NGR, _RNGR, _DR],
+  [0, 0, 0, [() => TransitGatewayNatRuleRequestList, { [_xN]: _NGRa }], 2, 2], 1
+];
+export var ModifyTransitGatewayAttachmentNatConfigurationResult$: StaticStructureSchema = [3, n0, _MTGANCRo,
+  0,
+  [_TGAI, _NGS, _NSRS, _NGR],
+  [[0, { [_eQN]: `TransitGatewayAttachmentId`
+  , [_xN]: _tGAI }], [0, { [_eQN]: `NatGatewaySupport`
+  , [_xN]: _nGSa }], [0, { [_eQN]: `NatSystemRouteSupport`
+  , [_xN]: _nSRS }], [() => TransitGatewayNatRuleList, { [_eQN]: `NatGatewayRuleSet`
+  , [_xN]: _nGRS }]]
 ];
 export var ModifyTransitGatewayMeteringPolicyRequest$: StaticStructureSchema = [3, n0, _MTGMPR,
   0,
@@ -25744,7 +25794,7 @@ export var TransitGatewayAssociation$: StaticStructureSchema = [3, n0, _TGArans,
 ];
 export var TransitGatewayAttachment$: StaticStructureSchema = [3, n0, _TGAra,
   0,
-  [_TGAI, _TGI, _TGOI, _ROI, _RTe, _RIeso, _St, _Ass, _CTr, _T],
+  [_TGAI, _TGI, _TGOI, _ROI, _RTe, _RIeso, _St, _Ass, _CTr, _T, _NGS],
   [[0, { [_eQN]: `TransitGatewayAttachmentId`
   , [_xN]: _tGAI }], [0, { [_eQN]: `TransitGatewayId`
   , [_xN]: _tGI }], [0, { [_eQN]: `TransitGatewayOwnerId`
@@ -25755,7 +25805,8 @@ export var TransitGatewayAttachment$: StaticStructureSchema = [3, n0, _TGAra,
   , [_xN]: _st }], [() => TransitGatewayAttachmentAssociation$, { [_eQN]: `Association`
   , [_xN]: _ass }], [4, { [_eQN]: `CreationTime`
   , [_xN]: _cTr }], [() => TagList, { [_eQN]: `TagSet`
-  , [_xN]: _tS }]]
+  , [_xN]: _tS }], [0, { [_eQN]: `NatGatewaySupport`
+  , [_xN]: _nGSa }]]
 ];
 export var TransitGatewayAttachmentAssociation$: StaticStructureSchema = [3, n0, _TGAA,
   0,
@@ -25976,6 +26027,20 @@ export var TransitGatewayMulticastRegisteredGroupSources$: StaticStructureSchema
   , [_xN]: _tGMDI }], [() => ValueStringList, { [_eQN]: `RegisteredNetworkInterfaceIds`
   , [_xN]: _rNII }], [0, { [_eQN]: `GroupIpAddress`
   , [_xN]: _gIA }]]
+];
+export var TransitGatewayNatRule$: StaticStructureSchema = [3, n0, _TGNR,
+  0,
+  [_RNu, _MSC, _NCa, _St],
+  [[1, { [_eQN]: `RuleNumber`
+  , [_xN]: _rN }], [0, { [_eQN]: `MatchSourceCidr`
+  , [_xN]: _mSC }], [0, { [_eQN]: `NatCidr`
+  , [_xN]: _nCa }], [0, { [_eQN]: `State`
+  , [_xN]: _st }]]
+];
+export var TransitGatewayNatRuleRequest$: StaticStructureSchema = [3, n0, _TGNRR,
+  0,
+  [_RNu, _MSC, _NCa],
+  [1, 0, 0]
 ];
 export var TransitGatewayOptions$: StaticStructureSchema = [3, n0, _TGO,
   0,
@@ -29918,6 +29983,14 @@ var TransitGatewayMulticastGroupList: StaticListSchema = [1, n0, _TGMGL,
   0, [() => TransitGatewayMulticastGroup$,
     { [_xN]: _it }]
 ];
+var TransitGatewayNatRuleList: StaticListSchema = [1, n0, _TGNRL,
+  0, [() => TransitGatewayNatRule$,
+    { [_xN]: _it }]
+];
+var TransitGatewayNatRuleRequestList: StaticListSchema = [1, n0, _TGNRRL,
+  0, [() => TransitGatewayNatRuleRequest$,
+    { [_xN]: _it }]
+];
 var TransitGatewayNetworkInterfaceIdList: StaticListSchema = [1, n0, _TGNIIL,
   0, [0,
     { [_xN]: _it }]
@@ -32151,6 +32224,9 @@ export var GetSpotPlacementScores$: StaticOperationSchema = [9, n0, _GSPS,
 export var GetSubnetCidrReservations$: StaticOperationSchema = [9, n0, _GSCR,
   0, () => GetSubnetCidrReservationsRequest$, () => GetSubnetCidrReservationsResult$
 ];
+export var GetTransitGatewayAttachmentNatConfiguration$: StaticOperationSchema = [9, n0, _GTGANC,
+  0, () => GetTransitGatewayAttachmentNatConfigurationRequest$, () => GetTransitGatewayAttachmentNatConfigurationResult$
+];
 export var GetTransitGatewayAttachmentPropagations$: StaticOperationSchema = [9, n0, _GTGAP,
   0, () => GetTransitGatewayAttachmentPropagationsRequest$, () => GetTransitGatewayAttachmentPropagationsResult$
 ];
@@ -32393,6 +32469,9 @@ export var ModifyTrafficMirrorSession$: StaticOperationSchema = [9, n0, _MTMS,
 ];
 export var ModifyTransitGateway$: StaticOperationSchema = [9, n0, _MTG,
   0, () => ModifyTransitGatewayRequest$, () => ModifyTransitGatewayResult$
+];
+export var ModifyTransitGatewayAttachmentNatConfiguration$: StaticOperationSchema = [9, n0, _MTGANC,
+  0, () => ModifyTransitGatewayAttachmentNatConfigurationRequest$, () => ModifyTransitGatewayAttachmentNatConfigurationResult$
 ];
 export var ModifyTransitGatewayMeteringPolicy$: StaticOperationSchema = [9, n0, _MTGMP,
   0, () => ModifyTransitGatewayMeteringPolicyRequest$, () => ModifyTransitGatewayMeteringPolicyResult$

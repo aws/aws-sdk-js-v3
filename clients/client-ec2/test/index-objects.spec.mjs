@@ -2871,6 +2871,10 @@ import {
   GetSubnetCidrReservationsCommand,
   GetSubnetCidrReservationsRequest$,
   GetSubnetCidrReservationsResult$,
+  GetTransitGatewayAttachmentNatConfiguration$,
+  GetTransitGatewayAttachmentNatConfigurationCommand,
+  GetTransitGatewayAttachmentNatConfigurationRequest$,
+  GetTransitGatewayAttachmentNatConfigurationResult$,
   GetTransitGatewayAttachmentPropagations$,
   GetTransitGatewayAttachmentPropagationsCommand,
   GetTransitGatewayAttachmentPropagationsRequest$,
@@ -3591,6 +3595,10 @@ import {
   ModifyTrafficMirrorSessionRequest$,
   ModifyTrafficMirrorSessionResult$,
   ModifyTransitGateway$,
+  ModifyTransitGatewayAttachmentNatConfiguration$,
+  ModifyTransitGatewayAttachmentNatConfigurationCommand,
+  ModifyTransitGatewayAttachmentNatConfigurationRequest$,
+  ModifyTransitGatewayAttachmentNatConfigurationResult$,
   ModifyTransitGatewayCommand,
   ModifyTransitGatewayMeteringPolicy$,
   ModifyTransitGatewayMeteringPolicyCommand,
@@ -4562,6 +4570,9 @@ import {
   TransitGatewayAttachment$,
   TransitGatewayAttachmentAssociation$,
   TransitGatewayAttachmentBgpConfiguration$,
+  TransitGatewayAttachmentNatGatewaySupportState,
+  TransitGatewayAttachmentNatGatewaySupportValue,
+  TransitGatewayAttachmentNatSystemRouteSupportValue,
   TransitGatewayAttachmentPropagation$,
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
@@ -4592,6 +4603,9 @@ import {
   TransitGatewayMulticastGroup$,
   TransitGatewayMulticastRegisteredGroupMembers$,
   TransitGatewayMulticastRegisteredGroupSources$,
+  TransitGatewayNatRule$,
+  TransitGatewayNatRuleRequest$,
+  TransitGatewayNatRuleState,
   TransitGatewayOptions$,
   TransitGatewayPeeringAttachment$,
   TransitGatewayPeeringAttachmentOptions$,
@@ -6124,6 +6138,8 @@ assert(typeof GetSpotPlacementScoresCommand === "function");
 assert(typeof GetSpotPlacementScores$ === "object");
 assert(typeof GetSubnetCidrReservationsCommand === "function");
 assert(typeof GetSubnetCidrReservations$ === "object");
+assert(typeof GetTransitGatewayAttachmentNatConfigurationCommand === "function");
+assert(typeof GetTransitGatewayAttachmentNatConfiguration$ === "object");
 assert(typeof GetTransitGatewayAttachmentPropagationsCommand === "function");
 assert(typeof GetTransitGatewayAttachmentPropagations$ === "object");
 assert(typeof GetTransitGatewayMeteringPolicyEntriesCommand === "function");
@@ -6286,6 +6302,8 @@ assert(typeof ModifyTrafficMirrorSessionCommand === "function");
 assert(typeof ModifyTrafficMirrorSession$ === "object");
 assert(typeof ModifyTransitGatewayCommand === "function");
 assert(typeof ModifyTransitGateway$ === "object");
+assert(typeof ModifyTransitGatewayAttachmentNatConfigurationCommand === "function");
+assert(typeof ModifyTransitGatewayAttachmentNatConfiguration$ === "object");
 assert(typeof ModifyTransitGatewayMeteringPolicyCommand === "function");
 assert(typeof ModifyTransitGatewayMeteringPolicy$ === "object");
 assert(typeof ModifyTransitGatewayPolicyTableEntryCommand === "function");
@@ -7989,6 +8007,8 @@ assert(typeof GetSpotPlacementScoresRequest$ === "object");
 assert(typeof GetSpotPlacementScoresResult$ === "object");
 assert(typeof GetSubnetCidrReservationsRequest$ === "object");
 assert(typeof GetSubnetCidrReservationsResult$ === "object");
+assert(typeof GetTransitGatewayAttachmentNatConfigurationRequest$ === "object");
+assert(typeof GetTransitGatewayAttachmentNatConfigurationResult$ === "object");
 assert(typeof GetTransitGatewayAttachmentPropagationsRequest$ === "object");
 assert(typeof GetTransitGatewayAttachmentPropagationsResult$ === "object");
 assert(typeof GetTransitGatewayMeteringPolicyEntriesRequest$ === "object");
@@ -8420,6 +8440,8 @@ assert(typeof ModifyTrafficMirrorFilterRuleRequest$ === "object");
 assert(typeof ModifyTrafficMirrorFilterRuleResult$ === "object");
 assert(typeof ModifyTrafficMirrorSessionRequest$ === "object");
 assert(typeof ModifyTrafficMirrorSessionResult$ === "object");
+assert(typeof ModifyTransitGatewayAttachmentNatConfigurationRequest$ === "object");
+assert(typeof ModifyTransitGatewayAttachmentNatConfigurationResult$ === "object");
 assert(typeof ModifyTransitGatewayMeteringPolicyRequest$ === "object");
 assert(typeof ModifyTransitGatewayMeteringPolicyResult$ === "object");
 assert(typeof ModifyTransitGatewayOptions$ === "object");
@@ -8906,6 +8928,8 @@ assert(typeof TransitGatewayMulticastDomainOptions$ === "object");
 assert(typeof TransitGatewayMulticastGroup$ === "object");
 assert(typeof TransitGatewayMulticastRegisteredGroupMembers$ === "object");
 assert(typeof TransitGatewayMulticastRegisteredGroupSources$ === "object");
+assert(typeof TransitGatewayNatRule$ === "object");
+assert(typeof TransitGatewayNatRuleRequest$ === "object");
 assert(typeof TransitGatewayOptions$ === "object");
 assert(typeof TransitGatewayPeeringAttachment$ === "object");
 assert(typeof TransitGatewayPeeringAttachmentOptions$ === "object");
@@ -9463,6 +9487,9 @@ assert(typeof TrafficMirrorTargetType === "object");
 assert(typeof TrafficType === "object");
 assert(typeof TransferType === "object");
 assert(typeof TransitGatewayAssociationState === "object");
+assert(typeof TransitGatewayAttachmentNatGatewaySupportState === "object");
+assert(typeof TransitGatewayAttachmentNatGatewaySupportValue === "object");
+assert(typeof TransitGatewayAttachmentNatSystemRouteSupportValue === "object");
 assert(typeof TransitGatewayAttachmentResourceType === "object");
 assert(typeof TransitGatewayAttachmentState === "object");
 assert(typeof TransitGatewayAttachmentStatusType === "object");
@@ -9472,6 +9499,7 @@ assert(typeof TransitGatewayMeteringPolicyEntryState === "object");
 assert(typeof TransitGatewayMeteringPolicyState === "object");
 assert(typeof TransitGatewayMulitcastDomainAssociationState === "object");
 assert(typeof TransitGatewayMulticastDomainState === "object");
+assert(typeof TransitGatewayNatRuleState === "object");
 assert(typeof TransitGatewayPolicyTableEntryState === "object");
 assert(typeof TransitGatewayPolicyTableState === "object");
 assert(typeof TransitGatewayPrefixListReferenceState === "object");

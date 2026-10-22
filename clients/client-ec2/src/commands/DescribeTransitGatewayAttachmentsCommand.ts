@@ -76,6 +76,7 @@ export interface DescribeTransitGatewayAttachmentsCommandOutput extends Describe
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       NatGatewaySupport: "enabled" || "disabled" || "enabling" || "disabling",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

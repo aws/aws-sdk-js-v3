@@ -3072,6 +3072,11 @@ import {
   GetSubnetCidrReservationsCommand,
 } from "./commands/GetSubnetCidrReservationsCommand";
 import {
+  type GetTransitGatewayAttachmentNatConfigurationCommandInput,
+  type GetTransitGatewayAttachmentNatConfigurationCommandOutput,
+  GetTransitGatewayAttachmentNatConfigurationCommand,
+} from "./commands/GetTransitGatewayAttachmentNatConfigurationCommand";
+import {
   type GetTransitGatewayAttachmentPropagationsCommandInput,
   type GetTransitGatewayAttachmentPropagationsCommandOutput,
   GetTransitGatewayAttachmentPropagationsCommand,
@@ -3471,6 +3476,11 @@ import {
   type ModifyTrafficMirrorSessionCommandOutput,
   ModifyTrafficMirrorSessionCommand,
 } from "./commands/ModifyTrafficMirrorSessionCommand";
+import {
+  type ModifyTransitGatewayAttachmentNatConfigurationCommandInput,
+  type ModifyTransitGatewayAttachmentNatConfigurationCommandOutput,
+  ModifyTransitGatewayAttachmentNatConfigurationCommand,
+} from "./commands/ModifyTransitGatewayAttachmentNatConfigurationCommand";
 import {
   type ModifyTransitGatewayCommandInput,
   type ModifyTransitGatewayCommandOutput,
@@ -4936,6 +4946,7 @@ const commands = {
   GetSnapshotBlockPublicAccessStateCommand,
   GetSpotPlacementScoresCommand,
   GetSubnetCidrReservationsCommand,
+  GetTransitGatewayAttachmentNatConfigurationCommand,
   GetTransitGatewayAttachmentPropagationsCommand,
   GetTransitGatewayMeteringPolicyEntriesCommand,
   GetTransitGatewayMulticastDomainAssociationsCommand,
@@ -5017,6 +5028,7 @@ const commands = {
   ModifyTrafficMirrorFilterRuleCommand,
   ModifyTrafficMirrorSessionCommand,
   ModifyTransitGatewayCommand,
+  ModifyTransitGatewayAttachmentNatConfigurationCommand,
   ModifyTransitGatewayMeteringPolicyCommand,
   ModifyTransitGatewayPolicyTableEntryCommand,
   ModifyTransitGatewayPrefixListReferenceCommand,
@@ -16037,6 +16049,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link GetTransitGatewayAttachmentNatConfigurationCommand}
+   */
+  getTransitGatewayAttachmentNatConfiguration(
+    args: GetTransitGatewayAttachmentNatConfigurationCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<GetTransitGatewayAttachmentNatConfigurationCommandOutput>;
+  getTransitGatewayAttachmentNatConfiguration(
+    args: GetTransitGatewayAttachmentNatConfigurationCommandInput,
+    cb: (err: any, data?: GetTransitGatewayAttachmentNatConfigurationCommandOutput) => void
+  ): void;
+  getTransitGatewayAttachmentNatConfiguration(
+    args: GetTransitGatewayAttachmentNatConfigurationCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: GetTransitGatewayAttachmentNatConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTransitGatewayAttachmentPropagationsCommand}
    */
   getTransitGatewayAttachmentPropagations(
@@ -17420,6 +17449,23 @@ export interface EC2 {
     args: ModifyTransitGatewayCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: ModifyTransitGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyTransitGatewayAttachmentNatConfigurationCommand}
+   */
+  modifyTransitGatewayAttachmentNatConfiguration(
+    args: ModifyTransitGatewayAttachmentNatConfigurationCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<ModifyTransitGatewayAttachmentNatConfigurationCommandOutput>;
+  modifyTransitGatewayAttachmentNatConfiguration(
+    args: ModifyTransitGatewayAttachmentNatConfigurationCommandInput,
+    cb: (err: any, data?: ModifyTransitGatewayAttachmentNatConfigurationCommandOutput) => void
+  ): void;
+  modifyTransitGatewayAttachmentNatConfiguration(
+    args: ModifyTransitGatewayAttachmentNatConfigurationCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: ModifyTransitGatewayAttachmentNatConfigurationCommandOutput) => void
   ): void;
 
   /**

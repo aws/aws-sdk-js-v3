@@ -2266,6 +2266,10 @@ import type {
   GetSubnetCidrReservationsCommandOutput,
 } from "./commands/GetSubnetCidrReservationsCommand";
 import type {
+  GetTransitGatewayAttachmentNatConfigurationCommandInput,
+  GetTransitGatewayAttachmentNatConfigurationCommandOutput,
+} from "./commands/GetTransitGatewayAttachmentNatConfigurationCommand";
+import type {
   GetTransitGatewayAttachmentPropagationsCommandInput,
   GetTransitGatewayAttachmentPropagationsCommandOutput,
 } from "./commands/GetTransitGatewayAttachmentPropagationsCommand";
@@ -2549,6 +2553,10 @@ import type {
   ModifyTrafficMirrorSessionCommandInput,
   ModifyTrafficMirrorSessionCommandOutput,
 } from "./commands/ModifyTrafficMirrorSessionCommand";
+import type {
+  ModifyTransitGatewayAttachmentNatConfigurationCommandInput,
+  ModifyTransitGatewayAttachmentNatConfigurationCommandOutput,
+} from "./commands/ModifyTransitGatewayAttachmentNatConfigurationCommand";
 import type {
   ModifyTransitGatewayCommandInput,
   ModifyTransitGatewayCommandOutput,
@@ -3582,6 +3590,7 @@ export type ServiceInputTypes =
   | GetSnapshotBlockPublicAccessStateCommandInput
   | GetSpotPlacementScoresCommandInput
   | GetSubnetCidrReservationsCommandInput
+  | GetTransitGatewayAttachmentNatConfigurationCommandInput
   | GetTransitGatewayAttachmentPropagationsCommandInput
   | GetTransitGatewayMeteringPolicyEntriesCommandInput
   | GetTransitGatewayMulticastDomainAssociationsCommandInput
@@ -3662,6 +3671,7 @@ export type ServiceInputTypes =
   | ModifyTrafficMirrorFilterNetworkServicesCommandInput
   | ModifyTrafficMirrorFilterRuleCommandInput
   | ModifyTrafficMirrorSessionCommandInput
+  | ModifyTransitGatewayAttachmentNatConfigurationCommandInput
   | ModifyTransitGatewayCommandInput
   | ModifyTransitGatewayMeteringPolicyCommandInput
   | ModifyTransitGatewayPolicyTableEntryCommandInput
@@ -4394,6 +4404,7 @@ export type ServiceOutputTypes =
   | GetSnapshotBlockPublicAccessStateCommandOutput
   | GetSpotPlacementScoresCommandOutput
   | GetSubnetCidrReservationsCommandOutput
+  | GetTransitGatewayAttachmentNatConfigurationCommandOutput
   | GetTransitGatewayAttachmentPropagationsCommandOutput
   | GetTransitGatewayMeteringPolicyEntriesCommandOutput
   | GetTransitGatewayMulticastDomainAssociationsCommandOutput
@@ -4474,6 +4485,7 @@ export type ServiceOutputTypes =
   | ModifyTrafficMirrorFilterNetworkServicesCommandOutput
   | ModifyTrafficMirrorFilterRuleCommandOutput
   | ModifyTrafficMirrorSessionCommandOutput
+  | ModifyTransitGatewayAttachmentNatConfigurationCommandOutput
   | ModifyTransitGatewayCommandOutput
   | ModifyTransitGatewayMeteringPolicyCommandOutput
   | ModifyTransitGatewayPolicyTableEntryCommandOutput

@@ -50,6 +50,7 @@ import type {
   Tenancy,
   TieringOperationStatus,
   TransitGatewayAssociationState,
+  TransitGatewayAttachmentNatGatewaySupportState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
   TransitGatewayPropagationState,
@@ -5892,6 +5893,12 @@ export interface TransitGatewayAttachment {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The state of NAT gateway support for the attachment. Only the owner of the transit gateway receives this parameter.</p>
+   * @public
+   */
+  NatGatewaySupport?: TransitGatewayAttachmentNatGatewaySupportState | undefined;
 }
 
 /**

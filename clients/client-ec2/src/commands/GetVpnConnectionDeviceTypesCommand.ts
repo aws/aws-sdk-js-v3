@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetVpnConnectionDeviceTypesRequest } from "../models/models_6";
-import type { GetVpnConnectionDeviceTypesResult } from "../models/models_7";
+import type { GetVpnConnectionDeviceTypesRequest, GetVpnConnectionDeviceTypesResult } from "../models/models_7";
 import { GetVpnConnectionDeviceTypes$ } from "../schemas/schemas_0";
 
 /**
