@@ -20,6 +20,10 @@ import {
   CreateFeedRequest$,
   CreateFeedResponse$,
   CreateOutput$,
+  CreateScheduleAction$,
+  CreateScheduleActionCommand,
+  CreateScheduleActionRequest$,
+  CreateScheduleActionResponse$,
   CroppingConfig$,
   DataSourceConfiguration$,
   DataSourceSport,
@@ -34,6 +38,10 @@ import {
   DeleteFeedPolicyRequest$,
   DeleteFeedRequest$,
   DeleteFeedResponse$,
+  DeleteScheduleAction$,
+  DeleteScheduleActionCommand,
+  DeleteScheduleActionRequest$,
+  DeleteScheduleActionResponse$,
   DictionaryLanguage,
   DictionaryStatus,
   DictionarySummary$,
@@ -53,6 +61,7 @@ import {
   FeedStatus,
   FeedSummary$,
   FilterName,
+  FixedModeScheduleActionStartSettings$,
   FixtureSummary$,
   GatewayTimedOutException,
   GatewayTimedOutException$,
@@ -83,6 +92,10 @@ import {
   ListFeedsCommand,
   ListFeedsRequest$,
   ListFeedsResponse$,
+  ListScheduleActions$,
+  ListScheduleActionsCommand,
+  ListScheduleActionsRequest$,
+  ListScheduleActionsResponse$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -91,14 +104,22 @@ import {
   OutputStatus,
   paginateListDictionaries,
   paginateListFeeds,
+  paginateListScheduleActions,
   paginateSearchFixtures,
   ProfanityFilterMode,
   PutFeedPolicy$,
   PutFeedPolicyCommand,
   PutFeedPolicyRequest$,
   PutFeedPolicyResponse$,
+  RemoveClippingDataSourceConfiguration$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  ScheduleAction$,
+  ScheduleActionError$,
+  ScheduleActionErrorCode,
+  ScheduleActionOperation$,
+  ScheduleActionStartConfiguration$,
+  ScheduleActionStatus,
   SearchFilter$,
   SearchFixtures$,
   SearchFixturesCommand,
@@ -120,6 +141,7 @@ import {
   UntagResource$,
   UntagResourceCommand,
   UntagResourceRequest$,
+  UpdateClippingDataSourceConfiguration$,
   UpdateDictionary$,
   UpdateDictionaryCommand,
   UpdateDictionaryRequest$,
@@ -129,6 +151,7 @@ import {
   UpdateFeedRequest$,
   UpdateFeedResponse$,
   UpdateOutput$,
+  UpdateOutputStatus$,
   ValidationException,
   ValidationException$,
   waitForFeedDeleted,
@@ -145,12 +168,16 @@ assert(typeof CreateDictionaryCommand === "function");
 assert(typeof CreateDictionary$ === "object");
 assert(typeof CreateFeedCommand === "function");
 assert(typeof CreateFeed$ === "object");
+assert(typeof CreateScheduleActionCommand === "function");
+assert(typeof CreateScheduleAction$ === "object");
 assert(typeof DeleteDictionaryCommand === "function");
 assert(typeof DeleteDictionary$ === "object");
 assert(typeof DeleteFeedCommand === "function");
 assert(typeof DeleteFeed$ === "object");
 assert(typeof DeleteFeedPolicyCommand === "function");
 assert(typeof DeleteFeedPolicy$ === "object");
+assert(typeof DeleteScheduleActionCommand === "function");
+assert(typeof DeleteScheduleAction$ === "object");
 assert(typeof DisassociateFeedCommand === "function");
 assert(typeof DisassociateFeed$ === "object");
 assert(typeof ExportDictionaryEntriesCommand === "function");
@@ -167,6 +194,8 @@ assert(typeof ListDictionariesCommand === "function");
 assert(typeof ListDictionaries$ === "object");
 assert(typeof ListFeedsCommand === "function");
 assert(typeof ListFeeds$ === "object");
+assert(typeof ListScheduleActionsCommand === "function");
+assert(typeof ListScheduleActions$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof PutFeedPolicyCommand === "function");
@@ -193,6 +222,8 @@ assert(typeof CreateDictionaryResponse$ === "object");
 assert(typeof CreateFeedRequest$ === "object");
 assert(typeof CreateFeedResponse$ === "object");
 assert(typeof CreateOutput$ === "object");
+assert(typeof CreateScheduleActionRequest$ === "object");
+assert(typeof CreateScheduleActionResponse$ === "object");
 assert(typeof CroppingConfig$ === "object");
 assert(typeof DataSourceConfiguration$ === "object");
 assert(typeof DeleteDictionaryRequest$ === "object");
@@ -200,6 +231,8 @@ assert(typeof DeleteDictionaryResponse$ === "object");
 assert(typeof DeleteFeedPolicyRequest$ === "object");
 assert(typeof DeleteFeedRequest$ === "object");
 assert(typeof DeleteFeedResponse$ === "object");
+assert(typeof DeleteScheduleActionRequest$ === "object");
+assert(typeof DeleteScheduleActionResponse$ === "object");
 assert(typeof DictionarySummary$ === "object");
 assert(typeof DisassociateFeedRequest$ === "object");
 assert(typeof DisassociateFeedResponse$ === "object");
@@ -207,6 +240,7 @@ assert(typeof ExportDictionaryEntriesRequest$ === "object");
 assert(typeof ExportDictionaryEntriesResponse$ === "object");
 assert(typeof FeedAssociation$ === "object");
 assert(typeof FeedSummary$ === "object");
+assert(typeof FixedModeScheduleActionStartSettings$ === "object");
 assert(typeof FixtureSummary$ === "object");
 assert(typeof GetDictionaryRequest$ === "object");
 assert(typeof GetDictionaryResponse$ === "object");
@@ -221,11 +255,18 @@ assert(typeof ListDictionariesRequest$ === "object");
 assert(typeof ListDictionariesResponse$ === "object");
 assert(typeof ListFeedsRequest$ === "object");
 assert(typeof ListFeedsResponse$ === "object");
+assert(typeof ListScheduleActionsRequest$ === "object");
+assert(typeof ListScheduleActionsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof OutputConfig$ === "object");
 assert(typeof PutFeedPolicyRequest$ === "object");
 assert(typeof PutFeedPolicyResponse$ === "object");
+assert(typeof RemoveClippingDataSourceConfiguration$ === "object");
+assert(typeof ScheduleAction$ === "object");
+assert(typeof ScheduleActionError$ === "object");
+assert(typeof ScheduleActionOperation$ === "object");
+assert(typeof ScheduleActionStartConfiguration$ === "object");
 assert(typeof SearchFilter$ === "object");
 assert(typeof SearchFixturesRequest$ === "object");
 assert(typeof SearchFixturesResponse$ === "object");
@@ -233,11 +274,13 @@ assert(typeof SubtitlingConfig$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TemplateGroup$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
+assert(typeof UpdateClippingDataSourceConfiguration$ === "object");
 assert(typeof UpdateDictionaryRequest$ === "object");
 assert(typeof UpdateDictionaryResponse$ === "object");
 assert(typeof UpdateFeedRequest$ === "object");
 assert(typeof UpdateFeedResponse$ === "object");
 assert(typeof UpdateOutput$ === "object");
+assert(typeof UpdateOutputStatus$ === "object");
 // enums
 assert(typeof DataSourceSport === "object");
 assert(typeof DictionaryLanguage === "object");
@@ -247,6 +290,8 @@ assert(typeof FeedStatus === "object");
 assert(typeof FilterName === "object");
 assert(typeof OutputStatus === "object");
 assert(typeof ProfanityFilterMode === "object");
+assert(typeof ScheduleActionErrorCode === "object");
+assert(typeof ScheduleActionStatus === "object");
 assert(typeof SummaryGenerationMode === "object");
 assert(typeof TranscriptionLanguage === "object");
 // errors
@@ -275,5 +320,6 @@ assert(typeof waitUntilFeedDeleted === "function");
 // paginators
 assert(typeof paginateListDictionaries === "function");
 assert(typeof paginateListFeeds === "function");
+assert(typeof paginateListScheduleActions === "function");
 assert(typeof paginateSearchFixtures === "function");
 console.log(`ElementalInference index test passed.`);

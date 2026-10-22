@@ -8,6 +8,8 @@ import type {
   FilterName,
   OutputStatus,
   ProfanityFilterMode,
+  ScheduleActionErrorCode,
+  ScheduleActionStatus,
   SummaryGenerationMode,
   TranscriptionLanguage,
 } from "./enums";
@@ -532,6 +534,256 @@ export interface CreateFeedResponse {
 }
 
 /**
+ * <p>Removes the game from an event clipping output at the action's scheduled time. This is a type of ScheduleActionOperation, and the output must be an event clipping output. </p>
+ * @public
+ */
+export interface RemoveClippingDataSourceConfiguration {
+  /**
+   * <p>The name of the output that you want to remove the game from.</p>
+   * @public
+   */
+  outputName: string | undefined;
+}
+
+/**
+ * <p>Attaches a game to an event clipping output at the action's scheduled time. This is a type of ScheduleActionOperation, and the output must be an event clipping output. </p>
+ * @public
+ */
+export interface UpdateClippingDataSourceConfiguration {
+  /**
+   * <p>The name of the output that you want to attach the game to.</p>
+   * @public
+   */
+  outputName: string | undefined;
+
+  /**
+   * <p>The game that you want to attach to the output.</p>
+   * @public
+   */
+  dataSourceConfiguration: DataSourceConfiguration | undefined;
+}
+
+/**
+ * <p>Enables or disables an output at the action's scheduled time. This is a type of ScheduleActionOperation. </p>
+ * @public
+ */
+export interface UpdateOutputStatus {
+  /**
+   * <p>The name of the output that you want to enable or disable. The output must exist in the feed when you create the action. </p>
+   * @public
+   */
+  outputName: string | undefined;
+
+  /**
+   * <p>Specifies whether the output is enabled or disabled after the action runs.</p>
+   * @public
+   */
+  status: OutputStatus | undefined;
+}
+
+/**
+ * <p>Holds one typed configuration change that a schedule action makes to a feed. Each operation must contain exactly one property. </p>
+ * @public
+ */
+export type ScheduleActionOperation =
+  | ScheduleActionOperation.RemoveClippingDataSourceConfigurationMember
+  | ScheduleActionOperation.UpdateClippingDataSourceConfigurationMember
+  | ScheduleActionOperation.UpdateOutputStatusMember
+  | ScheduleActionOperation.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ScheduleActionOperation {
+  /**
+   * <p>The operation type that enables or disables an output.</p>
+   * @public
+   */
+  export interface UpdateOutputStatusMember {
+    updateOutputStatus: UpdateOutputStatus;
+    updateClippingDataSourceConfiguration?: never;
+    removeClippingDataSourceConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The operation type that attaches a game to an event clipping output.</p>
+   * @public
+   */
+  export interface UpdateClippingDataSourceConfigurationMember {
+    updateOutputStatus?: never;
+    updateClippingDataSourceConfiguration: UpdateClippingDataSourceConfiguration;
+    removeClippingDataSourceConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The operation type that removes the game from an event clipping output.</p>
+   * @public
+   */
+  export interface RemoveClippingDataSourceConfigurationMember {
+    updateOutputStatus?: never;
+    updateClippingDataSourceConfiguration?: never;
+    removeClippingDataSourceConfiguration: RemoveClippingDataSourceConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    updateOutputStatus?: never;
+    updateClippingDataSourceConfiguration?: never;
+    removeClippingDataSourceConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    updateOutputStatus: (value: UpdateOutputStatus) => T;
+    updateClippingDataSourceConfiguration: (value: UpdateClippingDataSourceConfiguration) => T;
+    removeClippingDataSourceConfiguration: (value: RemoveClippingDataSourceConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Sets the time at which a schedule action runs once. This is a type of ScheduleActionStartConfiguration. </p>
+ * @public
+ */
+export interface FixedModeScheduleActionStartSettings {
+  /**
+   * <p>The UTC time at which the action runs. Specify the time in whole seconds. For the range of times that you can specify, see the AWS Elemental Inference User Guide. </p> <p>This time is approximate. The change can take a few minutes to take effect on the media that the feed is processing. </p>
+   * @public
+   */
+  scheduledAt: Date | undefined;
+}
+
+/**
+ * <p>Holds the typed start settings that determine when a schedule action runs. Currently, only fixed mode is supported. </p>
+ * @public
+ */
+export type ScheduleActionStartConfiguration =
+  | ScheduleActionStartConfiguration.FixedModeScheduleActionStartSettingsMember
+  | ScheduleActionStartConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ScheduleActionStartConfiguration {
+  /**
+   * <p>The start settings type for an action that runs once, at a fixed time.</p>
+   * @public
+   */
+  export interface FixedModeScheduleActionStartSettingsMember {
+    fixedModeScheduleActionStartSettings: FixedModeScheduleActionStartSettings;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    fixedModeScheduleActionStartSettings?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    fixedModeScheduleActionStartSettings: (value: FixedModeScheduleActionStartSettings) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateScheduleActionRequest {
+  /**
+   * <p>Specifies the ID of the feed that you want to add the schedule action to.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>A name for the schedule action. The name must be unique within the feed. You can reuse the name of an action that you deleted. </p>
+   * @public
+   */
+  actionName: string | undefined;
+
+  /**
+   * <p>Specifies when the action runs.</p>
+   * @public
+   */
+  startConfiguration: ScheduleActionStartConfiguration | undefined;
+
+  /**
+   * <p>Specifies the list of configuration changes that you want to make to the feed. Elemental Inference applies all the operations in an action together, in the order that you specify them. If any operation fails, Elemental Inference doesn't apply any of them. </p>
+   * @public
+   */
+  operations: ScheduleActionOperation[] | undefined;
+}
+
+/**
+ * <p>Describes the cause of a schedule action failure, including the failure type and a description of what went wrong. </p>
+ * @public
+ */
+export interface ScheduleActionError {
+  /**
+   * <p>The type of failure. Valid values are the following:</p> <dl> <dt>INVALID_ACTION_TARGET</dt> <dd> <p>The action referred to something that didn't exist or wasn't valid at the scheduled time, for example an output that you deleted. </p> </dd> <dt>INTERNAL_ERROR</dt> <dd> <p>An unexpected error prevented the action from completing.</p> </dd> </dl>
+   * @public
+   */
+  errorCode: ScheduleActionErrorCode | undefined;
+
+  /**
+   * <p>A description of the failure.</p>
+   * @public
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateScheduleActionResponse {
+  /**
+   * <p>The name that you specified.</p>
+   * @public
+   */
+  actionName: string | undefined;
+
+  /**
+   * <p>Specifies when the action runs.</p>
+   * @public
+   */
+  startConfiguration: ScheduleActionStartConfiguration | undefined;
+
+  /**
+   * <p>The configuration changes that the action makes to the feed.</p>
+   * @public
+   */
+  operations: ScheduleActionOperation[] | undefined;
+
+  /**
+   * <p>The status of the action. After you create the action successfully, Elemental Inference sets the status to PENDING. </p>
+   * @public
+   */
+  status: ScheduleActionStatus | undefined;
+
+  /**
+   * <p>A description of why the action failed. Elemental Inference returns this property only when the status is FAILED. </p>
+   * @public
+   */
+  error?: ScheduleActionError | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteDictionaryRequest {
@@ -608,6 +860,34 @@ export interface DeleteFeedPolicyRequest {
    * @public
    */
   id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteScheduleActionRequest {
+  /**
+   * <p>The ID of the feed that holds the schedule action.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the schedule action that you want to delete.</p>
+   * @public
+   */
+  actionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteScheduleActionResponse {
+  /**
+   * <p>The name of the schedule action that Elemental Inference deleted.</p>
+   * @public
+   */
+  actionName: string | undefined;
 }
 
 /**
@@ -1033,6 +1313,82 @@ export interface ListFeedsResponse {
 
   /**
    * <p>The token that identifies the batch of results that you want to see. For example, you submit a list request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the list request a second time and specify the NextToken value. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListScheduleActionsRequest {
+  /**
+   * <p>The ID of the feed that you want to query.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each API request. If you don't specify MaxResults, Elemental Inference returns a maximum of 10 results for each page. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token that identifies the batch of results that you want to see. To see the next batch, submit the request a second time and specify the NextToken value that Elemental Inference returned. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Describes one schedule action on a feed, including the changes it makes and whether it has run yet. Elemental Inference returns this structure in the ListScheduleActions operation. </p>
+ * @public
+ */
+export interface ScheduleAction {
+  /**
+   * <p>The name of the schedule action. The name is unique within the feed.</p>
+   * @public
+   */
+  actionName: string | undefined;
+
+  /**
+   * <p>Specifies when the action runs.</p>
+   * @public
+   */
+  startConfiguration: ScheduleActionStartConfiguration | undefined;
+
+  /**
+   * <p>The configuration changes that the action makes to the feed.</p>
+   * @public
+   */
+  operations: ScheduleActionOperation[] | undefined;
+
+  /**
+   * <p>The status of the action. Valid values are the following:</p> <dl> <dt>PENDING</dt> <dd> <p>The action is waiting for its scheduled time.</p> </dd> <dt>COMPLETED</dt> <dd> <p>Elemental Inference applied all the action's operations to the feed.</p> </dd> <dt>FAILED</dt> <dd> <p>Elemental Inference couldn't apply the action.</p> </dd> </dl>
+   * @public
+   */
+  status: ScheduleActionStatus | undefined;
+
+  /**
+   * <p>A description of why the action failed. Elemental Inference returns this property only when the status is FAILED. </p>
+   * @public
+   */
+  error?: ScheduleActionError | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListScheduleActionsResponse {
+  /**
+   * <p>A list of the schedule actions on the feed.</p>
+   * @public
+   */
+  scheduleActions: ScheduleAction[] | undefined;
+
+  /**
+   * <p>The token that identifies the next batch of results. Elemental Inference returns it only when more results are available. </p>
    * @public
    */
   nextToken?: string | undefined;
