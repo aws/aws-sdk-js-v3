@@ -1048,4 +1048,168 @@ describe("SQSPoller", () => {
       expect(Date.now() - t0).toBeLessThan(200);
     });
   });
+
+  describe("heartbeat bookkeeping", () => {
+    const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+    // Records the order of SQS calls. Visibility changes take `visibilityDelayMs` to resolve.
+    function orderedClient(batches: any[][], visibilityDelayMs = 0) {
+      const log: string[] = [];
+      let i = 0;
+      const send = vi.fn().mockImplementation((cmd: any) => {
+        const name = cmd.constructor.name;
+        if (name === "ReceiveMessageCommand") {
+          const batch = batches[i++];
+          return batch ? Promise.resolve({ Messages: batch }) : sleep(500).then(() => ({ Messages: [] }));
+        }
+        if (name === "DeleteMessageBatchCommand") {
+          log.push("delete");
+          return Promise.resolve({ Successful: cmd.input.Entries.map((e: any) => ({ Id: e.Id })), Failed: [] });
+        }
+        log.push("extend:start");
+        return sleep(visibilityDelayMs).then(() => {
+          log.push("extend:end");
+          return {};
+        });
+      });
+      return { client: { send } as unknown as NonNullable<PollerConfig["client"]>, log };
+    }
+
+    it("stops tracking a receipt handle once its message is handled", async () => {
+      const batches = Array.from({ length: 5 }, () => Array.from({ length: 10 }, () => makeSQSMessage()));
+      const { client } = orderedClient(batches);
+      const p = new SQSPoller({
+        queueUrl: "https://q",
+        client,
+        receiveWaitTimeMs: 0,
+        visibilityTimeoutMs: 60_000,
+        extendTimeout: true,
+        deleteWaitMs: 5,
+      });
+      p.on("message", async () => {});
+      p.start();
+      for (let i = 0; i < 100 && p.getStats().receivedMessageCount < 50; i++) await sleep(20);
+      await sleep(20);
+      expect(p.getStats().receivedMessageCount).toBe(50);
+      expect((p as any)._run.receiptHandles.size).toBe(0);
+      await p.stop();
+    });
+
+    it("stops tracking a receipt handle when its heartbeat expires", async () => {
+      const { client } = orderedClient([[makeSQSMessage()]]);
+      const p = new SQSPoller({
+        queueUrl: "https://q",
+        client,
+        receiveWaitTimeMs: 0,
+        visibilityTimeoutMs: 60,
+        extendTimeout: true,
+        extendTimeoutAdvanceMs: 40,
+        maxTimeoutExtensionMs: 30,
+      });
+      const expired = new Promise<void>((r) => p.on("heartbeatExpired", () => r()));
+      p.on("message", async () => {
+        await sleep(150);
+      });
+      p.start();
+      await expired;
+      expect((p as any)._run.receiptHandles.size).toBe(0);
+      await p.stop(false);
+    });
+
+    it("sends the delete only after an in-flight extension finishes", async () => {
+      const { client, log } = orderedClient([[makeSQSMessage()]], 60);
+      const p = new SQSPoller({
+        queueUrl: "https://q",
+        client,
+        receiveWaitTimeMs: 0,
+        visibilityTimeoutMs: 60,
+        extendTimeout: true,
+        extendTimeoutAdvanceMs: 40,
+        deleteBatchSize: 1,
+      });
+      p.on("message", async (m) => {
+        await sleep(30);
+        m.enqueueDelete();
+        await sleep(100);
+      });
+      p.start();
+      await sleep(250);
+      await p.stop(false);
+      expect(log.indexOf("delete")).toBeGreaterThan(log.indexOf("extend:end"));
+    });
+
+    it("stop() still flushes a delete that was waiting on an in-flight extension", async () => {
+      const { client, log } = orderedClient([[makeSQSMessage()]], 60);
+      const p = new SQSPoller({
+        queueUrl: "https://q",
+        client,
+        receiveWaitTimeMs: 0,
+        visibilityTimeoutMs: 60,
+        extendTimeout: true,
+        extendTimeoutAdvanceMs: 40,
+      });
+      const events: string[] = [];
+      p.on("stopped", () => events.push(`stopped after ${log.filter((l) => l === "delete").length} delete(s)`));
+      p.on("message", async (m) => {
+        await sleep(30);
+        m.enqueueDelete();
+      });
+      p.start();
+      await sleep(40);
+      await p.stop();
+      expect(events).toEqual(["stopped after 1 delete(s)"]);
+    });
+  });
+
+  describe("teardown waits for in-flight extensions", () => {
+    const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+    for (const finish of ["handler throws", "keep()", "deleteMessages: false"] as const) {
+      it(`fires stopped last when a message finishes without a delete (${finish})`, async () => {
+        let first = true;
+        const send = vi.fn().mockImplementation((cmd: any, opts?: any) => {
+          const name = cmd.constructor.name;
+          if (name === "ReceiveMessageCommand") {
+            if (first) {
+              first = false;
+              return Promise.resolve({ Messages: [makeSQSMessage()] });
+            }
+            return new Promise((resolve, reject) => {
+              const t = setTimeout(() => resolve({ Messages: [] }), 2_000);
+              opts?.abortSignal?.addEventListener("abort", () => {
+                clearTimeout(t);
+                reject(Object.assign(new Error("aborted"), { name: "AbortError" }));
+              });
+            });
+          }
+          if (name === "ChangeMessageVisibilityCommand") return sleep(80).then(() => ({}));
+          return Promise.resolve({ Successful: cmd.input.Entries.map((e: any) => ({ Id: e.Id })), Failed: [] });
+        });
+        const p = new SQSPoller({
+          queueUrl: "https://q",
+          client: { send } as unknown as NonNullable<PollerConfig["client"]>,
+          receiveWaitTimeMs: 0,
+          visibilityTimeoutMs: 60,
+          extendTimeout: true,
+          extendTimeoutAdvanceMs: 40,
+          deleteMessages: finish !== "deleteMessages: false",
+        });
+        const events: string[] = [];
+        p.on("timeoutExtended", () => events.push("timeoutExtended"));
+        p.on("stopped", () => events.push("stopped"));
+        p.on("error", () => {});
+        // Finishes while the first extension (sent at ~20ms) is still in flight.
+        p.on("message", async (m) => {
+          await sleep(30);
+          if (finish === "handler throws") throw new Error("boom");
+          if (finish === "keep()") m.keep();
+        });
+        p.start();
+        await sleep(35);
+        await p.stop();
+        await sleep(150);
+        expect(events[events.length - 1]).toBe("stopped");
+      });
+    }
+  });
 });

@@ -23,24 +23,15 @@ export interface MessageCallbacks {
  * @public
  */
 export class Message implements PollerMessage {
-  /** @public */
   public readonly raw: SQSMessage;
-  /** @public */
   public readonly body: string | undefined;
-  /** @public */
   public readonly messageId: string;
-  /** @public */
   public readonly receiptHandle: string;
-  /** @public */
   public readonly attributes: Partial<Record<MessageSystemAttributeName, string>>;
-  /** @public */
   public readonly messageAttributes: Record<string, MessageAttributeValue>;
-  /** @public */
   public readonly receivedAt: Date;
 
-  /** @internal */
   private readonly _callbacks: MessageCallbacks;
-  /** @internal */
   private _handled = false;
 
   /**
@@ -65,20 +56,20 @@ export class Message implements PollerMessage {
     return this._handled;
   }
 
-  /** Queue this message for batch deletion. @public */
+  /** Queue this message for batch deletion. */
   public enqueueDelete(): void {
     if (this._handled) return;
     this._handled = true;
     this._callbacks.enqueueDelete(this);
   }
 
-  /** Acknowledge the message without deleting it from the queue. @public */
+  /** Acknowledge the message without deleting it from the queue. */
   public keep(): void {
     this._handled = true;
     this._callbacks.keep(this.receiptHandle);
   }
 
-  /** Release the message back to the queue immediately (visibility → 0). @public */
+  /** Release the message back to the queue immediately (visibility → 0). */
   public async release(): Promise<void> {
     this._handled = true;
     await this._callbacks.release(this.receiptHandle);
@@ -87,7 +78,6 @@ export class Message implements PollerMessage {
   /**
    * Change the visibility timeout of this message. Stops automatic extension for it.
    * @param timeoutMs - New visibility timeout, rounded up to whole seconds for SQS.
-   * @public
    */
   public async changeVisibility(timeoutMs: number): Promise<void> {
     await this._callbacks.changeVisibility(this.receiptHandle, timeoutMs);

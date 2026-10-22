@@ -7,7 +7,6 @@ import type { BatchResultErrorEntry } from "@aws-sdk/client-sqs";
 export class PollerError extends Error {
   public readonly name: string = "PollerError";
 
-  /** @public */
   public constructor(message: string, options?: { cause?: Error }) {
     super(message, options);
   }
@@ -21,7 +20,6 @@ export class TimeoutError extends PollerError {
   public override readonly name: string = "TimeoutError";
   public readonly timeoutMs: number;
 
-  /** @public */
   public constructor(message: string, timeoutMs: number, options?: { cause?: Error }) {
     super(message, options);
     this.timeoutMs = timeoutMs;
@@ -37,7 +35,6 @@ export class DeleteError extends PollerError {
   public readonly failures: BatchResultErrorEntry[];
   public readonly messageIds: string[];
 
-  /** @public */
   public constructor(
     message: string,
     failures: BatchResultErrorEntry[],
@@ -58,7 +55,6 @@ export class VisibilityExtensionError extends PollerError {
   public override readonly name: string = "VisibilityExtensionError";
   public readonly messageId: string;
 
-  /** @public */
   public constructor(message: string, messageId: string, options?: { cause?: Error }) {
     super(message, options);
     this.messageId = messageId;

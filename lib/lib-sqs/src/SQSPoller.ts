@@ -156,7 +156,6 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
     heartbeatExpired: [],
   };
 
-  /** @public */
   public constructor(config: PollerConfig) {
     if (!config.queueUrl) throw new PollerError("queueUrl is required");
     this._client = config.client ?? new SQSClient(config.clientConfig ?? {});
@@ -219,17 +218,16 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
     }
   }
 
-  /** @public */ public get running(): boolean {
+  public get running(): boolean {
     return this._run !== null && !this._run.stopping;
   }
-  /** @public */ public get inFlight(): number {
+  public get inFlight(): number {
     return this._run?.inFlight ?? 0;
   }
-  /** @public */ public getStats(): Readonly<PollerStats> {
+  public getStats(): Readonly<PollerStats> {
     return { ...this._stats };
   }
 
-  /** @public */
   public toJSON(): SerializablePollerStats {
     const now = new Date();
     const s = this._stats.pollingStartedAt;
@@ -245,13 +243,12 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
     };
   }
 
-  /** @public */
   public toString(): string {
     const s = this._stats;
     return `SQSPoller(${this.running ? "running" : "stopped"}, requests=${s.requestCount}, received=${s.receivedMessageCount}, deleted=${s.deletedMessageCount}, errors=${s.errorCount}, inFlight=${this.inFlight})`;
   }
 
-  /** Register a listener. Returns a function that removes it. @public */
+  /** Register a listener. Returns a function that removes it. */
   public on<K extends SQSPollerEventName>(event: K, listener: SQSPollerEvents[K]): () => void {
     this._listeners[event].push(listener);
     return () => {
@@ -259,7 +256,7 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
     };
   }
 
-  /** Remove a listener, or all listeners for an event if `listener` is omitted. @public */
+  /** Remove a listener, or all listeners for an event if `listener` is omitted. */
   public off<K extends SQSPollerEventName>(event: K, listener?: SQSPollerEvents[K]): this {
     if (!listener) {
       this._listeners[event] = [];
@@ -271,7 +268,7 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
     return this;
   }
 
-  /** Start polling. Non-blocking. @public */
+  /** Start polling. Non-blocking. */
   public start(): void {
     this._assertCanStart("Poller is already running");
     const run = createRun(this._run);
@@ -288,7 +285,6 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
    *   Don't `await` this from inside a `message` handler or a `for await` body, since shutdown
    *   waits for that work to finish. Use `void poller.stop()`, or `break`, instead.
    * @returns The final stats. Does nothing if the poller isn't running.
-   * @public
    */
   public async stop(graceful = true): Promise<PollerStats> {
     const run = this._run;
@@ -313,7 +309,6 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
    * Exiting the loop early (`break`, `return`, or a throw) does not auto-delete the
    * current message, since the three are indistinguishable here. Call
    * `msg.enqueueDelete()` before exiting if the message was processed.
-   * @public
    */
   public [Symbol.asyncIterator](): AsyncGenerator<PollerMessage, void, undefined> {
     const ref: { gen?: AsyncGenerator<PollerMessage, void, undefined> } = {};
@@ -353,7 +348,7 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
         for (const msg of batch) {
           if (run.stopping || this._isAborted(run)) break;
           yield msg;
-          void this._stopHeartbeat(msg.receiptHandle);
+          void this._stopHeartbeat(msg.receiptHandle, run);
           if (this._config.deleteMessages && !msg.handled) msg.enqueueDelete();
         }
         if (this._config.activePollIntervalMs > 0) await this._delay(this._config.activePollIntervalMs, run);
@@ -379,8 +374,11 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
 
   private async _teardown(run: Run): Promise<void> {
     await this._stopHeartbeats(run);
-    await this._flushDeleteBatch();
-    await this._awaitPendingFlushes();
+    // A deferred enqueue can add to the batch while a flush is running, so drain until both are empty.
+    do {
+      await this._flushDeleteBatch();
+      await this._awaitPendingFlushes();
+    } while (this._deleteBatch.length > 0);
     run.stopping = true;
     run.finished = true;
     this._stats.pollingStoppedAt = new Date();
@@ -481,7 +479,7 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
       this._stats.errorCount++;
       this._emit("error", toError(err));
     } finally {
-      void this._stopHeartbeat(msg.receiptHandle);
+      void this._stopHeartbeat(msg.receiptHandle, run);
     }
   }
 
@@ -620,6 +618,7 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
       const timer = setTimeout(async () => {
         if (Date.now() - startTime > this._config.maxTimeoutExtensionMs) {
           this._heartbeatTimers.delete(msg.receiptHandle);
+          run.receiptHandles.delete(msg.receiptHandle);
           this._emit("heartbeatExpired", msg);
           return;
         }
@@ -653,33 +652,32 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
   }
 
   /** Resolves once any extension request already in flight for this message settles. */
-  private async _stopHeartbeat(receiptHandle: string): Promise<void> {
+  private async _stopHeartbeat(receiptHandle: string, run: Run): Promise<void> {
     const t = this._heartbeatTimers.get(receiptHandle);
     if (t) {
       clearTimeout(t);
       this._heartbeatTimers.delete(receiptHandle);
     }
     await this._heartbeatsInFlight.get(receiptHandle)?.catch(() => {});
+    // Untracked only after the extension settles, so teardown still waits for it.
+    run.receiptHandles.delete(receiptHandle);
   }
 
   /** Stops this run's heartbeats only, and waits out their in-flight extensions so none land after `stopped`. */
   private async _stopHeartbeats(run: Run): Promise<void> {
-    const pending = [...run.receiptHandles].map((rh) => this._stopHeartbeat(rh));
-    run.receiptHandles.clear();
-    await Promise.all(pending);
+    await Promise.all([...run.receiptHandles].map((rh) => this._stopHeartbeat(rh, run)));
   }
 
   // --- Utilities ---
 
   private _wrapMessage(raw: SQSMessage, run: Run): Message {
     const callbacks: MessageCallbacks = {
-      enqueueDelete: (m) => {
-        void this._stopHeartbeat(m.receiptHandle);
-        this._enqueueDelete(m, run);
-      },
-      keep: (rh) => void this._stopHeartbeat(rh),
+      // Enqueue once any in-flight extension settles, so the extension can't land after the delete.
+      enqueueDelete: (m) =>
+        this._trackFlush(this._stopHeartbeat(m.receiptHandle, run).then(() => this._enqueueDelete(m, run))),
+      keep: (rh) => void this._stopHeartbeat(rh, run),
       release: (rh) =>
-        this._stopHeartbeat(rh)
+        this._stopHeartbeat(rh, run)
           .then(() =>
             this._client.send(
               new ChangeMessageVisibilityCommand({
@@ -691,7 +689,7 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
           )
           .then(() => {}),
       changeVisibility: (rh, ms) =>
-        this._stopHeartbeat(rh)
+        this._stopHeartbeat(rh, run)
           .then(() =>
             this._client.send(
               new ChangeMessageVisibilityCommand({
