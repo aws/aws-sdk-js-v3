@@ -282,6 +282,9 @@ import {
   Message$,
   MonitorAccountType,
   MonthlyRecurrence$,
+  MSTeamsChannel$,
+  MSTeamsConfiguration$,
+  MSTeamsTransmissionTarget$,
   NetworkAccessConfiguration$,
   NewRelicApiKeyConfig$,
   NewRelicRegion,
@@ -764,6 +767,9 @@ assert(typeof MCPServerSplunkConfiguration$ === "object");
 assert(typeof MCPToolDetail$ === "object");
 assert(typeof Message$ === "object");
 assert(typeof MonthlyRecurrence$ === "object");
+assert(typeof MSTeamsChannel$ === "object");
+assert(typeof MSTeamsConfiguration$ === "object");
+assert(typeof MSTeamsTransmissionTarget$ === "object");
 assert(typeof NetworkAccessConfiguration$ === "object");
 assert(typeof NewRelicApiKeyConfig$ === "object");
 assert(typeof NewRelicServiceAuthorizationConfig$ === "object");

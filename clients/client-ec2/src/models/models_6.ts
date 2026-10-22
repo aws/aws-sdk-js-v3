@@ -65,7 +65,10 @@ import type {
   StatisticType,
   TargetCapacityUnitType,
   TransitGatewayAssociationState,
+  TransitGatewayAttachmentNatGatewaySupportState,
+  TransitGatewayAttachmentNatSystemRouteSupportValue,
   TransitGatewayAttachmentResourceType,
+  TransitGatewayNatRuleState,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   UserTrustProviderType,
@@ -117,6 +120,42 @@ import type {
   TransitGatewayPropagation,
   UnsuccessfulSuppressionResponseObject,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface DisassociateTransitGatewayPolicyTableResult {
+  /**
+   * <p>Returns details about the transit gateway policy table disassociation.</p>
+   * @public
+   */
+  Association?: TransitGatewayPolicyTableAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTransitGatewayRouteTableRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -8155,6 +8194,98 @@ export interface GetSubnetCidrReservationsResult {
 /**
  * @public
  */
+export interface GetTransitGatewayAttachmentNatConfigurationRequest {
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Contains information about a NAT gateway rule for a transit gateway attachment, including the rule number, the source CIDR block, the translated CIDR block, and the state of the rule.</p>
+ * @public
+ */
+export interface TransitGatewayNatRule {
+  /**
+   * <p>The rule number.</p>
+   * @public
+   */
+  RuleNumber?: number | undefined;
+
+  /**
+   * <p>The IPv4 CIDR block of the source addresses to translate.</p>
+   * @public
+   */
+  MatchSourceCidr?: string | undefined;
+
+  /**
+   * <p>The IPv4 CIDR block that the transit gateway translates the source addresses to.</p>
+   * @public
+   */
+  NatCidr?: string | undefined;
+
+  /**
+   * <p>The state of the NAT gateway rule. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> - The transit gateway is applying a change to the rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>activated</code> - The rule is in effect because NAT gateway support is enabled for the attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deactivated</code> - The rule isn't in effect because NAT gateway support is disabled for the attachment.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: TransitGatewayNatRuleState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayAttachmentNatConfigurationResult {
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The state of NAT gateway support for the attachment.</p>
+   * @public
+   */
+  NatGatewaySupport?: TransitGatewayAttachmentNatGatewaySupportState | undefined;
+
+  /**
+   * <p>Specifies whether the transit gateway installs routes for the NAT CIDRs in the route tables to which the attachment propagates.</p>
+   * @public
+   */
+  NatSystemRouteSupport?: TransitGatewayAttachmentNatSystemRouteSupportValue | undefined;
+
+  /**
+   * <p>The NAT gateway rules for the attachment.</p>
+   * @public
+   */
+  NatGatewayRules?: TransitGatewayNatRule[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetTransitGatewayAttachmentPropagationsRequest {
   /**
    * <p>The ID of the attachment.</p>
@@ -9106,132 +9237,6 @@ export interface GetVpnConnectionDeviceSampleConfigurationRequest {
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVpnConnectionDeviceSampleConfigurationResult {
-  /**
-   * <p>Sample configuration file for the specified customer gateway device.</p>
-   * @public
-   */
-  VpnConnectionDeviceSampleConfiguration?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVpnConnectionDeviceTypesRequest {
-  /**
-   * <p>The maximum number of results returned by <code>GetVpnConnectionDeviceTypes</code> in
-   *             paginated output. When this parameter is used, <code>GetVpnConnectionDeviceTypes</code>
-   *             only returns <code>MaxResults</code> results in a single page along with a
-   *                 <code>NextToken</code> response element. The remaining results of the initial
-   *             request can be seen by sending another <code>GetVpnConnectionDeviceTypes</code> request
-   *             with the returned <code>NextToken</code> value. This value can be between 200 and 1000.
-   *             If this parameter is not used, then <code>GetVpnConnectionDeviceTypes</code> returns all
-   *             results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The <code>NextToken</code> value returned from a previous paginated
-   *                 <code>GetVpnConnectionDeviceTypes</code> request where <code>MaxResults</code> was
-   *             used and the results exceeded the value of that parameter. Pagination continues from the
-   *             end of the previous results that returned the <code>NextToken</code> value. This value
-   *             is null when there are no more results to return. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>List of customer gateway devices that have a sample configuration file available for
- *             use. You can also see the list of device types with sample configuration files available
- *             under <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html">Your customer
- *                 gateway device</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
- * @public
- */
-export interface VpnConnectionDeviceType {
-  /**
-   * <p>Customer gateway device identifier.</p>
-   * @public
-   */
-  VpnConnectionDeviceTypeId?: string | undefined;
-
-  /**
-   * <p>Customer gateway device vendor.</p>
-   * @public
-   */
-  Vendor?: string | undefined;
-
-  /**
-   * <p>Customer gateway device platform.</p>
-   * @public
-   */
-  Platform?: string | undefined;
-
-  /**
-   * <p>Customer gateway device software version.</p>
-   * @public
-   */
-  Software?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVpnConnectionDeviceTypesResult {
-  /**
-   * <p>List of customer gateway devices that have a sample configuration file available for
-   *             use.</p>
-   * @public
-   */
-  VpnConnectionDeviceTypes?: VpnConnectionDeviceType[] | undefined;
-
-  /**
-   * <p>The <code>NextToken</code> value to include in a future
-   *                 <code>GetVpnConnectionDeviceTypes</code> request. When the results of a
-   *                 <code>GetVpnConnectionDeviceTypes</code> request exceed <code>MaxResults</code>,
-   *             this value can be used to retrieve the next page of results. This value is null when
-   *             there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVpnTunnelReplacementStatusRequest {
-  /**
-   * <p>The ID of the Site-to-Site VPN connection. </p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   * @public
-   */
-  VpnTunnelOutsideIpAddress: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;

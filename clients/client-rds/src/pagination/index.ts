@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./DescribeBlueGreenDeploymentsPaginator";
 export * from "./DescribeCertificatesPaginator";
+export * from "./DescribeDBCapacityReservationsPaginator";
 export * from "./DescribeDBClusterAutomatedBackupsPaginator";
 export * from "./DescribeDBClusterBacktracksPaginator";
 export * from "./DescribeDBClusterEndpointsPaginator";

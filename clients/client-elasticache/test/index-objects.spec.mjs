@@ -346,6 +346,9 @@ import {
   LogDeliveryConfigurationStatus,
   LogFormat,
   LogType,
+  MigrationHealthFault,
+  MigrationHealthFault$,
+  MigrationSummary$,
   ModifyCacheCluster$,
   ModifyCacheClusterCommand,
   ModifyCacheClusterMessage$,
@@ -425,6 +428,10 @@ import {
   PendingAutomaticFailoverStatus,
   PendingLogDeliveryConfiguration$,
   PendingModifiedValues$,
+  PrepareMigration$,
+  PrepareMigrationCommand,
+  PrepareMigrationRequest$,
+  PrepareMigrationResponse$,
   ProcessedUpdateAction$,
   PurchaseReservedCacheNodesOffering$,
   PurchaseReservedCacheNodesOfferingCommand,
@@ -476,13 +483,18 @@ import {
   RevokeCacheSecurityGroupIngressMessage$,
   RevokeCacheSecurityGroupIngressResult$,
   ScaleConfig$,
+  SecretManagerAuthConfig$,
   SecurityGroupMembership$,
   ServerlessCache$,
   ServerlessCacheAlreadyExistsFault,
   ServerlessCacheAlreadyExistsFault$,
+  ServerlessCacheAlreadyUnderMigrationFault,
+  ServerlessCacheAlreadyUnderMigrationFault$,
   ServerlessCacheConfiguration$,
   ServerlessCacheNotFoundFault,
   ServerlessCacheNotFoundFault$,
+  ServerlessCacheNotUnderMigrationFault,
+  ServerlessCacheNotUnderMigrationFault$,
   ServerlessCacheQuotaForCustomerExceededFault,
   ServerlessCacheQuotaForCustomerExceededFault$,
   ServerlessCacheSnapshot$,
@@ -512,11 +524,17 @@ import {
   SnapshotNotFoundFault$,
   SnapshotQuotaExceededFault,
   SnapshotQuotaExceededFault$,
+  SourceAuthenticationConfiguration$,
+  SourceTlsConfiguration$,
   SourceType,
   StartMigration$,
   StartMigrationCommand,
   StartMigrationMessage$,
   StartMigrationResponse$,
+  StopMigration$,
+  StopMigrationCommand,
+  StopMigrationRequest$,
+  StopMigrationResponse$,
   StorageEncryptionType,
   Subnet$,
   SubnetInUse,
@@ -541,6 +559,7 @@ import {
   TestMigrationMessage$,
   TestMigrationResponse$,
   TimeRangeFilter$,
+  TlsMode,
   TransitEncryptionMode,
   UnprocessedUpdateAction$,
   UpdateAction$,
@@ -709,6 +728,8 @@ assert(typeof ModifyUserCommand === "function");
 assert(typeof ModifyUser$ === "object");
 assert(typeof ModifyUserGroupCommand === "function");
 assert(typeof ModifyUserGroup$ === "object");
+assert(typeof PrepareMigrationCommand === "function");
+assert(typeof PrepareMigration$ === "object");
 assert(typeof PurchaseReservedCacheNodesOfferingCommand === "function");
 assert(typeof PurchaseReservedCacheNodesOffering$ === "object");
 assert(typeof RebalanceSlotsInGlobalReplicationGroupCommand === "function");
@@ -723,6 +744,8 @@ assert(typeof RevokeCacheSecurityGroupIngressCommand === "function");
 assert(typeof RevokeCacheSecurityGroupIngress$ === "object");
 assert(typeof StartMigrationCommand === "function");
 assert(typeof StartMigration$ === "object");
+assert(typeof StopMigrationCommand === "function");
+assert(typeof StopMigration$ === "object");
 assert(typeof TestFailoverCommand === "function");
 assert(typeof TestFailover$ === "object");
 assert(typeof TestMigrationCommand === "function");
@@ -860,6 +883,7 @@ assert(typeof ListAllowedNodeTypeModificationsMessage$ === "object");
 assert(typeof ListTagsForResourceMessage$ === "object");
 assert(typeof LogDeliveryConfiguration$ === "object");
 assert(typeof LogDeliveryConfigurationRequest$ === "object");
+assert(typeof MigrationSummary$ === "object");
 assert(typeof ModifyCacheClusterMessage$ === "object");
 assert(typeof ModifyCacheClusterResult$ === "object");
 assert(typeof ModifyCacheParameterGroupMessage$ === "object");
@@ -886,6 +910,8 @@ assert(typeof Parameter$ === "object");
 assert(typeof ParameterNameValue$ === "object");
 assert(typeof PendingLogDeliveryConfiguration$ === "object");
 assert(typeof PendingModifiedValues$ === "object");
+assert(typeof PrepareMigrationRequest$ === "object");
+assert(typeof PrepareMigrationResponse$ === "object");
 assert(typeof ProcessedUpdateAction$ === "object");
 assert(typeof PurchaseReservedCacheNodesOfferingMessage$ === "object");
 assert(typeof PurchaseReservedCacheNodesOfferingResult$ === "object");
@@ -909,6 +935,7 @@ assert(typeof ReshardingStatus$ === "object");
 assert(typeof RevokeCacheSecurityGroupIngressMessage$ === "object");
 assert(typeof RevokeCacheSecurityGroupIngressResult$ === "object");
 assert(typeof ScaleConfig$ === "object");
+assert(typeof SecretManagerAuthConfig$ === "object");
 assert(typeof SecurityGroupMembership$ === "object");
 assert(typeof ServerlessCache$ === "object");
 assert(typeof ServerlessCacheConfiguration$ === "object");
@@ -917,8 +944,12 @@ assert(typeof ServiceUpdate$ === "object");
 assert(typeof ServiceUpdatesMessage$ === "object");
 assert(typeof SlotMigration$ === "object");
 assert(typeof Snapshot$ === "object");
+assert(typeof SourceAuthenticationConfiguration$ === "object");
+assert(typeof SourceTlsConfiguration$ === "object");
 assert(typeof StartMigrationMessage$ === "object");
 assert(typeof StartMigrationResponse$ === "object");
+assert(typeof StopMigrationRequest$ === "object");
+assert(typeof StopMigrationResponse$ === "object");
 assert(typeof Subnet$ === "object");
 assert(typeof SubnetOutpost$ === "object");
 assert(typeof Tag$ === "object");
@@ -967,6 +998,7 @@ assert(typeof ServiceUpdateType === "object");
 assert(typeof SlaMet === "object");
 assert(typeof SourceType === "object");
 assert(typeof StorageEncryptionType === "object");
+assert(typeof TlsMode === "object");
 assert(typeof TransitEncryptionMode === "object");
 assert(typeof UpdateActionStatus === "object");
 // errors
@@ -1050,6 +1082,8 @@ assert(InvalidUserStateFault.prototype instanceof ElastiCacheServiceException);
 assert(typeof InvalidUserStateFault$ === "object");
 assert(InvalidVPCNetworkStateFault.prototype instanceof ElastiCacheServiceException);
 assert(typeof InvalidVPCNetworkStateFault$ === "object");
+assert(MigrationHealthFault.prototype instanceof ElastiCacheServiceException);
+assert(typeof MigrationHealthFault$ === "object");
 assert(NodeGroupNotFoundFault.prototype instanceof ElastiCacheServiceException);
 assert(typeof NodeGroupNotFoundFault$ === "object");
 assert(NodeGroupsPerReplicationGroupQuotaExceededFault.prototype instanceof ElastiCacheServiceException);
@@ -1078,8 +1112,12 @@ assert(ReservedCacheNodesOfferingNotFoundFault.prototype instanceof ElastiCacheS
 assert(typeof ReservedCacheNodesOfferingNotFoundFault$ === "object");
 assert(ServerlessCacheAlreadyExistsFault.prototype instanceof ElastiCacheServiceException);
 assert(typeof ServerlessCacheAlreadyExistsFault$ === "object");
+assert(ServerlessCacheAlreadyUnderMigrationFault.prototype instanceof ElastiCacheServiceException);
+assert(typeof ServerlessCacheAlreadyUnderMigrationFault$ === "object");
 assert(ServerlessCacheNotFoundFault.prototype instanceof ElastiCacheServiceException);
 assert(typeof ServerlessCacheNotFoundFault$ === "object");
+assert(ServerlessCacheNotUnderMigrationFault.prototype instanceof ElastiCacheServiceException);
+assert(typeof ServerlessCacheNotUnderMigrationFault$ === "object");
 assert(ServerlessCacheQuotaForCustomerExceededFault.prototype instanceof ElastiCacheServiceException);
 assert(typeof ServerlessCacheQuotaForCustomerExceededFault$ === "object");
 assert(ServerlessCacheSnapshotAlreadyExistsFault.prototype instanceof ElastiCacheServiceException);

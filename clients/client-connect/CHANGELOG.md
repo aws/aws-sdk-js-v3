@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1156.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1155.0...v3.1156.0) (2026-10-22)
+
+
+### Features
+
+* **client-connect:** Adds support for customer queryable replication errors. ([4507ef0](https://github.com/aws/aws-sdk-js-v3/commit/4507ef013b057317b177240ad3b37a6a45ec73e3))
+
+
+
+
+
+# [3.1155.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1154.0...v3.1155.0) (2026-10-21)
+
+
+### Features
+
+* **client-connect:** Added support for AWS-managed security profiles. ([04f0c0b](https://github.com/aws/aws-sdk-js-v3/commit/04f0c0b5b605a7e946574df2a8b75609c97ed012))
+
+
+
+
+
+# [3.1154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1153.0...v3.1154.0) (2026-10-20)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
 # [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
 
 

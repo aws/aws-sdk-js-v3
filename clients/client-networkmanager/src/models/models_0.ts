@@ -22,6 +22,9 @@ import type {
   GlobalNetworkState,
   LinkAssociationState,
   LinkState,
+  NatGatewaySupportState,
+  NatGatewaySupportValue,
+  NatRuleState,
   PeeringErrorCode,
   PeeringState,
   PeeringType,
@@ -225,6 +228,18 @@ export interface Attachment {
    * @public
    */
   NetworkFunctionGroupName?: string | undefined;
+
+  /**
+   * <p>The state of NAT gateway support on the attachment. This is returned only to the core network owner for attachment types that support NAT.</p>
+   * @public
+   */
+  NatGatewaySupport?: NatGatewaySupportState | undefined;
+
+  /**
+   * <p>Indicates whether the core network installs system routes for the NAT CIDR blocks of the attachment's NAT rules. This is returned only to the core network owner for attachment types that support NAT.</p>
+   * @public
+   */
+  NatSystemRouteSupport?: boolean | undefined;
 
   /**
    * <p>The tags associated with the attachment.</p>
@@ -600,6 +615,104 @@ export interface AssociateTransitGatewayConnectPeerResponse {
    * @public
    */
   TransitGatewayConnectPeerAssociation?: TransitGatewayConnectPeerAssociation | undefined;
+}
+
+/**
+ * <p>Describes a NAT rule of an attachment.</p>
+ * @public
+ */
+export interface NatRule {
+  /**
+   * <p>The rule number. Rule numbers identify the rules of an attachment and don't set the order in which rules are evaluated.</p>
+   * @public
+   */
+  RuleNumber?: number | undefined;
+
+  /**
+   * <p>The source CIDR block that the rule matches for traffic from the attachment.</p>
+   * @public
+   */
+  MatchSourceCidr?: string | undefined;
+
+  /**
+   * <p>The CIDR block that matching source addresses are translated to.</p>
+   * @public
+   */
+  NatCidr?: string | undefined;
+
+  /**
+   * <p>The state of the NAT rule. The possible values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code>: The rule is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MODIFYING</code>: The rule is being modified.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code>: The rule is being deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVATING</code>: NAT gateway support is being enabled, and the rule is being applied.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVATED</code>: NAT gateway support is enabled, and the rule is applied.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DEACTIVATING</code>: NAT gateway support is being disabled, and the rule is being removed from use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DEACTIVATED</code>: NAT gateway support is disabled, and the rule isn't applied.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>: The attachment failed to be created, and the rule isn't applied.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_ATTACHMENT_ACCEPTANCE</code>: The attachment is pending acceptance. The rule is applied after the attachment is accepted.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: NatRuleState | undefined;
+}
+
+/**
+ * <p>Describes the NAT configuration of a core network attachment.</p>
+ * @public
+ */
+export interface AttachmentNatConfiguration {
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  AttachmentId?: string | undefined;
+
+  /**
+   * <p>The state of NAT gateway support on the attachment.</p>
+   * @public
+   */
+  NatGatewaySupport?: NatGatewaySupportState | undefined;
+
+  /**
+   * <p>Indicates whether the core network installs system routes for the NAT CIDR blocks of the attachment's NAT rules.</p>
+   * @public
+   */
+  NatSystemRouteSupport?: boolean | undefined;
+
+  /**
+   * <p>The NAT rules of the attachment.</p>
+   * @public
+   */
+  NatGatewayRules?: NatRule[] | undefined;
 }
 
 /**
@@ -1379,7 +1492,7 @@ export interface CoreNetworkChangeValues {
   SecurityGroupReferencingSupport?: boolean | undefined;
 
   /**
-   * <p>The routing policy direction (inbound/outbound) in a core network change event.</p>
+   * <p>The routing policy direction (inbound/outbound) in the core network change values.</p>
    * @public
    */
   RoutingPolicyDirection?: RoutingPolicyDirection | undefined;
@@ -1499,7 +1612,7 @@ export interface CoreNetworkChangeEventValues {
   Cidr?: string | undefined;
 
   /**
-   * <p>The names of the routing policies and other association details in the core network change values.</p>
+   * <p>The names of the routing policies and other association details in a core network change event.</p>
    * @public
    */
   RoutingPolicyAssociationDetails?: RoutingPolicyAssociationDetail[] | undefined;
@@ -1848,6 +1961,30 @@ export interface CoreNetworkSummary {
 }
 
 /**
+ * <p>Describes a NAT rule to configure on an attachment. Source addresses in the source CIDR block of traffic from the attachment are translated to the same host addresses in the NAT CIDR block. Traffic to an address in the NAT CIDR block is translated back to the matching address in the source CIDR block.</p>
+ * @public
+ */
+export interface NatRuleRequest {
+  /**
+   * <p>The rule number, from 1 to 32766. Each rule number must be unique for the attachment.</p>
+   * @public
+   */
+  RuleNumber: number | undefined;
+
+  /**
+   * <p>The IPv4 CIDR block to match against the source address of traffic from the attachment. The CIDR block can't overlap with the multicast range (224.0.0.0/4).</p>
+   * @public
+   */
+  MatchSourceCidr: string | undefined;
+
+  /**
+   * <p>The IPv4 CIDR block to translate matching source addresses to. The prefix length must be the same as the prefix length of <code>MatchSourceCidr</code>. The CIDR block must be within a private (RFC 1918) or shared address space (RFC 6598) range. The CIDR blocks of the NAT rules of an attachment can't overlap with each other.</p>
+   * @public
+   */
+  NatCidr: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateConnectAttachmentRequest {
@@ -1874,6 +2011,18 @@ export interface CreateConnectAttachmentRequest {
    * @public
    */
   RoutingPolicyLabel?: string | undefined;
+
+  /**
+   * <p>Specifies whether to enable NAT gateway support on the Connect attachment. NAT is supported only on Connect attachments that use the GRE tunnel protocol. Tunnel-less Connect attachments aren't supported. To enable NAT gateway support, you must also specify at least one NAT rule. If you don't specify a value, NAT gateway support is disabled. Only the core network owner can configure NAT on an attachment.</p>
+   * @public
+   */
+  NatGatewaySupport?: NatGatewaySupportValue | undefined;
+
+  /**
+   * <p>The NAT rules for the Connect attachment, up to 50 rules.</p>
+   * @public
+   */
+  NatGatewayRules?: NatRuleRequest[] | undefined;
 
   /**
    * <p>Options for creating an attachment.</p>
@@ -2349,6 +2498,24 @@ export interface CreateDirectConnectGatewayAttachmentRequest {
   EdgeLocations: string[] | undefined;
 
   /**
+   * <p>Specifies whether to enable NAT gateway support on the Direct Connect gateway attachment. To enable NAT gateway support, you must also specify at least one NAT rule. If you don't specify a value, NAT gateway support is disabled. Only the core network owner can configure NAT on an attachment.</p>
+   * @public
+   */
+  NatGatewaySupport?: NatGatewaySupportValue | undefined;
+
+  /**
+   * <p>Specifies whether the core network installs system routes for the NAT CIDR blocks of the attachment's NAT rules. System routes have a route type of <code>SYSTEM</code>. NAT is applied to traffic whether or not this option is enabled. The default is <code>true</code>.</p>
+   * @public
+   */
+  NatSystemRouteSupport?: boolean | undefined;
+
+  /**
+   * <p>The NAT rules for the Direct Connect gateway attachment, up to 50 rules.</p>
+   * @public
+   */
+  NatGatewayRules?: NatRuleRequest[] | undefined;
+
+  /**
    * <p>The key value tags to apply to the Direct Connect gateway attachment during creation.</p>
    * @public
    */
@@ -2726,6 +2893,24 @@ export interface CreateSiteToSiteVpnAttachmentRequest {
   RoutingPolicyLabel?: string | undefined;
 
   /**
+   * <p>Specifies whether to enable NAT gateway support on the Site-to-Site VPN attachment. To enable NAT gateway support, you must also specify at least one NAT rule. If you don't specify a value, NAT gateway support is disabled. Only the core network owner can configure NAT on an attachment.</p>
+   * @public
+   */
+  NatGatewaySupport?: NatGatewaySupportValue | undefined;
+
+  /**
+   * <p>Specifies whether the core network installs system routes for the NAT CIDR blocks of the attachment's NAT rules. System routes have a route type of <code>SYSTEM</code>. NAT is applied to traffic whether or not this option is enabled. The default is <code>true</code> for VPN connections that use BGP and <code>false</code> for VPN connections that use static routing. If the VPN connection uses static routing, you must specify <code>false</code> or omit this parameter.</p>
+   * @public
+   */
+  NatSystemRouteSupport?: boolean | undefined;
+
+  /**
+   * <p>The NAT rules for the Site-to-Site VPN attachment, up to 50 rules.</p>
+   * @public
+   */
+  NatGatewayRules?: NatRuleRequest[] | undefined;
+
+  /**
    * <p>The tags associated with the request.</p>
    * @public
    */
@@ -2911,7 +3096,7 @@ export interface Peering {
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>Describes the error associated with the Connect peer request.</p>
+   * <p>Describes the error associated with the peering request.</p>
    * @public
    */
   LastModificationErrors?: PeeringError[] | undefined;
@@ -3085,6 +3270,18 @@ export interface CreateVpcAttachmentRequest {
    * @public
    */
   RoutingPolicyLabel?: string | undefined;
+
+  /**
+   * <p>Specifies whether to enable NAT gateway support on the VPC attachment. To enable NAT gateway support, you must also specify at least one NAT rule. If you don't specify a value, NAT gateway support is disabled. Only the core network owner can configure NAT on an attachment.</p>
+   * @public
+   */
+  NatGatewaySupport?: NatGatewaySupportValue | undefined;
+
+  /**
+   * <p>The NAT rules for the VPC attachment, up to 50 rules.</p>
+   * @public
+   */
+  NatGatewayRules?: NatRuleRequest[] | undefined;
 
   /**
    * <p>The key-value tags associated with the request.</p>
@@ -4979,6 +5176,18 @@ export interface GetNetworkRoutesRequest {
    * @public
    */
   DestinationFilters?: Record<string, string[]> | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5059,7 +5268,7 @@ export interface NetworkRoute {
   State?: RouteState | undefined;
 
   /**
-   * <p>The route type. The possible values are <code>propagated</code> and <code>static</code>.</p>
+   * <p>The route type. The possible values are <code>PROPAGATED</code>, <code>STATIC</code>, and <code>SYSTEM</code>. A <code>SYSTEM</code> route is installed by the core network for the NAT CIDR block of an attachment's NAT rule.</p>
    * @public
    */
   Type?: RouteType | undefined;
@@ -5082,6 +5291,12 @@ export interface GetNetworkRoutesResponse {
   CoreNetworkSegmentEdge?: CoreNetworkSegmentEdgeIdentifier | undefined;
 
   /**
+   * <p>Describes the network function group route table that the routes are from. This field is present only when you specify <code>CoreNetworkNetworkFunctionGroup</code> in <code>RouteTableIdentifier</code>.</p>
+   * @public
+   */
+  CoreNetworkNetworkFunctionGroup?: CoreNetworkNetworkFunctionGroupIdentifier | undefined;
+
+  /**
    * <p>The route table type.</p>
    * @public
    */
@@ -5098,6 +5313,12 @@ export interface GetNetworkRoutesResponse {
    * @public
    */
   NetworkRoutes?: NetworkRoute[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5777,6 +5998,84 @@ export interface GetVpcAttachmentResponse {
 /**
  * @public
  */
+export interface ListAttachmentNatConfigurationsRequest {
+  /**
+   * <p>The ID of a core network. Returns the NAT configurations of attachments in the core network that support NAT.</p>
+   * @public
+   */
+  CoreNetworkId?: string | undefined;
+
+  /**
+   * <p>The ID of an attachment. Returns the NAT configuration of the specified attachment. If you specify both an attachment ID and a core network ID, the attachment ID is used.</p>
+   * @public
+   */
+  AttachmentId?: string | undefined;
+
+  /**
+   * <p>The filters to apply to the results. Values for the same filter are joined with OR, and different filters are joined with AND. You can specify up to 10 filter values in total. The following filters are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>nat-gateway-support</code>: The state of NAT gateway support on the attachment, for example <code>ENABLED</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nat-system-route-support</code>: Whether system routes are installed for the attachment, <code>true</code> or <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>rule-number</code>: The rule number of a NAT rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>match-source-cidr</code>: The source CIDR block of a NAT rule. The value must exactly match the CIDR block of the rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nat-cidr</code>: The NAT CIDR block of a NAT rule. The value must exactly match the CIDR block of the rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nat-rule-state</code>: The state of a NAT rule, for example <code>ACTIVATED</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Record<string, string[]> | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAttachmentNatConfigurationsResponse {
+  /**
+   * <p>The NAT configurations of the attachments.</p>
+   * @public
+   */
+  AttachmentNatConfigurations: AttachmentNatConfiguration[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListAttachmentRoutingPolicyAssociationsRequest {
   /**
    * <p>The ID of the core network to list attachment routing policy associations for.</p>
@@ -5999,7 +6298,7 @@ export interface ListCoreNetworkPrefixListAssociationsRequest {
  */
 export interface PrefixListAssociation {
   /**
-   * <p>The core network id in the association.</p>
+   * <p>The ID of the core network in the association.</p>
    * @public
    */
   CoreNetworkId?: string | undefined;
@@ -6057,10 +6356,61 @@ export interface ListCoreNetworkRoutingInformationRequest {
   EdgeLocation: string | undefined;
 
   /**
-   * <p>Filters to apply based on next hop information.</p>
+   * <p>Filters to apply based on next hop information. Each filter value must exactly match the corresponding next hop value. Values for the same filter are joined with OR, and different filters are joined with AND. The following filters are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>core-network-attachment-id</code>: The ID of the core network attachment for the next hop, for example <code>attachment-0123456789abcdef0</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>segment-name</code>: The name of the segment for the next hop.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>edge-location</code>: The edge location for the next hop, for example <code>us-east-1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code>: The ID of the resource for the next hop.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code>: The type of resource for the next hop. The possible values are <code>vpc</code>, <code>vpn</code>, <code>connect-peer</code>, <code>direct-connect-gateway</code>, <code>transit-gateway-route-table</code>, <code>attachment</code>, and <code>blackhole</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ip-address</code>: The IP address of the next hop. For a Site-to-Site VPN next hop, this is the outside IP address of the AWS side of the VPN tunnel. For a Connect peer next hop, this is the core network BGP address of the Connect peer. The value must be a single IPv4 or IPv6 address.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can specify up to 10 filter values in total across <code>NextHopFilters</code> and the other match parameters in the request. Each filter value can be up to 256 characters.</p>
    * @public
    */
   NextHopFilters?: Record<string, string[]> | undefined;
+
+  /**
+   * <p>Exact prefix values to match when filtering routing information.</p>
+   * @public
+   */
+  ExactPrefixMatches?: string[] | undefined;
+
+  /**
+   * <p>Filters routing information based on the longest prefix that matches each provided IP address.</p>
+   * @public
+   */
+  LongestPrefixMatches?: string[] | undefined;
+
+  /**
+   * <p>Prefix values to filter routing information whose prefix is a subnet of the prefixes provided.</p>
+   * @public
+   */
+  SubnetOfMatches?: string[] | undefined;
+
+  /**
+   * <p>Prefix values to filter routing information whose prefix is a supernet of the prefixes provided.</p>
+   * @public
+   */
+  SupernetOfMatches?: string[] | undefined;
 
   /**
    * <p>Local preference values to match when filtering routing information.</p>
@@ -6662,6 +7012,70 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateAttachmentNatConfigurationRequest {
+  /**
+   * <p>The ID of the attachment to update the NAT configuration for.</p>
+   * @public
+   */
+  AttachmentId: string | undefined;
+
+  /**
+   * <p>Specifies whether to enable or disable NAT gateway support on the attachment. When you disable NAT gateway support, the attachment keeps its NAT rules but doesn't apply them. To enable NAT gateway support, the attachment must have at least one NAT rule, either specified in this request or already configured on the attachment. If you omit this parameter, NAT gateway support is unchanged.</p>
+   * @public
+   */
+  NatGatewaySupport?: NatGatewaySupportValue | undefined;
+
+  /**
+   * <p>Specifies whether the core network installs system routes for the NAT CIDR blocks of the attachment's NAT rules. System routes have a route type of <code>SYSTEM</code>. NAT is applied to traffic whether or not this option is enabled. If you omit this parameter, the current value is unchanged.</p>
+   * @public
+   */
+  NatSystemRouteSupport?: boolean | undefined;
+
+  /**
+   * <p>The complete set of NAT rules for the attachment, up to 50 rules. The rules that you specify replace the existing rules of the attachment, matched by rule number. Existing rules that aren't included in the request are deleted. To delete all NAT rules, specify an empty list. You can delete all NAT rules only when NAT gateway support is disabled, or when you disable it in the same request. If you omit this parameter, the existing rules are unchanged.</p>
+   * @public
+   */
+  NatGatewayRules?: NatRuleRequest[] | undefined;
+
+  /**
+   * <p>The client token associated with the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAttachmentNatConfigurationResponse {
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  AttachmentId?: string | undefined;
+
+  /**
+   * <p>The state of NAT gateway support on the attachment. The transitional states <code>ENABLING</code> and <code>DISABLING</code> change to <code>ENABLED</code> or <code>DISABLED</code> after the update is applied. The state is <code>PENDING_ATTACHMENT_ACCEPTANCE</code> when NAT gateway support is enabled on an attachment that is pending acceptance.</p>
+   * @public
+   */
+  NatGatewaySupport?: NatGatewaySupportState | undefined;
+
+  /**
+   * <p>Indicates whether the core network installs system routes for the NAT CIDR blocks of the attachment's NAT rules.</p>
+   * @public
+   */
+  NatSystemRouteSupport?: boolean | undefined;
+
+  /**
+   * <p>The NAT rules of the attachment, including rules that are being deleted.</p>
+   * @public
+   */
+  NatGatewayRules?: NatRule[] | undefined;
+}
 
 /**
  * @public

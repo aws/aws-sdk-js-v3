@@ -86,7 +86,7 @@ export interface SearchPrincipalsCommandOutput extends SearchPrincipalsOutput, _
  *
  * @example Search principals by name
  * ```javascript
- * // The following example searches a domain for principals whose name matches a text query. A text search (any searchQuery other than *) returns at most 10 results and does not paginate, so maxResults and nextToken are not supplied and no nextToken is returned. To grant access to a result, pass its principalId to CreateAccessGrant with a principalType of IDC_USER for a user or IDC_GROUP for a group. Payloads are shown as JSON; on the wire they are CBOR-encoded.
+ * // The following example searches a domain for principals whose name matches a text query. No nextToken is returned, so there are no more results. To grant access to a result, pass its principalId to CreateAccessGrant with a principalType of IDC_USER for a user or IDC_GROUP for a group. Payloads are shown as JSON; on the wire they are CBOR-encoded.
  * const input = {
  *   domainId: "d-1a2b3c4d5e",
  *   searchQuery: "jane"

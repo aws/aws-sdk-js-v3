@@ -11,6 +11,10 @@ import {
   AgentUpdateStatus,
   ApplicationProtocol,
   AssignPublicIp,
+  AssociateGatewayWithCluster$,
+  AssociateGatewayWithClusterCommand,
+  AssociateGatewayWithClusterRequest$,
+  AssociateGatewayWithClusterResponse$,
   Attachment$,
   AttachmentStateChange$,
   Attribute$,
@@ -95,6 +99,10 @@ import {
   CreateExpressGatewayServiceCommand,
   CreateExpressGatewayServiceRequest$,
   CreateExpressGatewayServiceResponse$,
+  CreateGateway$,
+  CreateGatewayCommand,
+  CreateGatewayRequest$,
+  CreateGatewayResponse$,
   CreateManagedInstancesProviderConfiguration$,
   CreateService$,
   CreateServiceCommand,
@@ -165,6 +173,10 @@ import {
   DeleteExpressGatewayServiceCommand,
   DeleteExpressGatewayServiceRequest$,
   DeleteExpressGatewayServiceResponse$,
+  DeleteGateway$,
+  DeleteGatewayCommand,
+  DeleteGatewayRequest$,
+  DeleteGatewayResponse$,
   DeleteService$,
   DeleteServiceCommand,
   DeleteServiceRequest$,
@@ -234,6 +246,20 @@ import {
   DescribeExpressGatewayServiceCommand,
   DescribeExpressGatewayServiceRequest$,
   DescribeExpressGatewayServiceResponse$,
+  DescribeGateway$,
+  DescribeGatewayAlbConfiguration$,
+  DescribeGatewayCommand,
+  DescribeGatewayConfiguration$,
+  DescribeGatewayRequest$,
+  DescribeGatewayResources$,
+  DescribeGatewayResourcesCommand,
+  DescribeGatewayResourcesRequest$,
+  DescribeGatewayResourcesResponse$,
+  DescribeGatewayResponse$,
+  DescribeGatewayRoute$,
+  DescribeGatewayRouteCommand,
+  DescribeGatewayRouteRequest$,
+  DescribeGatewayRouteResponse$,
   DescribeServiceDeployments$,
   DescribeServiceDeploymentsCommand,
   DescribeServiceDeploymentsRequest$,
@@ -261,6 +287,10 @@ import {
   DesiredStatus,
   Device$,
   DeviceCgroupPermission,
+  DisassociateGatewayFromCluster$,
+  DisassociateGatewayFromClusterCommand,
+  DisassociateGatewayFromClusterRequest$,
+  DisassociateGatewayFromClusterResponse$,
   DiscoverPollEndpoint$,
   DiscoverPollEndpointCommand,
   DiscoverPollEndpointRequest$,
@@ -277,6 +307,7 @@ import {
   EFSAuthorizationConfigIAM,
   EFSTransitEncryption,
   EFSVolumeConfiguration$,
+  ElbGatewayResources$,
   EnvironmentFile$,
   EnvironmentFileType,
   EphemeralStorage$,
@@ -303,6 +334,42 @@ import {
   FirelensConfigurationType,
   FSxWindowsFileServerAuthorizationConfig$,
   FSxWindowsFileServerVolumeConfiguration$,
+  Gateway$,
+  GatewayAlbDesyncMitigationMode,
+  GatewayAlbProtocol,
+  GatewayAlbTestTrafficRules$,
+  GatewayClusterAssociationStatus,
+  GatewayClusterAssociationSummary$,
+  GatewayConfiguration$,
+  GatewayConnection$,
+  GatewayConnectionAlbResources$,
+  GatewayConnectionResources$,
+  GatewayConnector$,
+  GatewayConnectorFilters$,
+  GatewayConnectorHealthCheck$,
+  GatewayConnectorHealthCheckMatcher$,
+  GatewayConnectorHealthCheckProtocol,
+  GatewayElbAccessLogConfiguration$,
+  GatewayElbAccessLogDestination$,
+  GatewayElbAccessLogS3Destination$,
+  GatewayElbIpAddressType,
+  GatewayElbNetworkConfiguration$,
+  GatewayElbScheme,
+  GatewayInfrastructureResources$,
+  GatewayNotFoundException,
+  GatewayNotFoundException$,
+  GatewayOperationError$,
+  GatewayResourceFailure$,
+  GatewayResources$,
+  GatewayRoute$,
+  GatewayRouteAlbResources$,
+  GatewayRouteLoadBalancerSecurityGroup$,
+  GatewayRouteResources$,
+  GatewayRouteStatus,
+  GatewayRouteSummary$,
+  GatewayStatus,
+  GatewaySummary$,
+  GatewayTestTrafficHeader$,
   GetTaskProtection$,
   GetTaskProtectionCommand,
   GetTaskProtectionRequest$,
@@ -310,6 +377,7 @@ import {
   HealthCheck$,
   HealthStatus,
   HostEntry$,
+  HostSharedAlbConfiguration$,
   HostVolumeProperties$,
   InferenceAccelerator$,
   InferenceAcceleratorOverride$,
@@ -360,6 +428,18 @@ import {
   ListDaemonTaskDefinitionsCommand,
   ListDaemonTaskDefinitionsRequest$,
   ListDaemonTaskDefinitionsResponse$,
+  ListGatewayClusterAssociations$,
+  ListGatewayClusterAssociationsCommand,
+  ListGatewayClusterAssociationsRequest$,
+  ListGatewayClusterAssociationsResponse$,
+  ListGatewayRoutes$,
+  ListGatewayRoutesCommand,
+  ListGatewayRoutesRequest$,
+  ListGatewayRoutesResponse$,
+  ListGateways$,
+  ListGatewaysCommand,
+  ListGatewaysRequest$,
+  ListGatewaysResponse$,
   ListServiceDeployments$,
   ListServiceDeploymentsCommand,
   ListServiceDeploymentsRequest$,
@@ -441,6 +521,9 @@ import {
   paginateListAttributes,
   paginateListClusters,
   paginateListContainerInstances,
+  paginateListGatewayClusterAssociations,
+  paginateListGatewayRoutes,
+  paginateListGateways,
   paginateListServices,
   paginateListServicesByNamespace,
   paginateListTaskDefinitionFamilies,
@@ -458,6 +541,7 @@ import {
   PlatformUnknownException,
   PlatformUnknownException$,
   PortMapping$,
+  PropagateGatewayTags,
   PropagateMITags,
   PropagateTags,
   ProtectedTask$,
@@ -660,6 +744,13 @@ import {
   UpdateExpressGatewayServiceCommand,
   UpdateExpressGatewayServiceRequest$,
   UpdateExpressGatewayServiceResponse$,
+  UpdateGateway$,
+  UpdateGatewayAlbConfiguration$,
+  UpdateGatewayCommand,
+  UpdateGatewayConfiguration$,
+  UpdateGatewayNetworkConfiguration$,
+  UpdateGatewayRequest$,
+  UpdateGatewayResponse$,
   UpdateInProgressException,
   UpdateInProgressException$,
   UpdateManagedInstancesProviderConfiguration$,
@@ -710,6 +801,8 @@ import assert from "node:assert";
 assert(typeof ECSClient === "function");
 assert(typeof ECS === "function");
 // commands
+assert(typeof AssociateGatewayWithClusterCommand === "function");
+assert(typeof AssociateGatewayWithCluster$ === "object");
 assert(typeof ContinueServiceDeploymentCommand === "function");
 assert(typeof ContinueServiceDeployment$ === "object");
 assert(typeof CreateCapacityProviderCommand === "function");
@@ -720,6 +813,8 @@ assert(typeof CreateDaemonCommand === "function");
 assert(typeof CreateDaemon$ === "object");
 assert(typeof CreateExpressGatewayServiceCommand === "function");
 assert(typeof CreateExpressGatewayService$ === "object");
+assert(typeof CreateGatewayCommand === "function");
+assert(typeof CreateGateway$ === "object");
 assert(typeof CreateServiceCommand === "function");
 assert(typeof CreateService$ === "object");
 assert(typeof CreateTaskSetCommand === "function");
@@ -738,6 +833,8 @@ assert(typeof DeleteDaemonTaskDefinitionCommand === "function");
 assert(typeof DeleteDaemonTaskDefinition$ === "object");
 assert(typeof DeleteExpressGatewayServiceCommand === "function");
 assert(typeof DeleteExpressGatewayService$ === "object");
+assert(typeof DeleteGatewayCommand === "function");
+assert(typeof DeleteGateway$ === "object");
 assert(typeof DeleteServiceCommand === "function");
 assert(typeof DeleteService$ === "object");
 assert(typeof DeleteTaskDefinitionsCommand === "function");
@@ -764,6 +861,12 @@ assert(typeof DescribeDaemonTaskDefinitionCommand === "function");
 assert(typeof DescribeDaemonTaskDefinition$ === "object");
 assert(typeof DescribeExpressGatewayServiceCommand === "function");
 assert(typeof DescribeExpressGatewayService$ === "object");
+assert(typeof DescribeGatewayCommand === "function");
+assert(typeof DescribeGateway$ === "object");
+assert(typeof DescribeGatewayResourcesCommand === "function");
+assert(typeof DescribeGatewayResources$ === "object");
+assert(typeof DescribeGatewayRouteCommand === "function");
+assert(typeof DescribeGatewayRoute$ === "object");
 assert(typeof DescribeServiceDeploymentsCommand === "function");
 assert(typeof DescribeServiceDeployments$ === "object");
 assert(typeof DescribeServiceRevisionsCommand === "function");
@@ -776,6 +879,8 @@ assert(typeof DescribeTasksCommand === "function");
 assert(typeof DescribeTasks$ === "object");
 assert(typeof DescribeTaskSetsCommand === "function");
 assert(typeof DescribeTaskSets$ === "object");
+assert(typeof DisassociateGatewayFromClusterCommand === "function");
+assert(typeof DisassociateGatewayFromCluster$ === "object");
 assert(typeof DiscoverPollEndpointCommand === "function");
 assert(typeof DiscoverPollEndpoint$ === "object");
 assert(typeof ExecuteCommandCommand === "function");
@@ -796,6 +901,12 @@ assert(typeof ListDaemonsCommand === "function");
 assert(typeof ListDaemons$ === "object");
 assert(typeof ListDaemonTaskDefinitionsCommand === "function");
 assert(typeof ListDaemonTaskDefinitions$ === "object");
+assert(typeof ListGatewayClusterAssociationsCommand === "function");
+assert(typeof ListGatewayClusterAssociations$ === "object");
+assert(typeof ListGatewayRoutesCommand === "function");
+assert(typeof ListGatewayRoutes$ === "object");
+assert(typeof ListGatewaysCommand === "function");
+assert(typeof ListGateways$ === "object");
 assert(typeof ListServiceDeploymentsCommand === "function");
 assert(typeof ListServiceDeployments$ === "object");
 assert(typeof ListServicesCommand === "function");
@@ -856,6 +967,8 @@ assert(typeof UpdateDaemonCommand === "function");
 assert(typeof UpdateDaemon$ === "object");
 assert(typeof UpdateExpressGatewayServiceCommand === "function");
 assert(typeof UpdateExpressGatewayService$ === "object");
+assert(typeof UpdateGatewayCommand === "function");
+assert(typeof UpdateGateway$ === "object");
 assert(typeof UpdateServiceCommand === "function");
 assert(typeof UpdateService$ === "object");
 assert(typeof UpdateServicePrimaryTaskSetCommand === "function");
@@ -868,6 +981,8 @@ assert(typeof UpdateTaskSet$ === "object");
 assert(typeof AcceleratorCountRequest$ === "object");
 assert(typeof AcceleratorTotalMemoryMiBRequest$ === "object");
 assert(typeof AdvancedConfiguration$ === "object");
+assert(typeof AssociateGatewayWithClusterRequest$ === "object");
+assert(typeof AssociateGatewayWithClusterResponse$ === "object");
 assert(typeof Attachment$ === "object");
 assert(typeof AttachmentStateChange$ === "object");
 assert(typeof Attribute$ === "object");
@@ -905,6 +1020,8 @@ assert(typeof CreateDaemonResponse$ === "object");
 assert(typeof CreatedAt$ === "object");
 assert(typeof CreateExpressGatewayServiceRequest$ === "object");
 assert(typeof CreateExpressGatewayServiceResponse$ === "object");
+assert(typeof CreateGatewayRequest$ === "object");
+assert(typeof CreateGatewayResponse$ === "object");
 assert(typeof CreateManagedInstancesProviderConfiguration$ === "object");
 assert(typeof CreateServiceRequest$ === "object");
 assert(typeof CreateServiceResponse$ === "object");
@@ -944,6 +1061,8 @@ assert(typeof DeleteDaemonTaskDefinitionRequest$ === "object");
 assert(typeof DeleteDaemonTaskDefinitionResponse$ === "object");
 assert(typeof DeleteExpressGatewayServiceRequest$ === "object");
 assert(typeof DeleteExpressGatewayServiceResponse$ === "object");
+assert(typeof DeleteGatewayRequest$ === "object");
+assert(typeof DeleteGatewayResponse$ === "object");
 assert(typeof DeleteServiceRequest$ === "object");
 assert(typeof DeleteServiceResponse$ === "object");
 assert(typeof DeleteTaskDefinitionsRequest$ === "object");
@@ -980,6 +1099,14 @@ assert(typeof DescribeDaemonTaskDefinitionRequest$ === "object");
 assert(typeof DescribeDaemonTaskDefinitionResponse$ === "object");
 assert(typeof DescribeExpressGatewayServiceRequest$ === "object");
 assert(typeof DescribeExpressGatewayServiceResponse$ === "object");
+assert(typeof DescribeGatewayAlbConfiguration$ === "object");
+assert(typeof DescribeGatewayConfiguration$ === "object");
+assert(typeof DescribeGatewayRequest$ === "object");
+assert(typeof DescribeGatewayResourcesRequest$ === "object");
+assert(typeof DescribeGatewayResourcesResponse$ === "object");
+assert(typeof DescribeGatewayResponse$ === "object");
+assert(typeof DescribeGatewayRouteRequest$ === "object");
+assert(typeof DescribeGatewayRouteResponse$ === "object");
 assert(typeof DescribeServiceDeploymentsRequest$ === "object");
 assert(typeof DescribeServiceDeploymentsResponse$ === "object");
 assert(typeof DescribeServiceRevisionsRequest$ === "object");
@@ -993,6 +1120,8 @@ assert(typeof DescribeTaskSetsResponse$ === "object");
 assert(typeof DescribeTasksRequest$ === "object");
 assert(typeof DescribeTasksResponse$ === "object");
 assert(typeof Device$ === "object");
+assert(typeof DisassociateGatewayFromClusterRequest$ === "object");
+assert(typeof DisassociateGatewayFromClusterResponse$ === "object");
 assert(typeof DiscoverPollEndpointRequest$ === "object");
 assert(typeof DiscoverPollEndpointResponse$ === "object");
 assert(typeof DockerVolumeConfiguration$ === "object");
@@ -1001,6 +1130,7 @@ assert(typeof ECSExpressGatewayService$ === "object");
 assert(typeof ECSManagedResources$ === "object");
 assert(typeof EFSAuthorizationConfig$ === "object");
 assert(typeof EFSVolumeConfiguration$ === "object");
+assert(typeof ElbGatewayResources$ === "object");
 assert(typeof EnvironmentFile$ === "object");
 assert(typeof EphemeralStorage$ === "object");
 assert(typeof ExecuteCommandConfiguration$ === "object");
@@ -1018,10 +1148,37 @@ assert(typeof Failure$ === "object");
 assert(typeof FirelensConfiguration$ === "object");
 assert(typeof FSxWindowsFileServerAuthorizationConfig$ === "object");
 assert(typeof FSxWindowsFileServerVolumeConfiguration$ === "object");
+assert(typeof Gateway$ === "object");
+assert(typeof GatewayAlbTestTrafficRules$ === "object");
+assert(typeof GatewayClusterAssociationSummary$ === "object");
+assert(typeof GatewayConfiguration$ === "object");
+assert(typeof GatewayConnection$ === "object");
+assert(typeof GatewayConnectionAlbResources$ === "object");
+assert(typeof GatewayConnectionResources$ === "object");
+assert(typeof GatewayConnector$ === "object");
+assert(typeof GatewayConnectorFilters$ === "object");
+assert(typeof GatewayConnectorHealthCheck$ === "object");
+assert(typeof GatewayConnectorHealthCheckMatcher$ === "object");
+assert(typeof GatewayElbAccessLogConfiguration$ === "object");
+assert(typeof GatewayElbAccessLogDestination$ === "object");
+assert(typeof GatewayElbAccessLogS3Destination$ === "object");
+assert(typeof GatewayElbNetworkConfiguration$ === "object");
+assert(typeof GatewayInfrastructureResources$ === "object");
+assert(typeof GatewayOperationError$ === "object");
+assert(typeof GatewayResourceFailure$ === "object");
+assert(typeof GatewayResources$ === "object");
+assert(typeof GatewayRoute$ === "object");
+assert(typeof GatewayRouteAlbResources$ === "object");
+assert(typeof GatewayRouteLoadBalancerSecurityGroup$ === "object");
+assert(typeof GatewayRouteResources$ === "object");
+assert(typeof GatewayRouteSummary$ === "object");
+assert(typeof GatewaySummary$ === "object");
+assert(typeof GatewayTestTrafficHeader$ === "object");
 assert(typeof GetTaskProtectionRequest$ === "object");
 assert(typeof GetTaskProtectionResponse$ === "object");
 assert(typeof HealthCheck$ === "object");
 assert(typeof HostEntry$ === "object");
+assert(typeof HostSharedAlbConfiguration$ === "object");
 assert(typeof HostVolumeProperties$ === "object");
 assert(typeof InferenceAccelerator$ === "object");
 assert(typeof InferenceAcceleratorOverride$ === "object");
@@ -1049,6 +1206,12 @@ assert(typeof ListDaemonsRequest$ === "object");
 assert(typeof ListDaemonsResponse$ === "object");
 assert(typeof ListDaemonTaskDefinitionsRequest$ === "object");
 assert(typeof ListDaemonTaskDefinitionsResponse$ === "object");
+assert(typeof ListGatewayClusterAssociationsRequest$ === "object");
+assert(typeof ListGatewayClusterAssociationsResponse$ === "object");
+assert(typeof ListGatewayRoutesRequest$ === "object");
+assert(typeof ListGatewayRoutesResponse$ === "object");
+assert(typeof ListGatewaysRequest$ === "object");
+assert(typeof ListGatewaysResponse$ === "object");
 assert(typeof ListServiceDeploymentsRequest$ === "object");
 assert(typeof ListServiceDeploymentsResponse$ === "object");
 assert(typeof ListServicesByNamespaceRequest$ === "object");
@@ -1202,6 +1365,11 @@ assert(typeof UpdateDaemonResponse$ === "object");
 assert(typeof UpdatedExpressGatewayService$ === "object");
 assert(typeof UpdateExpressGatewayServiceRequest$ === "object");
 assert(typeof UpdateExpressGatewayServiceResponse$ === "object");
+assert(typeof UpdateGatewayAlbConfiguration$ === "object");
+assert(typeof UpdateGatewayConfiguration$ === "object");
+assert(typeof UpdateGatewayNetworkConfiguration$ === "object");
+assert(typeof UpdateGatewayRequest$ === "object");
+assert(typeof UpdateGatewayResponse$ === "object");
 assert(typeof UpdateManagedInstancesProviderConfiguration$ === "object");
 assert(typeof UpdateServicePrimaryTaskSetRequest$ === "object");
 assert(typeof UpdateServicePrimaryTaskSetResponse$ === "object");
@@ -1272,6 +1440,14 @@ assert(typeof ExpressGatewayServiceInclude === "object");
 assert(typeof ExpressGatewayServiceScalingMetric === "object");
 assert(typeof ExpressGatewayServiceStatusCode === "object");
 assert(typeof FirelensConfigurationType === "object");
+assert(typeof GatewayAlbDesyncMitigationMode === "object");
+assert(typeof GatewayAlbProtocol === "object");
+assert(typeof GatewayClusterAssociationStatus === "object");
+assert(typeof GatewayConnectorHealthCheckProtocol === "object");
+assert(typeof GatewayElbIpAddressType === "object");
+assert(typeof GatewayElbScheme === "object");
+assert(typeof GatewayRouteStatus === "object");
+assert(typeof GatewayStatus === "object");
 assert(typeof HealthStatus === "object");
 assert(typeof InstanceGeneration === "object");
 assert(typeof InstanceHealthCheckState === "object");
@@ -1293,6 +1469,7 @@ assert(typeof PidMode === "object");
 assert(typeof PlacementConstraintType === "object");
 assert(typeof PlacementStrategyType === "object");
 assert(typeof PlatformDeviceType === "object");
+assert(typeof PropagateGatewayTags === "object");
 assert(typeof PropagateMITags === "object");
 assert(typeof PropagateTags === "object");
 assert(typeof ProxyConfigurationType === "object");
@@ -1352,6 +1529,8 @@ assert(DaemonNotActiveException.prototype instanceof ECSServiceException);
 assert(typeof DaemonNotActiveException$ === "object");
 assert(DaemonNotFoundException.prototype instanceof ECSServiceException);
 assert(typeof DaemonNotFoundException$ === "object");
+assert(GatewayNotFoundException.prototype instanceof ECSServiceException);
+assert(typeof GatewayNotFoundException$ === "object");
 assert(InvalidParameterException.prototype instanceof ECSServiceException);
 assert(typeof InvalidParameterException$ === "object");
 assert(LimitExceededException.prototype instanceof ECSServiceException);
@@ -1413,6 +1592,9 @@ assert(typeof paginateListAccountSettings === "function");
 assert(typeof paginateListAttributes === "function");
 assert(typeof paginateListClusters === "function");
 assert(typeof paginateListContainerInstances === "function");
+assert(typeof paginateListGatewayClusterAssociations === "function");
+assert(typeof paginateListGatewayRoutes === "function");
+assert(typeof paginateListGateways === "function");
 assert(typeof paginateListServices === "function");
 assert(typeof paginateListServicesByNamespace === "function");
 assert(typeof paginateListTaskDefinitionFamilies === "function");

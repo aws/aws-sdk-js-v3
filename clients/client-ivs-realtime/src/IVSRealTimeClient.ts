@@ -139,6 +139,10 @@ import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import type {
+  RevokeConnectionTokenCommandInput,
+  RevokeConnectionTokenCommandOutput,
+} from "./commands/RevokeConnectionTokenCommand";
 import type { StartCompositionCommandInput, StartCompositionCommandOutput } from "./commands/StartCompositionCommand";
 import type {
   StartParticipantReplicationCommandInput,
@@ -202,6 +206,7 @@ export type ServiceInputTypes =
   | ListStagesCommandInput
   | ListStorageConfigurationsCommandInput
   | ListTagsForResourceCommandInput
+  | RevokeConnectionTokenCommandInput
   | StartCompositionCommandInput
   | StartParticipantReplicationCommandInput
   | StopCompositionCommandInput
@@ -246,6 +251,7 @@ export type ServiceOutputTypes =
   | ListStagesCommandOutput
   | ListStorageConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | RevokeConnectionTokenCommandOutput
   | StartCompositionCommandOutput
   | StartParticipantReplicationCommandOutput
   | StopCompositionCommandOutput
@@ -385,7 +391,8 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 
   /**
    * Specifies which retry algorithm to use.
-   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   * Accepted values are "standard" and "adaptive".
+   * @see https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html
    *
    */
   retryMode?: string | __Provider<string>;

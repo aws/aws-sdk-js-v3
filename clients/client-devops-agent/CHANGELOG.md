@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1156.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1155.0...v3.1156.0) (2026-10-22)
+
+**Note:** Version bump only for package @aws-sdk/client-devops-agent
+
+
+
+
+
+# [3.1155.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1154.0...v3.1155.0) (2026-10-21)
+
+
+### Features
+
+* **client-devops-agent:** Adds support for Microsoft Teams as a notification service. Associations can now be created and updated with a Microsoft Teams team and channel configuration using the DevOps Agent API and SDKs. ([c5d8365](https://github.com/aws/aws-sdk-js-v3/commit/c5d8365175b93e38932d1aad1e07bed07a1b3641))
+
+
+
+
+
+# [3.1154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1153.0...v3.1154.0) (2026-10-20)
+
+**Note:** Version bump only for package @aws-sdk/client-devops-agent
+
+
+
+
+
 # [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
 
 **Note:** Version bump only for package @aws-sdk/client-devops-agent

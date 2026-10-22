@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetVpnTunnelReplacementStatusRequest } from "../models/models_6";
-import type { GetVpnTunnelReplacementStatusResult } from "../models/models_7";
+import type { GetVpnTunnelReplacementStatusRequest, GetVpnTunnelReplacementStatusResult } from "../models/models_7";
 import { GetVpnTunnelReplacementStatus$ } from "../schemas/schemas_0";
 
 /**

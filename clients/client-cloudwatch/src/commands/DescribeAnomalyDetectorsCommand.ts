@@ -78,6 +78,8 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * //           },
  * //         ],
  * //         MetricTimezone: "STRING_VALUE",
+ * //         AdaptationSpeed: "FAST" || "NORMAL" || "SLOW",
+ * //         OutlierFilteringStrength: "MINIMAL" || "MODERATE" || "STRICT",
  * //       },
  * //       StateValue: "PENDING_TRAINING" || "TRAINED_INSUFFICIENT_DATA" || "TRAINED",
  * //       MetricCharacteristics: { // MetricCharacteristics

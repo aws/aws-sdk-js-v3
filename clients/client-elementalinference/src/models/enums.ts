@@ -127,6 +127,33 @@ export type FeedStatus = (typeof FeedStatus)[keyof typeof FeedStatus];
  * @public
  * @enum
  */
+export const ScheduleActionErrorCode = {
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_ACTION_TARGET: "INVALID_ACTION_TARGET",
+} as const;
+/**
+ * @public
+ */
+export type ScheduleActionErrorCode = (typeof ScheduleActionErrorCode)[keyof typeof ScheduleActionErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScheduleActionStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+} as const;
+/**
+ * @public
+ */
+export type ScheduleActionStatus = (typeof ScheduleActionStatus)[keyof typeof ScheduleActionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const DataSourceSport = {
   AMERICAN_FOOTBALL: "american-football",
   BASKETBALL: "basketball",

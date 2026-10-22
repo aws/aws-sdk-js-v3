@@ -2568,6 +2568,22 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
+export interface RevokeConnectionTokenRequest {
+  /**
+   * <p>The ID of the connection token to revoke.</p>
+   * @public
+   */
+  tokenId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RevokeConnectionTokenResponse {}
+
+/**
+ * @public
+ */
 export interface StartCompositionRequest {
   /**
    * <p>ARN of the stage to be used for compositing.</p>

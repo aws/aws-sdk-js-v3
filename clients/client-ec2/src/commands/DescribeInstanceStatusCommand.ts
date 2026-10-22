@@ -157,6 +157,11 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * //         Status: "ok" || "impaired" || "insufficient-data" || "not-applicable" || "initializing",
  * //         ImpairedSince: new Date("TIMESTAMP"),
  * //       },
+ * //       PerformanceStatus: { // PerformanceStatusSummary
+ * //         Status: "ok" || "impaired" || "insufficient-data" || "not-applicable" || "initializing",
+ * //         ImpairedSince: new Date("TIMESTAMP"),
+ * //         Remediation: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

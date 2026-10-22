@@ -193,6 +193,10 @@ import {
   ReplicationType,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  RevokeConnectionToken$,
+  RevokeConnectionTokenCommand,
+  RevokeConnectionTokenRequest$,
+  RevokeConnectionTokenResponse$,
   S3DestinationConfiguration$,
   S3Detail$,
   S3StorageConfiguration$,
@@ -312,6 +316,8 @@ assert(typeof ListStorageConfigurationsCommand === "function");
 assert(typeof ListStorageConfigurations$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
+assert(typeof RevokeConnectionTokenCommand === "function");
+assert(typeof RevokeConnectionToken$ === "object");
 assert(typeof StartCompositionCommand === "function");
 assert(typeof StartComposition$ === "object");
 assert(typeof StartParticipantReplicationCommand === "function");
@@ -421,6 +427,8 @@ assert(typeof PublicKey$ === "object");
 assert(typeof PublicKeySummary$ === "object");
 assert(typeof RecordingConfiguration$ === "object");
 assert(typeof RedundantIngestCredential$ === "object");
+assert(typeof RevokeConnectionTokenRequest$ === "object");
+assert(typeof RevokeConnectionTokenResponse$ === "object");
 assert(typeof S3DestinationConfiguration$ === "object");
 assert(typeof S3Detail$ === "object");
 assert(typeof S3StorageConfiguration$ === "object");

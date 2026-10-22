@@ -23,8 +23,8 @@ export interface UpdateTableCommandInput extends UpdateTableInput {}
 export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataBearer {}
 
 /**
- * <p>Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
- *             Streams settings for a given table.</p>
+ * <p>Modifies the provisioned throughput settings, global secondary indexes, DynamoDB
+ *             Streams settings, or global table replica settings for a given table.</p>
  *          <p>You can only perform one of the following operations at once:</p>
  *          <ul>
  *             <li>
@@ -38,13 +38,36 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *                     backfilling, you can use <code>UpdateTable</code> to perform other
  *                     operations.</p>
  *             </li>
+ *             <li>
+ *                <p>Enable or disable disassociation protection for the local global table
+ *                     replica.</p>
+ *             </li>
+ *             <li>
+ *                <p>Disassociate the local global table replica and keep it as a standalone
+ *                     regional table. The <code>Disassociate</code> action must be the only
+ *                     replica update in the request. If the request includes any other update,
+ *                     <code>UpdateTable</code> fails with a <code>ValidationException</code> and
+ *                     the disassociation does not start.</p>
+ *             </li>
  *          </ul>
  *          <p>
  *             <code>UpdateTable</code> is an asynchronous operation; while it's executing, the table
  *             status changes from <code>ACTIVE</code> to <code>UPDATING</code>. While it's
  *                 <code>UPDATING</code>, you can't issue another <code>UpdateTable</code> request.
- *             When the table returns to the <code>ACTIVE</code> state, the <code>UpdateTable</code>
- *             operation is complete.</p>
+ *             Use <code>DescribeTable</code> to monitor the table's status.</p>
+ *          <p>To use this operation to disassociate a local replica, you must have the
+ *             <code>dynamodb:UpdateTable</code> and <code>dynamodb:DisassociateTableReplica</code>
+ *             IAM permissions on the local replica. Send disassociation and disassociation
+ *             protection requests to the replica's Region using credentials for the account that
+ *             owns the replica. For prerequisites and the procedure, see
+ *             <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables-disassociate.html">Disassociating a global table replica</a> in the <i>Amazon DynamoDB
+ *                 Developer Guide</i>.</p>
+ *          <p>To confirm successful disassociation, call <code>DescribeTable</code> in the
+ *             replica's Region and verify that <code>TableStatus</code> is <code>ACTIVE</code>
+ *             and <code>Replicas</code> is absent or empty. If <code>TableStatus</code> returns to
+ *             <code>ACTIVE</code> but the response still includes a <code>Replicas</code> list, the
+ *             disassociation did not complete. Check <code>ReplicaStatus</code> for a
+ *             replication-permission or encryption-access problem, resolve it, and retry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -173,6 +196,10 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *       Delete: { // DeleteReplicationGroupMemberAction
  *         RegionName: "STRING_VALUE", // required
  *       },
+ *       Disassociate: { // DisassociateReplicationGroupMemberAction
+ *         RegionName: "STRING_VALUE", // required
+ *         DisassociationMode: "WAIT_FOR_REPLICATION", // required
+ *       },
  *     },
  *   ],
  *   TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
@@ -197,6 +224,7 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *     WriteUnitsPerSecond: Number("long"),
  *   },
  *   GlobalTableSettingsReplicationMode: "ENABLED" || "DISABLED" || "ENABLED_WITH_OVERRIDES",
+ *   DisassociationProtectionEnabled: true || false,
  *   VectorIndexUpdates: [ // VectorIndexUpdateList
  *     { // VectorIndexUpdate
  *       Create: { // CreateVectorIndexAction
@@ -396,6 +424,7 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * //       LastUpdateDateTime: new Date("TIMESTAMP"),
  * //     },
  * //     DeletionProtectionEnabled: true || false,
+ * //     DisassociationProtectionEnabled: true || false,
  * //     OnDemandThroughput: {
  * //       MaxReadRequestUnits: Number("long"),
  * //       MaxWriteRequestUnits: Number("long"),
@@ -491,6 +520,120 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
+ * @example To modify a table's provisioned throughput
+ * ```javascript
+ * // This example increases the provisioned read and write capacity on the Music table.
+ * const input = {
+ *   ProvisionedThroughput: {
+ *     ReadCapacityUnits: 10,
+ *     WriteCapacityUnits: 10
+ *   },
+ *   TableName: "MusicCollection"
+ * };
+ * const command = new UpdateTableCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TableDescription: {
+ *     AttributeDefinitions: [
+ *       {
+ *         AttributeName: "Artist",
+ *         AttributeType: "S"
+ *       },
+ *       {
+ *         AttributeName: "SongTitle",
+ *         AttributeType: "S"
+ *       }
+ *     ],
+ *     CreationDateTime: 1.421866952062E9,
+ *     ItemCount: 0,
+ *     KeySchema: [
+ *       {
+ *         AttributeName: "Artist",
+ *         KeyType: "HASH"
+ *       },
+ *       {
+ *         AttributeName: "SongTitle",
+ *         KeyType: "RANGE"
+ *       }
+ *     ],
+ *     ProvisionedThroughput: {
+ *       LastIncreaseDateTime: 1.421874759194E9,
+ *       NumberOfDecreasesToday: 1,
+ *       ReadCapacityUnits: 1,
+ *       WriteCapacityUnits: 1
+ *     },
+ *     TableName: "MusicCollection",
+ *     TableSizeBytes: 0,
+ *     TableStatus: "UPDATING"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example To disable disassociation protection on a local replica
+ * ```javascript
+ * // This example disables disassociation protection on the MusicCollection replica in us-west-2. You must send the request to us-west-2 using credentials for the account that owns the replica. Your table must be a global table that uses Version 2019.11.21 and multi-Region eventual consistency (MREC). You cannot combine this change with any other change in the same UpdateTable request. Before requesting disassociation, use DescribeTable to confirm that DisassociationProtectionEnabled is false and TableStatus is ACTIVE.
+ * const input = {
+ *   DisassociationProtectionEnabled: false,
+ *   TableName: "MusicCollection"
+ * };
+ * const command = new UpdateTableCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TableDescription: {
+ *     DisassociationProtectionEnabled: false,
+ *     GlobalTableVersion: "2019.11.21",
+ *     Replicas: [
+ *       {
+ *         RegionName: "us-east-1",
+ *         ReplicaStatus: "ACTIVE"
+ *       }
+ *     ],
+ *     TableArn: "arn:aws:dynamodb:us-west-2:123456789012:table/MusicCollection",
+ *     TableName: "MusicCollection",
+ *     TableStatus: "ACTIVE"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example To disassociate a local global table replica
+ * ```javascript
+ * // This example disassociates the MusicCollection replica in us-west-2. You must first disable protection in a separate UpdateTable request. You must send the request to us-west-2 using credentials for account 123456789012, the account that owns the replica. This request works for global tables that use Version 2019.11.21 and multi-Region eventual consistency (MREC). Replicas can belong to one account or multiple accounts. You must specify WAIT_FOR_REPLICATION. The response shows that DynamoDB accepted the asynchronous request. To confirm completion, use DescribeTable in us-west-2. Verify that TableStatus is ACTIVE and Replicas is absent or empty. ACTIVE alone does not confirm successful disassociation.
+ * const input = {
+ *   ReplicaUpdates: [
+ *     {
+ *       Disassociate: {
+ *         DisassociationMode: "WAIT_FOR_REPLICATION",
+ *         RegionName: "us-west-2"
+ *       }
+ *     }
+ *   ],
+ *   TableName: "arn:aws:dynamodb:us-west-2:123456789012:table/MusicCollection"
+ * };
+ * const command = new UpdateTableCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TableDescription: {
+ *     DisassociationProtectionEnabled: false,
+ *     GlobalTableVersion: "2019.11.21",
+ *     Replicas: [
+ *       {
+ *         RegionName: "us-east-1",
+ *         ReplicaStatus: "ACTIVE"
+ *       }
+ *     ],
+ *     TableArn: "arn:aws:dynamodb:us-west-2:123456789012:table/MusicCollection",
+ *     TableName: "MusicCollection",
+ *     TableStatus: "UPDATING"
+ *   }
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

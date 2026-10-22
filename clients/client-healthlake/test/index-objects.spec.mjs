@@ -1,12 +1,10 @@
 import {
   AccessDeniedException,
   AccessDeniedException$,
+  AgentErrorType,
   AgentInputMessage$,
   AgentInputMessageType,
-  AgentMessageOutOfContextException,
-  AgentMessageOutOfContextException$,
-  AgentOutputMessage$,
-  AgentOutputMessageType,
+  AgentOutputMessageStream$,
   AnalyticsConfiguration$,
   AnalyticsStatus,
   AuthorizationStrategy,
@@ -17,8 +15,6 @@ import {
   ConflictException,
   ConflictException$,
   ContinuousBackupRestoreConfiguration$,
-  ConversationNotFoundException,
-  ConversationNotFoundException$,
   CreateDataTransformationProfile$,
   CreateDataTransformationProfileCommand,
   CreateDataTransformationProfileRequest$,
@@ -59,8 +55,10 @@ import {
   DescribeFHIRImportJobCommand,
   DescribeFHIRImportJobRequest$,
   DescribeFHIRImportJobResponse$,
+  EndOfOutputEvent$,
   ErrorCategory,
   ErrorCause$,
+  ErrorEvent$,
   ExistingVersionedProfileSource$,
   ExportJobProperties$,
   FailedDependencyException,
@@ -73,6 +71,7 @@ import {
   HealthLake,
   HealthLakeClient,
   HealthLakeServiceException,
+  HeartbeatEvent$,
   IdentityProviderConfiguration$,
   ImportJobProperties$,
   InputDataConfig$,
@@ -111,8 +110,6 @@ import {
   ListTagsForResourceResponse$,
   NlpConfiguration$,
   NlpStatus,
-  NotImplementedOperationException,
-  NotImplementedOperationException$,
   OutputDataConfig$,
   paginateListDataTransformationJobs,
   paginateListDataTransformationProfiles,
@@ -124,6 +121,7 @@ import {
   PreloadDataType,
   ProfileConfiguration$,
   ProfileMappingSource$,
+  ProgressEvent$,
   PublishDataTransformationProfile$,
   PublishDataTransformationProfileCommand,
   PublishDataTransformationProfileRequest$,
@@ -160,6 +158,7 @@ import {
   TagResourceRequest$,
   TagResourceResponse$,
   TargetFormat,
+  TextMessageEvent$,
   ThrottlingException,
   ThrottlingException$,
   TransformationInputDataConfig$,
@@ -168,10 +167,6 @@ import {
   TransformationJobStatus,
   TransformationJobSummary$,
   TransformationOutputDataConfig$,
-  UnauthorizedException,
-  UnauthorizedException$,
-  UnsupportedMIMETypeException,
-  UnsupportedMIMETypeException$,
   UntagResource$,
   UntagResourceCommand,
   UntagResourceRequest$,
@@ -261,7 +256,7 @@ assert(typeof UpdateProfileWithAgentCommand === "function");
 assert(typeof UpdateProfileWithAgent$ === "object");
 // structural schemas
 assert(typeof AgentInputMessage$ === "object");
-assert(typeof AgentOutputMessage$ === "object");
+assert(typeof AgentOutputMessageStream$ === "object");
 assert(typeof AnalyticsConfiguration$ === "object");
 assert(typeof BackupConfiguration$ === "object");
 assert(typeof ContinuousBackupRestoreConfiguration$ === "object");
@@ -288,11 +283,14 @@ assert(typeof DescribeFHIRExportJobRequest$ === "object");
 assert(typeof DescribeFHIRExportJobResponse$ === "object");
 assert(typeof DescribeFHIRImportJobRequest$ === "object");
 assert(typeof DescribeFHIRImportJobResponse$ === "object");
+assert(typeof EndOfOutputEvent$ === "object");
 assert(typeof ErrorCause$ === "object");
+assert(typeof ErrorEvent$ === "object");
 assert(typeof ExistingVersionedProfileSource$ === "object");
 assert(typeof ExportJobProperties$ === "object");
 assert(typeof GetDataTransformationProfileRequest$ === "object");
 assert(typeof GetDataTransformationProfileResponse$ === "object");
+assert(typeof HeartbeatEvent$ === "object");
 assert(typeof IdentityProviderConfiguration$ === "object");
 assert(typeof ImportJobProperties$ === "object");
 assert(typeof InputDataConfig$ === "object");
@@ -317,6 +315,7 @@ assert(typeof OutputDataConfig$ === "object");
 assert(typeof PreloadDataConfig$ === "object");
 assert(typeof ProfileConfiguration$ === "object");
 assert(typeof ProfileMappingSource$ === "object");
+assert(typeof ProgressEvent$ === "object");
 assert(typeof PublishDataTransformationProfileRequest$ === "object");
 assert(typeof PublishDataTransformationProfileResponse$ === "object");
 assert(typeof RestoreConfiguration$ === "object");
@@ -335,6 +334,7 @@ assert(typeof StartFHIRImportJobResponse$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
+assert(typeof TextMessageEvent$ === "object");
 assert(typeof TransformationInputDataConfig$ === "object");
 assert(typeof TransformationJobProgressReport$ === "object");
 assert(typeof TransformationJobProperties$ === "object");
@@ -349,8 +349,8 @@ assert(typeof UpdateFHIRDatastoreResponse$ === "object");
 assert(typeof UpdateProfileWithAgentRequest$ === "object");
 assert(typeof UpdateProfileWithAgentResponse$ === "object");
 // enums
+assert(typeof AgentErrorType === "object");
 assert(typeof AgentInputMessageType === "object");
-assert(typeof AgentOutputMessageType === "object");
 assert(typeof AnalyticsStatus === "object");
 assert(typeof AuthorizationStrategy === "object");
 assert(typeof BackupStatus === "object");
@@ -369,28 +369,18 @@ assert(typeof ValidationLevel === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof HealthLakeServiceException);
 assert(typeof AccessDeniedException$ === "object");
-assert(AgentMessageOutOfContextException.prototype instanceof HealthLakeServiceException);
-assert(typeof AgentMessageOutOfContextException$ === "object");
 assert(ConflictException.prototype instanceof HealthLakeServiceException);
 assert(typeof ConflictException$ === "object");
-assert(ConversationNotFoundException.prototype instanceof HealthLakeServiceException);
-assert(typeof ConversationNotFoundException$ === "object");
 assert(FailedDependencyException.prototype instanceof HealthLakeServiceException);
 assert(typeof FailedDependencyException$ === "object");
 assert(InternalServerException.prototype instanceof HealthLakeServiceException);
 assert(typeof InternalServerException$ === "object");
-assert(NotImplementedOperationException.prototype instanceof HealthLakeServiceException);
-assert(typeof NotImplementedOperationException$ === "object");
 assert(ResourceNotFoundException.prototype instanceof HealthLakeServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
 assert(ServiceQuotaExceededException.prototype instanceof HealthLakeServiceException);
 assert(typeof ServiceQuotaExceededException$ === "object");
 assert(ThrottlingException.prototype instanceof HealthLakeServiceException);
 assert(typeof ThrottlingException$ === "object");
-assert(UnauthorizedException.prototype instanceof HealthLakeServiceException);
-assert(typeof UnauthorizedException$ === "object");
-assert(UnsupportedMIMETypeException.prototype instanceof HealthLakeServiceException);
-assert(typeof UnsupportedMIMETypeException$ === "object");
 assert(ValidationException.prototype instanceof HealthLakeServiceException);
 assert(typeof ValidationException$ === "object");
 assert(HealthLakeServiceException.prototype instanceof Error);

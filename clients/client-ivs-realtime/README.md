@@ -398,6 +398,13 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+RevokeConnectionToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/RevokeConnectionTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/RevokeConnectionTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/RevokeConnectionTokenCommandOutput/)
+</details>
+<details>
+<summary>
 StartComposition
 </summary>
 

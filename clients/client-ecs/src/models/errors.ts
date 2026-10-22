@@ -508,6 +508,48 @@ export class DaemonNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>The specified gateway wasn't found. Check that the gateway name or ARN is correct and that the gateway exists in your account and Region.</p>
+ * @public
+ */
+export class GatewayNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#GatewayNotFoundException";
+  readonly name = "GatewayNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GatewayNotFoundException, __BaseException>) {
+    super({
+      name: "GatewayNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GatewayNotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>The specified resource wasn't found.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecs#ResourceNotFoundException";
+  readonly name = "ResourceNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
  * <p>The specified platform version doesn't satisfy the required capabilities of the task definition.</p>
  * @public
  */
@@ -546,27 +588,6 @@ export class ServiceNotActiveException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ServiceNotActiveException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource wasn't found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.ecs#ResourceNotFoundException";
-  readonly name = "ResourceNotFoundException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
   }
 }
 

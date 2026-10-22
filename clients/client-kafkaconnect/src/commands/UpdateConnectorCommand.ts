@@ -54,6 +54,7 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *   connectorConfiguration: { // ConnectorConfigurationUpdate
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   skipHealthValidation: true || false,
  *   connectorArn: "STRING_VALUE", // required
  *   currentVersion: "STRING_VALUE", // required
  * };

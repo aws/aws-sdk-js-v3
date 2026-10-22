@@ -191,6 +191,9 @@ import {
   CreatePrivacyBudgetTemplateInput$,
   CreatePrivacyBudgetTemplateOutput$,
   CustomMLMemberAbility,
+  DatabricksConnectionType$,
+  DatabricksDeltaSharingConnection$,
+  DatabricksTableReference$,
   DataEncryptionMetadata$,
   DeleteAnalysisTemplate$,
   DeleteAnalysisTemplateCommand,
@@ -671,6 +674,7 @@ import {
   SyntheticDataGenerationPaymentConfig$,
   SyntheticDataParameters$,
   TableReference$,
+  TableReferenceType,
   TagResource$,
   TagResourceCommand,
   TagResourceInput$,
@@ -1087,6 +1091,9 @@ assert(typeof CreateMembershipInput$ === "object");
 assert(typeof CreateMembershipOutput$ === "object");
 assert(typeof CreatePrivacyBudgetTemplateInput$ === "object");
 assert(typeof CreatePrivacyBudgetTemplateOutput$ === "object");
+assert(typeof DatabricksConnectionType$ === "object");
+assert(typeof DatabricksDeltaSharingConnection$ === "object");
+assert(typeof DatabricksTableReference$ === "object");
 assert(typeof DataEncryptionMetadata$ === "object");
 assert(typeof DeleteAnalysisTemplateInput$ === "object");
 assert(typeof DeleteAnalysisTemplateOutput$ === "object");
@@ -1475,6 +1482,7 @@ assert(typeof SchemaType === "object");
 assert(typeof SelectedAnalysisMethod === "object");
 assert(typeof SupportedS3Region === "object");
 assert(typeof SyntheticDataColumnType === "object");
+assert(typeof TableReferenceType === "object");
 assert(typeof TargetProtectedJobStatus === "object");
 assert(typeof TargetProtectedQueryStatus === "object");
 assert(typeof ValidationExceptionReason === "object");

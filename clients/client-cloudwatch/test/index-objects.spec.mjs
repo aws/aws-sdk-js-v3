@@ -9,7 +9,9 @@ import {
   AlarmTagsPropagation$,
   AlarmType,
   AnomalyDetector$,
+  AnomalyDetectorAdaptationSpeed,
   AnomalyDetectorConfiguration$,
+  AnomalyDetectorOutlierFilteringStrength,
   AnomalyDetectorStateValue,
   AnomalyDetectorType,
   AssociateDatasetKmsKey$,
@@ -617,6 +619,8 @@ assert(typeof WarmUpConfiguration$ === "object");
 assert(typeof ActionsSuppressedBy === "object");
 assert(typeof AlarmMuteRuleStatus === "object");
 assert(typeof AlarmType === "object");
+assert(typeof AnomalyDetectorAdaptationSpeed === "object");
+assert(typeof AnomalyDetectorOutlierFilteringStrength === "object");
 assert(typeof AnomalyDetectorStateValue === "object");
 assert(typeof AnomalyDetectorType === "object");
 assert(typeof ComparisonOperator === "object");

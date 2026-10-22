@@ -37,11 +37,12 @@ const _AOTL = "ApplyOnTransformedLogs";
 const _AP = "ActionPrefix";
 const _APQLC = "AlarmPromQLCriteria";
 const _AR = "AlarmRule";
-const _AS = "ActionsSuppressor";
+const _AS = "AdaptationSpeed";
 const _ASB = "ActionsSuppressedBy";
 const _ASEP = "ActionsSuppressorExtensionPeriod";
 const _ASR = "ActionsSuppressedReason";
 const _ASWP = "ActionsSuppressorWaitPeriod";
+const _ASc = "ActionsSuppressor";
 const _ASd = "AdditionalStatistics";
 const _ASg = "AggregationStatistic";
 const _AT = "AlarmType";
@@ -315,6 +316,7 @@ const _OA = "OwningAccount";
 const _OAw = "OwningAccounts";
 const _OB = "OrderBy";
 const _OF = "OutputFormat";
+const _OFS = "OutlierFilteringStrength";
 const _OKA = "OKActions";
 const _OSEAWUPE = "OnlyStartEvaluatingAfterWarmUpPeriodEnds";
 const _OTEMS = "OTelEnrichmentMetricSelector";
@@ -662,8 +664,8 @@ export var AnomalyDetector$: StaticStructureSchema = [3, n0, _AD,
 ];
 export var AnomalyDetectorConfiguration$: StaticStructureSchema = [3, n0, _ADC,
   0,
-  [_ETR, _MTe],
-  [() => AnomalyDetectorExcludedTimeRanges, 0]
+  [_ETR, _MTe, _AS, _OFS],
+  [() => AnomalyDetectorExcludedTimeRanges, 0, 0, 0]
 ];
 export var AssociateDatasetKmsKeyInput$: StaticStructureSchema = [3, n0, _ADKKI,
   0,
@@ -677,7 +679,7 @@ export var AssociateDatasetKmsKeyOutput$: StaticStructureSchema = [3, n0, _ADKKO
 ];
 export var CompositeAlarm$: StaticStructureSchema = [3, n0, _CAo,
   0,
-  [_AE, _AA, _AAl, _ACUT, _ADl, _AN, _AR, _IDA, _OKA, _SR, _SRD, _SUT, _SV, _STT, _ASB, _ASR, _AS, _ASWP, _ASEP, _AC],
+  [_AE, _AA, _AAl, _ACUT, _ADl, _AN, _AR, _IDA, _OKA, _SR, _SRD, _SUT, _SV, _STT, _ASB, _ASR, _ASc, _ASWP, _ASEP, _AC],
   [2, 64 | 0, 0, 4, 0, 0, 0, 64 | 0, 64 | 0, 0, 0, 4, 0, 4, 0, 0, 0, 1, 1, () => ActionConfiguration$]
 ];
 export var CreateResourceMetricsConfigurationInput$: StaticStructureSchema = [3, n0, _CRMCI,
@@ -1187,7 +1189,7 @@ export var PutAnomalyDetectorOutput$: StaticStructureSchema = [3, n0, _PADO,
 ];
 export var PutCompositeAlarmInput$: StaticStructureSchema = [3, n0, _PCAI,
   0,
-  [_AN, _AR, _AE, _AA, _ADl, _IDA, _OKA, _Ta, _AS, _ASWP, _ASEP, _AC],
+  [_AN, _AR, _AE, _AA, _ADl, _IDA, _OKA, _Ta, _ASc, _ASWP, _ASEP, _AC],
   [0, 0, 2, 64 | 0, 0, 64 | 0, 64 | 0, () => TagList, 0, 1, 1, () => ActionConfiguration$], 2
 ];
 export var PutDashboardInput$: StaticStructureSchema = [3, n0, _PDI,

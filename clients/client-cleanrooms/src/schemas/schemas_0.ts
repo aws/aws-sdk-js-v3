@@ -179,7 +179,7 @@ const _DCAMAI = "DeleteConfiguredAudienceModelAssociationInput";
 const _DCAMAO = "DeleteConfiguredAudienceModelAssociationOutput";
 const _DCI = "DeleteCollaborationInput";
 const _DCO = "DeleteCollaborationOutput";
-const _DCT = "DeleteConfiguredTable";
+const _DCT = "DatabricksConnectionType";
 const _DCTA = "DeleteConfiguredTableAssociation";
 const _DCTAAR = "DeleteConfiguredTableAssociationAnalysisRule";
 const _DCTAARI = "DeleteConfiguredTableAssociationAnalysisRuleInput";
@@ -191,6 +191,8 @@ const _DCTARI = "DeleteConfiguredTableAnalysisRuleInput";
 const _DCTARO = "DeleteConfiguredTableAnalysisRuleOutput";
 const _DCTI = "DeleteConfiguredTableInput";
 const _DCTO = "DeleteConfiguredTableOutput";
+const _DCTe = "DeleteConfiguredTable";
+const _DDSC = "DatabricksDeltaSharingConnection";
 const _DEM = "DataEncryptionMetadata";
 const _DIMT = "DeleteIdMappingTable";
 const _DIMTI = "DeleteIdMappingTableInput";
@@ -233,6 +235,7 @@ const _DPSPL = "DifferentialPrivacySensitivityParametersList";
 const _DPTPI = "DifferentialPrivacyTemplateParametersInput";
 const _DPTPO = "DifferentialPrivacyTemplateParametersOutput";
 const _DPTUP = "DifferentialPrivacyTemplateUpdateParameters";
+const _DTR = "DatabricksTableReference";
 const _EMC = "ErrorMessageConfiguration";
 const _GALE = "GetAnalysisLogExport";
 const _GALEI = "GetAnalysisLogExportInput";
@@ -736,6 +739,7 @@ const _cTIo = "configuredTableIdentifier";
 const _cTS = "configuredTableSummaries";
 const _cTo = "configuredTable";
 const _cTol = "columnType";
+const _cTon = "connectionType";
 const _ch = "changes";
 const _co = "code";
 const _col = "column";
@@ -753,7 +757,10 @@ const _dNi = "displayName";
 const _dOC = "disallowedOutputColumns";
 const _dP = "differentialPrivacy";
 const _dRC = "defaultResultConfiguration";
+const _dS = "deltaSharing";
+const _dSE = "deltaShareEndpoint";
 const _dV = "defaultValue";
+const _da = "databricks";
 const _de = "description";
 const _di = "distribute";
 const _e = "error";
@@ -920,6 +927,7 @@ const _sI = "sourceId";
 const _sM = "sourceMetadata";
 const _sN = "sourceName";
 const _sNc = "schemaName";
+const _sNh = "shareName";
 const _sP = "sensitivityParameters";
 const _sPq = "sqlParameters";
 const _sR = "statusReason";
@@ -951,6 +959,7 @@ const _tN = "tableName";
 const _tR = "tableReference";
 const _tS = "tableSchema";
 const _tSa = "targetStatus";
+const _tT = "tableType";
 const _ta = "tags";
 const _te = "text";
 const _ty = "types";
@@ -964,6 +973,7 @@ const _v_ = "v1";
 const _va = "value";
 const _w = "worker";
 const _wG = "workGroup";
+const _wU = "workspaceUrl";
 const n0 = "com.amazonaws.cleanrooms";
 
 // smithy-typescript generated code
@@ -1373,8 +1383,8 @@ export var ConfiguredAudienceModelAssociationSummary$: StaticStructureSchema = [
 ];
 export var ConfiguredTable$: StaticStructureSchema = [3, n0, _CT,
   0,
-  [_i, _a, _n, _tR, _cT, _uT, _aRT, _aM, _aCl, _de, _sAM],
-  [0, 0, 0, () => TableReference$, 4, 4, 64 | 0, 0, 64 | 0, 0, 64 | 0], 9
+  [_i, _a, _n, _tR, _cT, _uT, _aRT, _aM, _aCl, _de, _tT, _sAM],
+  [0, 0, 0, () => TableReference$, 4, 4, 64 | 0, 0, 64 | 0, 0, 0, 64 | 0], 9
 ];
 export var ConfiguredTableAnalysisRule$: StaticStructureSchema = [3, n0, _CTAR,
   0,
@@ -1418,8 +1428,8 @@ export var ConfiguredTableAssociationSummary$: StaticStructureSchema = [3, n0, _
 ];
 export var ConfiguredTableSummary$: StaticStructureSchema = [3, n0, _CTS,
   0,
-  [_i, _a, _n, _cT, _uT, _aRT, _aM, _sAM],
-  [0, 0, 0, 4, 4, 64 | 0, 0, 64 | 0], 7
+  [_i, _a, _n, _cT, _uT, _aRT, _aM, _tT, _sAM],
+  [0, 0, 0, 4, 4, 64 | 0, 0, 0, 64 | 0], 7
 ];
 export var ConsolidatedPolicyAggregation$: StaticStructureSchema = [3, n0, _CPA,
   0,
@@ -1575,6 +1585,16 @@ export var CreatePrivacyBudgetTemplateOutput$: StaticStructureSchema = [3, n0, _
   0,
   [_pBTr],
   [() => PrivacyBudgetTemplate$], 1
+];
+export var DatabricksDeltaSharingConnection$: StaticStructureSchema = [3, n0, _DDSC,
+  0,
+  [_dSE, _sNh],
+  [0, 0], 2
+];
+export var DatabricksTableReference$: StaticStructureSchema = [3, n0, _DTR,
+  0,
+  [_sNc, _tN, _wU, _cTon],
+  [0, 0, 0, () => DatabricksConnectionType$], 4
 ];
 export var DataEncryptionMetadata$: StaticStructureSchema = [3, n0, _DEM,
   0,
@@ -3346,6 +3366,11 @@ export var ConsolidatedPolicyV1$: StaticUnionSchema = [4, n0, _CPV,
   [_li, _agg, _cu],
   [() => ConsolidatedPolicyList$, () => ConsolidatedPolicyAggregation$, () => ConsolidatedPolicyCustom$]
 ];
+export var DatabricksConnectionType$: StaticUnionSchema = [4, n0, _DCT,
+  0,
+  [_dS],
+  [() => DatabricksDeltaSharingConnection$]
+];
 export var IntermediateTableAnalysisRulePolicy$: StaticUnionSchema = [4, n0, _ITARP,
   0,
   [_v_],
@@ -3468,8 +3493,8 @@ export var SyntheticDataParameters$: StaticUnionSchema = [4, n0, _SDP,
 ];
 export var TableReference$: StaticUnionSchema = [4, n0, _TR,
   0,
-  [_g, _sn, _at],
-  [() => GlueTableReference$, () => SnowflakeTableReference$, () => AthenaTableReference$]
+  [_g, _sn, _at, _da],
+  [() => GlueTableReference$, () => SnowflakeTableReference$, () => AthenaTableReference$, () => DatabricksTableReference$]
 ];
 export var WorkerComputeConfigurationProperties$: StaticUnionSchema = [4, n0, _WCCP,
   0,
@@ -3536,7 +3561,7 @@ export var DeleteCollaboration$: StaticOperationSchema = [9, n0, _DC,
 export var DeleteConfiguredAudienceModelAssociation$: StaticOperationSchema = [9, n0, _DCAMA,
   { [_h]: ["DELETE", "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}", 204] }, () => DeleteConfiguredAudienceModelAssociationInput$, () => DeleteConfiguredAudienceModelAssociationOutput$
 ];
-export var DeleteConfiguredTable$: StaticOperationSchema = [9, n0, _DCT,
+export var DeleteConfiguredTable$: StaticOperationSchema = [9, n0, _DCTe,
   { [_h]: ["DELETE", "/configuredTables/{configuredTableIdentifier}", 204] }, () => DeleteConfiguredTableInput$, () => DeleteConfiguredTableOutput$
 ];
 export var DeleteConfiguredTableAnalysisRule$: StaticOperationSchema = [9, n0, _DCTAR,

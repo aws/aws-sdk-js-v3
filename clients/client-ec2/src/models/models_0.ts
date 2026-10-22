@@ -1612,6 +1612,54 @@ export interface AnalysisSecurityGroupRule {
 }
 
 /**
+ * <p>Describes an entry in a transit gateway policy table.</p>
+ * @public
+ */
+export interface AnalysisTransitGatewayPolicyTableEntry {
+  /**
+   * <p>The rule number for the policy table entry. Entries are evaluated in ascending order of rule number.</p>
+   * @public
+   */
+  RuleNumber?: number | undefined;
+
+  /**
+   * <p>The protocol number. A value of <code>-1</code> means that the entry matches all protocols.</p>
+   * @public
+   */
+  Protocol?: string | undefined;
+
+  /**
+   * <p>The source CIDR block. If this value is not present, the entry matches any source address.</p>
+   * @public
+   */
+  SourceCidr?: string | undefined;
+
+  /**
+   * <p>The destination CIDR block. If this value is not present, the entry matches any destination address.</p>
+   * @public
+   */
+  DestinationCidr?: string | undefined;
+
+  /**
+   * <p>The source port range. If this value is not present, the entry matches any source port.</p>
+   * @public
+   */
+  SourcePortRange?: PortRange | undefined;
+
+  /**
+   * <p>The destination port range. If this value is not present, the entry matches any destination port.</p>
+   * @public
+   */
+  DestinationPortRange?: PortRange | undefined;
+
+  /**
+   * <p>The ID of the transit gateway route table to which the entry routes matching traffic.</p>
+   * @public
+   */
+  TargetRouteTableId?: string | undefined;
+}
+
+/**
  * <p>Describes a route in a transit gateway route table.</p>
  * @public
  */
@@ -1975,6 +2023,18 @@ export interface Explanation {
   TransitGatewayRouteTableRoute?: TransitGatewayRouteTableRoute | undefined;
 
   /**
+   * <p>The transit gateway policy table.</p>
+   * @public
+   */
+  TransitGatewayPolicyTable?: AnalysisComponent | undefined;
+
+  /**
+   * <p>The transit gateway policy table entry.</p>
+   * @public
+   */
+  TransitGatewayPolicyTableEntry?: AnalysisTransitGatewayPolicyTableEntry | undefined;
+
+  /**
    * <p>The transit gateway attachment.</p>
    * @public
    */
@@ -2136,6 +2196,12 @@ export interface PathComponent {
    * @public
    */
   TransitGatewayRouteTableRoute?: TransitGatewayRouteTableRoute | undefined;
+
+  /**
+   * <p>The entry in a transit gateway policy table.</p>
+   * @public
+   */
+  TransitGatewayPolicyTableEntry?: AnalysisTransitGatewayPolicyTableEntry | undefined;
 
   /**
    * <p>The explanation codes.</p>
@@ -10691,15 +10757,4 @@ export interface CarrierGateway {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCarrierGatewayResult {
-  /**
-   * <p>Information about the carrier gateway.</p>
-   * @public
-   */
-  CarrierGateway?: CarrierGateway | undefined;
 }

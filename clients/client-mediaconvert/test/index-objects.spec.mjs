@@ -72,6 +72,7 @@ import {
   Av1FramerateConversionAlgorithm,
   Av1QvbrSettings$,
   Av1RateControlMode,
+  Av1SceneChangeDetect,
   Av1Settings$,
   Av1SpatialAdaptiveQuantization,
   AvailBlanking$,
@@ -193,6 +194,7 @@ import {
   CreateResourceShareCommand,
   CreateResourceShareRequest$,
   CreateResourceShareResponse$,
+  DashAdaptationSetGrouping,
   DashAdditionalManifest$,
   DashIsoEncryptionSettings$,
   DashIsoGroupAudioChannelConfigSchemeIdUri,
@@ -1268,6 +1270,7 @@ assert(typeof Av1FilmGrainSynthesis === "object");
 assert(typeof Av1FramerateControl === "object");
 assert(typeof Av1FramerateConversionAlgorithm === "object");
 assert(typeof Av1RateControlMode === "object");
+assert(typeof Av1SceneChangeDetect === "object");
 assert(typeof Av1SpatialAdaptiveQuantization === "object");
 assert(typeof AvcIntraClass === "object");
 assert(typeof AvcIntraFramerateControl === "object");
@@ -1335,6 +1338,7 @@ assert(typeof ColorSpaceUsage === "object");
 assert(typeof Commitment === "object");
 assert(typeof ContainerType === "object");
 assert(typeof CopyProtectionAction === "object");
+assert(typeof DashAdaptationSetGrouping === "object");
 assert(typeof DashIsoGroupAudioChannelConfigSchemeIdUri === "object");
 assert(typeof DashIsoHbbtvCompliance === "object");
 assert(typeof DashIsoImageBasedTrickPlay === "object");

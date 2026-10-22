@@ -37,12 +37,14 @@ import type {
   AddressAttribute,
   ByoipCidr,
   ClientVpnAuthorizationRuleStatus,
+  IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   IpPermission,
   NatGatewayAddress,
   PortRange,
   RouteTableAssociationState,
   TagSpecification,
+  UnsuccessfulItem,
 } from "./models_0";
 import type {
   BlockDeviceMapping,
@@ -66,12 +68,152 @@ import type {
   SpotPlacement,
 } from "./models_5";
 import type { CapacityManagerMonitoredTagKey } from "./models_6";
-import type {
-  CapacityReservationSpecification,
-  CreationDateConditionRequest,
-  EnclaveOptionsRequest,
-  InstanceMonitoring,
-} from "./models_7";
+import type { CapacityReservationSpecification, EnclaveOptionsRequest, InstanceMonitoring } from "./models_7";
+
+/**
+ * @public
+ */
+export interface ReleaseAddressRequest {
+  /**
+   * <p>The allocation ID. This parameter is required.</p>
+   * @public
+   */
+  AllocationId?: string | undefined;
+
+  /**
+   * <p>Deprecated.</p>
+   * @public
+   */
+  PublicIp?: string | undefined;
+
+  /**
+   * <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services advertises
+   *       IP addresses.</p>
+   *          <p>If you provide an incorrect network border group, you receive an <code>InvalidAddress.NotFound</code> error.</p>
+   * @public
+   */
+  NetworkBorderGroup?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReleaseHostsRequest {
+  /**
+   * <p>The IDs of the Dedicated Hosts to release.</p>
+   * @public
+   */
+  HostIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReleaseHostsResult {
+  /**
+   * <p>The IDs of the Dedicated Hosts that were successfully released.</p>
+   * @public
+   */
+  Successful?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the Dedicated Hosts that could not be released, including an error
+   *             message.</p>
+   * @public
+   */
+  Unsuccessful?: UnsuccessfulItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReleaseIpamPoolAllocationRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM pool which contains the allocation you want to release.</p>
+   * @public
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The CIDR of the allocation you want to release.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>The ID of the allocation.</p>
+   * @public
+   */
+  IpamPoolAllocationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReleaseIpamPoolAllocationResult {
+  /**
+   * <p>Indicates if the release was successful.</p>
+   * @public
+   */
+  Success?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceIamInstanceProfileAssociationRequest {
+  /**
+   * <p>The IAM instance profile.</p>
+   * @public
+   */
+  IamInstanceProfile: IamInstanceProfileSpecification | undefined;
+
+  /**
+   * <p>The ID of the existing IAM instance profile association.</p>
+   * @public
+   */
+  AssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceIamInstanceProfileAssociationResult {
+  /**
+   * <p>Information about the IAM instance profile association.</p>
+   * @public
+   */
+  IamInstanceProfileAssociation?: IamInstanceProfileAssociation | undefined;
+}
+
+/**
+ * <p>The maximum age for allowed images.</p>
+ * @public
+ */
+export interface CreationDateConditionRequest {
+  /**
+   * <p>The maximum number of days that have elapsed since the image was created. For example, a
+   *       value of <code>300</code> allows images that were created within the last 300 days.</p>
+   * @public
+   */
+  MaximumDaysSinceCreated?: number | undefined;
+}
 
 /**
  * <p>The maximum period since deprecation for allowed images.</p>

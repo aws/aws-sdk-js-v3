@@ -18,6 +18,9 @@ const _ALR = "AssociateLinkRequest";
 const _ALRs = "AssociateLinkResponse";
 const _ALs = "AssociateLink";
 const _AMS = "ApplianceModeSupport";
+const _ANC = "AttachmentNatConfiguration";
+const _ANCL = "AttachmentNatConfigurationList";
+const _ANCt = "AttachmentNatConfigurations";
 const _AP = "AsPath";
 const _APRN = "AttachmentPolicyRuleNumber";
 const _AR = "AwsRegion";
@@ -244,6 +247,7 @@ const _ECNCSRx = "ExecuteCoreNetworkChangeSetResponse";
 const _EL = "EdgeLocation";
 const _ELd = "EdgeLocations";
 const _EO = "EdgeOverride";
+const _EPM = "ExactPrefixMatches";
 const _ES = "EdgeSets";
 const _ESL = "EdgeSetList";
 const _ET = "EventTime";
@@ -251,6 +255,7 @@ const _Ed = "Edges";
 const _F = "Fields";
 const _FM = "FilterMap";
 const _FP = "ForwardPath";
+const _Fi = "Filters";
 const _Fr = "From";
 const _GC = "GetConnections";
 const _GCA = "GetConnectAttachment";
@@ -352,6 +357,9 @@ const _K = "Key";
 const _L = "Location";
 const _LA = "LinkAssociation";
 const _LAL = "LinkAssociationList";
+const _LANC = "ListAttachmentNatConfigurations";
+const _LANCR = "ListAttachmentNatConfigurationsRequest";
+const _LANCRi = "ListAttachmentNatConfigurationsResponse";
 const _LAR = "ListAttachmentsRequest";
 const _LARPA = "ListAttachmentRoutingPolicyAssociations";
 const _LARPAR = "ListAttachmentRoutingPolicyAssociationsRequest";
@@ -403,15 +411,19 @@ const _MM = "MedMatches";
 const _MP = "MissingPermission";
 const _MPC = "MissingPermissionsContext";
 const _MR = "MaxResults";
+const _MSC = "MatchSourceCidr";
 const _Me = "Med";
 const _Met = "Metadata";
 const _Mo = "Model";
 const _Mod = "Mode";
 const _N = "Name";
+const _NC = "NatCidr";
 const _NFG = "NetworkFunctionGroups";
 const _NFGL = "NetworkFunctionGroupList";
 const _NFGN = "NetworkFunctionGroupName";
 const _NFGe = "NetworkFunctionGroup";
+const _NGR = "NatGatewayRules";
+const _NGS = "NatGatewaySupport";
 const _NH = "NextHop";
 const _NHF = "NextHopFilters";
 const _NR = "NetworkResources";
@@ -420,12 +432,17 @@ const _NRCL = "NetworkResourceCountList";
 const _NRCe = "NetworkResourceCount";
 const _NRD = "NetworkRouteDestination";
 const _NRDL = "NetworkRouteDestinationList";
-const _NRL = "NetworkResourceList";
-const _NRLe = "NetworkRouteList";
+const _NRL = "NatRuleList";
+const _NRLe = "NetworkResourceList";
+const _NRLet = "NetworkRouteList";
+const _NRR = "NatRuleRequest";
+const _NRRL = "NatRuleRequestList";
 const _NRS = "NetworkResourceSummary";
+const _NRa = "NatRule";
 const _NRe = "NetworkRoutes";
 const _NRet = "NetworkResource";
 const _NRetw = "NetworkRoute";
+const _NSRS = "NatSystemRouteSupport";
 const _NT = "NextToken";
 const _NTL = "NetworkTelemetryList";
 const _NTa = "NameTag";
@@ -504,6 +521,7 @@ const _RI = "ResourceId";
 const _RINH = "RoutingInformationNextHop";
 const _RIe = "RequestId";
 const _RL = "RelationshipList";
+const _RN = "RuleNumber";
 const _RNFE = "ResourceNotFoundException";
 const _RP = "RoutingPolicy";
 const _RPAD = "RoutingPolicyAssociationDetails";
@@ -595,6 +613,9 @@ const _To = "To";
 const _Ty = "Type";
 const _Typ = "Types";
 const _UA = "UpdatedAt";
+const _UANC = "UpdateAttachmentNatConfiguration";
+const _UANCR = "UpdateAttachmentNatConfigurationRequest";
+const _UANCRp = "UpdateAttachmentNatConfigurationResponse";
 const _UC = "UpdateConnection";
 const _UCN = "UpdateCoreNetwork";
 const _UCNR = "UpdateCoreNetworkRequest";
@@ -834,13 +855,18 @@ export var AssociateTransitGatewayConnectPeerResponse$: StaticStructureSchema = 
 ];
 export var Attachment$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_CNI, _CNA, _AI, _OAI, _AT, _S, _EL, _ELd, _RAe, _APRN, _SN, _NFGN, _T, _PSC, _PNFGC, _CA, _UA, _LME],
-  [0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 1, 0, 0, () => TagList, () => ProposedSegmentChange$, () => ProposedNetworkFunctionGroupChange$, 4, 4, () => AttachmentErrorList]
+  [_CNI, _CNA, _AI, _OAI, _AT, _S, _EL, _ELd, _RAe, _APRN, _SN, _NFGN, _NGS, _NSRS, _T, _PSC, _PNFGC, _CA, _UA, _LME],
+  [0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 1, 0, 0, 0, 2, () => TagList, () => ProposedSegmentChange$, () => ProposedNetworkFunctionGroupChange$, 4, 4, () => AttachmentErrorList]
 ];
 export var AttachmentError$: StaticStructureSchema = [3, n0, _AE,
   0,
   [_Co, _M, _RAe, _RIe],
   [0, 0, 0, 0]
+];
+export var AttachmentNatConfiguration$: StaticStructureSchema = [3, n0, _ANC,
+  0,
+  [_AI, _NGS, _NSRS, _NGR],
+  [0, 0, 2, () => NatRuleList]
 ];
 export var AttachmentRoutingPolicyAssociationSummary$: StaticStructureSchema = [3, n0, _ARPAS,
   0,
@@ -989,8 +1015,8 @@ export var CoreNetworkSummary$: StaticStructureSchema = [3, n0, _CNSo,
 ];
 export var CreateConnectAttachmentRequest$: StaticStructureSchema = [3, n0, _CCAR,
   0,
-  [_CNI, _EL, _TAI, _O, _RPL, _T, _CT],
-  [0, 0, 0, () => ConnectAttachmentOptions$, 0, () => TagList, [0, 4]], 4
+  [_CNI, _EL, _TAI, _O, _RPL, _NGS, _NGR, _T, _CT],
+  [0, 0, 0, () => ConnectAttachmentOptions$, 0, 0, () => NatRuleRequestList, () => TagList, [0, 4]], 4
 ];
 export var CreateConnectAttachmentResponse$: StaticStructureSchema = [3, n0, _CCARr,
   0,
@@ -1049,8 +1075,8 @@ export var CreateDeviceResponse$: StaticStructureSchema = [3, n0, _CDRr,
 ];
 export var CreateDirectConnectGatewayAttachmentRequest$: StaticStructureSchema = [3, n0, _CDCGAR,
   0,
-  [_CNI, _DCGA, _ELd, _RPL, _T, _CT],
-  [0, 0, 64 | 0, 0, () => TagList, [0, 4]], 3
+  [_CNI, _DCGA, _ELd, _RPL, _NGS, _NSRS, _NGR, _T, _CT],
+  [0, 0, 64 | 0, 0, 0, 2, () => NatRuleRequestList, () => TagList, [0, 4]], 3
 ];
 export var CreateDirectConnectGatewayAttachmentResponse$: StaticStructureSchema = [3, n0, _CDCGARr,
   0,
@@ -1089,8 +1115,8 @@ export var CreateSiteResponse$: StaticStructureSchema = [3, n0, _CSRr,
 ];
 export var CreateSiteToSiteVpnAttachmentRequest$: StaticStructureSchema = [3, n0, _CSTSVAR,
   0,
-  [_CNI, _VCA, _RPL, _T, _CT],
-  [0, 0, 0, () => TagList, [0, 4]], 2
+  [_CNI, _VCA, _RPL, _NGS, _NSRS, _NGR, _T, _CT],
+  [0, 0, 0, 0, 2, () => NatRuleRequestList, () => TagList, [0, 4]], 2
 ];
 export var CreateSiteToSiteVpnAttachmentResponse$: StaticStructureSchema = [3, n0, _CSTSVARr,
   0,
@@ -1119,8 +1145,8 @@ export var CreateTransitGatewayRouteTableAttachmentResponse$: StaticStructureSch
 ];
 export var CreateVpcAttachmentRequest$: StaticStructureSchema = [3, n0, _CVAR,
   0,
-  [_CNI, _VA, _SAu, _O, _RPL, _T, _CT],
-  [0, 0, 64 | 0, () => VpcOptions$, 0, () => TagList, [0, 4]], 3
+  [_CNI, _VA, _SAu, _O, _RPL, _NGS, _NGR, _T, _CT],
+  [0, 0, 64 | 0, () => VpcOptions$, 0, 0, () => NatRuleRequestList, () => TagList, [0, 4]], 3
 ];
 export var CreateVpcAttachmentResponse$: StaticStructureSchema = [3, n0, _CVARr,
   0,
@@ -1499,13 +1525,13 @@ export var GetNetworkResourcesResponse$: StaticStructureSchema = [3, n0, _GNRRe,
 ];
 export var GetNetworkRoutesRequest$: StaticStructureSchema = [3, n0, _GNRRet,
   0,
-  [_GNI, _RTI, _ECM, _LPM, _SOM, _SOMu, _PLI, _Sta, _Typ, _DF],
-  [[0, 1], () => RouteTableIdentifier$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, [2, n0, _FM, 0, 0, 64 | 0]], 2
+  [_GNI, _RTI, _ECM, _LPM, _SOM, _SOMu, _PLI, _Sta, _Typ, _DF, _MR, _NT],
+  [[0, 1], () => RouteTableIdentifier$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, [2, n0, _FM, 0, 0, 64 | 0], 1, 0], 2
 ];
 export var GetNetworkRoutesResponse$: StaticStructureSchema = [3, n0, _GNRRete,
   0,
-  [_RTA, _CNSE, _RTT, _RTTo, _NRe],
-  [0, () => CoreNetworkSegmentEdgeIdentifier$, 0, 4, () => NetworkRouteList]
+  [_RTA, _CNSE, _CNNFG, _RTT, _RTTo, _NRe, _NT],
+  [0, () => CoreNetworkSegmentEdgeIdentifier$, () => CoreNetworkNetworkFunctionGroupIdentifier$, 0, 4, () => NetworkRouteList, 0]
 ];
 export var GetNetworkTelemetryRequest$: StaticStructureSchema = [3, n0, _GNTR,
   0,
@@ -1622,6 +1648,16 @@ export var LinkAssociation$: StaticStructureSchema = [3, n0, _LA,
   [_GNI, _DI, _LI, _LAS],
   [0, 0, 0, 0]
 ];
+export var ListAttachmentNatConfigurationsRequest$: StaticStructureSchema = [3, n0, _LANCR,
+  0,
+  [_CNI, _AI, _Fi, _MR, _NT],
+  [0, 0, [2, n0, _FM, 0, 0, 64 | 0], 1, 0]
+];
+export var ListAttachmentNatConfigurationsResponse$: StaticStructureSchema = [3, n0, _LANCRi,
+  0,
+  [_ANCt, _NT],
+  [() => AttachmentNatConfigurationList, 0], 1
+];
 export var ListAttachmentRoutingPolicyAssociationsRequest$: StaticStructureSchema = [3, n0, _LARPAR,
   0,
   [_CNI, _AI, _MR, _NT],
@@ -1674,8 +1710,8 @@ export var ListCoreNetworkPrefixListAssociationsResponse$: StaticStructureSchema
 ];
 export var ListCoreNetworkRoutingInformationRequest$: StaticStructureSchema = [3, n0, _LCNRIR,
   0,
-  [_CNI, _SN, _EL, _NHF, _LPMo, _EAPM, _MM, _CM, _MR, _NT],
-  [[0, 1], 0, 0, [2, n0, _FM, 0, 0, 64 | 0], 64 | 0, 64 | 0, 64 | 0, 64 | 0, [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 3
+  [_CNI, _SN, _EL, _NHF, _EPM, _LPM, _SOM, _SOMu, _LPMo, _EAPM, _MM, _CM, _MR, _NT],
+  [[0, 1], 0, 0, [2, n0, _FM, 0, 0, 64 | 0], 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 3
 ];
 export var ListCoreNetworkRoutingInformationResponse$: StaticStructureSchema = [3, n0, _LCNRIRi,
   0,
@@ -1726,6 +1762,16 @@ export var Location$: StaticStructureSchema = [3, n0, _L,
   8,
   [_Ad, _La, _Lo],
   [0, 0, 0]
+];
+export var NatRule$: StaticStructureSchema = [3, n0, _NRa,
+  0,
+  [_RN, _MSC, _NC, _S],
+  [1, 0, 0, 0]
+];
+export var NatRuleRequest$: StaticStructureSchema = [3, n0, _NRR,
+  0,
+  [_RN, _MSC, _NC],
+  [1, 0, 0], 3
 ];
 export var NetworkFunctionGroup$: StaticStructureSchema = [3, n0, _NFGe,
   0,
@@ -2007,6 +2053,16 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
+export var UpdateAttachmentNatConfigurationRequest$: StaticStructureSchema = [3, n0, _UANCR,
+  0,
+  [_AI, _NGS, _NSRS, _NGR, _CT],
+  [[0, 1], 0, 2, () => NatRuleRequestList, [0, 4]], 1
+];
+export var UpdateAttachmentNatConfigurationResponse$: StaticStructureSchema = [3, n0, _UANCRp,
+  0,
+  [_AI, _NGS, _NSRS, _NGR],
+  [0, 0, 2, () => NatRuleList]
+];
 export var UpdateConnectionRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_GNI, _CI, _LI, _CLI, _D],
@@ -2131,6 +2187,9 @@ var AttachmentErrorList: StaticListSchema = [1, n0, _AEL,
 var AttachmentList: StaticListSchema = [1, n0, _AL,
   0, () => Attachment$
 ];
+var AttachmentNatConfigurationList: StaticListSchema = [1, n0, _ANCL,
+  0, () => AttachmentNatConfiguration$
+];
 var AttachmentRoutingPolicyAssociationsList: StaticListSchema = [1, n0, _ARPAL,
   0, () => AttachmentRoutingPolicyAssociationSummary$
 ];
@@ -2205,19 +2264,25 @@ var LinkIdList = 64 | 0;
 var LinkList: StaticListSchema = [1, n0, _LL,
   0, () => Link$
 ];
+var NatRuleList: StaticListSchema = [1, n0, _NRL,
+  0, () => NatRule$
+];
+var NatRuleRequestList: StaticListSchema = [1, n0, _NRRL,
+  0, () => NatRuleRequest$
+];
 var NetworkFunctionGroupList: StaticListSchema = [1, n0, _NFGL,
   0, () => NetworkFunctionGroup$
 ];
 var NetworkResourceCountList: StaticListSchema = [1, n0, _NRCL,
   0, () => NetworkResourceCount$
 ];
-var NetworkResourceList: StaticListSchema = [1, n0, _NRL,
+var NetworkResourceList: StaticListSchema = [1, n0, _NRLe,
   0, () => NetworkResource$
 ];
 var NetworkRouteDestinationList: StaticListSchema = [1, n0, _NRDL,
   0, () => NetworkRouteDestination$
 ];
-var NetworkRouteList: StaticListSchema = [1, n0, _NRLe,
+var NetworkRouteList: StaticListSchema = [1, n0, _NRLet,
   0, () => NetworkRoute$
 ];
 var NetworkTelemetryList: StaticListSchema = [1, n0, _NTL,
@@ -2472,6 +2537,9 @@ export var GetTransitGatewayRouteTableAttachment$: StaticOperationSchema = [9, n
 export var GetVpcAttachment$: StaticOperationSchema = [9, n0, _GVA,
   { [_h]: ["GET", "/vpc-attachments/{AttachmentId}", 200] }, () => GetVpcAttachmentRequest$, () => GetVpcAttachmentResponse$
 ];
+export var ListAttachmentNatConfigurations$: StaticOperationSchema = [9, n0, _LANC,
+  { [_h]: ["POST", "/nat-configurations", 200] }, () => ListAttachmentNatConfigurationsRequest$, () => ListAttachmentNatConfigurationsResponse$
+];
 export var ListAttachmentRoutingPolicyAssociations$: StaticOperationSchema = [9, n0, _LARPA,
   { [_h]: ["GET", "/routing-policy-label/core-network/{CoreNetworkId}", 200] }, () => ListAttachmentRoutingPolicyAssociationsRequest$, () => ListAttachmentRoutingPolicyAssociationsResponse$
 ];
@@ -2534,6 +2602,9 @@ export var TagResource$: StaticOperationSchema = [9, n0, _TR,
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] }, () => UntagResourceRequest$, () => UntagResourceResponse$
+];
+export var UpdateAttachmentNatConfiguration$: StaticOperationSchema = [9, n0, _UANC,
+  { [_h]: ["PATCH", "/attachments/{AttachmentId}/nat-configuration", 200] }, () => UpdateAttachmentNatConfigurationRequest$, () => UpdateAttachmentNatConfigurationResponse$
 ];
 export var UpdateConnection$: StaticOperationSchema = [9, n0, _UC,
   { [_h]: ["PATCH", "/global-networks/{GlobalNetworkId}/connections/{ConnectionId}", 200] }, () => UpdateConnectionRequest$, () => UpdateConnectionResponse$

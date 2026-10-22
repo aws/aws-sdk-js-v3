@@ -34,7 +34,6 @@ export interface UpdateProfileWithAgentCommandOutput extends UpdateProfileWithAg
  * const client = new HealthLakeClient(config);
  * const input = { // UpdateProfileWithAgentRequest
  *   ProfileId: "STRING_VALUE", // required
- *   SourceFormat: "CCDA" || "CSV", // required
  *   InputMessage: { // AgentInputMessage
  *     Body: "STRING_VALUE", // required
  *     Type: "normal" || "confirmation_response", // required
@@ -44,14 +43,26 @@ export interface UpdateProfileWithAgentCommandOutput extends UpdateProfileWithAg
  * const command = new UpdateProfileWithAgentCommand(input);
  * const response = await client.send(command);
  * // { // UpdateProfileWithAgentResponse
- * //   AgentResponse: { // AgentOutputMessage
- * //     Body: "STRING_VALUE", // required
- * //     Type: "INITIAL_GREETING" || "normal" || "confirmation" || "complete" || "error" || "options" || "choices", // required
- * //     OptionsList: [ // DataTransformationChatOptionsList
- * //       "STRING_VALUE",
- * //     ],
+ * //   AgentResponse: { // AgentOutputMessageStream Union: only one key present
+ * //     TextMessageEvent: { // TextMessageEvent
+ * //       Message: "STRING_VALUE", // required
+ * //     },
+ * //     ProgressEvent: { // ProgressEvent
+ * //       Message: "STRING_VALUE", // required
+ * //     },
+ * //     HeartbeatEvent: {},
+ * //     ErrorEvent: { // ErrorEvent
+ * //       Error: "InternalServerException" || "ResourceNotFoundException" || "ValidationException" || "AccessDeniedException" || "ThrottlingException", // required
+ * //       Message: "STRING_VALUE", // required
+ * //     },
+ * //     EndOfOutputEvent: { // EndOfOutputEvent
+ * //       FinalResponseMessage: "STRING_VALUE", // required
+ * //       Options: [ // DataTransformationChatOptionsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ConversationId: "STRING_VALUE",
+ * //     },
  * //   },
- * //   ConversationId: "STRING_VALUE", // required
  * // };
  *
  * ```
@@ -65,29 +76,14 @@ export interface UpdateProfileWithAgentCommandOutput extends UpdateProfileWithAg
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
  *
- * @throws {@link AgentMessageOutOfContextException} (client fault)
- *  <p>The agent message does not fit within the current conversation context. Start a new conversation or provide a message that relates to the current profile customization session.</p>
- *
- * @throws {@link ConversationNotFoundException} (client fault)
- *  <p>The specified conversation identifier does not exist. Verify the conversation ID or omit it to start a new conversation.</p>
- *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unknown internal error occurred in the service.</p>
- *
- * @throws {@link NotImplementedOperationException} (server fault)
- *  <p>The requested operation is not yet available. Check the service documentation for a list of supported operations.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested data store was not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
- *
- * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized to make this request. Verify that your Amazon Web Services credentials are valid and that you have the required permissions.</p>
- *
- * @throws {@link UnsupportedMIMETypeException} (client fault)
- *  <p>The content type in your request is not supported. Use a supported content type for this operation.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input parameter was invalid.</p>

@@ -48,7 +48,7 @@ export interface ListFileSystemsCommandOutput extends ListFileSystemsResponse, _
  * //       fileSystemId: "STRING_VALUE", // required
  * //       name: "STRING_VALUE",
  * //       bucket: "STRING_VALUE", // required
- * //       status: "available" || "creating" || "deleting" || "deleted" || "error" || "updating", // required
+ * //       status: "available" || "creating" || "deleting" || "deleted" || "error" || "updating" || "misconfigured", // required
  * //       statusMessage: "STRING_VALUE",
  * //       roleArn: "STRING_VALUE", // required
  * //       ownerId: "STRING_VALUE", // required

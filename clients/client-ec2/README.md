@@ -4538,6 +4538,13 @@ GetSubnetCidrReservations
 </details>
 <details>
 <summary>
+GetTransitGatewayAttachmentNatConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetTransitGatewayAttachmentNatConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetTransitGatewayAttachmentNatConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetTransitGatewayAttachmentNatConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
 GetTransitGatewayAttachmentPropagations
 </summary>
 
@@ -5102,6 +5109,13 @@ ModifyTransitGateway
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyTransitGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyTransitGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyTransitGatewayCommandOutput/)
+</details>
+<details>
+<summary>
+ModifyTransitGatewayAttachmentNatConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyTransitGatewayAttachmentNatConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyTransitGatewayAttachmentNatConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyTransitGatewayAttachmentNatConfigurationCommandOutput/)
 </details>
 <details>
 <summary>

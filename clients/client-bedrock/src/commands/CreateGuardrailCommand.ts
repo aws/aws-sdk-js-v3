@@ -129,6 +129,9 @@ export interface CreateGuardrailCommandOutput extends CreateGuardrailResponse, _
  *         enabled: true || false,
  *       },
  *     ],
+ *     tierConfig: { // GuardrailContextualGroundingTierConfig
+ *       tierName: "CLASSIC" || "STANDARD", // required
+ *     },
  *   },
  *   automatedReasoningPolicyConfig: { // GuardrailAutomatedReasoningPolicyConfig
  *     policies: [ // AutomatedReasoningPolicyArnList // required

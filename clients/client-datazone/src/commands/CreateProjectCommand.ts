@@ -69,7 +69,8 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *         userIdentifier: "STRING_VALUE",
  *         groupIdentifier: "STRING_VALUE",
  *       },
- *       designation: "PROJECT_OWNER" || "PROJECT_CONTRIBUTOR" || "PROJECT_CATALOG_VIEWER" || "PROJECT_CATALOG_CONSUMER" || "PROJECT_CATALOG_STEWARD", // required
+ *       designation: "PROJECT_OWNER" || "PROJECT_CONTRIBUTOR" || "PROJECT_CATALOG_VIEWER" || "PROJECT_CATALOG_CONSUMER" || "PROJECT_CATALOG_STEWARD" || "USER_CREATED_DESIGNATION", // required
+ *       userCreatedDesignationId: "STRING_VALUE",
  *     },
  *   ],
  * };

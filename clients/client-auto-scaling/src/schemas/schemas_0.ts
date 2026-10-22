@@ -20,7 +20,7 @@ const _AN = "AlarmName";
 const _ANc = "AcceleratorNames";
 const _APIA = "AssociatePublicIpAddress";
 const _AR = "AutoRollback";
-const _AS = "AlarmSpecification";
+const _AS = "AccountSetting";
 const _ASG = "AutoScalingGroup";
 const _ASGARN = "AutoScalingGroupARN";
 const _ASGN = "AutoScalingGroupName";
@@ -33,6 +33,8 @@ const _ASI = "AutoScalingInstances";
 const _ASID = "AutoScalingInstanceDetails";
 const _ASIT = "AutoScalingInstancesType";
 const _ASNT = "AutoScalingNotificationTypes";
+const _ASc = "AccountSettings";
+const _ASl = "AlarmSpecification";
 const _AT = "ActivitiesType";
 const _ATMMB = "AcceleratorTotalMemoryMiB";
 const _ATMMBR = "AcceleratorTotalMemoryMiBRequest";
@@ -107,6 +109,8 @@ const _Cp = "Cpu";
 const _D = "Description";
 const _DAL = "DescribeAccountLimits";
 const _DALA = "DescribeAccountLimitsAnswer";
+const _DAS = "DescribeAccountSettings";
+const _DASA = "DescribeAccountSettingsAnswer";
 const _DASG = "DeleteAutoScalingGroup";
 const _DASGT = "DeleteAutoScalingGroupType";
 const _DASGe = "DescribeAutoScalingGroups";
@@ -114,6 +118,7 @@ const _DASI = "DescribeAutoScalingInstances";
 const _DASIT = "DescribeAutoScalingInstancesType";
 const _DASNT = "DescribeAutoScalingNotificationTypes";
 const _DASNTA = "DescribeAutoScalingNotificationTypesAnswer";
+const _DAST = "DescribeAccountSettingsType";
 const _DAT = "DescribeAdjustmentTypes";
 const _DATA = "DescribeAdjustmentTypesAnswer";
 const _DC = "DesiredCapacity";
@@ -188,6 +193,7 @@ const _DTSe = "DetachTrafficSources";
 const _DTT = "DeleteTagsType";
 const _DTTe = "DescribeTagsType";
 const _DTe = "DescribeTags";
+const _DV = "DefaultValue";
 const _DWP = "DeleteWarmPool";
 const _DWPA = "DeleteWarmPoolAnswer";
 const _DWPAe = "DescribeWarmPoolAnswer";
@@ -198,6 +204,7 @@ const _De = "Details";
 const _Di = "Dimensions";
 const _E = "Ebs";
 const _EC = "ErrorCode";
+const _ED = "EnforcementDate";
 const _EIT = "ExcludedInstanceTypes";
 const _EIW = "EstimatedInstanceWarmup";
 const _EM = "EnabledMetrics";
@@ -214,7 +221,9 @@ const _ESAx = "ExitStandbyAnswer";
 const _ESQ = "EnterStandbyQuery";
 const _ESQx = "ExitStandbyQuery";
 const _ESx = "ExitStandby";
-const _ET = "EndTime";
+const _ET = "EnforcementType";
+const _ETn = "EndTime";
+const _EV = "EnforcedValue";
 const _En = "Encrypted";
 const _Ena = "Enabled";
 const _Er = "Errors";
@@ -371,7 +380,7 @@ const _Me = "Metrics";
 const _Met = "Metric";
 const _Mi = "Min";
 const _Mo = "Mode";
-const _N = "Namespace";
+const _N = "Name";
 const _NBG = "NetworkBandwidthGbps";
 const _NBGR = "NetworkBandwidthGbpsRequest";
 const _NC = "NotificationConfigurations";
@@ -387,7 +396,7 @@ const _NT = "NextToken";
 const _NTARN = "NotificationTargetARN";
 const _NTo = "NotificationType";
 const _NTot = "NotificationTypes";
-const _Na = "Name";
+const _Na = "Namespace";
 const _O = "Operator";
 const _ODAS = "OnDemandAllocationStrategy";
 const _ODBC = "OnDemandBaseCapacity";
@@ -398,6 +407,9 @@ const _P = "Progress";
 const _PAL = "PropagateAtLaunch";
 const _PARN = "PolicyARN";
 const _PARNT = "PolicyARNType";
+const _PAS = "PutAccountSetting";
+const _PASA = "PutAccountSettingAnswer";
+const _PAST = "PutAccountSettingType";
 const _PC = "PredictedCapacity";
 const _PCOR = "PercentageCompleteOnRollback";
 const _PCe = "PercentageComplete";
@@ -527,6 +539,7 @@ const _SUGAR = "ScheduledUpdateGroupActionRequest";
 const _SUGARc = "ScheduledUpdateGroupActionRequests";
 const _SUGAc = "ScheduledUpdateGroupAction";
 const _SZSV = "SkipZonalShiftValidation";
+const _Se = "Settings";
 const _St = "Statistic";
 const _Sta = "State";
 const _Stat = "Stat";
@@ -567,14 +580,14 @@ const _UASG = "UpdateAutoScalingGroup";
 const _UASGT = "UpdateAutoScalingGroupType";
 const _UD = "UserData";
 const _UT = "UpdateTime";
-const _V = "Values";
+const _V = "Value";
 const _VCC = "VCpuCount";
 const _VCCR = "VCpuCountRequest";
 const _VN = "VirtualName";
 const _VPCZI = "VPCZoneIdentifier";
 const _VS = "VolumeSize";
 const _VT = "VolumeType";
-const _Va = "Value";
+const _Va = "Values";
 const _Ve = "Version";
 const _WC = "WeightedCapacity";
 const _WFTI = "WaitForTransitioningInstances";
@@ -709,6 +722,11 @@ export var AcceleratorTotalMemoryMiBRequest$: StaticStructureSchema = [3, n0, _A
   [_Mi, _Ma],
   [1, 1]
 ];
+export var AccountSetting$: StaticStructureSchema = [3, n0, _AS,
+  0,
+  [_N, _V, _ET, _ED, _DV, _EV],
+  [0, 0, 0, 4, 0, 0]
+];
 export var ActivitiesType$: StaticStructureSchema = [3, n0, _AT,
   0,
   [_A, _NT],
@@ -716,7 +734,7 @@ export var ActivitiesType$: StaticStructureSchema = [3, n0, _AT,
 ];
 export var Activity$: StaticStructureSchema = [3, n0, _Ac,
   0,
-  [_AI, _ASGN, _C, _ST, _SC, _D, _ET, _SM, _P, _De, _ASGS, _ASGARN],
+  [_AI, _ASGN, _C, _ST, _SC, _D, _ETn, _SM, _P, _De, _ASGS, _ASGARN],
   [0, 0, 0, 4, 0, 0, 4, 0, 1, 0, 0, 0], 5
 ];
 export var ActivityType$: StaticStructureSchema = [3, n0, _ATc,
@@ -734,7 +752,7 @@ export var Alarm$: StaticStructureSchema = [3, n0, _Al,
   [_AN, _AARN],
   [0, 0]
 ];
-export var AlarmSpecification$: StaticStructureSchema = [3, n0, _AS,
+export var AlarmSpecification$: StaticStructureSchema = [3, n0, _ASl,
   0,
   [_Ala],
   [64 | 0]
@@ -856,7 +874,7 @@ export var CancelInstanceRefreshType$: StaticStructureSchema = [3, n0, _CIRT,
 ];
 export var CapacityForecast$: StaticStructureSchema = [3, n0, _CF,
   0,
-  [_Ti, _V],
+  [_Ti, _Va],
   [64 | 4, 64 | 1], 2
 ];
 export var CapacityReservationSpecification$: StaticStructureSchema = [3, n0, _CRS,
@@ -901,7 +919,7 @@ export var CreateOrUpdateTagsType$: StaticStructureSchema = [3, n0, _COUTT,
 ];
 export var CustomizedMetricSpecification$: StaticStructureSchema = [3, n0, _CMS,
   0,
-  [_MN, _N, _Di, _St, _U, _Pe, _Me],
+  [_MN, _Na, _Di, _St, _U, _Pe, _Me],
   [0, 0, () => MetricDimensions, 0, 0, 1, () => TargetTrackingMetricDataQueries]
 ];
 export var DeleteAutoScalingGroupType$: StaticStructureSchema = [3, n0, _DASGT,
@@ -953,6 +971,16 @@ export var DescribeAccountLimitsAnswer$: StaticStructureSchema = [3, n0, _DALA,
   0,
   [_MNOASG, _MNOLC, _NOASG, _NOLC],
   [1, 1, 1, 1]
+];
+export var DescribeAccountSettingsAnswer$: StaticStructureSchema = [3, n0, _DASA,
+  0,
+  [_Se, _NT],
+  [() => AccountSettings, 0]
+];
+export var DescribeAccountSettingsType$: StaticStructureSchema = [3, n0, _DAST,
+  0,
+  [_N, _NT, _MR],
+  [0, 0, 1]
 ];
 export var DescribeAdjustmentTypesAnswer$: StaticStructureSchema = [3, n0, _DATA,
   0,
@@ -1041,7 +1069,7 @@ export var DescribeScalingActivitiesType$: StaticStructureSchema = [3, n0, _DSAT
 ];
 export var DescribeScheduledActionsType$: StaticStructureSchema = [3, n0, _DSATes,
   0,
-  [_ASGN, _SAN, _ST, _ET, _NT, _MR],
+  [_ASGN, _SAN, _ST, _ETn, _NT, _MR],
   [0, 64 | 0, 4, 4, 0, 1]
 ];
 export var DescribeTagsType$: StaticStructureSchema = [3, n0, _DTTe,
@@ -1176,7 +1204,7 @@ export var FailedScheduledUpdateGroupActionRequest$: StaticStructureSchema = [3,
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _Fi,
   0,
-  [_Na, _V],
+  [_N, _Va],
   [0, 64 | 0]
 ];
 export var GetPredictiveScalingForecastAnswer$: StaticStructureSchema = [3, n0, _GPSFA,
@@ -1186,7 +1214,7 @@ export var GetPredictiveScalingForecastAnswer$: StaticStructureSchema = [3, n0, 
 ];
 export var GetPredictiveScalingForecastType$: StaticStructureSchema = [3, n0, _GPSFT,
   0,
-  [_ASGN, _PN, _ST, _ET],
+  [_ASGN, _PN, _ST, _ETn],
   [0, 0, 4, 4], 4
 ];
 export var Instance$: StaticStructureSchema = [3, n0, _In,
@@ -1221,7 +1249,7 @@ export var InstanceMonitoring$: StaticStructureSchema = [3, n0, _IM,
 ];
 export var InstanceRefresh$: StaticStructureSchema = [3, n0, _IRn,
   0,
-  [_IRI, _ASGN, _S, _SR, _ST, _ET, _PCe, _ITU, _PD, _Pr, _DCes, _RD, _Str],
+  [_IRI, _ASGN, _S, _SR, _ST, _ETn, _PCe, _ITU, _PD, _Pr, _DCes, _RD, _Str],
   [0, 0, 0, 0, 4, 4, 1, 1, () => InstanceRefreshProgressDetails$, () => RefreshPreferences$, [() => DesiredConfiguration$, 0], () => RollbackDetails$, 0]
 ];
 export var InstanceRefreshLivePoolProgress$: StaticStructureSchema = [3, n0, _IRLPP,
@@ -1326,7 +1354,7 @@ export var LoadBalancerTargetGroupState$: StaticStructureSchema = [3, n0, _LBTGS
 ];
 export var LoadForecast$: StaticStructureSchema = [3, n0, _LF,
   0,
-  [_Ti, _V, _MSe],
+  [_Ti, _Va, _MSe],
   [64 | 4, 64 | 1, () => PredictiveScalingMetricSpecification$], 3
 ];
 export var MemoryGiBPerVCpuRequest$: StaticStructureSchema = [3, n0, _MGBPVCR,
@@ -1341,7 +1369,7 @@ export var MemoryMiBRequest$: StaticStructureSchema = [3, n0, _MMBR,
 ];
 export var Metric$: StaticStructureSchema = [3, n0, _Met,
   0,
-  [_N, _MN, _Di],
+  [_Na, _MN, _Di],
   [0, 0, () => MetricDimensions], 2
 ];
 export var MetricCollectionType$: StaticStructureSchema = [3, n0, _MCT,
@@ -1356,7 +1384,7 @@ export var MetricDataQuery$: StaticStructureSchema = [3, n0, _MDQ,
 ];
 export var MetricDimension$: StaticStructureSchema = [3, n0, _MD,
   0,
-  [_Na, _Va],
+  [_N, _V],
   [0, 0], 2
 ];
 export var MetricGranularityType$: StaticStructureSchema = [3, n0, _MGT,
@@ -1464,6 +1492,16 @@ export var ProcessType$: StaticStructureSchema = [3, n0, _PTro,
   [_PNr],
   [0], 1
 ];
+export var PutAccountSettingAnswer$: StaticStructureSchema = [3, n0, _PASA,
+  0,
+  [],
+  []
+];
+export var PutAccountSettingType$: StaticStructureSchema = [3, n0, _PAST,
+  0,
+  [_N, _V],
+  [0, 0], 2
+];
 export var PutLifecycleHookAnswer$: StaticStructureSchema = [3, n0, _PLHA,
   0,
   [],
@@ -1486,7 +1524,7 @@ export var PutScalingPolicyType$: StaticStructureSchema = [3, n0, _PSPT,
 ];
 export var PutScheduledUpdateGroupActionType$: StaticStructureSchema = [3, n0, _PSUGAT,
   0,
-  [_ASGN, _SANc, _Tim, _ST, _ET, _Rec, _MS, _MSa, _DC, _TZ],
+  [_ASGN, _SANc, _Tim, _ST, _ETn, _Rec, _MS, _MSa, _DC, _TZ],
   [0, 0, 4, 4, 4, 0, 1, 1, 1, 0], 2
 ];
 export var PutWarmPoolAnswer$: StaticStructureSchema = [3, n0, _PWPA,
@@ -1511,7 +1549,7 @@ export var RecordLifecycleActionHeartbeatType$: StaticStructureSchema = [3, n0, 
 ];
 export var RefreshPreferences$: StaticStructureSchema = [3, n0, _RP,
   0,
-  [_MHP, _IW, _CP, _CD, _SMk, _AR, _SIPI, _SIt, _AS, _MHPa, _BTa],
+  [_MHP, _IW, _CP, _CD, _SMk, _AR, _SIPI, _SIt, _ASl, _MHPa, _BTa],
   [1, 1, 64 | 1, 1, 2, 2, 0, 0, () => AlarmSpecification$, 1, 1]
 ];
 export var RetentionTriggers$: StaticStructureSchema = [3, n0, _RT,
@@ -1551,12 +1589,12 @@ export var ScheduledActionsType$: StaticStructureSchema = [3, n0, _SAT,
 ];
 export var ScheduledUpdateGroupAction$: StaticStructureSchema = [3, n0, _SUGAc,
   0,
-  [_ASGN, _SANc, _SAARN, _Tim, _ST, _ET, _Rec, _MS, _MSa, _DC, _TZ],
+  [_ASGN, _SANc, _SAARN, _Tim, _ST, _ETn, _Rec, _MS, _MSa, _DC, _TZ],
   [0, 0, 0, 4, 4, 4, 0, 1, 1, 1, 0]
 ];
 export var ScheduledUpdateGroupActionRequest$: StaticStructureSchema = [3, n0, _SUGAR,
   0,
-  [_SANc, _ST, _ET, _Rec, _MS, _MSa, _DC, _TZ],
+  [_SANc, _ST, _ETn, _Rec, _MS, _MSa, _DC, _TZ],
   [0, 4, 4, 0, 1, 1, 1, 0], 1
 ];
 export var SetDesiredCapacityType$: StaticStructureSchema = [3, n0, _SDCT,
@@ -1601,12 +1639,12 @@ export var SuspendedProcess$: StaticStructureSchema = [3, n0, _SPu,
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
-  [_K, _RIe, _RTe, _Va, _PAL],
+  [_K, _RIe, _RTe, _V, _PAL],
   [0, 0, 0, 0, 2], 1
 ];
 export var TagDescription$: StaticStructureSchema = [3, n0, _TD,
   0,
-  [_RIe, _RTe, _K, _Va, _PAL],
+  [_RIe, _RTe, _K, _V, _PAL],
   [0, 0, 0, 0, 2]
 ];
 export var TagsType$: StaticStructureSchema = [3, n0, _TT,
@@ -1668,6 +1706,9 @@ var __Unit = "unit" as const;
 var AcceleratorManufacturers = 64 | 0;
 var AcceleratorNames = 64 | 0;
 var AcceleratorTypes = 64 | 0;
+var AccountSettings: StaticListSchema = [1, n0, _ASc,
+  0, () => AccountSetting$
+];
 var Activities: StaticListSchema = [1, n0, _A,
   0, () => Activity$
 ];
@@ -1885,6 +1926,9 @@ export var DeleteWarmPool$: StaticOperationSchema = [9, n0, _DWP,
 export var DescribeAccountLimits$: StaticOperationSchema = [9, n0, _DAL,
   0, () => __Unit, () => DescribeAccountLimitsAnswer$
 ];
+export var DescribeAccountSettings$: StaticOperationSchema = [9, n0, _DAS,
+  0, () => DescribeAccountSettingsType$, () => DescribeAccountSettingsAnswer$
+];
 export var DescribeAdjustmentTypes$: StaticOperationSchema = [9, n0, _DAT,
   0, () => __Unit, () => DescribeAdjustmentTypesAnswer$
 ];
@@ -1977,6 +2021,9 @@ export var GetPredictiveScalingForecast$: StaticOperationSchema = [9, n0, _GPSF,
 ];
 export var LaunchInstances$: StaticOperationSchema = [9, n0, _LI,
   0, () => LaunchInstancesRequest$, () => LaunchInstancesResult$
+];
+export var PutAccountSetting$: StaticOperationSchema = [9, n0, _PAS,
+  0, () => PutAccountSettingType$, () => PutAccountSettingAnswer$
 ];
 export var PutLifecycleHook$: StaticOperationSchema = [9, n0, _PLH,
   0, () => PutLifecycleHookType$, () => PutLifecycleHookAnswer$

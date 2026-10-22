@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeServiceRevisionsRequest } from "../models/models_0";
-import type { DescribeServiceRevisionsResponse } from "../models/models_1";
+import type { DescribeServiceRevisionsRequest, DescribeServiceRevisionsResponse } from "../models/models_1";
 import { DescribeServiceRevisions$ } from "../schemas/schemas_0";
 
 /**
@@ -318,12 +317,59 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  * //             logGroupName: "STRING_VALUE", // required
  * //           },
  * //         ],
+ * //         gatewayConnections: [ // GatewayConnectionList
+ * //           { // GatewayConnection
+ * //             gatewayArn: "STRING_VALUE",
+ * //             gatewayRouteArn: "STRING_VALUE",
+ * //             portName: "STRING_VALUE",
+ * //             serviceUrl: "STRING_VALUE",
+ * //             accessType: "PUBLIC" || "PRIVATE",
+ * //             status: "ACTIVE" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED",
+ * //             resources: { // GatewayConnectionResources Union: only one key present
+ * //               hostSharedAlb: [ // GatewayConnectionAlbResourcesList
+ * //                 { // GatewayConnectionAlbResources
+ * //                   acmCertificateArn: "STRING_VALUE",
+ * //                   loadBalancerArn: "STRING_VALUE",
+ * //                   loadBalancerSecurityGroupArns: "<StringList>",
+ * //                   listenerArn: "STRING_VALUE",
+ * //                   listenerRuleArn: "STRING_VALUE",
+ * //                   testListenerRuleArn: "STRING_VALUE",
+ * //                   targetGroupArn: "STRING_VALUE",
+ * //                   alternateTargetGroupArn: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
  * //       },
  * //       overrides: { // ServiceRevisionOverrides
  * //         runtimePlatform: { // RuntimePlatformOverride
  * //           cpuArchitecture: "STRING_VALUE",
  * //         },
  * //       },
+ * //       gatewayConnectors: [ // GatewayConnectorList
+ * //         { // GatewayConnector
+ * //           portName: "STRING_VALUE", // required
+ * //           healthCheck: { // GatewayConnectorHealthCheck
+ * //             healthCheckProtocol: "HTTP" || "HTTPS",
+ * //             healthCheckPort: Number("int"),
+ * //             healthCheckPath: "STRING_VALUE",
+ * //             healthCheckTimeoutSeconds: Number("int"),
+ * //             healthCheckIntervalSeconds: Number("int"),
+ * //             healthyThresholdCount: Number("int"),
+ * //             unhealthyThresholdCount: Number("int"),
+ * //             matcher: { // GatewayConnectorHealthCheckMatcher
+ * //               httpCode: "STRING_VALUE",
+ * //               grpcCode: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           filters: { // GatewayConnectorFilters
+ * //             accessTypes: [ // AccessTypeList
+ * //               "PUBLIC" || "PRIVATE",
+ * //             ],
+ * //           },
+ * //         },
+ * //       ],
  * //       monitoring: { // MonitoringConfiguration
  * //         metricConfigurations: [ // MetricConfigurationList
  * //           { // MetricConfiguration

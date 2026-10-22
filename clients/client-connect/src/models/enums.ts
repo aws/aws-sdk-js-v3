@@ -2361,6 +2361,19 @@ export type RuleCapabilityTier = (typeof RuleCapabilityTier)[keyof typeof RuleCa
  * @public
  * @enum
  */
+export const SecurityProfileType = {
+  AWS_MANAGED: "AWS_MANAGED",
+  CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type SecurityProfileType = (typeof SecurityProfileType)[keyof typeof SecurityProfileType];
+
+/**
+ * @public
+ * @enum
+ */
 export const TrafficDistributionGroupStatus = {
   ACTIVE: "ACTIVE",
   CREATION_FAILED: "CREATION_FAILED",

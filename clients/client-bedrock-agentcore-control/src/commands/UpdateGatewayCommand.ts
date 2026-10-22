@@ -23,7 +23,7 @@ export interface UpdateGatewayCommandInput extends UpdateGatewayRequest {}
 export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing gateway.</p>
+ * <p>Updates an existing gateway.</p> <p>Replaces the entire gateway configuration. Any optional field that you omit, including fields in <code>protocolConfiguration</code>, is reset. For information about retrieving the current configuration, see <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetGateway.html">GetGateway</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

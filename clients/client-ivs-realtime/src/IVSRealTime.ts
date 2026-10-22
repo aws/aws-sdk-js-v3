@@ -159,6 +159,11 @@ import {
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RevokeConnectionTokenCommandInput,
+  type RevokeConnectionTokenCommandOutput,
+  RevokeConnectionTokenCommand,
+} from "./commands/RevokeConnectionTokenCommand";
+import {
   type StartCompositionCommandInput,
   type StartCompositionCommandOutput,
   StartCompositionCommand,
@@ -242,6 +247,7 @@ const commands = {
   ListStageSessionsCommand,
   ListStorageConfigurationsCommand,
   ListTagsForResourceCommand,
+  RevokeConnectionTokenCommand,
   StartCompositionCommand,
   StartParticipantReplicationCommand,
   StopCompositionCommand,
@@ -805,6 +811,23 @@ export interface IVSRealTime {
     args: ListTagsForResourceCommandInput,
     options: IVSRealTimeRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RevokeConnectionTokenCommand}
+   */
+  revokeConnectionToken(
+    args: RevokeConnectionTokenCommandInput,
+    options?: IVSRealTimeRequestOptions
+  ): Promise<RevokeConnectionTokenCommandOutput>;
+  revokeConnectionToken(
+    args: RevokeConnectionTokenCommandInput,
+    cb: (err: any, data?: RevokeConnectionTokenCommandOutput) => void
+  ): void;
+  revokeConnectionToken(
+    args: RevokeConnectionTokenCommandInput,
+    options: IVSRealTimeRequestOptions,
+    cb: (err: any, data?: RevokeConnectionTokenCommandOutput) => void
   ): void;
 
   /**

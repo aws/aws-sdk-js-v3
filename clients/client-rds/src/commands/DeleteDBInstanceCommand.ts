@@ -145,6 +145,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * //           StorageType: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       DBCapacityReservationIdentifier: "STRING_VALUE",
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -293,6 +294,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * //     StorageVolumeStatus: "STRING_VALUE",
  * //     StorageOperationStatus: "STRING_VALUE",
  * //     StorageOperationPercentProgress: Number("int"),
+ * //     DBCapacityReservationIdentifier: "STRING_VALUE",
  * //   },
  * // };
  *

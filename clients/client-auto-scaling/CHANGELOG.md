@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1156.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1155.0...v3.1156.0) (2026-10-22)
+
+**Note:** Version bump only for package @aws-sdk/client-auto-scaling
+
+
+
+
+
+# [3.1155.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1154.0...v3.1155.0) (2026-10-21)
+
+
+### Features
+
+* **client-auto-scaling:** EC2 Auto Scaling now supports account settings, letting you manage account-level configuration for Auto Scaling. ([d0cdb39](https://github.com/aws/aws-sdk-js-v3/commit/d0cdb3960ad0f9178bbd3424f64a2f67bc4c981d))
+
+
+
+
+
+# [3.1154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1153.0...v3.1154.0) (2026-10-20)
+
+**Note:** Version bump only for package @aws-sdk/client-auto-scaling
+
+
+
+
+
 # [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
 
 **Note:** Version bump only for package @aws-sdk/client-auto-scaling

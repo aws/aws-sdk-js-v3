@@ -384,7 +384,11 @@ export class MaxLexiconsNumberExceededException extends __BaseException {
 
 /**
  * <p>The alphabet specified by the lexicon is not a supported alphabet.
- *       Valid values are <code>x-sampa</code> and <code>ipa</code>.</p>
+ *       Valid values are <code>ipa</code>, <code>x-sampa</code>,
+ *       <code>x-amazon-pinyin</code>, <code>x-amazon-jyutping</code>,
+ *       <code>x-amazon-pron-kana</code>, and
+ *       <code>x-amazon-yomigana</code>. Replace the unsupported alphabet
+ *       with one of the valid values and resubmit your request.</p>
  * @public
  */
 export class UnsupportedPlsAlphabetException extends __BaseException {

@@ -24,6 +24,11 @@ import {
   CreateFeedCommand,
 } from "./commands/CreateFeedCommand";
 import {
+  type CreateScheduleActionCommandInput,
+  type CreateScheduleActionCommandOutput,
+  CreateScheduleActionCommand,
+} from "./commands/CreateScheduleActionCommand";
+import {
   type DeleteDictionaryCommandInput,
   type DeleteDictionaryCommandOutput,
   DeleteDictionaryCommand,
@@ -38,6 +43,11 @@ import {
   type DeleteFeedPolicyCommandOutput,
   DeleteFeedPolicyCommand,
 } from "./commands/DeleteFeedPolicyCommand";
+import {
+  type DeleteScheduleActionCommandInput,
+  type DeleteScheduleActionCommandOutput,
+  DeleteScheduleActionCommand,
+} from "./commands/DeleteScheduleActionCommand";
 import {
   type DisassociateFeedCommandInput,
   type DisassociateFeedCommandOutput,
@@ -70,6 +80,11 @@ import {
   ListDictionariesCommand,
 } from "./commands/ListDictionariesCommand";
 import { type ListFeedsCommandInput, type ListFeedsCommandOutput, ListFeedsCommand } from "./commands/ListFeedsCommand";
+import {
+  type ListScheduleActionsCommandInput,
+  type ListScheduleActionsCommandOutput,
+  ListScheduleActionsCommand,
+} from "./commands/ListScheduleActionsCommand";
 import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
@@ -110,6 +125,7 @@ import type { ElementalInferenceServiceException } from "./models/ElementalInfer
 import type { ResourceNotFoundException } from "./models/errors";
 import { paginateListDictionaries } from "./pagination/ListDictionariesPaginator";
 import { paginateListFeeds } from "./pagination/ListFeedsPaginator";
+import { paginateListScheduleActions } from "./pagination/ListScheduleActionsPaginator";
 import { paginateSearchFixtures } from "./pagination/SearchFixturesPaginator";
 import { waitUntilFeedDeleted } from "./waiters/waitForFeedDeleted";
 
@@ -117,9 +133,11 @@ const commands = {
   AssociateFeedCommand,
   CreateDictionaryCommand,
   CreateFeedCommand,
+  CreateScheduleActionCommand,
   DeleteDictionaryCommand,
   DeleteFeedCommand,
   DeleteFeedPolicyCommand,
+  DeleteScheduleActionCommand,
   DisassociateFeedCommand,
   ExportDictionaryEntriesCommand,
   GetDictionaryCommand,
@@ -128,6 +146,7 @@ const commands = {
   GetFixtureCommand,
   ListDictionariesCommand,
   ListFeedsCommand,
+  ListScheduleActionsCommand,
   ListTagsForResourceCommand,
   PutFeedPolicyCommand,
   SearchFixturesCommand,
@@ -139,6 +158,7 @@ const commands = {
 const paginators = {
   paginateListDictionaries,
   paginateListFeeds,
+  paginateListScheduleActions,
   paginateSearchFixtures,
 };
 const waiters = {
@@ -205,6 +225,23 @@ export interface ElementalInference {
   ): void;
 
   /**
+   * @see {@link CreateScheduleActionCommand}
+   */
+  createScheduleAction(
+    args: CreateScheduleActionCommandInput,
+    options?: ElementalInferenceRequestOptions
+  ): Promise<CreateScheduleActionCommandOutput>;
+  createScheduleAction(
+    args: CreateScheduleActionCommandInput,
+    cb: (err: any, data?: CreateScheduleActionCommandOutput) => void
+  ): void;
+  createScheduleAction(
+    args: CreateScheduleActionCommandInput,
+    options: ElementalInferenceRequestOptions,
+    cb: (err: any, data?: CreateScheduleActionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDictionaryCommand}
    */
   deleteDictionary(
@@ -253,6 +290,23 @@ export interface ElementalInference {
     args: DeleteFeedPolicyCommandInput,
     options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: DeleteFeedPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteScheduleActionCommand}
+   */
+  deleteScheduleAction(
+    args: DeleteScheduleActionCommandInput,
+    options?: ElementalInferenceRequestOptions
+  ): Promise<DeleteScheduleActionCommandOutput>;
+  deleteScheduleAction(
+    args: DeleteScheduleActionCommandInput,
+    cb: (err: any, data?: DeleteScheduleActionCommandOutput) => void
+  ): void;
+  deleteScheduleAction(
+    args: DeleteScheduleActionCommandInput,
+    options: ElementalInferenceRequestOptions,
+    cb: (err: any, data?: DeleteScheduleActionCommandOutput) => void
   ): void;
 
   /**
@@ -391,6 +445,23 @@ export interface ElementalInference {
     args: ListFeedsCommandInput,
     options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: ListFeedsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListScheduleActionsCommand}
+   */
+  listScheduleActions(
+    args: ListScheduleActionsCommandInput,
+    options?: ElementalInferenceRequestOptions
+  ): Promise<ListScheduleActionsCommandOutput>;
+  listScheduleActions(
+    args: ListScheduleActionsCommandInput,
+    cb: (err: any, data?: ListScheduleActionsCommandOutput) => void
+  ): void;
+  listScheduleActions(
+    args: ListScheduleActionsCommandInput,
+    options: ElementalInferenceRequestOptions,
+    cb: (err: any, data?: ListScheduleActionsCommandOutput) => void
   ): void;
 
   /**
@@ -533,6 +604,17 @@ export interface ElementalInference {
     args?: ListFeedsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListFeedsCommandOutput>;
+
+  /**
+   * @see {@link ListScheduleActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListScheduleActionsCommandOutput}.
+   */
+  paginateListScheduleActions(
+    args: ListScheduleActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListScheduleActionsCommandOutput>;
 
   /**
    * @see {@link SearchFixturesCommand}

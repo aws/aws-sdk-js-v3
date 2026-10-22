@@ -154,6 +154,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * //             StorageType: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         DBCapacityReservationIdentifier: "STRING_VALUE",
  * //       },
  * //       LatestRestorableTime: new Date("TIMESTAMP"),
  * //       MultiAZ: true || false,
@@ -302,6 +303,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * //       StorageVolumeStatus: "STRING_VALUE",
  * //       StorageOperationStatus: "STRING_VALUE",
  * //       StorageOperationPercentProgress: Number("int"),
+ * //       DBCapacityReservationIdentifier: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

@@ -9,6 +9,7 @@ import type {
   ClientPasswordAuthType,
   ClusterScalabilityType,
   DatabaseInsightsMode,
+  DBCapacityReservationState,
   DBProxyEndpointStatus,
   DBProxyEndpointTargetRole,
   DBProxyStatus,
@@ -664,6 +665,154 @@ export interface DBClusterBacktrack {
 /**
  * @public
  */
+export interface CancelDBCapacityReservationRequest {
+  /**
+   * <p>The identifier or the name of the DB capacity reservation to cancel. You can specify the identifier, which has the prefix <code>dbcr-</code>, or the reservation name.</p>
+   * @public
+   */
+  DBCapacityReservationIdentifier: string | undefined;
+}
+
+/**
+ * <p>Contains the unused capacity of a DB capacity reservation in one Availability Zone.</p> <p>This data type is used as a response element in the following operations:</p> <ul> <li> <p> <code>CancelDBCapacityReservation</code> </p> </li> <li> <p> <code>CreateDBCapacityReservation</code> </p> </li> <li> <p> <code>DescribeDBCapacityReservations</code> </p> </li> <li> <p> <code>ModifyDBCapacityReservation</code> </p> </li> </ul>
+ * @public
+ */
+export interface AvailableCapacityPerAvailabilityZone {
+  /**
+   * <p>The name of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The number of DB instances that remain available in this Availability Zone. Amazon RDS decreases this value when a DB instance takes a unit of reserved capacity in this Availability Zone, and it increases this value when a DB instance releases that unit.</p> <p>A DB instance with a pending modification also holds a unit of reserved capacity. A DB instance has a pending modification when Amazon RDS accepts a change to the DB instance and applies that change later, during the maintenance window. Amazon RDS holds the unit from the time that it accepts the request. To find a DB instance with a pending modification, check <code>PendingModifiedValues</code> in the response of <code>DescribeDBInstances</code>.</p> <p>Amazon RDS reports available capacity only for a reservation that is in the <code>active</code> state and not past its end date. Otherwise, this value is <code>0</code>.</p>
+   * @public
+   */
+  AvailableCapacity?: number | undefined;
+}
+
+/**
+ * <p>Contains the capacity commitment details of a DB capacity reservation, including the number of committed DB instances in each Availability Zone and the end date of the commitment period. Amazon RDS holds the committed capacity until the commitment ends. Amazon RDS rejects a request to cancel a reservation in the <code>active</code> state, and a request to reduce the reserved capacity below the commitment.</p> <p>This data type is used as a response element in the following operations:</p> <ul> <li> <p> <code>CancelDBCapacityReservation</code> </p> </li> <li> <p> <code>CreateDBCapacityReservation</code> </p> </li> <li> <p> <code>DescribeDBCapacityReservations</code> </p> </li> <li> <p> <code>ModifyDBCapacityReservation</code> </p> </li> </ul>
+ * @public
+ */
+export interface DBCapacityReservationCommitmentInfo {
+  /**
+   * <p>The number of DB instances that Amazon RDS holds in each Availability Zone of the reservation for the length of the commitment.</p>
+   * @public
+   */
+  CommittedCapacityPerAvailabilityZone?: number | undefined;
+
+  /**
+   * <p>The date and time when the commitment ends, in Universal Coordinated Time (UTC). This date reports the capacity commitment that Amazon RDS granted.</p> <p>Amazon RDS can grant a shorter capacity commitment than you request in <code>CommitmentDuration</code>. Therefore, this date can fall earlier than <code>StartDate</code> plus <code>CommitmentDuration</code>.</p>
+   * @public
+   */
+  CommitmentEndDate?: Date | undefined;
+}
+
+/**
+ * <p>Contains the details of a DB capacity reservation.</p> <p>This data type is used as a response element in the following operations:</p> <ul> <li> <p> <code>CancelDBCapacityReservation</code> </p> </li> <li> <p> <code>CreateDBCapacityReservation</code> </p> </li> <li> <p> <code>DescribeDBCapacityReservations</code> </p> </li> <li> <p> <code>ModifyDBCapacityReservation</code> </p> </li> </ul>
+ * @public
+ */
+export interface DBCapacityReservation {
+  /**
+   * <p>The name that you specified for the DB capacity reservation.</p>
+   * @public
+   */
+  DBCapacityReservationName?: string | undefined;
+
+  /**
+   * <p>The DB instance class for the reserved capacity. You specify this value when you create the reservation, and you can't change it afterward.</p>
+   * @public
+   */
+  DBInstanceClass?: string | undefined;
+
+  /**
+   * <p>The database engine for the reserved capacity. You specify this value when you create the reservation, and you can't change it afterward.</p>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>The license model for the reserved capacity. Amazon RDS returns this value only for a reservation that reserves capacity for a specific license model. Amazon RDS doesn't return this value for a reservation whose database engine doesn't support a license model.</p> <p>A DB instance launches into the reservation only when the license model of the DB instance matches this value. For a reservation that holds no license model, Amazon RDS applies no license model check at launch.</p> <p>Valid Values:</p> <ul> <li> <p>RDS for Microsoft SQL Server Enterprise Edition and Standard Edition - <code>license-included | bring-your-own-media</code> </p> </li> <li> <p>RDS for Microsoft SQL Server Developer Edition - <code>bring-your-own-license</code> </p> </li> <li> <p>RDS for Oracle - <code>bring-your-own-license | license-included</code> </p> </li> <li> <p>RDS for Db2 Standard Edition and Advanced Edition - <code>bring-your-own-license | marketplace-license</code> </p> </li> </ul> <p>For RDS for Db2 Standard Edition and Advanced Edition, a reservation created without a license model holds <code>bring-your-own-license</code>.</p>
+   * @public
+   */
+  LicenseModel?: string | undefined;
+
+  /**
+   * <p>The number of DB instances that Amazon RDS reserves in each Availability Zone of the reservation. This value matches the <code>CapacityPerAvailabilityZone</code> parameter of the request. The total reserved capacity is this value multiplied by the number of Availability Zones of the reservation.</p>
+   * @public
+   */
+  ReservedCapacityPerAvailabilityZone?: number | undefined;
+
+  /**
+   * <p>The unused capacity of the reservation, reported for each Availability Zone of the reservation. Each entry names one Availability Zone, and it reports the number of DB instances that remain available in that Availability Zone.</p> <p>Amazon RDS reports available capacity only for a reservation that is in the <code>active</code> state and not past its end date. Otherwise, each entry reports an available capacity of <code>0</code>. A future-dated reservation that hasn't started reports <code>0</code>, and a reservation that Amazon RDS is modifying reports <code>0</code>.</p> <p>A reservation reports the <code>pending</code> state while Amazon RDS modifies it. Therefore, a reservation in the <code>active</code> state that reports no available capacity has no unused capacity.</p>
+   * @public
+   */
+  AvailableCapacityPerAvailabilityZoneList?: AvailableCapacityPerAvailabilityZone[] | undefined;
+
+  /**
+   * <p>The date and time when the reservation expires, in Universal Coordinated Time (UTC). Amazon RDS doesn't return this value if the reservation doesn't expire.</p> <important> <p>A DB instance that uses the reservation keeps running after the reservation expires. It continues on unreserved capacity, and Amazon RDS doesn't stop it or modify it. However, Amazon RDS no longer reserves capacity for the DB instance. Amazon RDS might later move the DB instance to different hardware, for example during hardware maintenance. That move can fail when the Amazon Web Services Region has insufficient capacity for the DB instance class.</p> </important>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>The date and time when the reservation was created, in Universal Coordinated Time (UTC).</p>
+   * @public
+   */
+  CreateDate?: Date | undefined;
+
+  /**
+   * <p>The date and time when a future-dated reservation starts, in Universal Coordinated Time (UTC). Amazon RDS doesn't return this value for a reservation that started immediately.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The capacity commitment of the reservation. Amazon RDS returns this object only for a future-dated reservation.</p>
+   * @public
+   */
+  CommitmentInfo?: DBCapacityReservationCommitmentInfo | undefined;
+
+  /**
+   * <p>The current state of the DB capacity reservation. A DB instance can use the reservation in the <code>active</code> state only.</p> <p>Valid Values:</p> <ul> <li> <p> <code>active</code> - Amazon RDS holds the reserved capacity, and a DB instance can use it.</p> </li> <li> <p> <code>pending</code> - The reservation isn't ready to use yet. Amazon RDS is creating the reserved capacity, or it is applying a requested modification.</p> </li> <li> <p> <code>assessing</code> - Amazon RDS is evaluating the request for a future-dated reservation.</p> </li> <li> <p> <code>scheduled</code> - Amazon RDS accepted a future-dated reservation, and the reservation is waiting for its start date.</p> </li> <li> <p> <code>delayed</code> - Amazon RDS couldn't provide the reserved capacity of a future-dated reservation by its start date.</p> </li> <li> <p> <code>unsupported</code> - Amazon RDS can't fulfill the future-dated reservation as requested.</p> </li> <li> <p> <code>expired</code> - The reservation passed its end date. Amazon RDS releases the reserved capacity.</p> </li> <li> <p> <code>cancelled</code> - You cancelled the reservation, and Amazon RDS released the reserved capacity.</p> </li> <li> <p> <code>failed</code> - Amazon RDS couldn't reserve the capacity.</p> </li> </ul> <p>The values <code>assessing</code>, <code>scheduled</code>, <code>delayed</code>, and <code>unsupported</code> apply to a future-dated reservation only.</p>
+   * @public
+   */
+  State?: DBCapacityReservationState | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the DB capacity reservation.</p>
+   * @public
+   */
+  DBCapacityReservationArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the DB capacity reservation. The identifier has the prefix <code>dbcr-</code>. Every other DB capacity reservation operation takes this identifier.</p>
+   * @public
+   */
+  DBCapacityReservationIdentifier?: string | undefined;
+
+  /**
+   * <p>The tags associated with the DB capacity reservation.</p>
+   * @public
+   */
+  TagList?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelDBCapacityReservationResponse {
+  /**
+   * <p>Contains the details of the canceled DB capacity reservation.</p>
+   * @public
+   */
+  DBCapacityReservation?: DBCapacityReservation | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CancelExportTaskMessage {
   /**
    * <p>The identifier of the snapshot or cluster export task to cancel.</p>
@@ -988,7 +1137,7 @@ export interface DBClusterSnapshot {
   PercentProgress?: number | undefined;
 
   /**
-   * <p>Indicates whether the DB cluster snapshot is encrypted.</p>
+   * <p>Specifies whether the DB cluster snapshot is encrypted with an Amazon Web Services managed key or a customer managed key.</p> <p>If the DB cluster snapshot is encrypted with an Amazon Web Services owned key, this value is <code>false</code> and <code>StorageEncryptionType</code> is <code>sse-rds</code>. In that case, the data at rest is still encrypted. To determine how the data at rest is protected, use <code>StorageEncryptionType</code>.</p>
    * @public
    */
   StorageEncrypted?: boolean | undefined;
@@ -2452,6 +2601,82 @@ export interface DBEngineVersion {
 }
 
 /**
+ * @public
+ */
+export interface CreateDBCapacityReservationRequest {
+  /**
+   * <p>The name of the DB capacity reservation. This name must be unique for your Amazon Web Services account in the Amazon Web Services Region.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 lowercase letters, digits, or hyphens.</p> </li> <li> <p>First character must be a lowercase letter.</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li> <li> <p>Can't contain more than 16 groups of characters separated by hyphens.</p> </li> <li> <p>Can't begin with <code>dbcr-</code>.</p> </li> </ul>
+   * @public
+   */
+  DBCapacityReservationName: string | undefined;
+
+  /**
+   * <p>The compute and memory capacity to reserve, for example <code>db.m5.large</code>. Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB instance classes</a> in the <i>Amazon RDS User Guide</i>.</p> <p>Constraints:</p> <ul> <li> <p>Must be a DB instance class that the specified <code>Engine</code> supports.</p> </li> <li> <p>For RDS for Oracle with <code>LicenseModel</code> set to <code>license-included</code>, some DB instance classes aren't supported. Either choose a supported DB instance class, or set <code>LicenseModel</code> to <code>bring-your-own-license</code>.</p> </li> </ul>
+   * @public
+   */
+  DBInstanceClass: string | undefined;
+
+  /**
+   * <p>The database engine to reserve capacity for.</p> <p>Valid Values: <code>aurora-mysql</code> | <code>aurora-postgresql</code> | <code>mysql</code> | <code>postgres</code> | <code>mariadb</code> | <code>oracle-ee</code> | <code>oracle-ee-cdb</code> | <code>oracle-se2</code> | <code>oracle-se2-cdb</code> | <code>sqlserver-ee</code> | <code>sqlserver-se</code> | <code>sqlserver-web</code> | <code>sqlserver-ex</code> | <code>sqlserver-dev-ee</code> | <code>sqlserver-dev-se</code> | <code>db2-ae</code> | <code>db2-ce</code> | <code>db2-se</code> </p> <note> <p>The Developer Edition engines <code>sqlserver-dev-ee</code> and <code>sqlserver-dev-se</code> support no Multi-AZ DB instance and no read replica. Therefore, a reservation for either engine serves Single-AZ DB instances only.</p> </note>
+   * @public
+   */
+  Engine: string | undefined;
+
+  /**
+   * <p>The number of DB instances to reserve in each Availability Zone that you list in <code>AvailabilityZones</code>. Amazon RDS reserves this number of DB instances in every listed Availability Zone.</p> <p>A Single-AZ DB instance uses one unit of reserved capacity, in one Availability Zone. A Multi-AZ DB instance is one DB instance, and it uses one unit of reserved capacity in each of two Availability Zones. Therefore, a Multi-AZ DB instance uses two units in total. A read replica uses one unit of reserved capacity, in the same way as any other DB instance.</p> <p>Amazon RDS reserves capacity in each Availability Zone separately. Reserved capacity in one Availability Zone can't serve a DB instance in another Availability Zone. A request for a DB instance fails when the Availability Zone of the DB instance has no available capacity.</p> <p>Therefore, set this value to the number of DB instances that you want to run at the same time in one Availability Zone. Don't set it to the number that you want in total.</p> <p>This value multiplied by the number of Availability Zones counts against the DB instances quota for your Amazon Web Services account in the Amazon Web Services Region. Your existing DB instances, and the unused capacity of your other reservations, count against the same quota.</p> <p>To find the value of the DB instances quota, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html">Quotas and constraints for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</p> <p>Constraints:</p> <ul> <li> <p>Minimum 1.</p> </li> </ul>
+   * @public
+   */
+  CapacityPerAvailabilityZone: number | undefined;
+
+  /**
+   * <p>A list of Availability Zones for the reservation.</p> <p>You can't change the Availability Zones of a reservation after you create it. Reserved capacity in an Availability Zone that no DB instance uses stays unused.</p> <p>Constraints:</p> <ul> <li> <p>Must specify one or more Availability Zones.</p> </li> <li> <p>Each Availability Zone can appear only once.</p> </li> <li> <p>Each Availability Zone must be in the Amazon Web Services Region of the request.</p> </li> <li> <p>Each Availability Zone must have capacity for the requested DB instance class.</p> </li> <li> <p>Must include two or more Availability Zones to use the reservation for a Multi-AZ DB instance.</p> </li> <li> <p>A DB instance can use reserved capacity only in an Availability Zone that its DB subnet group covers.</p> </li> </ul> <p>Example: <code>us-east-1a</code> </p>
+   * @public
+   */
+  AvailabilityZones: string[] | undefined;
+
+  /**
+   * <p>The date and time when the reservation expires, in Universal Coordinated Time (UTC). If you don't specify a value, the reservation doesn't expire.</p> <p>To change the expiration of an existing reservation, use <code>ModifyDBCapacityReservation</code>. That operation takes <code>EndDateType</code> along with <code>EndDate</code>.</p> <p>Constraints:</p> <ul> <li> <p>Must be a date and time in the future.</p> </li> <li> <p>For a future-dated reservation, must be at or after <code>StartDate</code> plus <code>CommitmentDuration</code>. For example, a reservation that starts on 2026-12-01 with a 30-day commitment can't expire before 2026-12-31. To reserve capacity for one calendar month, set <code>CommitmentDuration</code> to 30 days or fewer, not to the length of the month.</p> </li> </ul> <p>Example: <code>2026-12-31T23:59:59Z</code> </p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>The date and time when the reservation starts, in Universal Coordinated Time (UTC). Specify this parameter to create a future-dated reservation. If you don't specify a value, the reservation starts immediately.</p> <p>A reservation that starts later always carries a capacity commitment. Therefore, a request that specifies <code>StartDate</code> must also meet every constraint of a future-dated reservation, including the minimum reserved capacity in each Availability Zone.</p> <p>Constraints:</p> <ul> <li> <p>Must be from 5 to 120 days in the future.</p> </li> <li> <p>You must also specify <code>CommitmentDuration</code>.</p> </li> </ul> <p>Example: <code>2026-12-01T00:00:00Z</code> </p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The length of the capacity commitment that you request for a future-dated reservation, in seconds. Amazon RDS measures this length from <code>StartDate</code>.</p> <note> <p>Amazon RDS can grant a shorter capacity commitment than you request. Therefore, read <code>CommitmentEndDate</code> in <code>CommitmentInfo</code> for the commitment that Amazon RDS granted.</p> </note> <p>The commitment doesn't end the reservation. Specify <code>EndDate</code> to set an expiration date. You can't cancel a reservation in the <code>active</code> state during the commitment.</p> <p>Constraints:</p> <ul> <li> <p>Minimum 1209600, which is 14 days. For a <code>db.x</code> DB instance class, such as <code>db.x2g.xlarge</code>, the minimum is 7257600, which is 84 days.</p> </li> <li> <p>Must be less than 315576000, which is 10 years.</p> </li> <li> <p>You must also specify <code>StartDate</code>.</p> </li> </ul> <p>Example: <code>2592000</code> </p>
+   * @public
+   */
+  CommitmentDuration?: number | undefined;
+
+  /**
+   * <p>The license model to reserve capacity for. Specify this parameter only for RDS for Microsoft SQL Server Enterprise Edition, Standard Edition, and Developer Edition, for RDS for Oracle, or for RDS for Db2 Standard Edition and Advanced Edition. Amazon RDS rejects the request for any other engine. This includes Amazon Aurora, the Web and Express editions of RDS for Microsoft SQL Server, and RDS for Db2 Community Edition.</p> <p>Valid Values:</p> <ul> <li> <p>RDS for Microsoft SQL Server Enterprise Edition and Standard Edition - <code>license-included | bring-your-own-media</code> </p> </li> <li> <p>RDS for Microsoft SQL Server Developer Edition - <code>bring-your-own-license</code> </p> </li> <li> <p>RDS for Oracle - <code>bring-your-own-license | license-included</code> </p> </li> <li> <p>RDS for Db2 Standard Edition and Advanced Edition - <code>bring-your-own-license | marketplace-license</code> </p> </li> </ul> <p>A DB instance launches into the reservation only when the license model of the DB instance matches the license model of the reservation. For a reservation that holds no license model, Amazon RDS applies no license model check at launch.</p> <p>For RDS for Microsoft SQL Server Enterprise Edition and Standard Edition, if you don't specify a value, Amazon RDS uses <code>license-included</code>.</p> <p>For RDS for Microsoft SQL Server Developer Edition, if you don't specify a value, Amazon RDS uses <code>bring-your-own-license</code>. That is the only license model that these engines accept, and Amazon RDS rejects any other value.</p> <p>For RDS for Oracle, if you don't specify a value, Amazon RDS uses the only orderable license model for the DB instance class. If more than one license model is orderable, you must specify one.</p> <p>For RDS for Db2 Standard Edition and Advanced Edition, if you don't specify a value, Amazon RDS uses <code>bring-your-own-license</code>. To reserve capacity for Db2 DB instances that you license through Amazon Web Services Marketplace, specify <code>marketplace-license</code>.</p> <note> <p>For RDS for Oracle, the license models that you can reserve depend on the engine and the DB instance class. RDS for Oracle Enterprise Edition doesn't support <code>license-included</code>.</p> </note>
+   * @public
+   */
+  LicenseModel?: string | undefined;
+
+  /**
+   * <p>Tags to assign to the DB capacity reservation.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDBCapacityReservationResponse {
+  /**
+   * <p>Contains the details of the newly created DB capacity reservation.</p>
+   * @public
+   */
+  DBCapacityReservation?: DBCapacityReservation | undefined;
+}
+
+/**
  * <p>Contains information about an Amazon Web Services Identity and Access Management (IAM) role to associate with a DB cluster. You can specify this structure in the <code>AssociatedRoles</code> parameter of <a>CreateDBCluster</a>, <a>RestoreDBClusterFromS3</a>, <a>RestoreDBClusterFromSnapshot</a>, and <a>RestoreDBClusterToPointInTime</a>.</p>
  * @public
  */
@@ -3495,7 +3720,7 @@ export interface DBCluster {
   HostedZoneId?: string | undefined;
 
   /**
-   * <p>Indicates whether the DB cluster is encrypted.</p>
+   * <p>Specifies whether the DB cluster is encrypted with an Amazon Web Services managed key or a customer managed key.</p> <p>If the DB cluster is encrypted with an Amazon Web Services owned key, this value is <code>false</code> and <code>StorageEncryptionType</code> is <code>sse-rds</code>. In that case, the data at rest is still encrypted. To determine how the data at rest is protected, use <code>StorageEncryptionType</code>.</p>
    * @public
    */
   StorageEncrypted?: boolean | undefined;
@@ -4439,6 +4664,12 @@ export interface CreateDBInstanceMessage {
   TagSpecifications?: TagSpecification[] | undefined;
 
   /**
+   * <p>The identifier or the name of the DB capacity reservation to associate with this DB instance. You can specify the identifier, which has the prefix <code>dbcr-</code>, or the reservation name. When you specify this parameter, the DB instance uses reserved capacity from the specified reservation.</p> <p>If you specify <code>AvailabilityZone</code>, Amazon RDS places the DB instance in that Availability Zone, and the reservation must cover it.</p> <p>Constraints:</p> <ul> <li> <p>The reservation must reserve capacity for the DB instance class and the database engine of the DB instance.</p> </li> <li> <p>If the reservation reserves capacity for a specific license model, the license model of the DB instance must match it.</p> </li> <li> <p>The reservation must be in the <code>active</code> state, and it must not be past its end date.</p> </li> <li> <p>If you specify <code>AvailabilityZone</code>, it must be one of the Availability Zones of the reservation.</p> </li> <li> <p>For a Multi-AZ DB instance, the reservation must cover two or more Availability Zones. A Multi-AZ DB instance uses one unit of reserved capacity in each of two Availability Zones. If the reservation covers more than two Availability Zones, Amazon RDS chooses the two that the DB instance uses.</p> </li> <li> <p>The reservation must have available capacity in each Availability Zone that the DB instance uses.</p> </li> <li> <p>The DB subnet group must be in a VPC with default tenancy.</p> </li> <li> <p>The DB subnet group must cover each Availability Zone that the DB instance uses.</p> </li> </ul>
+   * @public
+   */
+  DBCapacityReservationIdentifier?: string | undefined;
+
+  /**
    * <p>Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.</p> <p>You can specify one of the following values:</p> <ul> <li> <p> <code>password</code> - Use standard database authentication with a password.</p> </li> <li> <p> <code>iam-db-auth</code> - Use IAM database authentication for the master user.</p> </li> </ul> <p>This option is only valid for RDS for PostgreSQL and Aurora PostgreSQL engines.</p>
    * @public
    */
@@ -4785,6 +5016,12 @@ export interface PendingModifiedValues {
    * @public
    */
   AdditionalStorageVolumes?: AdditionalStorageVolume[] | undefined;
+
+  /**
+   * <p>The identifier of the DB capacity reservation that the DB instance uses after a pending modification completes. Amazon RDS returns this value when a <code>ModifyDBInstance</code> request changes the DB capacity reservation, and the change hasn't been applied yet.</p>
+   * @public
+   */
+  DBCapacityReservationIdentifier?: string | undefined;
 }
 
 /**
@@ -5379,6 +5616,12 @@ export interface DBInstance {
    * @public
    */
   StorageOperationPercentProgress?: number | undefined;
+
+  /**
+   * <p>The identifier of the DB capacity reservation associated with this DB instance. Amazon RDS doesn't return this value if the DB instance doesn't use a DB capacity reservation.</p>
+   * @public
+   */
+  DBCapacityReservationIdentifier?: string | undefined;
 }
 
 /**
@@ -5512,7 +5755,7 @@ export interface CreateDBInstanceReadReplicaMessage {
   MonitoringRoleArn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key identifier for an encrypted read replica.</p> <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p> <p>If you create an encrypted read replica in the same Amazon Web Services Region as the source DB instance or Multi-AZ DB cluster, don't specify a value for this parameter. A read replica in the same Amazon Web Services Region is always encrypted with the same KMS key as the source DB instance or cluster.</p> <p>If you create an encrypted read replica in a different Amazon Web Services Region, then you must specify a KMS key identifier for the destination Amazon Web Services Region. KMS keys are specific to the Amazon Web Services Region that they are created in, and you can't use KMS keys from one Amazon Web Services Region in another Amazon Web Services Region.</p> <p>You can't create an encrypted read replica from an unencrypted DB instance or Multi-AZ DB cluster.</p> <p>This setting doesn't apply to RDS Custom, which uses the same KMS key as the primary replica.</p>
+   * <p>The Amazon Web Services KMS key identifier for an encrypted read replica.</p> <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p> <p>For a read replica in the same Amazon Web Services Region as the source DB instance or Multi-AZ DB cluster, specifying this parameter is optional. If you specify a KMS key identifier, the read replica is encrypted with that KMS key, which can be different from the KMS key of the source.</p> <p>If you don't specify a value for this parameter, the read replica is encrypted with the same KMS key as the source DB instance or Multi-AZ DB cluster.</p> <p>If you create an encrypted read replica in a different Amazon Web Services Region, then you must specify a KMS key identifier for the destination Amazon Web Services Region. KMS keys are specific to the Amazon Web Services Region that they are created in, and you can't use KMS keys from one Amazon Web Services Region in another Amazon Web Services Region.</p> <p>You can't create an encrypted read replica from an unencrypted DB instance or Multi-AZ DB cluster.</p> <p>This setting doesn't apply to RDS Custom, which uses the same KMS key as the primary replica.</p>
    * @public
    */
   KmsKeyId?: string | undefined;
@@ -5690,6 +5933,12 @@ export interface CreateDBInstanceReadReplicaMessage {
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>The identifier or the name of the DB capacity reservation to associate with this read replica. You can specify the identifier, which has the prefix <code>dbcr-</code>, or the reservation name. When you specify this parameter, the read replica uses reserved capacity from the specified reservation. A read replica uses one unit of reserved capacity, in the same way as any other DB instance.</p> <p>If you specify <code>AvailabilityZone</code>, Amazon RDS places the DB instance in that Availability Zone, and the reservation must cover it.</p> <p>Constraints:</p> <ul> <li> <p>The reservation must reserve capacity for the DB instance class and the database engine of the DB instance.</p> </li> <li> <p>If the reservation reserves capacity for a specific license model, the license model of the source DB instance must match it. A read replica inherits its license model from the source DB instance.</p> </li> <li> <p>The reservation must be in the <code>active</code> state, and it must not be past its end date.</p> </li> <li> <p>If you specify <code>AvailabilityZone</code>, it must be one of the Availability Zones of the reservation.</p> </li> <li> <p>For a Multi-AZ DB instance, the reservation must cover two or more Availability Zones. A Multi-AZ DB instance uses one unit of reserved capacity in each of two Availability Zones. If the reservation covers more than two Availability Zones, Amazon RDS chooses the two that the DB instance uses.</p> </li> <li> <p>The reservation must have available capacity in each Availability Zone that the DB instance uses.</p> </li> <li> <p>The DB subnet group must be in a VPC with default tenancy.</p> </li> <li> <p>The DB subnet group must cover each Availability Zone that the DB instance uses.</p> </li> </ul>
+   * @public
+   */
+  DBCapacityReservationIdentifier?: string | undefined;
 }
 
 /**
@@ -7962,7 +8211,7 @@ export interface DeregisterDBProxyTargetsResponse {}
 export interface DescribeAccountAttributesMessage {}
 
 /**
- * <p>A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as IDs. The filters supported by a describe operation are documented with the describe operation.</p> <note> <p>Currently, wildcards are not supported in filters.</p> </note> <p>The following actions can be filtered:</p> <ul> <li> <p> <code>DescribeDBClusterBacktracks</code> </p> </li> <li> <p> <code>DescribeDBClusterEndpoints</code> </p> </li> <li> <p> <code>DescribeDBClusters</code> </p> </li> <li> <p> <code>DescribeDBInstances</code> </p> </li> <li> <p> <code>DescribeDBRecommendations</code> </p> </li> <li> <p> <code>DescribeDBShardGroups</code> </p> </li> <li> <p> <code>DescribePendingMaintenanceActions</code> </p> </li> </ul>
+ * <p>A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as IDs. The filters supported by a describe operation are documented with the describe operation.</p> <note> <p>Currently, wildcards are not supported in filters.</p> </note> <p>The following actions can be filtered:</p> <ul> <li> <p> <code>DescribeDBCapacityReservations</code> </p> </li> <li> <p> <code>DescribeDBClusterBacktracks</code> </p> </li> <li> <p> <code>DescribeDBClusterEndpoints</code> </p> </li> <li> <p> <code>DescribeDBClusters</code> </p> </li> <li> <p> <code>DescribeDBInstances</code> </p> </li> <li> <p> <code>DescribeDBRecommendations</code> </p> </li> <li> <p> <code>DescribeDBShardGroups</code> </p> </li> <li> <p> <code>DescribePendingMaintenanceActions</code> </p> </li> </ul>
  * @public
  */
 export interface Filter {
@@ -8128,6 +8377,52 @@ export interface DescribeCertificatesMessage {
 
   /**
    * <p>An optional pagination token provided by a previous <code>DescribeCertificates</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBCapacityReservationsRequest {
+  /**
+   * <p>The identifier or the name of the DB capacity reservation to describe. You can specify the identifier, which has the prefix <code>dbcr-</code>, or the reservation name.</p>
+   * @public
+   */
+  DBCapacityReservationIdentifier?: string | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous <code>DescribeDBCapacityReservations</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints:</p> <ul> <li> <p>Must be a minimum of 20.</p> </li> <li> <p>Can't exceed 100.</p> </li> </ul>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>A filter that specifies which DB capacity reservations to describe.</p> <p>Supported filters:</p> <ul> <li> <p> <code>db-capacity-reservation-name</code> - Accepts DB capacity reservation names. The response includes only the reservations that these names identify. Use this filter to describe several reservations by name in one request.</p> </li> <li> <p> <code>state</code> - Accepts reservation states. The response includes only the reservations in these states.</p> </li> <li> <p> <code>engine</code> - Accepts database engine names. The response includes only the reservations that reserve capacity for these engines.</p> </li> <li> <p> <code>db-instance-class</code> - Accepts DB instance classes. The response includes only the reservations that reserve capacity for these DB instance classes.</p> </li> <li> <p> <code>availability-zone</code> - Accepts Availability Zone names. The response includes only the reservations that cover these Availability Zones.</p> </li> </ul> <p>When you specify more than one value for a filter, the response includes the reservations that match any of those values. When you specify more than one filter, the response includes only the reservations that match every filter.</p> <p>Amazon RDS rejects the request when a filter name isn't in this list, or when a filter specifies no values.</p> <note> <p>The <code>state</code> filter doesn't accept <code>expired</code>. To find an expired reservation, compare <code>EndDate</code> against the current date and time.</p> </note>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBCapacityReservationsResponse {
+  /**
+   * <p>A list of DB capacity reservations.</p>
+   * @public
+   */
+  DBCapacityReservations?: DBCapacityReservation[] | undefined;
+
+  /**
+   * <p>A pagination token that you can use in a later <code>DescribeDBCapacityReservations</code> request. If this value is returned, more records are available beyond this response.</p>
    * @public
    */
   Marker?: string | undefined;
@@ -11647,448 +11942,4 @@ export interface PendingMaintenanceActionsMessage {
    * @public
    */
   Marker?: string | undefined;
-}
-
-/**
- * <p/>
- * @public
- */
-export interface DescribeReservedDBInstancesMessage {
-  /**
-   * <p>The reserved DB instance identifier filter value. Specify this parameter to show only the reservation that matches the specified reservation ID.</p>
-   * @public
-   */
-  ReservedDBInstanceId?: string | undefined;
-
-  /**
-   * <p>The offering identifier filter value. Specify this parameter to show only purchased reservations matching the specified offering identifier.</p>
-   * @public
-   */
-  ReservedDBInstancesOfferingId?: string | undefined;
-
-  /**
-   * <p>The DB instance class filter value. Specify this parameter to show only those reservations matching the specified DB instances class.</p>
-   * @public
-   */
-  DBInstanceClass?: string | undefined;
-
-  /**
-   * <p>The duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.</p> <p>Valid Values: <code>1 | 3 | 31536000 | 94608000</code> </p>
-   * @public
-   */
-  Duration?: string | undefined;
-
-  /**
-   * <p>The product description filter value. Specify this parameter to show only those reservations matching the specified product description.</p>
-   * @public
-   */
-  ProductDescription?: string | undefined;
-
-  /**
-   * <p>The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.</p> <p>Valid Values: <code>"Partial Upfront" | "All Upfront" | "No Upfront" </code> </p>
-   * @public
-   */
-  OfferingType?: string | undefined;
-
-  /**
-   * <p>Specifies whether to show only those reservations that support Multi-AZ.</p>
-   * @public
-   */
-  MultiAZ?: boolean | undefined;
-
-  /**
-   * <p>The lease identifier filter value. Specify this parameter to show only the reservation that matches the specified lease ID.</p> <note> <p>Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.</p> </note>
-   * @public
-   */
-  LeaseId?: string | undefined;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of records to include in the response. If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
-   * @public
-   */
-  MaxRecords?: number | undefined;
-
-  /**
-   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-}
-
-/**
- * <p>This data type is used as a response element in the <code>DescribeReservedDBInstances</code> and <code>DescribeReservedDBInstancesOfferings</code> actions.</p>
- * @public
- */
-export interface RecurringCharge {
-  /**
-   * <p>The amount of the recurring charge.</p>
-   * @public
-   */
-  RecurringChargeAmount?: number | undefined;
-
-  /**
-   * <p>The frequency of the recurring charge.</p>
-   * @public
-   */
-  RecurringChargeFrequency?: string | undefined;
-}
-
-/**
- * <p>This data type is used as a response element in the <code>DescribeReservedDBInstances</code> and <code>PurchaseReservedDBInstancesOffering</code> actions.</p>
- * @public
- */
-export interface ReservedDBInstance {
-  /**
-   * <p>The unique identifier for the reservation.</p>
-   * @public
-   */
-  ReservedDBInstanceId?: string | undefined;
-
-  /**
-   * <p>The offering identifier.</p>
-   * @public
-   */
-  ReservedDBInstancesOfferingId?: string | undefined;
-
-  /**
-   * <p>The DB instance class for the reserved DB instance.</p>
-   * @public
-   */
-  DBInstanceClass?: string | undefined;
-
-  /**
-   * <p>The time the reservation started.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The duration of the reservation in seconds.</p>
-   * @public
-   */
-  Duration?: number | undefined;
-
-  /**
-   * <p>The fixed price charged for this reserved DB instance.</p>
-   * @public
-   */
-  FixedPrice?: number | undefined;
-
-  /**
-   * <p>The hourly price charged for this reserved DB instance.</p>
-   * @public
-   */
-  UsagePrice?: number | undefined;
-
-  /**
-   * <p>The currency code for the reserved DB instance.</p>
-   * @public
-   */
-  CurrencyCode?: string | undefined;
-
-  /**
-   * <p>The number of reserved DB instances.</p>
-   * @public
-   */
-  DBInstanceCount?: number | undefined;
-
-  /**
-   * <p>The description of the reserved DB instance.</p>
-   * @public
-   */
-  ProductDescription?: string | undefined;
-
-  /**
-   * <p>The offering type of this reserved DB instance.</p>
-   * @public
-   */
-  OfferingType?: string | undefined;
-
-  /**
-   * <p>Indicates whether the reservation applies to Multi-AZ deployments.</p>
-   * @public
-   */
-  MultiAZ?: boolean | undefined;
-
-  /**
-   * <p>The state of the reserved DB instance.</p>
-   * @public
-   */
-  State?: string | undefined;
-
-  /**
-   * <p>The recurring price charged to run this reserved DB instance.</p>
-   * @public
-   */
-  RecurringCharges?: RecurringCharge[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the reserved DB instance.</p>
-   * @public
-   */
-  ReservedDBInstanceArn?: string | undefined;
-
-  /**
-   * <p>The unique identifier for the lease associated with the reserved DB instance.</p> <note> <p>Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.</p> </note>
-   * @public
-   */
-  LeaseId?: string | undefined;
-}
-
-/**
- * <p>Contains the result of a successful invocation of the <code>DescribeReservedDBInstances</code> action.</p>
- * @public
- */
-export interface ReservedDBInstanceMessage {
-  /**
-   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>A list of reserved DB instances.</p>
-   * @public
-   */
-  ReservedDBInstances?: ReservedDBInstance[] | undefined;
-}
-
-/**
- * <p/>
- * @public
- */
-export interface DescribeReservedDBInstancesOfferingsMessage {
-  /**
-   * <p>The offering identifier filter value. Specify this parameter to show only the available offering that matches the specified reservation identifier.</p> <p>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code> </p>
-   * @public
-   */
-  ReservedDBInstancesOfferingId?: string | undefined;
-
-  /**
-   * <p>The DB instance class filter value. Specify this parameter to show only the available offerings matching the specified DB instance class.</p>
-   * @public
-   */
-  DBInstanceClass?: string | undefined;
-
-  /**
-   * <p>Duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.</p> <p>Valid Values: <code>1 | 3 | 31536000 | 94608000</code> </p>
-   * @public
-   */
-  Duration?: string | undefined;
-
-  /**
-   * <p>Product description filter value. Specify this parameter to show only the available offerings that contain the specified product description.</p> <note> <p>The results show offerings that partially match the filter value.</p> </note>
-   * @public
-   */
-  ProductDescription?: string | undefined;
-
-  /**
-   * <p>The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.</p> <p>Valid Values: <code>"Partial Upfront" | "All Upfront" | "No Upfront" </code> </p>
-   * @public
-   */
-  OfferingType?: string | undefined;
-
-  /**
-   * <p>Specifies whether to show only those reservations that support Multi-AZ.</p>
-   * @public
-   */
-  MultiAZ?: boolean | undefined;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of records to include in the response. If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
-   * @public
-   */
-  MaxRecords?: number | undefined;
-
-  /**
-   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-}
-
-/**
- * <p>This data type is used as a response element in the <code>DescribeReservedDBInstancesOfferings</code> action.</p>
- * @public
- */
-export interface ReservedDBInstancesOffering {
-  /**
-   * <p>The offering identifier.</p>
-   * @public
-   */
-  ReservedDBInstancesOfferingId?: string | undefined;
-
-  /**
-   * <p>The DB instance class for the reserved DB instance.</p>
-   * @public
-   */
-  DBInstanceClass?: string | undefined;
-
-  /**
-   * <p>The duration of the offering in seconds.</p>
-   * @public
-   */
-  Duration?: number | undefined;
-
-  /**
-   * <p>The fixed price charged for this offering.</p>
-   * @public
-   */
-  FixedPrice?: number | undefined;
-
-  /**
-   * <p>The hourly price charged for this offering.</p>
-   * @public
-   */
-  UsagePrice?: number | undefined;
-
-  /**
-   * <p>The currency code for the reserved DB instance offering.</p>
-   * @public
-   */
-  CurrencyCode?: string | undefined;
-
-  /**
-   * <p>The database engine used by the offering.</p>
-   * @public
-   */
-  ProductDescription?: string | undefined;
-
-  /**
-   * <p>The offering type.</p>
-   * @public
-   */
-  OfferingType?: string | undefined;
-
-  /**
-   * <p>Indicates whether the offering applies to Multi-AZ deployments.</p>
-   * @public
-   */
-  MultiAZ?: boolean | undefined;
-
-  /**
-   * <p>The recurring price charged to run this reserved DB instance.</p>
-   * @public
-   */
-  RecurringCharges?: RecurringCharge[] | undefined;
-}
-
-/**
- * <p>Contains the result of a successful invocation of the <code>DescribeReservedDBInstancesOfferings</code> action.</p>
- * @public
- */
-export interface ReservedDBInstancesOfferingMessage {
-  /**
-   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>A list of reserved DB instance offerings.</p>
-   * @public
-   */
-  ReservedDBInstancesOfferings?: ReservedDBInstancesOffering[] | undefined;
-}
-
-/**
- * <p/>
- * @public
- */
-export interface DescribeServerlessV2PlatformVersionsMessage {
-  /**
-   * <p>A specific platform version to return details for.</p> <p>Example: <code>3</code> </p>
-   * @public
-   */
-  ServerlessV2PlatformVersion?: string | undefined;
-
-  /**
-   * <p>The database engine to return platform version details for.</p> <p>Valid Values:</p> <ul> <li> <p> <code>aurora-mysql</code> </p> </li> <li> <p> <code>aurora-postgresql</code> </p> </li> </ul>
-   * @public
-   */
-  Engine?: string | undefined;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Specifies whether to return only the default platform versions for each engine. The default platform version is the version used for new DB clusters.</p>
-   * @public
-   */
-  DefaultOnly?: boolean | undefined;
-
-  /**
-   * <p>Specifies whether to also include platform versions which are no longer in use.</p>
-   * @public
-   */
-  IncludeAll?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of records to include in the response. If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 20</p> <p>Constraints: Minimum 1, maximum 200.</p>
-   * @public
-   */
-  MaxRecords?: number | undefined;
-
-  /**
-   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-}
-
-/**
- * <p>This data type is used as a response element in the action <code>DescribeServerlessV2PlatformVersions</code>.</p>
- * @public
- */
-export interface ServerlessV2PlatformVersionInfo {
-  /**
-   * <p>The version number of the serverless platform.</p>
-   * @public
-   */
-  ServerlessV2PlatformVersion?: string | undefined;
-
-  /**
-   * <p>The description of the serverless platform.</p>
-   * @public
-   */
-  ServerlessV2PlatformVersionDescription?: string | undefined;
-
-  /**
-   * <p>The name of the database engine.</p>
-   * @public
-   */
-  Engine?: string | undefined;
-
-  /**
-   * <p>Specifies any Aurora Serverless v2 properties or limits that differ between Aurora Serverless v2 platform versions. You can retrieve the platform version of an existing DB cluster and check whether that version supports certain Aurora Serverless v2 features before you attempt to use those features.</p>
-   * @public
-   */
-  ServerlessV2FeaturesSupport?: ServerlessV2FeaturesSupport | undefined;
-
-  /**
-   * <p>The status of the serverless platform. Valid statuses are the following:</p> <ul> <li> <p> <code>enabled</code> - The platform version is in use.</p> </li> <li> <p> <code>disabled</code> - The platform version is not in use.</p> </li> </ul>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>Indicates whether this platform version is the default version for the engine. The default platform version is the version used for new DB clusters.</p>
-   * @public
-   */
-  IsDefault?: boolean | undefined;
 }

@@ -4,8 +4,10 @@ import type {
   ConfigurationSyncState,
   ContainerAssociationStatus,
   ContainerMonitoringType,
+  DNSExpiryExceptionPolicy,
   EnabledAnalysisType,
   EncryptionType,
+  FirewallPolicyErrorCode,
   FirewallStatusValue,
   FlowOperationStatus,
   FlowOperationType,
@@ -25,6 +27,7 @@ import type {
   ResourceManagedType,
   ResourceStatus,
   RevocationCheckAction,
+  Route53ResolvedIPValidationAction,
   RuleGroupRequestPhase,
   RuleGroupType,
   RuleOrder,
@@ -995,18 +998,58 @@ export interface ContainerAssociationSummary {
 
 /**
  * <p>A key-value filter pair used in container association monitoring configurations to narrow which containers
- *       are tracked.</p>
+ *       are tracked. The key must match exactly. The value can be an exact value or a wildcard pattern.</p>
  * @public
  */
 export interface ContainerAttribute {
   /**
-   * <p>The attribute key to filter on.</p>
+   * <p>The attribute key to filter on. For Amazon EKS, specify <code>namespace</code> to filter by namespace, or
+   *       specify a Kubernetes label key. For Amazon ECS, specify a container instance attribute name. Keys don't support
+   *       wildcards.</p>
+   *          <p>Valid characters are letters, numbers, spaces, hyphens (<code>-</code>), underscores (<code>_</code>),
+   *       periods (<code>.</code>), forward slashes (<code>/</code>), and colons (<code>:</code>).</p>
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The attribute value to match.</p>
+   * <p>The attribute value to match. You can specify an exact value, such as <code>payments-api</code>, or a
+   *       wildcard pattern, such as <code>payments-*</code>.</p>
+   *          <p>Valid characters are letters, numbers, spaces, hyphens (<code>-</code>), underscores (<code>_</code>),
+   *       periods (<code>.</code>), forward slashes (<code>/</code>), colons (<code>:</code>), asterisks
+   *       (<code>*</code>), and backslashes (<code>\</code>).</p>
+   *          <p>Network Firewall evaluates the value using the following rules:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An asterisk (<code>*</code>) matches zero or more characters. For example, <code>payments-*</code>
+   *             matches <code>payments-</code>, <code>payments-api</code>, and <code>payments-api-v2</code>, and
+   *             <code>*-prod</code> matches <code>web-prod</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The pattern must match the entire value. For example, <code>payments-*</code> doesn't match
+   *             <code>my-payments-api</code>. To match a value that contains <code>payments</code> anywhere, use
+   *             <code>*payments*</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Matching is case sensitive. For example, <code>Payments-*</code> doesn't match
+   *             <code>payments-api</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To match a literal asterisk, escape it with a backslash (<code>\*</code>). To match a literal
+   *             backslash, use <code>\\</code>. A backslash followed by any other character matches a literal backslash
+   *             followed by that character.</p>
+   *             </li>
+   *             <li>
+   *                <p>A wildcard pattern matches only containers that have the attribute. For example, a filter with key
+   *             <code>app</code> and value <code>*</code> matches every container that has an <code>app</code> label, but
+   *             doesn't match a container without an <code>app</code> label.</p>
+   *             </li>
+   *             <li>
+   *                <p>A value that doesn't contain <code>*</code> or <code>\</code> matches only that exact value.</p>
+   *             </li>
+   *          </ul>
+   *          <p>A value can contain at most 10 unescaped asterisks. Escaped asterisks (<code>\*</code>) don't count toward
+   *       this limit. A value can't end with a single unescaped backslash.</p>
    * @public
    */
   Value: string | undefined;
@@ -1028,6 +1071,8 @@ export interface ContainerMonitoringConfiguration {
   /**
    * <p>Key-value pairs that filter which containers are tracked. For Amazon EKS, you can filter by namespace and
    *       Kubernetes labels. For Amazon ECS, you can filter by container instance attributes (EC2 launch type only).</p>
+   *          <p>Attribute values can contain wildcard patterns, for example <code>payments-*</code>. Attribute keys must
+   *       match exactly.</p>
    * @public
    */
   AttributeFilters?: ContainerAttribute[] | undefined;
@@ -1811,6 +1856,116 @@ export interface PolicyVariables {
 }
 
 /**
+ * <p>The policy-level configuration for resolved IP validation. When you set this on a firewall policy, you require that the destination IP address of a
+ *          connection is one that the Amazon Route 53 Resolver returned in a DNS response for a domain. The Route 53 Resolver
+ *          must have returned the response in a VPC that's associated with the Route 53 Resolver DNS
+ *          Firewall rule group identified by <code>DNSFirewallRuleGroupId</code>. At the policy level,
+ *          this verifies that the destination IP address was resolved for some domain. To match specific
+ *          domains, also configure stateful rule groups that use the
+ *          <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> target type or the
+ *          <code>aws_route_53_resolved_domain</code> rule keyword.</p>
+ * @public
+ */
+export interface Route53ResolvedIPValidation {
+  /**
+   * <p>The action that Network Firewall takes for a connection whose destination IP address fails
+   *          resolved IP validation. A destination IP address fails validation when the Route 53 Resolver
+   *          didn't return it in a DNS response in an associated VPC. Valid values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALERT</code> – Tags the matching connection in the firewall's flow logs
+   *                without blocking it, when you enable logging. Use this to observe the effect of
+   *                resolved IP validation before you enforce it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DROP</code> – Silently blocks the connection without sending any response to the
+   *                client.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECT</code> – Blocks the connection and sends a TCP reset (RST) to the
+   *                client. Because a TCP reset applies only to TCP connections, Network Firewall drops non-TCP
+   *                traffic instead of resetting it.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Action: Route53ResolvedIPValidationAction | undefined;
+
+  /**
+   * <p>The ID of the Route 53 Resolver DNS Firewall rule group that determines which VPCs'
+   *          DNS resolutions count for resolved IP validation. A destination IP address counts as resolved for a domain only when the Route 53 Resolver returned it in a DNS response within a VPC
+   *          that's associated with this rule group. Associate the rule group with the VPCs that send
+   *          traffic to the firewall. The ID must match the pattern <code>^rslvr-frg-[0-9a-f]+$</code>. It must also exist and
+   *          be accessible from your account. Network Firewall validates this when you create or update the
+   *          policy.</p>
+   *          <p>Changing this value swaps the managed rule group association. Network Firewall processes
+   *             the swap asynchronously. Each policy can have only one managed Route 53 Resolver DNS
+   *             Firewall association. While a swap is in progress, Network Firewall rejects further changes to this setting. Wait
+   *             until the swap completes, then retry.</p>
+   * @public
+   */
+  DNSFirewallRuleGroupId: string | undefined;
+
+  /**
+   * <p>The action that Network Firewall takes when the DNS resolution recorded for a destination IP
+   *          address has expired from the resolved IP cache. This applies when Network Firewall still sees
+   *          traffic to that IP address after the expiry. Network Firewall keeps a resolution for longer than
+   *          the DNS record's time to live (TTL). Valid values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONTINUE</code> – Treats the expired resolution as still valid and doesn't
+   *                block the connection because of expiry.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DROP</code> – Silently blocks traffic to the IP address after its resolution
+   *                has expired, without sending any response to the client.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECT</code> – Blocks traffic to the IP address after its resolution has
+   *                expired and sends a TCP reset (RST) to the client. Network Firewall drops non-TCP traffic
+   *                instead of resetting it.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DNSExpiryExceptionPolicy: DNSExpiryExceptionPolicy | undefined;
+
+  /**
+   * <p>The destination IP address ranges that are exempt from the policy-level resolved IP check.
+   *          Network Firewall doesn't apply the <code>Action</code> in this configuration to a connection
+   *          whose destination falls in these ranges, even if the Route 53 Resolver didn't return that IP
+   *          address in an associated VPC. Specify each entry as an IPv4 or IPv6 address or CIDR range, up
+   *          to 100 entries.</p>
+   *          <p>This exemption applies only to the policy-level check. Stateful rules that use the
+   *             <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> target type or the
+   *             <code>aws_route_53_resolved_domain</code> keyword still evaluate connections to these
+   *             destinations and match them independently of this list.</p>
+   * @public
+   */
+  BypassDestinationValidationIPRanges?: Address[] | undefined;
+
+  /**
+   * <p>The client source IP address ranges whose connections are subject to resolved IP
+   *          validation. Specify each entry as an IPv4 or IPv6 address or CIDR range, up to 100 entries. If
+   *          you omit this field, resolved IP validation applies to the CIDR ranges of the firewall's VPC and of any additional
+   *          VPCs attached to the firewall. Specifying an
+   *          empty list is not the same as omitting the field: an empty list means that Network Firewall doesn't validate any source addresses.</p>
+   *          <p>This scope applies to the policy-level check only. Stateful rules that use the
+   *             <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> target type or the
+   *             <code>aws_route_53_resolved_domain</code> keyword still evaluate their destinations
+   *             regardless of <code>SourceIPRanges</code>.</p>
+   * @public
+   */
+  SourceIPRanges?: Address[] | undefined;
+}
+
+/**
  * <p>Describes the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle and Network Firewall removes the flow entry from its flow table.
  *           When you update this value, existing connections will be treated according to your stream exception policy configuration.
  *      </p>
@@ -2117,6 +2272,18 @@ export interface FirewallPolicy {
    * @public
    */
   EnableTLSSessionHolding?: boolean | undefined;
+
+  /**
+   * <p>The settings that enable resolved IP validation for the policy. Resolved IP validation
+   *          verifies that a connection's destination IP address is one that the Amazon Route 53 Resolver
+   *          returned in a DNS response for a domain. The response must come from a VPC that's associated
+   *          with the Route 53 Resolver DNS Firewall rule group that you specify. This checks how the
+   *          destination IP address was obtained, instead of relying only on the domain that the client
+   *          asserts in its TLS Server Name Indication (SNI) or HTTP <code>Host</code> header. For more
+   *          information, see <a>Route53ResolvedIPValidation</a>.</p>
+   * @public
+   */
+  Route53ResolvedIPValidation?: Route53ResolvedIPValidation | undefined;
 }
 
 /**
@@ -2166,6 +2333,48 @@ export interface CreateFirewallPolicyRequest {
 }
 
 /**
+ * <p>A configuration error that Network Firewall detected for a firewall policy.</p>
+ * @public
+ */
+export interface FirewallPolicyError {
+  /**
+   * <p>The error code identifies the type of error. Valid values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DNS_FIREWALL_RULE_GROUP_UNAVAILABLE</code> – The Amazon Route 53 Resolver DNS
+   *                Firewall rule group that resolved IP validation references is unavailable, for example,
+   *                because it was deleted or is no longer accessible from your account. Update the rule
+   *                group ID or remove the resolved IP validation configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ROUTE53_RESOLVED_IP_VALIDATION_MISSING</code> – An associated stateful rule
+   *                group uses the <code>aws_route_53_resolved_domain</code> keyword, but the policy doesn't
+   *                have resolved IP validation configured. The affected rules are inactive until you add
+   *                resolved IP validation to the policy or remove the keyword rules.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Code: FirewallPolicyErrorCode | undefined;
+
+  /**
+   * <p>A description of the error and how to resolve it.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The ID of the resource that the error relates to, when applicable. For example, for
+   *          <code>DNS_FIREWALL_RULE_GROUP_UNAVAILABLE</code> this is the Amazon Route 53 Resolver DNS
+   *          Firewall rule group ID.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+}
+
+/**
  * <p>The high-level properties of a firewall policy. This, along with the <a>FirewallPolicy</a>, define the policy. You can retrieve all objects for a firewall policy by calling <a>DescribeFirewallPolicy</a>. </p>
  * @public
  */
@@ -2208,6 +2417,15 @@ export interface FirewallPolicyResponse {
   FirewallPolicyStatus?: ResourceStatus | undefined;
 
   /**
+   * <p>Additional detail about the firewall policy's current status, when applicable. For
+   *          example, while an Amazon Route 53 Resolver DNS Firewall rule group change is in progress, the
+   *          status is <code>UPDATING</code> and this message is "A DNS Firewall rule group change is in
+   *          progress."</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
    * <p>The key:value pairs to associate with the resource.</p>
    * @public
    */
@@ -2242,6 +2460,15 @@ export interface FirewallPolicyResponse {
    * @public
    */
   EncryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>Any configuration errors that apply to the firewall policy. Network Firewall detects these
+   *          errors asynchronously, after you create or update the policy, so an error can appear after
+   *          the request that caused it has already succeeded. Each entry describes the problem and how to
+   *          resolve it, and Network Firewall clears it automatically after you resolve the problem.</p>
+   * @public
+   */
+  Errors?: FirewallPolicyError[] | undefined;
 
   /**
    * <p>The last time that the firewall policy was changed.</p>
@@ -2880,7 +3107,36 @@ export interface RulesSourceList {
   Targets: string[] | undefined;
 
   /**
-   * <p>The protocols you want to inspect. Specify <code>TLS_SNI</code> for <code>HTTPS</code>. Specify <code>HTTP_HOST</code> for <code>HTTP</code>. You can specify either or both. </p>
+   * <p>The types of matching to perform against the domains in <code>Targets</code>. You can specify any combination of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> – Match the domain against the domain that the Amazon Route 53 Resolver resolved the connection's destination IP address for.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HTTP_HOST</code> – Match the domain against the <code>Host</code> header of HTTP traffic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TLS_SNI</code> – Match the domain against the Server Name Indication (SNI) of HTTPS traffic.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> matches on how the destination IP address was resolved, rather than on the domain that the client asserts in its TLS SNI or HTTP <code>Host</code> header. This target type takes effect when you configure resolved IP validation on the firewall policy. For more information, see <a>Route53ResolvedIPValidation</a>.</p>
+   *          <p>Whether you include <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> changes what the generated rules match, together with <code>GeneratedRulesType</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Combining <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> with <code>TLS_SNI</code> or <code>HTTP_HOST</code> in an <code>ALLOWLIST</code> requires both conditions to match. The SNI or <code>Host</code> header must match the domain, <b>and</b> the Route 53 Resolver must have resolved the destination IP address for that domain. Network Firewall allows traffic only in that case. Traffic that matches one condition, such as a spoofed <code>Host</code> header sent to an unresolved IP address, is not allowed.</p>
+   *             </li>
+   *             <li>
+   *                <p>In a <code>DENYLIST</code>, or when <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> is the only target type, Network Firewall evaluates each condition independently: a match on either the domain (SNI or <code>Host</code>) or the resolved destination IP address triggers the rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>When you don't include <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code>, the generated rules match only on the SNI or <code>Host</code> header, without checking how the destination IP address was resolved.</p>
+   *             </li>
+   *          </ul>
+   *          <p>An <code>ALLOWLIST</code> whose only target type is <code>AWS_ROUTE_53_RESOLVED_DOMAIN</code> is additive: it allows matching traffic but doesn't generate a default rule that drops non-matching traffic. Only the <code>TLS_SNI</code> and <code>HTTP_HOST</code> target types generate that default drop. To allow only the resolved domains and drop all other traffic, include a protocol target type as well.</p>
    * @public
    */
   TargetTypes: TargetType[] | undefined;
@@ -2991,13 +3247,13 @@ export interface Header {
  */
 export interface RuleOption {
   /**
-   * <p>The keyword for the Suricata compatible rule option. You must include a <code>sid</code> (signature ID), and can optionally include other keywords. For information about Suricata compatible keywords, see <a href="https://suricata.readthedocs.io/en/suricata-7.0.8/rules/intro.html#rule-options">Rule options</a> in the Suricata documentation.</p>
+   * <p>The keyword for the Suricata compatible rule option. You must include a <code>sid</code> (signature ID), and can optionally include other keywords. For information about Suricata compatible keywords, see <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/rules/intro.html#rule-options">Rule options</a> in the Suricata documentation.</p>
    * @public
    */
   Keyword: string | undefined;
 
   /**
-   * <p>The settings of the Suricata compatible rule option. Rule options have zero or more setting values, and the number of possible and required settings depends on the <code>Keyword</code>. For more information about the settings for specific options, see <a href="https://suricata.readthedocs.io/en/suricata-7.0.8/rules/intro.html#rule-options">Rule options</a>.</p>
+   * <p>The settings of the Suricata compatible rule option. Rule options have zero or more setting values, and the number of possible and required settings depends on the <code>Keyword</code>. For more information about the settings for specific options, see <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/rules/intro.html#rule-options">Rule options</a>.</p>
    * @public
    */
   Settings?: string[] | undefined;
@@ -3007,7 +3263,7 @@ export interface RuleOption {
  * <p>A single Suricata rules specification, for use in a stateful rule group.
  *        Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options.
  *        For information about the Suricata <code>Rules</code> format, see
- *                                         <a href="https://suricata.readthedocs.io/en/suricata-7.0.8/rules/intro.html">Rules Format</a>. </p>
+ *                                         <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/rules/intro.html">Rules Format</a>. </p>
  * @public
  */
 export interface StatefulRule {
@@ -3300,7 +3556,7 @@ export interface RulesSource {
    * <p>An array of individual stateful rules inspection criteria to be used together in a stateful rule group.
    *        Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options.
    *        For information about the Suricata <code>Rules</code> format, see
-   *                                         <a href="https://suricata.readthedocs.io/en/suricata-7.0.8/rules/intro.html">Rules Format</a>. </p>
+   *                                         <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/rules/intro.html">Rules Format</a>. </p>
    * @public
    */
   StatefulRules?: StatefulRule[] | undefined;
@@ -4827,11 +5083,17 @@ export interface DescribeFlowOperationRequest {
   FirewallArn: string | undefined;
 
   /**
-   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
+   * <p>The name of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
    *          <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>use2-az1</code>. Availability Zone IDs are the same in every Amazon Web Services account, so use this parameter when you coordinate resources across accounts. Specify either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>, not both. If you specify both, the request fails.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
@@ -4926,11 +5188,17 @@ export interface DescribeFlowOperationResponse {
   FirewallArn?: string | undefined;
 
   /**
-   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
+   * <p>The name of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
    *          <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>use2-az1</code>.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
@@ -6392,11 +6660,17 @@ export interface ListFlowOperationResultsRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
+   * <p>The name of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
    *          <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>use2-az1</code>. Availability Zone IDs are the same in every Amazon Web Services account, so use this parameter when you coordinate resources across accounts. Specify either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>, not both. If you specify both, the request fails.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>A unique identifier for the primary endpoint associated with a firewall.</p>
@@ -6422,11 +6696,17 @@ export interface ListFlowOperationResultsResponse {
   FirewallArn?: string | undefined;
 
   /**
-   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
+   * <p>The name of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
    *          <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>use2-az1</code>.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p></p>
@@ -6494,11 +6774,17 @@ export interface ListFlowOperationsRequest {
   FirewallArn: string | undefined;
 
   /**
-   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
+   * <p>The name of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
    *          <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>use2-az1</code>. Availability Zone IDs are the same in every Amazon Web Services account, so use this parameter when you coordinate resources across accounts. Specify either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>, not both. If you specify both, the request fails.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
@@ -7170,11 +7456,17 @@ export interface StartFlowCaptureRequest {
   FirewallArn: string | undefined;
 
   /**
-   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
+   * <p>The name of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
    *          <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>use2-az1</code>. Availability Zone IDs are the same in every Amazon Web Services account, so use this parameter when you coordinate resources across accounts. Specify either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>, not both. If you specify both, the request fails.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
@@ -7241,11 +7533,17 @@ export interface StartFlowFlushRequest {
   FirewallArn: string | undefined;
 
   /**
-   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
+   * <p>The name of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
    *          <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>use2-az1</code>. Availability Zone IDs are the same in every Amazon Web Services account, so use this parameter when you coordinate resources across accounts. Specify either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>, not both. If you specify both, the request fails.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>

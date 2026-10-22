@@ -357,10 +357,16 @@ export type TaskStatusType = (typeof TaskStatusType)[keyof typeof TaskStatusType
  */
 export const WorkerType = {
   G_025X: "G.025X",
+  G_12X: "G.12X",
+  G_16X: "G.16X",
   G_1X: "G.1X",
   G_2X: "G.2X",
   G_4X: "G.4X",
   G_8X: "G.8X",
+  R_1X: "R.1X",
+  R_2X: "R.2X",
+  R_4X: "R.4X",
+  R_8X: "R.8X",
   Standard: "Standard",
   Z_2X: "Z.2X",
 } as const;

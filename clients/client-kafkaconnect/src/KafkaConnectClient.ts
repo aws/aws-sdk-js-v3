@@ -105,7 +105,9 @@ import type {
   ListWorkerConfigurationsCommandInput,
   ListWorkerConfigurationsCommandOutput,
 } from "./commands/ListWorkerConfigurationsCommand";
+import type { PauseConnectorCommandInput, PauseConnectorCommandOutput } from "./commands/PauseConnectorCommand";
 import type { RestartConnectorCommandInput, RestartConnectorCommandOutput } from "./commands/RestartConnectorCommand";
+import type { ResumeConnectorCommandInput, ResumeConnectorCommandOutput } from "./commands/ResumeConnectorCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateConnectorCommandInput, UpdateConnectorCommandOutput } from "./commands/UpdateConnectorCommand";
@@ -139,7 +141,9 @@ export type ServiceInputTypes =
   | ListCustomPluginsCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkerConfigurationsCommandInput
+  | PauseConnectorCommandInput
   | RestartConnectorCommandInput
+  | ResumeConnectorCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateConnectorCommandInput;
@@ -163,7 +167,9 @@ export type ServiceOutputTypes =
   | ListCustomPluginsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkerConfigurationsCommandOutput
+  | PauseConnectorCommandOutput
   | RestartConnectorCommandOutput
+  | ResumeConnectorCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateConnectorCommandOutput;
@@ -298,7 +304,8 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 
   /**
    * Specifies which retry algorithm to use.
-   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   * Accepted values are "standard" and "adaptive".
+   * @see https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html
    *
    */
   retryMode?: string | __Provider<string>;

@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1156.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1155.0...v3.1156.0) (2026-10-22)
+
+**Note:** Version bump only for package @aws-sdk/lib-dynamodb
+
+
+
+
+
+# [3.1155.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1154.0...v3.1155.0) (2026-10-21)
+
+
+### Features
+
+* **dynamodb:** add batch get item paginators for low level and document client ([#8340](https://github.com/aws/aws-sdk-js-v3/issues/8340)) ([8ec1336](https://github.com/aws/aws-sdk-js-v3/commit/8ec1336271054aa9c9e31233e53145b970e1164d))
+* **lib-dynamodb:** expose transact write item types ([#8334](https://github.com/aws/aws-sdk-js-v3/issues/8334)) ([2fdb917](https://github.com/aws/aws-sdk-js-v3/commit/2fdb917af4e8720bac65ef39c98ae350908d4744))
+
+
+
+
+
+# [3.1154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1153.0...v3.1154.0) (2026-10-20)
+
+**Note:** Version bump only for package @aws-sdk/lib-dynamodb
+
+
+
+
+
 # [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
 
 **Note:** Version bump only for package @aws-sdk/lib-dynamodb

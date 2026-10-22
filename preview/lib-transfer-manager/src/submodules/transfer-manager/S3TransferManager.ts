@@ -22,6 +22,8 @@ import {
   S3Client,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
+import { setFeature } from "@aws-sdk/core/client";
+import type { Command as $Command } from "@smithy/core/client";
 import type { Logger } from "@smithy/types";
 import type { StreamingBlobPayloadOutputTypes } from "@smithy/types";
 import type { SdkError } from "@smithy/types";
@@ -72,6 +74,20 @@ import type {
 } from "./worker-http-handler";
 import type { destroyStreams, joinStreams } from "./join-streams";
 import { OrderedPartQueue } from "./ordered-part-queue";
+
+/**
+ * Internal marker tagging requests from a directory transfer with the matching feature ID.
+ */
+const TRANSFER_MANAGER_DIRECTORY_FEATURE = Symbol("transferManagerDirectoryFeature");
+
+type TransferManagerDirectoryFeature = "S3_TRANSFER_UPLOAD_DIRECTORY" | "S3_TRANSFER_DOWNLOAD_DIRECTORY";
+
+/**
+ * @internal
+ */
+type TransferManagerRequestOptions = TransferOptions & {
+  [TRANSFER_MANAGER_DIRECTORY_FEATURE]?: TransferManagerDirectoryFeature;
+};
 
 /**
  * Structural contract for the worker HTTP handler. Both the Node.js
@@ -182,6 +198,29 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     };
 
     this.validateConfig();
+  }
+
+  private send<Input extends object, Output extends object>(
+    command: $Command<Input, Output, any>,
+    options?: TransferManagerRequestOptions
+  ): Promise<Output> {
+    const directoryFeature = options?.[TRANSFER_MANAGER_DIRECTORY_FEATURE];
+
+    command.middlewareStack.add(
+      (next: any, context: any) => async (args: any) => {
+        setFeature(context, "S3_TRANSFER", "G");
+        if (directoryFeature) {
+          setFeature(context, directoryFeature, directoryFeature === "S3_TRANSFER_UPLOAD_DIRECTORY" ? "9" : "+");
+        }
+        return next(args);
+      },
+      {
+        name: "s3TransferManagerFeature",
+        step: "initialize",
+        override: true,
+      }
+    );
+    return this.s3.send(command as any, (options ?? {}) as any) as Promise<Output>;
   }
 
   /**
@@ -371,7 +410,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
    */
   private async uploadInternal(
     request: UploadRequest,
-    transferOptions?: TransferOptions,
+    transferOptions?: TransferManagerRequestOptions,
     emitEvents = true
   ): Promise<UploadResponse> {
     const totalContentLength = request.ContentLength ?? byteLength(request.Body);
@@ -590,7 +629,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
    */
   private async downloadToFileInternal(
     request: DownloadToFileRequest,
-    transferOptions?: TransferOptions,
+    transferOptions?: TransferManagerRequestOptions,
     emitEvents = true
   ): Promise<DownloadToFileResponse> {
     if (!request.destination || request.destination === "") {
@@ -640,7 +679,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
 
     let initialResponse: DownloadResponse;
     try {
-      initialResponse = await this.s3.send(new GetObjectCommand(initialPartRequest), transferOptions);
+      initialResponse = await this.send(new GetObjectCommand(initialPartRequest), transferOptions);
     } catch (error) {
       removeLocalEventListeners();
       throw error;
@@ -786,7 +825,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
               // The handler returns a proper HttpResponse (with body omitted since
               // it was written to disk) so the SDK middleware pipeline processes
               // the response normally.
-              await this.s3.send(new GetObjectCommand(partGetRequest), {
+              await this.send(new GetObjectCommand(partGetRequest), {
                 ...transferOptions,
                 downloadDataToFile: downloadOptions,
               } as any);
@@ -805,7 +844,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
               });
             } else {
               // Main-thread fallback (workerThreadCount === 1)
-              const partResponse = await this.s3.send(new GetObjectCommand(partGetRequest), transferOptions);
+              const partResponse = await this.send(new GetObjectCommand(partGetRequest), transferOptions);
               if (partResponse.Body && partResponse.Body instanceof Readable) {
                 partResponse.Body.on("error", () => {});
               }
@@ -916,7 +955,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
   private async downloadToFileByRange(
     request: DownloadToFileRequest,
     resolvedDestination: string,
-    transferOptions: TransferOptions | undefined,
+    transferOptions: TransferManagerRequestOptions | undefined,
     emitEvents: boolean
   ): Promise<DownloadToFileResponse> {
     const { destination, failIfExists, ...getObjectFields } = request;
@@ -935,7 +974,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
         ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
       };
 
-      const initialResponse = await this.s3.send(new GetObjectCommand(initialRangeRequest), transferOptions);
+      const initialResponse = await this.send(new GetObjectCommand(initialRangeRequest), transferOptions);
 
       // Attach a no-op error handler to the initial response body to prevent
       // uncaught socket teardown errors if abort fires before the body is consumed.
@@ -1062,7 +1101,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
                 resultToken,
               };
 
-              const rangeResponse = await this.s3.send(new GetObjectCommand(rangeGetRequest), {
+              const rangeResponse = await this.send(new GetObjectCommand(rangeGetRequest), {
                 ...transferOptions,
                 downloadDataToFile: downloadOptions,
               } as any);
@@ -1084,7 +1123,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
               });
             } else {
               // Main-thread fallback (workerThreadCount === 1)
-              const rangeResponse = await this.s3.send(new GetObjectCommand(rangeGetRequest), transferOptions);
+              const rangeResponse = await this.send(new GetObjectCommand(rangeGetRequest), transferOptions);
 
               // Validate ContentRange matches the requested range
               this.validateRangeDownload(`bytes=${start}-${end}`, rangeResponse.ContentRange);
@@ -1346,6 +1385,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
             putRequest,
             {
               abortSignal: abortController.signal,
+              [TRANSFER_MANAGER_DIRECTORY_FEATURE]: "S3_TRANSFER_UPLOAD_DIRECTORY",
             },
             /* emitEvents */ false
           );
@@ -1521,8 +1561,9 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
           ContinuationToken: continuationToken,
         };
 
-        const listResponse = await this.s3.send(new ListObjectsV2Command(listRequest), {
+        const listResponse = await this.send(new ListObjectsV2Command(listRequest), {
           abortSignal: abortController.signal,
+          [TRANSFER_MANAGER_DIRECTORY_FEATURE]: "S3_TRANSFER_DOWNLOAD_DIRECTORY",
         });
 
         continuationToken = listResponse.IsTruncated ? listResponse.NextContinuationToken : undefined;
@@ -1586,6 +1627,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
                 },
                 {
                   abortSignal: abortController.signal,
+                  [TRANSFER_MANAGER_DIRECTORY_FEATURE]: "S3_TRANSFER_DOWNLOAD_DIRECTORY",
                 },
                 /* emitEvents */ false
               );
@@ -1712,7 +1754,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
         ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
       };
       try {
-        const initialPart = await this.s3.send(new GetObjectCommand(initialPartRequest), transferOptions);
+        const initialPart = await this.send(new GetObjectCommand(initialPartRequest), transferOptions);
         await internalEventHandler.afterInitialGetObject();
         const partSize = initialPart.ContentLength;
         const initialETag = initialPart.ETag ?? undefined;
@@ -1749,8 +1791,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
 
             partTasks.push(() => {
               this.checkAborted(transferOptions);
-              return this.s3
-                .send(new GetObjectCommand(getObjectRequest), transferOptions)
+              return this.send(new GetObjectCommand(getObjectRequest), transferOptions)
                 .then((response) => {
                   this.validatePartDownload(response.ContentRange, part, partSize ?? 0);
                   if (response.Body && typeof (response.Body as any).getReader === "function") {
@@ -1801,7 +1842,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
           }),
         };
 
-        const getObject = await this.s3.send(new GetObjectCommand(getObjectRequest), transferOptions);
+        const getObject = await this.send(new GetObjectCommand(getObjectRequest), transferOptions);
         totalSize = getObject.ContentRange ? Number.parseInt(getObject.ContentRange.split("/")[1]) : 0;
 
         this.dispatchTransferInitiatedEvent(request, totalSize);
@@ -1843,7 +1884,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     let streamConsumedCallback: ((index: number) => void) | undefined;
     this.checkAborted(transferOptions);
 
-    const headResponse = await this.s3.send(
+    const headResponse = await this.send(
       new HeadObjectCommand({ Bucket: request.Bucket, Key: request.Key }),
       transferOptions
     );
@@ -1853,7 +1894,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
         ...request,
         ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
       };
-      const response = await this.s3.send(new GetObjectCommand(getObjectRequest), transferOptions);
+      const response = await this.send(new GetObjectCommand(getObjectRequest), transferOptions);
 
       this.dispatchTransferInitiatedEvent(request, 0);
       if (response.Body) streams.push(Promise.resolve(response.Body));
@@ -1884,7 +1925,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
         Range: `bytes=${left}-${right}`,
         ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
       };
-      const initialRangeGet = await this.s3.send(new GetObjectCommand(getObjectRequest), transferOptions);
+      const initialRangeGet = await this.send(new GetObjectCommand(getObjectRequest), transferOptions);
       await internalEventHandler.afterInitialGetObject();
       this.validateRangeDownload(`bytes=${left}-${right}`, initialRangeGet.ContentRange);
       initialETag = initialRangeGet.ETag ?? undefined;
@@ -1936,8 +1977,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
 
       rangeTasks.push(() => {
         this.checkAborted(transferOptions);
-        return this.s3
-          .send(new GetObjectCommand(getObjectRequest), transferOptions)
+        return this.send(new GetObjectCommand(getObjectRequest), transferOptions)
           .then((response) => {
             this.validateRangeDownload(range, response.ContentRange);
             if (response.Body && typeof (response.Body as any).getReader === "function") {
@@ -2018,7 +2058,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
       ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
     };
 
-    const initialPart = await this.s3.send(new GetObjectCommand(initialPartRequest), transferOptions);
+    const initialPart = await this.send(new GetObjectCommand(initialPartRequest), transferOptions);
     await internalEventHandler.afterInitialGetObject();
 
     const partSize = initialPart.ContentLength!;
@@ -2124,11 +2164,10 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
         // Send through SDK pipeline — WorkerHttpHandler.handle() intercepts downloadStream
         // and dispatches to a worker. The worker assembles data into an ArrayBuffer and transfers
         // ownership back to main (zero-copy). Fire-and-forget; completion tracked via queue.
-        this.s3
-          .send(new GetObjectCommand(partGetRequest), {
-            ...transferOptions,
-            downloadStream: transferOptions_,
-          } as any)
+        this.send(new GetObjectCommand(partGetRequest), {
+          ...transferOptions,
+          downloadStream: transferOptions_,
+        } as any)
           .then(() => {
             const transferResult = (
               this.s3.config.requestHandler as unknown as IWorkerHttpHandler
@@ -2234,7 +2273,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
   }> {
     this.checkAborted(transferOptions);
 
-    const headResponse = await this.s3.send(
+    const headResponse = await this.send(
       new HeadObjectCommand({ Bucket: request.Bucket, Key: request.Key }),
       transferOptions
     );
@@ -2245,7 +2284,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
         ...request,
         ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
       };
-      const response = await this.s3.send(new GetObjectCommand(getObjectRequest), transferOptions);
+      const response = await this.send(new GetObjectCommand(getObjectRequest), transferOptions);
 
       this.dispatchTransferInitiatedEvent(request, 0);
       if (response.Body) streams.push(Promise.resolve(response.Body));
@@ -2347,11 +2386,10 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
         // Send through SDK pipeline — WorkerHttpHandler.handle() intercepts downloadStream
         // and dispatches to a worker. The worker assembles data into an ArrayBuffer and transfers
         // ownership back to main (zero-copy). Fire-and-forget; completion tracked via queue.
-        this.s3
-          .send(new GetObjectCommand(rangeGetRequest), {
-            ...transferOptions,
-            downloadStream: transferOpts,
-          } as any)
+        this.send(new GetObjectCommand(rangeGetRequest), {
+          ...transferOptions,
+          downloadStream: transferOpts,
+        } as any)
           .then(() => {
             const transferResult = (
               this.s3.config.requestHandler as unknown as IWorkerHttpHandler
@@ -2789,7 +2827,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     const putObjectRequest: PutObjectCommandInput = { ...request };
 
     this.checkAborted(transferOptions);
-    const response = await this.s3.send(new PutObjectCommand(putObjectRequest), transferOptions);
+    const response = await this.send(new PutObjectCommand(putObjectRequest), transferOptions);
 
     if (emitEvents) {
       this.dispatchEvent(
@@ -2945,7 +2983,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
       createMpuRequest.ChecksumAlgorithm = request.ChecksumAlgorithm ?? "CRC32";
     }
 
-    const createMpuResponse = await this.s3.send(new CreateMultipartUploadCommand(createMpuRequest), transferOptions);
+    const createMpuResponse = await this.send(new CreateMultipartUploadCommand(createMpuRequest), transferOptions);
     const uploadId = createMpuResponse.UploadId!;
 
     const checksumAlgorithm = createMpuRequest.ChecksumAlgorithm;
@@ -2978,7 +3016,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
         };
 
         try {
-          return await this.s3.send(new UploadPartCommand(partRequest), {
+          return await this.send(new UploadPartCommand(partRequest), {
             ...transferOptions,
             dataSource,
           } as any);
@@ -3079,7 +3117,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
       }
 
       try {
-        return await this.s3.send(new CompleteMultipartUploadCommand(completeRequest), transferOptions);
+        return await this.send(new CompleteMultipartUploadCommand(completeRequest), transferOptions);
       } catch (completeMpuError) {
         this.logger.warn(
           `CompleteMultipartUpload failed for upload ID ${uploadId}: ${(completeMpuError as Error).message}`
@@ -3094,7 +3132,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
       };
 
       try {
-        await this.s3.send(new AbortMultipartUploadCommand(abortRequest), transferOptions);
+        await this.send(new AbortMultipartUploadCommand(abortRequest), transferOptions);
       } catch (abortError) {
         this.logger.warn(`Failed to abort multipart upload ${uploadId}:`, abortError);
       }
@@ -3134,7 +3172,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     if (!createMpuRequest.ChecksumAlgorithm && this.requestChecksumCalculation === "WHEN_SUPPORTED") {
       createMpuRequest.ChecksumAlgorithm = request.ChecksumAlgorithm ?? "CRC32";
     }
-    const createMpuResponse = await this.s3.send(new CreateMultipartUploadCommand(createMpuRequest), transferOptions);
+    const createMpuResponse = await this.send(new CreateMultipartUploadCommand(createMpuRequest), transferOptions);
     const uploadId = createMpuResponse.UploadId!;
 
     const abortController = new AbortController();
@@ -3165,7 +3203,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
             }),
           };
 
-          const partResponse = await this.s3.send(new UploadPartCommand(partRequest), transferOptions);
+          const partResponse = await this.send(new UploadPartCommand(partRequest), transferOptions);
 
           const checksumAlgorithm = partRequest.ChecksumAlgorithm;
           if (
@@ -3246,7 +3284,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
       }
 
       try {
-        return await this.s3.send(new CompleteMultipartUploadCommand(completeRequest), transferOptions);
+        return await this.send(new CompleteMultipartUploadCommand(completeRequest), transferOptions);
       } catch (completeMpuError) {
         this.logger.warn(
           `CompleteMultipartUpload failed for upload ID ${uploadId}: ${(completeMpuError as Error).message}`
@@ -3261,7 +3299,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
       };
 
       try {
-        await this.s3.send(new AbortMultipartUploadCommand(abortRequest), transferOptions);
+        await this.send(new AbortMultipartUploadCommand(abortRequest), transferOptions);
       } catch (abortError) {
         this.logger.warn(`Failed to abort multipart upload ${uploadId}:`, abortError);
       }

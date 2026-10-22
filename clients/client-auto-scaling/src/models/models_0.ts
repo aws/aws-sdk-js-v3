@@ -74,6 +74,62 @@ export interface AcceleratorTotalMemoryMiBRequest {
 }
 
 /**
+ * <p>
+ *             Describes an account setting for Amazon EC2 Auto Scaling. Account settings control how certain features behave for your account. Some settings can be enforced after a specified date, meaning that after the enforcement date, you can no longer modify the setting.
+ *         </p>
+ * @public
+ */
+export interface AccountSetting {
+  /**
+   * <p>
+   *             The name of the account setting. Each account setting has a unique name that identifies the specific feature it controls.
+   *         </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>
+   *             The current value of the account setting.
+   *         </p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>
+   *             The type of enforcement for the account setting. Valid values include: <code>hard</code> (the setting has a hard enforcement date after which the setting will be enforced and cannot be modified), <code>flexible</code> (the setting has a flexible enforcement where you can always modify the setting value), and <code>none</code> (the setting has no enforcement and can always be modified).
+   *         </p>
+   * @public
+   */
+  EnforcementType?: string | undefined;
+
+  /**
+   * <p>
+   *             The date when the account setting will be enforced. After this date, for settings with hard enforcement type, you can no longer modify the setting value. This parameter is only returned for settings with hard or flexible enforcement types.
+   *         </p>
+   * @public
+   */
+  EnforcementDate?: Date | undefined;
+
+  /**
+   * <p>
+   *             The default value of the account setting before the enforcement date. Valid values are enabled and disabled. This parameter is only returned for settings with hard or flexible enforcement types.
+   *         </p>
+   * @public
+   */
+  DefaultValue?: string | undefined;
+
+  /**
+   * <p>
+   *             The value that will be enforced after the enforcement date. Valid values are enabled and disabled. This parameter is only returned for settings with hard or flexible enforcement types.
+   *         </p>
+   * @public
+   */
+  EnforcedValue?: string | undefined;
+}
+
+/**
  * <p>Describes scaling activity, which is a long-running process that represents a change
  *             to your Auto Scaling group, such as changing its size or replacing an instance.</p>
  * @public
@@ -2955,6 +3011,56 @@ export interface DescribeAccountLimitsAnswer {
    * @public
    */
   NumberOfLaunchConfigurations?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAccountSettingsAnswer {
+  /**
+   * <p>
+   *             Information about the account settings.
+   *         </p>
+   * @public
+   */
+  Settings?: AccountSetting[] | undefined;
+
+  /**
+   * <p>
+   *             A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is <code>null</code> when there are no more items to return.
+   *         </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAccountSettingsType {
+  /**
+   * <p>
+   *             The name of the account setting to describe. If you omit this parameter, all account settings are described.
+   *         </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>
+   *             The token for the next set of items to return. (You received this token from a previous call.)
+   *         </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>
+   *             The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.
+   *         </p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
 }
 
 /**
@@ -7644,6 +7750,32 @@ export interface LaunchInstancesResult {
    * @public
    */
   Errors?: LaunchInstancesError[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAccountSettingAnswer {}
+
+/**
+ * @public
+ */
+export interface PutAccountSettingType {
+  /**
+   * <p>
+   *             The name of the account setting to modify. Each account setting has a unique name that identifies the specific feature it controls.
+   *         </p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>
+   *             The value for the account setting.
+   *         </p>
+   * @public
+   */
+  Value: string | undefined;
 }
 
 /**

@@ -35,6 +35,7 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  * const input = { // StopDBInstanceMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required
  *   DBSnapshotIdentifier: "STRING_VALUE",
+ *   DetachFromDBCapacityReservation: true || false,
  * };
  * const command = new StopDBInstanceCommand(input);
  * const response = await client.send(command);
@@ -143,6 +144,7 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  * //           StorageType: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       DBCapacityReservationIdentifier: "STRING_VALUE",
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -291,6 +293,7 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  * //     StorageVolumeStatus: "STRING_VALUE",
  * //     StorageOperationStatus: "STRING_VALUE",
  * //     StorageOperationPercentProgress: Number("int"),
+ * //     DBCapacityReservationIdentifier: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -307,6 +310,9 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  *
  * @throws {@link DBSnapshotAlreadyExistsFault} (client fault)
  *  <p> <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+ *
+ * @throws {@link InvalidDBCapacityReservationStateFault} (client fault)
+ *  <p>The DB capacity reservation isn't in a valid state.</p>
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>

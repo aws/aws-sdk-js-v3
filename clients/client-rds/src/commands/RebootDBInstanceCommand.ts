@@ -143,6 +143,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * //           StorageType: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       DBCapacityReservationIdentifier: "STRING_VALUE",
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -291,6 +292,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * //     StorageVolumeStatus: "STRING_VALUE",
  * //     StorageOperationStatus: "STRING_VALUE",
  * //     StorageOperationPercentProgress: Number("int"),
+ * //     DBCapacityReservationIdentifier: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -3,6 +3,9 @@ const _AC = "AdvancedConfiguration";
 const _ACR = "AcceleratorCountRequest";
 const _AD = "AttachmentDetails";
 const _ADE = "AccessDeniedException";
+const _AGWC = "AssociateGatewayWithCluster";
+const _AGWCR = "AssociateGatewayWithClusterRequest";
+const _AGWCRs = "AssociateGatewayWithClusterResponse";
 const _AIT = "AllowedInstanceType";
 const _AITS = "AllowedInstanceTypeSet";
 const _ALEE = "AttributeLimitExceededException";
@@ -50,6 +53,9 @@ const _CEGS = "CreateExpressGatewayService";
 const _CEGSR = "CreateExpressGatewayServiceRequest";
 const _CEGSRr = "CreateExpressGatewayServiceResponse";
 const _CEo = "ConflictException";
+const _CG = "CreateGateway";
+const _CGR = "CreateGatewayRequest";
+const _CGRr = "CreateGatewayResponse";
 const _CI = "ContainerImage";
 const _CIHS = "ContainerInstanceHealthStatus";
 const _CIo = "ContainerInstance";
@@ -159,6 +165,23 @@ const _DEGSResc = "DescribeExpressGatewayServiceResponse";
 const _DEGSe = "DescribeExpressGatewayService";
 const _DES = "DeploymentEphemeralStorage";
 const _DESC = "DeploymentEarlySuccessCriteria";
+const _DG = "DeleteGateway";
+const _DGAC = "DescribeGatewayAlbConfiguration";
+const _DGC = "DescribeGatewayConfiguration";
+const _DGFC = "DisassociateGatewayFromCluster";
+const _DGFCR = "DisassociateGatewayFromClusterRequest";
+const _DGFCRi = "DisassociateGatewayFromClusterResponse";
+const _DGR = "DeleteGatewayRequest";
+const _DGRR = "DescribeGatewayResourcesRequest";
+const _DGRRe = "DescribeGatewayResourcesResponse";
+const _DGRRes = "DescribeGatewayRouteRequest";
+const _DGRResc = "DescribeGatewayRouteResponse";
+const _DGRe = "DeleteGatewayResponse";
+const _DGRes = "DescribeGatewayRequest";
+const _DGResc = "DescribeGatewayResponse";
+const _DGRescr = "DescribeGatewayResources";
+const _DGRescri = "DescribeGatewayRoute";
+const _DGe = "DescribeGateway";
 const _DL = "DevicesList";
 const _DLH = "DeploymentLifecycleHook";
 const _DLHD = "DeploymentLifecycleHookDetail";
@@ -230,7 +253,9 @@ const _EFSAC = "EFSAuthorizationConfig";
 const _EFSVC = "EFSVolumeConfiguration";
 const _EFn = "EnvironmentFiles";
 const _EGC = "ExpressGatewayContainer";
+const _EGR = "ElbGatewayResources";
 const _EGRC = "ExpressGatewayRepositoryCredentials";
+const _EGRL = "ElbGatewayResourcesList";
 const _EGSALC = "ExpressGatewayServiceAwsLogsConfiguration";
 const _EGSC = "ExpressGatewayServiceConfiguration";
 const _EGSCx = "ExpressGatewayServiceConfigurations";
@@ -246,12 +271,50 @@ const _FC = "FirelensConfiguration";
 const _FSWFSAC = "FSxWindowsFileServerAuthorizationConfig";
 const _FSWFSVC = "FSxWindowsFileServerVolumeConfiguration";
 const _Fa = "Failures";
+const _G = "Gateway";
+const _GATTR = "GatewayAlbTestTrafficRules";
+const _GC = "GatewayConnection";
+const _GCAR = "GatewayConnectionAlbResources";
+const _GCARL = "GatewayConnectionAlbResourcesList";
+const _GCAS = "GatewayClusterAssociationSummary";
+const _GCASL = "GatewayClusterAssociationSummaryList";
+const _GCF = "GatewayConnectorFilters";
+const _GCHC = "GatewayConnectorHealthCheck";
+const _GCHCM = "GatewayConnectorHealthCheckMatcher";
+const _GCL = "GatewayConnectionList";
+const _GCLa = "GatewayConnectorList";
+const _GCR = "GatewayConnectionResources";
+const _GCa = "GatewayConnector";
+const _GCat = "GatewayConfiguration";
+const _GEALC = "GatewayElbAccessLogConfiguration";
+const _GEALD = "GatewayElbAccessLogDestination";
+const _GEALSD = "GatewayElbAccessLogS3Destination";
+const _GENC = "GatewayElbNetworkConfiguration";
+const _GIR = "GatewayInfrastructureResources";
+const _GNFE = "GatewayNotFoundException";
+const _GOE = "GatewayOperationError";
+const _GOEL = "GatewayOperationErrorList";
+const _GR = "GatewayResources";
+const _GRAR = "GatewayRouteAlbResources";
+const _GRARL = "GatewayRouteAlbResourcesList";
+const _GRF = "GatewayResourceFailure";
+const _GRFL = "GatewayResourceFailureList";
+const _GRLBSG = "GatewayRouteLoadBalancerSecurityGroup";
+const _GRLBSGL = "GatewayRouteLoadBalancerSecurityGroupList";
+const _GRR = "GatewayRouteResources";
+const _GRS = "GatewayRouteSummary";
+const _GRSL = "GatewayRouteSummaryList";
+const _GRa = "GatewayRoute";
+const _GS = "GatewaySummary";
+const _GSL = "GatewaySummaryList";
 const _GTP = "GetTaskProtection";
 const _GTPR = "GetTaskProtectionRequest";
 const _GTPRe = "GetTaskProtectionResponse";
+const _GTTH = "GatewayTestTrafficHeader";
 const _HC = "HealthCheck";
 const _HE = "HostEntry";
 const _HEL = "HostEntryList";
+const _HSAC = "HostSharedAlbConfiguration";
 const _HVP = "HostVolumeProperties";
 const _IA = "InferenceAccelerator";
 const _IAO = "InferenceAcceleratorOverride";
@@ -296,6 +359,15 @@ const _LDTD = "ListDaemonTaskDefinitions";
 const _LDTDR = "ListDaemonTaskDefinitionsRequest";
 const _LDTDRi = "ListDaemonTaskDefinitionsResponse";
 const _LEE = "LimitExceededException";
+const _LG = "ListGateways";
+const _LGCA = "ListGatewayClusterAssociations";
+const _LGCAR = "ListGatewayClusterAssociationsRequest";
+const _LGCARi = "ListGatewayClusterAssociationsResponse";
+const _LGR = "ListGatewaysRequest";
+const _LGRR = "ListGatewayRoutesRequest";
+const _LGRRi = "ListGatewayRoutesResponse";
+const _LGRi = "ListGatewaysResponse";
+const _LGRis = "ListGatewayRoutes";
 const _LP = "LinuxParameters";
 const _LS = "ListServices";
 const _LSBN = "ListServicesByNamespace";
@@ -540,6 +612,12 @@ const _UEGSR = "UpdateExpressGatewayServiceRequest";
 const _UEGSRp = "UpdateExpressGatewayServiceResponse";
 const _UEGSp = "UpdateExpressGatewayService";
 const _UFE = "UnsupportedFeatureException";
+const _UG = "UpdateGateway";
+const _UGAC = "UpdateGatewayAlbConfiguration";
+const _UGC = "UpdateGatewayConfiguration";
+const _UGNC = "UpdateGatewayNetworkConfiguration";
+const _UGR = "UpdateGatewayRequest";
+const _UGRp = "UpdateGatewayResponse";
 const _UIPE = "UpdateInProgressException";
 const _UL = "UlimitList";
 const _UMIPC = "UpdateManagedInstancesProviderConfiguration";
@@ -571,6 +649,7 @@ const _a = "attachments";
 const _aA = "attachmentArn";
 const _aASP = "applicationAutoScalingPolicies";
 const _aC = "agentConnected";
+const _aCA = "acmCertificateArn";
 const _aCc = "activeConfigurations";
 const _aCcc = "acceleratorCount";
 const _aCd = "advancedConfiguration";
@@ -579,6 +658,7 @@ const _aCw = "awsvpcConfiguration";
 const _aH = "agentHash";
 const _aI = "attachmentId";
 const _aIT = "allowedInstanceTypes";
+const _aL = "accessLogs";
 const _aLC = "awsLogsConfiguration";
 const _aLCc = "accessLogConfiguration";
 const _aM = "acceleratorManufacturers";
@@ -602,7 +682,8 @@ const _aSu = "autoScaling";
 const _aT = "accessType";
 const _aTGA = "alternateTargetGroupArn";
 const _aTMMB = "acceleratorTotalMemoryMiB";
-const _aTc = "acceleratorTypes";
+const _aTc = "accessTypes";
+const _aTcc = "acceleratorTypes";
 const _aUS = "agentUpdateStatus";
 const _aV = "attributeValue";
 const _aVg = "agentVersion";
@@ -623,8 +704,10 @@ const _bM = "bareMetal";
 const _bP = "burstablePerformance";
 const _bTIM = "bakeTimeInMinutes";
 const _be = "before";
+const _bu = "bucket";
 const _c = "client";
 const _cA = "clusterArn";
+const _cAC = "currentAlbCount";
 const _cAL = "configuredAtLaunch";
 const _cAl = "clusterArns";
 const _cAli = "clientAliases";
@@ -674,6 +757,7 @@ const _ce = "certificate";
 const _cl = "cluster";
 const _clu = "clusters";
 const _co = "configuration";
+const _cod = "code";
 const _com = "command";
 const _comp = "compatibilities";
 const _con = "condition";
@@ -707,7 +791,8 @@ const _dNo = "domainName";
 const _dO = "dependsOn";
 const _dOT = "deleteOnTermination";
 const _dOr = "driverOpts";
-const _dP = "drainPercent";
+const _dP = "deletionProtection";
+const _dPr = "drainPercent";
 const _dR = "daemonRevisions";
 const _dRA = "daemonRevisionArn";
 const _dRAa = "daemonRevisionArns";
@@ -727,6 +812,7 @@ const _dVo = "dockerVersion";
 const _da = "daemon";
 const _de = "devices";
 const _dep = "deployments";
+const _des = "destination";
 const _det = "detail";
 const _do = "domain";
 const _dr = "driver";
@@ -759,6 +845,7 @@ const _ena = "enabled";
 const _enab = "enable";
 const _enc = "encrypted";
 const _end = "endpoint";
+const _er = "errors";
 const _es = "essential";
 const _ev = "events";
 const _ex = "expression";
@@ -779,19 +866,37 @@ const _fTi = "filesystemType";
 const _fWFSVC = "fsxWindowsFileServerVolumeConfiguration";
 const _fa = "failures";
 const _fam = "families";
-const _fi = "filter";
+const _fi = "filters";
 const _fie = "field";
+const _fil = "filter";
 const _fo = "force";
 const _for = "format";
-const _g = "group";
+const _g = "gateway";
+const _gA = "gatewayArn";
+const _gC = "gatewayConnectors";
+const _gCA = "gatewayClusterAssociations";
+const _gCa = "gatewayConnections";
+const _gCr = "grpcCode";
 const _gDE = "guardDutyEnabled";
 const _gI = "gpuIds";
+const _gR = "gatewayResources";
+const _gRA = "gatewayRouteArn";
+const _gRAa = "gatewayRouteArns";
+const _gRa = "gatewayRoute";
+const _gRat = "gatewayRoutes";
+const _ga = "gateways";
+const _gr = "group";
 const _h = "hostname";
 const _hC = "healthCheck";
 const _hCGPS = "healthCheckGracePeriodSeconds";
+const _hCIS = "healthCheckIntervalSeconds";
 const _hCP = "healthCheckPath";
-const _hCPe = "healthCheckPort";
+const _hCPe = "healthCheckProtocol";
+const _hCPea = "healthCheckPort";
+const _hCTS = "healthCheckTimeoutSeconds";
+const _hCt = "httpCode";
 const _hD = "hookDetails";
+const _hDt = "httpDesync";
 const _hE = "httpError";
 const _hI = "hookId";
 const _hL = "hardLimit";
@@ -800,12 +905,15 @@ const _hPR = "hostPortRange";
 const _hPo = "hostPath";
 const _hPos = "hostPort";
 const _hS = "healthStatus";
+const _hSA = "hostSharedAlb";
 const _hTA = "hookTargetArn";
+const _hTC = "healthyThresholdCount";
 const _he = "header";
 const _ho = "host";
 const _i = "id";
 const _iA = "ipAddress";
 const _iAO = "inferenceAcceleratorOverrides";
+const _iAT = "ipAddressType";
 const _iAn = "inferenceAccelerators";
 const _iAp = "ipv6Address";
 const _iCA = "issuerCertificateAuthority";
@@ -824,6 +932,7 @@ const _iPO = "ingressPortOverride";
 const _iQP = "includeQueryParameters";
 const _iR = "instanceRequirements";
 const _iRA = "infrastructureRoleArn";
+const _iSG = "inboundSecurityGroup";
 const _iTS = "idleTimeoutSeconds";
 const _iV = "integerValue";
 const _iWP = "instanceWarmupPeriod";
@@ -838,9 +947,12 @@ const _k = "key";
 const _kK = "kmsKey";
 const _kKI = "kmsKeyId";
 const _l = "links";
+const _lA = "listenerArn";
 const _lB = "loadBalancers";
+const _lBA = "loadBalancerArn";
 const _lBN = "loadBalancerName";
 const _lBSG = "loadBalancerSecurityGroups";
+const _lBSGA = "loadBalancerSecurityGroupArns";
 const _lBo = "loadBalancer";
 const _lC = "logConfiguration";
 const _lCi = "linearConfiguration";
@@ -852,6 +964,7 @@ const _lH = "lifecycleHooks";
 const _lHD = "lifecycleHookDetails";
 const _lL = "logLevel";
 const _lP = "linuxParameters";
+const _lRA = "listenerRuleArn";
 const _lS = "lastStatus";
 const _lSA = "lastStartedAt";
 const _lSC = "lastStatusChange";
@@ -869,6 +982,7 @@ const _li = "listener";
 const _lo = "logging";
 const _m = "message";
 const _mA = "managedAgents";
+const _mAC = "maxAlbCount";
 const _mAN = "managedAgentName";
 const _mAe = "metricAlarms";
 const _mC = "minCapacity";
@@ -896,6 +1010,7 @@ const _mTC = "minTaskCount";
 const _mTCa = "maxTaskCount";
 const _mTP = "managedTerminationProtection";
 const _ma = "max";
+const _mat = "matcher";
 const _me = "memory";
 const _met = "metric";
 const _mi = "min";
@@ -910,10 +1025,12 @@ const _nIC = "networkInterfaceCount";
 const _nM = "networkMode";
 const _nT = "nextToken";
 const _na = "namespace";
+const _nam = "names";
 const _o = "options";
 const _oDMPPOLP = "onDemandMaxPricePercentageOverLowestPrice";
 const _oS = "overallStatus";
 const _oSF = "operatingSystemFamily";
+const _op = "operation";
 const _ov = "overrides";
 const _p = "privileged";
 const _pA = "principalArn";
@@ -944,6 +1061,7 @@ const _pV = "platformVersion";
 const _pe = "permissions";
 const _po = "port";
 const _pr = "protocol";
+const _pre = "prefix";
 const _pro = "properties";
 const _r = "reason";
 const _rA = "roleArn";
@@ -952,6 +1070,7 @@ const _rAe = "registeredAt";
 const _rAeg = "registryArn";
 const _rAeq = "requiresAttributes";
 const _rAes = "resourceArn";
+const _rAu = "ruleArns";
 const _rB = "registeredBy";
 const _rC = "repositoryCredentials";
 const _rCIC = "registeredContainerInstancesCount";
@@ -987,6 +1106,7 @@ const _rTCu = "runningTaskCount";
 const _rTDRA = "rollbackTargetDaemonRevisionArn";
 const _rTTW = "requestedTestTrafficWeight";
 const _re = "revision";
+const _res = "resources";
 const _ret = "retries";
 const _ro = "role";
 const _rol = "rollback";
@@ -1004,6 +1124,7 @@ const _sC = "systemControls";
 const _sCC = "serviceConnectConfiguration";
 const _sCD = "serviceConnectDefaults";
 const _sCE = "serviceConnectEndpoint";
+const _sCPN = "serviceContainerPortName";
 const _sCR = "serviceConnectResources";
 const _sCo = "sourceContainer";
 const _sCt = "statusCode";
@@ -1016,6 +1137,7 @@ const _sDR = "sourceDaemonRevisions";
 const _sEE = "s3EncryptionEnabled";
 const _sG = "securityGroups";
 const _sGI = "securityGroupIds";
+const _sGe = "securityGroup";
 const _sI = "subnetIds";
 const _sIA = "scaleInAfter";
 const _sIGB = "sizeInGiB";
@@ -1039,6 +1161,7 @@ const _sRt = "stoppedReason";
 const _sS = "schedulingStrategy";
 const _sSA = "stabilityStatusAt";
 const _sSG = "serviceSecurityGroups";
+const _sSGA = "serviceSecurityGroupArn";
 const _sSGB = "storageSizeGiB";
 const _sSR = "sourceServiceRevisions";
 const _sSRC = "sourceServiceRevisionCleanup";
@@ -1049,9 +1172,11 @@ const _sTc = "scalingTarget";
 const _sTca = "scalableTarget";
 const _sTt = "stopTimeout";
 const _sTto = "stopType";
-const _sU = "streamUrl";
+const _sU = "serviceUrl";
+const _sUt = "streamUrl";
 const _sV = "sourceVolume";
 const _sVC = "s3filesVolumeConfiguration";
+const _s_ = "s3";
 const _sc = "scale";
 const _sch = "scheme";
 const _sco = "scope";
@@ -1095,6 +1220,8 @@ const _tI = "targetId";
 const _tIM = "timeoutInMinutes";
 const _tK = "tagKeys";
 const _tLR = "testListenerRule";
+const _tLRA = "testListenerRuleArn";
+const _tLRAe = "testListenerRuleArns";
 const _tLSGB = "totalLocalStorageGB";
 const _tP = "terminationPolicy";
 const _tR = "totalResources";
@@ -1126,6 +1253,7 @@ const _uA = "updatedAt";
 const _uLS = "useLocalStorage";
 const _uS = "updateStatus";
 const _uSR = "updateStatusReason";
+const _uTC = "unhealthyThresholdCount";
 const _ul = "ulimits";
 const _un = "unit";
 const _v = "value";
@@ -1138,9 +1266,11 @@ const _vI = "versionInfo";
 const _vIR = "volumeInitializationRate";
 const _vLC = "vpcLatticeConfigurations";
 const _vT = "volumeType";
+const _va = "values";
 const _ve = "version";
 const _vo = "volumes";
 const _w = "weight";
+const _wACLA = "webACLArn";
 const _wD = "workingDirectory";
 const _wDC = "withoutDaemonCount";
 const _wDIC = "withoutDaemonInstanceCount";
@@ -1173,6 +1303,7 @@ import {
   ConflictException,
   DaemonNotActiveException,
   DaemonNotFoundException,
+  GatewayNotFoundException,
   InvalidParameterException,
   LimitExceededException,
   MissingVersionException,
@@ -1270,6 +1401,12 @@ export var DaemonNotFoundException$: StaticErrorSchema = [-3, n0, _DNFE,
   [0]
 ];
 n0_registry.registerError(DaemonNotFoundException$, DaemonNotFoundException);
+export var GatewayNotFoundException$: StaticErrorSchema = [-3, n0, _GNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(GatewayNotFoundException$, GatewayNotFoundException);
 export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
   { [_e]: _c },
   [_m],
@@ -1402,6 +1539,16 @@ export var AdvancedConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_aTGA, _pLR, _tLR, _rA],
   [0, 0, 0, 0]
+];
+export var AssociateGatewayWithClusterRequest$: StaticStructureSchema = [3, n0, _AGWCR,
+  0,
+  [_g, _cl],
+  [0, 0], 2
+];
+export var AssociateGatewayWithClusterResponse$: StaticStructureSchema = [3, n0, _AGWCRs,
+  0,
+  [_gA, _cA, _st],
+  [0, 0, 0]
 ];
 export var Attachment$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -1588,6 +1735,16 @@ export var CreateExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0,
   [_ser],
   [[() => ECSExpressGatewayService$, 0]]
 ];
+export var CreateGatewayRequest$: StaticStructureSchema = [3, n0, _CGR,
+  0,
+  [_n, _iRA, _co, _cT, _dP, _ta, _pTr],
+  [0, 0, () => GatewayConfiguration$, [0, 4], 2, () => Tags, 0], 3
+];
+export var CreateGatewayResponse$: StaticStructureSchema = [3, n0, _CGRr,
+  0,
+  [_gA, _n, _st],
+  [0, 0, 0]
+];
 export var CreateManagedInstancesProviderConfiguration$: StaticStructureSchema = [3, n0, _CMIPC,
   0,
   [_iRA, _iLT, _pTr, _iO, _aRC],
@@ -1595,8 +1752,8 @@ export var CreateManagedInstancesProviderConfiguration$: StaticStructureSchema =
 ];
 export var CreateServiceRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_sN, _cl, _tD, _aZR, _lB, _sRe, _dCe, _cT, _lT, _cPS, _pV, _ro, _dC, _pCl, _pS, _nC, _hCGPS, _sS, _dCep, _ta, _eECSMT, _pTr, _eEC, _sCC, _vCo, _vLC, _mo],
-  [0, 0, 0, 0, () => LoadBalancers, () => ServiceRegistries, 1, 0, 0, () => CapacityProviderStrategy, 0, 0, () => DeploymentConfiguration$, () => PlacementConstraints, () => PlacementStrategies, () => NetworkConfiguration$, 1, 0, () => DeploymentController$, () => Tags, 2, 0, 2, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => VpcLatticeConfigurations, () => MonitoringConfiguration$], 1
+  [_sN, _cl, _tD, _aZR, _lB, _sRe, _dCe, _cT, _lT, _cPS, _pV, _ro, _dC, _pCl, _pS, _nC, _hCGPS, _sS, _dCep, _ta, _eECSMT, _pTr, _eEC, _sCC, _vCo, _vLC, _gC, _mo],
+  [0, 0, 0, 0, () => LoadBalancers, () => ServiceRegistries, 1, 0, 0, () => CapacityProviderStrategy, 0, 0, () => DeploymentConfiguration$, () => PlacementConstraints, () => PlacementStrategies, () => NetworkConfiguration$, 1, 0, () => DeploymentController$, () => Tags, 2, 0, 2, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => VpcLatticeConfigurations, () => GatewayConnectorList, () => MonitoringConfiguration$], 1
 ];
 export var CreateServiceResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -1655,7 +1812,7 @@ export var DaemonDeploymentCapacityProvider$: StaticStructureSchema = [3, n0, _D
 ];
 export var DaemonDeploymentConfiguration$: StaticStructureSchema = [3, n0, _DDC,
   0,
-  [_dP, _al, _bTIM],
+  [_dPr, _al, _bTIM],
   [1, () => DaemonAlarmConfiguration$, 1]
 ];
 export var DaemonDeploymentRevisionDetail$: StaticStructureSchema = [3, n0, _DDRD,
@@ -1782,6 +1939,16 @@ export var DeleteExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0,
   0,
   [_ser],
   [[() => ECSExpressGatewayService$, 0]]
+];
+export var DeleteGatewayRequest$: StaticStructureSchema = [3, n0, _DGR,
+  0,
+  [_g],
+  [0], 1
+];
+export var DeleteGatewayResponse$: StaticStructureSchema = [3, n0, _DGRe,
+  0,
+  [_gA, _n, _st],
+  [0, 0, 0]
 ];
 export var DeleteServiceRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
@@ -1963,6 +2130,41 @@ export var DescribeExpressGatewayServiceResponse$: StaticStructureSchema = [3, n
   [_ser],
   [[() => ECSExpressGatewayService$, 0]]
 ];
+export var DescribeGatewayAlbConfiguration$: StaticStructureSchema = [3, n0, _DGAC,
+  0,
+  [_nC, _sch, _aL, _wACLA, _po, _pr, _mAC, _cAC, _hDt, _tTR],
+  [() => GatewayElbNetworkConfiguration$, 0, () => GatewayElbAccessLogConfiguration$, 0, 1, 0, 1, 1, 0, () => GatewayAlbTestTrafficRules$]
+];
+export var DescribeGatewayRequest$: StaticStructureSchema = [3, n0, _DGRes,
+  0,
+  [_g],
+  [0], 1
+];
+export var DescribeGatewayResourcesRequest$: StaticStructureSchema = [3, n0, _DGRR,
+  0,
+  [_g, _mRa, _nT],
+  [0, 1, 0], 1
+];
+export var DescribeGatewayResourcesResponse$: StaticStructureSchema = [3, n0, _DGRRe,
+  0,
+  [_gR, _nT],
+  [() => GatewayResources$, 0]
+];
+export var DescribeGatewayResponse$: StaticStructureSchema = [3, n0, _DGResc,
+  0,
+  [_g],
+  [() => Gateway$]
+];
+export var DescribeGatewayRouteRequest$: StaticStructureSchema = [3, n0, _DGRRes,
+  0,
+  [_gRA],
+  [0], 1
+];
+export var DescribeGatewayRouteResponse$: StaticStructureSchema = [3, n0, _DGRResc,
+  0,
+  [_gRa],
+  [() => GatewayRoute$]
+];
 export var DescribeServiceDeploymentsRequest$: StaticStructureSchema = [3, n0, _DSDR,
   0,
   [_sDAe],
@@ -2028,6 +2230,16 @@ export var Device$: StaticStructureSchema = [3, n0, _De,
   [_hPo, _cPo, _pe],
   [0, 0, 64 | 0], 1
 ];
+export var DisassociateGatewayFromClusterRequest$: StaticStructureSchema = [3, n0, _DGFCR,
+  0,
+  [_g, _cl],
+  [0, 0], 2
+];
+export var DisassociateGatewayFromClusterResponse$: StaticStructureSchema = [3, n0, _DGFCRi,
+  0,
+  [_gA, _cA, _st],
+  [0, 0, 0]
+];
 export var DiscoverPollEndpointRequest$: StaticStructureSchema = [3, n0, _DPER,
   0,
   [_cIo, _cl],
@@ -2055,8 +2267,8 @@ export var ECSExpressGatewayService$: StaticStructureSchema = [3, n0, _ECSEGS,
 ];
 export var ECSManagedResources$: StaticStructureSchema = [3, n0, _ECSMR,
   0,
-  [_iP, _aSu, _mAe, _sSG, _lG],
-  [() => ManagedIngressPaths, () => ManagedAutoScaling$, () => ManagedMetricAlarms, () => ManagedSecurityGroups, () => ManagedLogGroups]
+  [_iP, _aSu, _mAe, _sSG, _lG, _gCa],
+  [() => ManagedIngressPaths, () => ManagedAutoScaling$, () => ManagedMetricAlarms, () => ManagedSecurityGroups, () => ManagedLogGroups, () => GatewayConnectionList]
 ];
 export var EFSAuthorizationConfig$: StaticStructureSchema = [3, n0, _EFSAC,
   0,
@@ -2067,6 +2279,11 @@ export var EFSVolumeConfiguration$: StaticStructureSchema = [3, n0, _EFSVC,
   0,
   [_fSI, _rD, _tEr, _tEP, _aCu],
   [0, 0, 0, 1, () => EFSAuthorizationConfig$], 1
+];
+export var ElbGatewayResources$: StaticStructureSchema = [3, n0, _EGR,
+  0,
+  [_lBA, _lA, _sGe, _gRAa],
+  [0, 0, 0, 64 | 0]
 ];
 export var EnvironmentFile$: StaticStructureSchema = [3, n0, _EF,
   0,
@@ -2153,6 +2370,111 @@ export var FSxWindowsFileServerVolumeConfiguration$: StaticStructureSchema = [3,
   [_fSI, _rD, _aCu],
   [0, 0, () => FSxWindowsFileServerAuthorizationConfig$], 3
 ];
+export var Gateway$: StaticStructureSchema = [3, n0, _G,
+  0,
+  [_gA, _n, _st, _sR, _fa, _iRA, _dP, _co, _aT, _pTr, _ta, _cAr, _uA],
+  [0, 0, 0, 0, () => GatewayResourceFailureList, 0, 2, () => DescribeGatewayConfiguration$, 0, 0, () => Tags, 4, 4]
+];
+export var GatewayAlbTestTrafficRules$: StaticStructureSchema = [3, n0, _GATTR,
+  0,
+  [_he],
+  [() => GatewayTestTrafficHeader$]
+];
+export var GatewayClusterAssociationSummary$: StaticStructureSchema = [3, n0, _GCAS,
+  0,
+  [_gA, _cA, _st],
+  [0, 0, 0]
+];
+export var GatewayConnection$: StaticStructureSchema = [3, n0, _GC,
+  0,
+  [_gA, _gRA, _pN, _sU, _aT, _st, _res],
+  [0, 0, 0, 0, 0, 0, () => GatewayConnectionResources$]
+];
+export var GatewayConnectionAlbResources$: StaticStructureSchema = [3, n0, _GCAR,
+  0,
+  [_aCA, _lBA, _lBSGA, _lA, _lRA, _tLRA, _tGA, _aTGA],
+  [0, 0, 64 | 0, 0, 0, 0, 0, 0]
+];
+export var GatewayConnector$: StaticStructureSchema = [3, n0, _GCa,
+  0,
+  [_pN, _hC, _fi],
+  [0, () => GatewayConnectorHealthCheck$, () => GatewayConnectorFilters$], 1
+];
+export var GatewayConnectorFilters$: StaticStructureSchema = [3, n0, _GCF,
+  0,
+  [_aTc],
+  [64 | 0]
+];
+export var GatewayConnectorHealthCheck$: StaticStructureSchema = [3, n0, _GCHC,
+  0,
+  [_hCPe, _hCPea, _hCP, _hCTS, _hCIS, _hTC, _uTC, _mat],
+  [0, 1, 0, 1, 1, 1, 1, () => GatewayConnectorHealthCheckMatcher$]
+];
+export var GatewayConnectorHealthCheckMatcher$: StaticStructureSchema = [3, n0, _GCHCM,
+  0,
+  [_hCt, _gCr],
+  [0, 0]
+];
+export var GatewayElbAccessLogConfiguration$: StaticStructureSchema = [3, n0, _GEALC,
+  0,
+  [_des],
+  [() => GatewayElbAccessLogDestination$]
+];
+export var GatewayElbAccessLogS3Destination$: StaticStructureSchema = [3, n0, _GEALSD,
+  0,
+  [_bu, _pre],
+  [0, 0], 1
+];
+export var GatewayElbNetworkConfiguration$: StaticStructureSchema = [3, n0, _GENC,
+  0,
+  [_iSG, _su, _iAT],
+  [0, 64 | 0, 0]
+];
+export var GatewayOperationError$: StaticStructureSchema = [3, n0, _GOE,
+  0,
+  [_op, _cod, _m],
+  [0, 0, 0]
+];
+export var GatewayResourceFailure$: StaticStructureSchema = [3, n0, _GRF,
+  0,
+  [_ar, _er],
+  [0, () => GatewayOperationErrorList]
+];
+export var GatewayResources$: StaticStructureSchema = [3, n0, _GR,
+  0,
+  [_gA, _res],
+  [0, () => GatewayInfrastructureResources$]
+];
+export var GatewayRoute$: StaticStructureSchema = [3, n0, _GRa,
+  0,
+  [_gRA, _sAe, _sCPN, _st, _sU, _res],
+  [0, 0, 0, 0, 0, () => GatewayRouteResources$]
+];
+export var GatewayRouteAlbResources$: StaticStructureSchema = [3, n0, _GRAR,
+  0,
+  [_aCA, _lBA, _lA, _lRA, _tLRAe, _lBSG, _sSGA],
+  [0, 0, 0, 0, 64 | 0, () => GatewayRouteLoadBalancerSecurityGroupList, 0]
+];
+export var GatewayRouteLoadBalancerSecurityGroup$: StaticStructureSchema = [3, n0, _GRLBSG,
+  0,
+  [_ar, _rAu],
+  [0, 64 | 0]
+];
+export var GatewayRouteSummary$: StaticStructureSchema = [3, n0, _GRS,
+  0,
+  [_gRA, _gA, _cA, _sAe, _sCPN, _st],
+  [0, 0, 0, 0, 0, 0]
+];
+export var GatewaySummary$: StaticStructureSchema = [3, n0, _GS,
+  0,
+  [_gA, _n, _st, _cAr],
+  [0, 0, 0, 4]
+];
+export var GatewayTestTrafficHeader$: StaticStructureSchema = [3, n0, _GTTH,
+  0,
+  [_n, _va],
+  [0, 64 | 0], 2
+];
 export var GetTaskProtectionRequest$: StaticStructureSchema = [3, n0, _GTPR,
   0,
   [_cl, _tas],
@@ -2172,6 +2494,11 @@ export var HostEntry$: StaticStructureSchema = [3, n0, _HE,
   0,
   [_h, _iA],
   [0, 0], 2
+];
+export var HostSharedAlbConfiguration$: StaticStructureSchema = [3, n0, _HSAC,
+  0,
+  [_nC, _sch, _wACLA, _aL, _po, _pr, _mAC, _hDt, _tTR],
+  [() => GatewayElbNetworkConfiguration$, 0, 0, () => GatewayElbAccessLogConfiguration$, 1, 0, 1, 0, () => GatewayAlbTestTrafficRules$]
 ];
 export var HostVolumeProperties$: StaticStructureSchema = [3, n0, _HVP,
   0,
@@ -2215,7 +2542,7 @@ export var InstanceLaunchTemplateUpdate$: StaticStructureSchema = [3, n0, _ILTU,
 ];
 export var InstanceRequirementsRequest$: StaticStructureSchema = [3, n0, _IRR,
   0,
-  [_vCC, _mMB, _cM, _mGBPVC, _eIT, _iG, _sMPPOLP, _oDMPPOLP, _bM, _bP, _rHS, _nIC, _lSo, _lST, _tLSGB, _bEBM, _aTc, _aCcc, _aM, _aNc, _aTMMB, _nBG, _aIT, _mSPAPOOODP],
+  [_vCC, _mMB, _cM, _mGBPVC, _eIT, _iG, _sMPPOLP, _oDMPPOLP, _bM, _bP, _rHS, _nIC, _lSo, _lST, _tLSGB, _bEBM, _aTcc, _aCcc, _aM, _aNc, _aTMMB, _nBG, _aIT, _mSPAPOOODP],
   [() => VCpuCountRangeRequest$, () => MemoryMiBRequest$, [() => CpuManufacturerSet, { [_xN]: _CM }], () => MemoryGiBPerVCpuRequest$, [() => ExcludedInstanceTypeSet, { [_xN]: _EIT }], [() => InstanceGenerationSet, { [_xN]: _IG }], 1, 1, 0, 0, 2, () => NetworkInterfaceCountRequest$, 0, [() => LocalStorageTypeSet, { [_xN]: _LST }], () => TotalLocalStorageGBRequest$, () => BaselineEbsBandwidthMbpsRequest$, [() => AcceleratorTypeSet, { [_xN]: _AT }], () => AcceleratorCountRequest$, [() => AcceleratorManufacturerSet, { [_xN]: _AM }], [() => AcceleratorNameSet, { [_xN]: _AN }], () => AcceleratorTotalMemoryMiBRequest$, () => NetworkBandwidthGbpsRequest$, [() => AllowedInstanceTypeSet, { [_xN]: _AIT }], 1], 2
 ];
 export var KernelCapabilities$: StaticStructureSchema = [3, n0, _KC,
@@ -2270,7 +2597,7 @@ export var ListClustersResponse$: StaticStructureSchema = [3, n0, _LCRi,
 ];
 export var ListContainerInstancesRequest$: StaticStructureSchema = [3, n0, _LCIR,
   0,
-  [_cl, _fi, _nT, _mRa, _st],
+  [_cl, _fil, _nT, _mRa, _st],
   [0, 0, 0, 1, 0]
 ];
 export var ListContainerInstancesResponse$: StaticStructureSchema = [3, n0, _LCIRi,
@@ -2307,6 +2634,36 @@ export var ListDaemonTaskDefinitionsResponse$: StaticStructureSchema = [3, n0, _
   0,
   [_dTDa, _nT],
   [() => DaemonTaskDefinitionSummaries, 0]
+];
+export var ListGatewayClusterAssociationsRequest$: StaticStructureSchema = [3, n0, _LGCAR,
+  0,
+  [_g, _cl, _st, _mRa, _nT],
+  [0, 0, 64 | 0, 1, 0]
+];
+export var ListGatewayClusterAssociationsResponse$: StaticStructureSchema = [3, n0, _LGCARi,
+  0,
+  [_gCA, _nT],
+  [() => GatewayClusterAssociationSummaryList, 0]
+];
+export var ListGatewayRoutesRequest$: StaticStructureSchema = [3, n0, _LGRR,
+  0,
+  [_g, _cl, _ser, _sCPN, _st, _mRa, _nT],
+  [0, 0, 0, 0, 64 | 0, 1, 0]
+];
+export var ListGatewayRoutesResponse$: StaticStructureSchema = [3, n0, _LGRRi,
+  0,
+  [_gRat, _nT],
+  [() => GatewayRouteSummaryList, 0]
+];
+export var ListGatewaysRequest$: StaticStructureSchema = [3, n0, _LGR,
+  0,
+  [_nam, _st, _mRa, _nT],
+  [64 | 0, 64 | 0, 1, 0]
+];
+export var ListGatewaysResponse$: StaticStructureSchema = [3, n0, _LGRi,
+  0,
+  [_ga, _nT],
+  [() => GatewaySummaryList, 0]
 ];
 export var ListServiceDeploymentsRequest$: StaticStructureSchema = [3, n0, _LSDR,
   0,
@@ -2485,7 +2842,7 @@ export var ManagedStorageConfiguration$: StaticStructureSchema = [3, n0, _MSC,
 ];
 export var ManagedTargetGroup$: StaticStructureSchema = [3, n0, _MTG,
   0,
-  [_st, _uA, _hCP, _hCPe, _po, _ar, _sR],
+  [_st, _uA, _hCP, _hCPea, _po, _ar, _sR],
   [0, 4, 0, 1, 1, 0, 0], 5
 ];
 export var MemoryGiBPerVCpuRequest$: StaticStructureSchema = [3, n0, _MGBPVCR,
@@ -2665,7 +3022,7 @@ export var Rollback$: StaticStructureSchema = [3, n0, _Ro,
 ];
 export var RunTaskRequest$: StaticStructureSchema = [3, n0, _RTR,
   0,
-  [_tD, _cPS, _cl, _cou, _eECSMT, _eEC, _g, _lT, _nC, _ov, _pCl, _pS, _pV, _pTr, _rIe, _sB, _ta, _cT, _vCo],
+  [_tD, _cPS, _cl, _cou, _eECSMT, _eEC, _gr, _lT, _nC, _ov, _pCl, _pS, _pV, _pTr, _rIe, _sB, _ta, _cT, _vCo],
   [0, () => CapacityProviderStrategy, 0, 1, 2, 2, 0, 0, () => NetworkConfiguration$, [() => TaskOverride$, 0], () => PlacementConstraints, () => PlacementStrategies, 0, 0, 0, 0, () => Tags, [0, 4], () => TaskVolumeConfigurations], 1
 ];
 export var RunTaskResponse$: StaticStructureSchema = [3, n0, _RTRu,
@@ -2795,8 +3152,8 @@ export var ServiceRegistry$: StaticStructureSchema = [3, n0, _SR,
 ];
 export var ServiceRevision$: StaticStructureSchema = [3, n0, _SRe,
   0,
-  [_sRAe, _sAe, _cA, _tD, _cPS, _lT, _pV, _pF, _lB, _sRe, _nC, _cI, _gDE, _sCC, _vCo, _fES, _cAr, _vLC, _rCes, _eMR, _ov, _mo],
-  [0, 0, 0, 0, () => CapacityProviderStrategy, 0, 0, 0, () => LoadBalancers, () => ServiceRegistries, () => NetworkConfiguration$, () => ContainerImages, 2, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => DeploymentEphemeralStorage$, 4, () => VpcLatticeConfigurations, () => ResolvedConfiguration$, () => ECSManagedResources$, () => ServiceRevisionOverrides$, () => MonitoringConfiguration$]
+  [_sRAe, _sAe, _cA, _tD, _cPS, _lT, _pV, _pF, _lB, _sRe, _nC, _cI, _gDE, _sCC, _vCo, _fES, _cAr, _vLC, _rCes, _eMR, _ov, _gC, _mo],
+  [0, 0, 0, 0, () => CapacityProviderStrategy, 0, 0, 0, () => LoadBalancers, () => ServiceRegistries, () => NetworkConfiguration$, () => ContainerImages, 2, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => DeploymentEphemeralStorage$, 4, () => VpcLatticeConfigurations, () => ResolvedConfiguration$, () => ECSManagedResources$, () => ServiceRevisionOverrides$, () => GatewayConnectorList, () => MonitoringConfiguration$]
 ];
 export var ServiceRevisionLoadBalancer$: StaticStructureSchema = [3, n0, _SRLB,
   0,
@@ -2825,7 +3182,7 @@ export var ServiceVolumeConfiguration$: StaticStructureSchema = [3, n0, _SVC,
 ];
 export var Session$: StaticStructureSchema = [3, n0, _Ses,
   0,
-  [_sIe, _sU, _tVo],
+  [_sIe, _sUt, _tVo],
   [0, 0, [() => SensitiveString, 0]]
 ];
 export var Setting$: StaticStructureSchema = [3, n0, _Set,
@@ -2835,7 +3192,7 @@ export var Setting$: StaticStructureSchema = [3, n0, _Set,
 ];
 export var StartTaskRequest$: StaticStructureSchema = [3, n0, _STR,
   0,
-  [_cIon, _tD, _cl, _eECSMT, _eEC, _g, _nC, _ov, _pTr, _rIe, _sB, _ta, _vCo],
+  [_cIon, _tD, _cl, _eECSMT, _eEC, _gr, _nC, _ov, _pTr, _rIe, _sB, _ta, _vCo],
   [64 | 0, 0, 0, 2, 2, 0, () => NetworkConfiguration$, [() => TaskOverride$, 0], 0, 0, 0, () => Tags, () => TaskVolumeConfigurations], 2
 ];
 export var StartTaskResponse$: StaticStructureSchema = [3, n0, _STRt,
@@ -2915,7 +3272,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var Task$: StaticStructureSchema = [3, n0, _Ta,
   0,
-  [_a, _at, _aZ, _cPN, _cA, _conn, _cAon, _cIA, _conta, _cp, _cAr, _dSe, _eEC, _eSA, _g, _hS, _iAn, _lS, _lT, _me, _ov, _pV, _pF, _pSA, _pSAu, _sA, _sB, _sCtop, _sAt, _sRt, _sAto, _ta, _tA, _tDA, _ve, _eSp, _fES],
+  [_a, _at, _aZ, _cPN, _cA, _conn, _cAon, _cIA, _conta, _cp, _cAr, _dSe, _eEC, _eSA, _gr, _hS, _iAn, _lS, _lT, _me, _ov, _pV, _pF, _pSA, _pSAu, _sA, _sB, _sCtop, _sAt, _sRt, _sAto, _ta, _tA, _tDA, _ve, _eSp, _fES],
   [() => Attachments, () => Attributes, 0, 0, 0, 0, 4, 0, () => Containers, 0, 4, 0, 2, 4, 0, 0, () => InferenceAccelerators, 0, 0, 0, [() => TaskOverride$, 0], 0, 0, 4, 4, 4, 0, 0, 4, 0, 4, () => Tags, 0, 0, 1, () => EphemeralStorage$, () => TaskEphemeralStorage$]
 ];
 export var TaskDefinition$: StaticStructureSchema = [3, n0, _TD,
@@ -3068,6 +3425,26 @@ export var UpdateExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0,
   [_ser],
   [[() => UpdatedExpressGatewayService$, 0]]
 ];
+export var UpdateGatewayAlbConfiguration$: StaticStructureSchema = [3, n0, _UGAC,
+  0,
+  [_nC, _mAC, _wACLA, _aL, _hDt, _tTR],
+  [() => UpdateGatewayNetworkConfiguration$, 1, 0, () => GatewayElbAccessLogConfiguration$, 0, () => GatewayAlbTestTrafficRules$]
+];
+export var UpdateGatewayNetworkConfiguration$: StaticStructureSchema = [3, n0, _UGNC,
+  0,
+  [_iSG],
+  [0]
+];
+export var UpdateGatewayRequest$: StaticStructureSchema = [3, n0, _UGR,
+  0,
+  [_g, _iRA, _dP, _co, _pTr],
+  [0, 0, 2, () => UpdateGatewayConfiguration$, 0], 1
+];
+export var UpdateGatewayResponse$: StaticStructureSchema = [3, n0, _UGRp,
+  0,
+  [_gA, _n, _st],
+  [0, 0, 0]
+];
 export var UpdateManagedInstancesProviderConfiguration$: StaticStructureSchema = [3, n0, _UMIPC,
   0,
   [_iRA, _iLT, _pTr, _iO, _aRC],
@@ -3085,8 +3462,8 @@ export var UpdateServicePrimaryTaskSetResponse$: StaticStructureSchema = [3, n0,
 ];
 export var UpdateServiceRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_ser, _cl, _dCe, _tD, _cPS, _dC, _aZR, _nC, _pCl, _pS, _pV, _fND, _hCGPS, _dCep, _eEC, _eECSMT, _lB, _pTr, _sRe, _sCC, _vCo, _vLC, _mo],
-  [0, 0, 1, 0, () => CapacityProviderStrategy, () => DeploymentConfiguration$, 0, () => NetworkConfiguration$, () => PlacementConstraints, () => PlacementStrategies, 0, 2, 1, () => DeploymentController$, 2, 2, () => LoadBalancers, 0, () => ServiceRegistries, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => VpcLatticeConfigurations, () => MonitoringConfiguration$], 1
+  [_ser, _cl, _dCe, _tD, _cPS, _dC, _aZR, _nC, _pCl, _pS, _pV, _fND, _hCGPS, _dCep, _eEC, _eECSMT, _lB, _pTr, _sRe, _sCC, _vCo, _vLC, _gC, _mo],
+  [0, 0, 1, 0, () => CapacityProviderStrategy, () => DeploymentConfiguration$, 0, () => NetworkConfiguration$, () => PlacementConstraints, () => PlacementStrategies, 0, 2, 1, () => DeploymentController$, 2, 2, () => LoadBalancers, 0, () => ServiceRegistries, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => VpcLatticeConfigurations, () => GatewayConnectorList, () => MonitoringConfiguration$], 1
 ];
 export var UpdateServiceResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
@@ -3155,6 +3532,7 @@ var AcceleratorTypeSet: StaticListSchema = [1, n0, _ATS,
   0, [0,
     { [_xN]: _it }]
 ];
+var AccessTypeList = 64 | 0;
 var AllowedInstanceTypeSet: StaticListSchema = [1, n0, _AITS,
   0, [0,
     { [_xN]: _it }]
@@ -3270,6 +3648,9 @@ var DevicesList: StaticListSchema = [1, n0, _DL,
 var EBSTagSpecifications: StaticListSchema = [1, n0, _EBSTSa,
   0, () => EBSTagSpecification$
 ];
+var ElbGatewayResourcesList: StaticListSchema = [1, n0, _EGRL,
+  0, () => ElbGatewayResources$
+];
 var EnvironmentFiles: StaticListSchema = [1, n0, _EFn,
   0, () => EnvironmentFile$
 ];
@@ -3287,6 +3668,39 @@ var ExpressGatewayServiceConfigurations: StaticListSchema = [1, n0, _EGSCx,
 var ExpressGatewayServiceIncludeList = 64 | 0;
 var Failures: StaticListSchema = [1, n0, _Fa,
   0, () => Failure$
+];
+var GatewayClusterAssociationStatusList = 64 | 0;
+var GatewayClusterAssociationSummaryList: StaticListSchema = [1, n0, _GCASL,
+  0, () => GatewayClusterAssociationSummary$
+];
+var GatewayConnectionAlbResourcesList: StaticListSchema = [1, n0, _GCARL,
+  0, () => GatewayConnectionAlbResources$
+];
+var GatewayConnectionList: StaticListSchema = [1, n0, _GCL,
+  0, () => GatewayConnection$
+];
+var GatewayConnectorList: StaticListSchema = [1, n0, _GCLa,
+  0, () => GatewayConnector$
+];
+var GatewayOperationErrorList: StaticListSchema = [1, n0, _GOEL,
+  0, () => GatewayOperationError$
+];
+var GatewayResourceFailureList: StaticListSchema = [1, n0, _GRFL,
+  0, () => GatewayResourceFailure$
+];
+var GatewayRouteAlbResourcesList: StaticListSchema = [1, n0, _GRARL,
+  0, () => GatewayRouteAlbResources$
+];
+var GatewayRouteLoadBalancerSecurityGroupList: StaticListSchema = [1, n0, _GRLBSGL,
+  0, () => GatewayRouteLoadBalancerSecurityGroup$
+];
+var GatewayRouteStatusList = 64 | 0;
+var GatewayRouteSummaryList: StaticListSchema = [1, n0, _GRSL,
+  0, () => GatewayRouteSummary$
+];
+var GatewayStatusList = 64 | 0;
+var GatewaySummaryList: StaticListSchema = [1, n0, _GSL,
+  0, () => GatewaySummary$
 ];
 var GpuIds = 64 | 0;
 var HostEntryList: StaticListSchema = [1, n0, _HEL,
@@ -3485,10 +3899,48 @@ var DockerLabelsMap = 128 | 0;
 var FirelensConfigurationOptionsMap = 128 | 0;
 var LogConfigurationOptionsMap = 128 | 0;
 var StringMap = 128 | 0;
+export var DescribeGatewayConfiguration$: StaticUnionSchema = [4, n0, _DGC,
+  0,
+  [_hSA],
+  [() => DescribeGatewayAlbConfiguration$]
+];
+export var GatewayConfiguration$: StaticUnionSchema = [4, n0, _GCat,
+  0,
+  [_hSA],
+  [() => HostSharedAlbConfiguration$]
+];
+export var GatewayConnectionResources$: StaticUnionSchema = [4, n0, _GCR,
+  0,
+  [_hSA],
+  [() => GatewayConnectionAlbResourcesList]
+];
+export var GatewayElbAccessLogDestination$: StaticUnionSchema = [4, n0, _GEALD,
+  0,
+  [_s_],
+  [() => GatewayElbAccessLogS3Destination$]
+];
+export var GatewayInfrastructureResources$: StaticUnionSchema = [4, n0, _GIR,
+  0,
+  [_hSA],
+  [() => ElbGatewayResourcesList]
+];
+export var GatewayRouteResources$: StaticUnionSchema = [4, n0, _GRR,
+  0,
+  [_hSA],
+  [() => GatewayRouteAlbResourcesList]
+];
 export var ServiceConnectContainerConfiguration$: StaticUnionSchema = [4, n0, _SCCCe,
   0,
   [_lL],
   [0]
+];
+export var UpdateGatewayConfiguration$: StaticUnionSchema = [4, n0, _UGC,
+  0,
+  [_hSA],
+  [() => UpdateGatewayAlbConfiguration$]
+];
+export var AssociateGatewayWithCluster$: StaticOperationSchema = [9, n0, _AGWC,
+  0, () => AssociateGatewayWithClusterRequest$, () => AssociateGatewayWithClusterResponse$
 ];
 export var ContinueServiceDeployment$: StaticOperationSchema = [9, n0, _CSD,
   0, () => ContinueServiceDeploymentRequest$, () => ContinueServiceDeploymentResponse$
@@ -3504,6 +3956,9 @@ export var CreateDaemon$: StaticOperationSchema = [9, n0, _CDr,
 ];
 export var CreateExpressGatewayService$: StaticOperationSchema = [9, n0, _CEGS,
   0, () => CreateExpressGatewayServiceRequest$, () => CreateExpressGatewayServiceResponse$
+];
+export var CreateGateway$: StaticOperationSchema = [9, n0, _CG,
+  0, () => CreateGatewayRequest$, () => CreateGatewayResponse$
 ];
 export var CreateService$: StaticOperationSchema = [9, n0, _CSr,
   0, () => CreateServiceRequest$, () => CreateServiceResponse$
@@ -3531,6 +3986,9 @@ export var DeleteDaemonTaskDefinition$: StaticOperationSchema = [9, n0, _DDTD,
 ];
 export var DeleteExpressGatewayService$: StaticOperationSchema = [9, n0, _DEGS,
   0, () => DeleteExpressGatewayServiceRequest$, () => DeleteExpressGatewayServiceResponse$
+];
+export var DeleteGateway$: StaticOperationSchema = [9, n0, _DG,
+  0, () => DeleteGatewayRequest$, () => DeleteGatewayResponse$
 ];
 export var DeleteService$: StaticOperationSchema = [9, n0, _DSe,
   2, () => DeleteServiceRequest$, () => DeleteServiceResponse$
@@ -3571,6 +4029,15 @@ export var DescribeDaemonTaskDefinition$: StaticOperationSchema = [9, n0, _DDTDe
 export var DescribeExpressGatewayService$: StaticOperationSchema = [9, n0, _DEGSe,
   0, () => DescribeExpressGatewayServiceRequest$, () => DescribeExpressGatewayServiceResponse$
 ];
+export var DescribeGateway$: StaticOperationSchema = [9, n0, _DGe,
+  0, () => DescribeGatewayRequest$, () => DescribeGatewayResponse$
+];
+export var DescribeGatewayResources$: StaticOperationSchema = [9, n0, _DGRescr,
+  0, () => DescribeGatewayResourcesRequest$, () => DescribeGatewayResourcesResponse$
+];
+export var DescribeGatewayRoute$: StaticOperationSchema = [9, n0, _DGRescri,
+  0, () => DescribeGatewayRouteRequest$, () => DescribeGatewayRouteResponse$
+];
 export var DescribeServiceDeployments$: StaticOperationSchema = [9, n0, _DSD,
   0, () => DescribeServiceDeploymentsRequest$, () => DescribeServiceDeploymentsResponse$
 ];
@@ -3588,6 +4055,9 @@ export var DescribeTasks$: StaticOperationSchema = [9, n0, _DT,
 ];
 export var DescribeTaskSets$: StaticOperationSchema = [9, n0, _DTSe,
   0, () => DescribeTaskSetsRequest$, () => DescribeTaskSetsResponse$
+];
+export var DisassociateGatewayFromCluster$: StaticOperationSchema = [9, n0, _DGFC,
+  0, () => DisassociateGatewayFromClusterRequest$, () => DisassociateGatewayFromClusterResponse$
 ];
 export var DiscoverPollEndpoint$: StaticOperationSchema = [9, n0, _DPE,
   0, () => DiscoverPollEndpointRequest$, () => DiscoverPollEndpointResponse$
@@ -3618,6 +4088,15 @@ export var ListDaemons$: StaticOperationSchema = [9, n0, _LD,
 ];
 export var ListDaemonTaskDefinitions$: StaticOperationSchema = [9, n0, _LDTD,
   0, () => ListDaemonTaskDefinitionsRequest$, () => ListDaemonTaskDefinitionsResponse$
+];
+export var ListGatewayClusterAssociations$: StaticOperationSchema = [9, n0, _LGCA,
+  0, () => ListGatewayClusterAssociationsRequest$, () => ListGatewayClusterAssociationsResponse$
+];
+export var ListGatewayRoutes$: StaticOperationSchema = [9, n0, _LGRis,
+  0, () => ListGatewayRoutesRequest$, () => ListGatewayRoutesResponse$
+];
+export var ListGateways$: StaticOperationSchema = [9, n0, _LG,
+  0, () => ListGatewaysRequest$, () => ListGatewaysResponse$
 ];
 export var ListServiceDeployments$: StaticOperationSchema = [9, n0, _LSD,
   0, () => ListServiceDeploymentsRequest$, () => ListServiceDeploymentsResponse$
@@ -3708,6 +4187,9 @@ export var UpdateDaemon$: StaticOperationSchema = [9, n0, _UD,
 ];
 export var UpdateExpressGatewayService$: StaticOperationSchema = [9, n0, _UEGSp,
   0, () => UpdateExpressGatewayServiceRequest$, () => UpdateExpressGatewayServiceResponse$
+];
+export var UpdateGateway$: StaticOperationSchema = [9, n0, _UG,
+  0, () => UpdateGatewayRequest$, () => UpdateGatewayResponse$
 ];
 export var UpdateService$: StaticOperationSchema = [9, n0, _US,
   0, () => UpdateServiceRequest$, () => UpdateServiceResponse$

@@ -473,6 +473,49 @@ export class ServiceUpdateNotFoundFault extends __BaseException {
 }
 
 /**
+ * <p>The requested cluster is not in the <code>available</code> state.</p>
+ * @public
+ */
+export class InvalidCacheClusterStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidCacheClusterStateFault";
+  readonly name = "InvalidCacheClusterStateFault" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCacheClusterStateFault, __BaseException>) {
+    super({
+      name: "InvalidCacheClusterStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCacheClusterStateFault.prototype);
+  }
+}
+
+/**
+ * <p>The migration is not healthy. Check the events for this serverless cache for more details. For
+ *             <code>CompleteMigration</code>, set <code>Force</code> to true to bypass this check.</p>
+ * @public
+ */
+export class MigrationHealthFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#MigrationHealthFault";
+  readonly name = "MigrationHealthFault" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MigrationHealthFault, __BaseException>) {
+    super({
+      name: "MigrationHealthFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MigrationHealthFault.prototype);
+  }
+}
+
+/**
  * <p>The designated replication group is not available for data migration.</p>
  * @public
  */
@@ -490,6 +533,27 @@ export class ReplicationGroupNotUnderMigrationFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ReplicationGroupNotUnderMigrationFault.prototype);
+  }
+}
+
+/**
+ * <p>The serverless cache is not currently under migration.</p>
+ * @public
+ */
+export class ServerlessCacheNotUnderMigrationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ServerlessCacheNotUnderMigrationFault";
+  readonly name = "ServerlessCacheNotUnderMigrationFault" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServerlessCacheNotUnderMigrationFault, __BaseException>) {
+    super({
+      name: "ServerlessCacheNotUnderMigrationFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServerlessCacheNotUnderMigrationFault.prototype);
   }
 }
 
@@ -992,27 +1056,6 @@ export class GlobalReplicationGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The requested cluster is not in the <code>available</code> state.</p>
- * @public
- */
-export class InvalidCacheClusterStateFault extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidCacheClusterStateFault";
-  readonly name = "InvalidCacheClusterStateFault" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCacheClusterStateFault, __BaseException>) {
-    super({
-      name: "InvalidCacheClusterStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCacheClusterStateFault.prototype);
-  }
-}
-
-/**
  * <p>The Global datastore is not available or in primary-only state.</p>
  * @public
  */
@@ -1462,6 +1505,27 @@ export class SubnetInUse extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, SubnetInUse.prototype);
+  }
+}
+
+/**
+ * <p>A migration is already in progress for this serverless cache. You cannot start another migration until the current one completes.</p>
+ * @public
+ */
+export class ServerlessCacheAlreadyUnderMigrationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ServerlessCacheAlreadyUnderMigrationFault";
+  readonly name = "ServerlessCacheAlreadyUnderMigrationFault" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServerlessCacheAlreadyUnderMigrationFault, __BaseException>) {
+    super({
+      name: "ServerlessCacheAlreadyUnderMigrationFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServerlessCacheAlreadyUnderMigrationFault.prototype);
   }
 }
 

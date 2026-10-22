@@ -64,6 +64,8 @@ import {
   Certificate$,
   CertificateConfiguration$,
   CertificateLocation$,
+  CircuitBreakerConfiguration$,
+  CircuitBreakerMode,
   ClaimMatchOperatorType,
   ClaimMatchValueType$,
   ClientAuthenticationMethodType,
@@ -377,6 +379,7 @@ import {
   DerivedEvaluatorConfig$,
   Descriptors$,
   DescriptorType,
+  DimensionRatingScale$,
   DraftStatus,
   EbsVolumeConfiguration$,
   EbsVolumeType,
@@ -399,6 +402,7 @@ import {
   EpisodicReflectionConfiguration$,
   EpisodicReflectionConfigurationInput$,
   EpisodicReflectionOverride$,
+  EvaluationDimension$,
   EvaluatorConfig$,
   EvaluatorLevel,
   EvaluatorModelConfig$,
@@ -410,6 +414,10 @@ import {
   ExtractionConfig$,
   ExtractionConfiguration$,
   ExtractionType,
+  Fallback$,
+  FallbackError,
+  FallbackTarget$,
+  FallbackTriggers$,
   FilesystemConfiguration$,
   Filter$,
   FilterOperator,
@@ -839,6 +847,9 @@ import {
   LlmExtractionConfig$,
   ManagedResourceDetails$,
   ManagedVpcResource$,
+  MatchModelEntry$,
+  MatchModels$,
+  MatchOperator,
   MatchPaths$,
   MatchPrincipalEntry$,
   MatchPrincipals$,
@@ -1682,6 +1693,7 @@ assert(typeof CedarPolicy$ === "object");
 assert(typeof Certificate$ === "object");
 assert(typeof CertificateConfiguration$ === "object");
 assert(typeof CertificateLocation$ === "object");
+assert(typeof CircuitBreakerConfiguration$ === "object");
 assert(typeof ClaimMatchValueType$ === "object");
 assert(typeof CloudWatchLogsInputConfig$ === "object");
 assert(typeof CloudWatchOutputConfig$ === "object");
@@ -1855,6 +1867,7 @@ assert(typeof DeleteWorkloadIdentityRequest$ === "object");
 assert(typeof DeleteWorkloadIdentityResponse$ === "object");
 assert(typeof DerivedEvaluatorConfig$ === "object");
 assert(typeof Descriptors$ === "object");
+assert(typeof DimensionRatingScale$ === "object");
 assert(typeof EbsVolumeConfiguration$ === "object");
 assert(typeof Ec2Configuration$ === "object");
 assert(typeof EfsAccessPointConfiguration$ === "object");
@@ -1871,12 +1884,16 @@ assert(typeof EpisodicOverrideReflectionConfigurationInput$ === "object");
 assert(typeof EpisodicReflectionConfiguration$ === "object");
 assert(typeof EpisodicReflectionConfigurationInput$ === "object");
 assert(typeof EpisodicReflectionOverride$ === "object");
+assert(typeof EvaluationDimension$ === "object");
 assert(typeof EvaluatorConfig$ === "object");
 assert(typeof EvaluatorModelConfig$ === "object");
 assert(typeof EvaluatorReference$ === "object");
 assert(typeof EvaluatorSummary$ === "object");
 assert(typeof ExtractionConfig$ === "object");
 assert(typeof ExtractionConfiguration$ === "object");
+assert(typeof Fallback$ === "object");
+assert(typeof FallbackTarget$ === "object");
+assert(typeof FallbackTriggers$ === "object");
 assert(typeof FilesystemConfiguration$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof FilterValue$ === "object");
@@ -2133,6 +2150,8 @@ assert(typeof LlmAsAJudgeEvaluatorConfig$ === "object");
 assert(typeof LlmExtractionConfig$ === "object");
 assert(typeof ManagedResourceDetails$ === "object");
 assert(typeof ManagedVpcResource$ === "object");
+assert(typeof MatchModelEntry$ === "object");
+assert(typeof MatchModels$ === "object");
 assert(typeof MatchPaths$ === "object");
 assert(typeof MatchPrincipalEntry$ === "object");
 assert(typeof MatchPrincipals$ === "object");
@@ -2408,6 +2427,7 @@ assert(typeof BrowserStatus === "object");
 assert(typeof CapacityProviderStatus === "object");
 assert(typeof CapacityProviderStatusCode === "object");
 assert(typeof CapacityReservationPreference === "object");
+assert(typeof CircuitBreakerMode === "object");
 assert(typeof ClaimMatchOperatorType === "object");
 assert(typeof ClientAuthenticationMethodType === "object");
 assert(typeof ClusteringFrequency === "object");
@@ -2433,6 +2453,7 @@ assert(typeof EvaluatorStatus === "object");
 assert(typeof EvaluatorType === "object");
 assert(typeof ExceptionLevel === "object");
 assert(typeof ExtractionType === "object");
+assert(typeof FallbackError === "object");
 assert(typeof FilterOperator === "object");
 assert(typeof FindingType === "object");
 assert(typeof GatewayInterceptionPoint === "object");
@@ -2454,6 +2475,7 @@ assert(typeof IncludedData === "object");
 assert(typeof InterceptorPayloadExclusion === "object");
 assert(typeof KeyType === "object");
 assert(typeof ListingMode === "object");
+assert(typeof MatchOperator === "object");
 assert(typeof MemoryStatus === "object");
 assert(typeof MemoryStrategyStatus === "object");
 assert(typeof MemoryStrategyType === "object");

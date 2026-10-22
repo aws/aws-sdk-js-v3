@@ -35,6 +35,7 @@ export interface DescribeFlowOperationCommandOutput extends DescribeFlowOperatio
  * const input = { // DescribeFlowOperationRequest
  *   FirewallArn: "STRING_VALUE", // required
  *   AvailabilityZone: "STRING_VALUE",
+ *   AvailabilityZoneId: "STRING_VALUE",
  *   VpcEndpointAssociationArn: "STRING_VALUE",
  *   VpcEndpointId: "STRING_VALUE",
  *   FlowOperationId: "STRING_VALUE", // required
@@ -44,6 +45,7 @@ export interface DescribeFlowOperationCommandOutput extends DescribeFlowOperatio
  * // { // DescribeFlowOperationResponse
  * //   FirewallArn: "STRING_VALUE",
  * //   AvailabilityZone: "STRING_VALUE",
+ * //   AvailabilityZoneId: "STRING_VALUE",
  * //   VpcEndpointAssociationArn: "STRING_VALUE",
  * //   VpcEndpointId: "STRING_VALUE",
  * //   FlowOperationId: "STRING_VALUE",

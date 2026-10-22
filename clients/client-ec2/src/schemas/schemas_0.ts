@@ -361,6 +361,7 @@ const _ATGPA = "AcceptTransitGatewayPeeringAttachment";
 const _ATGPAR = "AcceptTransitGatewayPeeringAttachmentRequest";
 const _ATGPARc = "AcceptTransitGatewayPeeringAttachmentResult";
 const _ATGPT = "AssociateTransitGatewayPolicyTable";
+const _ATGPTE = "AnalysisTransitGatewayPolicyTableEntry";
 const _ATGPTR = "AssociateTransitGatewayPolicyTableRequest";
 const _ATGPTRs = "AssociateTransitGatewayPolicyTableResult";
 const _ATGRT = "AssociateTransitGatewayRouteTable";
@@ -3070,6 +3071,9 @@ const _GSGFVRe = "GetSecurityGroupsForVpcResult";
 const _GSPS = "GetSpotPlacementScores";
 const _GSPSR = "GetSpotPlacementScoresRequest";
 const _GSPSRe = "GetSpotPlacementScoresResult";
+const _GTGANC = "GetTransitGatewayAttachmentNatConfiguration";
+const _GTGANCR = "GetTransitGatewayAttachmentNatConfigurationRequest";
+const _GTGANCRe = "GetTransitGatewayAttachmentNatConfigurationResult";
 const _GTGAP = "GetTransitGatewayAttachmentPropagations";
 const _GTGAPR = "GetTransitGatewayAttachmentPropagationsRequest";
 const _GTGAPRe = "GetTransitGatewayAttachmentPropagationsResult";
@@ -4254,6 +4258,7 @@ const _MSA = "ModifySnapshotAttribute";
 const _MSAR = "ModifySnapshotAttributeRequest";
 const _MSARo = "ModifySubnetAttributeRequest";
 const _MSAo = "ModifySubnetAttribute";
+const _MSC = "MatchSourceCidr";
 const _MSDIH = "MaxSlotDurationInHours";
 const _MSDIHi = "MinSlotDurationInHours";
 const _MSFR = "ModifySpotFleetRequest";
@@ -4281,6 +4286,9 @@ const _MTC = "MinTargetCapacity";
 const _MTDID = "MaxTermDurationInDays";
 const _MTDIDi = "MinTermDurationInDays";
 const _MTG = "ModifyTransitGateway";
+const _MTGANC = "ModifyTransitGatewayAttachmentNatConfiguration";
+const _MTGANCR = "ModifyTransitGatewayAttachmentNatConfigurationRequest";
+const _MTGANCRo = "ModifyTransitGatewayAttachmentNatConfigurationResult";
 const _MTGMP = "ModifyTransitGatewayMeteringPolicy";
 const _MTGMPR = "ModifyTransitGatewayMeteringPolicyRequest";
 const _MTGMPRo = "ModifyTransitGatewayMeteringPolicyResult";
@@ -4443,6 +4451,7 @@ const _NCIL = "NetworkCardInfoList";
 const _NCITL = "NetworkCardInterfaceTypeList";
 const _NCIe = "NetworkCardInfo";
 const _NCR = "NonCompliantResources";
+const _NCa = "NatCidr";
 const _ND = "NoDevice";
 const _NDC = "NewDhcpConfiguration";
 const _NDCI = "NeuronDeviceCoreInfo";
@@ -4463,6 +4472,9 @@ const _NGI = "NatGatewayId";
 const _NGISL = "NatGatewayIdStringList";
 const _NGIa = "NatGatewayIds";
 const _NGL = "NatGatewayList";
+const _NGR = "NatGatewayRules";
+const _NGRa = "NatGatewayRule";
+const _NGS = "NatGatewaySupport";
 const _NGa = "NatGateways";
 const _NHI = "NextHopIp";
 const _NI = "NetworkId";
@@ -4541,6 +4553,7 @@ const _NPet = "NetworkPlatform";
 const _NR = "NoReboot";
 const _NS = "NvmeSupport";
 const _NSD = "NewStartDate";
+const _NSRS = "NatSystemRouteSupport";
 const _NSST = "NextSlotStartTime";
 const _NSe = "NetworkServices";
 const _NT = "NetworkType";
@@ -4889,11 +4902,13 @@ const _PSL = "PriceScheduleList";
 const _PSPN = "PublicSsmParameterName";
 const _PSR = "ProvisioningStatusReason";
 const _PSRa = "PathStatementRequest";
-const _PSS = "PriceScheduleSpecification";
+const _PSS = "PerformanceStatusSummary";
 const _PSSL = "PriceScheduleSpecificationList";
+const _PSSr = "PriceScheduleSpecification";
 const _PSa = "PathStatement";
-const _PSe = "PermissionState";
+const _PSe = "PerformanceStatus";
 const _PSee = "PeeringStatus";
+const _PSer = "PermissionState";
 const _PSh = "PhcSupport";
 const _PSr = "PreviousState";
 const _PSre = "PreviousStatus";
@@ -5157,6 +5172,7 @@ const _RNAAR = "ReplaceNetworkAclAssociationRequest";
 const _RNAARe = "ReplaceNetworkAclAssociationResult";
 const _RNAE = "ReplaceNetworkAclEntry";
 const _RNAER = "ReplaceNetworkAclEntryRequest";
+const _RNGR = "ResetNatGatewayRules";
 const _RNIA = "ResetNetworkInterfaceAttribute";
 const _RNIAR = "ResetNetworkInterfaceAttributeRequest";
 const _RNII = "RegisteredNetworkInterfaceIds";
@@ -5362,6 +5378,7 @@ const _Refe = "Reference";
 const _Reg = "Regions";
 const _Regi = "Region";
 const _Rem = "Remove";
+const _Reme = "Remediation";
 const _Rep = "Reports";
 const _Req = "Requested";
 const _Res = "Resources";
@@ -5400,7 +5417,7 @@ const _SBM = "SupportedBootModes";
 const _SBN = "S3BucketName";
 const _SBP = "S3BucketPrefix";
 const _SBu = "S3Bucket";
-const _SC = "StatusCode";
+const _SC = "SourceCidr";
 const _SCA = "ServerCertificateArn";
 const _SCAE = "SerialConsoleAccessEnabled";
 const _SCB = "SourceCidrBlock";
@@ -5420,7 +5437,8 @@ const _SCc = "ScopeCount";
 const _SCe = "ServiceConfiguration";
 const _SCer = "ServiceConfigurations";
 const _SCn = "SnapshotConfiguration";
-const _SCt = "StaticCidr";
+const _SCt = "StatusCode";
+const _SCta = "StaticCidr";
 const _SCu = "SubnetConfigurations";
 const _SCub = "SubnetConfiguration";
 const _SD = "StartDate";
@@ -5910,6 +5928,10 @@ const _TGMPr = "TransitGatewayMeteringPolicies";
 const _TGMRGM = "TransitGatewayMulticastRegisteredGroupMembers";
 const _TGMRGS = "TransitGatewayMulticastRegisteredGroupSources";
 const _TGNIIL = "TransitGatewayNetworkInterfaceIdList";
+const _TGNR = "TransitGatewayNatRule";
+const _TGNRL = "TransitGatewayNatRuleList";
+const _TGNRR = "TransitGatewayNatRuleRequest";
+const _TGNRRL = "TransitGatewayNatRuleRequestList";
 const _TGO = "TransitGatewayOptions";
 const _TGOI = "TransitGatewayOwnerId";
 const _TGP = "TransitGatewayPropagation";
@@ -7616,6 +7638,7 @@ const _mPSa = "matchPathSet";
 const _mR = "maxResults";
 const _mRS = "modificationResultSet";
 const _mS = "messageSet";
+const _mSC = "matchSourceCidr";
 const _mSIPC = "macSystemIntegrityProtectionConfig";
 const _mSNI = "maximumSecondaryNetworkInterfaces";
 const _mSPAPOOODP = "maxSpotPriceAsPercentageOfOptimalOnDemandPrice";
@@ -7664,13 +7687,16 @@ const _nCD = "newCommitmentDuration";
 const _nCED = "newCommitmentEndDate";
 const _nCI = "networkCardIndex";
 const _nCRS = "nonCompliantResourceSet";
+const _nCa = "natCidr";
 const _nD = "noDevice";
 const _nDe = "neuronDevices";
 const _nES = "nitroEnclavesSupport";
 const _nG = "natGateway";
 const _nGAS = "natGatewayAddressSet";
 const _nGI = "natGatewayId";
+const _nGRS = "natGatewayRuleSet";
 const _nGS = "natGatewaySet";
+const _nGSa = "natGatewaySupport";
 const _nHI = "nextHopIp";
 const _nI = "networkId";
 const _nIA = "networkInsightsAnalysis";
@@ -7719,6 +7745,7 @@ const _nPet = "networkPlatform";
 const _nR = "noReboot";
 const _nS = "nvmeSupport";
 const _nSD = "newStartDate";
+const _nSRS = "natSystemRouteSupport";
 const _nSS = "networkServiceSet";
 const _nSST = "nextSlotStartTime";
 const _nSa = "nameserverSet";
@@ -7916,8 +7943,9 @@ const _pSKE = "publicSigningKeyEndpoint";
 const _pSKU = "publicSigningKeyUrl";
 const _pSPN = "publicSsmParameterName";
 const _pSR = "provisioningStatusReason";
-const _pSe = "permissionState";
+const _pSe = "performanceStatus";
 const _pSee = "peeringStatus";
+const _pSer = "permissionState";
 const _pSh = "phcSupport";
 const _pSr = "previousState";
 const _pSre = "previousStatus";
@@ -8109,6 +8137,7 @@ const _ra = "ramdisk";
 const _re = "reason";
 const _rec = "recurrence";
 const _reg = "region";
+const _rem = "remediation";
 const _req = "requested";
 const _res = "resource";
 const _resu = "result";
@@ -8129,7 +8158,7 @@ const _sB = "s3Bucket";
 const _sBM = "supportedBootModes";
 const _sBN = "s3BucketName";
 const _sBP = "s3BucketPrefix";
-const _sC = "statusCode";
+const _sC = "sourceCidr";
 const _sCA = "serverCertificateArn";
 const _sCAE = "serialConsoleAccessEnabled";
 const _sCB = "sourceCidrBlock";
@@ -8143,7 +8172,8 @@ const _sCSIG = "sustainedClockSpeedInGhz";
 const _sCc = "scopeCount";
 const _sCe = "serviceConfiguration";
 const _sCn = "snapshotConfiguration";
-const _sCt = "staticCidr";
+const _sCt = "statusCode";
+const _sCta = "staticCidr";
 const _sD = "startDate";
 const _sDC = "sourceDestCheck";
 const _sDIH = "slotDurationInHours";
@@ -9114,6 +9144,18 @@ export var AnalysisSecurityGroupRule$: StaticStructureSchema = [3, n0, _ASGR,
   , [_xN]: _pLI }], [0, { [_eQN]: `Protocol`
   , [_xN]: _pr }]]
 ];
+export var AnalysisTransitGatewayPolicyTableEntry$: StaticStructureSchema = [3, n0, _ATGPTE,
+  0,
+  [_RNu, _Pr, _SC, _DCe, _SPRo, _DPRe, _TRTI],
+  [[1, { [_eQN]: `RuleNumber`
+  , [_xN]: _rN }], [0, { [_eQN]: `Protocol`
+  , [_xN]: _pr }], [0, { [_eQN]: `SourceCidr`
+  , [_xN]: _sC }], [0, { [_eQN]: `DestinationCidr`
+  , [_xN]: _dC }], [() => PortRange$, { [_eQN]: `SourcePortRange`
+  , [_xN]: _sPR }], [() => PortRange$, { [_eQN]: `DestinationPortRange`
+  , [_xN]: _dPR }], [0, { [_eQN]: `TargetRouteTableId`
+  , [_xN]: _tRTI }]]
+];
 export var ApplicationStatus$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_Sta, _STS, _SSt, _RAe, _Det],
@@ -9179,10 +9221,10 @@ export var ApplicationStatusesResponseType$: StaticStructureSchema = [3, n0, _AS
 ];
 export var ApplicationStatusReason$: StaticStructureSchema = [3, n0, _ASR,
   0,
-  [_Co, _SC, _Pr],
+  [_Co, _SCt, _Pr],
   [[0, { [_eQN]: `Code`
   , [_xN]: _co }], [1, { [_eQN]: `StatusCode`
-  , [_xN]: _sC }], [0, { [_eQN]: `Protocol`
+  , [_xN]: _sCt }], [0, { [_eQN]: `Protocol`
   , [_xN]: _pr }]]
 ];
 export var ApplicationStatusSummary$: StaticStructureSchema = [3, n0, _ASS,
@@ -17157,7 +17199,7 @@ export var EventInformation$: StaticStructureSchema = [3, n0, _EIv,
 ];
 export var Explanation$: StaticStructureSchema = [3, n0, _Ex,
   0,
-  [_Ac, _ARcl, _A, _Add, _ATtta, _AZv, _AZIv, _Cid, _C, _CGu, _D, _DVe, _Di, _ECx, _IRT, _IG, _LBAo, _CLBL, _LBLP, _LBT, _LBTG, _LBTGo, _LBTP, _ELBL, _MCi, _NG, _NIe, _PF, _VPC, _Po, _PRor, _PL, _Prot, _RTR, _RTo, _SGec, _SGRe, _SGe, _SVo, _St, _Su, _SRT, _Vp, _VE, _VCp, _VG, _TG, _TGRT, _TGRTR, _TGAra, _CAo, _CRo, _FSRi, _FSRir],
+  [_Ac, _ARcl, _A, _Add, _ATtta, _AZv, _AZIv, _Cid, _C, _CGu, _D, _DVe, _Di, _ECx, _IRT, _IG, _LBAo, _CLBL, _LBLP, _LBT, _LBTG, _LBTGo, _LBTP, _ELBL, _MCi, _NG, _NIe, _PF, _VPC, _Po, _PRor, _PL, _Prot, _RTR, _RTo, _SGec, _SGRe, _SGe, _SVo, _St, _Su, _SRT, _Vp, _VE, _VCp, _VG, _TG, _TGRT, _TGRTR, _TGPT, _TGPTE, _TGAra, _CAo, _CRo, _FSRi, _FSRir],
   [[() => AnalysisComponent$, { [_eQN]: `Acl`
   , [_xN]: _ac }], [() => AnalysisAclRule$, { [_eQN]: `AclRule`
   , [_xN]: _aRc }], [0, { [_eQN]: `Address`
@@ -17207,7 +17249,9 @@ export var Explanation$: StaticStructureSchema = [3, n0, _Ex,
   , [_xN]: _vG }], [() => AnalysisComponent$, { [_eQN]: `TransitGateway`
   , [_xN]: _tG }], [() => AnalysisComponent$, { [_eQN]: `TransitGatewayRouteTable`
   , [_xN]: _tGRT }], [() => TransitGatewayRouteTableRoute$, { [_eQN]: `TransitGatewayRouteTableRoute`
-  , [_xN]: _tGRTR }], [() => AnalysisComponent$, { [_eQN]: `TransitGatewayAttachment`
+  , [_xN]: _tGRTR }], [() => AnalysisComponent$, { [_eQN]: `TransitGatewayPolicyTable`
+  , [_xN]: _tGPT }], [() => AnalysisTransitGatewayPolicyTableEntry$, { [_eQN]: `TransitGatewayPolicyTableEntry`
+  , [_xN]: _tGPTE }], [() => AnalysisComponent$, { [_eQN]: `TransitGatewayAttachment`
   , [_xN]: _tGAr }], [0, { [_eQN]: `ComponentAccount`
   , [_xN]: _cAo }], [0, { [_eQN]: `ComponentRegion`
   , [_xN]: _cRo }], [() => FirewallStatelessRule$, { [_eQN]: `FirewallStatelessRule`
@@ -18442,6 +18486,20 @@ export var GetSubnetCidrReservationsResult$: StaticStructureSchema = [3, n0, _GS
   , [_xN]: _sICRS }], [() => SubnetCidrReservationList, { [_eQN]: `SubnetIpv6CidrReservationSet`
   , [_xN]: _sICRSu }], [0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }]]
+];
+export var GetTransitGatewayAttachmentNatConfigurationRequest$: StaticStructureSchema = [3, n0, _GTGANCR,
+  0,
+  [_TGAI, _DR],
+  [0, 2], 1
+];
+export var GetTransitGatewayAttachmentNatConfigurationResult$: StaticStructureSchema = [3, n0, _GTGANCRe,
+  0,
+  [_TGAI, _NGS, _NSRS, _NGR],
+  [[0, { [_eQN]: `TransitGatewayAttachmentId`
+  , [_xN]: _tGAI }], [0, { [_eQN]: `NatGatewaySupport`
+  , [_xN]: _nGSa }], [0, { [_eQN]: `NatSystemRouteSupport`
+  , [_xN]: _nSRS }], [() => TransitGatewayNatRuleList, { [_eQN]: `NatGatewayRuleSet`
+  , [_xN]: _nGRS }]]
 ];
 export var GetTransitGatewayAttachmentPropagationsRequest$: StaticStructureSchema = [3, n0, _GTGAPR,
   0,
@@ -19790,7 +19848,7 @@ export var InstanceStateChange$: StaticStructureSchema = [3, n0, _ISC,
 ];
 export var InstanceStatus$: StaticStructureSchema = [3, n0, _ISnstan,
   0,
-  [_AZ, _AZI, _OA, _Op, _Ev, _II, _ISnsta, _ISnstan, _SSy, _AES, _AS],
+  [_AZ, _AZI, _OA, _Op, _Ev, _II, _ISnsta, _ISnstan, _SSy, _AES, _AS, _PSe],
   [[0, { [_eQN]: `AvailabilityZone`
   , [_xN]: _aZ }], [0, { [_eQN]: `AvailabilityZoneId`
   , [_xN]: _aZI }], [0, { [_eQN]: `OutpostArn`
@@ -19802,7 +19860,8 @@ export var InstanceStatus$: StaticStructureSchema = [3, n0, _ISnstan,
   , [_xN]: _iSnsta }], [() => InstanceStatusSummary$, { [_eQN]: `SystemStatus`
   , [_xN]: _sSy }], [() => EbsStatusSummary$, { [_eQN]: `AttachedEbsStatus`
   , [_xN]: _aES }], [() => ApplicationStatusSummary$, { [_eQN]: `ApplicationStatus`
-  , [_xN]: _aSp }]]
+  , [_xN]: _aSp }], [() => PerformanceStatusSummary$, { [_eQN]: `PerformanceStatus`
+  , [_xN]: _pSe }]]
 ];
 export var InstanceStatusDetails$: StaticStructureSchema = [3, n0, _ISDn,
   0,
@@ -20283,10 +20342,10 @@ export var IpamPrefixListResolver$: StaticStructureSchema = [3, n0, _IPLR,
 ];
 export var IpamPrefixListResolverRule$: StaticStructureSchema = [3, n0, _IPLRR,
   0,
-  [_RTu, _SCt, _ISI, _RTe, _Cond],
+  [_RTu, _SCta, _ISI, _RTe, _Cond],
   [[0, { [_eQN]: `RuleType`
   , [_xN]: _rTu }], [0, { [_eQN]: `StaticCidr`
-  , [_xN]: _sCt }], [0, { [_eQN]: `IpamScopeId`
+  , [_xN]: _sCta }], [0, { [_eQN]: `IpamScopeId`
   , [_xN]: _iSIp }], [0, { [_eQN]: `ResourceType`
   , [_xN]: _rTe }], [() => IpamPrefixListResolverRuleConditionSet, { [_eQN]: `ConditionSet`
   , [_xN]: _cSo }]]
@@ -20310,7 +20369,7 @@ export var IpamPrefixListResolverRuleConditionRequest$: StaticStructureSchema = 
 ];
 export var IpamPrefixListResolverRuleRequest$: StaticStructureSchema = [3, n0, _IPLRRR,
   0,
-  [_RTu, _SCt, _ISI, _RTe, _Cond],
+  [_RTu, _SCta, _ISI, _RTe, _Cond],
   [0, 0, 0, 0, [() => IpamPrefixListResolverRuleConditionRequestSet, { [_xN]: _Condi }]], 1
 ];
 export var IpamPrefixListResolverTarget$: StaticStructureSchema = [3, n0, _IPLRT,
@@ -21996,6 +22055,20 @@ export var ModifyTrafficMirrorSessionResult$: StaticStructureSchema = [3, n0, _M
   [[() => TrafficMirrorSession$, { [_eQN]: `TrafficMirrorSession`
   , [_xN]: _tMS }]]
 ];
+export var ModifyTransitGatewayAttachmentNatConfigurationRequest$: StaticStructureSchema = [3, n0, _MTGANCR,
+  0,
+  [_TGAI, _NGS, _NSRS, _NGR, _RNGR, _DR],
+  [0, 0, 0, [() => TransitGatewayNatRuleRequestList, { [_xN]: _NGRa }], 2, 2], 1
+];
+export var ModifyTransitGatewayAttachmentNatConfigurationResult$: StaticStructureSchema = [3, n0, _MTGANCRo,
+  0,
+  [_TGAI, _NGS, _NSRS, _NGR],
+  [[0, { [_eQN]: `TransitGatewayAttachmentId`
+  , [_xN]: _tGAI }], [0, { [_eQN]: `NatGatewaySupport`
+  , [_xN]: _nGSa }], [0, { [_eQN]: `NatSystemRouteSupport`
+  , [_xN]: _nSRS }], [() => TransitGatewayNatRuleList, { [_eQN]: `NatGatewayRuleSet`
+  , [_xN]: _nGRS }]]
+];
 export var ModifyTransitGatewayMeteringPolicyRequest$: StaticStructureSchema = [3, n0, _MTGMPR,
   0,
   [_TGMPI, _AMAI, _RMAI, _DR],
@@ -22754,14 +22827,14 @@ export var NetworkInterfaceIpv6Address$: StaticStructureSchema = [3, n0, _NIIA,
 ];
 export var NetworkInterfacePermission$: StaticStructureSchema = [3, n0, _NIPetw,
   0,
-  [_NIPIe, _NII, _AAI, _ASw, _Pe, _PSe],
+  [_NIPIe, _NII, _AAI, _ASw, _Pe, _PSer],
   [[0, { [_eQN]: `NetworkInterfacePermissionId`
   , [_xN]: _nIPIe }], [0, { [_eQN]: `NetworkInterfaceId`
   , [_xN]: _nII }], [0, { [_eQN]: `AwsAccountId`
   , [_xN]: _aAI }], [0, { [_eQN]: `AwsService`
   , [_xN]: _aSw }], [0, { [_eQN]: `Permission`
   , [_xN]: _per }], [() => NetworkInterfacePermissionState$, { [_eQN]: `PermissionState`
-  , [_xN]: _pSe }]]
+  , [_xN]: _pSer }]]
 ];
 export var NetworkInterfacePermissionState$: StaticStructureSchema = [3, n0, _NIPS,
   0,
@@ -22892,7 +22965,7 @@ export var PacketHeaderStatementRequest$: StaticStructureSchema = [3, n0, _PHSR,
 ];
 export var PathComponent$: StaticStructureSchema = [3, n0, _PCat,
   0,
-  [_SNeq, _ARcl, _ATtta, _C, _DVe, _OHu, _IHn, _RTR, _SGRe, _SVo, _Su, _Vp, _ADdd, _TG, _TGRTR, _Expl, _ELBL, _FSRi, _FSRir, _SN],
+  [_SNeq, _ARcl, _ATtta, _C, _DVe, _OHu, _IHn, _RTR, _SGRe, _SVo, _Su, _Vp, _ADdd, _TG, _TGRTR, _TGPTE, _Expl, _ELBL, _FSRi, _FSRir, _SN],
   [[1, { [_eQN]: `SequenceNumber`
   , [_xN]: _sNeq }], [() => AnalysisAclRule$, { [_eQN]: `AclRule`
   , [_xN]: _aRc }], [() => AnalysisComponent$, { [_eQN]: `AttachedTo`
@@ -22908,7 +22981,8 @@ export var PathComponent$: StaticStructureSchema = [3, n0, _PCat,
   , [_xN]: _vp }], [() => AdditionalDetailList, { [_eQN]: `AdditionalDetailSet`
   , [_xN]: _aDS }], [() => AnalysisComponent$, { [_eQN]: `TransitGateway`
   , [_xN]: _tG }], [() => TransitGatewayRouteTableRoute$, { [_eQN]: `TransitGatewayRouteTableRoute`
-  , [_xN]: _tGRTR }], [() => ExplanationList, { [_eQN]: `ExplanationSet`
+  , [_xN]: _tGRTR }], [() => AnalysisTransitGatewayPolicyTableEntry$, { [_eQN]: `TransitGatewayPolicyTableEntry`
+  , [_xN]: _tGPTE }], [() => ExplanationList, { [_eQN]: `ExplanationSet`
   , [_xN]: _eSx }], [() => AnalysisComponent$, { [_eQN]: `ElasticLoadBalancerListener`
   , [_xN]: _eLBL }], [() => FirewallStatelessRule$, { [_eQN]: `FirewallStatelessRule`
   , [_xN]: _fSR }], [() => FirewallStatefulRule$, { [_eQN]: `FirewallStatefulRule`
@@ -22992,6 +23066,14 @@ export var PerformanceFactorReferenceRequest$: StaticStructureSchema = [3, n0, _
   0,
   [_IF],
   [0]
+];
+export var PerformanceStatusSummary$: StaticStructureSchema = [3, n0, _PSS,
+  0,
+  [_Sta, _ISm, _Reme],
+  [[0, { [_eQN]: `Status`
+  , [_xN]: _sta }], [4, { [_eQN]: `ImpairedSince`
+  , [_xN]: _iSm }], [0, { [_eQN]: `Remediation`
+  , [_xN]: _rem }]]
 ];
 export var Phase1DHGroupNumbersListValue$: StaticStructureSchema = [3, n0, _PDHGNLV,
   0,
@@ -23153,7 +23235,7 @@ export var PriceSchedule$: StaticStructureSchema = [3, n0, _PSric,
   , [_xN]: _pric }], [1, { [_eQN]: `Term`
   , [_xN]: _ter }]]
 ];
-export var PriceScheduleSpecification$: StaticStructureSchema = [3, n0, _PSS,
+export var PriceScheduleSpecification$: StaticStructureSchema = [3, n0, _PSSr,
   0,
   [_Ter, _Pric, _CC],
   [[1, { [_eQN]: `Term`
@@ -25712,7 +25794,7 @@ export var TransitGatewayAssociation$: StaticStructureSchema = [3, n0, _TGArans,
 ];
 export var TransitGatewayAttachment$: StaticStructureSchema = [3, n0, _TGAra,
   0,
-  [_TGAI, _TGI, _TGOI, _ROI, _RTe, _RIeso, _St, _Ass, _CTr, _T],
+  [_TGAI, _TGI, _TGOI, _ROI, _RTe, _RIeso, _St, _Ass, _CTr, _T, _NGS],
   [[0, { [_eQN]: `TransitGatewayAttachmentId`
   , [_xN]: _tGAI }], [0, { [_eQN]: `TransitGatewayId`
   , [_xN]: _tGI }], [0, { [_eQN]: `TransitGatewayOwnerId`
@@ -25723,7 +25805,8 @@ export var TransitGatewayAttachment$: StaticStructureSchema = [3, n0, _TGAra,
   , [_xN]: _st }], [() => TransitGatewayAttachmentAssociation$, { [_eQN]: `Association`
   , [_xN]: _ass }], [4, { [_eQN]: `CreationTime`
   , [_xN]: _cTr }], [() => TagList, { [_eQN]: `TagSet`
-  , [_xN]: _tS }]]
+  , [_xN]: _tS }], [0, { [_eQN]: `NatGatewaySupport`
+  , [_xN]: _nGSa }]]
 ];
 export var TransitGatewayAttachmentAssociation$: StaticStructureSchema = [3, n0, _TGAA,
   0,
@@ -25944,6 +26027,20 @@ export var TransitGatewayMulticastRegisteredGroupSources$: StaticStructureSchema
   , [_xN]: _tGMDI }], [() => ValueStringList, { [_eQN]: `RegisteredNetworkInterfaceIds`
   , [_xN]: _rNII }], [0, { [_eQN]: `GroupIpAddress`
   , [_xN]: _gIA }]]
+];
+export var TransitGatewayNatRule$: StaticStructureSchema = [3, n0, _TGNR,
+  0,
+  [_RNu, _MSC, _NCa, _St],
+  [[1, { [_eQN]: `RuleNumber`
+  , [_xN]: _rN }], [0, { [_eQN]: `MatchSourceCidr`
+  , [_xN]: _mSC }], [0, { [_eQN]: `NatCidr`
+  , [_xN]: _nCa }], [0, { [_eQN]: `State`
+  , [_xN]: _st }]]
+];
+export var TransitGatewayNatRuleRequest$: StaticStructureSchema = [3, n0, _TGNRR,
+  0,
+  [_RNu, _MSC, _NCa],
+  [1, 0, 0]
 ];
 export var TransitGatewayOptions$: StaticStructureSchema = [3, n0, _TGO,
   0,
@@ -29886,6 +29983,14 @@ var TransitGatewayMulticastGroupList: StaticListSchema = [1, n0, _TGMGL,
   0, [() => TransitGatewayMulticastGroup$,
     { [_xN]: _it }]
 ];
+var TransitGatewayNatRuleList: StaticListSchema = [1, n0, _TGNRL,
+  0, [() => TransitGatewayNatRule$,
+    { [_xN]: _it }]
+];
+var TransitGatewayNatRuleRequestList: StaticListSchema = [1, n0, _TGNRRL,
+  0, [() => TransitGatewayNatRuleRequest$,
+    { [_xN]: _it }]
+];
 var TransitGatewayNetworkInterfaceIdList: StaticListSchema = [1, n0, _TGNIIL,
   0, [0,
     { [_xN]: _it }]
@@ -32119,6 +32224,9 @@ export var GetSpotPlacementScores$: StaticOperationSchema = [9, n0, _GSPS,
 export var GetSubnetCidrReservations$: StaticOperationSchema = [9, n0, _GSCR,
   0, () => GetSubnetCidrReservationsRequest$, () => GetSubnetCidrReservationsResult$
 ];
+export var GetTransitGatewayAttachmentNatConfiguration$: StaticOperationSchema = [9, n0, _GTGANC,
+  0, () => GetTransitGatewayAttachmentNatConfigurationRequest$, () => GetTransitGatewayAttachmentNatConfigurationResult$
+];
 export var GetTransitGatewayAttachmentPropagations$: StaticOperationSchema = [9, n0, _GTGAP,
   0, () => GetTransitGatewayAttachmentPropagationsRequest$, () => GetTransitGatewayAttachmentPropagationsResult$
 ];
@@ -32361,6 +32469,9 @@ export var ModifyTrafficMirrorSession$: StaticOperationSchema = [9, n0, _MTMS,
 ];
 export var ModifyTransitGateway$: StaticOperationSchema = [9, n0, _MTG,
   0, () => ModifyTransitGatewayRequest$, () => ModifyTransitGatewayResult$
+];
+export var ModifyTransitGatewayAttachmentNatConfiguration$: StaticOperationSchema = [9, n0, _MTGANC,
+  0, () => ModifyTransitGatewayAttachmentNatConfigurationRequest$, () => ModifyTransitGatewayAttachmentNatConfigurationResult$
 ];
 export var ModifyTransitGatewayMeteringPolicy$: StaticOperationSchema = [9, n0, _MTGMP,
   0, () => ModifyTransitGatewayMeteringPolicyRequest$, () => ModifyTransitGatewayMeteringPolicyResult$

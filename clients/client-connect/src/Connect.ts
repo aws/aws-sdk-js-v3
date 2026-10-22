@@ -1194,6 +1194,11 @@ import {
   ListRealtimeContactAnalysisSegmentsV2Command,
 } from "./commands/ListRealtimeContactAnalysisSegmentsV2Command";
 import {
+  type ListReplicationFindingsCommandInput,
+  type ListReplicationFindingsCommandOutput,
+  ListReplicationFindingsCommand,
+} from "./commands/ListReplicationFindingsCommand";
+import {
   type ListRoutingProfileManualAssignmentQueuesCommandInput,
   type ListRoutingProfileManualAssignmentQueuesCommandOutput,
   ListRoutingProfileManualAssignmentQueuesCommand,
@@ -2051,6 +2056,7 @@ import { paginateListQuickConnects } from "./pagination/ListQuickConnectsPaginat
 import {
   paginateListRealtimeContactAnalysisSegmentsV2,
 } from "./pagination/ListRealtimeContactAnalysisSegmentsV2Paginator";
+import { paginateListReplicationFindings } from "./pagination/ListReplicationFindingsPaginator";
 import {
   paginateListRoutingProfileManualAssignmentQueues,
 } from "./pagination/ListRoutingProfileManualAssignmentQueuesPaginator";
@@ -2339,6 +2345,7 @@ const commands = {
   ListQueuesCommand,
   ListQuickConnectsCommand,
   ListRealtimeContactAnalysisSegmentsV2Command,
+  ListReplicationFindingsCommand,
   ListRoutingProfileManualAssignmentQueuesCommand,
   ListRoutingProfileQueuesCommand,
   ListRoutingProfilesCommand,
@@ -2552,6 +2559,7 @@ const paginators = {
   paginateListQueues,
   paginateListQuickConnects,
   paginateListRealtimeContactAnalysisSegmentsV2,
+  paginateListReplicationFindings,
   paginateListRoutingProfileManualAssignmentQueues,
   paginateListRoutingProfileQueues,
   paginateListRoutingProfiles,
@@ -6657,6 +6665,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link ListReplicationFindingsCommand}
+   */
+  listReplicationFindings(
+    args: ListReplicationFindingsCommandInput,
+    options?: ConnectRequestOptions
+  ): Promise<ListReplicationFindingsCommandOutput>;
+  listReplicationFindings(
+    args: ListReplicationFindingsCommandInput,
+    cb: (err: any, data?: ListReplicationFindingsCommandOutput) => void
+  ): void;
+  listReplicationFindings(
+    args: ListReplicationFindingsCommandInput,
+    options: ConnectRequestOptions,
+    cb: (err: any, data?: ListReplicationFindingsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListRoutingProfileManualAssignmentQueuesCommand}
    */
   listRoutingProfileManualAssignmentQueues(
@@ -9963,6 +9988,17 @@ export interface Connect {
     args: ListRealtimeContactAnalysisSegmentsV2CommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListRealtimeContactAnalysisSegmentsV2CommandOutput>;
+
+  /**
+   * @see {@link ListReplicationFindingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReplicationFindingsCommandOutput}.
+   */
+  paginateListReplicationFindings(
+    args: ListReplicationFindingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReplicationFindingsCommandOutput>;
 
   /**
    * @see {@link ListRoutingProfileManualAssignmentQueuesCommand}

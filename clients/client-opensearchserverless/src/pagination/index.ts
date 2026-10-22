@@ -3,6 +3,8 @@ export * from "./Interfaces";
 export * from "./ListAccessPoliciesPaginator";
 export * from "./ListCollectionGroupsPaginator";
 export * from "./ListCollectionsPaginator";
+export * from "./ListIngestionJobsPaginator";
+export * from "./ListIngestionStreamsPaginator";
 export * from "./ListLifecyclePoliciesPaginator";
 export * from "./ListSecurityConfigsPaginator";
 export * from "./ListSecurityPoliciesPaginator";

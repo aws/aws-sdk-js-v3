@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4-multi-region",
-  "version": "3.996.48",
+  "version": "3.996.49",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/signature-v4-multi-region",
   "license": "Apache-2.0",
   "author": {
@@ -42,7 +42,7 @@
     "test:browser": "yarn build:browser && yarn g:vitest run -c vitest.config.browser.mts"
   },
   "dependencies": {
-    "@aws-sdk/types": "workspace:^3.974.6",
+    "@aws-sdk/types": "workspace:^3.975.0",
     "@smithy/signature-v4": "^5.7.4",
     "@smithy/types": "^4.19.0",
     "tslib": "^2.6.2"

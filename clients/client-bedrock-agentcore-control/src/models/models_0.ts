@@ -13,6 +13,7 @@ import type {
   CapacityProviderStatus,
   CapacityProviderStatusCode,
   CapacityReservationPreference,
+  CircuitBreakerMode,
   ClaimMatchOperatorType,
   CodeInterpreterNetworkMode,
   CodeInterpreterStatus,
@@ -28,6 +29,7 @@ import type {
   EvaluatorStatus,
   EvaluatorType,
   ExceptionLevel,
+  FallbackError,
   GatewayInterceptionPoint,
   GatewayPolicyEngineMode,
   GatewayProtocolType,
@@ -37,6 +39,7 @@ import type {
   InboundTokenClaimValueType,
   IncludedData,
   InterceptorPayloadExclusion,
+  MatchOperator,
   Monitoring,
   NetworkMode,
   OperatingSystem,
@@ -218,6 +221,96 @@ export namespace ConfigurationBundleAction {
 }
 
 /**
+ * <p>Specifies whether the circuit breaker monitors failures for the targets in a fallback chain.</p>
+ * @public
+ */
+export interface CircuitBreakerConfiguration {
+  /**
+   * <p>Specifies whether you want the circuit breaker turned on. To turn it off, set this value to <code>DISABLED</code>. The default is <code>ENABLED</code>.</p>
+   * @public
+   */
+  mode?: CircuitBreakerMode | undefined;
+}
+
+/**
+ * <p>The conditions that trigger a fallback to the next target. A fallback occurs if the response matches any of the specified status codes or errors.</p>
+ * @public
+ */
+export interface FallbackTriggers {
+  /**
+   * <p>The HTTP status codes returned by the target that trigger a fallback. You can specify the following:</p> <ul> <li> <p>An exact status code – A three-digit code, such as <code>429</code>.</p> </li> <li> <p>A class of status codes – The first digit followed by <code>XX</code>, such as <code>5XX</code>, which matches every code from 500 to 599.</p> </li> </ul> <p>Only 4XX and 5XX codes are supported. Throttling by the gateway itself doesn't trigger a fallback.</p>
+   * @public
+   */
+  statusCodes?: string[] | undefined;
+
+  /**
+   * <p>The errors that trigger a fallback. You can specify the following:</p> <ul> <li> <p> <code>CONNECTION_ERROR</code> – The gateway couldn't connect to the target because the connection was refused, reset, or timed out. The request didn't reach the target.</p> </li> <li> <p> <code>FIRST_BYTE_TIMEOUT</code> – The target accepted the connection but didn't return the first byte of the response within <code>firstByteTimeoutMilliseconds</code>. The gateway abandons the request before any of the response reaches you.</p> </li> <li> <p> <code>UNROUTABLE</code> – The gateway couldn't route the request to the target, for example because the target doesn't exist or doesn't support the request path. These errors don't count toward the circuit breaker.</p> </li> </ul>
+   * @public
+   */
+  errors?: FallbackError[] | undefined;
+}
+
+/**
+ * <p>Specifies a target to send the request to when the previous target in the fallback chain fails. Includes the target name, the model to send, and the conditions that trigger a fallback from this target to the next one.</p>
+ * @public
+ */
+export interface FallbackTarget {
+  /**
+   * <p>The name of the gateway target to fall back to. The target must be an inference target.</p>
+   * @public
+   */
+  targetName: string | undefined;
+
+  /**
+   * <p>The model ID to send to this fallback target. If you don't specify a model, the gateway sends the model from the original request.</p>
+   * @public
+   */
+  model?: string | undefined;
+
+  /**
+   * <p>The status codes and errors from this target that cause the gateway to send the request to the next fallback target. This setting isn't inherited from the route. If you omit it, the gateway uses the default triggers: <code>5XX</code> status codes and the <code>CONNECTION_ERROR</code>, <code>FIRST_BYTE_TIMEOUT</code>, and <code>UNROUTABLE</code> errors.</p>
+   * @public
+   */
+  triggerOn?: FallbackTriggers | undefined;
+
+  /**
+   * <p>The maximum time, in milliseconds, from sending the request to this target until the first byte of the response body arrives. This setting isn't inherited from the route. If you don't specify a value, no timeout is enforced.</p>
+   * @public
+   */
+  firstByteTimeoutMilliseconds?: number | undefined;
+}
+
+/**
+ * <p>The fallback configuration for a route to an inference target. Defines an ordered list of fallback targets to try when a request to the route's target fails, and the conditions that trigger a fallback. A fallback can occur only before the gateway sends the first byte of the response to the caller. After a streaming response starts, the gateway doesn't fall back.</p>
+ * @public
+ */
+export interface Fallback {
+  /**
+   * <p>The status codes and errors from the route's target that cause the gateway to send the request to the first fallback target. If you omit <code>triggerOn</code>, the gateway falls back on <code>5XX</code> status codes and on the <code>CONNECTION_ERROR</code>, <code>FIRST_BYTE_TIMEOUT</code>, and <code>UNROUTABLE</code> errors. If you specify <code>triggerOn</code>, only the status codes and errors that you list trigger a fallback.</p>
+   * @public
+   */
+  triggerOn?: FallbackTriggers | undefined;
+
+  /**
+   * <p>The maximum time, in milliseconds, from sending the request to the route's target until the first byte of the response body arrives. If the time expires, the gateway abandons the request and treats it as a <code>FIRST_BYTE_TIMEOUT</code> error. If you don't specify a value, no timeout is enforced.</p>
+   * @public
+   */
+  firstByteTimeoutMilliseconds?: number | undefined;
+
+  /**
+   * <p>Specifies whether the gateway temporarily stops sending your requests to a failing target. The circuit breaker tracks each combination of target and model separately. With the circuit breaker enabled, the gateway skips one or more targets and models that fail repeatedly, and your requests go to the next target in the chain. The gateway always tries the last remaining target in the chain. The gateway enables the circuit breaker by default.</p>
+   * @public
+   */
+  circuitBreaker?: CircuitBreakerConfiguration | undefined;
+
+  /**
+   * <p>The ordered list of fallback targets. The gateway tries each target in order until a response doesn't match that target's triggers, and returns that response to the caller. If every target fails, the gateway returns the last response. You can specify up to two fallback targets. Each combination of target and model, including the route's target, can appear only once.</p>
+   * @public
+   */
+  targetFallback: FallbackTarget[] | undefined;
+}
+
+/**
  * <p>A static route to a single gateway target.</p>
  * @public
  */
@@ -227,6 +320,18 @@ export interface StaticRoute {
    * @public
    */
   targetName: string | undefined;
+
+  /**
+   * <p>The model ID to send to the target. Supported only for inference targets. If you don't specify a model, the gateway sends the model from the original request.</p>
+   * @public
+   */
+  model?: string | undefined;
+
+  /**
+   * <p>The fallback configuration for this route. Supported only for inference targets.</p>
+   * @public
+   */
+  fallback?: Fallback | undefined;
 }
 
 /**
@@ -234,6 +339,24 @@ export interface StaticRoute {
  * @public
  */
 export interface TargetTrafficSplitEntry {
+  /**
+   * <p>The name of the target to route traffic to.</p>
+   * @public
+   */
+  targetName: string | undefined;
+
+  /**
+   * <p>The model ID to send to the target for this variant. Supported only for inference targets. If you don't specify a model, the gateway sends the model from the original request.</p>
+   * @public
+   */
+  model?: string | undefined;
+
+  /**
+   * <p>The fallback configuration for this variant. Supported only for inference targets.</p>
+   * @public
+   */
+  fallback?: Fallback | undefined;
+
   /**
    * <p>The name of this traffic split variant.</p>
    * @public
@@ -245,12 +368,6 @@ export interface TargetTrafficSplitEntry {
    * @public
    */
   weight: number | undefined;
-
-  /**
-   * <p>The name of the target to route traffic to.</p>
-   * @public
-   */
-  targetName: string | undefined;
 
   /**
    * <p>The description of this traffic split variant.</p>
@@ -6919,20 +7036,20 @@ export interface NumericalScaleDefinition {
 }
 
 /**
- * <p> The rating scale that defines how evaluators should score agent performance, supporting both numerical and categorical scales. </p>
+ * <p> The rating scale for one dimension of an LLM-as-a-judge evaluator, supporting either a numerical or a categorical scale. </p>
  * @public
  */
-export type RatingScale =
-  | RatingScale.CategoricalMember
-  | RatingScale.NumericalMember
-  | RatingScale.$UnknownMember;
+export type DimensionRatingScale =
+  | DimensionRatingScale.CategoricalMember
+  | DimensionRatingScale.NumericalMember
+  | DimensionRatingScale.$UnknownMember;
 
 /**
  * @public
  */
-export namespace RatingScale {
+export namespace DimensionRatingScale {
   /**
-   * <p> The numerical rating scale with defined score values and descriptions for quantitative evaluation. </p>
+   * <p> The numerical rating scale with defined score values and descriptions for quantitative evaluation of the dimension. </p>
    * @public
    */
   export interface NumericalMember {
@@ -6942,7 +7059,7 @@ export namespace RatingScale {
   }
 
   /**
-   * <p> The categorical rating scale with named categories and definitions for qualitative evaluation. </p>
+   * <p> The categorical rating scale with named categories and definitions for qualitative evaluation of the dimension. </p>
    * @public
    */
   export interface CategoricalMember {
@@ -6967,6 +7084,99 @@ export namespace RatingScale {
   export interface Visitor<T> {
     numerical: (value: NumericalScaleDefinition[]) => T;
     categorical: (value: CategoricalScaleDefinition[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p> A single dimension of an LLM-as-a-judge evaluator, defining what the evaluator model should judge for that dimension and how it should be scored. </p>
+ * @public
+ */
+export interface EvaluationDimension {
+  /**
+   * <p> The name of the dimension. This name is unique within the evaluator and identifies the dimension's results. </p>
+   * @public
+   */
+  dimensionName: string | undefined;
+
+  /**
+   * <p> The instruction to the evaluator model for this dimension, describing what the model should judge when scoring the dimension. </p>
+   * @public
+   */
+  dimensionInstruction: string | undefined;
+
+  /**
+   * <p> The rating scale for this dimension, which can be numerical or categorical. A dimension's rating scale cannot itself be multi-dimensional. </p>
+   * @public
+   */
+  dimensionRatingScale: DimensionRatingScale | undefined;
+}
+
+/**
+ * <p> The rating scale that defines how evaluators should score agent performance, supporting both numerical and categorical scales. </p>
+ * @public
+ */
+export type RatingScale =
+  | RatingScale.CategoricalMember
+  | RatingScale.MultiDimensionalMember
+  | RatingScale.NumericalMember
+  | RatingScale.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RatingScale {
+  /**
+   * <p> The numerical rating scale with defined score values and descriptions for quantitative evaluation. </p>
+   * @public
+   */
+  export interface NumericalMember {
+    numerical: NumericalScaleDefinition[];
+    categorical?: never;
+    multiDimensional?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> The categorical rating scale with named categories and definitions for qualitative evaluation. </p>
+   * @public
+   */
+  export interface CategoricalMember {
+    numerical?: never;
+    categorical: CategoricalScaleDefinition[];
+    multiDimensional?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> A list of dimensions that lets an LLM-as-a-judge evaluator score several dimensions of the same target in a single evaluation. Each dimension has its own instruction and rating scale, and produces its own result. </p>
+   * @public
+   */
+  export interface MultiDimensionalMember {
+    numerical?: never;
+    categorical?: never;
+    multiDimensional: EvaluationDimension[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    numerical?: never;
+    categorical?: never;
+    multiDimensional?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    numerical: (value: NumericalScaleDefinition[]) => T;
+    categorical: (value: CategoricalScaleDefinition[]) => T;
+    multiDimensional: (value: EvaluationDimension[]) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -8167,7 +8377,7 @@ export interface MCPGatewayConfiguration {
   streamingConfiguration?: StreamingConfiguration | undefined;
 
   /**
-   * <p>Specifies whether pagination is disabled for the Model Context Protocol (MCP) <code>tools/list</code> operation. When set to <code>true</code>, the gateway returns the complete list of tools in a single response without a pagination cursor. When set to <code>false</code> or omitted, the gateway returns tools in paginated responses.</p>
+   * <p>Specifies whether the gateway disables pagination for the Model Context Protocol (MCP) <code>tools/list</code> operation. When set to <code>true</code>, the gateway returns the complete list of tools in a single response without a pagination cursor. When set to <code>false</code> or omitted, the gateway returns tools in paginated responses. For information about changing this value on an existing gateway, see <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.html">UpdateGateway</a>.</p>
    * @public
    */
   disableMcpListToolsPagination?: boolean | undefined;
@@ -8965,6 +9175,36 @@ export interface UpdateGatewayResponse {
 }
 
 /**
+ * <p>A model ID or pattern to match against the requested model, and the operator to use for the comparison.</p>
+ * @public
+ */
+export interface MatchModelEntry {
+  /**
+   * <p>The model ID or pattern to match. With the <code>StringLike</code> operator, you can use <code>*</code> and <code>?</code> as wildcards, for example <code>anthropic.claude-*</code>.</p>
+   * @public
+   */
+  value: string | undefined;
+
+  /**
+   * <p>The operator to use when comparing the requested model to the value:</p> <ul> <li> <p> <code>StringEquals</code> – Requires an exact match.</p> </li> <li> <p> <code>StringLike</code> – Supports wildcard patterns using <code>*</code> and <code>?</code>. This is the default.</p> </li> </ul>
+   * @public
+   */
+  operator?: MatchOperator | undefined;
+}
+
+/**
+ * <p>A condition that matches inference requests based on the requested model.</p>
+ * @public
+ */
+export interface MatchModels {
+  /**
+   * <p>A list of model entries. The condition is met if the requested model matches any of the entries.</p>
+   * @public
+   */
+  anyOf: MatchModelEntry[] | undefined;
+}
+
+/**
  * <p>A condition that matches requests based on the request path.</p>
  * @public
  */
@@ -9046,10 +9286,11 @@ export interface MatchPrincipals {
 }
 
 /**
- * <p>A condition that determines when a gateway rule applies. Conditions can match on principals or request paths.</p>
+ * <p>A condition that determines when a gateway rule applies. Conditions can match on principals, request paths, or the requested model.</p>
  * @public
  */
 export type Condition =
+  | Condition.MatchModelsMember
   | Condition.MatchPathsMember
   | Condition.MatchPrincipalsMember
   | Condition.$UnknownMember;
@@ -9065,6 +9306,7 @@ export namespace Condition {
   export interface MatchPrincipalsMember {
     matchPrincipals: MatchPrincipals;
     matchPaths?: never;
+    matchModels?: never;
     $unknown?: never;
   }
 
@@ -9075,6 +9317,18 @@ export namespace Condition {
   export interface MatchPathsMember {
     matchPrincipals?: never;
     matchPaths: MatchPaths;
+    matchModels?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A condition that matches on the model requested in an inference request.</p>
+   * @public
+   */
+  export interface MatchModelsMember {
+    matchPrincipals?: never;
+    matchPaths?: never;
+    matchModels: MatchModels;
     $unknown?: never;
   }
 
@@ -9084,6 +9338,7 @@ export namespace Condition {
   export interface $UnknownMember {
     matchPrincipals?: never;
     matchPaths?: never;
+    matchModels?: never;
     $unknown: [string, any];
   }
 
@@ -9094,6 +9349,7 @@ export namespace Condition {
   export interface Visitor<T> {
     matchPrincipals: (value: MatchPrincipals) => T;
     matchPaths: (value: MatchPaths) => T;
+    matchModels: (value: MatchModels) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -9326,303 +9582,6 @@ export interface GetGatewayRuleResponse {
    * @public
    */
   updatedAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGatewayRulesRequest {
-  /**
-   * <p>The identifier of the gateway to list rules for.</p>
-   * @public
-   */
-  gatewayIdentifier: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The pagination token from a previous request.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Detailed information about a gateway rule.</p>
- * @public
- */
-export interface GatewayRuleDetail {
-  /**
-   * <p>The unique identifier of the gateway rule.</p>
-   * @public
-   */
-  ruleId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway that the rule belongs to.</p>
-   * @public
-   */
-  gatewayArn: string | undefined;
-
-  /**
-   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.</p>
-   * @public
-   */
-  priority: number | undefined;
-
-  /**
-   * <p>The conditions that must be met for the rule to apply.</p>
-   * @public
-   */
-  conditions?: Condition[] | undefined;
-
-  /**
-   * <p>The actions to take when the rule conditions are met.</p>
-   * @public
-   */
-  actions: Action[] | undefined;
-
-  /**
-   * <p>The description of the gateway rule.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp when the rule was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The current status of the rule.</p>
-   * @public
-   */
-  status: GatewayRuleStatus | undefined;
-
-  /**
-   * <p>System-managed metadata for rules created by automated processes.</p>
-   * @public
-   */
-  system?: SystemManagedBlock | undefined;
-
-  /**
-   * <p>The timestamp when the rule was last updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGatewayRulesResponse {
-  /**
-   * <p>The list of gateway rules.</p>
-   * @public
-   */
-  gatewayRules: GatewayRuleDetail[] | undefined;
-
-  /**
-   * <p>The pagination token to use in a subsequent request.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateGatewayRuleRequest {
-  /**
-   * <p>The identifier of the gateway containing the rule.</p>
-   * @public
-   */
-  gatewayIdentifier: string | undefined;
-
-  /**
-   * <p>The unique identifier of the rule to update.</p>
-   * @public
-   */
-  ruleId: string | undefined;
-
-  /**
-   * <p>The updated priority of the rule.</p>
-   * @public
-   */
-  priority?: number | undefined;
-
-  /**
-   * <p>The updated conditions for the rule.</p>
-   * @public
-   */
-  conditions?: Condition[] | undefined;
-
-  /**
-   * <p>The updated actions for the rule.</p>
-   * @public
-   */
-  actions?: Action[] | undefined;
-
-  /**
-   * <p>The updated description of the rule.</p>
-   * @public
-   */
-  description?: string | undefined;
-}
-
-/**
- * Create response excludes updatedAt (redundant on create).
- * Get/Update responses include it via their own output structures.
- * @public
- */
-export interface UpdateGatewayRuleResponse {
-  /**
-   * <p>The unique identifier of the gateway rule.</p>
-   * @public
-   */
-  ruleId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway that the rule belongs to.</p>
-   * @public
-   */
-  gatewayArn: string | undefined;
-
-  /**
-   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.</p>
-   * @public
-   */
-  priority: number | undefined;
-
-  /**
-   * <p>The conditions that must be met for the rule to apply.</p>
-   * @public
-   */
-  conditions?: Condition[] | undefined;
-
-  /**
-   * <p>The actions to take when the rule conditions are met.</p>
-   * @public
-   */
-  actions: Action[] | undefined;
-
-  /**
-   * <p>The description of the gateway rule.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp when the rule was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The current status of the rule.</p>
-   * @public
-   */
-  status: GatewayRuleStatus | undefined;
-
-  /**
-   * <p>System-managed metadata for rules created by automated processes.</p>
-   * @public
-   */
-  system?: SystemManagedBlock | undefined;
-
-  /**
-   * <p>The timestamp when the rule was last updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-}
-
-/**
- * <p>A reference to a PEM-encoded private CA certificate stored as an Amazon S3 object.</p>
- * @public
- */
-export interface S3CertificateConfiguration {
-  /**
-   * <p>The URI of the Amazon S3 object that contains the PEM-encoded certificate.</p>
-   * @public
-   */
-  uri: string | undefined;
-
-  /**
-   * <p>The account ID of the Amazon S3 bucket owner. This ID is used for cross-account access to the bucket.</p>
-   * @public
-   */
-  bucketOwnerAccountId?: string | undefined;
-}
-
-/**
- * <p>A reference to a PEM-encoded private CA certificate stored in an Amazon Web Services Secrets Manager secret.</p>
- * @public
- */
-export interface SecretsManagerCertificateConfiguration {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the PEM-encoded certificate.</p>
-   * @public
-   */
-  secretArn: string | undefined;
-}
-
-/**
- * <p>A reference to a private certificate authority (CA) certificate that the gateway uses to verify TLS connections to the target endpoint. Use this when the target presents a certificate issued by a private CA that is not trusted by default. Specify exactly one certificate source. The configuration is a reference only and never contains the certificate content.</p>
- * @public
- */
-export type CertificateConfiguration =
-  | CertificateConfiguration.S3Member
-  | CertificateConfiguration.SecretsManagerMember
-  | CertificateConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CertificateConfiguration {
-  /**
-   * <p>The Amazon S3 location of the PEM-encoded private CA certificate.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: S3CertificateConfiguration;
-    secretsManager?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The Amazon Web Services Secrets Manager location of the PEM-encoded private CA certificate.</p>
-   * @public
-   */
-  export interface SecretsManagerMember {
-    s3?: never;
-    secretsManager: SecretsManagerCertificateConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    secretsManager?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    s3: (value: S3CertificateConfiguration) => T;
-    secretsManager: (value: SecretsManagerCertificateConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
 }
 
 /**

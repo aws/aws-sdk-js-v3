@@ -46,6 +46,26 @@ export type ActivityStreamStatus = (typeof ActivityStreamStatus)[keyof typeof Ac
  * @public
  * @enum
  */
+export const DBCapacityReservationState = {
+  active: "active",
+  assessing: "assessing",
+  cancelled: "cancelled",
+  delayed: "delayed",
+  expired: "expired",
+  failed: "failed",
+  pending: "pending",
+  scheduled: "scheduled",
+  unsupported: "unsupported",
+} as const;
+/**
+ * @public
+ */
+export type DBCapacityReservationState = (typeof DBCapacityReservationState)[keyof typeof DBCapacityReservationState];
+
+/**
+ * @public
+ * @enum
+ */
 export const ExportSourceType = {
   CLUSTER: "CLUSTER",
   SNAPSHOT: "SNAPSHOT",
@@ -527,3 +547,16 @@ export const CustomEngineVersionStatus = {
  * @public
  */
 export type CustomEngineVersionStatus = (typeof CustomEngineVersionStatus)[keyof typeof CustomEngineVersionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EndDateType = {
+  limited: "limited",
+  unlimited: "unlimited",
+} as const;
+/**
+ * @public
+ */
+export type EndDateType = (typeof EndDateType)[keyof typeof EndDateType];

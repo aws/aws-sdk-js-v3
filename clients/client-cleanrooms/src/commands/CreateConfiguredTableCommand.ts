@@ -64,6 +64,17 @@ export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTabl
  *       tableName: "STRING_VALUE", // required
  *       catalogName: "STRING_VALUE",
  *     },
+ *     databricks: { // DatabricksTableReference
+ *       schemaName: "STRING_VALUE", // required
+ *       tableName: "STRING_VALUE", // required
+ *       workspaceUrl: "STRING_VALUE", // required
+ *       connectionType: { // DatabricksConnectionType Union: only one key present
+ *         deltaSharing: { // DatabricksDeltaSharingConnection
+ *           deltaShareEndpoint: "STRING_VALUE", // required
+ *           shareName: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
  *   },
  *   allowedColumns: [ // AllowedColumnList // required
  *     "STRING_VALUE",
@@ -113,7 +124,19 @@ export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTabl
  * //         tableName: "STRING_VALUE", // required
  * //         catalogName: "STRING_VALUE",
  * //       },
+ * //       databricks: { // DatabricksTableReference
+ * //         schemaName: "STRING_VALUE", // required
+ * //         tableName: "STRING_VALUE", // required
+ * //         workspaceUrl: "STRING_VALUE", // required
+ * //         connectionType: { // DatabricksConnectionType Union: only one key present
+ * //           deltaSharing: { // DatabricksDeltaSharingConnection
+ * //             deltaShareEndpoint: "STRING_VALUE", // required
+ * //             shareName: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
  * //     },
+ * //     tableType: "GLUE" || "SNOWFLAKE" || "ATHENA" || "DATABRICKS",
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
  * //     analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required

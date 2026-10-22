@@ -55,6 +55,7 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * //   ResultRows: Number("long"),
  * //   ResultSize: Number("long"),
  * //   RedshiftQueryId: Number("long"),
+ * //   RedshiftQueryUuid: "STRING_VALUE",
  * //   QueryParameters: [ // SqlParametersList
  * //     { // SqlParameter
  * //       name: "STRING_VALUE", // required
@@ -73,6 +74,7 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * //       ResultRows: Number("long"),
  * //       ResultSize: Number("long"),
  * //       RedshiftQueryId: Number("long"),
+ * //       RedshiftQueryUuid: "STRING_VALUE",
  * //       HasResultSet: true || false,
  * //     },
  * //   ],

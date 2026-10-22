@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1156.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1155.0...v3.1156.0) (2026-10-22)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatchomni
+
+
+
+
+
+# [3.1155.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1154.0...v3.1155.0) (2026-10-21)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatchomni
+
+
+
+
+
+# [3.1154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1153.0...v3.1154.0) (2026-10-20)
+
+
+### Features
+
+* **client-cloudwatchomni:** Updating max value for maxResults in SearchPrincipals API ([b0304f5](https://github.com/aws/aws-sdk-js-v3/commit/b0304f534e781e0a43966d89c797df9b4c0583d3))
+
+
+
+
+
 # [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatchomni

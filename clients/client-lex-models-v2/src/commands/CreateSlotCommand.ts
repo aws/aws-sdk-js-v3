@@ -424,8 +424,8 @@ export interface CreateSlotCommandOutput extends CreateSlotResponse, __MetadataB
  *             },
  *           ],
  *           waitAndContinueSpecification: {
- *             waitingResponse: "<ResponseSpecification>", // required
- *             continueResponse: "<ResponseSpecification>", // required
+ *             waitingResponse: "<ResponseSpecification>",
+ *             continueResponse: "<ResponseSpecification>",
  *             stillWaitingResponse: {
  *               messageGroups: "<MessageGroupsList>", // required
  *               frequencyInSeconds: Number("int"), // required
@@ -831,8 +831,8 @@ export interface CreateSlotCommandOutput extends CreateSlotResponse, __MetadataB
  * //             },
  * //           ],
  * //           waitAndContinueSpecification: {
- * //             waitingResponse: "<ResponseSpecification>", // required
- * //             continueResponse: "<ResponseSpecification>", // required
+ * //             waitingResponse: "<ResponseSpecification>",
+ * //             continueResponse: "<ResponseSpecification>",
  * //             stillWaitingResponse: {
  * //               messageGroups: "<MessageGroupsList>", // required
  * //               frequencyInSeconds: Number("int"), // required

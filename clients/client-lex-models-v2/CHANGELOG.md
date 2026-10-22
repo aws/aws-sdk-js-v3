@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1156.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1155.0...v3.1156.0) (2026-10-22)
+
+**Note:** Version bump only for package @aws-sdk/client-lex-models-v2
+
+
+
+
+
+# [3.1155.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1154.0...v3.1155.0) (2026-10-21)
+
+
+### Features
+
+* **client-lex-models-v2:** Adds support for Assisted NLU - Dialog Manager mode allowing usage of LLMs as the default NLU system and dialog management ([671f212](https://github.com/aws/aws-sdk-js-v3/commit/671f2125f9e2b1a6391ed6617d38320526262a45))
+
+
+
+
+
+# [3.1154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1153.0...v3.1154.0) (2026-10-20)
+
+**Note:** Version bump only for package @aws-sdk/client-lex-models-v2
+
+
+
+
+
 # [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
 
 **Note:** Version bump only for package @aws-sdk/client-lex-models-v2

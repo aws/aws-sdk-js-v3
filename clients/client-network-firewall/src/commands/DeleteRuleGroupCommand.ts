@@ -47,7 +47,7 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * //     Description: "STRING_VALUE",
  * //     Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN",
  * //     Capacity: Number("int"),
- * //     RuleGroupStatus: "ACTIVE" || "DELETING" || "ERROR",
+ * //     RuleGroupStatus: "ACTIVE" || "DELETING" || "ERROR" || "UPDATING",
  * //     Tags: [ // TagList
  * //       { // Tag
  * //         Key: "STRING_VALUE", // required

@@ -98,6 +98,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *   NetworkType: "STRING_VALUE",
  *   ManageMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
+ *   DBCapacityReservationIdentifier: "STRING_VALUE",
  *   DedicatedLogVolume: true || false,
  *   CACertificateIdentifier: "STRING_VALUE",
  *   EngineLifecycleSupport: "STRING_VALUE",
@@ -230,6 +231,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * //           StorageType: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       DBCapacityReservationIdentifier: "STRING_VALUE",
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -378,6 +380,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * //     StorageVolumeStatus: "STRING_VALUE",
  * //     StorageOperationStatus: "STRING_VALUE",
  * //     StorageOperationPercentProgress: Number("int"),
+ * //     DBCapacityReservationIdentifier: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -397,6 +400,9 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *
  * @throws {@link CertificateNotFoundFault} (client fault)
  *  <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
+ *
+ * @throws {@link DBCapacityReservationNotFoundFault} (client fault)
+ *  <p> <code>DBCapacityReservationIdentifier</code> doesn't refer to an existing DB capacity reservation.</p>
  *
  * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
  *  <p>The user already has a DB instance with the given identifier.</p>
@@ -418,6 +424,9 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
  *  <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+ *
+ * @throws {@link InvalidDBCapacityReservationStateFault} (client fault)
+ *  <p>The DB capacity reservation isn't in a valid state.</p>
  *
  * @throws {@link InvalidS3BucketFault} (client fault)
  *  <p>The specified Amazon S3 bucket name can't be found or Amazon RDS isn't authorized to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and <b>S3IngestionRoleArn</b> values and try again.</p>

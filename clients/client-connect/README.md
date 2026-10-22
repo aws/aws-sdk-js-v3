@@ -1872,6 +1872,13 @@ ListRealtimeContactAnalysisSegmentsV2
 </details>
 <details>
 <summary>
+ListReplicationFindings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListReplicationFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListReplicationFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListReplicationFindingsCommandOutput/)
+</details>
+<details>
+<summary>
 ListRoutingProfileManualAssignmentQueues
 </summary>
 

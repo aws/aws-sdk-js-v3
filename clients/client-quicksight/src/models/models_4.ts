@@ -106,7 +106,6 @@ import type {
   SnapshotFile,
   SnapshotJobResultFileGroup,
   SnapshotS3DestinationConfiguration,
-  Tag,
   VpcConnectionProperties,
 } from "./models_2";
 import type {
@@ -136,6 +135,71 @@ import type {
   TopicRefreshSchedule,
   TopicV2Details,
 } from "./models_3";
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DeleteUserByPrincipalIdRequest {
+  /**
+   * <p>The principal ID of the user.</p>
+   * @public
+   */
+  PrincipalId: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteUserByPrincipalIdResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteUserCustomPermissionRequest {
+  /**
+   * <p>The username of the user that you want to remove custom permissions from.</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the custom permission configuration that you want to delete.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace that the user belongs to.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
 
 /**
  * @public
@@ -9170,69 +9234,4 @@ export interface ListSpacesResponse {
    * @public
    */
   RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags
-   * 			for.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-   * 			resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTemplateAliasesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template aliases that you're listing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }

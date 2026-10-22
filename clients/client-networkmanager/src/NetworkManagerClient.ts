@@ -249,6 +249,10 @@ import type {
 } from "./commands/GetTransitGatewayRouteTableAttachmentCommand";
 import type { GetVpcAttachmentCommandInput, GetVpcAttachmentCommandOutput } from "./commands/GetVpcAttachmentCommand";
 import type {
+  ListAttachmentNatConfigurationsCommandInput,
+  ListAttachmentNatConfigurationsCommandOutput,
+} from "./commands/ListAttachmentNatConfigurationsCommand";
+import type {
   ListAttachmentRoutingPolicyAssociationsCommandInput,
   ListAttachmentRoutingPolicyAssociationsCommandOutput,
 } from "./commands/ListAttachmentRoutingPolicyAssociationsCommand";
@@ -311,6 +315,10 @@ import type {
 } from "./commands/StartRouteAnalysisCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateAttachmentNatConfigurationCommandInput,
+  UpdateAttachmentNatConfigurationCommandOutput,
+} from "./commands/UpdateAttachmentNatConfigurationCommand";
 import type { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
 import type {
   UpdateCoreNetworkCommandInput,
@@ -415,6 +423,7 @@ export type ServiceInputTypes =
   | GetTransitGatewayRegistrationsCommandInput
   | GetTransitGatewayRouteTableAttachmentCommandInput
   | GetVpcAttachmentCommandInput
+  | ListAttachmentNatConfigurationsCommandInput
   | ListAttachmentRoutingPolicyAssociationsCommandInput
   | ListAttachmentsCommandInput
   | ListConnectPeersCommandInput
@@ -436,6 +445,7 @@ export type ServiceInputTypes =
   | StartRouteAnalysisCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAttachmentNatConfigurationCommandInput
   | UpdateConnectionCommandInput
   | UpdateCoreNetworkCommandInput
   | UpdateDeviceCommandInput
@@ -515,6 +525,7 @@ export type ServiceOutputTypes =
   | GetTransitGatewayRegistrationsCommandOutput
   | GetTransitGatewayRouteTableAttachmentCommandOutput
   | GetVpcAttachmentCommandOutput
+  | ListAttachmentNatConfigurationsCommandOutput
   | ListAttachmentRoutingPolicyAssociationsCommandOutput
   | ListAttachmentsCommandOutput
   | ListConnectPeersCommandOutput
@@ -536,6 +547,7 @@ export type ServiceOutputTypes =
   | StartRouteAnalysisCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAttachmentNatConfigurationCommandOutput
   | UpdateConnectionCommandOutput
   | UpdateCoreNetworkCommandOutput
   | UpdateDeviceCommandOutput
@@ -676,7 +688,8 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 
   /**
    * Specifies which retry algorithm to use.
-   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   * Accepted values are "standard" and "adaptive".
+   * @see https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html
    *
    */
   retryMode?: string | __Provider<string>;

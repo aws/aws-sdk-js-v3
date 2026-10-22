@@ -53,7 +53,7 @@ export interface UpdateMountTargetCommandOutput extends UpdateMountTargetRespons
  * //   securityGroups: [ // SecurityGroups
  * //     "STRING_VALUE",
  * //   ],
- * //   status: "available" || "creating" || "deleting" || "deleted" || "error" || "updating",
+ * //   status: "available" || "creating" || "deleting" || "deleted" || "error" || "updating" || "misconfigured",
  * //   statusMessage: "STRING_VALUE",
  * // };
  *

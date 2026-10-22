@@ -142,6 +142,9 @@ const _PTL = "ParticipantTokenList";
 const _PTS = "ParticipantTokenString";
 const _PV = "PendingVerification";
 const _RC = "RecordingConfiguration";
+const _RCT = "RevokeConnectionToken";
+const _RCTR = "RevokeConnectionTokenRequest";
+const _RCTRe = "RevokeConnectionTokenResponse";
 const _RIC = "RedundantIngestCredential";
 const _RICe = "RedundantIngestCredentials";
 const _RNFE = "ResourceNotFoundException";
@@ -325,6 +328,7 @@ const _sto = "storage";
 const _t = "tags";
 const _tC = "thumbnailConfiguration";
 const _tCh = "thumbnailConfigurations";
+const _tI = "tokenId";
 const _tIS = "targetIntervalSeconds";
 const _tK = "tagKeys";
 const _tSDS = "targetSegmentDurationSeconds";
@@ -881,6 +885,16 @@ export var RedundantIngestCredential$: StaticStructureSchema = [3, n0, _RIC,
   [_pI, _sK],
   [0, [() => StreamKey, 0]]
 ];
+export var RevokeConnectionTokenRequest$: StaticStructureSchema = [3, n0, _RCTR,
+  0,
+  [_tI],
+  [0], 1
+];
+export var RevokeConnectionTokenResponse$: StaticStructureSchema = [3, n0, _RCTRe,
+  0,
+  [],
+  []
+];
 export var S3DestinationConfiguration$: StaticStructureSchema = [3, n0, _SDC,
   0,
   [_sCA, _eCAn, _rC, _tCh],
@@ -1169,6 +1183,9 @@ export var ListStorageConfigurations$: StaticOperationSchema = [9, n0, _LSC,
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_ht]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+];
+export var RevokeConnectionToken$: StaticOperationSchema = [9, n0, _RCT,
+  { [_ht]: ["POST", "/RevokeConnectionToken", 200] }, () => RevokeConnectionTokenRequest$, () => RevokeConnectionTokenResponse$
 ];
 export var StartComposition$: StaticOperationSchema = [9, n0, _SCt,
   { [_ht]: ["POST", "/StartComposition", 200] }, () => StartCompositionRequest$, () => StartCompositionResponse$

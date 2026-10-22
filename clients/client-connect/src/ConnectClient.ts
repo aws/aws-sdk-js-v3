@@ -836,6 +836,10 @@ import type {
   ListRealtimeContactAnalysisSegmentsV2CommandOutput,
 } from "./commands/ListRealtimeContactAnalysisSegmentsV2Command";
 import type {
+  ListReplicationFindingsCommandInput,
+  ListReplicationFindingsCommandOutput,
+} from "./commands/ListReplicationFindingsCommand";
+import type {
   ListRoutingProfileManualAssignmentQueuesCommandInput,
   ListRoutingProfileManualAssignmentQueuesCommandOutput,
 } from "./commands/ListRoutingProfileManualAssignmentQueuesCommand";
@@ -1636,6 +1640,7 @@ export type ServiceInputTypes =
   | ListQueuesCommandInput
   | ListQuickConnectsCommandInput
   | ListRealtimeContactAnalysisSegmentsV2CommandInput
+  | ListReplicationFindingsCommandInput
   | ListRoutingProfileManualAssignmentQueuesCommandInput
   | ListRoutingProfileQueuesCommandInput
   | ListRoutingProfilesCommandInput
@@ -2043,6 +2048,7 @@ export type ServiceOutputTypes =
   | ListQueuesCommandOutput
   | ListQuickConnectsCommandOutput
   | ListRealtimeContactAnalysisSegmentsV2CommandOutput
+  | ListReplicationFindingsCommandOutput
   | ListRoutingProfileManualAssignmentQueuesCommandOutput
   | ListRoutingProfileQueuesCommandOutput
   | ListRoutingProfilesCommandOutput
@@ -2338,7 +2344,8 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 
   /**
    * Specifies which retry algorithm to use.
-   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   * Accepted values are "standard" and "adaptive".
+   * @see https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html
    *
    */
   retryMode?: string | __Provider<string>;

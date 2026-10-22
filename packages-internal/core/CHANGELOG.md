@@ -81,6 +81,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.978.5 (2026-10-21)
+### Chores
+* **codegen:** sync for JSON string serializer buffer fix and retryMode docs link ([#8373](https://github.com/aws/aws-sdk-js-v3/issues/8373)) ([5f53137](https://github.com/aws/aws-sdk-js-v3/commit/5f53137d303161693250579a6a6dd3c501655276))
+
+
+
 # 3.978.4 (2026-10-16)
 ### Chores
 * **core:** consume JSON codec from @smithy/core ([#8335](https://github.com/aws/aws-sdk-js-v3/issues/8335)) ([412d136](https://github.com/aws/aws-sdk-js-v3/commit/412d1362e9d60979d3e11e7396e2598872b55773))

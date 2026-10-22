@@ -114,6 +114,14 @@ export interface CreateServerlessCacheCommandOutput extends CreateServerlessCach
  * //     DailySnapshotTime: "STRING_VALUE",
  * //     NetworkType: "ipv4" || "ipv6" || "dual_stack",
  * //     ConnectionType: "vpc" || "public",
+ * //     Migration: { // MigrationSummary
+ * //       Status: "STRING_VALUE",
+ * //       MigrationEndpoint: {
+ * //         Address: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //       },
+ * //       CutoverMode: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

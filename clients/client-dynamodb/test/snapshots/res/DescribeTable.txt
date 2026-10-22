@@ -554,6 +554,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "LastUpdateDateTime": 946702799.999
     },
     "DeletionProtectionEnabled": false,
+    "DisassociationProtectionEnabled": false,
     "OnDemandThroughput": {
       "MaxReadRequestUnits": 0,
       "MaxWriteRequestUnits": 0
@@ -1203,6 +1204,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       LastUpdateDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
     },
     DeletionProtectionEnabled: (boolean) false,
+    DisassociationProtectionEnabled: (boolean) false,
     OnDemandThroughput: {
       MaxReadRequestUnits: (number) 0,
       MaxWriteRequestUnits: (number) 0

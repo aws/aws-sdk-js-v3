@@ -57,9 +57,17 @@ import {
 import type { AssociateFeedCommandInput, AssociateFeedCommandOutput } from "./commands/AssociateFeedCommand";
 import type { CreateDictionaryCommandInput, CreateDictionaryCommandOutput } from "./commands/CreateDictionaryCommand";
 import type { CreateFeedCommandInput, CreateFeedCommandOutput } from "./commands/CreateFeedCommand";
+import type {
+  CreateScheduleActionCommandInput,
+  CreateScheduleActionCommandOutput,
+} from "./commands/CreateScheduleActionCommand";
 import type { DeleteDictionaryCommandInput, DeleteDictionaryCommandOutput } from "./commands/DeleteDictionaryCommand";
 import type { DeleteFeedCommandInput, DeleteFeedCommandOutput } from "./commands/DeleteFeedCommand";
 import type { DeleteFeedPolicyCommandInput, DeleteFeedPolicyCommandOutput } from "./commands/DeleteFeedPolicyCommand";
+import type {
+  DeleteScheduleActionCommandInput,
+  DeleteScheduleActionCommandOutput,
+} from "./commands/DeleteScheduleActionCommand";
 import type { DisassociateFeedCommandInput, DisassociateFeedCommandOutput } from "./commands/DisassociateFeedCommand";
 import type {
   ExportDictionaryEntriesCommandInput,
@@ -71,6 +79,10 @@ import type { GetFeedPolicyCommandInput, GetFeedPolicyCommandOutput } from "./co
 import type { GetFixtureCommandInput, GetFixtureCommandOutput } from "./commands/GetFixtureCommand";
 import type { ListDictionariesCommandInput, ListDictionariesCommandOutput } from "./commands/ListDictionariesCommand";
 import type { ListFeedsCommandInput, ListFeedsCommandOutput } from "./commands/ListFeedsCommand";
+import type {
+  ListScheduleActionsCommandInput,
+  ListScheduleActionsCommandOutput,
+} from "./commands/ListScheduleActionsCommand";
 import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -99,9 +111,11 @@ export type ServiceInputTypes =
   | AssociateFeedCommandInput
   | CreateDictionaryCommandInput
   | CreateFeedCommandInput
+  | CreateScheduleActionCommandInput
   | DeleteDictionaryCommandInput
   | DeleteFeedCommandInput
   | DeleteFeedPolicyCommandInput
+  | DeleteScheduleActionCommandInput
   | DisassociateFeedCommandInput
   | ExportDictionaryEntriesCommandInput
   | GetDictionaryCommandInput
@@ -110,6 +124,7 @@ export type ServiceInputTypes =
   | GetFixtureCommandInput
   | ListDictionariesCommandInput
   | ListFeedsCommandInput
+  | ListScheduleActionsCommandInput
   | ListTagsForResourceCommandInput
   | PutFeedPolicyCommandInput
   | SearchFixturesCommandInput
@@ -125,9 +140,11 @@ export type ServiceOutputTypes =
   | AssociateFeedCommandOutput
   | CreateDictionaryCommandOutput
   | CreateFeedCommandOutput
+  | CreateScheduleActionCommandOutput
   | DeleteDictionaryCommandOutput
   | DeleteFeedCommandOutput
   | DeleteFeedPolicyCommandOutput
+  | DeleteScheduleActionCommandOutput
   | DisassociateFeedCommandOutput
   | ExportDictionaryEntriesCommandOutput
   | GetDictionaryCommandOutput
@@ -136,6 +153,7 @@ export type ServiceOutputTypes =
   | GetFixtureCommandOutput
   | ListDictionariesCommandOutput
   | ListFeedsCommandOutput
+  | ListScheduleActionsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutFeedPolicyCommandOutput
   | SearchFixturesCommandOutput
@@ -274,7 +292,8 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 
   /**
    * Specifies which retry algorithm to use.
-   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   * Accepted values are "standard" and "adaptive".
+   * @see https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html
    *
    */
   retryMode?: string | __Provider<string>;

@@ -1326,13 +1326,13 @@ export interface OperationUpdate {
   Action: OperationAction | undefined;
 
   /**
-   * <p>The payload for successful operations. The maximum payload size is 6 MB for synchronous <code>EXECUTION</code> operations (RequestResponse invocationType), 1 MB for asynchronous <code>EXECUTION</code> (Event invocationType) and <code>CHAINED_INVOKE</code> operations, and 256 KB for <code>CONTEXT</code>, <code>STEP</code>, <code>WAIT</code>, and <code>CALLBACK</code> operations.</p>
+   * <p>The payload for successful operations. The maximum payload size is 6 MB for synchronous <code>EXECUTION</code> operations (RequestResponse invocationType), and 1 MB for asynchronous <code>EXECUTION</code> (Event invocationType), <code>CHAINED_INVOKE</code>, <code>CONTEXT</code>, <code>STEP</code>, <code>WAIT</code>, and <code>CALLBACK</code> operations.</p>
    * @public
    */
   Payload?: string | undefined;
 
   /**
-   * <p>The error information for failed operations.</p>
+   * <p>The error information for failed operations. The combined size of all error fields is limited to 1 MB.</p>
    * @public
    */
   Error?: ErrorObject | undefined;
@@ -1720,19 +1720,19 @@ export interface GetDurableExecutionResponse {
   FunctionArn: string | undefined;
 
   /**
-   * <p>The JSON input payload that was provided when the durable execution was started. For asynchronous invocations, this is limited to 256 KB. For synchronous invocations, this can be up to 6 MB.</p>
+   * <p>The JSON input payload that you provided when you started the durable execution. Asynchronous invocations support up to 1 MB, and synchronous invocations support up to 6 MB.</p>
    * @public
    */
   InputPayload?: string | undefined;
 
   /**
-   * <p>The JSON result returned by the durable execution if it completed successfully. This field is only present when the execution status is <code>SUCCEEDED</code>. The result is limited to 256 KB.</p>
+   * <p>The JSON result returned by the durable execution if it completed successfully. This field is only present when the execution status is <code>SUCCEEDED</code>. Asynchronous invocations support up to 1 MB, and synchronous invocations support up to 6 MB.</p>
    * @public
    */
   Result?: string | undefined;
 
   /**
-   * <p>Error information if the durable execution failed. This field is only present when the execution status is <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>. The combined size of all error fields is limited to 256 KB.</p>
+   * <p>Error information if the durable execution failed. This field is only present when the execution status is <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>. The combined size of all error fields is limited to 1 MB.</p>
    * @public
    */
   Error?: ErrorObject | undefined;
@@ -2509,7 +2509,7 @@ export interface StopDurableExecutionRequest {
   DurableExecutionArn: string | undefined;
 
   /**
-   * <p>Optional error details explaining why the execution is being stopped.</p>
+   * <p>Optional error details explaining why the execution is being stopped. The combined size of all error fields is limited to 1 MB.</p>
    * @public
    */
   Error?: ErrorObject | undefined;
@@ -7088,7 +7088,7 @@ export interface SendDurableExecutionCallbackFailureRequest {
   CallbackId: string | undefined;
 
   /**
-   * <p>Error details describing why the callback operation failed.</p>
+   * <p>Error details describing why the callback operation failed. The combined size of all error fields is limited to 1 MB.</p>
    * @public
    */
   Error?: ErrorObject | undefined;
@@ -7126,7 +7126,7 @@ export interface SendDurableExecutionCallbackSuccessRequest {
   CallbackId: string | undefined;
 
   /**
-   * <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
+   * <p>The result data from the successful callback operation. Maximum size is 1 MB.</p>
    * @public
    */
   Result?: Uint8Array | undefined;

@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1156.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1155.0...v3.1156.0) (2026-10-22)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds model-based routing and fallback to AgentCore Gateway rules. Rules can match the requested model, route to a specific model, and fall back across inference targets with an optional circuit breaker. Adds multi-dimensional rating scales for AgentCore Evaluations LLM-as-a-Judge evaluators. ([9c2b09c](https://github.com/aws/aws-sdk-js-v3/commit/9c2b09c2b3f5e04a170e40ba893c9eec12f0d14b))
+* **client-bedrock-agentcore:** Adds the dimension name to evaluation results and batch evaluation summaries. For multi-dimensional LLM-as-a-Judge evaluators, each result and summary now identifies which dimension it corresponds to. ([185f264](https://github.com/aws/aws-sdk-js-v3/commit/185f264b93e18dfe5afa978d88f1ae6f199a1717))
+* **client-connect:** Adds support for customer queryable replication errors. ([4507ef0](https://github.com/aws/aws-sdk-js-v3/commit/4507ef013b057317b177240ad3b37a6a45ec73e3))
+* **client-continuum:** Releasing Continuum for Code Vulnerabilities APIs for SDKs ([0cbbd64](https://github.com/aws/aws-sdk-js-v3/commit/0cbbd64c9788adf03c2fab0e02c24d4c903ab3b0))
+* **client-ec2:** AWS Transit Gateway now provides managed one-to-one NAT directly on its attachments, through integration with Regional Private NAT Gateway. Use ModifyTransitGatewayAttachmentNatConfiguration to enable NAT and configure NAT rules, and GetTransitGatewayAttachmentNatConfiguration to view them. ([68bea2c](https://github.com/aws/aws-sdk-js-v3/commit/68bea2cef8d723af4127391ac755fb37827d15c1))
+* **client-elementalinference:** Elemental Inference now supports feed scheduling, letting you apply feed configuration changes at a time you choose instead of building your own automation. ([b410882](https://github.com/aws/aws-sdk-js-v3/commit/b4108829c0d236ee64b6b852d2645df38b45d8c0))
+* **client-glue:** Add support for large worker types in AWS Glue ([89ac407](https://github.com/aws/aws-sdk-js-v3/commit/89ac4073929198d9fbb496d15a11753c081bb2b0))
+* **client-ivs-realtime:** Adds RevokeConnectionToken operation for Amazon IVS Real-Time Streaming. ([7c85a26](https://github.com/aws/aws-sdk-js-v3/commit/7c85a26a16849c3804e0cf382c0e47aa5218d071))
+* **client-kafkaconnect:** Amazon MSK Connect now supports pausing and resuming connectors via the asynchronous PauseConnector and ResumeConnector APIs. Paused connectors keep their configuration and committed offsets and resume where they left off. Each call returns an operation ARN to track with DescribeConnectorOperation. ([f5a4343](https://github.com/aws/aws-sdk-js-v3/commit/f5a4343af536cdfe64f67ba405a5c01c1b7bc0b6))
+* **client-networkmanager:** AWS Cloud WAN now provides managed one-to-one NAT directly on it's core network attachments, through integration with Regional Private NAT Gateway. Use UpdateAttachmentNatConfiguration to enable NAT and configure NAT rules, and ListAttachmentNatConfigurations to view them. ([944335d](https://github.com/aws/aws-sdk-js-v3/commit/944335d4abb673bd2eaa0eacdd2c920483a5beb3))
+* **client-opensearchserverless:** Adds APIs to create, get, list, and cancel ingestion jobs, and to create, get, list, and delete ingestion streams, for ingesting data from Amazon S3 into OpenSearch Serverless collections. ([7712bce](https://github.com/aws/aws-sdk-js-v3/commit/7712bce08df8738d71361f3bb7a7b12087d2fa5d))
+* **clients:** update client endpoints as of 2026-10-22 ([e5cd156](https://github.com/aws/aws-sdk-js-v3/commit/e5cd1562e01b10805983e5e9fc12ca09eb0fba80))
+
+
+
+
+
+# [3.1155.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1154.0...v3.1155.0) (2026-10-21)
+
+
+### Features
+
+* **client-auto-scaling:** EC2 Auto Scaling now supports account settings, letting you manage account-level configuration for Auto Scaling. ([d0cdb39](https://github.com/aws/aws-sdk-js-v3/commit/d0cdb3960ad0f9178bbd3424f64a2f67bc4c981d))
+* **client-connect:** Added support for AWS-managed security profiles. ([04f0c0b](https://github.com/aws/aws-sdk-js-v3/commit/04f0c0b5b605a7e946574df2a8b75609c97ed012))
+* **client-datazone:** Added custom designations support with new CRUD APIs. The designation field in project membership and policy grant APIs supports a new enum for custom designations. These APIs also support a new field for custom designation id. ([1002156](https://github.com/aws/aws-sdk-js-v3/commit/10021565d106f6d0beba65301a848c85de4e7b41))
+* **client-devops-agent:** Adds support for Microsoft Teams as a notification service. Associations can now be created and updated with a Microsoft Teams team and channel configuration using the DevOps Agent API and SDKs. ([c5d8365](https://github.com/aws/aws-sdk-js-v3/commit/c5d8365175b93e38932d1aad1e07bed07a1b3641))
+* **client-ec2:** Adds new response fields to DescribeInstanceStatus and Network Insights analysis results. ([8e37969](https://github.com/aws/aws-sdk-js-v3/commit/8e3796951062c3771c28ae881296628ae483d70b))
+* **client-healthlake:** Update the UpdateProfileWithAgent API to return a streaming response to provide more frequent updates on what the agent is doing. ([c2730b3](https://github.com/aws/aws-sdk-js-v3/commit/c2730b304f9e2413e3a8bf24a88e1d829defaf43))
+* **client-lex-models-v2:** Adds support for Assisted NLU - Dialog Manager mode allowing usage of LLMs as the default NLU system and dialog management ([671f212](https://github.com/aws/aws-sdk-js-v3/commit/671f2125f9e2b1a6391ed6617d38320526262a45))
+* **client-lightsail:** This release adds support for metrics related to system-disk performance. ([d21dd9d](https://github.com/aws/aws-sdk-js-v3/commit/d21dd9d963b0cfb5b7d502fdc71618f99498b451))
+* **client-mediaconvert:** Adds AV1 CBR rate control and scene change detection. New sliding window peak bitrate setting for all codecs. DASH adaptation set grouping update. Option to disable the AV1 perceptual quality filter. Support for vertical (portrait) AV1 encoding. ([7e0a426](https://github.com/aws/aws-sdk-js-v3/commit/7e0a4261ef68fd7ece5dcdcf9c4a674ad4ab27d2))
+* **client-network-firewall:** Adds support for Network Firewall Resolved IP validation. ([6a63436](https://github.com/aws/aws-sdk-js-v3/commit/6a6343601e54cdd8fba0f9e6f5125e819722c0de))
+* **client-polly:** Added support for the new voices - Kenneth (en-US), Nate (en-US), Tina (de-DE), Carlos (es-US), Carolina (pt-BR), Leo (pt-BR), Curtis (en-AU), Kiara (en-IN), Arjun (en-IN) and Hyunduk (ko-KR). They are available as a Generative voices only. ([4494f47](https://github.com/aws/aws-sdk-js-v3/commit/4494f473533076ef6ce315ed468028efe1eb717e))
+* **client-quicksight:** Adds support for SharePoint and OneDrive two-legged OAuth certificate credentials and Google Workspace service account credentials when creating data sources ([d0d47ac](https://github.com/aws/aws-sdk-js-v3/commit/d0d47ac9e51ccff5e8d4a39220648e964c9a7e6b))
+* **client-redshift-data:** Add Redshift QueryUUID field to DescribeStatement response ([6a328ab](https://github.com/aws/aws-sdk-js-v3/commit/6a328ab71b031e567f249eae1995cdc5f1d9d4d4))
+* **client-sfn:** Release minor updates to API model ([6bb8593](https://github.com/aws/aws-sdk-js-v3/commit/6bb8593f440b172dd52eb92f05403edd91d28b4e))
+* **dynamodb:** add batch get item paginators for low level and document client ([#8340](https://github.com/aws/aws-sdk-js-v3/issues/8340)) ([8ec1336](https://github.com/aws/aws-sdk-js-v3/commit/8ec1336271054aa9c9e31233e53145b970e1164d))
+* **lib-dynamodb:** expose transact write item types ([#8334](https://github.com/aws/aws-sdk-js-v3/issues/8334)) ([2fdb917](https://github.com/aws/aws-sdk-js-v3/commit/2fdb917af4e8720bac65ef39c98ae350908d4744))
+* **lib-transfer-manager:** add featureId tracking for TM ([#8367](https://github.com/aws/aws-sdk-js-v3/issues/8367)) ([edb912d](https://github.com/aws/aws-sdk-js-v3/commit/edb912d5b2f6ca25f82d6c7756a90bde04be5564))
+
+
+
+
+
+# [3.1154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1153.0...v3.1154.0) (2026-10-20)
+
+
+### Features
+
+* **client-bedrock:** Amazon Bedrock Guardrails now supports a configurable tier for the contextual grounding policy via a new tier option. Select the Standard tier for grounding that better supports conversations and reasoning, with expanded language coverage. ([7b18033](https://github.com/aws/aws-sdk-js-v3/commit/7b180331b5f82144fbfe828d4bf59bdaa88c5997))
+* **client-cleanrooms:** This release allows customers and their partners to easily collaborate with data stored in Databricks, without having to move or share their underlying data among collaborators. ([0d7bcd9](https://github.com/aws/aws-sdk-js-v3/commit/0d7bcd99e437852b03f46307e84166866ae47e96))
+* **client-cloudwatch:** Amazon CloudWatch now supports two new anomaly detector settings. AdaptationSpeed (FAST, NORMAL, SLOW) controls how fast the model adapts to baseline changes, and OutlierFilteringStrength (MINIMAL, MODERATE, STRICT) controls how aggressively outliers are filtered. ([4ab3926](https://github.com/aws/aws-sdk-js-v3/commit/4ab3926140917afbd90a52fd3fb5b78d78e8fa27))
+* **client-cloudwatchomni:** Updating max value for maxResults in SearchPrincipals API ([b0304f5](https://github.com/aws/aws-sdk-js-v3/commit/b0304f534e781e0a43966d89c797df9b4c0583d3))
+* **client-dynamodb:** Adds support for disassociating a replica from an Amazon DynamoDB multi-Region eventual consistency global table, so you can keep it as a single-Region table with its existing data. Also adds disassociation protection, on by default, to help prevent accidental disassociation. ([47fab49](https://github.com/aws/aws-sdk-js-v3/commit/47fab49d153a3dab10e2b075ec437a421bc4f2a1))
+* **client-ecs:** ECS Service Gateway makes it easier for developers to deploy ECS services without having to worry about complex ingress networking constructs. ([db0d143](https://github.com/aws/aws-sdk-js-v3/commit/db0d1430a64c6455d0254f34837507f82d339dd6))
+* **client-elasticache:** LiveMigration enables customers to migrate from self-hosted EC2 Redis and Valkey clusters to ElastiCache Serverless with near-zero downtime. Customers control the migration through three API-driven phases (prepare, start, complete) that handle traffic proxying, data replication, and cutover. ([eefeb2a](https://github.com/aws/aws-sdk-js-v3/commit/eefeb2a2599096fcddba9a9c85326da4fc23d2bc))
+* **client-marketplace-catalog:** Adds ListEntities filter, sort, and summary support for the ExpressPrivateOfferConfiguration entity type, including filtering by ProductId. ([eca81e1](https://github.com/aws/aws-sdk-js-v3/commit/eca81e1f7ba32c0584ee7a84a4612b770a92f684))
+* **client-rds:** Amazon RDS now supports On-Demand Capacity Reservations for DB instances. ([4a9c582](https://github.com/aws/aws-sdk-js-v3/commit/4a9c582bcbcf3c15de71e0557a07e01a91bcbf06))
+* **client-s3files:** S3 Files adds support for the "Misconfigured" file system status. ([398f9d1](https://github.com/aws/aws-sdk-js-v3/commit/398f9d108747e8b9725b7d3ed9394d7c5a115334))
+* **client-workspaces-instances:** Documentation update release for AWS service ([9dc1264](https://github.com/aws/aws-sdk-js-v3/commit/9dc126403f7599980799add0eefcfbe599bdc883))
+
+
+
+
+
 # [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
 
 

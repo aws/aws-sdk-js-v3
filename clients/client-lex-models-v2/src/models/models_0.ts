@@ -4860,7 +4860,7 @@ export interface NluImprovementSpecification {
   enabled: boolean | undefined;
 
   /**
-   * <p>Specifies the mode for Assisted NLU operation. Use <code>Primary</code> to make Assisted NLU the primary intent recognition method, or <code>Fallback</code> to use it only when standard NLU confidence is low.</p>
+   * <p>Specifies the mode for Assisted NLU operation. Use <code>Primary</code> to make Assisted NLU the primary intent recognition method, <code>Fallback</code> to use it only when standard NLU confidence is low, or <code>DialogManager</code> to use a large language model to manage the conversation, including intent recognition, slot elicitation, and confirmation.</p>
    * @public
    */
   assistedNluMode?: AssistedNluMode | undefined;
@@ -6117,17 +6117,19 @@ export interface StillWaitingResponseSpecification {
 export interface WaitAndContinueSpecification {
   /**
    * <p>The response that Amazon Lex sends to indicate that the bot is waiting
-   *          for the conversation to continue.</p>
+   *          for the conversation to continue. Required unless the bot locale's
+   *          <code>assistedNluMode</code> is <code>DialogManager</code>.</p>
    * @public
    */
-  waitingResponse: ResponseSpecification | undefined;
+  waitingResponse?: ResponseSpecification | undefined;
 
   /**
    * <p>The response that Amazon Lex sends to indicate that the bot is ready to
-   *          continue the conversation.</p>
+   *          continue the conversation. Required unless the bot locale's
+   *          <code>assistedNluMode</code> is <code>DialogManager</code>.</p>
    * @public
    */
-  continueResponse: ResponseSpecification | undefined;
+  continueResponse?: ResponseSpecification | undefined;
 
   /**
    * <p>A response that Amazon Lex sends periodically to the user to indicate
@@ -6231,7 +6233,7 @@ export interface SubSlotSetting {
  */
 export interface SlotResolutionSetting {
   /**
-   * <p>Specifies whether assisted slot resolution is turned on for the slot or not. If the value is <code>EnhancedFallback</code>, assisted slot resolution is activated when Amazon Lex defaults to the <code>AMAZON.FallbackIntent</code>. If the value is <code>Default</code>, assisted slot resolution is turned off.</p>
+   * <p>Specifies whether assisted slot resolution is turned on for the slot or not. If the value is <code>EnhancedFallback</code>, assisted slot resolution is activated when Amazon Lex V2 defaults to the <code>AMAZON.FallbackIntent</code>. If the value is <code>Default</code>, assisted slot resolution is turned off.</p>
    * @public
    */
   slotResolutionStrategy: SlotResolutionStrategy | undefined;

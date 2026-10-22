@@ -123,6 +123,7 @@ export const ProjectDesignation = {
   CONTRIBUTOR: "CONTRIBUTOR",
   OWNER: "OWNER",
   PROJECT_CATALOG_STEWARD: "PROJECT_CATALOG_STEWARD",
+  USER_CREATED_DESIGNATION: "USER_CREATED_DESIGNATION",
 } as const;
 /**
  * @public
@@ -661,6 +662,25 @@ export type DataSourceStatus = (typeof DataSourceStatus)[keyof typeof DataSource
  * @public
  * @enum
  */
+export const DesignationType = {
+  /**
+   * System-defined designation that cannot be modified or deleted.
+   */
+  MANAGED: "MANAGED",
+  /**
+   * Created by a user via the CreateDesignation API.
+   */
+  USER_CREATED: "USER_CREATED",
+} as const;
+/**
+ * @public
+ */
+export type DesignationType = (typeof DesignationType)[keyof typeof DesignationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const DomainVersion = {
   V1: "V1",
   V2: "V2",
@@ -901,6 +921,7 @@ export const UserDesignation = {
   PROJECT_CATALOG_VIEWER: "PROJECT_CATALOG_VIEWER",
   PROJECT_CONTRIBUTOR: "PROJECT_CONTRIBUTOR",
   PROJECT_OWNER: "PROJECT_OWNER",
+  USER_CREATED_DESIGNATION: "USER_CREATED_DESIGNATION",
 } as const;
 /**
  * @public

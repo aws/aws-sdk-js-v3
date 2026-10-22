@@ -47,6 +47,7 @@ import {
   AnswerMachineDetectionConfig$,
   Application$,
   ApplicationType,
+  ApproximateDriftedResourceCount$,
   ArtifactStatus,
   AssignContactCategoryActionDefinition$,
   AssignSlaActionDefinition$,
@@ -1364,6 +1365,10 @@ import {
   ListRealtimeContactAnalysisSegmentsV2Command,
   ListRealtimeContactAnalysisSegmentsV2Request$,
   ListRealtimeContactAnalysisSegmentsV2Response$,
+  ListReplicationFindings$,
+  ListReplicationFindingsCommand,
+  ListReplicationFindingsRequest$,
+  ListReplicationFindingsResponse$,
   ListRoutingProfileManualAssignmentQueues$,
   ListRoutingProfileManualAssignmentQueuesCommand,
   ListRoutingProfileManualAssignmentQueuesRequest$,
@@ -1602,6 +1607,7 @@ import {
   paginateListQueues,
   paginateListQuickConnects,
   paginateListRealtimeContactAnalysisSegmentsV2,
+  paginateListReplicationFindings,
   paginateListRoutingProfileManualAssignmentQueues,
   paginateListRoutingProfileQueues,
   paginateListRoutingProfiles,
@@ -1782,6 +1788,7 @@ import {
   ReplicateInstanceRequest$,
   ReplicateInstanceResponse$,
   ReplicationConfiguration$,
+  ReplicationFinding$,
   ReplicationStatusSummary$,
   RequiredFieldInfo$,
   ResourceConflictException,
@@ -1792,6 +1799,7 @@ import {
   ResourceNotFoundException$,
   ResourceNotReadyException,
   ResourceNotReadyException$,
+  ResourceReplicationStatus$,
   ResourceTagsSearchCriteria$,
   ResourceType,
   ResponseMode,
@@ -1968,6 +1976,7 @@ import {
   SecurityProfileSearchSummary$,
   SecurityProfilesSearchFilter$,
   SecurityProfileSummary$,
+  SecurityProfileType,
   SegmentAttributeValue$,
   SendChatIntegrationEvent$,
   SendChatIntegrationEventCommand,
@@ -2967,6 +2976,8 @@ assert(typeof ListQuickConnectsCommand === "function");
 assert(typeof ListQuickConnects$ === "object");
 assert(typeof ListRealtimeContactAnalysisSegmentsV2Command === "function");
 assert(typeof ListRealtimeContactAnalysisSegmentsV2$ === "object");
+assert(typeof ListReplicationFindingsCommand === "function");
+assert(typeof ListReplicationFindings$ === "object");
 assert(typeof ListRoutingProfileManualAssignmentQueuesCommand === "function");
 assert(typeof ListRoutingProfileManualAssignmentQueues$ === "object");
 assert(typeof ListRoutingProfileQueuesCommand === "function");
@@ -3329,6 +3340,7 @@ assert(typeof AnalyticsDataAssociationResult$ === "object");
 assert(typeof AnalyticsDataSetsResult$ === "object");
 assert(typeof AnswerMachineDetectionConfig$ === "object");
 assert(typeof Application$ === "object");
+assert(typeof ApproximateDriftedResourceCount$ === "object");
 assert(typeof AssignContactCategoryActionDefinition$ === "object");
 assert(typeof AssignSlaActionDefinition$ === "object");
 assert(typeof AssociateAnalyticsDataSetRequest$ === "object");
@@ -4045,6 +4057,8 @@ assert(typeof ListQuickConnectsRequest$ === "object");
 assert(typeof ListQuickConnectsResponse$ === "object");
 assert(typeof ListRealtimeContactAnalysisSegmentsV2Request$ === "object");
 assert(typeof ListRealtimeContactAnalysisSegmentsV2Response$ === "object");
+assert(typeof ListReplicationFindingsRequest$ === "object");
+assert(typeof ListReplicationFindingsResponse$ === "object");
 assert(typeof ListRoutingProfileManualAssignmentQueuesRequest$ === "object");
 assert(typeof ListRoutingProfileManualAssignmentQueuesResponse$ === "object");
 assert(typeof ListRoutingProfileQueuesRequest$ === "object");
@@ -4237,8 +4251,10 @@ assert(typeof ReleasePhoneNumberRequest$ === "object");
 assert(typeof ReplicateInstanceRequest$ === "object");
 assert(typeof ReplicateInstanceResponse$ === "object");
 assert(typeof ReplicationConfiguration$ === "object");
+assert(typeof ReplicationFinding$ === "object");
 assert(typeof ReplicationStatusSummary$ === "object");
 assert(typeof RequiredFieldInfo$ === "object");
+assert(typeof ResourceReplicationStatus$ === "object");
 assert(typeof ResourceTagsSearchCriteria$ === "object");
 assert(typeof ResumeContactRecordingRequest$ === "object");
 assert(typeof ResumeContactRecordingResponse$ === "object");
@@ -4793,6 +4809,7 @@ assert(typeof SearchableQueueType === "object");
 assert(typeof SearchContactsMatchType === "object");
 assert(typeof SearchContactsTimeRangeConditionType === "object");
 assert(typeof SearchContactsTimeRangeType === "object");
+assert(typeof SecurityProfileType === "object");
 assert(typeof SingleSelectQuestionRuleCategoryAutomationCondition === "object");
 assert(typeof SlaAssignmentType === "object");
 assert(typeof SlaType === "object");
@@ -4933,6 +4950,7 @@ assert(typeof paginateListQueueQuickConnects === "function");
 assert(typeof paginateListQueues === "function");
 assert(typeof paginateListQuickConnects === "function");
 assert(typeof paginateListRealtimeContactAnalysisSegmentsV2 === "function");
+assert(typeof paginateListReplicationFindings === "function");
 assert(typeof paginateListRoutingProfileManualAssignmentQueues === "function");
 assert(typeof paginateListRoutingProfileQueues === "function");
 assert(typeof paginateListRoutingProfiles === "function");

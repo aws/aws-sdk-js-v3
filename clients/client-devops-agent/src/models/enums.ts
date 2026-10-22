@@ -795,6 +795,7 @@ export const Service = {
    * <p>Splunk MCP server.</p>
    */
   MCP_SERVER_SPLUNK: "mcpserversplunk",
+  MS_TEAMS: "msteams",
   PAGERDUTY: "pagerduty",
   /**
    * <p>Remote A2A agent with token-based authentication (API key or OAuth).</p>

@@ -1369,6 +1369,39 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __ResourceType__
                     </resourceType>
                 </transitGatewayRouteTableRoute>
+                <transitGatewayPolicyTableEntry>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <protocol>
+                        __Protocol__
+                    </protocol>
+                    <sourceCidr>
+                        __SourceCidr__
+                    </sourceCidr>
+                    <destinationCidr>
+                        __DestinationCidr__
+                    </destinationCidr>
+                    <sourcePortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </sourcePortRange>
+                    <destinationPortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </destinationPortRange>
+                    <targetRouteTableId>
+                        __TargetRouteTableId__
+                    </targetRouteTableId>
+                </transitGatewayPolicyTableEntry>
                 <explanationSet>
                     <item>
                         <acl>
@@ -1977,6 +2010,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -2786,6 +2863,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -3595,6 +3716,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -5279,6 +5444,39 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __ResourceType__
                     </resourceType>
                 </transitGatewayRouteTableRoute>
+                <transitGatewayPolicyTableEntry>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <protocol>
+                        __Protocol__
+                    </protocol>
+                    <sourceCidr>
+                        __SourceCidr__
+                    </sourceCidr>
+                    <destinationCidr>
+                        __DestinationCidr__
+                    </destinationCidr>
+                    <sourcePortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </sourcePortRange>
+                    <destinationPortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </destinationPortRange>
+                    <targetRouteTableId>
+                        __TargetRouteTableId__
+                    </targetRouteTableId>
+                </transitGatewayPolicyTableEntry>
                 <explanationSet>
                     <item>
                         <acl>
@@ -5887,6 +6085,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -6696,6 +6938,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -7505,6 +7791,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -9189,6 +9519,39 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __ResourceType__
                     </resourceType>
                 </transitGatewayRouteTableRoute>
+                <transitGatewayPolicyTableEntry>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <protocol>
+                        __Protocol__
+                    </protocol>
+                    <sourceCidr>
+                        __SourceCidr__
+                    </sourceCidr>
+                    <destinationCidr>
+                        __DestinationCidr__
+                    </destinationCidr>
+                    <sourcePortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </sourcePortRange>
+                    <destinationPortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </destinationPortRange>
+                    <targetRouteTableId>
+                        __TargetRouteTableId__
+                    </targetRouteTableId>
+                </transitGatewayPolicyTableEntry>
                 <explanationSet>
                     <item>
                         <acl>
@@ -9797,6 +10160,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -10606,6 +11013,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -11415,6 +11866,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -13101,6 +13596,39 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __ResourceType__
                     </resourceType>
                 </transitGatewayRouteTableRoute>
+                <transitGatewayPolicyTableEntry>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <protocol>
+                        __Protocol__
+                    </protocol>
+                    <sourceCidr>
+                        __SourceCidr__
+                    </sourceCidr>
+                    <destinationCidr>
+                        __DestinationCidr__
+                    </destinationCidr>
+                    <sourcePortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </sourcePortRange>
+                    <destinationPortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </destinationPortRange>
+                    <targetRouteTableId>
+                        __TargetRouteTableId__
+                    </targetRouteTableId>
+                </transitGatewayPolicyTableEntry>
                 <explanationSet>
                     <item>
                         <acl>
@@ -13709,6 +14237,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -14518,6 +15090,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -15327,6 +15943,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -17011,6 +17671,39 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __ResourceType__
                     </resourceType>
                 </transitGatewayRouteTableRoute>
+                <transitGatewayPolicyTableEntry>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <protocol>
+                        __Protocol__
+                    </protocol>
+                    <sourceCidr>
+                        __SourceCidr__
+                    </sourceCidr>
+                    <destinationCidr>
+                        __DestinationCidr__
+                    </destinationCidr>
+                    <sourcePortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </sourcePortRange>
+                    <destinationPortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </destinationPortRange>
+                    <targetRouteTableId>
+                        __TargetRouteTableId__
+                    </targetRouteTableId>
+                </transitGatewayPolicyTableEntry>
                 <explanationSet>
                     <item>
                         <acl>
@@ -17619,6 +18312,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -18428,6 +19165,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -19237,6 +20018,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -20921,6 +21746,39 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __ResourceType__
                     </resourceType>
                 </transitGatewayRouteTableRoute>
+                <transitGatewayPolicyTableEntry>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <protocol>
+                        __Protocol__
+                    </protocol>
+                    <sourceCidr>
+                        __SourceCidr__
+                    </sourceCidr>
+                    <destinationCidr>
+                        __DestinationCidr__
+                    </destinationCidr>
+                    <sourcePortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </sourcePortRange>
+                    <destinationPortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </destinationPortRange>
+                    <targetRouteTableId>
+                        __TargetRouteTableId__
+                    </targetRouteTableId>
+                </transitGatewayPolicyTableEntry>
                 <explanationSet>
                     <item>
                         <acl>
@@ -21529,6 +22387,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -22338,6 +23240,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -23147,6 +24093,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                                 __ResourceType__
                             </resourceType>
                         </transitGatewayRouteTableRoute>
+                        <transitGatewayPolicyTable>
+                            <id>
+                                __Id__
+                            </id>
+                            <arn>
+                                __Arn__
+                            </arn>
+                            <name>
+                                __Name__
+                            </name>
+                        </transitGatewayPolicyTable>
+                        <transitGatewayPolicyTableEntry>
+                            <ruleNumber>
+                                0
+                            </ruleNumber>
+                            <protocol>
+                                __Protocol__
+                            </protocol>
+                            <sourceCidr>
+                                __SourceCidr__
+                            </sourceCidr>
+                            <destinationCidr>
+                                __DestinationCidr__
+                            </destinationCidr>
+                            <sourcePortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </sourcePortRange>
+                            <destinationPortRange>
+                                <from>
+                                    0
+                                </from>
+                                <to>
+                                    0
+                                </to>
+                            </destinationPortRange>
+                            <targetRouteTableId>
+                                __TargetRouteTableId__
+                            </targetRouteTableId>
+                        </transitGatewayPolicyTableEntry>
                         <transitGatewayAttachment>
                             <id>
                                 __Id__
@@ -24158,6 +25148,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __ResourceType__
                     </resourceType>
                 </transitGatewayRouteTableRoute>
+                <transitGatewayPolicyTable>
+                    <id>
+                        __Id__
+                    </id>
+                    <arn>
+                        __Arn__
+                    </arn>
+                    <name>
+                        __Name__
+                    </name>
+                </transitGatewayPolicyTable>
+                <transitGatewayPolicyTableEntry>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <protocol>
+                        __Protocol__
+                    </protocol>
+                    <sourceCidr>
+                        __SourceCidr__
+                    </sourceCidr>
+                    <destinationCidr>
+                        __DestinationCidr__
+                    </destinationCidr>
+                    <sourcePortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </sourcePortRange>
+                    <destinationPortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </destinationPortRange>
+                    <targetRouteTableId>
+                        __TargetRouteTableId__
+                    </targetRouteTableId>
+                </transitGatewayPolicyTableEntry>
                 <transitGatewayAttachment>
                     <id>
                         __Id__
@@ -24967,6 +26001,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __ResourceType__
                     </resourceType>
                 </transitGatewayRouteTableRoute>
+                <transitGatewayPolicyTable>
+                    <id>
+                        __Id__
+                    </id>
+                    <arn>
+                        __Arn__
+                    </arn>
+                    <name>
+                        __Name__
+                    </name>
+                </transitGatewayPolicyTable>
+                <transitGatewayPolicyTableEntry>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <protocol>
+                        __Protocol__
+                    </protocol>
+                    <sourceCidr>
+                        __SourceCidr__
+                    </sourceCidr>
+                    <destinationCidr>
+                        __DestinationCidr__
+                    </destinationCidr>
+                    <sourcePortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </sourcePortRange>
+                    <destinationPortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </destinationPortRange>
+                    <targetRouteTableId>
+                        __TargetRouteTableId__
+                    </targetRouteTableId>
+                </transitGatewayPolicyTableEntry>
                 <transitGatewayAttachment>
                     <id>
                         __Id__
@@ -25776,6 +26854,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __ResourceType__
                     </resourceType>
                 </transitGatewayRouteTableRoute>
+                <transitGatewayPolicyTable>
+                    <id>
+                        __Id__
+                    </id>
+                    <arn>
+                        __Arn__
+                    </arn>
+                    <name>
+                        __Name__
+                    </name>
+                </transitGatewayPolicyTable>
+                <transitGatewayPolicyTableEntry>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <protocol>
+                        __Protocol__
+                    </protocol>
+                    <sourceCidr>
+                        __SourceCidr__
+                    </sourceCidr>
+                    <destinationCidr>
+                        __DestinationCidr__
+                    </destinationCidr>
+                    <sourcePortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </sourcePortRange>
+                    <destinationPortRange>
+                        <from>
+                            0
+                        </from>
+                        <to>
+                            0
+                        </to>
+                    </destinationPortRange>
+                    <targetRouteTableId>
+                        __TargetRouteTableId__
+                    </targetRouteTableId>
+                </transitGatewayPolicyTableEntry>
                 <transitGatewayAttachment>
                     <id>
                         __Id__
@@ -26721,6 +27843,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ResourceId: "__ResourceId__",
           ResourceType: "__ResourceType__"
         },
+        TransitGatewayPolicyTableEntry: {
+          RuleNumber: (number) 0,
+          Protocol: "__Protocol__",
+          SourceCidr: "__SourceCidr__",
+          DestinationCidr: "__DestinationCidr__",
+          SourcePortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          DestinationPortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          TargetRouteTableId: "__TargetRouteTableId__"
+        },
         Explanations: [
           {
             Acl: {
@@ -26993,6 +28130,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
             },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
+            },
             TransitGatewayAttachment: {
               Id: "__Id__",
               Arn: "__Arn__",
@@ -27364,6 +28521,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
             },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
+            },
             TransitGatewayAttachment: {
               Id: "__Id__",
               Arn: "__Arn__",
@@ -27734,6 +28911,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               AttachmentId: "__AttachmentId__",
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
+            },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
             },
             TransitGatewayAttachment: {
               Id: "__Id__",
@@ -28583,6 +29780,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ResourceId: "__ResourceId__",
           ResourceType: "__ResourceType__"
         },
+        TransitGatewayPolicyTableEntry: {
+          RuleNumber: (number) 0,
+          Protocol: "__Protocol__",
+          SourceCidr: "__SourceCidr__",
+          DestinationCidr: "__DestinationCidr__",
+          SourcePortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          DestinationPortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          TargetRouteTableId: "__TargetRouteTableId__"
+        },
         Explanations: [
           {
             Acl: {
@@ -28855,6 +30067,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
             },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
+            },
             TransitGatewayAttachment: {
               Id: "__Id__",
               Arn: "__Arn__",
@@ -29226,6 +30458,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
             },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
+            },
             TransitGatewayAttachment: {
               Id: "__Id__",
               Arn: "__Arn__",
@@ -29596,6 +30848,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               AttachmentId: "__AttachmentId__",
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
+            },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
             },
             TransitGatewayAttachment: {
               Id: "__Id__",
@@ -30445,6 +31717,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ResourceId: "__ResourceId__",
           ResourceType: "__ResourceType__"
         },
+        TransitGatewayPolicyTableEntry: {
+          RuleNumber: (number) 0,
+          Protocol: "__Protocol__",
+          SourceCidr: "__SourceCidr__",
+          DestinationCidr: "__DestinationCidr__",
+          SourcePortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          DestinationPortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          TargetRouteTableId: "__TargetRouteTableId__"
+        },
         Explanations: [
           {
             Acl: {
@@ -30717,6 +32004,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
             },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
+            },
             TransitGatewayAttachment: {
               Id: "__Id__",
               Arn: "__Arn__",
@@ -31088,6 +32395,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
             },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
+            },
             TransitGatewayAttachment: {
               Id: "__Id__",
               Arn: "__Arn__",
@@ -31458,6 +32785,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               AttachmentId: "__AttachmentId__",
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
+            },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
             },
             TransitGatewayAttachment: {
               Id: "__Id__",
@@ -32309,6 +33656,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ResourceId: "__ResourceId__",
           ResourceType: "__ResourceType__"
         },
+        TransitGatewayPolicyTableEntry: {
+          RuleNumber: (number) 0,
+          Protocol: "__Protocol__",
+          SourceCidr: "__SourceCidr__",
+          DestinationCidr: "__DestinationCidr__",
+          SourcePortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          DestinationPortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          TargetRouteTableId: "__TargetRouteTableId__"
+        },
         Explanations: [
           {
             Acl: {
@@ -32581,6 +33943,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
             },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
+            },
             TransitGatewayAttachment: {
               Id: "__Id__",
               Arn: "__Arn__",
@@ -32952,6 +34334,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
             },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
+            },
             TransitGatewayAttachment: {
               Id: "__Id__",
               Arn: "__Arn__",
@@ -33322,6 +34724,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               AttachmentId: "__AttachmentId__",
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
+            },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
             },
             TransitGatewayAttachment: {
               Id: "__Id__",
@@ -34171,6 +35593,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ResourceId: "__ResourceId__",
           ResourceType: "__ResourceType__"
         },
+        TransitGatewayPolicyTableEntry: {
+          RuleNumber: (number) 0,
+          Protocol: "__Protocol__",
+          SourceCidr: "__SourceCidr__",
+          DestinationCidr: "__DestinationCidr__",
+          SourcePortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          DestinationPortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          TargetRouteTableId: "__TargetRouteTableId__"
+        },
         Explanations: [
           {
             Acl: {
@@ -34443,6 +35880,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
             },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
+            },
             TransitGatewayAttachment: {
               Id: "__Id__",
               Arn: "__Arn__",
@@ -34814,6 +36271,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
             },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
+            },
             TransitGatewayAttachment: {
               Id: "__Id__",
               Arn: "__Arn__",
@@ -35184,6 +36661,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               AttachmentId: "__AttachmentId__",
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
+            },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
             },
             TransitGatewayAttachment: {
               Id: "__Id__",
@@ -36033,6 +37530,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ResourceId: "__ResourceId__",
           ResourceType: "__ResourceType__"
         },
+        TransitGatewayPolicyTableEntry: {
+          RuleNumber: (number) 0,
+          Protocol: "__Protocol__",
+          SourceCidr: "__SourceCidr__",
+          DestinationCidr: "__DestinationCidr__",
+          SourcePortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          DestinationPortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          TargetRouteTableId: "__TargetRouteTableId__"
+        },
         Explanations: [
           {
             Acl: {
@@ -36305,6 +37817,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
             },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
+            },
             TransitGatewayAttachment: {
               Id: "__Id__",
               Arn: "__Arn__",
@@ -36676,6 +38208,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
             },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
+            },
             TransitGatewayAttachment: {
               Id: "__Id__",
               Arn: "__Arn__",
@@ -37046,6 +38598,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               AttachmentId: "__AttachmentId__",
               ResourceId: "__ResourceId__",
               ResourceType: "__ResourceType__"
+            },
+            TransitGatewayPolicyTable: {
+              Id: "__Id__",
+              Arn: "__Arn__",
+              Name: "__Name__"
+            },
+            TransitGatewayPolicyTableEntry: {
+              RuleNumber: (number) 0,
+              Protocol: "__Protocol__",
+              SourceCidr: "__SourceCidr__",
+              DestinationCidr: "__DestinationCidr__",
+              SourcePortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              DestinationPortRange: {
+                From: (number) 0,
+                To: (number) 0
+              },
+              TargetRouteTableId: "__TargetRouteTableId__"
             },
             TransitGatewayAttachment: {
               Id: "__Id__",
@@ -37520,6 +39092,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ResourceId: "__ResourceId__",
           ResourceType: "__ResourceType__"
         },
+        TransitGatewayPolicyTable: {
+          Id: "__Id__",
+          Arn: "__Arn__",
+          Name: "__Name__"
+        },
+        TransitGatewayPolicyTableEntry: {
+          RuleNumber: (number) 0,
+          Protocol: "__Protocol__",
+          SourceCidr: "__SourceCidr__",
+          DestinationCidr: "__DestinationCidr__",
+          SourcePortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          DestinationPortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          TargetRouteTableId: "__TargetRouteTableId__"
+        },
         TransitGatewayAttachment: {
           Id: "__Id__",
           Arn: "__Arn__",
@@ -37891,6 +39483,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ResourceId: "__ResourceId__",
           ResourceType: "__ResourceType__"
         },
+        TransitGatewayPolicyTable: {
+          Id: "__Id__",
+          Arn: "__Arn__",
+          Name: "__Name__"
+        },
+        TransitGatewayPolicyTableEntry: {
+          RuleNumber: (number) 0,
+          Protocol: "__Protocol__",
+          SourceCidr: "__SourceCidr__",
+          DestinationCidr: "__DestinationCidr__",
+          SourcePortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          DestinationPortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          TargetRouteTableId: "__TargetRouteTableId__"
+        },
         TransitGatewayAttachment: {
           Id: "__Id__",
           Arn: "__Arn__",
@@ -38261,6 +39873,26 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           AttachmentId: "__AttachmentId__",
           ResourceId: "__ResourceId__",
           ResourceType: "__ResourceType__"
+        },
+        TransitGatewayPolicyTable: {
+          Id: "__Id__",
+          Arn: "__Arn__",
+          Name: "__Name__"
+        },
+        TransitGatewayPolicyTableEntry: {
+          RuleNumber: (number) 0,
+          Protocol: "__Protocol__",
+          SourceCidr: "__SourceCidr__",
+          DestinationCidr: "__DestinationCidr__",
+          SourcePortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          DestinationPortRange: {
+            From: (number) 0,
+            To: (number) 0
+          },
+          TargetRouteTableId: "__TargetRouteTableId__"
         },
         TransitGatewayAttachment: {
           Id: "__Id__",

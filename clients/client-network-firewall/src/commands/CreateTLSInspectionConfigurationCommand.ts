@@ -109,7 +109,7 @@ export interface CreateTLSInspectionConfigurationCommandOutput extends CreateTLS
  * //     TLSInspectionConfigurationArn: "STRING_VALUE", // required
  * //     TLSInspectionConfigurationName: "STRING_VALUE", // required
  * //     TLSInspectionConfigurationId: "STRING_VALUE", // required
- * //     TLSInspectionConfigurationStatus: "ACTIVE" || "DELETING" || "ERROR",
+ * //     TLSInspectionConfigurationStatus: "ACTIVE" || "DELETING" || "ERROR" || "UPDATING",
  * //     Description: "STRING_VALUE",
  * //     Tags: [ // TagList
  * //       { // Tag

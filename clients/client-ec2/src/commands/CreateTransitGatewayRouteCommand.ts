@@ -53,7 +53,7 @@ export interface CreateTransitGatewayRouteCommandOutput extends CreateTransitGat
  * //         ResourceType: "vpc" || "vpn" || "vpn-concentrator" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function" || "client-vpn",
  * //       },
  * //     ],
- * //     Type: "static" || "propagated",
+ * //     Type: "static" || "propagated" || "system",
  * //     State: "pending" || "active" || "blackhole" || "deleting" || "deleted",
  * //   },
  * // };

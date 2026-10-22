@@ -46,8 +46,17 @@ const _CGS = "CollectionGroupSummary";
 const _CGSo = "CollectionGroupSummaries";
 const _CI = "CreateIndex";
 const _CIICCO = "CreateIamIdentityCenterConfigOptions";
+const _CIJ = "CancelIngestionJob";
+const _CIJR = "CancelIngestionJobRequest";
+const _CIJRa = "CancelIngestionJobResponse";
+const _CIJRr = "CreateIngestionJobRequest";
+const _CIJRre = "CreateIngestionJobResponse";
+const _CIJr = "CreateIngestionJob";
 const _CIR = "CreateIndexRequest";
 const _CIRr = "CreateIndexResponse";
+const _CIS = "CreateIngestionStream";
+const _CISR = "CreateIngestionStreamRequest";
+const _CISRr = "CreateIngestionStreamResponse";
 const _CL = "CapacityLimits";
 const _CLP = "CreateLifecyclePolicy";
 const _CLPR = "CreateLifecyclePolicyRequest";
@@ -77,6 +86,9 @@ const _DCRe = "DeleteCollectionResponse";
 const _DI = "DeleteIndex";
 const _DIR = "DeleteIndexRequest";
 const _DIRe = "DeleteIndexResponse";
+const _DIS = "DeleteIngestionStream";
+const _DISR = "DeleteIngestionStreamRequest";
+const _DISRe = "DeleteIngestionStreamResponse";
 const _DLP = "DeleteLifecyclePolicy";
 const _DLPR = "DeleteLifecyclePolicyRequest";
 const _DLPRe = "DeleteLifecyclePolicyResponse";
@@ -105,8 +117,14 @@ const _GAS = "GetAccountSettings";
 const _GASR = "GetAccountSettingsRequest";
 const _GASRe = "GetAccountSettingsResponse";
 const _GI = "GetIndex";
+const _GIJ = "GetIngestionJob";
+const _GIJR = "GetIngestionJobRequest";
+const _GIJRe = "GetIngestionJobResponse";
 const _GIR = "GetIndexRequest";
 const _GIRe = "GetIndexResponse";
+const _GIS = "GetIngestionStream";
+const _GISR = "GetIngestionStreamRequest";
+const _GISRe = "GetIngestionStreamResponse";
 const _GPS = "GetPoliciesStats";
 const _GPSR = "GetPoliciesStatsRequest";
 const _GPSRe = "GetPoliciesStatsResponse";
@@ -116,9 +134,24 @@ const _GSCRe = "GetSecurityConfigResponse";
 const _GSP = "GetSecurityPolicy";
 const _GSPR = "GetSecurityPolicyRequest";
 const _GSPRe = "GetSecurityPolicyResponse";
+const _IA = "IngestionAlert";
+const _IAn = "IngestionAlerts";
 const _IFCO = "IamFederationConfigOptions";
+const _IFR = "IngestionFailureReason";
+const _IFRn = "IngestionFailureReasons";
 const _IICCO = "IamIdentityCenterConfigOptions";
+const _IJD = "IngestionJobDetail";
+const _IJS = "IngestionJobSource";
+const _IJSS = "IngestionJobS3Source";
+const _IJSn = "IngestionJobSummary";
+const _IJSng = "IngestionJobSummaries";
+const _IS = "IngestionStatistics";
+const _ISD = "IngestionStreamDetail";
 const _ISE = "InternalServerException";
+const _ISS = "IngestionStreamSource";
+const _ISSS = "IngestionStreamS3Source";
+const _ISSn = "IngestionStreamSummary";
+const _ISSng = "IngestionStreamSummaries";
 const _LAP = "ListAccessPolicies";
 const _LAPR = "ListAccessPoliciesRequest";
 const _LAPRi = "ListAccessPoliciesResponse";
@@ -128,6 +161,12 @@ const _LCGR = "ListCollectionGroupsRequest";
 const _LCGRi = "ListCollectionGroupsResponse";
 const _LCR = "ListCollectionsRequest";
 const _LCRi = "ListCollectionsResponse";
+const _LIJ = "ListIngestionJobs";
+const _LIJR = "ListIngestionJobsRequest";
+const _LIJRi = "ListIngestionJobsResponse";
+const _LIS = "ListIngestionStreams";
+const _LISR = "ListIngestionStreamsRequest";
+const _LISRi = "ListIngestionStreamsResponse";
 const _LLP = "ListLifecyclePolicies";
 const _LLPR = "ListLifecyclePoliciesRequest";
 const _LLPRi = "ListLifecyclePoliciesResponse";
@@ -158,6 +197,8 @@ const _NPC = "NetworkPolicyCount";
 const _OLEE = "OcuLimitExceededException";
 const _RNFE = "ResourceNotFoundException";
 const _RPC = "RetentionPolicyCount";
+const _SBC = "StreamBucketConfig";
+const _SBCt = "StreamBucketConfigs";
 const _SCC = "SamlConfigCount";
 const _SCD = "SecurityConfigDetail";
 const _SCO = "SamlConfigOptions";
@@ -169,6 +210,7 @@ const _SPS = "SecurityPolicyStats";
 const _SPSe = "SecurityPolicySummary";
 const _SPSec = "SecurityPolicySummaries";
 const _SQEE = "ServiceQuotaExceededException";
+const _SS = "S3Statistics";
 const _SVA = "ServerlessVectorAcceleration";
 const _T = "Tag";
 const _TPC = "TotalPolicyCount";
@@ -221,6 +263,7 @@ const _VESp = "VpcEndpointSummaries";
 const _VO = "VectorOptions";
 const _a = "arn";
 const _aA = "applicationArn";
+const _aAc = "activeAlerts";
 const _aD = "applicationDescription";
 const _aN = "applicationName";
 const _aPD = "accessPolicyDetail";
@@ -230,7 +273,11 @@ const _aSD = "accountSettingsDetail";
 const _aSGI = "addSecurityGroupIds";
 const _aSI = "addSubnetIds";
 const _aWSOK = "aWSOwnedKey";
+const _b = "bucket";
+const _bOAI = "bucketOwnerAccountId";
+const _bu = "buckets";
 const _c = "client";
+const _cA = "createdAt";
 const _cC = "currentCapacity";
 const _cCD = "createCollectionDetail";
 const _cCGD = "createCollectionGroupDetail";
@@ -243,12 +290,14 @@ const _cGD = "collectionGroupDetails";
 const _cGED = "collectionGroupErrorDetails";
 const _cGN = "collectionGroupName";
 const _cGS = "collectionGroupSummaries";
+const _cI = "collectionId";
 const _cIO = "capacityInOcu";
 const _cL = "capacityLimits";
 const _cS = "collectionSummaries";
 const _cT = "clientToken";
 const _cV = "configVersion";
 const _cVED = "createVpcEndpointDetail";
+const _co = "code";
 const _d = "description";
 const _dCD = "deleteCollectionDetail";
 const _dE = "dashboardEndpoint";
@@ -262,7 +311,9 @@ const _eLPED = "effectiveLifecyclePolicyErrorDetails";
 const _eM = "errorMessage";
 const _fC = "failureCode";
 const _fE = "fipsEndpoints";
+const _fIN = "failureIndexName";
 const _fM = "failureMessage";
+const _fR = "failureReasons";
 const _g = "generation";
 const _gA = "groupAttribute";
 const _hE = "httpError";
@@ -271,13 +322,23 @@ const _iA = "instanceArn";
 const _iFO = "iamFederationOptions";
 const _iICO = "iamIdentityCenterOptions";
 const _iICOU = "iamIdentityCenterOptionsUpdates";
+const _iJD = "ingestionJobDetail";
+const _iJI = "ingestionJobId";
+const _iJN = "ingestionJobName";
+const _iJS = "ingestionJobSummaries";
 const _iN = "indexName";
 const _iS = "indexSchema";
+const _iSD = "ingestionStreamDetail";
+const _iSI = "ingestionStreamId";
+const _iSN = "ingestionStreamName";
+const _iSS = "ingestionStreamSummaries";
+const _iSn = "initialScan";
 const _id = "identifiers";
 const _id_ = "id";
 const _in = "indexing";
 const _k = "key";
 const _kKA = "kmsKeyArn";
+const _kP = "keyPrefix";
 const _lMD = "lastModifiedDate";
 const _lPD = "lifecyclePolicyDetails";
 const _lPDi = "lifecyclePolicyDetail";
@@ -295,21 +356,27 @@ const _nMRP = "noMinRetentionPeriod";
 const _nOC = "numberOfCollections";
 const _nT = "nextToken";
 const _na = "names";
+const _oD = "objectsDiscovered";
+const _oF = "objectsFailed";
+const _oI = "objectsIngested";
 const _oSSEI = "openSearchServerlessEntityId";
 const _p = "policy";
 const _pN = "policyName";
 const _pV = "policyVersion";
 const _qC = "quotaCode";
 const _r = "resource";
-const _rA = "resourceArn";
+const _rA = "roleArn";
+const _rAe = "resourceArn";
 const _rI = "resourceId";
 const _rIe = "resourceIdentifiers";
 const _rP = "retentionPeriod";
 const _rSGI = "removeSecurityGroupIds";
 const _rSI = "removeSubnetIds";
 const _rT = "resourceType";
-const _re = "resources";
+const _re = "revision";
+const _res = "resources";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.opensearchserverless";
+const _sA = "sqsArn";
 const _sC = "serviceCode";
 const _sCD = "securityConfigDetail";
 const _sCS = "securityConfigSummaries";
@@ -320,13 +387,18 @@ const _sPD = "securityPolicyDetail";
 const _sPS = "securityPolicySummaries";
 const _sR = "standbyReplicas";
 const _sT = "sessionTimeout";
+const _s_ = "s3";
 const _se = "server";
 const _sea = "search";
+const _so = "source";
 const _st = "status";
+const _sta = "state";
+const _stat = "statistics";
 const _t = "type";
 const _tK = "tagKeys";
 const _ta = "tags";
 const _uA = "userAttribute";
+const _uAp = "updatedAt";
 const _uCD = "updateCollectionDetail";
 const _uCGD = "updateCollectionGroupDetail";
 const _v = "value";
@@ -472,6 +544,16 @@ export var BatchGetVpcEndpointResponse$: StaticStructureSchema = [3, n0, _BGVERa
   [_vED, _vEED],
   [() => VpcEndpointDetails, () => VpcEndpointErrorDetails]
 ];
+export var CancelIngestionJobRequest$: StaticStructureSchema = [3, n0, _CIJR,
+  0,
+  [_cI, _iJI, _cT],
+  [0, 0, [0, 4]], 2
+];
+export var CancelIngestionJobResponse$: StaticStructureSchema = [3, n0, _CIJRa,
+  0,
+  [_iJI, _cI, _iJN, _st],
+  [0, 0, 0, 0]
+];
 export var CapacityDetails$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_cIO, _aS],
@@ -577,6 +659,26 @@ export var CreateIndexResponse$: StaticStructureSchema = [3, n0, _CIRr,
   [],
   []
 ];
+export var CreateIngestionJobRequest$: StaticStructureSchema = [3, n0, _CIJRr,
+  0,
+  [_cI, _iJN, _iN, _so, _fIN, _ta, _cT],
+  [0, 0, 0, () => IngestionJobSource$, 0, () => Tags, [0, 4]], 4
+];
+export var CreateIngestionJobResponse$: StaticStructureSchema = [3, n0, _CIJRre,
+  0,
+  [_iJD],
+  [() => IngestionJobDetail$]
+];
+export var CreateIngestionStreamRequest$: StaticStructureSchema = [3, n0, _CISR,
+  0,
+  [_cI, _iSN, _iN, _so, _rA, _fIN, _ta, _cT],
+  [0, 0, 0, () => IngestionStreamSource$, 0, 0, () => Tags, [0, 4]], 5
+];
+export var CreateIngestionStreamResponse$: StaticStructureSchema = [3, n0, _CISRr,
+  0,
+  [_iSD],
+  [() => IngestionStreamDetail$]
+];
 export var CreateLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _CLPR,
   0,
   [_t, _n, _p, _d, _cT],
@@ -671,6 +773,16 @@ export var DeleteIndexResponse$: StaticStructureSchema = [3, n0, _DIRe,
   0,
   [],
   []
+];
+export var DeleteIngestionStreamRequest$: StaticStructureSchema = [3, n0, _DISR,
+  0,
+  [_cI, _iSI, _cT],
+  [0, 0, [0, 4]], 2
+];
+export var DeleteIngestionStreamResponse$: StaticStructureSchema = [3, n0, _DISRe,
+  0,
+  [_iSI, _cI, _iSN, _st],
+  [0, 0, 0, 0]
 ];
 export var DeleteLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _DLPR,
   0,
@@ -767,6 +879,26 @@ export var GetIndexResponse$: StaticStructureSchema = [3, n0, _GIRe,
   [_iS],
   [15]
 ];
+export var GetIngestionJobRequest$: StaticStructureSchema = [3, n0, _GIJR,
+  0,
+  [_cI, _iJI],
+  [0, 0], 2
+];
+export var GetIngestionJobResponse$: StaticStructureSchema = [3, n0, _GIJRe,
+  0,
+  [_iJD],
+  [() => IngestionJobDetail$]
+];
+export var GetIngestionStreamRequest$: StaticStructureSchema = [3, n0, _GISR,
+  0,
+  [_cI, _iSI],
+  [0, 0], 2
+];
+export var GetIngestionStreamResponse$: StaticStructureSchema = [3, n0, _GISRe,
+  0,
+  [_iSD],
+  [() => IngestionStreamDetail$]
+];
 export var GetPoliciesStatsRequest$: StaticStructureSchema = [3, n0, _GPSR,
   0,
   [],
@@ -806,6 +938,61 @@ export var IamIdentityCenterConfigOptions$: StaticStructureSchema = [3, n0, _IIC
   0,
   [_iA, _aA, _aN, _aD, _uA, _gA],
   [0, 0, 0, 0, 0, 0]
+];
+export var IngestionAlert$: StaticStructureSchema = [3, n0, _IA,
+  0,
+  [_co, _m],
+  [0, 0]
+];
+export var IngestionFailureReason$: StaticStructureSchema = [3, n0, _IFR,
+  0,
+  [_co, _m],
+  [0, 0]
+];
+export var IngestionJobDetail$: StaticStructureSchema = [3, n0, _IJD,
+  0,
+  [_iJI, _a, _cI, _iJN, _iN, _fIN, _so, _st, _sta, _stat, _re, _cA, _uAp, _fR, _aAc],
+  [0, 0, 0, 0, 0, 0, () => IngestionJobSource$, 0, 0, () => IngestionStatistics$, 1, 4, 4, () => IngestionFailureReasons, () => IngestionAlerts]
+];
+export var IngestionJobS3Source$: StaticStructureSchema = [3, n0, _IJSS,
+  0,
+  [_b, _bOAI, _kP],
+  [0, 0, 0]
+];
+export var IngestionJobSource$: StaticStructureSchema = [3, n0, _IJS,
+  0,
+  [_s_],
+  [() => IngestionJobS3Source$], 1
+];
+export var IngestionJobSummary$: StaticStructureSchema = [3, n0, _IJSn,
+  0,
+  [_iJI, _a, _iJN, _iN, _st, _cA, _uAp],
+  [0, 0, 0, 0, 0, 4, 4]
+];
+export var IngestionStatistics$: StaticStructureSchema = [3, n0, _IS,
+  0,
+  [_s_],
+  [() => S3Statistics$]
+];
+export var IngestionStreamDetail$: StaticStructureSchema = [3, n0, _ISD,
+  0,
+  [_iSI, _a, _cI, _iSN, _iN, _fIN, _so, _rA, _st, _sta, _stat, _re, _cA, _uAp, _fR, _aAc],
+  [0, 0, 0, 0, 0, 0, () => IngestionStreamSource$, 0, 0, 0, () => IngestionStatistics$, 1, 4, 4, () => IngestionFailureReasons, () => IngestionAlerts]
+];
+export var IngestionStreamS3Source$: StaticStructureSchema = [3, n0, _ISSS,
+  0,
+  [_sA, _bu],
+  [0, () => StreamBucketConfigs], 1
+];
+export var IngestionStreamSource$: StaticStructureSchema = [3, n0, _ISS,
+  0,
+  [_s_],
+  [() => IngestionStreamS3Source$], 1
+];
+export var IngestionStreamSummary$: StaticStructureSchema = [3, n0, _ISSn,
+  0,
+  [_iSI, _a, _iSN, _iN, _st, _cA, _uAp],
+  [0, 0, 0, 0, 0, 4, 4]
 ];
 export var LifecyclePolicyDetail$: StaticStructureSchema = [3, n0, _LPD,
   0,
@@ -867,9 +1054,29 @@ export var ListCollectionsResponse$: StaticStructureSchema = [3, n0, _LCRi,
   [_cS, _nT],
   [() => CollectionSummaries, 0]
 ];
+export var ListIngestionJobsRequest$: StaticStructureSchema = [3, n0, _LIJR,
+  0,
+  [_cI, _nT, _mR],
+  [0, 0, 1], 1
+];
+export var ListIngestionJobsResponse$: StaticStructureSchema = [3, n0, _LIJRi,
+  0,
+  [_iJS, _nT],
+  [() => IngestionJobSummaries, 0]
+];
+export var ListIngestionStreamsRequest$: StaticStructureSchema = [3, n0, _LISR,
+  0,
+  [_cI, _nT, _mR],
+  [0, 0, 1], 1
+];
+export var ListIngestionStreamsResponse$: StaticStructureSchema = [3, n0, _LISRi,
+  0,
+  [_iSS, _nT],
+  [() => IngestionStreamSummaries, 0]
+];
 export var ListLifecyclePoliciesRequest$: StaticStructureSchema = [3, n0, _LLPR,
   0,
-  [_t, _re, _nT, _mR],
+  [_t, _res, _nT, _mR],
   [0, 64 | 0, 0, 1], 1
 ];
 export var ListLifecyclePoliciesResponse$: StaticStructureSchema = [3, n0, _LLPRi,
@@ -899,7 +1106,7 @@ export var ListSecurityPoliciesResponse$: StaticStructureSchema = [3, n0, _LSPRi
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
-  [_rA],
+  [_rAe],
   [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
@@ -916,6 +1123,11 @@ export var ListVpcEndpointsResponse$: StaticStructureSchema = [3, n0, _LVERi,
   0,
   [_vES, _nT],
   [() => VpcEndpointSummaries, 0]
+];
+export var S3Statistics$: StaticStructureSchema = [3, n0, _SS,
+  0,
+  [_oD, _oI, _oF],
+  [1, 1, 1]
 ];
 export var SamlConfigOptions$: StaticStructureSchema = [3, n0, _SCO,
   0,
@@ -952,6 +1164,11 @@ export var SecurityPolicySummary$: StaticStructureSchema = [3, n0, _SPSe,
   [_t, _n, _pV, _d, _cD, _lMD],
   [0, 0, 0, 0, 1, 1]
 ];
+export var StreamBucketConfig$: StaticStructureSchema = [3, n0, _SBC,
+  0,
+  [_b, _bOAI, _iSn],
+  [0, 0, 0], 1
+];
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _v],
@@ -959,7 +1176,7 @@ export var Tag$: StaticStructureSchema = [3, n0, _T,
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
-  [_rA, _ta],
+  [_rAe, _ta],
   [0, () => Tags], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
@@ -969,7 +1186,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
-  [_rA, _tK],
+  [_rAe, _tK],
   [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
@@ -999,8 +1216,8 @@ export var UpdateAccountSettingsResponse$: StaticStructureSchema = [3, n0, _UASR
 ];
 export var UpdateCollectionDetail$: StaticStructureSchema = [3, n0, _UCD,
   0,
-  [_id_, _n, _st, _t, _d, _vO, _a, _cD, _lMD, _dP],
-  [0, 0, 0, 0, 0, () => VectorOptions$, 0, 1, 1, 0]
+  [_id_, _n, _st, _t, _d, _vO, _kKA, _a, _cD, _lMD, _dP],
+  [0, 0, 0, 0, 0, () => VectorOptions$, 0, 0, 1, 1, 0]
 ];
 export var UpdateCollectionGroupDetail$: StaticStructureSchema = [3, n0, _UCGD,
   0,
@@ -1019,8 +1236,8 @@ export var UpdateCollectionGroupResponse$: StaticStructureSchema = [3, n0, _UCGR
 ];
 export var UpdateCollectionRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_id_, _d, _vO, _dP, _cT],
-  [0, 0, () => VectorOptions$, 0, [0, 4]], 1
+  [_id_, _d, _vO, _dP, _eCn, _cT],
+  [0, 0, () => VectorOptions$, 0, () => EncryptionConfig$, [0, 4]], 1
 ];
 export var UpdateCollectionResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -1143,6 +1360,18 @@ var EffectiveLifecyclePolicyDetails: StaticListSchema = [1, n0, _ELPDf,
 var EffectiveLifecyclePolicyErrorDetails: StaticListSchema = [1, n0, _ELPEDf,
   0, () => EffectiveLifecyclePolicyErrorDetail$
 ];
+var IngestionAlerts: StaticListSchema = [1, n0, _IAn,
+  0, () => IngestionAlert$
+];
+var IngestionFailureReasons: StaticListSchema = [1, n0, _IFRn,
+  0, () => IngestionFailureReason$
+];
+var IngestionJobSummaries: StaticListSchema = [1, n0, _IJSng,
+  0, () => IngestionJobSummary$
+];
+var IngestionStreamSummaries: StaticListSchema = [1, n0, _ISSng,
+  0, () => IngestionStreamSummary$
+];
 var LifecyclePolicyDetails: StaticListSchema = [1, n0, _LPDi,
   0, () => LifecyclePolicyDetail$
 ];
@@ -1166,6 +1395,9 @@ var SecurityConfigSummaries: StaticListSchema = [1, n0, _SCSec,
 var SecurityGroupIds = 64 | 0;
 var SecurityPolicySummaries: StaticListSchema = [1, n0, _SPSec,
   0, () => SecurityPolicySummary$
+];
+var StreamBucketConfigs: StaticListSchema = [1, n0, _SBCt,
+  0, () => StreamBucketConfig$
 ];
 var SubnetIds = 64 | 0;
 var TagKeys = 64 | 0;
@@ -1197,6 +1429,9 @@ export var BatchGetLifecyclePolicy$: StaticOperationSchema = [9, n0, _BGLP,
 export var BatchGetVpcEndpoint$: StaticOperationSchema = [9, n0, _BGVE,
   0, () => BatchGetVpcEndpointRequest$, () => BatchGetVpcEndpointResponse$
 ];
+export var CancelIngestionJob$: StaticOperationSchema = [9, n0, _CIJ,
+  2, () => CancelIngestionJobRequest$, () => CancelIngestionJobResponse$
+];
 export var CreateAccessPolicy$: StaticOperationSchema = [9, n0, _CAP,
   2, () => CreateAccessPolicyRequest$, () => CreateAccessPolicyResponse$
 ];
@@ -1208,6 +1443,12 @@ export var CreateCollectionGroup$: StaticOperationSchema = [9, n0, _CCG,
 ];
 export var CreateIndex$: StaticOperationSchema = [9, n0, _CI,
   2, () => CreateIndexRequest$, () => CreateIndexResponse$
+];
+export var CreateIngestionJob$: StaticOperationSchema = [9, n0, _CIJr,
+  2, () => CreateIngestionJobRequest$, () => CreateIngestionJobResponse$
+];
+export var CreateIngestionStream$: StaticOperationSchema = [9, n0, _CIS,
+  2, () => CreateIngestionStreamRequest$, () => CreateIngestionStreamResponse$
 ];
 export var CreateLifecyclePolicy$: StaticOperationSchema = [9, n0, _CLP,
   2, () => CreateLifecyclePolicyRequest$, () => CreateLifecyclePolicyResponse$
@@ -1233,6 +1474,9 @@ export var DeleteCollectionGroup$: StaticOperationSchema = [9, n0, _DCG,
 export var DeleteIndex$: StaticOperationSchema = [9, n0, _DI,
   2, () => DeleteIndexRequest$, () => DeleteIndexResponse$
 ];
+export var DeleteIngestionStream$: StaticOperationSchema = [9, n0, _DIS,
+  2, () => DeleteIngestionStreamRequest$, () => DeleteIngestionStreamResponse$
+];
 export var DeleteLifecyclePolicy$: StaticOperationSchema = [9, n0, _DLP,
   2, () => DeleteLifecyclePolicyRequest$, () => DeleteLifecyclePolicyResponse$
 ];
@@ -1254,6 +1498,12 @@ export var GetAccountSettings$: StaticOperationSchema = [9, n0, _GAS,
 export var GetIndex$: StaticOperationSchema = [9, n0, _GI,
   0, () => GetIndexRequest$, () => GetIndexResponse$
 ];
+export var GetIngestionJob$: StaticOperationSchema = [9, n0, _GIJ,
+  0, () => GetIngestionJobRequest$, () => GetIngestionJobResponse$
+];
+export var GetIngestionStream$: StaticOperationSchema = [9, n0, _GIS,
+  0, () => GetIngestionStreamRequest$, () => GetIngestionStreamResponse$
+];
 export var GetPoliciesStats$: StaticOperationSchema = [9, n0, _GPS,
   0, () => GetPoliciesStatsRequest$, () => GetPoliciesStatsResponse$
 ];
@@ -1271,6 +1521,12 @@ export var ListCollectionGroups$: StaticOperationSchema = [9, n0, _LCG,
 ];
 export var ListCollections$: StaticOperationSchema = [9, n0, _LC,
   0, () => ListCollectionsRequest$, () => ListCollectionsResponse$
+];
+export var ListIngestionJobs$: StaticOperationSchema = [9, n0, _LIJ,
+  0, () => ListIngestionJobsRequest$, () => ListIngestionJobsResponse$
+];
+export var ListIngestionStreams$: StaticOperationSchema = [9, n0, _LIS,
+  0, () => ListIngestionStreamsRequest$, () => ListIngestionStreamsResponse$
 ];
 export var ListLifecyclePolicies$: StaticOperationSchema = [9, n0, _LLP,
   0, () => ListLifecyclePoliciesRequest$, () => ListLifecyclePoliciesResponse$

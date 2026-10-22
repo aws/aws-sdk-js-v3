@@ -75,6 +75,10 @@ import type {
   BatchGetVpcEndpointCommandOutput,
 } from "./commands/BatchGetVpcEndpointCommand";
 import type {
+  CancelIngestionJobCommandInput,
+  CancelIngestionJobCommandOutput,
+} from "./commands/CancelIngestionJobCommand";
+import type {
   CreateAccessPolicyCommandInput,
   CreateAccessPolicyCommandOutput,
 } from "./commands/CreateAccessPolicyCommand";
@@ -84,6 +88,14 @@ import type {
   CreateCollectionGroupCommandOutput,
 } from "./commands/CreateCollectionGroupCommand";
 import type { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import type {
+  CreateIngestionJobCommandInput,
+  CreateIngestionJobCommandOutput,
+} from "./commands/CreateIngestionJobCommand";
+import type {
+  CreateIngestionStreamCommandInput,
+  CreateIngestionStreamCommandOutput,
+} from "./commands/CreateIngestionStreamCommand";
 import type {
   CreateLifecyclePolicyCommandInput,
   CreateLifecyclePolicyCommandOutput,
@@ -111,6 +123,10 @@ import type {
 } from "./commands/DeleteCollectionGroupCommand";
 import type { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import type {
+  DeleteIngestionStreamCommandInput,
+  DeleteIngestionStreamCommandOutput,
+} from "./commands/DeleteIngestionStreamCommand";
+import type {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
@@ -132,6 +148,11 @@ import type {
   GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand";
 import type { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
+import type { GetIngestionJobCommandInput, GetIngestionJobCommandOutput } from "./commands/GetIngestionJobCommand";
+import type {
+  GetIngestionStreamCommandInput,
+  GetIngestionStreamCommandOutput,
+} from "./commands/GetIngestionStreamCommand";
 import type { GetPoliciesStatsCommandInput, GetPoliciesStatsCommandOutput } from "./commands/GetPoliciesStatsCommand";
 import type {
   GetSecurityConfigCommandInput,
@@ -150,6 +171,14 @@ import type {
   ListCollectionGroupsCommandOutput,
 } from "./commands/ListCollectionGroupsCommand";
 import type { ListCollectionsCommandInput, ListCollectionsCommandOutput } from "./commands/ListCollectionsCommand";
+import type {
+  ListIngestionJobsCommandInput,
+  ListIngestionJobsCommandOutput,
+} from "./commands/ListIngestionJobsCommand";
+import type {
+  ListIngestionStreamsCommandInput,
+  ListIngestionStreamsCommandOutput,
+} from "./commands/ListIngestionStreamsCommand";
 import type {
   ListLifecyclePoliciesCommandInput,
   ListLifecyclePoliciesCommandOutput,
@@ -219,10 +248,13 @@ export type ServiceInputTypes =
   | BatchGetEffectiveLifecyclePolicyCommandInput
   | BatchGetLifecyclePolicyCommandInput
   | BatchGetVpcEndpointCommandInput
+  | CancelIngestionJobCommandInput
   | CreateAccessPolicyCommandInput
   | CreateCollectionCommandInput
   | CreateCollectionGroupCommandInput
   | CreateIndexCommandInput
+  | CreateIngestionJobCommandInput
+  | CreateIngestionStreamCommandInput
   | CreateLifecyclePolicyCommandInput
   | CreateSecurityConfigCommandInput
   | CreateSecurityPolicyCommandInput
@@ -231,6 +263,7 @@ export type ServiceInputTypes =
   | DeleteCollectionCommandInput
   | DeleteCollectionGroupCommandInput
   | DeleteIndexCommandInput
+  | DeleteIngestionStreamCommandInput
   | DeleteLifecyclePolicyCommandInput
   | DeleteSecurityConfigCommandInput
   | DeleteSecurityPolicyCommandInput
@@ -238,12 +271,16 @@ export type ServiceInputTypes =
   | GetAccessPolicyCommandInput
   | GetAccountSettingsCommandInput
   | GetIndexCommandInput
+  | GetIngestionJobCommandInput
+  | GetIngestionStreamCommandInput
   | GetPoliciesStatsCommandInput
   | GetSecurityConfigCommandInput
   | GetSecurityPolicyCommandInput
   | ListAccessPoliciesCommandInput
   | ListCollectionGroupsCommandInput
   | ListCollectionsCommandInput
+  | ListIngestionJobsCommandInput
+  | ListIngestionStreamsCommandInput
   | ListLifecyclePoliciesCommandInput
   | ListSecurityConfigsCommandInput
   | ListSecurityPoliciesCommandInput
@@ -270,10 +307,13 @@ export type ServiceOutputTypes =
   | BatchGetEffectiveLifecyclePolicyCommandOutput
   | BatchGetLifecyclePolicyCommandOutput
   | BatchGetVpcEndpointCommandOutput
+  | CancelIngestionJobCommandOutput
   | CreateAccessPolicyCommandOutput
   | CreateCollectionCommandOutput
   | CreateCollectionGroupCommandOutput
   | CreateIndexCommandOutput
+  | CreateIngestionJobCommandOutput
+  | CreateIngestionStreamCommandOutput
   | CreateLifecyclePolicyCommandOutput
   | CreateSecurityConfigCommandOutput
   | CreateSecurityPolicyCommandOutput
@@ -282,6 +322,7 @@ export type ServiceOutputTypes =
   | DeleteCollectionCommandOutput
   | DeleteCollectionGroupCommandOutput
   | DeleteIndexCommandOutput
+  | DeleteIngestionStreamCommandOutput
   | DeleteLifecyclePolicyCommandOutput
   | DeleteSecurityConfigCommandOutput
   | DeleteSecurityPolicyCommandOutput
@@ -289,12 +330,16 @@ export type ServiceOutputTypes =
   | GetAccessPolicyCommandOutput
   | GetAccountSettingsCommandOutput
   | GetIndexCommandOutput
+  | GetIngestionJobCommandOutput
+  | GetIngestionStreamCommandOutput
   | GetPoliciesStatsCommandOutput
   | GetSecurityConfigCommandOutput
   | GetSecurityPolicyCommandOutput
   | ListAccessPoliciesCommandOutput
   | ListCollectionGroupsCommandOutput
   | ListCollectionsCommandOutput
+  | ListIngestionJobsCommandOutput
+  | ListIngestionStreamsCommandOutput
   | ListLifecyclePoliciesCommandOutput
   | ListSecurityConfigsCommandOutput
   | ListSecurityPoliciesCommandOutput
@@ -442,7 +487,8 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 
   /**
    * Specifies which retry algorithm to use.
-   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   * Accepted values are "standard" and "adaptive".
+   * @see https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html
    *
    */
   retryMode?: string | __Provider<string>;

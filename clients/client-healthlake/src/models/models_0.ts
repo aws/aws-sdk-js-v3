@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type {
+  AgentErrorType,
   AgentInputMessageType,
-  AgentOutputMessageType,
   AnalyticsStatus,
   AuthorizationStrategy,
   BackupStatus,
@@ -826,12 +826,6 @@ export interface UpdateProfileWithAgentRequest {
   ProfileId: string | undefined;
 
   /**
-   * <p>The source data format for the transformation.</p>
-   * @public
-   */
-  SourceFormat: SourceFormat | undefined;
-
-  /**
    * <p>The message to send to the agent.</p>
    * @public
    */
@@ -845,27 +839,182 @@ export interface UpdateProfileWithAgentRequest {
 }
 
 /**
- * <p>Represents a response message from the agent during chat-based profile customization.</p>
+ * <p>Contains the final response event from the agent, including the response message, response options, and conversation ID.</p>
  * @public
  */
-export interface AgentOutputMessage {
+export interface EndOfOutputEvent {
   /**
-   * <p>The text of the agent's response.</p>
+   * <p>The final response message from the agent.</p>
    * @public
    */
-  Body: string | undefined;
+  FinalResponseMessage: string | undefined;
 
   /**
-   * <p>The type of output message, which indicates how to interpret the agent's response.</p>
+   * <p>The response options that you can use to easily answer follow-up questions from the agent.</p>
    * @public
    */
-  Type: AgentOutputMessageType | undefined;
+  Options?: string[] | undefined;
 
   /**
-   * <p>A list of selectable options presented when the response type is <code>options</code>.</p>
+   * <p>The conversation ID of the request. You can use this ID to continue the profile mapping based on this request's context at a later time.</p>
    * @public
    */
-  OptionsList?: string[] | undefined;
+  ConversationId?: string | undefined;
+}
+
+/**
+ * <p>The type of an event that returns an exception encountered while serving the request.</p>
+ * @public
+ */
+export interface ErrorEvent {
+  /**
+   * <p>The type of the exception.</p>
+   * @public
+   */
+  Error: AgentErrorType | undefined;
+
+  /**
+   * <p>The exception message.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * <p>The type for a periodically emitted event to keep the connection alive.</p>
+ * @public
+ */
+export interface HeartbeatEvent {}
+
+/**
+ * <p>The type for an incremental progress update from the agent.</p>
+ * @public
+ */
+export interface ProgressEvent {
+  /**
+   * <p>An incremental progress update message by the agent</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * <p>The type for an incremental text update from the agent.</p>
+ * @public
+ */
+export interface TextMessageEvent {
+  /**
+   * <p>An incremental text update from the agent.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * <p>Represents the response stream type from the agent during chat-based profile customization.</p>
+ * @public
+ */
+export type AgentOutputMessageStream =
+  | AgentOutputMessageStream.EndOfOutputEventMember
+  | AgentOutputMessageStream.ErrorEventMember
+  | AgentOutputMessageStream.HeartbeatEventMember
+  | AgentOutputMessageStream.ProgressEventMember
+  | AgentOutputMessageStream.TextMessageEventMember
+  | AgentOutputMessageStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AgentOutputMessageStream {
+  /**
+   * <p>An incremental text update from the agent.</p>
+   * @public
+   */
+  export interface TextMessageEventMember {
+    TextMessageEvent: TextMessageEvent;
+    ProgressEvent?: never;
+    HeartbeatEvent?: never;
+    ErrorEvent?: never;
+    EndOfOutputEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An incremental progress update from the agent.</p>
+   * @public
+   */
+  export interface ProgressEventMember {
+    TextMessageEvent?: never;
+    ProgressEvent: ProgressEvent;
+    HeartbeatEvent?: never;
+    ErrorEvent?: never;
+    EndOfOutputEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Periodically emitted event to keep the connection alive.</p>
+   * @public
+   */
+  export interface HeartbeatEventMember {
+    TextMessageEvent?: never;
+    ProgressEvent?: never;
+    HeartbeatEvent: HeartbeatEvent;
+    ErrorEvent?: never;
+    EndOfOutputEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An exception encountered while serving the request.</p>
+   * @public
+   */
+  export interface ErrorEventMember {
+    TextMessageEvent?: never;
+    ProgressEvent?: never;
+    HeartbeatEvent?: never;
+    ErrorEvent: ErrorEvent;
+    EndOfOutputEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The final event in the response stream from the agent during chat-based profile customization. The caller can assume that the stream has ended upon receiving this event.</p>
+   * @public
+   */
+  export interface EndOfOutputEventMember {
+    TextMessageEvent?: never;
+    ProgressEvent?: never;
+    HeartbeatEvent?: never;
+    ErrorEvent?: never;
+    EndOfOutputEvent: EndOfOutputEvent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    TextMessageEvent?: never;
+    ProgressEvent?: never;
+    HeartbeatEvent?: never;
+    ErrorEvent?: never;
+    EndOfOutputEvent?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    TextMessageEvent: (value: TextMessageEvent) => T;
+    ProgressEvent: (value: ProgressEvent) => T;
+    HeartbeatEvent: (value: HeartbeatEvent) => T;
+    ErrorEvent: (value: ErrorEvent) => T;
+    EndOfOutputEvent: (value: EndOfOutputEvent) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
@@ -874,16 +1023,10 @@ export interface AgentOutputMessage {
  */
 export interface UpdateProfileWithAgentResponse {
   /**
-   * <p>The response message from the agent.</p>
+   * <p>The streaming response from the agent.</p>
    * @public
    */
-  AgentResponse: AgentOutputMessage | undefined;
-
-  /**
-   * <p>The conversation identifier to use for follow-up messages in this conversation.</p>
-   * @public
-   */
-  ConversationId: string | undefined;
+  AgentResponse: AsyncIterable<AgentOutputMessageStream> | undefined;
 }
 
 /**

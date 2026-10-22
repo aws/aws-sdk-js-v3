@@ -5556,6 +5556,7 @@ export type TransitGatewayRouteState = (typeof TransitGatewayRouteState)[keyof t
 export const TransitGatewayRouteType = {
   propagated: "propagated",
   static: "static",
+  system: "system",
 } as const;
 /**
  * @public
@@ -7683,6 +7684,22 @@ export type SpotInstanceState = (typeof SpotInstanceState)[keyof typeof SpotInst
  * @public
  * @enum
  */
+export const TransitGatewayAttachmentNatGatewaySupportState = {
+  disabled: "disabled",
+  disabling: "disabling",
+  enabled: "enabled",
+  enabling: "enabling",
+} as const;
+/**
+ * @public
+ */
+export type TransitGatewayAttachmentNatGatewaySupportState =
+  (typeof TransitGatewayAttachmentNatGatewaySupportState)[keyof typeof TransitGatewayAttachmentNatGatewaySupportState];
+
+/**
+ * @public
+ * @enum
+ */
 export const VerifiedAccessLogDeliveryStatusCode = {
   FAILED: "failed",
   SUCCESS: "success",
@@ -8527,6 +8544,35 @@ export type RouteServerRouteStatus = (typeof RouteServerRouteStatus)[keyof typeo
  * @public
  * @enum
  */
+export const TransitGatewayNatRuleState = {
+  activated: "activated",
+  deactivated: "deactivated",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
+/**
+ * @public
+ */
+export type TransitGatewayNatRuleState = (typeof TransitGatewayNatRuleState)[keyof typeof TransitGatewayNatRuleState];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayAttachmentNatSystemRouteSupportValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
+/**
+ * @public
+ */
+export type TransitGatewayAttachmentNatSystemRouteSupportValue =
+  (typeof TransitGatewayAttachmentNatSystemRouteSupportValue)[keyof typeof TransitGatewayAttachmentNatSystemRouteSupportValue];
+
+/**
+ * @public
+ * @enum
+ */
 export const LockMode = {
   compliance: "compliance",
   governance: "governance",
@@ -8722,6 +8768,20 @@ export const EncryptionSupportOptionValue = {
  */
 export type EncryptionSupportOptionValue =
   (typeof EncryptionSupportOptionValue)[keyof typeof EncryptionSupportOptionValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayAttachmentNatGatewaySupportValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
+/**
+ * @public
+ */
+export type TransitGatewayAttachmentNatGatewaySupportValue =
+  (typeof TransitGatewayAttachmentNatGatewaySupportValue)[keyof typeof TransitGatewayAttachmentNatGatewaySupportValue];
 
 /**
  * @public

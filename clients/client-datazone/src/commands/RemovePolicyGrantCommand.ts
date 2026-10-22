@@ -46,7 +46,8 @@ export interface RemovePolicyGrantCommandOutput extends RemovePolicyGrantOutput,
  *       groupIdentifier: "STRING_VALUE",
  *     },
  *     project: { // ProjectPolicyGrantPrincipal
- *       projectDesignation: "OWNER" || "CONTRIBUTOR" || "PROJECT_CATALOG_STEWARD", // required
+ *       projectDesignation: "OWNER" || "CONTRIBUTOR" || "PROJECT_CATALOG_STEWARD" || "USER_CREATED_DESIGNATION", // required
+ *       userCreatedDesignationId: "STRING_VALUE",
  *       projectIdentifier: "STRING_VALUE",
  *       projectGrantFilter: { // ProjectGrantFilter Union: only one key present
  *         domainUnitFilter: { // DomainUnitFilterForProject

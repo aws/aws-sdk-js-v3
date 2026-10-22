@@ -390,6 +390,9 @@ const _GCGFCu = "GuardrailContextualGroundingFiltersConfig";
 const _GCGFu = "GuardrailContextualGroundingFilters";
 const _GCGP = "GuardrailContextualGroundingPolicy";
 const _GCGPC = "GuardrailContextualGroundingPolicyConfig";
+const _GCGT = "GuardrailContextualGroundingTier";
+const _GCGTC = "GuardrailContextualGroundingTierConfig";
+const _GCGTN = "GuardrailContextualGroundingTierName";
 const _GCM = "GetCustomModel";
 const _GCMD = "GetCustomModelDeployment";
 const _GCMDR = "GetCustomModelDeploymentRequest";
@@ -1480,6 +1483,7 @@ var GuardrailBlockedMessaging: StaticSimpleSchema = [0, n0, _GBM, 8, 0];
 var GuardrailContentFilterAction: StaticSimpleSchema = [0, n0, _GCFA, 8, 0];
 var GuardrailContentFiltersTierName: StaticSimpleSchema = [0, n0, _GCFTN, 8, 0];
 var GuardrailContextualGroundingAction: StaticSimpleSchema = [0, n0, _GCGA, 8, 0];
+var GuardrailContextualGroundingTierName: StaticSimpleSchema = [0, n0, _GCGTN, 8, 0];
 var GuardrailDescription: StaticSimpleSchema = [0, n0, _GD, 8, 0];
 var GuardrailFailureRecommendation: StaticSimpleSchema = [0, n0, _GFR, 8, 0];
 var GuardrailModality: StaticSimpleSchema = [0, n0, _GM, 8, 0];
@@ -2810,13 +2814,23 @@ export var GuardrailContextualGroundingFilterConfig$: StaticStructureSchema = [3
 ];
 export var GuardrailContextualGroundingPolicy$: StaticStructureSchema = [3, n0, _GCGP,
   0,
-  [_fi],
-  [[() => GuardrailContextualGroundingFilters, 0]], 1
+  [_fi, _ti],
+  [[() => GuardrailContextualGroundingFilters, 0], [() => GuardrailContextualGroundingTier$, 0]], 1
 ];
 export var GuardrailContextualGroundingPolicyConfig$: StaticStructureSchema = [3, n0, _GCGPC,
   0,
-  [_fC],
-  [[() => GuardrailContextualGroundingFiltersConfig, 0]], 1
+  [_fC, _tCi],
+  [[() => GuardrailContextualGroundingFiltersConfig, 0], [() => GuardrailContextualGroundingTierConfig$, 0]], 1
+];
+export var GuardrailContextualGroundingTier$: StaticStructureSchema = [3, n0, _GCGT,
+  0,
+  [_tNi],
+  [[() => GuardrailContextualGroundingTierName, 0]], 1
+];
+export var GuardrailContextualGroundingTierConfig$: StaticStructureSchema = [3, n0, _GCGTC,
+  0,
+  [_tNi],
+  [[() => GuardrailContextualGroundingTierName, 0]], 1
 ];
 export var GuardrailCrossRegionConfig$: StaticStructureSchema = [3, n0, _GCRC,
   0,

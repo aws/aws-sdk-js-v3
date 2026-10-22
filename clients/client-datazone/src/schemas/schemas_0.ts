@@ -118,9 +118,11 @@ const _CCI = "CreateConnectionInput";
 const _CCO = "CreateConnectionOutput";
 const _CCo = "ConnectionCredentials";
 const _CCr = "CreateConnection";
-const _CD = "CreateDomain";
-const _CDI = "CreateDomainInput";
-const _CDO = "CreateDomainOutput";
+const _CD = "CreateDesignation";
+const _CDI = "CreateDesignationInput";
+const _CDIr = "CreateDomainInput";
+const _CDO = "CreateDesignationOutput";
+const _CDOr = "CreateDomainOutput";
 const _CDP = "CreateDataProduct";
 const _CDPI = "CreateDataProductInput";
 const _CDPO = "CreateDataProductOutput";
@@ -134,6 +136,7 @@ const _CDU = "CreateDomainUnit";
 const _CDUI = "CreateDomainUnitInput";
 const _CDUO = "CreateDomainUnitOutput";
 const _CDUPGD = "CreateDomainUnitPolicyGrantDetail";
+const _CDr = "CreateDomain";
 const _CE = "ConflictException";
 const _CEA = "ConfigurableEnvironmentAction";
 const _CEAI = "CreateEnvironmentActionInput";
@@ -238,8 +241,10 @@ const _DD = "DomainDescription";
 const _DDEC = "DeleteDataExportConfiguration";
 const _DDECI = "DeleteDataExportConfigurationInput";
 const _DDECO = "DeleteDataExportConfigurationOutput";
-const _DDI = "DeleteDomainInput";
-const _DDO = "DeleteDomainOutput";
+const _DDI = "DeleteDesignationInput";
+const _DDIe = "DeleteDomainInput";
+const _DDO = "DeleteDesignationOutput";
+const _DDOe = "DeleteDomainOutput";
 const _DDP = "DeleteDataProduct";
 const _DDPI = "DeleteDataProductInput";
 const _DDPO = "DeleteDataProductOutput";
@@ -249,7 +254,8 @@ const _DDSO = "DeleteDataSourceOutput";
 const _DDU = "DeleteDomainUnit";
 const _DDUI = "DeleteDomainUnitInput";
 const _DDUO = "DeleteDomainUnitOutput";
-const _DDe = "DeleteDomain";
+const _DDe = "DeleteDesignation";
+const _DDel = "DeleteDomain";
 const _DE = "DeleteEnvironment";
 const _DEA = "DeleteEnvironmentAction";
 const _DEAI = "DeleteEnvironmentActionInput";
@@ -314,7 +320,7 @@ const _DPel = "DeleteProject";
 const _DR = "DeleteRule";
 const _DRI = "DeleteRuleInput";
 const _DRO = "DeleteRuleOutput";
-const _DS = "DomainSummary";
+const _DS = "DesignationSummary";
 const _DSCI = "DataSourceConfigurationInput";
 const _DSCO = "DataSourceConfigurationOutput";
 const _DSEM = "DataSourceErrorMessage";
@@ -332,7 +338,9 @@ const _DSS = "DataSourceSummary";
 const _DSSa = "DataSourceSummaries";
 const _DST = "DeleteSubscriptionTarget";
 const _DSTI = "DeleteSubscriptionTargetInput";
-const _DSo = "DomainSummaries";
+const _DSe = "DesignationSummaries";
+const _DSo = "DomainSummary";
+const _DSom = "DomainSummaries";
 const _DTSDP = "DeleteTimeSeriesDataPoints";
 const _DTSDPI = "DeleteTimeSeriesDataPointsInput";
 const _DTSDPO = "DeleteTimeSeriesDataPointsOutput";
@@ -429,8 +437,10 @@ const _GD = "GlossaryDescription";
 const _GDEC = "GetDataExportConfiguration";
 const _GDECI = "GetDataExportConfigurationInput";
 const _GDECO = "GetDataExportConfigurationOutput";
-const _GDI = "GetDomainInput";
-const _GDO = "GetDomainOutput";
+const _GDI = "GetDesignationInput";
+const _GDIe = "GetDomainInput";
+const _GDO = "GetDesignationOutput";
+const _GDOe = "GetDomainOutput";
 const _GDP = "GetDataProduct";
 const _GDPI = "GetDataProductInput";
 const _GDPO = "GetDataProductOutput";
@@ -443,7 +453,8 @@ const _GDSRO = "GetDataSourceRunOutput";
 const _GDU = "GetDomainUnit";
 const _GDUI = "GetDomainUnitInput";
 const _GDUO = "GetDomainUnitOutput";
-const _GDe = "GetDomain";
+const _GDe = "GetDesignation";
+const _GDet = "GetDomain";
 const _GDr = "GroupDetails";
 const _GE = "GrantedEntity";
 const _GEA = "GetEnvironmentAction";
@@ -591,8 +602,10 @@ const _LC = "ListConnections";
 const _LCI = "ListConnectionsInput";
 const _LCO = "ListConnectionsOutput";
 const _LD = "LongDescription";
-const _LDI = "ListDomainsInput";
-const _LDO = "ListDomainsOutput";
+const _LDI = "ListDesignationsInput";
+const _LDIi = "ListDomainsInput";
+const _LDO = "ListDesignationsOutput";
+const _LDOi = "ListDomainsOutput";
 const _LDPR = "ListDataProductRevisions";
 const _LDPRI = "ListDataProductRevisionsInput";
 const _LDPRO = "ListDataProductRevisionsOutput";
@@ -608,7 +621,8 @@ const _LDSRO = "ListDataSourceRunsOutput";
 const _LDUFP = "ListDomainUnitsForParent";
 const _LDUFPI = "ListDomainUnitsForParentInput";
 const _LDUFPO = "ListDomainUnitsForParentOutput";
-const _LDi = "ListDomains";
+const _LDi = "ListDesignations";
+const _LDis = "ListDomains";
 const _LE = "LineageEvent";
 const _LEA = "ListEnvironmentActions";
 const _LEAI = "ListEnvironmentActionsInput";
@@ -1018,15 +1032,18 @@ const _UC = "UpdateConnection";
 const _UCI = "UpdateConnectionInput";
 const _UCO = "UpdateConnectionOutput";
 const _UD = "UserDetails";
-const _UDI = "UpdateDomainInput";
-const _UDO = "UpdateDomainOutput";
+const _UDI = "UpdateDesignationInput";
+const _UDIp = "UpdateDomainInput";
+const _UDO = "UpdateDesignationOutput";
+const _UDOp = "UpdateDomainOutput";
 const _UDS = "UpdateDataSource";
 const _UDSI = "UpdateDataSourceInput";
 const _UDSO = "UpdateDataSourceOutput";
 const _UDU = "UpdateDomainUnit";
 const _UDUI = "UpdateDomainUnitInput";
 const _UDUO = "UpdateDomainUnitOutput";
-const _UDp = "UpdateDomain";
+const _UDp = "UpdateDesignation";
+const _UDpd = "UpdateDomain";
 const _UE = "UnauthorizedException";
 const _UEA = "UpdateEnvironmentAction";
 const _UEAI = "UpdateEnvironmentActionInput";
@@ -1241,19 +1258,21 @@ const _dM = "deploymentMode";
 const _dN = "downstreamNodes";
 const _dNa = "databaseName";
 const _dO = "deploymentOrder";
-const _dP = "deploymentProperties";
+const _dP = "deletionProtection";
 const _dPI = "dataProductId";
 const _dPIa = "dataProductItem";
 const _dPL = "dataProductListing";
 const _dPR = "dataProductRevision";
 const _dPa = "dataProduct";
-const _dPe = "deleteProgress";
+const _dPe = "deploymentProperties";
+const _dPel = "deleteProgress";
 const _dS = "deploymentStatus";
 const _dSCS = "dataSourceConfigurationSnapshot";
 const _dSI = "dataSourceId";
 const _dSIa = "dataSourceIdentifier";
 const _dSRI = "dataSourceRunId";
-const _dT = "deploymentType";
+const _dT = "designationType";
+const _dTe = "deploymentType";
 const _dU = "domainUnit";
 const _dUD = "domainUnitDesignation";
 const _dUF = "domainUnitFilter";
@@ -1589,7 +1608,8 @@ const _pVE = "pythonVirtualEnv";
 const _pa = "password";
 const _par = "parameters";
 const _pe = "permissions";
-const _po = "port";
+const _po = "policy";
+const _por = "port";
 const _pr = "properties";
 const _pre = "prefix";
 const _pro = "props";
@@ -1779,6 +1799,7 @@ const _uAT = "useAssetType";
 const _uAs = "usernameAttribute";
 const _uAse = "userAssignment";
 const _uB = "updatedBy";
+const _uCDI = "userCreatedDesignationId";
 const _uI = "userIdentifier";
 const _uIs = "userId";
 const _uLNI = "upstreamLineageNodeIds";
@@ -2413,12 +2434,22 @@ export var CreateDataSourceOutput$: StaticStructureSchema = [3, n0, _CDSO,
   [_id, _n, _dIo, _pI, _st, _ty, _de, _eInvi, _cI, _conf, _re, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _eM, _cA, _uA],
   [0, [() => Name, 0], 0, 0, 0, 0, [() => Description, 0], 0, 0, () => DataSourceConfigurationOutput$, () => RecommendationConfiguration$, 0, 2, [() => FormOutputList, 0], [() => ScheduleConfiguration$, 0], 0, 5, () => DataSourceErrorMessage$, () => DataSourceErrorMessage$, 5, 5], 4
 ];
-export var CreateDomainInput$: StaticStructureSchema = [3, n0, _CDI,
+export var CreateDesignationInput$: StaticStructureSchema = [3, n0, _CDI,
+  0,
+  [_dI, _n, _po, _de, _dP],
+  [[0, 1], 0, 0, [() => Description, 0], 2], 3
+];
+export var CreateDesignationOutput$: StaticStructureSchema = [3, n0, _CDO,
+  0,
+  [_dIo, _id, _n, _dT, _po, _dP, _cB, _de, _cA, _lUA],
+  [0, 0, 0, 0, 0, 2, 0, [() => Description, 0], 5, 5], 7
+];
+export var CreateDomainInput$: StaticStructureSchema = [3, n0, _CDIr,
   0,
   [_n, _de, _sSO, _dER, _kKI, _ta, _dVo, _sRe, _cT],
   [0, 0, () => SingleSignOn$, 0, 0, 128 | 0, 0, 0, [0, 4]], 1
 ];
-export var CreateDomainOutput$: StaticStructureSchema = [3, n0, _CDO,
+export var CreateDomainOutput$: StaticStructureSchema = [3, n0, _CDOr,
   0,
   [_id, _rDUI, _n, _de, _sSO, _dER, _ar, _kKI, _st, _pU, _ta, _dVo, _sRe],
   [0, 0, 0, 0, () => SingleSignOn$, 0, 0, 0, 0, 0, 128 | 0, 0, 0], 1
@@ -2455,7 +2486,7 @@ export var CreateEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _CE
 ];
 export var CreateEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _CEBO,
   0,
-  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _bC, _cA, _uA],
+  [_id, _n, _prov, _pPr, _de, _dPe, _uP, _gT, _bC, _cA, _uA],
   [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 0, 5, 5], 4
 ];
 export var CreateEnvironmentInput$: StaticStructureSchema = [3, n0, _CEI,
@@ -2465,7 +2496,7 @@ export var CreateEnvironmentInput$: StaticStructureSchema = [3, n0, _CEI,
 ];
 export var CreateEnvironmentOutput$: StaticStructureSchema = [3, n0, _CEO,
   0,
-  [_pI, _dIo, _cB, _n, _prov, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pPr, _dP, _eBIn, _eCI, _eCNn],
+  [_pI, _dIo, _cB, _n, _prov, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pPr, _dPe, _eBIn, _eCI, _eCNn],
   [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0], [() => EnvironmentConfigurationName, 0]], 5
 ];
 export var CreateEnvironmentProfileInput$: StaticStructureSchema = [3, n0, _CEPI,
@@ -2565,8 +2596,8 @@ export var CreateProjectInput$: StaticStructureSchema = [3, n0, _CPI,
 ];
 export var CreateProjectMembershipInput$: StaticStructureSchema = [3, n0, _CPMI,
   0,
-  [_dI, _pIr, _mem, _des],
-  [[0, 1], [0, 1], () => Member$, 0], 4
+  [_dI, _pIr, _mem, _des, _uCDI],
+  [[0, 1], [0, 1], () => Member$, 0, 0], 4
 ];
 export var CreateProjectMembershipOutput$: StaticStructureSchema = [3, n0, _CPMO,
   0,
@@ -2788,12 +2819,22 @@ export var DeleteDataSourceOutput$: StaticStructureSchema = [3, n0, _DDSO,
   [_id, _n, _dIo, _pI, _st, _ty, _de, _eInvi, _cI, _conf, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _eM, _cA, _uA, _sGS, _rPORF],
   [0, [() => Name, 0], 0, 0, 0, 0, [() => Description, 0], 0, 0, () => DataSourceConfigurationOutput$, 0, 2, [() => FormOutputList, 0], [() => ScheduleConfiguration$, 0], 0, 5, () => DataSourceErrorMessage$, () => DataSourceErrorMessage$, 5, 5, () => SelfGrantStatusOutput$, 2], 4
 ];
-export var DeleteDomainInput$: StaticStructureSchema = [3, n0, _DDI,
+export var DeleteDesignationInput$: StaticStructureSchema = [3, n0, _DDI,
+  0,
+  [_dI, _i],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteDesignationOutput$: StaticStructureSchema = [3, n0, _DDO,
+  0,
+  [],
+  []
+];
+export var DeleteDomainInput$: StaticStructureSchema = [3, n0, _DDIe,
   0,
   [_i, _cT, _sDC, _cD],
   [[0, 1], [0, { [_hQ]: _cT, [_iTd]: 1 }], [2, { [_hQ]: _sDC }], [2, { [_hQ]: _cD }]], 1
 ];
-export var DeleteDomainOutput$: StaticStructureSchema = [3, n0, _DDO,
+export var DeleteDomainOutput$: StaticStructureSchema = [3, n0, _DDOe,
   0,
   [_st],
   [0], 1
@@ -2975,13 +3016,18 @@ export var DeleteTimeSeriesDataPointsOutput$: StaticStructureSchema = [3, n0, _D
 ];
 export var Deployment$: StaticStructureSchema = [3, n0, _De,
   0,
-  [_dIe, _dT, _dS, _fRa, _mes, _iDC],
+  [_dIe, _dTe, _dS, _fRa, _mes, _iDC],
   [0, 0, 0, () => EnvironmentError$, 64 | 0, 2]
 ];
 export var DeploymentProperties$: StaticStructureSchema = [3, n0, _DPe,
   0,
   [_sTM, _eTM],
   [1, 1]
+];
+export var DesignationSummary$: StaticStructureSchema = [3, n0, _DS,
+  0,
+  [_dIo, _id, _n, _dP, _cB, _de, _dT, _cA, _uA],
+  [0, 0, 0, 2, 0, [() => Description, 0], 0, 5, 5], 5
 ];
 export var DetailedGlossaryTerm$: StaticStructureSchema = [3, n0, _DGT,
   0,
@@ -3008,7 +3054,7 @@ export var DisassociateGovernedTermsOutput$: StaticStructureSchema = [3, n0, _DG
   [],
   []
 ];
-export var DomainSummary$: StaticStructureSchema = [3, n0, _DS,
+export var DomainSummary$: StaticStructureSchema = [3, n0, _DSo,
   0,
   [_id, _n, _ar, _mAI, _st, _cA, _de, _pU, _lUA, _dVo],
   [0, [() => DomainName, 0], 0, 0, 0, 4, [() => DomainDescription, 0], 0, 4, 0], 6
@@ -3263,14 +3309,24 @@ export var GetDataSourceRunOutput$: StaticStructureSchema = [3, n0, _GDSRO,
   [_dIo, _dSI, _id, _pI, _st, _ty, _cA, _uA, _dSCS, _rSFA, _lSi, _eM, _sAt, _sAto],
   [0, 0, 0, 0, 0, 0, 5, 5, 0, () => RunStatisticsForAssets$, () => DataSourceRunLineageSummary$, () => DataSourceErrorMessage$, 5, 5], 8
 ];
-export var GetDomainInput$: StaticStructureSchema = [3, n0, _GDI,
+export var GetDesignationInput$: StaticStructureSchema = [3, n0, _GDI,
+  0,
+  [_dI, _i],
+  [[0, 1], [0, 1]], 2
+];
+export var GetDesignationOutput$: StaticStructureSchema = [3, n0, _GDO,
+  0,
+  [_dIo, _id, _n, _dT, _po, _dP, _cB, _de, _cA, _lUA],
+  [0, 0, 0, 0, 0, 2, 0, [() => Description, 0], 5, 5], 7
+];
+export var GetDomainInput$: StaticStructureSchema = [3, n0, _GDIe,
   0,
   [_i],
   [[0, 1]], 1
 ];
-export var GetDomainOutput$: StaticStructureSchema = [3, n0, _GDO,
+export var GetDomainOutput$: StaticStructureSchema = [3, n0, _GDOe,
   0,
-  [_id, _dER, _st, _rDUI, _n, _de, _sSO, _ar, _kKI, _pU, _cA, _lUA, _ta, _dVo, _sRe, _fR, _dPe],
+  [_id, _dER, _st, _rDUI, _n, _de, _sSO, _ar, _kKI, _pU, _cA, _lUA, _ta, _dVo, _sRe, _fR, _dPel],
   [0, 0, 0, 0, 0, 0, () => SingleSignOn$, 0, 0, 0, 4, 4, 128 | 0, 0, 0, () => FailureReasonsList, () => DeleteProgress$], 3
 ];
 export var GetDomainUnitInput$: StaticStructureSchema = [3, n0, _GDUI,
@@ -3310,7 +3366,7 @@ export var GetEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _GEBI,
 ];
 export var GetEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _GEBO,
   0,
-  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _bC, _cA, _uA],
+  [_id, _n, _prov, _pPr, _de, _dPe, _uP, _gT, _bC, _cA, _uA],
   [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 0, 5, 5], 4
 ];
 export var GetEnvironmentCredentialsInput$: StaticStructureSchema = [3, n0, _GECI,
@@ -3330,7 +3386,7 @@ export var GetEnvironmentInput$: StaticStructureSchema = [3, n0, _GEI,
 ];
 export var GetEnvironmentOutput$: StaticStructureSchema = [3, n0, _GEO,
   0,
-  [_pI, _dIo, _cB, _n, _prov, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pPr, _dP, _eBIn, _eCI, _eCNn],
+  [_pI, _dIo, _cB, _n, _prov, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pPr, _dPe, _eBIn, _eCI, _eCNn],
   [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0], [() => EnvironmentConfigurationName, 0]], 5
 ];
 export var GetEnvironmentProfileInput$: StaticStructureSchema = [3, n0, _GEPI,
@@ -3923,12 +3979,22 @@ export var ListDataSourcesOutput$: StaticStructureSchema = [3, n0, _LDSO,
   [_it, _nT],
   [[() => DataSourceSummaries, 0], 0], 1
 ];
-export var ListDomainsInput$: StaticStructureSchema = [3, n0, _LDI,
+export var ListDesignationsInput$: StaticStructureSchema = [3, n0, _LDI,
+  0,
+  [_dI, _nT, _mRa],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
+];
+export var ListDesignationsOutput$: StaticStructureSchema = [3, n0, _LDO,
+  0,
+  [_it, _nT],
+  [[() => DesignationSummaries, 0], 0]
+];
+export var ListDomainsInput$: StaticStructureSchema = [3, n0, _LDIi,
   0,
   [_st, _mRa, _nT],
   [[0, { [_hQ]: _st }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
 ];
-export var ListDomainsOutput$: StaticStructureSchema = [3, n0, _LDO,
+export var ListDomainsOutput$: StaticStructureSchema = [3, n0, _LDOi,
   0,
   [_it, _nT],
   [[() => DomainSummaries, 0], 0], 1
@@ -4380,7 +4446,7 @@ export var PhysicalConnectionRequirements$: StaticStructureSchema = [3, n0, _PCR
 ];
 export var PhysicalEndpoint$: StaticStructureSchema = [3, n0, _PE,
   0,
-  [_aL, _gCN, _gCNl, _gC, _eTIP, _h, _po, _prot, _sta],
+  [_aL, _gCN, _gCNl, _gC, _eTIP, _h, _por, _prot, _sta],
   [() => AwsLocation$, 0, 64 | 0, [() => GlueConnection$, 0], 2, 0, 1, 0, 0]
 ];
 export var PolicyGrantMember$: StaticStructureSchema = [3, n0, _PGM,
@@ -4420,18 +4486,18 @@ export var ProjectDeletionError$: StaticStructureSchema = [3, n0, _PDE,
 ];
 export var ProjectMember$: StaticStructureSchema = [3, n0, _PM,
   0,
-  [_mD, _des],
-  [() => MemberDetails$, 0], 2
+  [_mD, _des, _uCDI],
+  [() => MemberDetails$, 0, 0], 2
 ];
 export var ProjectMembershipAssignment$: StaticStructureSchema = [3, n0, _PMA,
   0,
-  [_mem, _des],
-  [() => Member$, 0], 2
+  [_mem, _des, _uCDI],
+  [() => Member$, 0, 0], 2
 ];
 export var ProjectPolicyGrantPrincipal$: StaticStructureSchema = [3, n0, _PPGP,
   0,
-  [_pD, _pIr, _pGF],
-  [0, 0, () => ProjectGrantFilter$], 1
+  [_pD, _uCDI, _pIr, _pGF],
+  [0, 0, 0, () => ProjectGrantFilter$], 1
 ];
 export var ProjectProfileSummary$: StaticStructureSchema = [3, n0, _PPS,
   0,
@@ -4510,7 +4576,7 @@ export var RedshiftLineageSyncConfigurationOutput$: StaticStructureSchema = [3, 
 ];
 export var RedshiftPropertiesInput$: StaticStructureSchema = [3, n0, _RPI,
   0,
-  [_sto, _dNa, _h, _po, _cr, _lSin],
+  [_sto, _dNa, _h, _por, _cr, _lSin],
   [() => RedshiftStorageProperties$, 0, 0, 1, [() => RedshiftCredentials$, 0], () => RedshiftLineageSyncConfigurationInput$]
 ];
 export var RedshiftPropertiesOutput$: StaticStructureSchema = [3, n0, _RPO,
@@ -4520,7 +4586,7 @@ export var RedshiftPropertiesOutput$: StaticStructureSchema = [3, n0, _RPO,
 ];
 export var RedshiftPropertiesPatch$: StaticStructureSchema = [3, n0, _RPP,
   0,
-  [_sto, _dNa, _h, _po, _cr, _lSin],
+  [_sto, _dNa, _h, _por, _cr, _lSin],
   [() => RedshiftStorageProperties$, 0, 0, 1, [() => RedshiftCredentials$, 0], () => RedshiftLineageSyncConfigurationInput$]
 ];
 export var RedshiftRunConfigurationInput$: StaticStructureSchema = [3, n0, _RRCI,
@@ -5088,12 +5154,22 @@ export var UpdateDataSourceOutput$: StaticStructureSchema = [3, n0, _UDSO,
   [_id, _n, _dIo, _pI, _st, _ty, _de, _eInvi, _cI, _conf, _re, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _eM, _cA, _uA, _sGS, _rPORF],
   [0, [() => Name, 0], 0, 0, 0, 0, [() => Description, 0], 0, 0, () => DataSourceConfigurationOutput$, () => RecommendationConfiguration$, 0, 2, [() => FormOutputList, 0], [() => ScheduleConfiguration$, 0], 0, 5, () => DataSourceErrorMessage$, () => DataSourceErrorMessage$, 5, 5, () => SelfGrantStatusOutput$, 2], 4
 ];
-export var UpdateDomainInput$: StaticStructureSchema = [3, n0, _UDI,
+export var UpdateDesignationInput$: StaticStructureSchema = [3, n0, _UDI,
+  0,
+  [_dI, _i, _n, _de, _po, _dP],
+  [[0, 1], [0, 1], 0, [() => Description, 0], 0, 2], 2
+];
+export var UpdateDesignationOutput$: StaticStructureSchema = [3, n0, _UDO,
+  0,
+  [_dIo, _id, _n, _dT, _po, _dP, _cB, _de, _cA, _lUA],
+  [0, 0, 0, 0, 0, 2, 0, [() => Description, 0], 5, 5], 7
+];
+export var UpdateDomainInput$: StaticStructureSchema = [3, n0, _UDIp,
   0,
   [_i, _de, _sSO, _dER, _sRe, _n, _cT],
   [[0, 1], 0, () => SingleSignOn$, 0, 0, 0, [0, { [_hQ]: _cT, [_iTd]: 1 }]], 1
 ];
-export var UpdateDomainOutput$: StaticStructureSchema = [3, n0, _UDO,
+export var UpdateDomainOutput$: StaticStructureSchema = [3, n0, _UDOp,
   0,
   [_id, _rDUI, _de, _sSO, _dER, _sRe, _n, _lUA],
   [0, 0, 0, () => SingleSignOn$, 0, 0, 0, 4], 1
@@ -5125,7 +5201,7 @@ export var UpdateEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _UE
 ];
 export var UpdateEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _UEBO,
   0,
-  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _bC, _cA, _uA],
+  [_id, _n, _prov, _pPr, _de, _dPe, _uP, _gT, _bC, _cA, _uA],
   [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 0, 5, 5], 4
 ];
 export var UpdateEnvironmentInput$: StaticStructureSchema = [3, n0, _UEI,
@@ -5135,7 +5211,7 @@ export var UpdateEnvironmentInput$: StaticStructureSchema = [3, n0, _UEI,
 ];
 export var UpdateEnvironmentOutput$: StaticStructureSchema = [3, n0, _UEO,
   0,
-  [_pI, _dIo, _cB, _n, _prov, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pPr, _dP, _eBIn, _eCI, _eCNn],
+  [_pI, _dIo, _cB, _n, _prov, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pPr, _dPe, _eBIn, _eCI, _eCNn],
   [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0], [() => EnvironmentConfigurationName, 0]], 5
 ];
 export var UpdateEnvironmentProfileInput$: StaticStructureSchema = [3, n0, _UEPI,
@@ -5421,11 +5497,15 @@ var DataSourceSummaries: StaticListSchema = [1, n0, _DSSa,
     0]
 ];
 var DeploymentMessagesList = 64 | 0;
+var DesignationSummaries: StaticListSchema = [1, n0, _DSe,
+  0, [() => DesignationSummary$,
+    0]
+];
 var DetailedGlossaryTerms: StaticListSchema = [1, n0, _DGTe,
   0, [() => DetailedGlossaryTerm$,
     0]
 ];
-var DomainSummaries: StaticListSchema = [1, n0, _DSo,
+var DomainSummaries: StaticListSchema = [1, n0, _DSom,
   0, [() => DomainSummary$,
     0]
 ];
@@ -6079,7 +6159,10 @@ export var CreateDataProductRevision$: StaticOperationSchema = [9, n0, _CDPR,
 export var CreateDataSource$: StaticOperationSchema = [9, n0, _CDS,
   { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/data-sources", 201] }, () => CreateDataSourceInput$, () => CreateDataSourceOutput$
 ];
-export var CreateDomain$: StaticOperationSchema = [9, n0, _CD,
+export var CreateDesignation$: StaticOperationSchema = [9, n0, _CD,
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/designations", 201] }, () => CreateDesignationInput$, () => CreateDesignationOutput$
+];
+export var CreateDomain$: StaticOperationSchema = [9, n0, _CDr,
   { [_ht]: ["POST", "/v2/domains", 201] }, () => CreateDomainInput$, () => CreateDomainOutput$
 ];
 export var CreateDomainUnit$: StaticOperationSchema = [9, n0, _CDU,
@@ -6163,7 +6246,10 @@ export var DeleteDataProduct$: StaticOperationSchema = [9, n0, _DDP,
 export var DeleteDataSource$: StaticOperationSchema = [9, n0, _DDS,
   { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/data-sources/{identifier}", 200] }, () => DeleteDataSourceInput$, () => DeleteDataSourceOutput$
 ];
-export var DeleteDomain$: StaticOperationSchema = [9, n0, _DDe,
+export var DeleteDesignation$: StaticOperationSchema = [9, n0, _DDe,
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/designations/{identifier}", 204] }, () => DeleteDesignationInput$, () => DeleteDesignationOutput$
+];
+export var DeleteDomain$: StaticOperationSchema = [9, n0, _DDel,
   { [_ht]: ["DELETE", "/v2/domains/{identifier}", 202] }, () => DeleteDomainInput$, () => DeleteDomainOutput$
 ];
 export var DeleteDomainUnit$: StaticOperationSchema = [9, n0, _DDU,
@@ -6259,7 +6345,10 @@ export var GetDataSource$: StaticOperationSchema = [9, n0, _GDS,
 export var GetDataSourceRun$: StaticOperationSchema = [9, n0, _GDSR,
   { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-source-runs/{identifier}", 200] }, () => GetDataSourceRunInput$, () => GetDataSourceRunOutput$
 ];
-export var GetDomain$: StaticOperationSchema = [9, n0, _GDe,
+export var GetDesignation$: StaticOperationSchema = [9, n0, _GDe,
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/designations/{identifier}", 200] }, () => GetDesignationInput$, () => GetDesignationOutput$
+];
+export var GetDomain$: StaticOperationSchema = [9, n0, _GDet,
   { [_ht]: ["GET", "/v2/domains/{identifier}", 200] }, () => GetDomainInput$, () => GetDomainOutput$
 ];
 export var GetDomainUnit$: StaticOperationSchema = [9, n0, _GDU,
@@ -6376,7 +6465,10 @@ export var ListDataSourceRuns$: StaticOperationSchema = [9, n0, _LDSR,
 export var ListDataSources$: StaticOperationSchema = [9, n0, _LDS,
   { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-sources", 200] }, () => ListDataSourcesInput$, () => ListDataSourcesOutput$
 ];
-export var ListDomains$: StaticOperationSchema = [9, n0, _LDi,
+export var ListDesignations$: StaticOperationSchema = [9, n0, _LDi,
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/designations", 200] }, () => ListDesignationsInput$, () => ListDesignationsOutput$
+];
+export var ListDomains$: StaticOperationSchema = [9, n0, _LDis,
   { [_ht]: ["GET", "/v2/domains", 200] }, () => ListDomainsInput$, () => ListDomainsOutput$
 ];
 export var ListDomainUnitsForParent$: StaticOperationSchema = [9, n0, _LDUFP,
@@ -6538,7 +6630,10 @@ export var UpdateConnection$: StaticOperationSchema = [9, n0, _UC,
 export var UpdateDataSource$: StaticOperationSchema = [9, n0, _UDS,
   { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/data-sources/{identifier}", 200] }, () => UpdateDataSourceInput$, () => UpdateDataSourceOutput$
 ];
-export var UpdateDomain$: StaticOperationSchema = [9, n0, _UDp,
+export var UpdateDesignation$: StaticOperationSchema = [9, n0, _UDp,
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/designations/{identifier}", 200] }, () => UpdateDesignationInput$, () => UpdateDesignationOutput$
+];
+export var UpdateDomain$: StaticOperationSchema = [9, n0, _UDpd,
   { [_ht]: ["PUT", "/v2/domains/{identifier}", 200] }, () => UpdateDomainInput$, () => UpdateDomainOutput$
 ];
 export var UpdateDomainUnit$: StaticOperationSchema = [9, n0, _UDU,

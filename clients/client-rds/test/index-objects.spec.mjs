@@ -39,6 +39,7 @@ import {
   AutomationMode,
   AvailabilityZone$,
   AvailableAdditionalStorageVolumesOption$,
+  AvailableCapacityPerAvailabilityZone$,
   AvailableProcessorFeature$,
   BacktrackDBCluster$,
   BacktrackDBClusterCommand,
@@ -51,6 +52,10 @@ import {
   BlueGreenDeploymentNotFoundFault,
   BlueGreenDeploymentNotFoundFault$,
   BlueGreenDeploymentTask$,
+  CancelDBCapacityReservation$,
+  CancelDBCapacityReservationCommand,
+  CancelDBCapacityReservationRequest$,
+  CancelDBCapacityReservationResponse$,
   CancelExportTask$,
   CancelExportTaskCommand,
   CancelExportTaskMessage$,
@@ -96,6 +101,10 @@ import {
   CreateCustomDBEngineVersionFault,
   CreateCustomDBEngineVersionFault$,
   CreateCustomDBEngineVersionMessage$,
+  CreateDBCapacityReservation$,
+  CreateDBCapacityReservationCommand,
+  CreateDBCapacityReservationRequest$,
+  CreateDBCapacityReservationResponse$,
   CreateDBCluster$,
   CreateDBClusterCommand,
   CreateDBClusterEndpoint$,
@@ -176,6 +185,15 @@ import {
   CustomDBEngineVersionQuotaExceededFault$,
   CustomEngineVersionStatus,
   DatabaseInsightsMode,
+  DBCapacityReservation$,
+  DBCapacityReservationAlreadyExistsFault,
+  DBCapacityReservationAlreadyExistsFault$,
+  DBCapacityReservationCommitmentInfo$,
+  DBCapacityReservationNotFoundFault,
+  DBCapacityReservationNotFoundFault$,
+  DBCapacityReservationState,
+  DBCapacityReservationUnsupportedFault,
+  DBCapacityReservationUnsupportedFault$,
   DBCluster$,
   DBClusterAlreadyExistsFault,
   DBClusterAlreadyExistsFault$,
@@ -429,6 +447,10 @@ import {
   DescribeCertificates$,
   DescribeCertificatesCommand,
   DescribeCertificatesMessage$,
+  DescribeDBCapacityReservations$,
+  DescribeDBCapacityReservationsCommand,
+  DescribeDBCapacityReservationsRequest$,
+  DescribeDBCapacityReservationsResponse$,
   DescribeDBClusterAutomatedBackups$,
   DescribeDBClusterAutomatedBackupsCommand,
   DescribeDBClusterAutomatedBackupsMessage$,
@@ -595,6 +617,7 @@ import {
   EnableHttpEndpointCommand,
   EnableHttpEndpointRequest$,
   EnableHttpEndpointResponse$,
+  EndDateType,
   Endpoint$,
   EndpointNetworkType,
   EngineDefaults$,
@@ -665,6 +688,8 @@ import {
   InvalidBlueGreenDeploymentStateFault$,
   InvalidCustomDBEngineVersionStateFault,
   InvalidCustomDBEngineVersionStateFault$,
+  InvalidDBCapacityReservationStateFault,
+  InvalidDBCapacityReservationStateFault$,
   InvalidDBClusterAutomatedBackupStateFault,
   InvalidDBClusterAutomatedBackupStateFault$,
   InvalidDBClusterCapacityFault,
@@ -755,6 +780,10 @@ import {
   ModifyCustomDBEngineVersion$,
   ModifyCustomDBEngineVersionCommand,
   ModifyCustomDBEngineVersionMessage$,
+  ModifyDBCapacityReservation$,
+  ModifyDBCapacityReservationCommand,
+  ModifyDBCapacityReservationRequest$,
+  ModifyDBCapacityReservationResponse$,
   ModifyDBCluster$,
   ModifyDBClusterCommand,
   ModifyDBClusterEndpoint$,
@@ -848,6 +877,7 @@ import {
   Outpost$,
   paginateDescribeBlueGreenDeployments,
   paginateDescribeCertificates,
+  paginateDescribeDBCapacityReservations,
   paginateDescribeDBClusterAutomatedBackups,
   paginateDescribeDBClusterBacktracks,
   paginateDescribeDBClusterEndpoints,
@@ -1172,6 +1202,8 @@ assert(typeof AuthorizeDBSecurityGroupIngressCommand === "function");
 assert(typeof AuthorizeDBSecurityGroupIngress$ === "object");
 assert(typeof BacktrackDBClusterCommand === "function");
 assert(typeof BacktrackDBCluster$ === "object");
+assert(typeof CancelDBCapacityReservationCommand === "function");
+assert(typeof CancelDBCapacityReservation$ === "object");
 assert(typeof CancelExportTaskCommand === "function");
 assert(typeof CancelExportTask$ === "object");
 assert(typeof CopyDBClusterParameterGroupCommand === "function");
@@ -1188,6 +1220,8 @@ assert(typeof CreateBlueGreenDeploymentCommand === "function");
 assert(typeof CreateBlueGreenDeployment$ === "object");
 assert(typeof CreateCustomDBEngineVersionCommand === "function");
 assert(typeof CreateCustomDBEngineVersion$ === "object");
+assert(typeof CreateDBCapacityReservationCommand === "function");
+assert(typeof CreateDBCapacityReservation$ === "object");
 assert(typeof CreateDBClusterCommand === "function");
 assert(typeof CreateDBCluster$ === "object");
 assert(typeof CreateDBClusterEndpointCommand === "function");
@@ -1274,6 +1308,8 @@ assert(typeof DescribeBlueGreenDeploymentsCommand === "function");
 assert(typeof DescribeBlueGreenDeployments$ === "object");
 assert(typeof DescribeCertificatesCommand === "function");
 assert(typeof DescribeCertificates$ === "object");
+assert(typeof DescribeDBCapacityReservationsCommand === "function");
+assert(typeof DescribeDBCapacityReservations$ === "object");
 assert(typeof DescribeDBClusterAutomatedBackupsCommand === "function");
 assert(typeof DescribeDBClusterAutomatedBackups$ === "object");
 assert(typeof DescribeDBClusterBacktracksCommand === "function");
@@ -1382,6 +1418,8 @@ assert(typeof ModifyCurrentDBClusterCapacityCommand === "function");
 assert(typeof ModifyCurrentDBClusterCapacity$ === "object");
 assert(typeof ModifyCustomDBEngineVersionCommand === "function");
 assert(typeof ModifyCustomDBEngineVersion$ === "object");
+assert(typeof ModifyDBCapacityReservationCommand === "function");
+assert(typeof ModifyDBCapacityReservation$ === "object");
 assert(typeof ModifyDBClusterCommand === "function");
 assert(typeof ModifyDBCluster$ === "object");
 assert(typeof ModifyDBClusterEndpointCommand === "function");
@@ -1502,10 +1540,13 @@ assert(typeof AuthorizeDBSecurityGroupIngressMessage$ === "object");
 assert(typeof AuthorizeDBSecurityGroupIngressResult$ === "object");
 assert(typeof AvailabilityZone$ === "object");
 assert(typeof AvailableAdditionalStorageVolumesOption$ === "object");
+assert(typeof AvailableCapacityPerAvailabilityZone$ === "object");
 assert(typeof AvailableProcessorFeature$ === "object");
 assert(typeof BacktrackDBClusterMessage$ === "object");
 assert(typeof BlueGreenDeployment$ === "object");
 assert(typeof BlueGreenDeploymentTask$ === "object");
+assert(typeof CancelDBCapacityReservationRequest$ === "object");
+assert(typeof CancelDBCapacityReservationResponse$ === "object");
 assert(typeof CancelExportTaskMessage$ === "object");
 assert(typeof Certificate$ === "object");
 assert(typeof CertificateDetails$ === "object");
@@ -1529,6 +1570,8 @@ assert(typeof CopyOptionGroupResult$ === "object");
 assert(typeof CreateBlueGreenDeploymentRequest$ === "object");
 assert(typeof CreateBlueGreenDeploymentResponse$ === "object");
 assert(typeof CreateCustomDBEngineVersionMessage$ === "object");
+assert(typeof CreateDBCapacityReservationRequest$ === "object");
+assert(typeof CreateDBCapacityReservationResponse$ === "object");
 assert(typeof CreateDBClusterEndpointMessage$ === "object");
 assert(typeof CreateDBClusterMessage$ === "object");
 assert(typeof CreateDBClusterParameterGroupMessage$ === "object");
@@ -1563,6 +1606,8 @@ assert(typeof CreateOptionGroupResult$ === "object");
 assert(typeof CreateTenantDatabaseMessage$ === "object");
 assert(typeof CreateTenantDatabaseResult$ === "object");
 assert(typeof CustomDBEngineVersionAMI$ === "object");
+assert(typeof DBCapacityReservation$ === "object");
+assert(typeof DBCapacityReservationCommitmentInfo$ === "object");
 assert(typeof DBCluster$ === "object");
 assert(typeof DBClusterAssociatedRole$ === "object");
 assert(typeof DBClusterAutomatedBackup$ === "object");
@@ -1658,6 +1703,8 @@ assert(typeof DescribeAccountAttributesMessage$ === "object");
 assert(typeof DescribeBlueGreenDeploymentsRequest$ === "object");
 assert(typeof DescribeBlueGreenDeploymentsResponse$ === "object");
 assert(typeof DescribeCertificatesMessage$ === "object");
+assert(typeof DescribeDBCapacityReservationsRequest$ === "object");
+assert(typeof DescribeDBCapacityReservationsResponse$ === "object");
 assert(typeof DescribeDBClusterAutomatedBackupsMessage$ === "object");
 assert(typeof DescribeDBClusterBacktracksMessage$ === "object");
 assert(typeof DescribeDBClusterEndpointsMessage$ === "object");
@@ -1763,6 +1810,8 @@ assert(typeof ModifyCertificatesMessage$ === "object");
 assert(typeof ModifyCertificatesResult$ === "object");
 assert(typeof ModifyCurrentDBClusterCapacityMessage$ === "object");
 assert(typeof ModifyCustomDBEngineVersionMessage$ === "object");
+assert(typeof ModifyDBCapacityReservationRequest$ === "object");
+assert(typeof ModifyDBCapacityReservationResponse$ === "object");
 assert(typeof ModifyDBClusterEndpointMessage$ === "object");
 assert(typeof ModifyDBClusterMessage$ === "object");
 assert(typeof ModifyDBClusterParameterGroupMessage$ === "object");
@@ -1931,10 +1980,12 @@ assert(typeof ClientPasswordAuthType === "object");
 assert(typeof ClusterScalabilityType === "object");
 assert(typeof CustomEngineVersionStatus === "object");
 assert(typeof DatabaseInsightsMode === "object");
+assert(typeof DBCapacityReservationState === "object");
 assert(typeof DBProxyEndpointStatus === "object");
 assert(typeof DBProxyEndpointTargetRole === "object");
 assert(typeof DBProxyStatus === "object");
 assert(typeof DefaultAuthScheme === "object");
+assert(typeof EndDateType === "object");
 assert(typeof EndpointNetworkType === "object");
 assert(typeof EngineFamily === "object");
 assert(typeof ExportSourceType === "object");
@@ -1981,6 +2032,12 @@ assert(CustomDBEngineVersionNotFoundFault.prototype instanceof RDSServiceExcepti
 assert(typeof CustomDBEngineVersionNotFoundFault$ === "object");
 assert(CustomDBEngineVersionQuotaExceededFault.prototype instanceof RDSServiceException);
 assert(typeof CustomDBEngineVersionQuotaExceededFault$ === "object");
+assert(DBCapacityReservationAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(typeof DBCapacityReservationAlreadyExistsFault$ === "object");
+assert(DBCapacityReservationNotFoundFault.prototype instanceof RDSServiceException);
+assert(typeof DBCapacityReservationNotFoundFault$ === "object");
+assert(DBCapacityReservationUnsupportedFault.prototype instanceof RDSServiceException);
+assert(typeof DBCapacityReservationUnsupportedFault$ === "object");
 assert(DBClusterAlreadyExistsFault.prototype instanceof RDSServiceException);
 assert(typeof DBClusterAlreadyExistsFault$ === "object");
 assert(DBClusterAutomatedBackupNotFoundFault.prototype instanceof RDSServiceException);
@@ -2127,6 +2184,8 @@ assert(InvalidBlueGreenDeploymentStateFault.prototype instanceof RDSServiceExcep
 assert(typeof InvalidBlueGreenDeploymentStateFault$ === "object");
 assert(InvalidCustomDBEngineVersionStateFault.prototype instanceof RDSServiceException);
 assert(typeof InvalidCustomDBEngineVersionStateFault$ === "object");
+assert(InvalidDBCapacityReservationStateFault.prototype instanceof RDSServiceException);
+assert(typeof InvalidDBCapacityReservationStateFault$ === "object");
 assert(InvalidDBClusterAutomatedBackupStateFault.prototype instanceof RDSServiceException);
 assert(typeof InvalidDBClusterAutomatedBackupStateFault$ === "object");
 assert(InvalidDBClusterCapacityFault.prototype instanceof RDSServiceException);
@@ -2274,6 +2333,7 @@ assert(typeof waitUntilTenantDatabaseDeleted === "function");
 // paginators
 assert(typeof paginateDescribeBlueGreenDeployments === "function");
 assert(typeof paginateDescribeCertificates === "function");
+assert(typeof paginateDescribeDBCapacityReservations === "function");
 assert(typeof paginateDescribeDBClusterAutomatedBackups === "function");
 assert(typeof paginateDescribeDBClusterBacktracks === "function");
 assert(typeof paginateDescribeDBClusterEndpoints === "function");

@@ -285,6 +285,7 @@ import type {
 } from "./commands/ModifyServerlessCacheCommand";
 import type { ModifyUserCommandInput, ModifyUserCommandOutput } from "./commands/ModifyUserCommand";
 import type { ModifyUserGroupCommandInput, ModifyUserGroupCommandOutput } from "./commands/ModifyUserGroupCommand";
+import type { PrepareMigrationCommandInput, PrepareMigrationCommandOutput } from "./commands/PrepareMigrationCommand";
 import type {
   PurchaseReservedCacheNodesOfferingCommandInput,
   PurchaseReservedCacheNodesOfferingCommandOutput,
@@ -310,6 +311,7 @@ import type {
   RevokeCacheSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeCacheSecurityGroupIngressCommand";
 import type { StartMigrationCommandInput, StartMigrationCommandOutput } from "./commands/StartMigrationCommand";
+import type { StopMigrationCommandInput, StopMigrationCommandOutput } from "./commands/StopMigrationCommand";
 import type { TestFailoverCommandInput, TestFailoverCommandOutput } from "./commands/TestFailoverCommand";
 import type { TestMigrationCommandInput, TestMigrationCommandOutput } from "./commands/TestMigrationCommand";
 import {
@@ -393,6 +395,7 @@ export type ServiceInputTypes =
   | ModifyServerlessCacheCommandInput
   | ModifyUserCommandInput
   | ModifyUserGroupCommandInput
+  | PrepareMigrationCommandInput
   | PurchaseReservedCacheNodesOfferingCommandInput
   | RebalanceSlotsInGlobalReplicationGroupCommandInput
   | RebootCacheClusterCommandInput
@@ -400,6 +403,7 @@ export type ServiceInputTypes =
   | ResetCacheParameterGroupCommandInput
   | RevokeCacheSecurityGroupIngressCommandInput
   | StartMigrationCommandInput
+  | StopMigrationCommandInput
   | TestFailoverCommandInput
   | TestMigrationCommandInput;
 
@@ -473,6 +477,7 @@ export type ServiceOutputTypes =
   | ModifyServerlessCacheCommandOutput
   | ModifyUserCommandOutput
   | ModifyUserGroupCommandOutput
+  | PrepareMigrationCommandOutput
   | PurchaseReservedCacheNodesOfferingCommandOutput
   | RebalanceSlotsInGlobalReplicationGroupCommandOutput
   | RebootCacheClusterCommandOutput
@@ -480,6 +485,7 @@ export type ServiceOutputTypes =
   | ResetCacheParameterGroupCommandOutput
   | RevokeCacheSecurityGroupIngressCommandOutput
   | StartMigrationCommandOutput
+  | StopMigrationCommandOutput
   | TestFailoverCommandOutput
   | TestMigrationCommandOutput;
 
@@ -613,7 +619,8 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 
   /**
    * Specifies which retry algorithm to use.
-   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   * Accepted values are "standard" and "adaptive".
+   * @see https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html
    *
    */
   retryMode?: string | __Provider<string>;

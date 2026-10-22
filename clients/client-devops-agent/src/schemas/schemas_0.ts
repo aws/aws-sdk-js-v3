@@ -233,6 +233,9 @@ const _MCPSSVSD = "MCPServerSigV4ServiceDetails";
 const _MCPTD = "MCPToolDetail";
 const _MCPTDL = "MCPToolDetailsList";
 const _MR = "MonthlyRecurrence";
+const _MSTC = "MSTeamsChannel";
+const _MSTCe = "MSTeamsConfiguration";
+const _MSTTT = "MSTeamsTransmissionTarget";
 const _NAC = "NetworkAccessConfiguration";
 const _NRAK = "NewRelicApiKey";
 const _NRAKC = "NewRelicApiKeyConfig";
@@ -557,6 +560,7 @@ const _me = "metadata";
 const _mes = "messages";
 const _mo = "mode";
 const _mon = "monthly";
+const _ms = "msteams";
 const _n = "name";
 const _nA = "networkAccess";
 const _nT = "nextToken";
@@ -664,8 +668,8 @@ const _tDe = "textDelta";
 const _tFG = "triggerFilterGroups";
 const _tI = "triggerId";
 const _tIa = "taskId";
-const _tIe = "tenantId";
-const _tIea = "teamId";
+const _tIe = "teamId";
+const _tIen = "tenantId";
 const _tK = "tagKeys";
 const _tN = "tokenName";
 const _tNe = "teamName";
@@ -1579,6 +1583,21 @@ export var MonthlyRecurrence$: StaticStructureSchema = [3, n0, _MR,
   [_dOM],
   [1], 1
 ];
+export var MSTeamsChannel$: StaticStructureSchema = [3, n0, _MSTC,
+  0,
+  [_cNh, _cIh],
+  [0, 0], 2
+];
+export var MSTeamsConfiguration$: StaticStructureSchema = [3, n0, _MSTCe,
+  0,
+  [_tIe, _tNe, _tTr],
+  [0, 0, () => MSTeamsTransmissionTarget$], 3
+];
+export var MSTeamsTransmissionTarget$: StaticStructureSchema = [3, n0, _MSTTT,
+  0,
+  [_oOT, _oSRET],
+  [() => MSTeamsChannel$, () => MSTeamsChannel$]
+];
 export var NewRelicApiKeyConfig$: StaticStructureSchema = [3, n0, _NRAKC,
   0,
   [_aK, _aIc, _reg, _aIp, _eG, _aPI],
@@ -1656,7 +1675,7 @@ export var RegisteredAzureDevOpsServiceDetails$: StaticStructureSchema = [3, n0,
 ];
 export var RegisteredAzureIdentityDetails$: StaticStructureSchema = [3, n0, _RAID,
   0,
-  [_tIe, _cI, _wIRA, _wITA],
+  [_tIen, _cI, _wIRA, _wITA],
   [0, 0, 0, 64 | 0], 4
 ];
 export var RegisteredGithubServiceDetails$: StaticStructureSchema = [3, n0, _RGSD,
@@ -1716,7 +1735,7 @@ export var RegisteredServiceNowDetails$: StaticStructureSchema = [3, n0, _RSND,
 ];
 export var RegisteredSlackServiceDetails$: StaticStructureSchema = [3, n0, _RSSD,
   0,
-  [_tIea, _tNe],
+  [_tIe, _tNe],
   [0, 0], 2
 ];
 export var RegisterServiceInput$: StaticStructureSchema = [3, n0, _RSI,
@@ -2297,8 +2316,8 @@ export var SendMessageEvents$: StaticUnionSchema = [4, n0, _SME,
 ];
 export var ServiceConfiguration$: StaticUnionSchema = [4, n0, _SCe,
   0,
-  [_sAo, _aw, _gi, _sl, _dy, _servi, _mcpse, _mc, _mcp, _git, _mcps, _eCv, _azur, _az, _mcpser, _pag, _mcpserv, _rem, _remo, _rM],
-  [() => SourceAwsConfiguration$, () => AWSConfiguration$, () => GitHubConfiguration$, () => SlackConfiguration$, () => DynatraceConfiguration$, () => ServiceNowConfiguration$, () => MCPServerNewRelicConfiguration$, () => MCPServerDatadogConfiguration$, () => MCPServerConfiguration$, () => GitLabConfiguration$, () => MCPServerSplunkConfiguration$, () => EventChannelConfiguration$, () => AzureConfiguration$, () => AzureDevOpsConfiguration$, () => MCPServerGrafanaConfiguration$, [() => PagerDutyConfiguration$, 0], () => MCPServerSigV4Configuration$, () => RemoteAgentConfiguration$, () => RemoteAgentSigV4Configuration$, () => ReleaseManagementConfiguration$]
+  [_sAo, _aw, _gi, _sl, _dy, _servi, _mcpse, _mc, _mcp, _git, _mcps, _eCv, _azur, _az, _mcpser, _pag, _mcpserv, _rem, _remo, _ms, _rM],
+  [() => SourceAwsConfiguration$, () => AWSConfiguration$, () => GitHubConfiguration$, () => SlackConfiguration$, () => DynatraceConfiguration$, () => ServiceNowConfiguration$, () => MCPServerNewRelicConfiguration$, () => MCPServerDatadogConfiguration$, () => MCPServerConfiguration$, () => GitLabConfiguration$, () => MCPServerSplunkConfiguration$, () => EventChannelConfiguration$, () => AzureConfiguration$, () => AzureDevOpsConfiguration$, () => MCPServerGrafanaConfiguration$, [() => PagerDutyConfiguration$, 0], () => MCPServerSigV4Configuration$, () => RemoteAgentConfiguration$, () => RemoteAgentSigV4Configuration$, () => MSTeamsConfiguration$, () => ReleaseManagementConfiguration$]
 ];
 export var ServiceDetails$: StaticUnionSchema = [4, n0, _SD,
   0,

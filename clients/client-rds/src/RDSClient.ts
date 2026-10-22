@@ -82,6 +82,10 @@ import type {
   BacktrackDBClusterCommandInput,
   BacktrackDBClusterCommandOutput,
 } from "./commands/BacktrackDBClusterCommand";
+import type {
+  CancelDBCapacityReservationCommandInput,
+  CancelDBCapacityReservationCommandOutput,
+} from "./commands/CancelDBCapacityReservationCommand";
 import type { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand";
 import type {
   CopyDBClusterParameterGroupCommandInput,
@@ -105,6 +109,10 @@ import type {
   CreateCustomDBEngineVersionCommandInput,
   CreateCustomDBEngineVersionCommandOutput,
 } from "./commands/CreateCustomDBEngineVersionCommand";
+import type {
+  CreateDBCapacityReservationCommandInput,
+  CreateDBCapacityReservationCommandOutput,
+} from "./commands/CreateDBCapacityReservationCommand";
 import type { CreateDBClusterCommandInput, CreateDBClusterCommandOutput } from "./commands/CreateDBClusterCommand";
 import type {
   CreateDBClusterEndpointCommandInput,
@@ -253,6 +261,10 @@ import type {
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
 } from "./commands/DescribeCertificatesCommand";
+import type {
+  DescribeDBCapacityReservationsCommandInput,
+  DescribeDBCapacityReservationsCommandOutput,
+} from "./commands/DescribeDBCapacityReservationsCommand";
 import type {
   DescribeDBClusterAutomatedBackupsCommandInput,
   DescribeDBClusterAutomatedBackupsCommandOutput,
@@ -466,6 +478,10 @@ import type {
   ModifyCustomDBEngineVersionCommandInput,
   ModifyCustomDBEngineVersionCommandOutput,
 } from "./commands/ModifyCustomDBEngineVersionCommand";
+import type {
+  ModifyDBCapacityReservationCommandInput,
+  ModifyDBCapacityReservationCommandOutput,
+} from "./commands/ModifyDBCapacityReservationCommand";
 import type { ModifyDBClusterCommandInput, ModifyDBClusterCommandOutput } from "./commands/ModifyDBClusterCommand";
 import type {
   ModifyDBClusterEndpointCommandInput,
@@ -663,6 +679,7 @@ export type ServiceInputTypes =
   | ApplyPendingMaintenanceActionCommandInput
   | AuthorizeDBSecurityGroupIngressCommandInput
   | BacktrackDBClusterCommandInput
+  | CancelDBCapacityReservationCommandInput
   | CancelExportTaskCommandInput
   | CopyDBClusterParameterGroupCommandInput
   | CopyDBClusterSnapshotCommandInput
@@ -671,6 +688,7 @@ export type ServiceInputTypes =
   | CopyOptionGroupCommandInput
   | CreateBlueGreenDeploymentCommandInput
   | CreateCustomDBEngineVersionCommandInput
+  | CreateDBCapacityReservationCommandInput
   | CreateDBClusterCommandInput
   | CreateDBClusterEndpointCommandInput
   | CreateDBClusterParameterGroupCommandInput
@@ -714,6 +732,7 @@ export type ServiceInputTypes =
   | DescribeAccountAttributesCommandInput
   | DescribeBlueGreenDeploymentsCommandInput
   | DescribeCertificatesCommandInput
+  | DescribeDBCapacityReservationsCommandInput
   | DescribeDBClusterAutomatedBackupsCommandInput
   | DescribeDBClusterBacktracksCommandInput
   | DescribeDBClusterEndpointsCommandInput
@@ -768,6 +787,7 @@ export type ServiceInputTypes =
   | ModifyCertificatesCommandInput
   | ModifyCurrentDBClusterCapacityCommandInput
   | ModifyCustomDBEngineVersionCommandInput
+  | ModifyDBCapacityReservationCommandInput
   | ModifyDBClusterCommandInput
   | ModifyDBClusterEndpointCommandInput
   | ModifyDBClusterParameterGroupCommandInput
@@ -832,6 +852,7 @@ export type ServiceOutputTypes =
   | ApplyPendingMaintenanceActionCommandOutput
   | AuthorizeDBSecurityGroupIngressCommandOutput
   | BacktrackDBClusterCommandOutput
+  | CancelDBCapacityReservationCommandOutput
   | CancelExportTaskCommandOutput
   | CopyDBClusterParameterGroupCommandOutput
   | CopyDBClusterSnapshotCommandOutput
@@ -840,6 +861,7 @@ export type ServiceOutputTypes =
   | CopyOptionGroupCommandOutput
   | CreateBlueGreenDeploymentCommandOutput
   | CreateCustomDBEngineVersionCommandOutput
+  | CreateDBCapacityReservationCommandOutput
   | CreateDBClusterCommandOutput
   | CreateDBClusterEndpointCommandOutput
   | CreateDBClusterParameterGroupCommandOutput
@@ -883,6 +905,7 @@ export type ServiceOutputTypes =
   | DescribeAccountAttributesCommandOutput
   | DescribeBlueGreenDeploymentsCommandOutput
   | DescribeCertificatesCommandOutput
+  | DescribeDBCapacityReservationsCommandOutput
   | DescribeDBClusterAutomatedBackupsCommandOutput
   | DescribeDBClusterBacktracksCommandOutput
   | DescribeDBClusterEndpointsCommandOutput
@@ -937,6 +960,7 @@ export type ServiceOutputTypes =
   | ModifyCertificatesCommandOutput
   | ModifyCurrentDBClusterCapacityCommandOutput
   | ModifyCustomDBEngineVersionCommandOutput
+  | ModifyDBCapacityReservationCommandOutput
   | ModifyDBClusterCommandOutput
   | ModifyDBClusterEndpointCommandOutput
   | ModifyDBClusterParameterGroupCommandOutput
@@ -1120,7 +1144,8 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 
   /**
    * Specifies which retry algorithm to use.
-   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   * Accepted values are "standard" and "adaptive".
+   * @see https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html
    *
    */
   retryMode?: string | __Provider<string>;

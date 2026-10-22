@@ -83,11 +83,17 @@ const _NFE = "NotFoundException";
 const _P = "Plugin";
 const _PC = "ProvisionedCapacity";
 const _PCD = "ProvisionedCapacityDescription";
+const _PCR = "PauseConnectorRequest";
+const _PCRa = "PauseConnectorResponse";
 const _PCU = "ProvisionedCapacityUpdate";
+const _PCa = "PauseConnector";
 const _PD = "PluginDescription";
 const _RC = "RestartConnector";
 const _RCR = "RestartConnectorRequest";
 const _RCRe = "RestartConnectorResponse";
+const _RCRes = "ResumeConnectorRequest";
+const _RCResu = "ResumeConnectorResponse";
+const _RCe = "ResumeConnector";
 const _SD = "StateDescription";
 const _SIP = "ScaleInPolicy";
 const _SIPD = "ScaleInPolicyDescription";
@@ -205,6 +211,7 @@ const _s = "smithy.ts.sdk.synthetic.com.amazonaws.kafkaconnect";
 const _sD = "stateDescription";
 const _sERA = "serviceExecutionRoleArn";
 const _sG = "securityGroups";
+const _sHV = "skipHealthValidation";
 const _sIP = "scaleInPolicy";
 const _sL = "s3Location";
 const _sOP = "scaleOutPolicy";
@@ -613,6 +620,16 @@ export var LogDeliveryDescription$: StaticStructureSchema = [3, n0, _LDD,
   [_wLD],
   [() => WorkerLogDeliveryDescription$]
 ];
+export var PauseConnectorRequest$: StaticStructureSchema = [3, n0, _PCR,
+  0,
+  [_cA],
+  [[0, 1]], 1
+];
+export var PauseConnectorResponse$: StaticStructureSchema = [3, n0, _PCRa,
+  0,
+  [_cA, _cOA],
+  [0, 0]
+];
 export var Plugin$: StaticStructureSchema = [3, n0, _P,
   0,
   [_cPu],
@@ -644,6 +661,16 @@ export var RestartConnectorRequest$: StaticStructureSchema = [3, n0, _RCR,
   [[0, 1], [2, { [_hQ]: _oFT }]], 1
 ];
 export var RestartConnectorResponse$: StaticStructureSchema = [3, n0, _RCRe,
+  0,
+  [_cA, _cOA],
+  [0, 0]
+];
+export var ResumeConnectorRequest$: StaticStructureSchema = [3, n0, _RCRes,
+  0,
+  [_cA],
+  [[0, 1]], 1
+];
+export var ResumeConnectorResponse$: StaticStructureSchema = [3, n0, _RCResu,
   0,
   [_cA, _cOA],
   [0, 0]
@@ -725,8 +752,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateConnectorRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_cA, _cV, _ca, _cC],
-  [[0, 1], [0, { [_hQ]: _cV }], () => CapacityUpdate$, [() => ConnectorConfigurationUpdate, 0]], 2
+  [_cA, _cV, _ca, _cC, _sHV],
+  [[0, 1], [0, { [_hQ]: _cV }], () => CapacityUpdate$, [() => ConnectorConfigurationUpdate, 0], 2], 2
 ];
 export var UpdateConnectorResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -858,8 +885,14 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 export var ListWorkerConfigurations$: StaticOperationSchema = [9, n0, _LWC,
   { [_h]: ["GET", "/v1/worker-configurations", 200] }, () => ListWorkerConfigurationsRequest$, () => ListWorkerConfigurationsResponse$
 ];
+export var PauseConnector$: StaticOperationSchema = [9, n0, _PCa,
+  { [_h]: ["PUT", "/v1/connectors/{connectorArn}/pause", 200] }, () => PauseConnectorRequest$, () => PauseConnectorResponse$
+];
 export var RestartConnector$: StaticOperationSchema = [9, n0, _RC,
   { [_h]: ["POST", "/v1/connectors/{connectorArn}/restart", 200] }, () => RestartConnectorRequest$, () => RestartConnectorResponse$
+];
+export var ResumeConnector$: StaticOperationSchema = [9, n0, _RCe,
+  { [_h]: ["PUT", "/v1/connectors/{connectorArn}/resume", 200] }, () => ResumeConnectorRequest$, () => ResumeConnectorResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   { [_h]: ["POST", "/v1/tags/{resourceArn}", 200] }, () => TagResourceRequest$, () => TagResourceResponse$

@@ -38,7 +38,6 @@ import type {
   IdNamespaceType,
   IntermediateTableAnalysisRuleType,
   IntermediateTableStatus,
-  IntermediateTableVersionStatus,
   JobType,
   JoinOperator,
   JoinRequiredOption,
@@ -58,6 +57,7 @@ import type {
   SelectedAnalysisMethod,
   SupportedS3Region,
   SyntheticDataColumnType,
+  TableReferenceType,
 } from "./enums";
 
 /**
@@ -6009,6 +6009,93 @@ export interface UpdateConfiguredTableAssociationAnalysisRuleOutput {
 }
 
 /**
+ * <p>Details about Delta Sharing Connector for Databricks</p>
+ * @public
+ */
+export interface DatabricksDeltaSharingConnection {
+  /**
+   * <p>The base URL of a Delta Sharing server that hosts shared datasets.</p>
+   * @public
+   */
+  deltaShareEndpoint: string | undefined;
+
+  /**
+   * <p>Name of the Share used for OpenSharing (Delta Sharing) the Databricks Table.</p>
+   * @public
+   */
+  shareName: string | undefined;
+}
+
+/**
+ * <p>Type of the connector to be used for connecting to Databricks. Supported connector: Delta Sharing</p>
+ * @public
+ */
+export type DatabricksConnectionType =
+  | DatabricksConnectionType.DeltaSharingMember
+  | DatabricksConnectionType.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DatabricksConnectionType {
+  /**
+   * <p>Details about Connector for Databricks</p>
+   * @public
+   */
+  export interface DeltaSharingMember {
+    deltaSharing: DatabricksDeltaSharingConnection;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    deltaSharing?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    deltaSharing: (value: DatabricksDeltaSharingConnection) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p> A reference to a table within Databricks.</p>
+ * @public
+ */
+export interface DatabricksTableReference {
+  /**
+   * <p>Name of the Schema within Databricks.</p>
+   * @public
+   */
+  schemaName: string | undefined;
+
+  /**
+   * <p>Name of the Table within Databricks.</p>
+   * @public
+   */
+  tableName: string | undefined;
+
+  /**
+   * <p>URL for the Databricks Workspace.</p>
+   * @public
+   */
+  workspaceUrl: string | undefined;
+
+  /**
+   * <p>Type of the connector to be used for connecting to Databricks. Supported connector: Delta Sharing</p>
+   * @public
+   */
+  connectionType: DatabricksConnectionType | undefined;
+}
+
+/**
  * <p>A reference to a table within an Glue data catalog.</p>
  * @public
  */
@@ -6137,6 +6224,7 @@ export interface SnowflakeTableReference {
  */
 export type TableReference =
   | TableReference.AthenaMember
+  | TableReference.DatabricksMember
   | TableReference.GlueMember
   | TableReference.SnowflakeMember
   | TableReference.$UnknownMember;
@@ -6153,6 +6241,7 @@ export namespace TableReference {
     glue: GlueTableReference;
     snowflake?: never;
     athena?: never;
+    databricks?: never;
     $unknown?: never;
   }
 
@@ -6164,6 +6253,7 @@ export namespace TableReference {
     glue?: never;
     snowflake: SnowflakeTableReference;
     athena?: never;
+    databricks?: never;
     $unknown?: never;
   }
 
@@ -6175,6 +6265,19 @@ export namespace TableReference {
     glue?: never;
     snowflake?: never;
     athena: AthenaTableReference;
+    databricks?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> If present, a reference to the Databricks table referred to by this table reference.</p>
+   * @public
+   */
+  export interface DatabricksMember {
+    glue?: never;
+    snowflake?: never;
+    athena?: never;
+    databricks: DatabricksTableReference;
     $unknown?: never;
   }
 
@@ -6185,6 +6288,7 @@ export namespace TableReference {
     glue?: never;
     snowflake?: never;
     athena?: never;
+    databricks?: never;
     $unknown: [string, any];
   }
 
@@ -6196,6 +6300,7 @@ export namespace TableReference {
     glue: (value: GlueTableReference) => T;
     snowflake: (value: SnowflakeTableReference) => T;
     athena: (value: AthenaTableReference) => T;
+    databricks: (value: DatabricksTableReference) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -6281,6 +6386,12 @@ export interface ConfiguredTable {
    * @public
    */
   tableReference: TableReference | undefined;
+
+  /**
+   * <p>Type of the Configured Table DataSource, example: Glue, Snowflake, Athena, Databricks</p>
+   * @public
+   */
+  tableType?: TableReferenceType | undefined;
 
   /**
    * <p>The time the configured table was created.</p>
@@ -6643,6 +6754,12 @@ export interface ConfiguredTableSummary {
    * @public
    */
   name: string | undefined;
+
+  /**
+   * <p>Type of the Configured Table DataSource, example: Glue, Snowflake, Athena, Databricks</p>
+   * @public
+   */
+  tableType?: TableReferenceType | undefined;
 
   /**
    * <p>The time the configured table was created.</p>
@@ -8579,106 +8696,6 @@ export interface ListIntermediateTablesOutput {
    * @public
    */
   intermediateTableSummaries: IntermediateTableSummary[] | undefined;
-
-  /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIntermediateTableVersionsInput {
-  /**
-   * <p>The unique identifier of the membership that contains the intermediate table.</p>
-   * @public
-   */
-  membershipIdentifier: string | undefined;
-
-  /**
-   * <p>The unique identifier of the intermediate table for which to list versions.</p>
-   * @public
-   */
-  intermediateTableIdentifier: string | undefined;
-
-  /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a <code>nextToken</code> even if the <code>maxResults</code> value has not been met.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>Contains summary information about a version of an intermediate table.</p>
- * @public
- */
-export interface IntermediateTableVersionSummary {
-  /**
-   * <p>The unique identifier of the version.</p>
-   * @public
-   */
-  versionId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the intermediate table that this version belongs to.</p>
-   * @public
-   */
-  tableId: string | undefined;
-
-  /**
-   * <p>The time the version was created.</p>
-   * @public
-   */
-  createTime: Date | undefined;
-
-  /**
-   * <p>The identifier of the protected query that created this version.</p>
-   * @public
-   */
-  analysisId: string | undefined;
-
-  /**
-   * <p>The status of the version.</p>
-   * @public
-   */
-  status: IntermediateTableVersionStatus | undefined;
-
-  /**
-   * <p>The type of analysis that created this version.</p>
-   * @public
-   */
-  analysisType: PopulateIntermediateTableAnalysisType | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt this version's data.</p>
-   * @public
-   */
-  kmsKeyArn?: string | undefined;
-
-  /**
-   * <p>The time when this version expires based on the retention period.</p>
-   * @public
-   */
-  expirationTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIntermediateTableVersionsOutput {
-  /**
-   * <p>The list of intermediate table version summaries.</p>
-   * @public
-   */
-  intermediateTableVersionSummaries: IntermediateTableVersionSummary[] | undefined;
 
   /**
    * <p>The pagination token that's used to fetch the next set of results.</p>

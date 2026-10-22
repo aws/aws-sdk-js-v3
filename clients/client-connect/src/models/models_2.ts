@@ -65,6 +65,7 @@ import type {
   ReferenceType,
   RuleCapabilityTier,
   RulePublishStatus,
+  SecurityProfileType,
   SortOrder,
   SourceType,
   Statistic,
@@ -4507,6 +4508,14 @@ export interface GetTrafficDistributionResponse {
    * @public
    */
   AgentConfig?: AgentConfig | undefined;
+
+  /**
+   * <p>The timestamp of the most recent failover for the traffic distribution group. This value is
+   *    updated each time <code>UpdateTrafficDistribution</code> is called to change the traffic
+   *    distribution.</p>
+   * @public
+   */
+  LastFailoverTime?: Date | undefined;
 }
 
 /**
@@ -9390,6 +9399,193 @@ export interface ListRealtimeContactAnalysisSegmentsV2Response {
 /**
  * @public
  */
+export interface ListReplicationFindingsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can provide either the instance ID or
+   *    the full instance ARN. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the
+   *    Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The type of resource to list replication findings for. The following values are currently
+   *    supported: <code>AGENT</code>, <code>AGENT_GROUP</code>, <code>AGENT_GROUP_LEVEL</code>,
+   *    <code>AGENT_STATE</code>, <code>ATTRIBUTE</code>, <code>CONTACT_FLOW</code>,
+   *    <code>DATA_TABLE</code>, <code>DATA_TABLE_ATTRIBUTE</code>, <code>DATA_TABLE_RECORD</code>,
+   *    <code>DATA_TABLE_VALUE</code>, <code>FLOW_MODULE</code>, <code>FLOW_MODULE_ALIAS</code>,
+   *    <code>FLOW_MODULE_VERSION</code>, <code>METRIC</code>, <code>NOTIFICATION</code>,
+   *    <code>OPERATING_HOURS</code>, <code>PHONE_NUMBER</code>, <code>PROMPT</code>, <code>QUEUE</code>,
+   *    <code>REPORT</code>, <code>ROUTING_PROFILE</code>, <code>SECURITY_PROFILE</code>,
+   *    <code>TASK_TEMPLATE</code>, <code>TEST_CASE</code>, <code>TRANSFER_DESTINATION</code>,
+   *    <code>VIEW</code>, and <code>WORKSPACE</code>. Additional resource types can be supported over
+   *    time. Specifying a value that is not currently supported returns an
+   *    <code>InvalidRequestException</code>.</p>
+   * @public
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains an approximate count of the resources of a given type that are not yet in sync in a
+ *    Region, along with the time the count was last calculated.</p>
+ * @public
+ */
+export interface ApproximateDriftedResourceCount {
+  /**
+   * <p>The Amazon Web Services Region that the count applies to.</p>
+   * @public
+   */
+  Region: string | undefined;
+
+  /**
+   * <p>The approximate number of resources of the requested type that are not yet in sync in the
+   *    Region. A value of zero means the resources are in sync.</p>
+   * @public
+   */
+  Count: number | undefined;
+
+  /**
+   * <p>The time, in Unix epoch time, when the count was last calculated.</p>
+   * @public
+   */
+  Timestamp: Date | undefined;
+}
+
+/**
+ * <p>Contains information about a resource that could not be replicated across the Regions of a
+ *    Global Resiliency deployment, including the reason and any action required to resolve it.</p>
+ * @public
+ */
+export interface ReplicationFinding {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that the finding is for.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The identifier of the resource that the finding is for.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region that the finding was detected in.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The type of resource that the finding is for, such as <code>QUEUE</code> or
+   *    <code>ROUTING_PROFILE</code>.</p>
+   * @public
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>The name of the resource that the finding is for.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The replication operation that produced the finding, such as a create, update, or delete of
+   *    the resource.</p>
+   * @public
+   */
+  Operation?: string | undefined;
+
+  /**
+   * <p>A stable code that identifies the class of the finding. Use this code to look up the
+   *    recommended steps to resolve the finding.</p>
+   * @public
+   */
+  ReferenceCode?: string | undefined;
+
+  /**
+   * <p>A human-readable description of the finding and the action, if any, required to resolve
+   *    it.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>Indicates whether a resource type is being replicated and kept in sync in a specific
+ *    Amazon Web Services Region of a Global Resiliency deployment.</p>
+ * @public
+ */
+export interface ResourceReplicationStatus {
+  /**
+   * <p>The Amazon Web Services Region that the replication status applies to.</p>
+   * @public
+   */
+  Region: string | undefined;
+
+  /**
+   * <p>The replication status of the resource type in the Region, such as <code>ENABLED</code>,
+   *    <code>BLOCKED</code>, or <code>DISABLED</code>.</p>
+   * @public
+   */
+  Status: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListReplicationFindingsResponse {
+  /**
+   * <p>A list of replication findings for the requested resource type. Only findings that require
+   *    your action are returned, so this list can be empty even when a drift count is nonzero. Results
+   *    are paginated.</p>
+   * @public
+   */
+  ReplicationFindingsList: ReplicationFinding[] | undefined;
+
+  /**
+   * <p>The approximate number of resources of the requested type that are not yet in sync, reported
+   *    per Amazon Web Services Region. This count is independent of <code>ReplicationFindingsList</code>
+   *    and can be higher than the number of findings returned. It is eventually consistent and can lag
+   *    the current state of the instance. Each entry is the <code>ApproximateDriftedResourceCount</code>
+   *    for one Region; a Region appears only when its count has been computed.</p>
+   * @public
+   */
+  ApproximateDriftedResourceCounts?: ApproximateDriftedResourceCount[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for retrieving the next page of
+   *    <code>ReplicationFindingsList</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The replication status of the requested resource type in each Amazon Web Services Region
+   *    across which the Connect Customer instance is deployed for Global Resiliency, with one entry per
+   *    Region. This set describes the overall replication state for the request and is returned in full
+   *    on every page of results, so it does not change as you paginate.</p>
+   * @public
+   */
+  ResourceReplicationStatuses?: ResourceReplicationStatus[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListRoutingProfileManualAssignmentQueuesRequest {
   /**
    * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -10135,6 +10331,12 @@ export interface SecurityProfileSummary {
    * @public
    */
   LastModifiedRegion?: string | undefined;
+
+  /**
+   * <p>The type of the security profile: <code>AWS_MANAGED</code> or <code>CUSTOMER_MANAGED</code>.</p>
+   * @public
+   */
+  Type?: SecurityProfileType | undefined;
 }
 
 /**
@@ -11200,138 +11402,4 @@ export interface ListViewsResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListViewVersionsRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
-   *    instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
-   * @public
-   */
-  ViewId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>A summary of a view version's metadata.</p>
- * @public
- */
-export interface ViewVersionSummary {
-  /**
-   * <p>The identifier of the view version.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the view version.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The description of the view version.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The name of the view version.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The type of the view version.</p>
-   * @public
-   */
-  Type?: ViewType | undefined;
-
-  /**
-   * <p>The sequentially incremented version of the view version.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>The description of the view version.</p>
-   * @public
-   */
-  VersionDescription?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListViewVersionsResponse {
-  /**
-   * <p>A list of view version summaries.</p>
-   * @public
-   */
-  ViewVersionSummaryList?: ViewVersionSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkspaceMediaRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
-   *    the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the workspace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-}
-
-/**
- * <p>Contains information about a media asset used in a workspace.</p>
- * @public
- */
-export interface MediaItem {
-  /**
-   * <p>The type of media. Valid values are: <code>IMAGE_LOGO_FAVICON</code> and
-   *    <code>IMAGE_LOGO_HORIZONTAL</code>.</p>
-   * @public
-   */
-  Type?: MediaType | undefined;
-
-  /**
-   * <p>The source URL or data for the media asset.</p>
-   * @public
-   */
-  Source?: string | undefined;
 }

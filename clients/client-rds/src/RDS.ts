@@ -44,6 +44,11 @@ import {
   BacktrackDBClusterCommand,
 } from "./commands/BacktrackDBClusterCommand";
 import {
+  type CancelDBCapacityReservationCommandInput,
+  type CancelDBCapacityReservationCommandOutput,
+  CancelDBCapacityReservationCommand,
+} from "./commands/CancelDBCapacityReservationCommand";
+import {
   type CancelExportTaskCommandInput,
   type CancelExportTaskCommandOutput,
   CancelExportTaskCommand,
@@ -83,6 +88,11 @@ import {
   type CreateCustomDBEngineVersionCommandOutput,
   CreateCustomDBEngineVersionCommand,
 } from "./commands/CreateCustomDBEngineVersionCommand";
+import {
+  type CreateDBCapacityReservationCommandInput,
+  type CreateDBCapacityReservationCommandOutput,
+  CreateDBCapacityReservationCommand,
+} from "./commands/CreateDBCapacityReservationCommand";
 import {
   type CreateDBClusterCommandInput,
   type CreateDBClusterCommandOutput,
@@ -298,6 +308,11 @@ import {
   type DescribeCertificatesCommandOutput,
   DescribeCertificatesCommand,
 } from "./commands/DescribeCertificatesCommand";
+import {
+  type DescribeDBCapacityReservationsCommandInput,
+  type DescribeDBCapacityReservationsCommandOutput,
+  DescribeDBCapacityReservationsCommand,
+} from "./commands/DescribeDBCapacityReservationsCommand";
 import {
   type DescribeDBClusterAutomatedBackupsCommandInput,
   type DescribeDBClusterAutomatedBackupsCommandOutput,
@@ -569,6 +584,11 @@ import {
   ModifyCustomDBEngineVersionCommand,
 } from "./commands/ModifyCustomDBEngineVersionCommand";
 import {
+  type ModifyDBCapacityReservationCommandInput,
+  type ModifyDBCapacityReservationCommandOutput,
+  ModifyDBCapacityReservationCommand,
+} from "./commands/ModifyDBCapacityReservationCommand";
+import {
   type ModifyDBClusterCommandInput,
   type ModifyDBClusterCommandOutput,
   ModifyDBClusterCommand,
@@ -837,6 +857,7 @@ import type {
 import type { RDSServiceException } from "./models/RDSServiceException";
 import { paginateDescribeBlueGreenDeployments } from "./pagination/DescribeBlueGreenDeploymentsPaginator";
 import { paginateDescribeCertificates } from "./pagination/DescribeCertificatesPaginator";
+import { paginateDescribeDBCapacityReservations } from "./pagination/DescribeDBCapacityReservationsPaginator";
 import { paginateDescribeDBClusterAutomatedBackups } from "./pagination/DescribeDBClusterAutomatedBackupsPaginator";
 import { paginateDescribeDBClusterBacktracks } from "./pagination/DescribeDBClusterBacktracksPaginator";
 import { paginateDescribeDBClusterEndpoints } from "./pagination/DescribeDBClusterEndpointsPaginator";
@@ -903,6 +924,7 @@ const commands = {
   ApplyPendingMaintenanceActionCommand,
   AuthorizeDBSecurityGroupIngressCommand,
   BacktrackDBClusterCommand,
+  CancelDBCapacityReservationCommand,
   CancelExportTaskCommand,
   CopyDBClusterParameterGroupCommand,
   CopyDBClusterSnapshotCommand,
@@ -911,6 +933,7 @@ const commands = {
   CopyOptionGroupCommand,
   CreateBlueGreenDeploymentCommand,
   CreateCustomDBEngineVersionCommand,
+  CreateDBCapacityReservationCommand,
   CreateDBClusterCommand,
   CreateDBClusterEndpointCommand,
   CreateDBClusterParameterGroupCommand,
@@ -954,6 +977,7 @@ const commands = {
   DescribeAccountAttributesCommand,
   DescribeBlueGreenDeploymentsCommand,
   DescribeCertificatesCommand,
+  DescribeDBCapacityReservationsCommand,
   DescribeDBClusterAutomatedBackupsCommand,
   DescribeDBClusterBacktracksCommand,
   DescribeDBClusterEndpointsCommand,
@@ -1008,6 +1032,7 @@ const commands = {
   ModifyCertificatesCommand,
   ModifyCurrentDBClusterCapacityCommand,
   ModifyCustomDBEngineVersionCommand,
+  ModifyDBCapacityReservationCommand,
   ModifyDBClusterCommand,
   ModifyDBClusterEndpointCommand,
   ModifyDBClusterParameterGroupCommand,
@@ -1064,6 +1089,7 @@ const commands = {
 const paginators = {
   paginateDescribeBlueGreenDeployments,
   paginateDescribeCertificates,
+  paginateDescribeDBCapacityReservations,
   paginateDescribeDBClusterAutomatedBackups,
   paginateDescribeDBClusterBacktracks,
   paginateDescribeDBClusterEndpoints,
@@ -1246,6 +1272,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link CancelDBCapacityReservationCommand}
+   */
+  cancelDBCapacityReservation(
+    args: CancelDBCapacityReservationCommandInput,
+    options?: RDSRequestOptions
+  ): Promise<CancelDBCapacityReservationCommandOutput>;
+  cancelDBCapacityReservation(
+    args: CancelDBCapacityReservationCommandInput,
+    cb: (err: any, data?: CancelDBCapacityReservationCommandOutput) => void
+  ): void;
+  cancelDBCapacityReservation(
+    args: CancelDBCapacityReservationCommandInput,
+    options: RDSRequestOptions,
+    cb: (err: any, data?: CancelDBCapacityReservationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CancelExportTaskCommand}
    */
   cancelExportTask(
@@ -1379,6 +1422,23 @@ export interface RDS {
     args: CreateCustomDBEngineVersionCommandInput,
     options: RDSRequestOptions,
     cb: (err: any, data?: CreateCustomDBEngineVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDBCapacityReservationCommand}
+   */
+  createDBCapacityReservation(
+    args: CreateDBCapacityReservationCommandInput,
+    options?: RDSRequestOptions
+  ): Promise<CreateDBCapacityReservationCommandOutput>;
+  createDBCapacityReservation(
+    args: CreateDBCapacityReservationCommandInput,
+    cb: (err: any, data?: CreateDBCapacityReservationCommandOutput) => void
+  ): void;
+  createDBCapacityReservation(
+    args: CreateDBCapacityReservationCommandInput,
+    options: RDSRequestOptions,
+    cb: (err: any, data?: CreateDBCapacityReservationCommandOutput) => void
   ): void;
 
   /**
@@ -2114,6 +2174,24 @@ export interface RDS {
     args: DescribeCertificatesCommandInput,
     options: RDSRequestOptions,
     cb: (err: any, data?: DescribeCertificatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDBCapacityReservationsCommand}
+   */
+  describeDBCapacityReservations(): Promise<DescribeDBCapacityReservationsCommandOutput>;
+  describeDBCapacityReservations(
+    args: DescribeDBCapacityReservationsCommandInput,
+    options?: RDSRequestOptions
+  ): Promise<DescribeDBCapacityReservationsCommandOutput>;
+  describeDBCapacityReservations(
+    args: DescribeDBCapacityReservationsCommandInput,
+    cb: (err: any, data?: DescribeDBCapacityReservationsCommandOutput) => void
+  ): void;
+  describeDBCapacityReservations(
+    args: DescribeDBCapacityReservationsCommandInput,
+    options: RDSRequestOptions,
+    cb: (err: any, data?: DescribeDBCapacityReservationsCommandOutput) => void
   ): void;
 
   /**
@@ -3068,6 +3146,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link ModifyDBCapacityReservationCommand}
+   */
+  modifyDBCapacityReservation(
+    args: ModifyDBCapacityReservationCommandInput,
+    options?: RDSRequestOptions
+  ): Promise<ModifyDBCapacityReservationCommandOutput>;
+  modifyDBCapacityReservation(
+    args: ModifyDBCapacityReservationCommandInput,
+    cb: (err: any, data?: ModifyDBCapacityReservationCommandOutput) => void
+  ): void;
+  modifyDBCapacityReservation(
+    args: ModifyDBCapacityReservationCommandInput,
+    options: RDSRequestOptions,
+    cb: (err: any, data?: ModifyDBCapacityReservationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyDBClusterCommand}
    */
   modifyDBCluster(
@@ -3972,6 +4067,17 @@ export interface RDS {
     args?: DescribeCertificatesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<DescribeCertificatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBCapacityReservationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBCapacityReservationsCommandOutput}.
+   */
+  paginateDescribeDBCapacityReservations(
+    args?: DescribeDBCapacityReservationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBCapacityReservationsCommandOutput>;
 
   /**
    * @see {@link DescribeDBClusterAutomatedBackupsCommand}

@@ -103,6 +103,11 @@ import {
   CreateDataSourceCommand,
 } from "./commands/CreateDataSourceCommand";
 import {
+  type CreateDesignationCommandInput,
+  type CreateDesignationCommandOutput,
+  CreateDesignationCommand,
+} from "./commands/CreateDesignationCommand";
+import {
   type CreateDomainCommandInput,
   type CreateDomainCommandOutput,
   CreateDomainCommand,
@@ -242,6 +247,11 @@ import {
   type DeleteDataSourceCommandOutput,
   DeleteDataSourceCommand,
 } from "./commands/DeleteDataSourceCommand";
+import {
+  type DeleteDesignationCommandInput,
+  type DeleteDesignationCommandOutput,
+  DeleteDesignationCommand,
+} from "./commands/DeleteDesignationCommand";
 import {
   type DeleteDomainCommandInput,
   type DeleteDomainCommandOutput,
@@ -398,6 +408,11 @@ import {
   type GetDataSourceRunCommandOutput,
   GetDataSourceRunCommand,
 } from "./commands/GetDataSourceRunCommand";
+import {
+  type GetDesignationCommandInput,
+  type GetDesignationCommandOutput,
+  GetDesignationCommand,
+} from "./commands/GetDesignationCommand";
 import { type GetDomainCommandInput, type GetDomainCommandOutput, GetDomainCommand } from "./commands/GetDomainCommand";
 import {
   type GetDomainUnitCommandInput,
@@ -581,6 +596,11 @@ import {
   type ListDataSourcesCommandOutput,
   ListDataSourcesCommand,
 } from "./commands/ListDataSourcesCommand";
+import {
+  type ListDesignationsCommandInput,
+  type ListDesignationsCommandOutput,
+  ListDesignationsCommand,
+} from "./commands/ListDesignationsCommand";
 import {
   type ListDomainsCommandInput,
   type ListDomainsCommandOutput,
@@ -844,6 +864,11 @@ import {
   UpdateDataSourceCommand,
 } from "./commands/UpdateDataSourceCommand";
 import {
+  type UpdateDesignationCommandInput,
+  type UpdateDesignationCommandOutput,
+  UpdateDesignationCommand,
+} from "./commands/UpdateDesignationCommand";
+import {
   type UpdateDomainCommandInput,
   type UpdateDomainCommandOutput,
   UpdateDomainCommand,
@@ -943,6 +968,7 @@ import { paginateListDataProductRevisions } from "./pagination/ListDataProductRe
 import { paginateListDataSourceRunActivities } from "./pagination/ListDataSourceRunActivitiesPaginator";
 import { paginateListDataSourceRuns } from "./pagination/ListDataSourceRunsPaginator";
 import { paginateListDataSources } from "./pagination/ListDataSourcesPaginator";
+import { paginateListDesignations } from "./pagination/ListDesignationsPaginator";
 import { paginateListDomains } from "./pagination/ListDomainsPaginator";
 import { paginateListDomainUnitsForParent } from "./pagination/ListDomainUnitsForParentPaginator";
 import { paginateListEntityOwners } from "./pagination/ListEntityOwnersPaginator";
@@ -997,6 +1023,7 @@ const commands = {
   CreateDataProductCommand,
   CreateDataProductRevisionCommand,
   CreateDataSourceCommand,
+  CreateDesignationCommand,
   CreateDomainCommand,
   CreateDomainUnitCommand,
   CreateEnvironmentCommand,
@@ -1025,6 +1052,7 @@ const commands = {
   DeleteDataExportConfigurationCommand,
   DeleteDataProductCommand,
   DeleteDataSourceCommand,
+  DeleteDesignationCommand,
   DeleteDomainCommand,
   DeleteDomainUnitCommand,
   DeleteEnvironmentCommand,
@@ -1057,6 +1085,7 @@ const commands = {
   GetDataProductCommand,
   GetDataSourceCommand,
   GetDataSourceRunCommand,
+  GetDesignationCommand,
   GetDomainCommand,
   GetDomainUnitCommand,
   GetEnvironmentCommand,
@@ -1096,6 +1125,7 @@ const commands = {
   ListDataSourceRunActivitiesCommand,
   ListDataSourceRunsCommand,
   ListDataSourcesCommand,
+  ListDesignationsCommand,
   ListDomainsCommand,
   ListDomainUnitsForParentCommand,
   ListEntityOwnersCommand,
@@ -1150,6 +1180,7 @@ const commands = {
   UpdateAssetFilterCommand,
   UpdateConnectionCommand,
   UpdateDataSourceCommand,
+  UpdateDesignationCommand,
   UpdateDomainCommand,
   UpdateDomainUnitCommand,
   UpdateEnvironmentCommand,
@@ -1179,6 +1210,7 @@ const paginators = {
   paginateListDataSourceRunActivities,
   paginateListDataSourceRuns,
   paginateListDataSources,
+  paginateListDesignations,
   paginateListDomains,
   paginateListDomainUnitsForParent,
   paginateListEntityOwners,
@@ -1541,6 +1573,23 @@ export interface DataZone {
     args: CreateDataSourceCommandInput,
     options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateDataSourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDesignationCommand}
+   */
+  createDesignation(
+    args: CreateDesignationCommandInput,
+    options?: DataZoneRequestOptions
+  ): Promise<CreateDesignationCommandOutput>;
+  createDesignation(
+    args: CreateDesignationCommandInput,
+    cb: (err: any, data?: CreateDesignationCommandOutput) => void
+  ): void;
+  createDesignation(
+    args: CreateDesignationCommandInput,
+    options: DataZoneRequestOptions,
+    cb: (err: any, data?: CreateDesignationCommandOutput) => void
   ): void;
 
   /**
@@ -2017,6 +2066,23 @@ export interface DataZone {
     args: DeleteDataSourceCommandInput,
     options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDesignationCommand}
+   */
+  deleteDesignation(
+    args: DeleteDesignationCommandInput,
+    options?: DataZoneRequestOptions
+  ): Promise<DeleteDesignationCommandOutput>;
+  deleteDesignation(
+    args: DeleteDesignationCommandInput,
+    cb: (err: any, data?: DeleteDesignationCommandOutput) => void
+  ): void;
+  deleteDesignation(
+    args: DeleteDesignationCommandInput,
+    options: DataZoneRequestOptions,
+    cb: (err: any, data?: DeleteDesignationCommandOutput) => void
   ): void;
 
   /**
@@ -2561,6 +2627,23 @@ export interface DataZone {
     args: GetDataSourceRunCommandInput,
     options: DataZoneRequestOptions,
     cb: (err: any, data?: GetDataSourceRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDesignationCommand}
+   */
+  getDesignation(
+    args: GetDesignationCommandInput,
+    options?: DataZoneRequestOptions
+  ): Promise<GetDesignationCommandOutput>;
+  getDesignation(
+    args: GetDesignationCommandInput,
+    cb: (err: any, data?: GetDesignationCommandOutput) => void
+  ): void;
+  getDesignation(
+    args: GetDesignationCommandInput,
+    options: DataZoneRequestOptions,
+    cb: (err: any, data?: GetDesignationCommandOutput) => void
   ): void;
 
   /**
@@ -3224,6 +3307,23 @@ export interface DataZone {
     args: ListDataSourcesCommandInput,
     options: DataZoneRequestOptions,
     cb: (err: any, data?: ListDataSourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDesignationsCommand}
+   */
+  listDesignations(
+    args: ListDesignationsCommandInput,
+    options?: DataZoneRequestOptions
+  ): Promise<ListDesignationsCommandOutput>;
+  listDesignations(
+    args: ListDesignationsCommandInput,
+    cb: (err: any, data?: ListDesignationsCommandOutput) => void
+  ): void;
+  listDesignations(
+    args: ListDesignationsCommandInput,
+    options: DataZoneRequestOptions,
+    cb: (err: any, data?: ListDesignationsCommandOutput) => void
   ): void;
 
   /**
@@ -4146,6 +4246,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link UpdateDesignationCommand}
+   */
+  updateDesignation(
+    args: UpdateDesignationCommandInput,
+    options?: DataZoneRequestOptions
+  ): Promise<UpdateDesignationCommandOutput>;
+  updateDesignation(
+    args: UpdateDesignationCommandInput,
+    cb: (err: any, data?: UpdateDesignationCommandOutput) => void
+  ): void;
+  updateDesignation(
+    args: UpdateDesignationCommandInput,
+    options: DataZoneRequestOptions,
+    cb: (err: any, data?: UpdateDesignationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateDomainCommand}
    */
   updateDomain(
@@ -4549,6 +4666,17 @@ export interface DataZone {
     args: ListDataSourcesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListDataSourcesCommandOutput>;
+
+  /**
+   * @see {@link ListDesignationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDesignationsCommandOutput}.
+   */
+  paginateListDesignations(
+    args: ListDesignationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDesignationsCommandOutput>;
 
   /**
    * @see {@link ListDomainsCommand}

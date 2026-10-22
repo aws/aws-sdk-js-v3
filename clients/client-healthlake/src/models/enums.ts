@@ -58,19 +58,17 @@ export type AgentInputMessageType = (typeof AgentInputMessageType)[keyof typeof 
  * @public
  * @enum
  */
-export const AgentOutputMessageType = {
-  CHOICES: "choices",
-  COMPLETE: "complete",
-  ERROR: "error",
-  INITIAL_GREETING: "INITIAL_GREETING",
-  NORMAL: "normal",
-  OPTIONS: "options",
-  USER_CONFIRMATION_REQUEST: "confirmation",
+export const AgentErrorType = {
+  AccessDeniedException: "AccessDeniedException",
+  InternalServerException: "InternalServerException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  ThrottlingException: "ThrottlingException",
+  ValidationException: "ValidationException",
 } as const;
 /**
  * @public
  */
-export type AgentOutputMessageType = (typeof AgentOutputMessageType)[keyof typeof AgentOutputMessageType];
+export type AgentErrorType = (typeof AgentErrorType)[keyof typeof AgentErrorType];
 
 /**
  * @public

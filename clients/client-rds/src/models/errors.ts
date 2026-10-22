@@ -235,6 +235,27 @@ export class BlueGreenDeploymentNotFoundFault extends __BaseException {
 }
 
 /**
+ * <p> <code>DBCapacityReservationIdentifier</code> doesn't refer to an existing DB capacity reservation.</p>
+ * @public
+ */
+export class DBCapacityReservationNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBCapacityReservationNotFoundFault";
+  readonly name = "DBCapacityReservationNotFoundFault" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBCapacityReservationNotFoundFault, __BaseException>) {
+    super({
+      name: "DBCapacityReservationNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBCapacityReservationNotFoundFault.prototype);
+  }
+}
+
+/**
  * <p>The DB proxy endpoint doesn't exist.</p>
  * @public
  */
@@ -525,6 +546,27 @@ export class InvalidDBSecurityGroupStateFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidDBSecurityGroupStateFault.prototype);
+  }
+}
+
+/**
+ * <p>The DB capacity reservation isn't in a valid state.</p>
+ * @public
+ */
+export class InvalidDBCapacityReservationStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InvalidDBCapacityReservationStateFault";
+  readonly name = "InvalidDBCapacityReservationStateFault" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBCapacityReservationStateFault, __BaseException>) {
+    super({
+      name: "InvalidDBCapacityReservationStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBCapacityReservationStateFault.prototype);
   }
 }
 
@@ -1138,6 +1180,69 @@ export class InvalidCustomDBEngineVersionStateFault extends __BaseException {
 }
 
 /**
+ * <p>You already have a DB capacity reservation with the given name. Choose a different name for the new reservation, or use the existing reservation.</p>
+ * @public
+ */
+export class DBCapacityReservationAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBCapacityReservationAlreadyExistsFault";
+  readonly name = "DBCapacityReservationAlreadyExistsFault" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBCapacityReservationAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "DBCapacityReservationAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBCapacityReservationAlreadyExistsFault.prototype);
+  }
+}
+
+/**
+ * <p>The specified configuration isn't supported for DB capacity reservations.</p>
+ * @public
+ */
+export class DBCapacityReservationUnsupportedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#DBCapacityReservationUnsupportedFault";
+  readonly name = "DBCapacityReservationUnsupportedFault" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBCapacityReservationUnsupportedFault, __BaseException>) {
+    super({
+      name: "DBCapacityReservationUnsupportedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBCapacityReservationUnsupportedFault.prototype);
+  }
+}
+
+/**
+ * <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+ * @public
+ */
+export class InsufficientDBInstanceCapacityFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rds#InsufficientDBInstanceCapacityFault";
+  readonly name = "InsufficientDBInstanceCapacityFault" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientDBInstanceCapacityFault, __BaseException>) {
+    super({
+      name: "InsufficientDBInstanceCapacityFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientDBInstanceCapacityFault.prototype);
+  }
+}
+
+/**
  * <p>The user already has a DB cluster with the given identifier.</p>
  * @public
  */
@@ -1239,27 +1344,6 @@ export class GlobalClusterNotFoundFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, GlobalClusterNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
- * @public
- */
-export class InsufficientDBInstanceCapacityFault extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.rds#InsufficientDBInstanceCapacityFault";
-  readonly name = "InsufficientDBInstanceCapacityFault" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientDBInstanceCapacityFault, __BaseException>) {
-    super({
-      name: "InsufficientDBInstanceCapacityFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientDBInstanceCapacityFault.prototype);
   }
 }
 

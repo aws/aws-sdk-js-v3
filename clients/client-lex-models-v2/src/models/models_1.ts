@@ -6849,9 +6849,12 @@ export interface IntentConfirmationSetting {
    *          order is correct before placing it. For other intents, such as intents
    *          that simply respond to user questions, you might not need to ask the
    *          user for confirmation before providing the information. </p>
+   *          <p>Required unless the bot locale's <code>assistedNluMode</code> is
+   *          <code>DialogManager</code>, in which case Amazon Lex generates the
+   *          confirmation prompt.</p>
    * @public
    */
-  promptSpecification: PromptSpecification | undefined;
+  promptSpecification?: PromptSpecification | undefined;
 
   /**
    * <p>When the user answers "no" to the question defined in
@@ -7567,7 +7570,7 @@ export interface CreateIntentRequest {
 
   /**
    * <p>Specifies the configuration of the built-in <code>Amazon.QnAIntent</code>. The <code>AMAZON.QnAIntent</code> intent is called when
-   *          Amazon Lex can't determine another intent to invoke. If you specify this field, you can't specify the <code>kendraConfiguration</code> field.</p>
+   *          Amazon Lex V2 can't determine another intent to invoke. If you specify this field, you can't specify the <code>kendraConfiguration</code> field.</p>
    * @public
    */
   qnAIntentConfiguration?: QnAIntentConfiguration | undefined;
@@ -7979,7 +7982,7 @@ export interface UpdateIntentRequest {
 
   /**
    * <p>Specifies the configuration of the built-in <code>Amazon.QnAIntent</code>. The <code>AMAZON.QnAIntent</code> intent is called when
-   *          Amazon Lex can't determine another intent to invoke. If you specify this field, you can't specify the <code>kendraConfiguration</code> field.</p>
+   *          Amazon Lex V2 can't determine another intent to invoke. If you specify this field, you can't specify the <code>kendraConfiguration</code> field.</p>
    * @public
    */
   qnAIntentConfiguration?: QnAIntentConfiguration | undefined;

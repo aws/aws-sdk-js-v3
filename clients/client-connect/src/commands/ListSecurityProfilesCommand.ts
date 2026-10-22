@@ -50,6 +50,7 @@ export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesR
  * //       Name: "STRING_VALUE",
  * //       LastModifiedTime: new Date("TIMESTAMP"),
  * //       LastModifiedRegion: "STRING_VALUE",
+ * //       Type: "AWS_MANAGED" || "CUSTOMER_MANAGED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

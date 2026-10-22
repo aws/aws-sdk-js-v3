@@ -20,24 +20,46 @@ export type AttachmentType = (typeof AttachmentType)[keyof typeof AttachmentType
  * @enum
  */
 export const AttachmentErrorCode = {
+  CREATION_FAILED: "CREATION_FAILED",
+  DELETION_FAILED: "DELETION_FAILED",
   DIRECT_CONNECT_GATEWAY_EXISTING_ATTACHMENTS: "DIRECT_CONNECT_GATEWAY_EXISTING_ATTACHMENTS",
   DIRECT_CONNECT_GATEWAY_NOT_FOUND: "DIRECT_CONNECT_GATEWAY_NOT_FOUND",
   DIRECT_CONNECT_GATEWAY_NO_PRIVATE_VIF: "DIRECT_CONNECT_GATEWAY_NO_PRIVATE_VIF",
+  DIRECT_CONNECT_GATEWAY_TOPOLOGY_RESTRICTIONS: "DIRECT_CONNECT_GATEWAY_TOPOLOGY_RESTRICTIONS",
   MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED: "MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED",
+  SECURITY_GROUP_REFERENCING_UNSUPPORTED_AVAILABILITY_ZONE: "SECURITY_GROUP_REFERENCING_UNSUPPORTED_AVAILABILITY_ZONE",
   SUBNET_DUPLICATED_IN_AVAILABILITY_ZONE: "SUBNET_DUPLICATED_IN_AVAILABILITY_ZONE",
   SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
   SUBNET_NO_FREE_ADDRESSES: "SUBNET_NO_FREE_ADDRESSES",
   SUBNET_NO_IPV6_CIDRS: "SUBNET_NO_IPV6_CIDRS",
   SUBNET_UNSUPPORTED_AVAILABILITY_ZONE: "SUBNET_UNSUPPORTED_AVAILABILITY_ZONE",
+  UPDATE_FAILED: "UPDATE_FAILED",
   VPC_NOT_FOUND: "VPC_NOT_FOUND",
   VPC_UNSUPPORTED_FEATURES: "VPC_UNSUPPORTED_FEATURES",
   VPN_CONNECTION_NOT_FOUND: "VPN_CONNECTION_NOT_FOUND",
   VPN_EXISTING_ASSOCIATIONS: "VPN_EXISTING_ASSOCIATIONS",
+  VPN_STATIC_ROUTES_NAT_UNSUPPORTED: "VPN_STATIC_ROUTES_NAT_UNSUPPORTED",
 } as const;
 /**
  * @public
  */
 export type AttachmentErrorCode = (typeof AttachmentErrorCode)[keyof typeof AttachmentErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const NatGatewaySupportState = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  PENDING_ATTACHMENT_ACCEPTANCE: "PENDING_ATTACHMENT_ACCEPTANCE",
+} as const;
+/**
+ * @public
+ */
+export type NatGatewaySupportState = (typeof NatGatewaySupportState)[keyof typeof NatGatewaySupportState];
 
 /**
  * @public
@@ -136,6 +158,26 @@ export const TransitGatewayConnectPeerAssociationState = {
  */
 export type TransitGatewayConnectPeerAssociationState =
   (typeof TransitGatewayConnectPeerAssociationState)[keyof typeof TransitGatewayConnectPeerAssociationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const NatRuleState = {
+  ACTIVATED: "ACTIVATED",
+  ACTIVATING: "ACTIVATING",
+  CREATING: "CREATING",
+  DEACTIVATED: "DEACTIVATED",
+  DEACTIVATING: "DEACTIVATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  MODIFYING: "MODIFYING",
+  PENDING_ATTACHMENT_ACCEPTANCE: "PENDING_ATTACHMENT_ACCEPTANCE",
+} as const;
+/**
+ * @public
+ */
+export type NatRuleState = (typeof NatRuleState)[keyof typeof NatRuleState];
 
 /**
  * @public
@@ -267,6 +309,8 @@ export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType
  * @enum
  */
 export const ConnectPeerErrorCode = {
+  CREATION_FAILED: "CREATION_FAILED",
+  DELETION_FAILED: "DELETION_FAILED",
   EDGE_LOCATION_NO_FREE_IPS: "EDGE_LOCATION_NO_FREE_IPS",
   EDGE_LOCATION_PEER_DUPLICATE: "EDGE_LOCATION_PEER_DUPLICATE",
   INVALID_INSIDE_CIDR_BLOCK: "INVALID_INSIDE_CIDR_BLOCK",
@@ -366,6 +410,19 @@ export type CoreNetworkPolicyAlias = (typeof CoreNetworkPolicyAlias)[keyof typeo
  * @public
  * @enum
  */
+export const NatGatewaySupportValue = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+} as const;
+/**
+ * @public
+ */
+export type NatGatewaySupportValue = (typeof NatGatewaySupportValue)[keyof typeof NatGatewaySupportValue];
+
+/**
+ * @public
+ * @enum
+ */
 export const DeviceState = {
   available: "AVAILABLE",
   deleting: "DELETING",
@@ -427,10 +484,13 @@ export type SiteState = (typeof SiteState)[keyof typeof SiteState];
  * @enum
  */
 export const PeeringErrorCode = {
+  CREATION_FAILED: "CREATION_FAILED",
+  DELETION_FAILED: "DELETION_FAILED",
   EDGE_LOCATION_PEER_DUPLICATE: "EDGE_LOCATION_PEER_DUPLICATE",
   INTERNAL_ERROR: "INTERNAL_ERROR",
   INVALID_TRANSIT_GATEWAY_STATE: "INVALID_TRANSIT_GATEWAY_STATE",
   MISSING_REQUIRED_PERMISSIONS: "MISSING_PERMISSIONS",
+  TRANSIT_GATEWAY_ENCRYPTION_NOT_SUPPORTED: "TRANSIT_GATEWAY_ENCRYPTION_NOT_SUPPORTED",
   TRANSIT_GATEWAY_NOT_FOUND: "TRANSIT_GATEWAY_NOT_FOUND",
   TRANSIT_GATEWAY_PEERS_LIMIT_EXCEEDED: "TRANSIT_GATEWAY_PEERS_LIMIT_EXCEEDED",
 } as const;
@@ -503,6 +563,7 @@ export type RouteState = (typeof RouteState)[keyof typeof RouteState];
 export const RouteType = {
   PROPAGATED: "PROPAGATED",
   STATIC: "STATIC",
+  SYSTEM: "SYSTEM",
 } as const;
 /**
  * @public

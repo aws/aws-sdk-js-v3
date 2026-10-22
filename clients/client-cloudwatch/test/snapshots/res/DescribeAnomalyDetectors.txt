@@ -63,7 +63,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "EndTime": 946702799.999
           }
         ],
-        "MetricTimezone": "__MetricTimezone__"
+        "MetricTimezone": "__MetricTimezone__",
+        "AdaptationSpeed": "__AdaptationSpeed__",
+        "OutlierFilteringStrength": "__OutlierFilteringStrength__"
       },
       "StateValue": "__StateValue__",
       "MetricCharacteristics": {
@@ -170,7 +172,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "EndTime": 946702799.999
           }
         ],
-        "MetricTimezone": "__MetricTimezone__"
+        "MetricTimezone": "__MetricTimezone__",
+        "AdaptationSpeed": "__AdaptationSpeed__",
+        "OutlierFilteringStrength": "__OutlierFilteringStrength__"
       },
       "StateValue": "__StateValue__",
       "MetricCharacteristics": {
@@ -277,7 +281,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "EndTime": 946702799.999
           }
         ],
-        "MetricTimezone": "__MetricTimezone__"
+        "MetricTimezone": "__MetricTimezone__",
+        "AdaptationSpeed": "__AdaptationSpeed__",
+        "OutlierFilteringStrength": "__OutlierFilteringStrength__"
       },
       "StateValue": "__StateValue__",
       "MetricCharacteristics": {
@@ -392,7 +398,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
           }
         ],
-        MetricTimezone: "__MetricTimezone__"
+        MetricTimezone: "__MetricTimezone__",
+        AdaptationSpeed: "__AdaptationSpeed__",
+        OutlierFilteringStrength: "__OutlierFilteringStrength__"
       },
       StateValue: "__StateValue__",
       MetricCharacteristics: {
@@ -499,7 +507,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
           }
         ],
-        MetricTimezone: "__MetricTimezone__"
+        MetricTimezone: "__MetricTimezone__",
+        AdaptationSpeed: "__AdaptationSpeed__",
+        OutlierFilteringStrength: "__OutlierFilteringStrength__"
       },
       StateValue: "__StateValue__",
       MetricCharacteristics: {
@@ -606,7 +616,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
           }
         ],
-        MetricTimezone: "__MetricTimezone__"
+        MetricTimezone: "__MetricTimezone__",
+        AdaptationSpeed: "__AdaptationSpeed__",
+        OutlierFilteringStrength: "__OutlierFilteringStrength__"
       },
       StateValue: "__StateValue__",
       MetricCharacteristics: {

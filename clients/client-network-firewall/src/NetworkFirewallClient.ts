@@ -652,7 +652,8 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 
   /**
    * Specifies which retry algorithm to use.
-   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   * Accepted values are "standard" and "adaptive".
+   * @see https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html
    *
    */
   retryMode?: string | __Provider<string>;
@@ -740,9 +741,9 @@ export interface NetworkFirewallClientResolvedConfig extends NetworkFirewallClie
  *          perimeter of your VPC. This includes filtering traffic going to and coming from an internet
  *          gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules that are compatible
  *       with Suricata, a free, open source network analysis and threat detection engine.
- *       Network Firewall supports Suricata version 7.0.8. For information about Suricata,
+ *       Network Firewall supports Suricata version 8.0.3. For information about Suricata,
  *           see the <a href="https://suricata.io/">Suricata website</a> and the
- *           <a href="https://suricata.readthedocs.io/en/suricata-7.0.8/">Suricata User Guide</a>. </p>
+ *           <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/">Suricata User Guide</a>. </p>
  *          <p>You can use Network Firewall to monitor and protect your VPC traffic in a number of ways.
  *          The following are just a few examples: </p>
  *          <ul>

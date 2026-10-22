@@ -493,6 +493,19 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *       ClientSecret: "STRING_VALUE",
  *       Username: "STRING_VALUE",
  *     },
+ *     ServiceAccountCredentials: { // ServiceAccountCredentials
+ *       AdminAccountEmail: "STRING_VALUE", // required
+ *       ServiceAccountPrivateKey: "STRING_VALUE", // required
+ *       ClientEmail: "STRING_VALUE", // required
+ *     },
+ *     SharePointClientCredentials: { // SharePointClientCredentials
+ *       KmsKeyArn: "STRING_VALUE", // required
+ *       CertThumbprint: "STRING_VALUE", // required
+ *     },
+ *     OneDriveClientCredentials: { // OneDriveClientCredentials
+ *       KmsKeyArn: "STRING_VALUE", // required
+ *       CertThumbprint: "STRING_VALUE", // required
+ *     },
  *   },
  *   VpcConnectionProperties: "<VpcConnectionProperties>",
  *   SslProperties: { // SslProperties

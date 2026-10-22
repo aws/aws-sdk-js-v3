@@ -25,6 +25,10 @@ import {
   BatchGetVpcEndpointCommand,
   BatchGetVpcEndpointRequest$,
   BatchGetVpcEndpointResponse$,
+  CancelIngestionJob$,
+  CancelIngestionJobCommand,
+  CancelIngestionJobRequest$,
+  CancelIngestionJobResponse$,
   CapacityDetails$,
   CapacityLimits$,
   CollectionDetail$,
@@ -58,6 +62,14 @@ import {
   CreateIndexCommand,
   CreateIndexRequest$,
   CreateIndexResponse$,
+  CreateIngestionJob$,
+  CreateIngestionJobCommand,
+  CreateIngestionJobRequest$,
+  CreateIngestionJobResponse$,
+  CreateIngestionStream$,
+  CreateIngestionStreamCommand,
+  CreateIngestionStreamRequest$,
+  CreateIngestionStreamResponse$,
   CreateLifecyclePolicy$,
   CreateLifecyclePolicyCommand,
   CreateLifecyclePolicyRequest$,
@@ -93,6 +105,10 @@ import {
   DeleteIndexCommand,
   DeleteIndexRequest$,
   DeleteIndexResponse$,
+  DeleteIngestionStream$,
+  DeleteIngestionStreamCommand,
+  DeleteIngestionStreamRequest$,
+  DeleteIngestionStreamResponse$,
   DeleteLifecyclePolicy$,
   DeleteLifecyclePolicyCommand,
   DeleteLifecyclePolicyRequest$,
@@ -127,6 +143,14 @@ import {
   GetIndexCommand,
   GetIndexRequest$,
   GetIndexResponse$,
+  GetIngestionJob$,
+  GetIngestionJobCommand,
+  GetIngestionJobRequest$,
+  GetIngestionJobResponse$,
+  GetIngestionStream$,
+  GetIngestionStreamCommand,
+  GetIngestionStreamRequest$,
+  GetIngestionStreamResponse$,
   GetPoliciesStats$,
   GetPoliciesStatsCommand,
   GetPoliciesStatsRequest$,
@@ -143,6 +167,23 @@ import {
   IamIdentityCenterConfigOptions$,
   IamIdentityCenterGroupAttribute,
   IamIdentityCenterUserAttribute,
+  IngestionAlert$,
+  IngestionAlertCode,
+  IngestionFailureCode,
+  IngestionFailureReason$,
+  IngestionJobDetail$,
+  IngestionJobS3Source$,
+  IngestionJobSource$,
+  IngestionJobStatus,
+  IngestionJobSummary$,
+  IngestionState,
+  IngestionStatistics$,
+  IngestionStreamDetail$,
+  IngestionStreamS3Source$,
+  IngestionStreamSource$,
+  IngestionStreamStatus,
+  IngestionStreamSummary$,
+  InitialScan,
   InternalServerException,
   InternalServerException$,
   LifecyclePolicyDetail$,
@@ -164,6 +205,14 @@ import {
   ListCollectionsCommand,
   ListCollectionsRequest$,
   ListCollectionsResponse$,
+  ListIngestionJobs$,
+  ListIngestionJobsCommand,
+  ListIngestionJobsRequest$,
+  ListIngestionJobsResponse$,
+  ListIngestionStreams$,
+  ListIngestionStreamsCommand,
+  ListIngestionStreamsRequest$,
+  ListIngestionStreamsResponse$,
   ListLifecyclePolicies$,
   ListLifecyclePoliciesCommand,
   ListLifecyclePoliciesRequest$,
@@ -192,6 +241,8 @@ import {
   paginateListAccessPolicies,
   paginateListCollectionGroups,
   paginateListCollections,
+  paginateListIngestionJobs,
+  paginateListIngestionStreams,
   paginateListLifecyclePolicies,
   paginateListSecurityConfigs,
   paginateListSecurityPolicies,
@@ -199,6 +250,7 @@ import {
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceType,
+  S3Statistics$,
   SamlConfigOptions$,
   SecurityConfigDetail$,
   SecurityConfigStats$,
@@ -213,6 +265,7 @@ import {
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   StandbyReplicas,
+  StreamBucketConfig$,
   Tag$,
   TagResource$,
   TagResourceCommand,
@@ -286,6 +339,8 @@ assert(typeof BatchGetLifecyclePolicyCommand === "function");
 assert(typeof BatchGetLifecyclePolicy$ === "object");
 assert(typeof BatchGetVpcEndpointCommand === "function");
 assert(typeof BatchGetVpcEndpoint$ === "object");
+assert(typeof CancelIngestionJobCommand === "function");
+assert(typeof CancelIngestionJob$ === "object");
 assert(typeof CreateAccessPolicyCommand === "function");
 assert(typeof CreateAccessPolicy$ === "object");
 assert(typeof CreateCollectionCommand === "function");
@@ -294,6 +349,10 @@ assert(typeof CreateCollectionGroupCommand === "function");
 assert(typeof CreateCollectionGroup$ === "object");
 assert(typeof CreateIndexCommand === "function");
 assert(typeof CreateIndex$ === "object");
+assert(typeof CreateIngestionJobCommand === "function");
+assert(typeof CreateIngestionJob$ === "object");
+assert(typeof CreateIngestionStreamCommand === "function");
+assert(typeof CreateIngestionStream$ === "object");
 assert(typeof CreateLifecyclePolicyCommand === "function");
 assert(typeof CreateLifecyclePolicy$ === "object");
 assert(typeof CreateSecurityConfigCommand === "function");
@@ -310,6 +369,8 @@ assert(typeof DeleteCollectionGroupCommand === "function");
 assert(typeof DeleteCollectionGroup$ === "object");
 assert(typeof DeleteIndexCommand === "function");
 assert(typeof DeleteIndex$ === "object");
+assert(typeof DeleteIngestionStreamCommand === "function");
+assert(typeof DeleteIngestionStream$ === "object");
 assert(typeof DeleteLifecyclePolicyCommand === "function");
 assert(typeof DeleteLifecyclePolicy$ === "object");
 assert(typeof DeleteSecurityConfigCommand === "function");
@@ -324,6 +385,10 @@ assert(typeof GetAccountSettingsCommand === "function");
 assert(typeof GetAccountSettings$ === "object");
 assert(typeof GetIndexCommand === "function");
 assert(typeof GetIndex$ === "object");
+assert(typeof GetIngestionJobCommand === "function");
+assert(typeof GetIngestionJob$ === "object");
+assert(typeof GetIngestionStreamCommand === "function");
+assert(typeof GetIngestionStream$ === "object");
 assert(typeof GetPoliciesStatsCommand === "function");
 assert(typeof GetPoliciesStats$ === "object");
 assert(typeof GetSecurityConfigCommand === "function");
@@ -336,6 +401,10 @@ assert(typeof ListCollectionGroupsCommand === "function");
 assert(typeof ListCollectionGroups$ === "object");
 assert(typeof ListCollectionsCommand === "function");
 assert(typeof ListCollections$ === "object");
+assert(typeof ListIngestionJobsCommand === "function");
+assert(typeof ListIngestionJobs$ === "object");
+assert(typeof ListIngestionStreamsCommand === "function");
+assert(typeof ListIngestionStreams$ === "object");
 assert(typeof ListLifecyclePoliciesCommand === "function");
 assert(typeof ListLifecyclePolicies$ === "object");
 assert(typeof ListSecurityConfigsCommand === "function");
@@ -383,6 +452,8 @@ assert(typeof BatchGetLifecyclePolicyRequest$ === "object");
 assert(typeof BatchGetLifecyclePolicyResponse$ === "object");
 assert(typeof BatchGetVpcEndpointRequest$ === "object");
 assert(typeof BatchGetVpcEndpointResponse$ === "object");
+assert(typeof CancelIngestionJobRequest$ === "object");
+assert(typeof CancelIngestionJobResponse$ === "object");
 assert(typeof CapacityDetails$ === "object");
 assert(typeof CapacityLimits$ === "object");
 assert(typeof CollectionDetail$ === "object");
@@ -404,6 +475,10 @@ assert(typeof CreateCollectionResponse$ === "object");
 assert(typeof CreateIamIdentityCenterConfigOptions$ === "object");
 assert(typeof CreateIndexRequest$ === "object");
 assert(typeof CreateIndexResponse$ === "object");
+assert(typeof CreateIngestionJobRequest$ === "object");
+assert(typeof CreateIngestionJobResponse$ === "object");
+assert(typeof CreateIngestionStreamRequest$ === "object");
+assert(typeof CreateIngestionStreamResponse$ === "object");
 assert(typeof CreateLifecyclePolicyRequest$ === "object");
 assert(typeof CreateLifecyclePolicyResponse$ === "object");
 assert(typeof CreateSecurityConfigRequest$ === "object");
@@ -423,6 +498,8 @@ assert(typeof DeleteCollectionRequest$ === "object");
 assert(typeof DeleteCollectionResponse$ === "object");
 assert(typeof DeleteIndexRequest$ === "object");
 assert(typeof DeleteIndexResponse$ === "object");
+assert(typeof DeleteIngestionStreamRequest$ === "object");
+assert(typeof DeleteIngestionStreamResponse$ === "object");
 assert(typeof DeleteLifecyclePolicyRequest$ === "object");
 assert(typeof DeleteLifecyclePolicyResponse$ === "object");
 assert(typeof DeleteSecurityConfigRequest$ === "object");
@@ -442,6 +519,10 @@ assert(typeof GetAccountSettingsRequest$ === "object");
 assert(typeof GetAccountSettingsResponse$ === "object");
 assert(typeof GetIndexRequest$ === "object");
 assert(typeof GetIndexResponse$ === "object");
+assert(typeof GetIngestionJobRequest$ === "object");
+assert(typeof GetIngestionJobResponse$ === "object");
+assert(typeof GetIngestionStreamRequest$ === "object");
+assert(typeof GetIngestionStreamResponse$ === "object");
 assert(typeof GetPoliciesStatsRequest$ === "object");
 assert(typeof GetPoliciesStatsResponse$ === "object");
 assert(typeof GetSecurityConfigRequest$ === "object");
@@ -450,6 +531,17 @@ assert(typeof GetSecurityPolicyRequest$ === "object");
 assert(typeof GetSecurityPolicyResponse$ === "object");
 assert(typeof IamFederationConfigOptions$ === "object");
 assert(typeof IamIdentityCenterConfigOptions$ === "object");
+assert(typeof IngestionAlert$ === "object");
+assert(typeof IngestionFailureReason$ === "object");
+assert(typeof IngestionJobDetail$ === "object");
+assert(typeof IngestionJobS3Source$ === "object");
+assert(typeof IngestionJobSource$ === "object");
+assert(typeof IngestionJobSummary$ === "object");
+assert(typeof IngestionStatistics$ === "object");
+assert(typeof IngestionStreamDetail$ === "object");
+assert(typeof IngestionStreamS3Source$ === "object");
+assert(typeof IngestionStreamSource$ === "object");
+assert(typeof IngestionStreamSummary$ === "object");
 assert(typeof LifecyclePolicyDetail$ === "object");
 assert(typeof LifecyclePolicyErrorDetail$ === "object");
 assert(typeof LifecyclePolicyIdentifier$ === "object");
@@ -462,6 +554,10 @@ assert(typeof ListCollectionGroupsRequest$ === "object");
 assert(typeof ListCollectionGroupsResponse$ === "object");
 assert(typeof ListCollectionsRequest$ === "object");
 assert(typeof ListCollectionsResponse$ === "object");
+assert(typeof ListIngestionJobsRequest$ === "object");
+assert(typeof ListIngestionJobsResponse$ === "object");
+assert(typeof ListIngestionStreamsRequest$ === "object");
+assert(typeof ListIngestionStreamsResponse$ === "object");
 assert(typeof ListLifecyclePoliciesRequest$ === "object");
 assert(typeof ListLifecyclePoliciesResponse$ === "object");
 assert(typeof ListSecurityConfigsRequest$ === "object");
@@ -472,6 +568,7 @@ assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListVpcEndpointsRequest$ === "object");
 assert(typeof ListVpcEndpointsResponse$ === "object");
+assert(typeof S3Statistics$ === "object");
 assert(typeof SamlConfigOptions$ === "object");
 assert(typeof SecurityConfigDetail$ === "object");
 assert(typeof SecurityConfigStats$ === "object");
@@ -479,6 +576,7 @@ assert(typeof SecurityConfigSummary$ === "object");
 assert(typeof SecurityPolicyDetail$ === "object");
 assert(typeof SecurityPolicyStats$ === "object");
 assert(typeof SecurityPolicySummary$ === "object");
+assert(typeof StreamBucketConfig$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
@@ -519,6 +617,12 @@ assert(typeof CollectionType === "object");
 assert(typeof DeletionProtection === "object");
 assert(typeof IamIdentityCenterGroupAttribute === "object");
 assert(typeof IamIdentityCenterUserAttribute === "object");
+assert(typeof IngestionAlertCode === "object");
+assert(typeof IngestionFailureCode === "object");
+assert(typeof IngestionJobStatus === "object");
+assert(typeof IngestionState === "object");
+assert(typeof IngestionStreamStatus === "object");
+assert(typeof InitialScan === "object");
 assert(typeof LifecyclePolicyType === "object");
 assert(typeof ResourceType === "object");
 assert(typeof SecurityConfigType === "object");
@@ -545,6 +649,8 @@ assert(OpenSearchServerlessServiceException.prototype instanceof Error);
 assert(typeof paginateListAccessPolicies === "function");
 assert(typeof paginateListCollectionGroups === "function");
 assert(typeof paginateListCollections === "function");
+assert(typeof paginateListIngestionJobs === "function");
+assert(typeof paginateListIngestionStreams === "function");
 assert(typeof paginateListLifecyclePolicies === "function");
 assert(typeof paginateListSecurityConfigs === "function");
 assert(typeof paginateListSecurityPolicies === "function");

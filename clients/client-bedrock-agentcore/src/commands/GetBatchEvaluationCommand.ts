@@ -107,6 +107,7 @@ export interface GetBatchEvaluationCommandOutput extends GetBatchEvaluationRespo
  * //     evaluatorSummaries: [ // EvaluatorSummaryList
  * //       { // EvaluatorSummary
  * //         evaluatorId: "STRING_VALUE",
+ * //         evaluationDimensionName: "STRING_VALUE",
  * //         statistics: { // EvaluatorStatistics
  * //           averageScore: Number("double"),
  * //         },

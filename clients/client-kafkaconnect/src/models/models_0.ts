@@ -2044,6 +2044,34 @@ export interface ListWorkerConfigurationsResponse {
 /**
  * @public
  */
+export interface PauseConnectorRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector that you want to pause.</p>
+   * @public
+   */
+  connectorArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PauseConnectorResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * @public
+   */
+  connectorArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector operation created to perform the pause.</p>
+   * @public
+   */
+  connectorOperationArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface RestartConnectorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the connector that you want to restart.</p>
@@ -2070,6 +2098,34 @@ export interface RestartConnectorResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the connector operation created to perform the restart.</p>
+   * @public
+   */
+  connectorOperationArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResumeConnectorRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector that you want to resume.</p>
+   * @public
+   */
+  connectorArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResumeConnectorResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * @public
+   */
+  connectorArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector operation created to perform the resume.</p>
    * @public
    */
   connectorOperationArn?: string | undefined;
@@ -2134,6 +2190,12 @@ export interface UpdateConnectorRequest {
    * @public
    */
   connectorConfiguration?: Record<string, string> | undefined;
+
+  /**
+   * <p>Specifies whether the update bypasses connector-level and task-level health checks. If <code>true</code>, the update skips the health checks. The update stays in effect even if the connector or its tasks are unhealthy, and Amazon MSK Connect doesn't roll it back. If <code>false</code> or not specified, the health checks run. If they fail, MSK Connect automatically rolls the connector back to its previous configuration, and the update doesn't take effect. To update a connector that is in the <code>PAUSED</code> state, you must set this parameter to <code>true</code>.</p>
+   * @public
+   */
+  skipHealthValidation?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the connector that you want to update.</p>

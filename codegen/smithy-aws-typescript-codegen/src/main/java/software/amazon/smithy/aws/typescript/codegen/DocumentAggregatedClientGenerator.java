@@ -170,6 +170,10 @@ final class DocumentAggregatedClientGenerator implements Runnable {
                     name
                 );
                 writer.write("");
+
+                if (DocumentClientUtils.getModifiedName(operation.getId().getName()).equals("BatchGet")) {
+                    BatchGetPaginatorGenerator.generateAggregatedClientMethod(writer, input, output);
+                }
             }
         }
     }

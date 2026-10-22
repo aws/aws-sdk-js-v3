@@ -14,6 +14,7 @@ import type {
   ContributorInsightsMode,
   ContributorInsightsStatus,
   DestinationStatus,
+  DisassociationMode,
   ExportFormat,
   ExportStatus,
   ExportType,
@@ -3448,6 +3449,9 @@ export interface TableDescription {
 
   /**
    * <p>Represents replicas of the table.</p>
+   *          <p>After a successful disassociation, this list is absent or empty. To confirm
+   *             disassociation, also verify that <code>TableStatus</code> is
+   *             <code>ACTIVE</code>.</p>
    * @public
    */
   Replicas?: ReplicaDescription[] | undefined;
@@ -3512,6 +3516,14 @@ export interface TableDescription {
    * @public
    */
   DeletionProtectionEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether disassociation protection is enabled (<code>true</code>) or
+   *             disabled (<code>false</code>) for the local global table replica. Protection is
+   *             enabled by default.</p>
+   * @public
+   */
+  DisassociationProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>The maximum number of read and write units for the specified on-demand table. If you
@@ -4934,6 +4946,35 @@ export interface KinesisStreamingDestinationOutput {
    * @public
    */
   EnableKinesisStreamingConfiguration?: EnableKinesisStreamingConfiguration | undefined;
+}
+
+/**
+ * <p>The parameters for disassociating the local replica from a global table using
+ *             Version 2019.11.21 with multi-Region eventual consistency (MREC).</p>
+ *          <p>After disassociation completes, the replica remains a standalone regional table
+ *             that keeps its data, indexes, and table settings.</p>
+ *          <p>For request requirements, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html">UpdateTable</a>.
+ *             For prerequisites, the protection update, and completion checks, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables-disassociate.html">Disassociating a global table replica</a> in the <i>Amazon DynamoDB
+ *                 Developer Guide</i>.</p>
+ * @public
+ */
+export interface DisassociateReplicationGroupMemberAction {
+  /**
+   * <p>The Region of the replica to disassociate. Set this value to the Region where
+   *             you send the <code>UpdateTable</code> request. You must use credentials for the
+   *             account that owns the replica.</p>
+   * @public
+   */
+  RegionName: string | undefined;
+
+  /**
+   * <p>The mode for handling pending replication before disassociation completes.
+   *             You must specify <code>WAIT_FOR_REPLICATION</code>. For more information, see
+   *             <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables-disassociate.html">Disassociating a global table replica</a> in the <i>Amazon DynamoDB
+   *                 Developer Guide</i>.</p>
+   * @public
+   */
+  DisassociationMode: DisassociationMode | undefined;
 }
 
 /**
@@ -6379,7 +6420,14 @@ export interface UpdateReplicationGroupMemberAction {
  *                         <code>DeleteTableReplica</code> action in the destination Region, deleting
  *                     the replica and all if its items in the destination Region.</p>
  *             </li>
+ *             <li>
+ *                <p>The local replica to be disassociated from a global table and retained as
+ *                     a standalone regional table.</p>
+ *             </li>
  *          </ul>
+ *          <p>Each <code>ReplicationGroupUpdate</code> contains exactly one action. A
+ *             <code>Disassociate</code> action must be the only replica update in the request;
+ *             including other updates causes the request to fail.</p>
  *          <note>
  *             <p>When you manually remove a table or global table replica, you do not automatically
  *                 remove any associated scalable targets, scaling policies, or CloudWatch
@@ -6405,6 +6453,13 @@ export interface ReplicationGroupUpdate {
    * @public
    */
   Delete?: DeleteReplicationGroupMemberAction | undefined;
+
+  /**
+   * <p>The parameters for disassociating the local replica from the global table and
+   *             retaining it as a standalone regional table.</p>
+   * @public
+   */
+  Disassociate?: DisassociateReplicationGroupMemberAction | undefined;
 }
 
 /**
@@ -6520,7 +6575,8 @@ export interface UpdateTableInput {
   SSESpecification?: SSESpecification | undefined;
 
   /**
-   * <p>A list of replica update actions (create, delete, or update) for the table.</p>
+   * <p>A list of replica update actions (create, delete, update, or disassociate) for the
+   *             table.</p>
    * @public
    */
   ReplicaUpdates?: ReplicationGroupUpdate[] | undefined;
@@ -6621,6 +6677,19 @@ export interface UpdateTableInput {
    * @public
    */
   GlobalTableSettingsReplicationMode?: GlobalTableSettingsReplicationMode | undefined;
+
+  /**
+   * <p>Specifies whether disassociation protection is enabled (<code>true</code>) or
+   *             disabled (<code>false</code>) for the local replica of a multi-Region eventual
+   *             consistency (MREC) global table using Version 2019.11.21.</p>
+   *          <p>Disassociation protection is enabled by default. If you omit this parameter, the
+   *             existing setting is unchanged. This setting is independent of
+   *             <code>DeletionProtectionEnabled</code>.</p>
+   *          <p>You can't combine this change with any other change in the same
+   *             <code>UpdateTable</code> request.</p>
+   * @public
+   */
+  DisassociationProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>A list of vector indexes to be added to or removed from the table. You can add or

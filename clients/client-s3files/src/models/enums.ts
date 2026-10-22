@@ -9,6 +9,7 @@ export const LifeCycleState = {
   deleted: "deleted",
   deleting: "deleting",
   error: "error",
+  misconfigured: "misconfigured",
   updating: "updating",
 } as const;
 /**

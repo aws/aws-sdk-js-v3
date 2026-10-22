@@ -110,6 +110,11 @@ import {
   DescribeAccountLimitsCommand,
 } from "./commands/DescribeAccountLimitsCommand";
 import {
+  type DescribeAccountSettingsCommandInput,
+  type DescribeAccountSettingsCommandOutput,
+  DescribeAccountSettingsCommand,
+} from "./commands/DescribeAccountSettingsCommand";
+import {
   type DescribeAdjustmentTypesCommandInput,
   type DescribeAdjustmentTypesCommandOutput,
   DescribeAdjustmentTypesCommand,
@@ -265,6 +270,11 @@ import {
   LaunchInstancesCommand,
 } from "./commands/LaunchInstancesCommand";
 import {
+  type PutAccountSettingCommandInput,
+  type PutAccountSettingCommandOutput,
+  PutAccountSettingCommand,
+} from "./commands/PutAccountSettingCommand";
+import {
   type PutLifecycleHookCommandInput,
   type PutLifecycleHookCommandOutput,
   PutLifecycleHookCommand,
@@ -378,6 +388,7 @@ const commands = {
   DeleteTagsCommand,
   DeleteWarmPoolCommand,
   DescribeAccountLimitsCommand,
+  DescribeAccountSettingsCommand,
   DescribeAdjustmentTypesCommand,
   DescribeAutoScalingGroupsCommand,
   DescribeAutoScalingInstancesCommand,
@@ -409,6 +420,7 @@ const commands = {
   ExitStandbyCommand,
   GetPredictiveScalingForecastCommand,
   LaunchInstancesCommand,
+  PutAccountSettingCommand,
   PutLifecycleHookCommand,
   PutNotificationConfigurationCommand,
   PutScalingPolicyCommand,
@@ -793,6 +805,24 @@ export interface AutoScaling {
     args: DescribeAccountLimitsCommandInput,
     options: AutoScalingRequestOptions,
     cb: (err: any, data?: DescribeAccountLimitsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAccountSettingsCommand}
+   */
+  describeAccountSettings(): Promise<DescribeAccountSettingsCommandOutput>;
+  describeAccountSettings(
+    args: DescribeAccountSettingsCommandInput,
+    options?: AutoScalingRequestOptions
+  ): Promise<DescribeAccountSettingsCommandOutput>;
+  describeAccountSettings(
+    args: DescribeAccountSettingsCommandInput,
+    cb: (err: any, data?: DescribeAccountSettingsCommandOutput) => void
+  ): void;
+  describeAccountSettings(
+    args: DescribeAccountSettingsCommandInput,
+    options: AutoScalingRequestOptions,
+    cb: (err: any, data?: DescribeAccountSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -1334,6 +1364,23 @@ export interface AutoScaling {
     args: LaunchInstancesCommandInput,
     options: AutoScalingRequestOptions,
     cb: (err: any, data?: LaunchInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAccountSettingCommand}
+   */
+  putAccountSetting(
+    args: PutAccountSettingCommandInput,
+    options?: AutoScalingRequestOptions
+  ): Promise<PutAccountSettingCommandOutput>;
+  putAccountSetting(
+    args: PutAccountSettingCommandInput,
+    cb: (err: any, data?: PutAccountSettingCommandOutput) => void
+  ): void;
+  putAccountSetting(
+    args: PutAccountSettingCommandInput,
+    options: AutoScalingRequestOptions,
+    cb: (err: any, data?: PutAccountSettingCommandOutput) => void
   ): void;
 
   /**

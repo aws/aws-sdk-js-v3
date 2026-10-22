@@ -98,6 +98,7 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       Type: "AWS_MANAGED" || "CUSTOMER_MANAGED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

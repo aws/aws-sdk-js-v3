@@ -45,7 +45,8 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
  * //     FirewallPolicyArn: "STRING_VALUE", // required
  * //     FirewallPolicyId: "STRING_VALUE", // required
  * //     Description: "STRING_VALUE",
- * //     FirewallPolicyStatus: "ACTIVE" || "DELETING" || "ERROR",
+ * //     FirewallPolicyStatus: "ACTIVE" || "DELETING" || "ERROR" || "UPDATING",
+ * //     StatusMessage: "STRING_VALUE",
  * //     Tags: [ // TagList
  * //       { // Tag
  * //         Key: "STRING_VALUE", // required
@@ -60,6 +61,13 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
  * //       KeyId: "STRING_VALUE",
  * //       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
  * //     },
+ * //     Errors: [ // FirewallPolicyErrors
+ * //       { // FirewallPolicyError
+ * //         Code: "DNS_FIREWALL_RULE_GROUP_UNAVAILABLE" || "ROUTE53_RESOLVED_IP_VALIDATION_MISSING", // required
+ * //         Message: "STRING_VALUE", // required
+ * //         ResourceId: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     LastModifiedTime: new Date("TIMESTAMP"),
  * //   },
  * //   FirewallPolicy: { // FirewallPolicy
@@ -120,6 +128,21 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
  * //       },
  * //     },
  * //     EnableTLSSessionHolding: true || false,
+ * //     Route53ResolvedIPValidation: { // Route53ResolvedIPValidation
+ * //       Action: "REJECT" || "DROP" || "ALERT", // required
+ * //       DNSFirewallRuleGroupId: "STRING_VALUE", // required
+ * //       DNSExpiryExceptionPolicy: "REJECT" || "DROP" || "CONTINUE", // required
+ * //       BypassDestinationValidationIPRanges: [ // Route53ResolvedIPValidationAddresses
+ * //         { // Address
+ * //           AddressDefinition: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       SourceIPRanges: [
+ * //         {
+ * //           AddressDefinition: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

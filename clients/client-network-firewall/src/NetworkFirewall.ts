@@ -1,10 +1,11 @@
 // smithy-typescript generated code
-import { createAggregatedClient } from "@smithy/core/client";
+import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
+  WaiterConfiguration,
 } from "@smithy/types";
 
 import {
@@ -432,6 +433,7 @@ import {
   type UpdateTLSInspectionConfigurationCommandOutput,
   UpdateTLSInspectionConfigurationCommand,
 } from "./commands/UpdateTLSInspectionConfigurationCommand";
+import type { NetworkFirewallServiceException } from "./models/NetworkFirewallServiceException";
 import { NetworkFirewallClient } from "./NetworkFirewallClient";
 import { paginateGetAnalysisReportResults } from "./pagination/GetAnalysisReportResultsPaginator";
 import { paginateListAnalysisReports } from "./pagination/ListAnalysisReportsPaginator";
@@ -447,6 +449,7 @@ import { paginateListRuleGroups } from "./pagination/ListRuleGroupsPaginator";
 import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
 import { paginateListTLSInspectionConfigurations } from "./pagination/ListTLSInspectionConfigurationsPaginator";
 import { paginateListVpcEndpointAssociations } from "./pagination/ListVpcEndpointAssociationsPaginator";
+import { waitUntilFirewallPolicyActive } from "./waiters/waitForFirewallPolicyActive";
 
 const commands = {
   AcceptNetworkFirewallTransitGatewayAttachmentCommand,
@@ -550,6 +553,9 @@ const paginators = {
   paginateListTagsForResource,
   paginateListTLSInspectionConfigurations,
   paginateListVpcEndpointAssociations,
+};
+const waiters = {
+  waitUntilFirewallPolicyActive,
 };
 
 /**
@@ -2192,6 +2198,16 @@ export interface NetworkFirewall {
     args?: ListVpcEndpointAssociationsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListVpcEndpointAssociationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeFirewallPolicyCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFirewallPolicyActive(
+    args: DescribeFirewallPolicyCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<NetworkFirewall>, "client">
+  ): Promise<WaiterResult<DescribeFirewallPolicyCommandOutput>>;
 }
 
 /**
@@ -2222,9 +2238,9 @@ export interface NetworkFirewall {
  *          perimeter of your VPC. This includes filtering traffic going to and coming from an internet
  *          gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules that are compatible
  *       with Suricata, a free, open source network analysis and threat detection engine.
- *       Network Firewall supports Suricata version 7.0.8. For information about Suricata,
+ *       Network Firewall supports Suricata version 8.0.3. For information about Suricata,
  *           see the <a href="https://suricata.io/">Suricata website</a> and the
- *           <a href="https://suricata.readthedocs.io/en/suricata-7.0.8/">Suricata User Guide</a>. </p>
+ *           <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/">Suricata User Guide</a>. </p>
  *          <p>You can use Network Firewall to monitor and protect your VPC traffic in a number of ways.
  *          The following are just a few examples: </p>
  *          <ul>
@@ -2285,4 +2301,4 @@ export interface NetworkFirewall {
  * @public
  */
 export class NetworkFirewall extends NetworkFirewallClient implements NetworkFirewall {}
-createAggregatedClient(commands, NetworkFirewall, { paginators });
+createAggregatedClient(commands, NetworkFirewall, { paginators, waiters });

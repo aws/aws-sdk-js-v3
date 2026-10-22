@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateGatewayRuleRequest, UpdateGatewayRuleResponse } from "../models/models_0";
+import type { UpdateGatewayRuleRequest, UpdateGatewayRuleResponse } from "../models/models_1";
 import { UpdateGatewayRule$ } from "../schemas/schemas_0";
 
 /**
@@ -53,6 +53,14 @@ export interface UpdateGatewayRuleCommandOutput extends UpdateGatewayRuleRespons
  *           "STRING_VALUE",
  *         ],
  *       },
+ *       matchModels: { // MatchModels
+ *         anyOf: [ // MatchModelEntries // required
+ *           { // MatchModelEntry
+ *             value: "STRING_VALUE", // required
+ *             operator: "StringEquals" || "StringLike",
+ *           },
+ *         ],
+ *       },
  *     },
  *   ],
  *   actions: [ // Actions
@@ -82,13 +90,66 @@ export interface UpdateGatewayRuleCommandOutput extends UpdateGatewayRuleRespons
  *       routeToTarget: { // RouteToTargetAction Union: only one key present
  *         staticRoute: { // StaticRoute
  *           targetName: "STRING_VALUE", // required
+ *           model: "STRING_VALUE",
+ *           fallback: { // Fallback
+ *             triggerOn: { // FallbackTriggers
+ *               statusCodes: [ // ErrorStatusCodePatterns
+ *                 "STRING_VALUE",
+ *               ],
+ *               errors: [ // FallbackErrors
+ *                 "CONNECTION_ERROR" || "FIRST_BYTE_TIMEOUT" || "UNROUTABLE",
+ *               ],
+ *             },
+ *             firstByteTimeoutMilliseconds: Number("int"),
+ *             circuitBreaker: { // CircuitBreakerConfiguration
+ *               mode: "ENABLED" || "DISABLED",
+ *             },
+ *             targetFallback: [ // TargetFallbacks // required
+ *               { // FallbackTarget
+ *                 targetName: "STRING_VALUE", // required
+ *                 model: "STRING_VALUE",
+ *                 triggerOn: {
+ *                   statusCodes: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   errors: [
+ *                     "CONNECTION_ERROR" || "FIRST_BYTE_TIMEOUT" || "UNROUTABLE",
+ *                   ],
+ *                 },
+ *                 firstByteTimeoutMilliseconds: Number("int"),
+ *               },
+ *             ],
+ *           },
  *         },
  *         weightedRoute: { // WeightedRoute
  *           trafficSplit: [ // TargetTrafficSplitEntries // required
  *             { // TargetTrafficSplitEntry
+ *               targetName: "STRING_VALUE", // required
+ *               model: "STRING_VALUE",
+ *               fallback: {
+ *                 triggerOn: {
+ *                   statusCodes: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   errors: [
+ *                     "CONNECTION_ERROR" || "FIRST_BYTE_TIMEOUT" || "UNROUTABLE",
+ *                   ],
+ *                 },
+ *                 firstByteTimeoutMilliseconds: Number("int"),
+ *                 circuitBreaker: {
+ *                   mode: "ENABLED" || "DISABLED",
+ *                 },
+ *                 targetFallback: [ // required
+ *                   {
+ *                     targetName: "STRING_VALUE", // required
+ *                     model: "STRING_VALUE",
+ *                     triggerOn: "<FallbackTriggers>",
+ *                     firstByteTimeoutMilliseconds: Number("int"),
+ *                   },
+ *                 ],
+ *               },
  *               name: "STRING_VALUE", // required
  *               weight: Number("int"), // required
- *               targetName: "STRING_VALUE", // required
  *               description: "STRING_VALUE",
  *               metadata: {
  *                 "<keys>": "STRING_VALUE",
@@ -124,6 +185,14 @@ export interface UpdateGatewayRuleCommandOutput extends UpdateGatewayRuleRespons
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       matchModels: { // MatchModels
+ * //         anyOf: [ // MatchModelEntries // required
+ * //           { // MatchModelEntry
+ * //             value: "STRING_VALUE", // required
+ * //             operator: "StringEquals" || "StringLike",
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   actions: [ // Actions // required
@@ -153,13 +222,66 @@ export interface UpdateGatewayRuleCommandOutput extends UpdateGatewayRuleRespons
  * //       routeToTarget: { // RouteToTargetAction Union: only one key present
  * //         staticRoute: { // StaticRoute
  * //           targetName: "STRING_VALUE", // required
+ * //           model: "STRING_VALUE",
+ * //           fallback: { // Fallback
+ * //             triggerOn: { // FallbackTriggers
+ * //               statusCodes: [ // ErrorStatusCodePatterns
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               errors: [ // FallbackErrors
+ * //                 "CONNECTION_ERROR" || "FIRST_BYTE_TIMEOUT" || "UNROUTABLE",
+ * //               ],
+ * //             },
+ * //             firstByteTimeoutMilliseconds: Number("int"),
+ * //             circuitBreaker: { // CircuitBreakerConfiguration
+ * //               mode: "ENABLED" || "DISABLED",
+ * //             },
+ * //             targetFallback: [ // TargetFallbacks // required
+ * //               { // FallbackTarget
+ * //                 targetName: "STRING_VALUE", // required
+ * //                 model: "STRING_VALUE",
+ * //                 triggerOn: {
+ * //                   statusCodes: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   errors: [
+ * //                     "CONNECTION_ERROR" || "FIRST_BYTE_TIMEOUT" || "UNROUTABLE",
+ * //                   ],
+ * //                 },
+ * //                 firstByteTimeoutMilliseconds: Number("int"),
+ * //               },
+ * //             ],
+ * //           },
  * //         },
  * //         weightedRoute: { // WeightedRoute
  * //           trafficSplit: [ // TargetTrafficSplitEntries // required
  * //             { // TargetTrafficSplitEntry
+ * //               targetName: "STRING_VALUE", // required
+ * //               model: "STRING_VALUE",
+ * //               fallback: {
+ * //                 triggerOn: {
+ * //                   statusCodes: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   errors: [
+ * //                     "CONNECTION_ERROR" || "FIRST_BYTE_TIMEOUT" || "UNROUTABLE",
+ * //                   ],
+ * //                 },
+ * //                 firstByteTimeoutMilliseconds: Number("int"),
+ * //                 circuitBreaker: {
+ * //                   mode: "ENABLED" || "DISABLED",
+ * //                 },
+ * //                 targetFallback: [ // required
+ * //                   {
+ * //                     targetName: "STRING_VALUE", // required
+ * //                     model: "STRING_VALUE",
+ * //                     triggerOn: "<FallbackTriggers>",
+ * //                     firstByteTimeoutMilliseconds: Number("int"),
+ * //                   },
+ * //                 ],
+ * //               },
  * //               name: "STRING_VALUE", // required
  * //               weight: Number("int"), // required
- * //               targetName: "STRING_VALUE", // required
  * //               description: "STRING_VALUE",
  * //               metadata: {
  * //                 "<keys>": "STRING_VALUE",

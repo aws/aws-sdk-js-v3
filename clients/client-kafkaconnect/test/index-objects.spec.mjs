@@ -116,6 +116,10 @@ import {
   paginateListConnectors,
   paginateListCustomPlugins,
   paginateListWorkerConfigurations,
+  PauseConnector$,
+  PauseConnectorCommand,
+  PauseConnectorRequest$,
+  PauseConnectorResponse$,
   Plugin$,
   PluginDescription$,
   ProvisionedCapacity$,
@@ -125,6 +129,10 @@ import {
   RestartConnectorCommand,
   RestartConnectorRequest$,
   RestartConnectorResponse$,
+  ResumeConnector$,
+  ResumeConnectorCommand,
+  ResumeConnectorRequest$,
+  ResumeConnectorResponse$,
   S3Location$,
   S3LocationDescription$,
   S3LogDelivery$,
@@ -201,8 +209,12 @@ assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof ListWorkerConfigurationsCommand === "function");
 assert(typeof ListWorkerConfigurations$ === "object");
+assert(typeof PauseConnectorCommand === "function");
+assert(typeof PauseConnector$ === "object");
 assert(typeof RestartConnectorCommand === "function");
 assert(typeof RestartConnector$ === "object");
+assert(typeof ResumeConnectorCommand === "function");
+assert(typeof ResumeConnector$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -270,6 +282,8 @@ assert(typeof ListWorkerConfigurationsRequest$ === "object");
 assert(typeof ListWorkerConfigurationsResponse$ === "object");
 assert(typeof LogDelivery$ === "object");
 assert(typeof LogDeliveryDescription$ === "object");
+assert(typeof PauseConnectorRequest$ === "object");
+assert(typeof PauseConnectorResponse$ === "object");
 assert(typeof Plugin$ === "object");
 assert(typeof PluginDescription$ === "object");
 assert(typeof ProvisionedCapacity$ === "object");
@@ -277,6 +291,8 @@ assert(typeof ProvisionedCapacityDescription$ === "object");
 assert(typeof ProvisionedCapacityUpdate$ === "object");
 assert(typeof RestartConnectorRequest$ === "object");
 assert(typeof RestartConnectorResponse$ === "object");
+assert(typeof ResumeConnectorRequest$ === "object");
+assert(typeof ResumeConnectorResponse$ === "object");
 assert(typeof S3Location$ === "object");
 assert(typeof S3LocationDescription$ === "object");
 assert(typeof S3LogDelivery$ === "object");

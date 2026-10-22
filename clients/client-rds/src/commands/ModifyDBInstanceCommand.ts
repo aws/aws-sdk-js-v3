@@ -123,6 +123,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *       SetForDelete: true || false,
  *     },
  *   ],
+ *   DBCapacityReservationIdentifier: "STRING_VALUE",
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
  *       ResourceType: "STRING_VALUE",
@@ -244,6 +245,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * //           StorageType: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       DBCapacityReservationIdentifier: "STRING_VALUE",
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -392,6 +394,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * //     StorageVolumeStatus: "STRING_VALUE",
  * //     StorageOperationStatus: "STRING_VALUE",
  * //     StorageOperationPercentProgress: Number("int"),
+ * //     DBCapacityReservationIdentifier: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -411,6 +414,9 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *
  * @throws {@link CertificateNotFoundFault} (client fault)
  *  <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
+ *
+ * @throws {@link DBCapacityReservationNotFoundFault} (client fault)
+ *  <p> <code>DBCapacityReservationIdentifier</code> doesn't refer to an existing DB capacity reservation.</p>
  *
  * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
  *  <p>The user already has a DB instance with the given identifier.</p>
@@ -432,6 +438,9 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
  *  <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+ *
+ * @throws {@link InvalidDBCapacityReservationStateFault} (client fault)
+ *  <p>The DB capacity reservation isn't in a valid state.</p>
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>

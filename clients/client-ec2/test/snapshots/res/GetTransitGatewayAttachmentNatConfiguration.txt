@@ -1,0 +1,121 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetTransitGatewayAttachmentNatConfigurationResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetTransitGatewayAttachmentNatConfigurationResult xmlns="https://placeholder.amazonaws.com">
+    <transitGatewayAttachmentId>
+        __TransitGatewayAttachmentId__
+    </transitGatewayAttachmentId>
+    <natGatewaySupport>
+        __NatGatewaySupport__
+    </natGatewaySupport>
+    <natSystemRouteSupport>
+        __NatSystemRouteSupport__
+    </natSystemRouteSupport>
+    <natGatewayRuleSet>
+        <item>
+            <ruleNumber>
+                0
+            </ruleNumber>
+            <matchSourceCidr>
+                __MatchSourceCidr__
+            </matchSourceCidr>
+            <natCidr>
+                __NatCidr__
+            </natCidr>
+            <state>
+                __State__
+            </state>
+        </item>
+        <item>
+            <ruleNumber>
+                0
+            </ruleNumber>
+            <matchSourceCidr>
+                __MatchSourceCidr__
+            </matchSourceCidr>
+            <natCidr>
+                __NatCidr__
+            </natCidr>
+            <state>
+                __State__
+            </state>
+        </item>
+        <item>
+            <ruleNumber>
+                0
+            </ruleNumber>
+            <matchSourceCidr>
+                __MatchSourceCidr__
+            </matchSourceCidr>
+            <natCidr>
+                __NatCidr__
+            </natCidr>
+            <state>
+                __State__
+            </state>
+        </item>
+    </natGatewayRuleSet>
+</GetTransitGatewayAttachmentNatConfigurationResult>
+
+
+--- [output object] ---
+{
+  TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+  NatGatewaySupport: "__NatGatewaySupport__",
+  NatSystemRouteSupport: "__NatSystemRouteSupport__",
+  NatGatewayRules: [
+    {
+      RuleNumber: (number) 0,
+      MatchSourceCidr: "__MatchSourceCidr__",
+      NatCidr: "__NatCidr__",
+      State: "__State__"
+    },
+    {
+      RuleNumber: (number) 0,
+      MatchSourceCidr: "__MatchSourceCidr__",
+      NatCidr: "__NatCidr__",
+      State: "__State__"
+    },
+    {
+      RuleNumber: (number) 0,
+      MatchSourceCidr: "__MatchSourceCidr__",
+      NatCidr: "__NatCidr__",
+      State: "__State__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

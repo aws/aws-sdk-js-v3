@@ -41,6 +41,7 @@ export interface ListFlowOperationResultsCommandOutput extends ListFlowOperation
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   AvailabilityZone: "STRING_VALUE",
+ *   AvailabilityZoneId: "STRING_VALUE",
  *   VpcEndpointId: "STRING_VALUE",
  *   VpcEndpointAssociationArn: "STRING_VALUE",
  * };
@@ -49,6 +50,7 @@ export interface ListFlowOperationResultsCommandOutput extends ListFlowOperation
  * // { // ListFlowOperationResultsResponse
  * //   FirewallArn: "STRING_VALUE",
  * //   AvailabilityZone: "STRING_VALUE",
+ * //   AvailabilityZoneId: "STRING_VALUE",
  * //   VpcEndpointAssociationArn: "STRING_VALUE",
  * //   VpcEndpointId: "STRING_VALUE",
  * //   FlowOperationId: "STRING_VALUE",

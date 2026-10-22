@@ -433,8 +433,8 @@ export interface DescribeSlotCommandOutput extends DescribeSlotResponse, __Metad
  * //             },
  * //           ],
  * //           waitAndContinueSpecification: {
- * //             waitingResponse: "<ResponseSpecification>", // required
- * //             continueResponse: "<ResponseSpecification>", // required
+ * //             waitingResponse: "<ResponseSpecification>",
+ * //             continueResponse: "<ResponseSpecification>",
  * //             stillWaitingResponse: {
  * //               messageGroups: "<MessageGroupsList>", // required
  * //               frequencyInSeconds: Number("int"), // required

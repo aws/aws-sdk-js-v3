@@ -382,6 +382,23 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *         },
  *       },
  *     },
+ *     ExpressPrivateOfferConfigurationFilters: { // ExpressPrivateOfferConfigurationFilters
+ *       EntityId: { // ExpressPrivateOfferConfigurationEntityIdFilter
+ *         ValueList: [ // ExpressPrivateOfferConfigurationEntityIdFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       ProductId: { // ExpressPrivateOfferConfigurationProductIdFilter
+ *         ValueList: [ // ExpressPrivateOfferConfigurationProductIdFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       State: { // ExpressPrivateOfferConfigurationStateFilter
+ *         ValueList: [ // ExpressPrivateOfferConfigurationStateFilterValueList
+ *           "ACTIVE" || "INACTIVE",
+ *         ],
+ *       },
+ *     },
  *   },
  *   EntityTypeSort: { // EntityTypeSort Union: only one key present
  *     DataProductSort: { // DataProductSort
@@ -414,6 +431,10 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *     },
  *     OfferSetSort: { // OfferSetSort
  *       SortBy: "Name" || "State" || "ReleaseDate" || "SolutionId" || "EntityId" || "LastModifiedDate",
+ *       SortOrder: "ASCENDING" || "DESCENDING",
+ *     },
+ *     ExpressPrivateOfferConfigurationSort: { // ExpressPrivateOfferConfigurationSort
+ *       SortBy: "EntityId" || "LastModifiedDate" || "ProductId" || "State",
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *   },
@@ -491,6 +512,10 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * //           "STRING_VALUE",
  * //         ],
  * //         SolutionId: "STRING_VALUE",
+ * //       },
+ * //       ExpressPrivateOfferConfigurationSummary: { // ExpressPrivateOfferConfigurationSummary
+ * //         ProductId: "STRING_VALUE",
+ * //         State: "ACTIVE" || "INACTIVE",
  * //       },
  * //     },
  * //   ],

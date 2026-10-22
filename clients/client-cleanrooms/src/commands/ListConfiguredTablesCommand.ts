@@ -44,6 +44,7 @@ export interface ListConfiguredTablesCommandOutput extends ListConfiguredTablesO
  * //       id: "STRING_VALUE", // required
  * //       arn: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
+ * //       tableType: "GLUE" || "SNOWFLAKE" || "ATHENA" || "DATABRICKS",
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       updateTime: new Date("TIMESTAMP"), // required
  * //       analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required

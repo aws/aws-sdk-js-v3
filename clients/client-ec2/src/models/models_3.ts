@@ -81,6 +81,7 @@ import type {
   DhcpOptions,
   EgressOnlyInternetGateway,
   ExportTask,
+  LaunchTemplate,
   LocalGatewayRoute,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
@@ -114,6 +115,17 @@ import type {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteLaunchTemplateResult {
+  /**
+   * <p>Information about the launch template.</p>
+   * @public
+   */
+  LaunchTemplate?: LaunchTemplate | undefined;
+}
 
 /**
  * @public
@@ -8808,45 +8820,4 @@ export interface HistoryRecordEntry {
    * @public
    */
   Timestamp?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFleetHistoryResult {
-  /**
-   * <p>Information about the events in the history of the EC2 Fleet.</p>
-   * @public
-   */
-  HistoryRecords?: HistoryRecordEntry[] | undefined;
-
-  /**
-   * <p>The last date and time for the events, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *          All records up to this time were retrieved.</p>
-   *          <p>If <code>nextToken</code> indicates that there are more items, this value is not
-   *          present.</p>
-   * @public
-   */
-  LastEvaluatedTime?: Date | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The ID of the EC Fleet.</p>
-   * @public
-   */
-  FleetId?: string | undefined;
-
-  /**
-   * <p>The start date and time for the events, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
 }

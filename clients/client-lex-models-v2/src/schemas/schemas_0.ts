@@ -2577,7 +2577,7 @@ export var IntentClosingSetting$: StaticStructureSchema = [3, n0, _ICS,
 export var IntentConfirmationSetting$: StaticStructureSchema = [3, n0, _ICSn,
   0,
   [_pS, _dR, _ac, _cRo, _cNS, _cC, _dNS, _dCe, _fRa, _fNS, _fC, _cH, _eCH],
-  [() => PromptSpecification$, () => ResponseSpecification$, 2, () => ResponseSpecification$, () => DialogState$, () => ConditionalSpecification$, () => DialogState$, () => ConditionalSpecification$, () => ResponseSpecification$, () => DialogState$, () => ConditionalSpecification$, () => DialogCodeHookInvocationSetting$, () => ElicitationCodeHookInvocationSetting$], 1
+  [() => PromptSpecification$, () => ResponseSpecification$, 2, () => ResponseSpecification$, () => DialogState$, () => ConditionalSpecification$, () => DialogState$, () => ConditionalSpecification$, () => ResponseSpecification$, () => DialogState$, () => ConditionalSpecification$, () => DialogCodeHookInvocationSetting$, () => ElicitationCodeHookInvocationSetting$]
 ];
 export var IntentDisambiguationSettings$: StaticStructureSchema = [3, n0, _IDS,
   0,
@@ -3722,7 +3722,7 @@ export var VoiceSettings$: StaticStructureSchema = [3, n0, _VS,
 export var WaitAndContinueSpecification$: StaticStructureSchema = [3, n0, _WACS,
   0,
   [_wR, _cRon, _sWR, _ac],
-  [() => ResponseSpecification$, () => ResponseSpecification$, () => StillWaitingResponseSpecification$, 2], 2
+  [() => ResponseSpecification$, () => ResponseSpecification$, () => StillWaitingResponseSpecification$, 2]
 ];
 var __Unit = "unit" as const;
 var ActiveContextList: StaticListSchema = [1, n0, _ACL,

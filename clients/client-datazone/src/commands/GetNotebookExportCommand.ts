@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetNotebookExportInput } from "../models/models_1";
-import type { GetNotebookExportOutput } from "../models/models_2";
+import type { GetNotebookExportInput, GetNotebookExportOutput } from "../models/models_2";
 import { GetNotebookExport$ } from "../schemas/schemas_0";
 
 /**
