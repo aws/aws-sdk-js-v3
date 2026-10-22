@@ -33,6 +33,11 @@ import {
   BatchGetVpcEndpointCommand,
 } from "./commands/BatchGetVpcEndpointCommand";
 import {
+  type CancelIngestionJobCommandInput,
+  type CancelIngestionJobCommandOutput,
+  CancelIngestionJobCommand,
+} from "./commands/CancelIngestionJobCommand";
+import {
   type CreateAccessPolicyCommandInput,
   type CreateAccessPolicyCommandOutput,
   CreateAccessPolicyCommand,
@@ -52,6 +57,16 @@ import {
   type CreateIndexCommandOutput,
   CreateIndexCommand,
 } from "./commands/CreateIndexCommand";
+import {
+  type CreateIngestionJobCommandInput,
+  type CreateIngestionJobCommandOutput,
+  CreateIngestionJobCommand,
+} from "./commands/CreateIngestionJobCommand";
+import {
+  type CreateIngestionStreamCommandInput,
+  type CreateIngestionStreamCommandOutput,
+  CreateIngestionStreamCommand,
+} from "./commands/CreateIngestionStreamCommand";
 import {
   type CreateLifecyclePolicyCommandInput,
   type CreateLifecyclePolicyCommandOutput,
@@ -93,6 +108,11 @@ import {
   DeleteIndexCommand,
 } from "./commands/DeleteIndexCommand";
 import {
+  type DeleteIngestionStreamCommandInput,
+  type DeleteIngestionStreamCommandOutput,
+  DeleteIngestionStreamCommand,
+} from "./commands/DeleteIngestionStreamCommand";
+import {
   type DeleteLifecyclePolicyCommandInput,
   type DeleteLifecyclePolicyCommandOutput,
   DeleteLifecyclePolicyCommand,
@@ -124,6 +144,16 @@ import {
 } from "./commands/GetAccountSettingsCommand";
 import { type GetIndexCommandInput, type GetIndexCommandOutput, GetIndexCommand } from "./commands/GetIndexCommand";
 import {
+  type GetIngestionJobCommandInput,
+  type GetIngestionJobCommandOutput,
+  GetIngestionJobCommand,
+} from "./commands/GetIngestionJobCommand";
+import {
+  type GetIngestionStreamCommandInput,
+  type GetIngestionStreamCommandOutput,
+  GetIngestionStreamCommand,
+} from "./commands/GetIngestionStreamCommand";
+import {
   type GetPoliciesStatsCommandInput,
   type GetPoliciesStatsCommandOutput,
   GetPoliciesStatsCommand,
@@ -153,6 +183,16 @@ import {
   type ListCollectionsCommandOutput,
   ListCollectionsCommand,
 } from "./commands/ListCollectionsCommand";
+import {
+  type ListIngestionJobsCommandInput,
+  type ListIngestionJobsCommandOutput,
+  ListIngestionJobsCommand,
+} from "./commands/ListIngestionJobsCommand";
+import {
+  type ListIngestionStreamsCommandInput,
+  type ListIngestionStreamsCommandOutput,
+  ListIngestionStreamsCommand,
+} from "./commands/ListIngestionStreamsCommand";
 import {
   type ListLifecyclePoliciesCommandInput,
   type ListLifecyclePoliciesCommandOutput,
@@ -237,6 +277,8 @@ import { OpenSearchServerlessClient } from "./OpenSearchServerlessClient";
 import { paginateListAccessPolicies } from "./pagination/ListAccessPoliciesPaginator";
 import { paginateListCollectionGroups } from "./pagination/ListCollectionGroupsPaginator";
 import { paginateListCollections } from "./pagination/ListCollectionsPaginator";
+import { paginateListIngestionJobs } from "./pagination/ListIngestionJobsPaginator";
+import { paginateListIngestionStreams } from "./pagination/ListIngestionStreamsPaginator";
 import { paginateListLifecyclePolicies } from "./pagination/ListLifecyclePoliciesPaginator";
 import { paginateListSecurityConfigs } from "./pagination/ListSecurityConfigsPaginator";
 import { paginateListSecurityPolicies } from "./pagination/ListSecurityPoliciesPaginator";
@@ -248,10 +290,13 @@ const commands = {
   BatchGetEffectiveLifecyclePolicyCommand,
   BatchGetLifecyclePolicyCommand,
   BatchGetVpcEndpointCommand,
+  CancelIngestionJobCommand,
   CreateAccessPolicyCommand,
   CreateCollectionCommand,
   CreateCollectionGroupCommand,
   CreateIndexCommand,
+  CreateIngestionJobCommand,
+  CreateIngestionStreamCommand,
   CreateLifecyclePolicyCommand,
   CreateSecurityConfigCommand,
   CreateSecurityPolicyCommand,
@@ -260,6 +305,7 @@ const commands = {
   DeleteCollectionCommand,
   DeleteCollectionGroupCommand,
   DeleteIndexCommand,
+  DeleteIngestionStreamCommand,
   DeleteLifecyclePolicyCommand,
   DeleteSecurityConfigCommand,
   DeleteSecurityPolicyCommand,
@@ -267,12 +313,16 @@ const commands = {
   GetAccessPolicyCommand,
   GetAccountSettingsCommand,
   GetIndexCommand,
+  GetIngestionJobCommand,
+  GetIngestionStreamCommand,
   GetPoliciesStatsCommand,
   GetSecurityConfigCommand,
   GetSecurityPolicyCommand,
   ListAccessPoliciesCommand,
   ListCollectionGroupsCommand,
   ListCollectionsCommand,
+  ListIngestionJobsCommand,
+  ListIngestionStreamsCommand,
   ListLifecyclePoliciesCommand,
   ListSecurityConfigsCommand,
   ListSecurityPoliciesCommand,
@@ -294,6 +344,8 @@ const paginators = {
   paginateListAccessPolicies,
   paginateListCollectionGroups,
   paginateListCollections,
+  paginateListIngestionJobs,
+  paginateListIngestionStreams,
   paginateListLifecyclePolicies,
   paginateListSecurityConfigs,
   paginateListSecurityPolicies,
@@ -396,6 +448,23 @@ export interface OpenSearchServerless {
   ): void;
 
   /**
+   * @see {@link CancelIngestionJobCommand}
+   */
+  cancelIngestionJob(
+    args: CancelIngestionJobCommandInput,
+    options?: OpenSearchServerlessRequestOptions
+  ): Promise<CancelIngestionJobCommandOutput>;
+  cancelIngestionJob(
+    args: CancelIngestionJobCommandInput,
+    cb: (err: any, data?: CancelIngestionJobCommandOutput) => void
+  ): void;
+  cancelIngestionJob(
+    args: CancelIngestionJobCommandInput,
+    options: OpenSearchServerlessRequestOptions,
+    cb: (err: any, data?: CancelIngestionJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateAccessPolicyCommand}
    */
   createAccessPolicy(
@@ -461,6 +530,40 @@ export interface OpenSearchServerless {
     args: CreateIndexCommandInput,
     options: OpenSearchServerlessRequestOptions,
     cb: (err: any, data?: CreateIndexCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateIngestionJobCommand}
+   */
+  createIngestionJob(
+    args: CreateIngestionJobCommandInput,
+    options?: OpenSearchServerlessRequestOptions
+  ): Promise<CreateIngestionJobCommandOutput>;
+  createIngestionJob(
+    args: CreateIngestionJobCommandInput,
+    cb: (err: any, data?: CreateIngestionJobCommandOutput) => void
+  ): void;
+  createIngestionJob(
+    args: CreateIngestionJobCommandInput,
+    options: OpenSearchServerlessRequestOptions,
+    cb: (err: any, data?: CreateIngestionJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateIngestionStreamCommand}
+   */
+  createIngestionStream(
+    args: CreateIngestionStreamCommandInput,
+    options?: OpenSearchServerlessRequestOptions
+  ): Promise<CreateIngestionStreamCommandOutput>;
+  createIngestionStream(
+    args: CreateIngestionStreamCommandInput,
+    cb: (err: any, data?: CreateIngestionStreamCommandOutput) => void
+  ): void;
+  createIngestionStream(
+    args: CreateIngestionStreamCommandInput,
+    options: OpenSearchServerlessRequestOptions,
+    cb: (err: any, data?: CreateIngestionStreamCommandOutput) => void
   ): void;
 
   /**
@@ -600,6 +703,23 @@ export interface OpenSearchServerless {
   ): void;
 
   /**
+   * @see {@link DeleteIngestionStreamCommand}
+   */
+  deleteIngestionStream(
+    args: DeleteIngestionStreamCommandInput,
+    options?: OpenSearchServerlessRequestOptions
+  ): Promise<DeleteIngestionStreamCommandOutput>;
+  deleteIngestionStream(
+    args: DeleteIngestionStreamCommandInput,
+    cb: (err: any, data?: DeleteIngestionStreamCommandOutput) => void
+  ): void;
+  deleteIngestionStream(
+    args: DeleteIngestionStreamCommandInput,
+    options: OpenSearchServerlessRequestOptions,
+    cb: (err: any, data?: DeleteIngestionStreamCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteLifecyclePolicyCommand}
    */
   deleteLifecyclePolicy(
@@ -720,6 +840,40 @@ export interface OpenSearchServerless {
   ): void;
 
   /**
+   * @see {@link GetIngestionJobCommand}
+   */
+  getIngestionJob(
+    args: GetIngestionJobCommandInput,
+    options?: OpenSearchServerlessRequestOptions
+  ): Promise<GetIngestionJobCommandOutput>;
+  getIngestionJob(
+    args: GetIngestionJobCommandInput,
+    cb: (err: any, data?: GetIngestionJobCommandOutput) => void
+  ): void;
+  getIngestionJob(
+    args: GetIngestionJobCommandInput,
+    options: OpenSearchServerlessRequestOptions,
+    cb: (err: any, data?: GetIngestionJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIngestionStreamCommand}
+   */
+  getIngestionStream(
+    args: GetIngestionStreamCommandInput,
+    options?: OpenSearchServerlessRequestOptions
+  ): Promise<GetIngestionStreamCommandOutput>;
+  getIngestionStream(
+    args: GetIngestionStreamCommandInput,
+    cb: (err: any, data?: GetIngestionStreamCommandOutput) => void
+  ): void;
+  getIngestionStream(
+    args: GetIngestionStreamCommandInput,
+    options: OpenSearchServerlessRequestOptions,
+    cb: (err: any, data?: GetIngestionStreamCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetPoliciesStatsCommand}
    */
   getPoliciesStats(): Promise<GetPoliciesStatsCommandOutput>;
@@ -822,6 +976,40 @@ export interface OpenSearchServerless {
     args: ListCollectionsCommandInput,
     options: OpenSearchServerlessRequestOptions,
     cb: (err: any, data?: ListCollectionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIngestionJobsCommand}
+   */
+  listIngestionJobs(
+    args: ListIngestionJobsCommandInput,
+    options?: OpenSearchServerlessRequestOptions
+  ): Promise<ListIngestionJobsCommandOutput>;
+  listIngestionJobs(
+    args: ListIngestionJobsCommandInput,
+    cb: (err: any, data?: ListIngestionJobsCommandOutput) => void
+  ): void;
+  listIngestionJobs(
+    args: ListIngestionJobsCommandInput,
+    options: OpenSearchServerlessRequestOptions,
+    cb: (err: any, data?: ListIngestionJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIngestionStreamsCommand}
+   */
+  listIngestionStreams(
+    args: ListIngestionStreamsCommandInput,
+    options?: OpenSearchServerlessRequestOptions
+  ): Promise<ListIngestionStreamsCommandOutput>;
+  listIngestionStreams(
+    args: ListIngestionStreamsCommandInput,
+    cb: (err: any, data?: ListIngestionStreamsCommandOutput) => void
+  ): void;
+  listIngestionStreams(
+    args: ListIngestionStreamsCommandInput,
+    options: OpenSearchServerlessRequestOptions,
+    cb: (err: any, data?: ListIngestionStreamsCommandOutput) => void
   ): void;
 
   /**
@@ -1130,6 +1318,28 @@ export interface OpenSearchServerless {
     args?: ListCollectionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListCollectionsCommandOutput>;
+
+  /**
+   * @see {@link ListIngestionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIngestionJobsCommandOutput}.
+   */
+  paginateListIngestionJobs(
+    args: ListIngestionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIngestionJobsCommandOutput>;
+
+  /**
+   * @see {@link ListIngestionStreamsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIngestionStreamsCommandOutput}.
+   */
+  paginateListIngestionStreams(
+    args: ListIngestionStreamsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIngestionStreamsCommandOutput>;
 
   /**
    * @see {@link ListLifecyclePoliciesCommand}

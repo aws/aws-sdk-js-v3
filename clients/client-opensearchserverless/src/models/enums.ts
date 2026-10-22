@@ -222,6 +222,49 @@ export type VpcEndpointStatus = (typeof VpcEndpointStatus)[keyof typeof VpcEndpo
  * @public
  * @enum
  */
+export const IngestionJobStatus = {
+  /**
+   * Ingestion job is provisioned and ingesting
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * Ingestion job was cancelled
+   */
+  CANCELLED: "CANCELLED",
+  /**
+   * Ingestion job is being cancelled
+   */
+  CANCELLING: "CANCELLING",
+  /**
+   * Ingestion job cancellation failed
+   */
+  CANCEL_FAILED: "CANCEL_FAILED",
+  /**
+   * Bulk ingestion finished; job is complete
+   */
+  COMPLETED: "COMPLETED",
+  /**
+   * Ingestion job creation failed
+   */
+  CREATE_FAILED: "CREATE_FAILED",
+  /**
+   * Ingestion job is being created
+   */
+  CREATING: "CREATING",
+  /**
+   * Ingestion job failed terminally (no retry)
+   */
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type IngestionJobStatus = (typeof IngestionJobStatus)[keyof typeof IngestionJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const IamIdentityCenterGroupAttribute = {
   /**
    * Group ID
@@ -261,6 +304,127 @@ export const IamIdentityCenterUserAttribute = {
  */
 export type IamIdentityCenterUserAttribute =
   (typeof IamIdentityCenterUserAttribute)[keyof typeof IamIdentityCenterUserAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const IngestionAlertCode = {
+  DESTINATION_ACCESS_DENIED: "DESTINATION_ACCESS_DENIED",
+  DESTINATION_RESOURCE_NOT_FOUND: "DESTINATION_RESOURCE_NOT_FOUND",
+  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
+  SOURCE_ACCESS_DENIED: "SOURCE_ACCESS_DENIED",
+  SOURCE_RESOURCE_NOT_FOUND: "SOURCE_RESOURCE_NOT_FOUND",
+} as const;
+/**
+ * @public
+ */
+export type IngestionAlertCode = (typeof IngestionAlertCode)[keyof typeof IngestionAlertCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const IngestionFailureCode = {
+  DESTINATION_ACCESS_DENIED: "DESTINATION_ACCESS_DENIED",
+  DESTINATION_RESOURCE_NOT_FOUND: "DESTINATION_RESOURCE_NOT_FOUND",
+  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
+  SOURCE_ACCESS_DENIED: "SOURCE_ACCESS_DENIED",
+  SOURCE_RESOURCE_NOT_FOUND: "SOURCE_RESOURCE_NOT_FOUND",
+} as const;
+/**
+ * @public
+ */
+export type IngestionFailureCode = (typeof IngestionFailureCode)[keyof typeof IngestionFailureCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const IngestionState = {
+  /**
+   * Ingestion runtime failure (terminal)
+   */
+  FAILED: "FAILED",
+  /**
+   * Bulk ingestion finished
+   */
+  INGESTION_COMPLETE: "INGESTION_COMPLETE",
+  /**
+   * Documents are being read, chunked and indexed
+   */
+  INGESTION_IN_PROGRESS: "INGESTION_IN_PROGRESS",
+  /**
+   * Bulk source scan in progress
+   */
+  SCANNING: "SCANNING",
+  /**
+   * Ingestion is initializing
+   */
+  STARTING: "STARTING",
+  /**
+   * Ingestion halted (recoverable)
+   */
+  STOPPED: "STOPPED",
+} as const;
+/**
+ * @public
+ */
+export type IngestionState = (typeof IngestionState)[keyof typeof IngestionState];
+
+/**
+ * @public
+ * @enum
+ */
+export const InitialScan = {
+  /**
+   * Skip the one-time delta scan and process SQS notifications only
+   */
+  DISABLED: "DISABLED",
+  /**
+   * Perform a one-time delta scan of existing S3 objects before processing SQS notifications
+   */
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type InitialScan = (typeof InitialScan)[keyof typeof InitialScan];
+
+/**
+ * @public
+ * @enum
+ */
+export const IngestionStreamStatus = {
+  /**
+   * Ingestion stream is provisioned and ingesting
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * Ingestion stream creation failed
+   */
+  CREATE_FAILED: "CREATE_FAILED",
+  /**
+   * Ingestion stream is being created
+   */
+  CREATING: "CREATING",
+  /**
+   * Ingestion stream was deleted
+   */
+  DELETED: "DELETED",
+  /**
+   * Ingestion stream deletion failed
+   */
+  DELETE_FAILED: "DELETE_FAILED",
+  /**
+   * Ingestion stream is being deleted
+   */
+  DELETING: "DELETING",
+} as const;
+/**
+ * @public
+ */
+export type IngestionStreamStatus = (typeof IngestionStreamStatus)[keyof typeof IngestionStreamStatus];
 
 /**
  * @public

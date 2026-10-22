@@ -9,6 +9,12 @@ import type {
   DeletionProtection,
   IamIdentityCenterGroupAttribute,
   IamIdentityCenterUserAttribute,
+  IngestionAlertCode,
+  IngestionFailureCode,
+  IngestionJobStatus,
+  IngestionState,
+  IngestionStreamStatus,
+  InitialScan,
   LifecyclePolicyType,
   ResourceType,
   SecurityConfigType,
@@ -1134,6 +1140,58 @@ export interface BatchGetVpcEndpointResponse {
 }
 
 /**
+ * @public
+ */
+export interface CancelIngestionJobRequest {
+  /**
+   * <p>The unique identifier of the collection that the ingestion job belongs to.</p>
+   * @public
+   */
+  collectionId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the ingestion job to cancel.</p>
+   * @public
+   */
+  ingestionJobId: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelIngestionJobResponse {
+  /**
+   * <p>The unique identifier of the cancelled ingestion job.</p>
+   * @public
+   */
+  ingestionJobId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the collection that the ingestion job belongs to.</p>
+   * @public
+   */
+  collectionId?: string | undefined;
+
+  /**
+   * <p>The name of the cancelled ingestion job.</p>
+   * @public
+   */
+  ingestionJobName?: string | undefined;
+
+  /**
+   * <p>The current status of the ingestion job.</p>
+   * @public
+   */
+  status?: IngestionJobStatus | undefined;
+}
+
+/**
  * <p>Encryption settings for a collection.</p>
  * @public
  */
@@ -1504,6 +1562,12 @@ export interface UpdateCollectionRequest {
   deletionProtection?: DeletionProtection | undefined;
 
   /**
+   * <p>Encryption settings for a collection.</p>
+   * @public
+   */
+  encryptionConfig?: EncryptionConfig | undefined;
+
+  /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
@@ -1550,6 +1614,12 @@ export interface UpdateCollectionDetail {
    * @public
    */
   vectorOptions?: VectorOptions | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Key Management Service (Amazon Web Services KMS) key used to encrypt the collection.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the collection.</p>
@@ -1826,7 +1896,7 @@ export interface UpdateCollectionGroupRequest {
   description?: string | undefined;
 
   /**
-   * <p>Updated capacity limits for the collection group, in OpenSearch Compute Units (OCUs).</p>
+   * <p>The updated capacity limits for the collection group, in OpenSearch Compute Units (OCUs). Updates to capacity limits are not incremental. Any field not specified resets to its default value.</p>
    * @public
    */
   capacityLimits?: CollectionGroupCapacityLimits | undefined;
@@ -1954,6 +2024,491 @@ export interface CreateIndexRequest {
  * @public
  */
 export interface CreateIndexResponse {}
+
+/**
+ * <p>The Amazon S3 source configuration for an ingestion job.</p>
+ * @public
+ */
+export interface IngestionJobS3Source {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the Amazon S3 bucket to ingest data from.</p>
+   * @public
+   */
+  bucket?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket.</p>
+   * @public
+   */
+  bucketOwnerAccountId?: string | undefined;
+
+  /**
+   * <p>A key prefix that limits ingestion to objects in the Amazon S3 bucket whose keys begin with the prefix.</p>
+   * @public
+   */
+  keyPrefix?: string | undefined;
+}
+
+/**
+ * <p>The source that an ingestion job ingests data from.</p>
+ * @public
+ */
+export interface IngestionJobSource {
+  /**
+   * <p>The Amazon S3 source configuration for the ingestion job.</p>
+   * @public
+   */
+  s3: IngestionJobS3Source | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateIngestionJobRequest {
+  /**
+   * <p>The unique identifier of the collection to ingest data into.</p>
+   * @public
+   */
+  collectionId: string | undefined;
+
+  /**
+   * <p>The name of the ingestion job. The name must be unique within the collection.</p>
+   * @public
+   */
+  ingestionJobName: string | undefined;
+
+  /**
+   * <p>The name of the index to ingest documents into.</p>
+   * @public
+   */
+  indexName: string | undefined;
+
+  /**
+   * <p>The name of the index where documents that fail to be ingested are recorded.</p>
+   * @public
+   */
+  failureIndexName?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 source to ingest data from.</p>
+   * @public
+   */
+  source: IngestionJobSource | undefined;
+
+  /**
+   * <p>An arbitrary set of tags (key–value pairs) to associate with the ingestion job.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * An active alert about a running ingestion — operational issues
+ * or updates to processing state. Cleared when the issue resolves.
+ * @public
+ */
+export interface IngestionAlert {
+  /**
+   * <p>The code that identifies the alert.</p>
+   * @public
+   */
+  code?: IngestionAlertCode | undefined;
+
+  /**
+   * <p>A description of the alert.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * A terminal failure reason explaining why an ingestion stopped.
+ * @public
+ */
+export interface IngestionFailureReason {
+  /**
+   * <p>The code that identifies the reason for the failure.</p>
+   * @public
+   */
+  code?: IngestionFailureCode | undefined;
+
+  /**
+   * <p>A description of the reason for the failure.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * <p>Processing statistics for the Amazon S3 objects in an ingestion source.</p>
+ * @public
+ */
+export interface S3Statistics {
+  /**
+   * <p>The number of Amazon S3 objects discovered for ingestion.</p>
+   * @public
+   */
+  objectsDiscovered?: number | undefined;
+
+  /**
+   * <p>The number of Amazon S3 objects successfully ingested.</p>
+   * @public
+   */
+  objectsIngested?: number | undefined;
+
+  /**
+   * <p>The number of Amazon S3 objects that failed to be ingested.</p>
+   * @public
+   */
+  objectsFailed?: number | undefined;
+}
+
+/**
+ * <p>Processing statistics for an ingestion job or ingestion stream.</p>
+ * @public
+ */
+export interface IngestionStatistics {
+  /**
+   * <p>Processing statistics for the Amazon S3 source.</p>
+   * @public
+   */
+  s3?: S3Statistics | undefined;
+}
+
+/**
+ * <p>Details about an ingestion job.</p>
+ * @public
+ */
+export interface IngestionJobDetail {
+  /**
+   * <p>The unique identifier of the ingestion job.</p>
+   * @public
+   */
+  ingestionJobId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ingestion job.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the collection that the ingestion job belongs to.</p>
+   * @public
+   */
+  collectionId?: string | undefined;
+
+  /**
+   * <p>The name of the ingestion job.</p>
+   * @public
+   */
+  ingestionJobName?: string | undefined;
+
+  /**
+   * <p>The name of the index that documents are ingested into.</p>
+   * @public
+   */
+  indexName?: string | undefined;
+
+  /**
+   * <p>The name of the index where documents that fail to be ingested are recorded.</p>
+   * @public
+   */
+  failureIndexName?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 source that the ingestion job ingests data from.</p>
+   * @public
+   */
+  source?: IngestionJobSource | undefined;
+
+  /**
+   * <p>The current lifecycle status of the ingestion job. For example, <code>CREATING</code>, <code>ACTIVE</code>, <code>COMPLETED</code>, or <code>CANCELLED</code>.</p>
+   * @public
+   */
+  status?: IngestionJobStatus | undefined;
+
+  /**
+   * <p>The current processing state of the ingestion job. For example, <code>SCANNING</code>, <code>INGESTION_IN_PROGRESS</code>, or <code>INGESTION_COMPLETE</code>.</p>
+   * @public
+   */
+  state?: IngestionState | undefined;
+
+  /**
+   * <p>Processing statistics for the ingestion job, such as the number of Amazon S3 objects discovered, ingested, and failed.</p>
+   * @public
+   */
+  statistics?: IngestionStatistics | undefined;
+
+  /**
+   * <p>The revision number of the ingestion job.</p>
+   * @public
+   */
+  revision?: number | undefined;
+
+  /**
+   * <p>The date and time when the ingestion job was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the ingestion job was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The reasons that the ingestion job reached a terminal failure state, if applicable.</p>
+   * @public
+   */
+  failureReasons?: IngestionFailureReason[] | undefined;
+
+  /**
+   * <p>Active alerts about operational issues that currently affect the ingestion job. Alerts are cleared when the issue is resolved.</p>
+   * @public
+   */
+  activeAlerts?: IngestionAlert[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateIngestionJobResponse {
+  /**
+   * <p>Details about the created ingestion job.</p>
+   * @public
+   */
+  ingestionJobDetail?: IngestionJobDetail | undefined;
+}
+
+/**
+ * S3 bucket configuration for SQS-driven ingestion. The scan mode controls only
+ * the optional one-time delta scan of existing objects in this bucket.
+ * @public
+ */
+export interface StreamBucketConfig {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the Amazon S3 bucket to ingest data from.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * The AWS account ID that owns the S3 bucket. Optional. If omitted, the
+   * control plane derives it from the account segment of sqsArn.
+   * @public
+   */
+  bucketOwnerAccountId?: string | undefined;
+
+  /**
+   * <p>Specifies whether to perform a one-time scan of the objects that already exist in the bucket before the stream begins processing Amazon S3 event notifications. If <code>DISABLED</code>, only new objects are ingested.</p>
+   * @public
+   */
+  initialScan?: InitialScan | undefined;
+}
+
+/**
+ * <p>The Amazon S3 source configuration for an ingestion stream.</p>
+ * @public
+ */
+export interface IngestionStreamS3Source {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon SQS queue that receives Amazon S3 event notifications for the source buckets.</p>
+   * @public
+   */
+  sqsArn: string | undefined;
+
+  /**
+   * <p>The configuration for each Amazon S3 bucket that the ingestion stream ingests data from.</p>
+   * @public
+   */
+  buckets?: StreamBucketConfig[] | undefined;
+}
+
+/**
+ * <p>The source that an ingestion stream ingests data from.</p>
+ * @public
+ */
+export interface IngestionStreamSource {
+  /**
+   * <p>The Amazon S3 source configuration for the ingestion stream.</p>
+   * @public
+   */
+  s3: IngestionStreamS3Source | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateIngestionStreamRequest {
+  /**
+   * <p>The unique identifier of the collection to ingest data into.</p>
+   * @public
+   */
+  collectionId: string | undefined;
+
+  /**
+   * <p>The name of the ingestion stream. The name must be unique within the collection.</p>
+   * @public
+   */
+  ingestionStreamName: string | undefined;
+
+  /**
+   * <p>The name of the index to ingest documents into.</p>
+   * @public
+   */
+  indexName: string | undefined;
+
+  /**
+   * <p>The name of the index where documents that fail to be ingested are recorded.</p>
+   * @public
+   */
+  failureIndexName?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 source to ingest data from, including the Amazon SQS queue that receives S3 event notifications.</p>
+   * @public
+   */
+  source: IngestionStreamSource | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that OpenSearch Serverless assumes to read data from the source. The role must be in the same account as the collection.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>An arbitrary set of tags (key–value pairs) to associate with the ingestion stream.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Details about an ingestion stream.</p>
+ * @public
+ */
+export interface IngestionStreamDetail {
+  /**
+   * <p>The unique identifier of the ingestion stream.</p>
+   * @public
+   */
+  ingestionStreamId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ingestion stream.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the collection that the ingestion stream belongs to.</p>
+   * @public
+   */
+  collectionId?: string | undefined;
+
+  /**
+   * <p>The name of the ingestion stream.</p>
+   * @public
+   */
+  ingestionStreamName?: string | undefined;
+
+  /**
+   * <p>The name of the index that documents are ingested into.</p>
+   * @public
+   */
+  indexName?: string | undefined;
+
+  /**
+   * <p>The name of the index where documents that fail to be ingested are recorded.</p>
+   * @public
+   */
+  failureIndexName?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 source that the ingestion stream ingests data from.</p>
+   * @public
+   */
+  source?: IngestionStreamSource | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that OpenSearch Serverless assumes to read data from the source.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>The current lifecycle status of the ingestion stream. For example, <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>.</p>
+   * @public
+   */
+  status?: IngestionStreamStatus | undefined;
+
+  /**
+   * <p>The current processing state of the ingestion stream. For example, <code>STARTING</code> or <code>INGESTION_IN_PROGRESS</code>.</p>
+   * @public
+   */
+  state?: IngestionState | undefined;
+
+  /**
+   * <p>Processing statistics for the ingestion stream, such as the number of Amazon S3 objects discovered, ingested, and failed.</p>
+   * @public
+   */
+  statistics?: IngestionStatistics | undefined;
+
+  /**
+   * <p>The revision number of the ingestion stream.</p>
+   * @public
+   */
+  revision?: number | undefined;
+
+  /**
+   * <p>The date and time when the ingestion stream was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the ingestion stream was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The reasons that the ingestion stream reached a terminal failure state, if applicable.</p>
+   * @public
+   */
+  failureReasons?: IngestionFailureReason[] | undefined;
+
+  /**
+   * <p>Active alerts about operational issues that currently affect the ingestion stream. Alerts are cleared when the issue is resolved.</p>
+   * @public
+   */
+  activeAlerts?: IngestionAlert[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateIngestionStreamResponse {
+  /**
+   * <p>Details about the created ingestion stream.</p>
+   * @public
+   */
+  ingestionStreamDetail?: IngestionStreamDetail | undefined;
+}
 
 /**
  * @public
@@ -2404,6 +2959,58 @@ export interface DeleteIndexResponse {}
 /**
  * @public
  */
+export interface DeleteIngestionStreamRequest {
+  /**
+   * <p>The unique identifier of the collection that the ingestion stream belongs to.</p>
+   * @public
+   */
+  collectionId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the ingestion stream to delete.</p>
+   * @public
+   */
+  ingestionStreamId: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIngestionStreamResponse {
+  /**
+   * <p>The unique identifier of the deleted ingestion stream.</p>
+   * @public
+   */
+  ingestionStreamId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the collection that the ingestion stream belonged to.</p>
+   * @public
+   */
+  collectionId?: string | undefined;
+
+  /**
+   * <p>The name of the deleted ingestion stream.</p>
+   * @public
+   */
+  ingestionStreamName?: string | undefined;
+
+  /**
+   * <p>The current status of the ingestion stream.</p>
+   * @public
+   */
+  status?: IngestionStreamStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteLifecyclePolicyRequest {
   /**
    * <p>The type of lifecycle policy.</p>
@@ -2578,6 +3185,62 @@ export interface GetIndexResponse {
 /**
  * @public
  */
+export interface GetIngestionJobRequest {
+  /**
+   * <p>The unique identifier of the collection that the ingestion job belongs to.</p>
+   * @public
+   */
+  collectionId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the ingestion job to retrieve.</p>
+   * @public
+   */
+  ingestionJobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIngestionJobResponse {
+  /**
+   * <p>Details about the requested ingestion job.</p>
+   * @public
+   */
+  ingestionJobDetail?: IngestionJobDetail | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIngestionStreamRequest {
+  /**
+   * <p>The unique identifier of the collection that the ingestion stream belongs to.</p>
+   * @public
+   */
+  collectionId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the ingestion stream to retrieve.</p>
+   * @public
+   */
+  ingestionStreamId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIngestionStreamResponse {
+  /**
+   * <p>Details about the requested ingestion stream.</p>
+   * @public
+   */
+  ingestionStreamDetail?: IngestionStreamDetail | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetPoliciesStatsRequest {}
 
 /**
@@ -2734,6 +3397,182 @@ export interface UpdateIndexRequest {
  * @public
  */
 export interface UpdateIndexResponse {}
+
+/**
+ * @public
+ */
+export interface ListIngestionJobsRequest {
+  /**
+   * <p>The unique identifier of the collection to list ingestion jobs for.</p>
+   * @public
+   */
+  collectionId: string | undefined;
+
+  /**
+   * <p>If your initial <code>ListIngestionJobs</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListIngestionJobs</code> operations, which returns results in the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Valid values are 1–100. If you don't specify a value, the default is 100. You can use <code>nextToken</code> to get the next page of results.</p> <p>A response can contain fewer results than <code>maxResults</code>, or no results, and still include a <code>nextToken</code>. To retrieve all results, continue to make the call with the returned <code>nextToken</code> until no <code>nextToken</code> is returned.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Summary information about an ingestion job.</p>
+ * @public
+ */
+export interface IngestionJobSummary {
+  /**
+   * <p>The unique identifier of the ingestion job.</p>
+   * @public
+   */
+  ingestionJobId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ingestion job.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The name of the ingestion job.</p>
+   * @public
+   */
+  ingestionJobName?: string | undefined;
+
+  /**
+   * <p>The name of the index that documents are ingested into.</p>
+   * @public
+   */
+  indexName?: string | undefined;
+
+  /**
+   * <p>The current lifecycle status of the ingestion job.</p>
+   * @public
+   */
+  status?: IngestionJobStatus | undefined;
+
+  /**
+   * <p>The date and time when the ingestion job was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the ingestion job was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIngestionJobsResponse {
+  /**
+   * <p>Summary information about each ingestion job.</p>
+   * @public
+   */
+  ingestionJobSummaries?: IngestionJobSummary[] | undefined;
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIngestionStreamsRequest {
+  /**
+   * <p>The unique identifier of the collection to list ingestion streams for.</p>
+   * @public
+   */
+  collectionId: string | undefined;
+
+  /**
+   * <p>If your initial <code>ListIngestionStreams</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListIngestionStreams</code> operations, which returns results in the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Valid values are 1–100. If you don't specify a value, the default is 100. You can use <code>nextToken</code> to get the next page of results.</p> <p>A response can contain fewer results than <code>maxResults</code>, or no results, and still include a <code>nextToken</code>. To retrieve all results, continue to make the call with the returned <code>nextToken</code> until no <code>nextToken</code> is returned.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Summary information about an ingestion stream.</p>
+ * @public
+ */
+export interface IngestionStreamSummary {
+  /**
+   * <p>The unique identifier of the ingestion stream.</p>
+   * @public
+   */
+  ingestionStreamId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ingestion stream.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The name of the ingestion stream.</p>
+   * @public
+   */
+  ingestionStreamName?: string | undefined;
+
+  /**
+   * <p>The name of the index that documents are ingested into.</p>
+   * @public
+   */
+  indexName?: string | undefined;
+
+  /**
+   * <p>The current lifecycle status of the ingestion stream.</p>
+   * @public
+   */
+  status?: IngestionStreamStatus | undefined;
+
+  /**
+   * <p>The date and time when the ingestion stream was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the ingestion stream was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIngestionStreamsResponse {
+  /**
+   * <p>Summary information about each ingestion stream.</p>
+   * @public
+   */
+  ingestionStreamSummaries?: IngestionStreamSummary[] | undefined;
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * @public

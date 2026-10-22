@@ -39,6 +39,10 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  *     ServerlessVectorAcceleration: "STRING_VALUE", // required
  *   },
  *   deletionProtection: "STRING_VALUE",
+ *   encryptionConfig: { // EncryptionConfig
+ *     aWSOwnedKey: true || false,
+ *     kmsKeyArn: "STRING_VALUE",
+ *   },
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateCollectionCommand(input);
@@ -53,6 +57,7 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  * //     vectorOptions: { // VectorOptions
  * //       ServerlessVectorAcceleration: "STRING_VALUE", // required
  * //     },
+ * //     kmsKeyArn: "STRING_VALUE",
  * //     arn: "STRING_VALUE",
  * //     createdDate: Number("long"),
  * //     lastModifiedDate: Number("long"),
