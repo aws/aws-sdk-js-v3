@@ -2,7 +2,7 @@
   "name": "@aws-sdk/aws-lambda-provided-sdk-deps",
   "version": "3.1138.0",
   "private": true,
-  "description": "Declares the registry packages the Lambda-provided-SDK payload needs but the SDK itself does not use. The payload must carry 47 deprecated @aws-sdk/* compatibility packages; most are forwarders that re-export a modern package, and nothing in the modern SDK depends on those re-export targets, so the assembler's dependency walk cannot reach them and yarn install would never fetch them. Declaring them here makes yarn put them in the root node_modules with their own transitive dependencies, which is where scripts/generate-lambda-provided-sdk/index.mjs copies them from. Ships no code.",
+  "description": "Registry packages the AWS SDK for JavaScript v3 provided by Lambda Node.js runtimes needs but the SDK itself does not use. Declared here so yarninstalls them; ships no code.",
   "license": "Apache-2.0",
   "author": {
     "name": "AWS SDK for JavaScript Team",

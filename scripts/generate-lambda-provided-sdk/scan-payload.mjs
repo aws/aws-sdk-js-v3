@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // @ts-check
 /**
- * Standalone CVE check over a finished payload. Not part of assembly: the assembler
- * never calls this, and it reports rather than gates.
+ * Standalone CVE check over a finished AWS SDK for JavaScript v3 provided by Lambda
+ * Node.js runtimes payload. Not part of assembly: the assembler never calls this, and
+ * it reports rather than gates.
  *
  * A thin shim over `trivy rootfs`. The subcommand matters: the payload ships no
  * lockfile, so `trivy fs` finds no language-specific files and exits 0 — a clean

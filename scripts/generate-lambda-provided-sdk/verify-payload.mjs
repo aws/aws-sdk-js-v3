@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // @ts-check
 /**
- * Verification gates over the Lambda-provided-SDK payload. The assembler calls each at
- * its point in the assembly; the four that read a finished tree also run from the CLI.
+ * Verification gates over the assembled AWS SDK for JavaScript v3 provided by Lambda
+ * Node.js runtimes. The assembler calls each at its point in the assembly; the four
+ * that read a finished tree also run from the CLI.
  */
 
 import { execFileSync as _execFileSync } from "node:child_process";
@@ -19,7 +20,7 @@ const execFileSync = (cmd, args, opts) => {
 };
 
 /** Marks a directory as this script's output, and so safe to clear on the next run. */
-export const OUTPUT_SENTINEL = ".lambda-provided-sdk-output";
+export const OUTPUT_SENTINEL = ".aws-sdk-js-v3-lambda-nodejs-runtimes-output";
 
 /**
  * Resolve --out to one absolute path and decide whether it is safe to wipe, or throw.

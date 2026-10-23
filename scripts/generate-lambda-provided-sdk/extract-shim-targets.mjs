@@ -131,9 +131,10 @@ writeFileSync(
   `${JSON.stringify(
     {
       _comment: [
-        "Re-export targets for the deprecated @aws-sdk packages shipped in the Lambda-provided",
-        "SDK payload. Each is a forwarder: its dist-cjs/index.js is a single __exportStar of",
-        "`target`, which the assembler generates rather than installing.",
+        "Re-export targets for the deprecated @aws-sdk packages shipped in the AWS SDK for",
+        "JavaScript v3 provided by Lambda Node.js runtimes. Each is a forwarder: its",
+        "dist-cjs/index.js is a single __exportStar of `target`, which the assembler",
+        "generates rather than installing.",
         "",
         `Targets were extracted from ${COMMIT} ("chore(packages): re-export from migrated`,
         "packages\"), which replaced each deprecated package's src/index.ts with one",

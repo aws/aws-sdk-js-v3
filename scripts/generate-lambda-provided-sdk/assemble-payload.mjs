@@ -2,8 +2,9 @@
 // @ts-check
 
 /**
- * Assembles the node_modules tree that AWS Lambda pre-provisions for customer
- * functions, and zips it for publication as a GitHub release asset.
+ * Assembles the AWS SDK for JavaScript v3 provided by Lambda Node.js runtimes: the
+ * node_modules tree that AWS Lambda pre-provisions for customer functions, zipped for
+ * publication as a GitHub release asset.
  *
  * Output layout, which consumers depend on and which must not change:
  *
@@ -56,7 +57,7 @@ const option = (name, fallback) => {
   return i === -1 || !argv[i + 1] ? fallback : argv[i + 1];
 };
 
-const zipName = option("zip-name", "lambda-provided-js-sdk.zip");
+const zipName = option("zip-name", "aws-sdk-js-v3-lambda-nodejs-runtimes.zip");
 /** Skip the registry install of the deprecated shims. Produces an incomplete tree. */
 const skipLegacy = flag("skip-legacy");
 /** Skip zip + checksum, leaving just the assembled tree. Useful when iterating. */
