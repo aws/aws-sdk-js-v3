@@ -9,12 +9,20 @@ describe("convertToNative", () => {
     it(`returns for null`, () => {
       expect(convertToNative({ NULL: true })).toEqual(null);
     });
+
+    it(`returns for Step Functions null`, () => {
+      expect(convertToNative({ Nul: true } as unknown as AttributeValue)).toEqual(null);
+    });
   });
 
   describe("boolean", () => {
     [true, false].forEach((bool) => {
       it(`returns for boolean: ${bool}`, () => {
         expect(convertToNative({ BOOL: bool })).toEqual(bool);
+      });
+
+      it(`returns for Step Functions boolean: ${bool}`, () => {
+        expect(convertToNative({ Bool: bool } as unknown as AttributeValue)).toEqual(bool);
       });
     });
   });
