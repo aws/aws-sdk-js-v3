@@ -84,39 +84,48 @@ const convertToSetAttr = (
 
   const item = setToOperate.values().next().value;
 
+  let setAttr: { NS: string[] } | { BS: Uint8Array[] } | { SS: string[] };
+  const numberValuePattern = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
+
+  const validateNumberSetMember = (value: string): string => {
+    if (!numberValuePattern.test(value)) {
+      throw new Error(`Sets must contain only one type of data.`);
+    }
+    return value;
+  };
+
   if (item instanceof NumberValue) {
-    return {
-      NS: Array.from(setToOperate).map((_) => _.toString()),
+    setAttr = {
+      NS: Array.from(setToOperate).map((item) => validateNumberSetMember(item.toString())),
     };
   } else if (typeof item === "number") {
-    return {
-      NS: Array.from(setToOperate)
-        .map((num) => convertToNumberAttr(num, options))
-        .map((item) => item.N),
+    setAttr = {
+      NS: Array.from(setToOperate).map((item) => validateNumberSetMember(convertToNumberAttr(item, options).N)),
     };
   } else if (typeof item === "bigint") {
-    return {
-      NS: Array.from(setToOperate)
-        .map(convertToBigIntAttr)
-        .map((item) => item.N),
+    setAttr = {
+      NS: Array.from(setToOperate).map((item) => validateNumberSetMember(convertToBigIntAttr(item).N)),
     };
   } else if (typeof item === "string") {
-    return {
-      SS: Array.from(setToOperate)
-        .map(convertToStringAttr)
-        .map((item) => item.S),
+    setAttr = {
+      SS: Array.from(setToOperate).map((item) => convertToStringAttr(item).S),
     };
   } else if (isBinary(item)) {
-    return {
+    setAttr = {
       // Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
       // @ts-expect-error Type 'ArrayBuffer' is not assignable to type 'Uint8Array'
-      BS: Array.from(setToOperate)
-        .map(convertToBinaryAttr)
-        .map((item) => item.B),
+      BS: Array.from(setToOperate).map((item) => {
+        if (typeof item !== "string" && !isBinary(item)) {
+          throw new Error(`Sets must contain only one type of data.`);
+        }
+        return convertToBinaryAttr(item).B;
+      }),
     };
   } else {
     throw new Error(`Only Number Set (NS), Binary Set (BS) or String Set (SS) are allowed.`);
   }
+
+  return setAttr;
 };
 
 const convertToMapAttrFromIterable = (
