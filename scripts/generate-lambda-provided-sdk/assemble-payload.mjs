@@ -383,8 +383,8 @@ export const assemblePayload = () => {
       copyExternalDependency(dep, seen, workspacePackages);
     }
   }
-  const external = readdirSync(nodeModulesDir).filter((e) => e !== "@aws-sdk").length;
-  log(`3. copied runtime closure: ${external} external entries`);
+  const external = seen.size;
+  log(`3. copied runtime closure: ${external} external packages`);
 
   // 4. Add the deprecated packages this workspace cannot produce. Two mechanisms:
   //
