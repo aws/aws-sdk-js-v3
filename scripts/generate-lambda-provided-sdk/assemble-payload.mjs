@@ -34,6 +34,8 @@ import { fileURLToPath } from "node:url";
 
 import { getWorkspacePaths } from "../utils/getWorkspacePaths.mjs";
 import {
+  OUTPUT_SENTINEL,
+  resolveOutDir,
   smokeTest,
   verifyMainEntries,
   verifyShimExports,
@@ -54,12 +56,20 @@ const option = (name, fallback) => {
   return i === -1 || !argv[i + 1] ? fallback : argv[i + 1];
 };
 
-const outDir = option("out", join(rootDir, "lambda-provided-sdk"));
 const zipName = option("zip-name", "lambda-provided-js-sdk.zip");
 /** Skip the registry install of the deprecated shims. Produces an incomplete tree. */
 const skipLegacy = flag("skip-legacy");
 /** Skip zip + checksum, leaving just the assembled tree. Useful when iterating. */
 const treeOnly = flag("tree-only");
+/** Clear the output directory even when this script did not create it. */
+const force = flag("force");
+
+// Absolute, and checked: the assembly below starts by emptying this directory.
+const outDir = resolveOutDir({
+  out: option("out", join(rootDir, "lambda-provided-sdk")),
+  rootDir,
+  force,
+});
 
 const nodeModulesDir = join(outDir, "node_modules");
 // Declares the registry packages the payload needs but nothing in this workspace imports.
@@ -329,6 +339,11 @@ export const assemblePayload = () => {
 
   rmSync(outDir, { recursive: true, force: true });
   mkdirSync(nodeModulesDir, { recursive: true });
+
+  writeFileSync(
+    join(outDir, OUTPUT_SENTINEL),
+    `Created by scripts/generate-lambda-provided-sdk. Safe to delete.\n`
+  );
 
   // 1. Enumerate publishable workspace packages.
   const workspacePackages = new Map();

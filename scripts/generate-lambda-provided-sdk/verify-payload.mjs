@@ -8,13 +8,61 @@
 import { execFileSync as _execFileSync } from "node:child_process";
 import { existsSync, readdirSync, readFileSync, realpathSync, rmSync, writeFileSync } from "node:fs";
 import { createRequire, isBuiltin } from "node:module";
-import { dirname, join, relative } from "node:path";
+import { homedir } from "node:os";
+import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 // Local copy: the assembler imports this module, and the echo is part of the run output.
 const execFileSync = (cmd, args, opts) => {
   console.log(`executing: ${[cmd, ...args].join(" ")}`);
   return _execFileSync(cmd, args, opts);
+};
+
+/** Marks a directory as this script's output, and so safe to clear on the next run. */
+export const OUTPUT_SENTINEL = ".lambda-provided-sdk-output";
+
+/**
+ * Resolve --out to one absolute path and decide whether it is safe to wipe, or throw.
+ * Returns a path the assembler may clear: only a directory this script created, never
+ * the repo, your home, or someone else's work.
+ *
+ * @param {{ out: string, rootDir: string, force?: boolean }} options
+ * @returns {string} absolute output directory
+ */
+export const resolveOutDir = ({ out, rootDir, force = false }) => {
+  // realpath the nearest existing ancestor: resolve() does not follow symlinks, so
+  // `--out ./link-to-home` would otherwise slip past the containment gate below.
+  let base = resolve(out);
+  while (!existsSync(base) && dirname(base) !== base) {
+    base = dirname(base);
+  }
+  const outDir = join(realpathSync(base), relative(base, resolve(out)));
+
+  const refuse = (/** @type {string} */ reason) => {
+    throw new Error(`refusing to use ${outDir} as --out: ${reason}`);
+  };
+
+  // relative(), not startsWith(): "/tmp/payload2" starts with "/tmp/payload".
+  const toRoot = relative(outDir, realpathSync(rootDir));
+  if (toRoot === "" || !toRoot.startsWith("..")) {
+    refuse("it is the repo root, or contains it");
+  }
+  // homedir() is realpathed too: /home is itself a symlink on some hosts, so the raw
+  // value never equals the resolved path above.
+  if (outDir === dirname(outDir) || outDir === realpathSync(homedir())) {
+    refuse("it is the filesystem root or your home directory");
+  }
+
+  const occupied = existsSync(outDir) && readdirSync(outDir).length > 0;
+  const ours = existsSync(join(outDir, OUTPUT_SENTINEL)) || existsSync(join(outDir, "metadata.json"));
+  if (occupied && !ours && !force) {
+    refuse(
+      `it is not empty and carries no ${OUTPUT_SENTINEL}, so this script did not create it.\n` +
+        `  Pass a path of your own, empty this one yourself, or re-run with --force.`
+    );
+  }
+
+  return outDir;
 };
 
 /**
