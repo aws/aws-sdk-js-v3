@@ -550,6 +550,7 @@ export const ReferenceStatus = {
   APPROVED: "APPROVED",
   AVAILABLE: "AVAILABLE",
   DELETED: "DELETED",
+  DRAFTING: "DRAFTING",
   FAILED: "FAILED",
   PROCESSING: "PROCESSING",
   REJECTED: "REJECTED",
@@ -3322,6 +3323,19 @@ export const MeetingFeatureStatus = {
  * @public
  */
 export type MeetingFeatureStatus = (typeof MeetingFeatureStatus)[keyof typeof MeetingFeatureStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateOutboundEmailMessageSourceType = {
+  RAW: "RAW",
+} as const;
+/**
+ * @public
+ */
+export type UpdateOutboundEmailMessageSourceType =
+  (typeof UpdateOutboundEmailMessageSourceType)[keyof typeof UpdateOutboundEmailMessageSourceType];
 
 /**
  * @public

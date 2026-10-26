@@ -55,7 +55,7 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
  * //       Attachment: { // AttachmentReference
  * //         Name: "STRING_VALUE",
  * //         Value: "STRING_VALUE",
- * //         Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
+ * //         Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED" || "DRAFTING",
  * //         Arn: "STRING_VALUE",
  * //       },
  * //       EmailMessage: { // EmailMessageReference
@@ -93,7 +93,7 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
  * //       ContactAnalysis: { // ContactAnalysisReference
  * //         Name: "STRING_VALUE",
  * //         Value: "STRING_VALUE",
- * //         Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
+ * //         Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED" || "DRAFTING",
  * //         Arn: "STRING_VALUE",
  * //         AnalyticsMode: "PostContact" || "RealTime" || "ContactLens" || "AutomatedInteraction",
  * //         IsRedacted: true || false,

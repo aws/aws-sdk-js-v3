@@ -47,7 +47,7 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  *     "<keys>": { // Reference
  *       Value: "STRING_VALUE",
  *       Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT" || "EMAIL_MESSAGE_PLAIN_TEXT_REDACTED" || "EMAIL_MESSAGE_REDACTED", // required
- *       Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
+ *       Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED" || "DRAFTING",
  *       Arn: "STRING_VALUE",
  *       StatusReason: "STRING_VALUE",
  *     },
@@ -88,6 +88,14 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  *   SystemEndpoint: {
  *     Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
  *     Address: "STRING_VALUE",
+ *   },
+ *   AdditionalRecipients: { // NullableAdditionalRecipients
+ *     CcEmailAddresses: [ // OptionalEmailAddressRecipientList
+ *       { // EmailAddressInfo
+ *         EmailAddress: "STRING_VALUE", // required
+ *         DisplayName: "STRING_VALUE",
+ *       },
+ *     ],
  *   },
  * };
  * const command = new UpdateContactCommand(input);
