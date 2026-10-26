@@ -85,6 +85,22 @@ export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
  * @public
  * @enum
  */
+export const FailoverSlateConfigurationState = {
+  CREATED: "CREATED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type FailoverSlateConfigurationState =
+  (typeof FailoverSlateConfigurationState)[keyof typeof FailoverSlateConfigurationState];
+
+/**
+ * @public
+ * @enum
+ */
 export const RenditionConfigurationRendition = {
   FULL_HD: "FULL_HD",
   HD: "HD",

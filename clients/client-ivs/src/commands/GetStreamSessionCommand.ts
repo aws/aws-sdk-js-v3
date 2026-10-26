@@ -69,6 +69,7 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * //       },
  * //       containerFormat: "STRING_VALUE",
  * //       adConfigurationArn: "STRING_VALUE",
+ * //       failoverSlateConfigurationArn: "STRING_VALUE",
  * //     },
  * //     ingestConfiguration: { // IngestConfiguration
  * //       video: { // VideoConfiguration
@@ -154,6 +155,17 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * //         code: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     failoverSlateConfiguration: { // FailoverSlateConfiguration
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE",
+ * //       activationThresholdSeconds: Number("int"),
+ * //       minSlateDisplaySeconds: Number("int"),
+ * //       maxSlateDisplaySeconds: Number("int"),
+ * //       state: "STRING_VALUE", // required
+ * //       tags: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * // };
  *

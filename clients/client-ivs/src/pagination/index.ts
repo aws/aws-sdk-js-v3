@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./ListAdConfigurationsPaginator";
 export * from "./ListChannelsPaginator";
+export * from "./ListFailoverSlateConfigurationsPaginator";
 export * from "./ListPlaybackKeyPairsPaginator";
 export * from "./ListPlaybackRestrictionPoliciesPaginator";
 export * from "./ListRecordingConfigurationsPaginator";

@@ -33,6 +33,11 @@ import {
   CreateChannelCommand,
 } from "./commands/CreateChannelCommand";
 import {
+  type CreateFailoverSlateConfigurationCommandInput,
+  type CreateFailoverSlateConfigurationCommandOutput,
+  CreateFailoverSlateConfigurationCommand,
+} from "./commands/CreateFailoverSlateConfigurationCommand";
+import {
   type CreatePlaybackRestrictionPolicyCommandInput,
   type CreatePlaybackRestrictionPolicyCommandOutput,
   CreatePlaybackRestrictionPolicyCommand,
@@ -57,6 +62,11 @@ import {
   type DeleteChannelCommandOutput,
   DeleteChannelCommand,
 } from "./commands/DeleteChannelCommand";
+import {
+  type DeleteFailoverSlateConfigurationCommandInput,
+  type DeleteFailoverSlateConfigurationCommandOutput,
+  DeleteFailoverSlateConfigurationCommand,
+} from "./commands/DeleteFailoverSlateConfigurationCommand";
 import {
   type DeletePlaybackKeyPairCommandInput,
   type DeletePlaybackKeyPairCommandOutput,
@@ -87,6 +97,11 @@ import {
   type GetChannelCommandOutput,
   GetChannelCommand,
 } from "./commands/GetChannelCommand";
+import {
+  type GetFailoverSlateConfigurationCommandInput,
+  type GetFailoverSlateConfigurationCommandOutput,
+  GetFailoverSlateConfigurationCommand,
+} from "./commands/GetFailoverSlateConfigurationCommand";
 import {
   type GetPlaybackKeyPairCommandInput,
   type GetPlaybackKeyPairCommandOutput,
@@ -133,6 +148,11 @@ import {
   type ListChannelsCommandOutput,
   ListChannelsCommand,
 } from "./commands/ListChannelsCommand";
+import {
+  type ListFailoverSlateConfigurationsCommandInput,
+  type ListFailoverSlateConfigurationsCommandOutput,
+  ListFailoverSlateConfigurationsCommand,
+} from "./commands/ListFailoverSlateConfigurationsCommand";
 import {
   type ListPlaybackKeyPairsCommandInput,
   type ListPlaybackKeyPairsCommandOutput,
@@ -204,6 +224,11 @@ import {
   UpdateChannelCommand,
 } from "./commands/UpdateChannelCommand";
 import {
+  type UpdateFailoverSlateConfigurationCommandInput,
+  type UpdateFailoverSlateConfigurationCommandOutput,
+  UpdateFailoverSlateConfigurationCommand,
+} from "./commands/UpdateFailoverSlateConfigurationCommand";
+import {
   type UpdatePlaybackRestrictionPolicyCommandInput,
   type UpdatePlaybackRestrictionPolicyCommandOutput,
   UpdatePlaybackRestrictionPolicyCommand,
@@ -211,6 +236,7 @@ import {
 import { IvsClient } from "./IvsClient";
 import { paginateListAdConfigurations } from "./pagination/ListAdConfigurationsPaginator";
 import { paginateListChannels } from "./pagination/ListChannelsPaginator";
+import { paginateListFailoverSlateConfigurations } from "./pagination/ListFailoverSlateConfigurationsPaginator";
 import { paginateListPlaybackKeyPairs } from "./pagination/ListPlaybackKeyPairsPaginator";
 import { paginateListPlaybackRestrictionPolicies } from "./pagination/ListPlaybackRestrictionPoliciesPaginator";
 import { paginateListRecordingConfigurations } from "./pagination/ListRecordingConfigurationsPaginator";
@@ -224,17 +250,20 @@ const commands = {
   BatchStartViewerSessionRevocationCommand,
   CreateAdConfigurationCommand,
   CreateChannelCommand,
+  CreateFailoverSlateConfigurationCommand,
   CreatePlaybackRestrictionPolicyCommand,
   CreateRecordingConfigurationCommand,
   CreateStreamKeyCommand,
   DeleteAdConfigurationCommand,
   DeleteChannelCommand,
+  DeleteFailoverSlateConfigurationCommand,
   DeletePlaybackKeyPairCommand,
   DeletePlaybackRestrictionPolicyCommand,
   DeleteRecordingConfigurationCommand,
   DeleteStreamKeyCommand,
   GetAdConfigurationCommand,
   GetChannelCommand,
+  GetFailoverSlateConfigurationCommand,
   GetPlaybackKeyPairCommand,
   GetPlaybackRestrictionPolicyCommand,
   GetRecordingConfigurationCommand,
@@ -245,6 +274,7 @@ const commands = {
   InsertAdBreakCommand,
   ListAdConfigurationsCommand,
   ListChannelsCommand,
+  ListFailoverSlateConfigurationsCommand,
   ListPlaybackKeyPairsCommand,
   ListPlaybackRestrictionPoliciesCommand,
   ListRecordingConfigurationsCommand,
@@ -259,11 +289,13 @@ const commands = {
   UntagResourceCommand,
   UpdateAdConfigurationCommand,
   UpdateChannelCommand,
+  UpdateFailoverSlateConfigurationCommand,
   UpdatePlaybackRestrictionPolicyCommand,
 };
 const paginators = {
   paginateListAdConfigurations,
   paginateListChannels,
+  paginateListFailoverSlateConfigurations,
   paginateListPlaybackKeyPairs,
   paginateListPlaybackRestrictionPolicies,
   paginateListRecordingConfigurations,
@@ -367,6 +399,24 @@ export interface Ivs {
   ): void;
 
   /**
+   * @see {@link CreateFailoverSlateConfigurationCommand}
+   */
+  createFailoverSlateConfiguration(): Promise<CreateFailoverSlateConfigurationCommandOutput>;
+  createFailoverSlateConfiguration(
+    args: CreateFailoverSlateConfigurationCommandInput,
+    options?: IvsRequestOptions
+  ): Promise<CreateFailoverSlateConfigurationCommandOutput>;
+  createFailoverSlateConfiguration(
+    args: CreateFailoverSlateConfigurationCommandInput,
+    cb: (err: any, data?: CreateFailoverSlateConfigurationCommandOutput) => void
+  ): void;
+  createFailoverSlateConfiguration(
+    args: CreateFailoverSlateConfigurationCommandInput,
+    options: IvsRequestOptions,
+    cb: (err: any, data?: CreateFailoverSlateConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreatePlaybackRestrictionPolicyCommand}
    */
   createPlaybackRestrictionPolicy(): Promise<CreatePlaybackRestrictionPolicyCommandOutput>;
@@ -450,6 +500,23 @@ export interface Ivs {
     args: DeleteChannelCommandInput,
     options: IvsRequestOptions,
     cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteFailoverSlateConfigurationCommand}
+   */
+  deleteFailoverSlateConfiguration(
+    args: DeleteFailoverSlateConfigurationCommandInput,
+    options?: IvsRequestOptions
+  ): Promise<DeleteFailoverSlateConfigurationCommandOutput>;
+  deleteFailoverSlateConfiguration(
+    args: DeleteFailoverSlateConfigurationCommandInput,
+    cb: (err: any, data?: DeleteFailoverSlateConfigurationCommandOutput) => void
+  ): void;
+  deleteFailoverSlateConfiguration(
+    args: DeleteFailoverSlateConfigurationCommandInput,
+    options: IvsRequestOptions,
+    cb: (err: any, data?: DeleteFailoverSlateConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -552,6 +619,23 @@ export interface Ivs {
     args: GetChannelCommandInput,
     options: IvsRequestOptions,
     cb: (err: any, data?: GetChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFailoverSlateConfigurationCommand}
+   */
+  getFailoverSlateConfiguration(
+    args: GetFailoverSlateConfigurationCommandInput,
+    options?: IvsRequestOptions
+  ): Promise<GetFailoverSlateConfigurationCommandOutput>;
+  getFailoverSlateConfiguration(
+    args: GetFailoverSlateConfigurationCommandInput,
+    cb: (err: any, data?: GetFailoverSlateConfigurationCommandOutput) => void
+  ): void;
+  getFailoverSlateConfiguration(
+    args: GetFailoverSlateConfigurationCommandInput,
+    options: IvsRequestOptions,
+    cb: (err: any, data?: GetFailoverSlateConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -724,6 +808,24 @@ export interface Ivs {
     args: ListChannelsCommandInput,
     options: IvsRequestOptions,
     cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFailoverSlateConfigurationsCommand}
+   */
+  listFailoverSlateConfigurations(): Promise<ListFailoverSlateConfigurationsCommandOutput>;
+  listFailoverSlateConfigurations(
+    args: ListFailoverSlateConfigurationsCommandInput,
+    options?: IvsRequestOptions
+  ): Promise<ListFailoverSlateConfigurationsCommandOutput>;
+  listFailoverSlateConfigurations(
+    args: ListFailoverSlateConfigurationsCommandInput,
+    cb: (err: any, data?: ListFailoverSlateConfigurationsCommandOutput) => void
+  ): void;
+  listFailoverSlateConfigurations(
+    args: ListFailoverSlateConfigurationsCommandInput,
+    options: IvsRequestOptions,
+    cb: (err: any, data?: ListFailoverSlateConfigurationsCommandOutput) => void
   ): void;
 
   /**
@@ -969,6 +1071,23 @@ export interface Ivs {
   ): void;
 
   /**
+   * @see {@link UpdateFailoverSlateConfigurationCommand}
+   */
+  updateFailoverSlateConfiguration(
+    args: UpdateFailoverSlateConfigurationCommandInput,
+    options?: IvsRequestOptions
+  ): Promise<UpdateFailoverSlateConfigurationCommandOutput>;
+  updateFailoverSlateConfiguration(
+    args: UpdateFailoverSlateConfigurationCommandInput,
+    cb: (err: any, data?: UpdateFailoverSlateConfigurationCommandOutput) => void
+  ): void;
+  updateFailoverSlateConfiguration(
+    args: UpdateFailoverSlateConfigurationCommandInput,
+    options: IvsRequestOptions,
+    cb: (err: any, data?: UpdateFailoverSlateConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdatePlaybackRestrictionPolicyCommand}
    */
   updatePlaybackRestrictionPolicy(
@@ -1006,6 +1125,17 @@ export interface Ivs {
     args?: ListChannelsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListFailoverSlateConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFailoverSlateConfigurationsCommandOutput}.
+   */
+  paginateListFailoverSlateConfigurations(
+    args?: ListFailoverSlateConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFailoverSlateConfigurationsCommandOutput>;
 
   /**
    * @see {@link ListPlaybackKeyPairsCommand}

@@ -51,6 +51,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *   },
  *   containerFormat: "STRING_VALUE",
  *   adConfigurationArn: "STRING_VALUE",
+ *   failoverSlateConfigurationArn: "STRING_VALUE",
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
@@ -81,6 +82,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //     },
  * //     containerFormat: "STRING_VALUE",
  * //     adConfigurationArn: "STRING_VALUE",
+ * //     failoverSlateConfigurationArn: "STRING_VALUE",
  * //   },
  * //   streamKey: { // StreamKey
  * //     arn: "STRING_VALUE",

@@ -69,6 +69,10 @@ import type {
 } from "./commands/CreateAdConfigurationCommand";
 import type { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
 import type {
+  CreateFailoverSlateConfigurationCommandInput,
+  CreateFailoverSlateConfigurationCommandOutput,
+} from "./commands/CreateFailoverSlateConfigurationCommand";
+import type {
   CreatePlaybackRestrictionPolicyCommandInput,
   CreatePlaybackRestrictionPolicyCommandOutput,
 } from "./commands/CreatePlaybackRestrictionPolicyCommand";
@@ -82,6 +86,10 @@ import type {
   DeleteAdConfigurationCommandOutput,
 } from "./commands/DeleteAdConfigurationCommand";
 import type { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
+import type {
+  DeleteFailoverSlateConfigurationCommandInput,
+  DeleteFailoverSlateConfigurationCommandOutput,
+} from "./commands/DeleteFailoverSlateConfigurationCommand";
 import type {
   DeletePlaybackKeyPairCommandInput,
   DeletePlaybackKeyPairCommandOutput,
@@ -100,6 +108,10 @@ import type {
   GetAdConfigurationCommandOutput,
 } from "./commands/GetAdConfigurationCommand";
 import type { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
+import type {
+  GetFailoverSlateConfigurationCommandInput,
+  GetFailoverSlateConfigurationCommandOutput,
+} from "./commands/GetFailoverSlateConfigurationCommand";
 import type {
   GetPlaybackKeyPairCommandInput,
   GetPlaybackKeyPairCommandOutput,
@@ -125,6 +137,10 @@ import type {
   ListAdConfigurationsCommandOutput,
 } from "./commands/ListAdConfigurationsCommand";
 import type { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import type {
+  ListFailoverSlateConfigurationsCommandInput,
+  ListFailoverSlateConfigurationsCommandOutput,
+} from "./commands/ListFailoverSlateConfigurationsCommand";
 import type {
   ListPlaybackKeyPairsCommandInput,
   ListPlaybackKeyPairsCommandOutput,
@@ -161,6 +177,10 @@ import type {
 } from "./commands/UpdateAdConfigurationCommand";
 import type { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
 import type {
+  UpdateFailoverSlateConfigurationCommandInput,
+  UpdateFailoverSlateConfigurationCommandOutput,
+} from "./commands/UpdateFailoverSlateConfigurationCommand";
+import type {
   UpdatePlaybackRestrictionPolicyCommandInput,
   UpdatePlaybackRestrictionPolicyCommandOutput,
 } from "./commands/UpdatePlaybackRestrictionPolicyCommand";
@@ -184,17 +204,20 @@ export type ServiceInputTypes =
   | BatchStartViewerSessionRevocationCommandInput
   | CreateAdConfigurationCommandInput
   | CreateChannelCommandInput
+  | CreateFailoverSlateConfigurationCommandInput
   | CreatePlaybackRestrictionPolicyCommandInput
   | CreateRecordingConfigurationCommandInput
   | CreateStreamKeyCommandInput
   | DeleteAdConfigurationCommandInput
   | DeleteChannelCommandInput
+  | DeleteFailoverSlateConfigurationCommandInput
   | DeletePlaybackKeyPairCommandInput
   | DeletePlaybackRestrictionPolicyCommandInput
   | DeleteRecordingConfigurationCommandInput
   | DeleteStreamKeyCommandInput
   | GetAdConfigurationCommandInput
   | GetChannelCommandInput
+  | GetFailoverSlateConfigurationCommandInput
   | GetPlaybackKeyPairCommandInput
   | GetPlaybackRestrictionPolicyCommandInput
   | GetRecordingConfigurationCommandInput
@@ -205,6 +228,7 @@ export type ServiceInputTypes =
   | InsertAdBreakCommandInput
   | ListAdConfigurationsCommandInput
   | ListChannelsCommandInput
+  | ListFailoverSlateConfigurationsCommandInput
   | ListPlaybackKeyPairsCommandInput
   | ListPlaybackRestrictionPoliciesCommandInput
   | ListRecordingConfigurationsCommandInput
@@ -219,6 +243,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAdConfigurationCommandInput
   | UpdateChannelCommandInput
+  | UpdateFailoverSlateConfigurationCommandInput
   | UpdatePlaybackRestrictionPolicyCommandInput;
 
 /**
@@ -230,17 +255,20 @@ export type ServiceOutputTypes =
   | BatchStartViewerSessionRevocationCommandOutput
   | CreateAdConfigurationCommandOutput
   | CreateChannelCommandOutput
+  | CreateFailoverSlateConfigurationCommandOutput
   | CreatePlaybackRestrictionPolicyCommandOutput
   | CreateRecordingConfigurationCommandOutput
   | CreateStreamKeyCommandOutput
   | DeleteAdConfigurationCommandOutput
   | DeleteChannelCommandOutput
+  | DeleteFailoverSlateConfigurationCommandOutput
   | DeletePlaybackKeyPairCommandOutput
   | DeletePlaybackRestrictionPolicyCommandOutput
   | DeleteRecordingConfigurationCommandOutput
   | DeleteStreamKeyCommandOutput
   | GetAdConfigurationCommandOutput
   | GetChannelCommandOutput
+  | GetFailoverSlateConfigurationCommandOutput
   | GetPlaybackKeyPairCommandOutput
   | GetPlaybackRestrictionPolicyCommandOutput
   | GetRecordingConfigurationCommandOutput
@@ -251,6 +279,7 @@ export type ServiceOutputTypes =
   | InsertAdBreakCommandOutput
   | ListAdConfigurationsCommandOutput
   | ListChannelsCommandOutput
+  | ListFailoverSlateConfigurationsCommandOutput
   | ListPlaybackKeyPairsCommandOutput
   | ListPlaybackRestrictionPoliciesCommandOutput
   | ListRecordingConfigurationsCommandOutput
@@ -265,6 +294,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAdConfigurationCommandOutput
   | UpdateChannelCommandOutput
+  | UpdateFailoverSlateConfigurationCommandOutput
   | UpdatePlaybackRestrictionPolicyCommandOutput;
 
 /**
