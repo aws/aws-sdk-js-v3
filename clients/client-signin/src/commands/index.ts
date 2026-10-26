@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./CreateOAuth2TokenCommand";
 export * from "./CreateOAuth2TokenWithIAMCommand";
+export * from "./CreateOAuth2TokenWithTokenExchangeCommand";
 export * from "./DeleteConsoleAuthorizationConfigurationCommand";
 export * from "./DeleteResourcePermissionStatementCommand";
 export * from "./GetConsoleAuthorizationConfigurationCommand";

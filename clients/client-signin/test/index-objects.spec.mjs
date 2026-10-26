@@ -14,6 +14,10 @@ import {
   CreateOAuth2TokenWithIAMCommand,
   CreateOAuth2TokenWithIAMRequest$,
   CreateOAuth2TokenWithIAMResponse$,
+  CreateOAuth2TokenWithTokenExchange$,
+  CreateOAuth2TokenWithTokenExchangeCommand,
+  CreateOAuth2TokenWithTokenExchangeRequest$,
+  CreateOAuth2TokenWithTokenExchangeResponse$,
   DeleteConsoleAuthorizationConfiguration$,
   DeleteConsoleAuthorizationConfigurationCommand,
   DeleteConsoleAuthorizationConfigurationInput$,
@@ -36,6 +40,10 @@ import {
   IntrospectOAuth2TokenWithIAMCommand,
   IntrospectOAuth2TokenWithIAMRequest$,
   IntrospectOAuth2TokenWithIAMResponse$,
+  InvalidGrantException,
+  InvalidGrantException$,
+  InvalidScopeException,
+  InvalidScopeException$,
   ListResourcePermissionStatements$,
   ListResourcePermissionStatementsCommand,
   ListResourcePermissionStatementsInput$,
@@ -60,6 +68,8 @@ import {
   RevokeOAuth2TokenWithIAMResponse$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  ServiceUnavailableException,
+  ServiceUnavailableException$,
   Signin,
   SigninClient,
   SigninResourceBasedPolicy$,
@@ -78,6 +88,8 @@ assert(typeof CreateOAuth2TokenCommand === "function");
 assert(typeof CreateOAuth2Token$ === "object");
 assert(typeof CreateOAuth2TokenWithIAMCommand === "function");
 assert(typeof CreateOAuth2TokenWithIAM$ === "object");
+assert(typeof CreateOAuth2TokenWithTokenExchangeCommand === "function");
+assert(typeof CreateOAuth2TokenWithTokenExchange$ === "object");
 assert(typeof DeleteConsoleAuthorizationConfigurationCommand === "function");
 assert(typeof DeleteConsoleAuthorizationConfiguration$ === "object");
 assert(typeof DeleteResourcePermissionStatementCommand === "function");
@@ -104,6 +116,8 @@ assert(typeof CreateOAuth2TokenResponse$ === "object");
 assert(typeof CreateOAuth2TokenResponseBody$ === "object");
 assert(typeof CreateOAuth2TokenWithIAMRequest$ === "object");
 assert(typeof CreateOAuth2TokenWithIAMResponse$ === "object");
+assert(typeof CreateOAuth2TokenWithTokenExchangeRequest$ === "object");
+assert(typeof CreateOAuth2TokenWithTokenExchangeResponse$ === "object");
 assert(typeof DeleteConsoleAuthorizationConfigurationInput$ === "object");
 assert(typeof DeleteConsoleAuthorizationConfigurationOutput$ === "object");
 assert(typeof DeleteResourcePermissionStatementInput$ === "object");
@@ -134,10 +148,16 @@ assert(ConflictException.prototype instanceof SigninServiceException);
 assert(typeof ConflictException$ === "object");
 assert(InternalServerException.prototype instanceof SigninServiceException);
 assert(typeof InternalServerException$ === "object");
+assert(InvalidGrantException.prototype instanceof SigninServiceException);
+assert(typeof InvalidGrantException$ === "object");
+assert(InvalidScopeException.prototype instanceof SigninServiceException);
+assert(typeof InvalidScopeException$ === "object");
 assert(ResourceNotFoundException.prototype instanceof SigninServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
 assert(ServiceQuotaExceededException.prototype instanceof SigninServiceException);
 assert(typeof ServiceQuotaExceededException$ === "object");
+assert(ServiceUnavailableException.prototype instanceof SigninServiceException);
+assert(typeof ServiceUnavailableException$ === "object");
 assert(TooManyRequestsError.prototype instanceof SigninServiceException);
 assert(typeof TooManyRequestsError$ === "object");
 assert(ValidationException.prototype instanceof SigninServiceException);

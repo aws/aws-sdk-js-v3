@@ -18,6 +18,11 @@ import {
   CreateOAuth2TokenWithIAMCommand,
 } from "./commands/CreateOAuth2TokenWithIAMCommand";
 import {
+  type CreateOAuth2TokenWithTokenExchangeCommandInput,
+  type CreateOAuth2TokenWithTokenExchangeCommandOutput,
+  CreateOAuth2TokenWithTokenExchangeCommand,
+} from "./commands/CreateOAuth2TokenWithTokenExchangeCommand";
+import {
   type DeleteConsoleAuthorizationConfigurationCommandInput,
   type DeleteConsoleAuthorizationConfigurationCommandOutput,
   DeleteConsoleAuthorizationConfigurationCommand,
@@ -68,6 +73,7 @@ import { SigninClient } from "./SigninClient";
 const commands = {
   CreateOAuth2TokenCommand,
   CreateOAuth2TokenWithIAMCommand,
+  CreateOAuth2TokenWithTokenExchangeCommand,
   DeleteConsoleAuthorizationConfigurationCommand,
   DeleteResourcePermissionStatementCommand,
   GetConsoleAuthorizationConfigurationCommand,
@@ -122,6 +128,23 @@ export interface Signin {
     args: CreateOAuth2TokenWithIAMCommandInput,
     options: SigninRequestOptions,
     cb: (err: any, data?: CreateOAuth2TokenWithIAMCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateOAuth2TokenWithTokenExchangeCommand}
+   */
+  createOAuth2TokenWithTokenExchange(
+    args: CreateOAuth2TokenWithTokenExchangeCommandInput,
+    options?: SigninRequestOptions
+  ): Promise<CreateOAuth2TokenWithTokenExchangeCommandOutput>;
+  createOAuth2TokenWithTokenExchange(
+    args: CreateOAuth2TokenWithTokenExchangeCommandInput,
+    cb: (err: any, data?: CreateOAuth2TokenWithTokenExchangeCommandOutput) => void
+  ): void;
+  createOAuth2TokenWithTokenExchange(
+    args: CreateOAuth2TokenWithTokenExchangeCommandInput,
+    options: SigninRequestOptions,
+    cb: (err: any, data?: CreateOAuth2TokenWithTokenExchangeCommandOutput) => void
   ): void;
 
   /**
@@ -296,8 +319,7 @@ export interface Signin {
 }
 
 /**
- * AWS Sign-In manages authentication for AWS services. This service provides
- * secure authentication flows for accessing AWS resources from the console and developer tools.
+ * AWS Sign-In manages authentication for AWS services. It implements OAuth 2.0, providing secure token exchange and refresh capabilities.
  * @public
  */
 export class Signin extends SigninClient implements Signin {}

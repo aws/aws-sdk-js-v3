@@ -12,6 +12,9 @@ const _COATRr = "CreateOAuth2TokenResponse";
 const _COATWIAM = "CreateOAuth2TokenWithIAM";
 const _COATWIAMR = "CreateOAuth2TokenWithIAMRequest";
 const _COATWIAMRr = "CreateOAuth2TokenWithIAMResponse";
+const _COATWTE = "CreateOAuth2TokenWithTokenExchange";
+const _COATWTER = "CreateOAuth2TokenWithTokenExchangeRequest";
+const _COATWTERr = "CreateOAuth2TokenWithTokenExchangeResponse";
 const _DCAC = "DeleteConsoleAuthorizationConfiguration";
 const _DCACI = "DeleteConsoleAuthorizationConfigurationInput";
 const _DCACO = "DeleteConsoleAuthorizationConfigurationOutput";
@@ -25,10 +28,12 @@ const _GCACO = "GetConsoleAuthorizationConfigurationOutput";
 const _GRP = "GetResourcePolicy";
 const _GRPI = "GetResourcePolicyInput";
 const _GRPO = "GetResourcePolicyOutput";
+const _IGE = "InvalidGrantException";
 const _IOATWIAM = "IntrospectOAuth2TokenWithIAM";
 const _IOATWIAMR = "IntrospectOAuth2TokenWithIAMRequest";
 const _IOATWIAMRn = "IntrospectOAuth2TokenWithIAMResponse";
 const _ISE = "InternalServerException";
+const _ISEn = "InvalidScopeException";
 const _IT = "IntrospectionToken";
 const _LRPS = "ListResourcePermissionStatements";
 const _LRPSI = "ListResourcePermissionStatementsInput";
@@ -55,6 +60,8 @@ const _RTe = "RevocationToken";
 const _S = "Statement";
 const _SQEE = "ServiceQuotaExceededException";
 const _SRBP = "SigninResourceBasedPolicy";
+const _ST = "SubjectToken";
+const _SUE = "ServiceUnavailableException";
 const _TMRE = "TooManyRequestsError";
 const _V = "Version";
 const _VE = "ValidationException";
@@ -87,7 +94,9 @@ const _h = "http";
 const _hE = "httpError";
 const _i = "iat";
 const _iT = "idToken";
+const _iTT = "issuedTokenType";
 const _is = "iss";
+const _itt = "issued_token_type";
 const _j = "jti";
 const _jN = "jsonName";
 const _m = "message";
@@ -108,12 +117,16 @@ const _sRBP = "signinResourceBasedPolicy";
 const _sS = "signinSession";
 const _sSV = "signinSourceVpce";
 const _sT = "sessionToken";
+const _sTT = "subjectTokenType";
+const _sTu = "subjectToken";
 const _sV = "sourceVpc";
 const _sc = "scope";
 const _se = "server";
 const _si = "sid";
 const _ss = "signin_session";
-const _st = "statement";
+const _st = "subject_token";
+const _sta = "statement";
+const _stt = "subject_token_type";
 const _su = "sub";
 const _t = "token";
 const _tI = "tokenInput";
@@ -144,8 +157,11 @@ import {
   AccessDeniedException,
   ConflictException,
   InternalServerException,
+  InvalidGrantException,
+  InvalidScopeException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  ServiceUnavailableException,
   TooManyRequestsError,
   ValidationException,
 } from "../models/errors";
@@ -174,6 +190,18 @@ export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   [0, 0], 2
 ];
 n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidGrantException$: StaticErrorSchema = [-3, n0, _IGE,
+  { [_e]: _c, [_hE]: 400 },
+  [_e, _m],
+  [0, 0], 2
+];
+n0_registry.registerError(InvalidGrantException$, InvalidGrantException);
+export var InvalidScopeException$: StaticErrorSchema = [-3, n0, _ISEn,
+  { [_e]: _c, [_hE]: 400 },
+  [_e, _m],
+  [0, 0], 2
+];
+n0_registry.registerError(InvalidScopeException$, InvalidScopeException);
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_e, _m],
@@ -186,6 +214,12 @@ export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   [0, 0], 2
 ];
 n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_e, _m],
+  [0, 0], 2
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var TooManyRequestsError$: StaticErrorSchema = [-3, n0, _TMRE,
   { [_e]: _c, [_hE]: 429 },
   [_e, _m],
@@ -211,6 +245,7 @@ var IntrospectionToken: StaticSimpleSchema = [0, n0, _IT, 8, 0];
 var OAuthAccessToken: StaticSimpleSchema = [0, n0, _OAAT, 8, 0];
 var RefreshToken: StaticSimpleSchema = [0, n0, _RT, 8, 0];
 var RevocationToken: StaticSimpleSchema = [0, n0, _RTe, 8, 0];
+var SubjectToken: StaticSimpleSchema = [0, n0, _ST, 8, 0];
 export var AccessToken$: StaticStructureSchema = [3, n0, _AT,
   8,
   [_aKI, _sAK, _sT],
@@ -245,6 +280,16 @@ export var CreateOAuth2TokenWithIAMResponse$: StaticStructureSchema = [3, n0, _C
   0,
   [_aT, _tT, _eI],
   [[() => OAuthAccessToken, { [_jN]: _at }], [0, { [_jN]: _tt }], [1, { [_jN]: _ei }]], 3
+];
+export var CreateOAuth2TokenWithTokenExchangeRequest$: StaticStructureSchema = [3, n0, _COATWTER,
+  0,
+  [_gT, _sTu, _sTT, _r, _sc],
+  [[0, { [_jN]: _gt }], [() => SubjectToken, { [_jN]: _st }], [0, { [_jN]: _stt }], 0, 0], 1
+];
+export var CreateOAuth2TokenWithTokenExchangeResponse$: StaticStructureSchema = [3, n0, _COATWTERr,
+  0,
+  [_aT, _tT, _eI, _iTT],
+  [[() => OAuthAccessToken, { [_jN]: _at }], [0, { [_jN]: _tt }], [1, { [_jN]: _ei }], [0, { [_jN]: _itt }]], 3
 ];
 export var DeleteConsoleAuthorizationConfigurationInput$: StaticStructureSchema = [3, n0, _DCACI,
   0,
@@ -348,7 +393,7 @@ export var RevokeOAuth2TokenWithIAMResponse$: StaticStructureSchema = [3, n0, _R
 ];
 export var SigninResourceBasedPolicy$: StaticStructureSchema = [3, n0, _SRBP,
   0,
-  [_v, _st],
+  [_v, _sta],
   [[0, { [_jN]: _V }], [() => PolicyStatements, { [_jN]: _S }]]
 ];
 var ConditionValues = 64 | 0;
@@ -372,6 +417,9 @@ export var CreateOAuth2Token$: StaticOperationSchema = [9, n0, _COAT,
 ];
 export var CreateOAuth2TokenWithIAM$: StaticOperationSchema = [9, n0, _COATWIAM,
   { [_h]: ["POST", "/v1/token?x-amz-client-auth-method=iam", 200] }, () => CreateOAuth2TokenWithIAMRequest$, () => CreateOAuth2TokenWithIAMResponse$
+];
+export var CreateOAuth2TokenWithTokenExchange$: StaticOperationSchema = [9, n0, _COATWTE,
+  { [_h]: ["POST", "/v1/token?x-amz-oauth-token-method=token-exchange", 200] }, () => CreateOAuth2TokenWithTokenExchangeRequest$, () => CreateOAuth2TokenWithTokenExchangeResponse$
 ];
 export var DeleteConsoleAuthorizationConfiguration$: StaticOperationSchema = [9, n0, _DCAC,
   { [_h]: ["POST", "/delete-console-authorization-configuration", 200] }, () => DeleteConsoleAuthorizationConfigurationInput$, () => DeleteConsoleAuthorizationConfigurationOutput$
