@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-glacier",
-  "version": "3.1156.0",
+  "version": "3.1157.0",
   "description": "AWS SDK for JavaScript Glacier Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-glacier",
   "license": "Apache-2.0",
@@ -46,11 +46,11 @@
     "test:index": "tsc -p tsconfig.test.json && node ./test/index-objects.spec.mjs"
   },
   "dependencies": {
-    "@aws-sdk/body-checksum-browser": "workspace:^3.972.34",
-    "@aws-sdk/body-checksum-node": "workspace:^3.972.35",
-    "@aws-sdk/core": "workspace:^3.978.5",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.88",
-    "@aws-sdk/middleware-sdk-glacier": "workspace:^3.972.33",
+    "@aws-sdk/body-checksum-browser": "workspace:^3.972.35",
+    "@aws-sdk/body-checksum-node": "workspace:^3.972.36",
+    "@aws-sdk/core": "workspace:^3.978.6",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.89",
+    "@aws-sdk/middleware-sdk-glacier": "workspace:^3.972.34",
     "@aws-sdk/types": "workspace:^3.975.0",
     "@smithy/core": "^3.37.0",
     "@smithy/fetch-http-handler": "^5.8.0",
