@@ -64,9 +64,11 @@ import {
   AudioType,
   AudioWatermarkSettings$,
   AuthenticationScheme,
+  AutoFilterSettings$,
   AutomaticInputFailoverSettings$,
   Av1BitDepth,
   Av1ColorSpaceSettings$,
+  Av1FilterSettings$,
   Av1GopSizeUnits,
   Av1Level,
   Av1LookAheadRateControl,
@@ -505,6 +507,7 @@ import {
   GlobalConfigurationOutputLockingMode,
   GlobalConfigurationOutputTimingSource,
   H264AdaptiveQuantization,
+  H264AllowExplicitWeightedPrediction,
   H264ColorMetadata,
   H264ColorSpaceSettings$,
   H264EntropyEncoding,
@@ -895,6 +898,7 @@ import {
   NodeInterfaceMappingCreateRequest$,
   NodeRole,
   NodeState,
+  NoneFilterSettings$,
   NotFoundException,
   NotFoundException$,
   Offering$,
@@ -934,6 +938,8 @@ import {
   paginateListSignalMaps,
   PassThroughSettings$,
   PauseStateScheduleActionSettings$,
+  PerceptualFilterSettings$,
+  PerceptualFilterStrength,
   PipelineDetail$,
   PipelineId,
   PipelineLockingMethod,
@@ -1569,8 +1575,10 @@ assert(typeof AudioSilenceFailoverSettings$ === "object");
 assert(typeof AudioTrack$ === "object");
 assert(typeof AudioTrackSelection$ === "object");
 assert(typeof AudioWatermarkSettings$ === "object");
+assert(typeof AutoFilterSettings$ === "object");
 assert(typeof AutomaticInputFailoverSettings$ === "object");
 assert(typeof Av1ColorSpaceSettings$ === "object");
+assert(typeof Av1FilterSettings$ === "object");
 assert(typeof Av1Settings$ === "object");
 assert(typeof AvailBlanking$ === "object");
 assert(typeof AvailConfiguration$ === "object");
@@ -1958,6 +1966,7 @@ assert(typeof NielsenNwOnly$ === "object");
 assert(typeof NielsenWatermarksSettings$ === "object");
 assert(typeof NodeInterfaceMapping$ === "object");
 assert(typeof NodeInterfaceMappingCreateRequest$ === "object");
+assert(typeof NoneFilterSettings$ === "object");
 assert(typeof Offering$ === "object");
 assert(typeof Output$ === "object");
 assert(typeof OutputDestination$ === "object");
@@ -1969,6 +1978,7 @@ assert(typeof OutputLockingSettings$ === "object");
 assert(typeof OutputSettings$ === "object");
 assert(typeof PassThroughSettings$ === "object");
 assert(typeof PauseStateScheduleActionSettings$ === "object");
+assert(typeof PerceptualFilterSettings$ === "object");
 assert(typeof PipelineDetail$ === "object");
 assert(typeof PipelineLockingSettings$ === "object");
 assert(typeof PipelinePauseStateSettings$ === "object");
@@ -2263,6 +2273,7 @@ assert(typeof GlobalConfigurationLowFramerateInputs === "object");
 assert(typeof GlobalConfigurationOutputLockingMode === "object");
 assert(typeof GlobalConfigurationOutputTimingSource === "object");
 assert(typeof H264AdaptiveQuantization === "object");
+assert(typeof H264AllowExplicitWeightedPrediction === "object");
 assert(typeof H264ColorMetadata === "object");
 assert(typeof H264EntropyEncoding === "object");
 assert(typeof H264FlickerAq === "object");
@@ -2421,6 +2432,7 @@ assert(typeof NodeState === "object");
 assert(typeof OfferingDurationUnits === "object");
 assert(typeof OfferingType === "object");
 assert(typeof OutputUsage === "object");
+assert(typeof PerceptualFilterStrength === "object");
 assert(typeof PipelineId === "object");
 assert(typeof PipelineLockingMethod === "object");
 assert(typeof PreferredChannelPipeline === "object");

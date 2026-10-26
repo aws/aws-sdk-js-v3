@@ -113,6 +113,7 @@ import type {
   FollowPoint,
   FrameCaptureIntervalUnit,
   H264AdaptiveQuantization,
+  H264AllowExplicitWeightedPrediction,
   H264ColorMetadata,
   H264EntropyEncoding,
   H264FlickerAq,
@@ -245,14 +246,6 @@ import type {
   MaintenanceDay,
   MediaConnectRouterOutputEncryptionType,
   Mp2CodingMode,
-  Mpeg2AdaptiveQuantization,
-  Mpeg2ColorMetadata,
-  Mpeg2ColorSpace,
-  Mpeg2DisplayRatio,
-  Mpeg2GopSizeUnits,
-  Mpeg2ScanType,
-  Mpeg2SubGopLength,
-  Mpeg2TimecodeInsertionBehavior,
   MsSmoothH265PackagingType,
   MultiplexAlertState,
   MultiplexState,
@@ -268,6 +261,7 @@ import type {
   OfferingDurationUnits,
   OfferingType,
   OutputUsage,
+  PerceptualFilterStrength,
   PipelineId,
   ReservationAutomaticRenewal,
   ReservationCodec,
@@ -9296,6 +9290,74 @@ export interface Av1ColorSpaceSettings {
 }
 
 /**
+ * System-managed filter selection. Resolves to the perceptual filter at strength 1 where the codec
+ * is eligible (AV1 and H.265 unconditionally; H.264 only at enhanced_quality), and to no filter
+ * otherwise. An empty / undefined filter_settings_choice is treated as "auto".
+ *
+ * Carries no body (extends EmptySettings, which sets additionalProperties: false), mirroring the
+ * ColorSpacePassthroughSettings empty-settings pattern.
+ * @public
+ */
+export interface AutoFilterSettings {}
+
+/**
+ * Explicitly disables the video filter. This is the customer opt-out: a video description set to
+ * "none" never has a filter applied and is never overridden by the system-managed "auto" default.
+ *
+ * Carries no body (extends EmptySettings, which sets additionalProperties: false), mirroring the
+ * ColorSpacePassthroughSettings empty-settings pattern.
+ * @public
+ */
+export interface NoneFilterSettings {}
+
+/**
+ * Perceptual Filter Settings
+ * @public
+ */
+export interface PerceptualFilterSettings {
+  /**
+   * Selects the perceptual noise filter strength. Strength 1 (perceptual lite) is the recommended default and adds
+   * approximately 30% of an AVC encode of compute on the highest rendition. Strength 2 adds approximately 60% of an
+   * AVC encode of compute and can introduce slight softening on noisy content.
+   * @public
+   */
+  Strength: PerceptualFilterStrength | undefined;
+}
+
+/**
+ * Av1 Filter Settings
+ * @public
+ */
+export interface Av1FilterSettings {
+  /**
+   * System-managed filter selection. Resolves to the perceptual filter at strength 1 where the codec
+   * is eligible (AV1 and H.265 unconditionally; H.264 only at enhanced_quality), and to no filter
+   * otherwise. An empty / undefined filter_settings_choice is treated as "auto".
+   *
+   * Carries no body (extends EmptySettings, which sets additionalProperties: false), mirroring the
+   * ColorSpacePassthroughSettings empty-settings pattern.
+   * @public
+   */
+  AutoFilterSettings?: AutoFilterSettings | undefined;
+
+  /**
+   * Explicitly disables the video filter. This is the customer opt-out: a video description set to
+   * "none" never has a filter applied and is never overridden by the system-managed "auto" default.
+   *
+   * Carries no body (extends EmptySettings, which sets additionalProperties: false), mirroring the
+   * ColorSpacePassthroughSettings empty-settings pattern.
+   * @public
+   */
+  NoneFilterSettings?: NoneFilterSettings | undefined;
+
+  /**
+   * Perceptual Filter Settings
+   * @public
+   */
+  PerceptualFilterSettings?: PerceptualFilterSettings | undefined;
+}
+
+/**
  * Timecode Burnin Settings
  * @public
  */
@@ -9493,6 +9555,12 @@ export interface Av1Settings {
    * @public
    */
   BitDepth?: Av1BitDepth | undefined;
+
+  /**
+   * Optional filters that you can apply to an encode.
+   * @public
+   */
+  FilterSettings?: Av1FilterSettings | undefined;
 }
 
 /**
@@ -9602,6 +9670,33 @@ export interface H264FilterSettings {
    * @public
    */
   BandwidthReductionFilterSettings?: BandwidthReductionFilterSettings | undefined;
+
+  /**
+   * System-managed filter selection. Resolves to the perceptual filter at strength 1 where the codec
+   * is eligible (AV1 and H.265 unconditionally; H.264 only at enhanced_quality), and to no filter
+   * otherwise. An empty / undefined filter_settings_choice is treated as "auto".
+   *
+   * Carries no body (extends EmptySettings, which sets additionalProperties: false), mirroring the
+   * ColorSpacePassthroughSettings empty-settings pattern.
+   * @public
+   */
+  AutoFilterSettings?: AutoFilterSettings | undefined;
+
+  /**
+   * Explicitly disables the video filter. This is the customer opt-out: a video description set to
+   * "none" never has a filter applied and is never overridden by the system-managed "auto" default.
+   *
+   * Carries no body (extends EmptySettings, which sets additionalProperties: false), mirroring the
+   * ColorSpacePassthroughSettings empty-settings pattern.
+   * @public
+   */
+  NoneFilterSettings?: NoneFilterSettings | undefined;
+
+  /**
+   * Perceptual Filter Settings
+   * @public
+   */
+  PerceptualFilterSettings?: PerceptualFilterSettings | undefined;
 }
 
 /**
@@ -9913,6 +10008,12 @@ export interface H264Settings {
    * @public
    */
   MinBitrate?: number | undefined;
+
+  /**
+   * Specifies whether the encoder may apply explicit weighted prediction (EWP), an H.264 coding tool that can improve compression. EWP applies a scaling factor and offset to reference frames, which helps when brightness changes between frames, such as during a fade. When this setting is enabled, the encoder decides whether to apply EWP based on the output's other codec settings, such as profile and quality level. We recommend that you keep the default, enabled. When disabled, the encoder never applies EWP.
+   * @public
+   */
+  AllowExplicitWeightedPrediction?: H264AllowExplicitWeightedPrediction | undefined;
 }
 
 /**
@@ -9979,6 +10080,33 @@ export interface H265FilterSettings {
    * @public
    */
   BandwidthReductionFilterSettings?: BandwidthReductionFilterSettings | undefined;
+
+  /**
+   * System-managed filter selection. Resolves to the perceptual filter at strength 1 where the codec
+   * is eligible (AV1 and H.265 unconditionally; H.264 only at enhanced_quality), and to no filter
+   * otherwise. An empty / undefined filter_settings_choice is treated as "auto".
+   *
+   * Carries no body (extends EmptySettings, which sets additionalProperties: false), mirroring the
+   * ColorSpacePassthroughSettings empty-settings pattern.
+   * @public
+   */
+  AutoFilterSettings?: AutoFilterSettings | undefined;
+
+  /**
+   * Explicitly disables the video filter. This is the customer opt-out: a video description set to
+   * "none" never has a filter applied and is never overridden by the system-managed "auto" default.
+   *
+   * Carries no body (extends EmptySettings, which sets additionalProperties: false), mirroring the
+   * ColorSpacePassthroughSettings empty-settings pattern.
+   * @public
+   */
+  NoneFilterSettings?: NoneFilterSettings | undefined;
+
+  /**
+   * Perceptual Filter Settings
+   * @public
+   */
+  PerceptualFilterSettings?: PerceptualFilterSettings | undefined;
 }
 
 /**
@@ -10281,204 +10409,4 @@ export interface H265Settings {
    * @public
    */
   SubgopLength?: H265SubGopLength | undefined;
-}
-
-/**
- * Mpeg2 Filter Settings
- * @public
- */
-export interface Mpeg2FilterSettings {
-  /**
-   * Temporal Filter Settings
-   * @public
-   */
-  TemporalFilterSettings?: TemporalFilterSettings | undefined;
-}
-
-/**
- * Mpeg2 Settings
- * @public
- */
-export interface Mpeg2Settings {
-  /**
-   * Choose Off to disable adaptive quantization. Or choose another value to enable the quantizer and set its strength. The strengths are: Auto, Off, Low, Medium, High. When you enable this field, MediaLive allows intra-frame quantizers to vary, which might improve visual quality.
-   * @public
-   */
-  AdaptiveQuantization?: Mpeg2AdaptiveQuantization | undefined;
-
-  /**
-   * Indicates the AFD values that MediaLive will write into the video encode. If you do not know what AFD signaling is, or if your downstream system has not given you guidance, choose AUTO.
-   * AUTO: MediaLive will try to preserve the input AFD value (in cases where multiple AFD values are valid).
-   * FIXED: MediaLive will use the value you specify in fixedAFD.
-   * @public
-   */
-  AfdSignaling?: AfdSignaling | undefined;
-
-  /**
-   * Specifies whether to include the color space metadata. The metadata describes the color space that applies to the video (the colorSpace field). We recommend that you insert the metadata.
-   * @public
-   */
-  ColorMetadata?: Mpeg2ColorMetadata | undefined;
-
-  /**
-   * Choose the type of color space conversion to apply to the output. For detailed information on setting up both the input and the output to obtain the desired color space in the output, see the section on \"MediaLive Features - Video - color space\" in the MediaLive User Guide.
-   * PASSTHROUGH: Keep the color space of the input content - do not convert it.
-   * AUTO:Convert all content that is SD to rec 601, and convert all content that is HD to rec 709.
-   * @public
-   */
-  ColorSpace?: Mpeg2ColorSpace | undefined;
-
-  /**
-   * Sets the pixel aspect ratio for the encode.
-   * @public
-   */
-  DisplayAspectRatio?: Mpeg2DisplayRatio | undefined;
-
-  /**
-   * Optionally specify a noise reduction filter, which can improve quality of compressed content. If you do not choose a filter, no filter will be applied.
-   * TEMPORAL: This filter is useful for both source content that is noisy (when it has excessive digital artifacts) and source content that is clean.
-   * When the content is noisy, the filter cleans up the source content before the encoding phase, with these two effects: First, it improves the output video quality because the content has been cleaned up. Secondly, it decreases the bandwidth because MediaLive does not waste bits on encoding noise.
-   * When the content is reasonably clean, the filter tends to decrease the bitrate.
-   * @public
-   */
-  FilterSettings?: Mpeg2FilterSettings | undefined;
-
-  /**
-   * Complete this field only when afdSignaling is set to FIXED. Enter the AFD value (4 bits) to write on all frames of the video encode.
-   * @public
-   */
-  FixedAfd?: FixedAfd | undefined;
-
-  /**
-   * description": "The framerate denominator. For example, 1001. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
-   * @public
-   */
-  FramerateDenominator: number | undefined;
-
-  /**
-   * The framerate numerator. For example, 24000. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
-   * @public
-   */
-  FramerateNumerator: number | undefined;
-
-  /**
-   * MPEG2: default is open GOP.
-   * @public
-   */
-  GopClosedCadence?: number | undefined;
-
-  /**
-   * Relates to the GOP structure. The number of B-frames between reference frames. If you do not know what a B-frame is, use the default.
-   * @public
-   */
-  GopNumBFrames?: number | undefined;
-
-  /**
-   * Relates to the GOP structure. The GOP size (keyframe interval) in the units specified in gopSizeUnits. If you do not know what GOP is, use the default.
-   * If gopSizeUnits is frames, then the gopSize must be an integer and must be greater than or equal to 1.
-   * If gopSizeUnits is seconds, the gopSize must be greater than 0, but does not need to be an integer.
-   * @public
-   */
-  GopSize?: number | undefined;
-
-  /**
-   * Relates to the GOP structure. Specifies whether the gopSize is specified in frames or seconds. If you do not plan to change the default gopSize, leave the default. If you specify SECONDS, MediaLive will internally convert the gop size to a frame count.
-   * @public
-   */
-  GopSizeUnits?: Mpeg2GopSizeUnits | undefined;
-
-  /**
-   * Set the scan type of the output to PROGRESSIVE or INTERLACED (top field first).
-   * @public
-   */
-  ScanType?: Mpeg2ScanType | undefined;
-
-  /**
-   * Relates to the GOP structure. If you do not know what GOP is, use the default.
-   * FIXED: Set the number of B-frames in each sub-GOP to the value in gopNumBFrames.
-   * DYNAMIC: Let MediaLive optimize the number of B-frames in each sub-GOP, to improve visual quality.
-   * @public
-   */
-  SubgopLength?: Mpeg2SubGopLength | undefined;
-
-  /**
-   * Determines how MediaLive inserts timecodes in the output video. For detailed information about setting up the input and the output for a timecode, see the section on \"MediaLive Features - Timecode configuration\" in the MediaLive User Guide.
-   * DISABLED: do not include timecodes.
-   * GOP_TIMECODE: Include timecode metadata in the GOP header.
-   * @public
-   */
-  TimecodeInsertion?: Mpeg2TimecodeInsertionBehavior | undefined;
-
-  /**
-   * Timecode burn-in settings
-   * @public
-   */
-  TimecodeBurninSettings?: TimecodeBurninSettings | undefined;
-}
-
-/**
- * Video Codec Settings
- * @public
- */
-export interface VideoCodecSettings {
-  /**
-   * Frame Capture Settings
-   * @public
-   */
-  FrameCaptureSettings?: FrameCaptureSettings | undefined;
-
-  /**
-   * H264 Settings
-   * @public
-   */
-  H264Settings?: H264Settings | undefined;
-
-  /**
-   * H265 Settings
-   * @public
-   */
-  H265Settings?: H265Settings | undefined;
-
-  /**
-   * Mpeg2 Settings
-   * @public
-   */
-  Mpeg2Settings?: Mpeg2Settings | undefined;
-
-  /**
-   * Av1 Settings
-   * @public
-   */
-  Av1Settings?: Av1Settings | undefined;
-}
-
-/**
- * A rectangle defined by position (x, y) and dimensions (width, height) in pixels.
- * Used for output positioning and input cropping.
- * @public
- */
-export interface VideoPositionRectangle {
-  /**
-   * Height in pixels. Must be an even number.
-   * @public
-   */
-  Height: number | undefined;
-
-  /**
-   * Width in pixels. Must be an even number.
-   * @public
-   */
-  Width: number | undefined;
-
-  /**
-   * Left offset in pixels. Must be an even number.
-   * @public
-   */
-  X: number | undefined;
-
-  /**
-   * Top offset in pixels. Must be an even number.
-   * @public
-   */
-  Y: number | undefined;
 }

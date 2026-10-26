@@ -1130,6 +1130,11 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //                   PostFilterSharpening: "DISABLED" || "SHARPENING_1" || "SHARPENING_2" || "SHARPENING_3",
  * //                   Strength: "AUTO" || "STRENGTH_1" || "STRENGTH_2" || "STRENGTH_3" || "STRENGTH_4",
  * //                 },
+ * //                 AutoFilterSettings: {},
+ * //                 NoneFilterSettings: {},
+ * //                 PerceptualFilterSettings: { // PerceptualFilterSettings
+ * //                   Strength: "STRENGTH_1" || "STRENGTH_2", // required
+ * //                 },
  * //               },
  * //               FixedAfd: "AFD_0000" || "AFD_0010" || "AFD_0011" || "AFD_0100" || "AFD_1000" || "AFD_1001" || "AFD_1010" || "AFD_1011" || "AFD_1101" || "AFD_1110" || "AFD_1111",
  * //               FlickerAq: "DISABLED" || "ENABLED",
@@ -1170,6 +1175,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //               },
  * //               MinQp: Number("int"),
  * //               MinBitrate: Number("int"),
+ * //               AllowExplicitWeightedPrediction: "DISABLED" || "ENABLED",
  * //             },
  * //             H265Settings: { // H265Settings
  * //               AdaptiveQuantization: "AUTO" || "HIGH" || "HIGHER" || "LOW" || "MAX" || "MEDIUM" || "OFF",
@@ -1197,6 +1203,11 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //                 BandwidthReductionFilterSettings: {
  * //                   PostFilterSharpening: "DISABLED" || "SHARPENING_1" || "SHARPENING_2" || "SHARPENING_3",
  * //                   Strength: "AUTO" || "STRENGTH_1" || "STRENGTH_2" || "STRENGTH_3" || "STRENGTH_4",
+ * //                 },
+ * //                 AutoFilterSettings: {},
+ * //                 NoneFilterSettings: {},
+ * //                 PerceptualFilterSettings: {
+ * //                   Strength: "STRENGTH_1" || "STRENGTH_2", // required
  * //                 },
  * //               },
  * //               FixedAfd: "AFD_0000" || "AFD_0010" || "AFD_0011" || "AFD_0100" || "AFD_1000" || "AFD_1001" || "AFD_1010" || "AFD_1011" || "AFD_1101" || "AFD_1110" || "AFD_1111",
@@ -1304,6 +1315,13 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //               TemporalAq: "DISABLED" || "ENABLED",
  * //               TimecodeInsertion: "DISABLED" || "METADATA_OBU",
  * //               BitDepth: "DEPTH_10" || "DEPTH_8",
+ * //               FilterSettings: { // Av1FilterSettings
+ * //                 AutoFilterSettings: {},
+ * //                 NoneFilterSettings: {},
+ * //                 PerceptualFilterSettings: {
+ * //                   Strength: "STRENGTH_1" || "STRENGTH_2", // required
+ * //                 },
+ * //               },
  * //             },
  * //           },
  * //           Height: Number("int"),
