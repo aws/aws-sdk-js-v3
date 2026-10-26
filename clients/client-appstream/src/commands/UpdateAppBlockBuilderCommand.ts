@@ -40,7 +40,7 @@ export interface UpdateAppBlockBuilderCommandOutput extends UpdateAppBlockBuilde
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   DisplayName: "STRING_VALUE",
- *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "WINDOWS_SERVER_2025" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8" || "UBUNTU_PRO_2404",
+ *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "WINDOWS_SERVER_2025" || "WINDOWS_11" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8" || "UBUNTU_PRO_2404",
  *   InstanceType: "STRING_VALUE",
  *   VpcConfig: { // VpcConfig
  *     SubnetIds: [ // SubnetIdList
