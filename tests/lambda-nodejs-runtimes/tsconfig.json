@@ -1,0 +1,23 @@
+{
+  // The root tsconfig covers only packages/, packages-internal/ and lib/, so a suite
+  // under tests/ carries its own, as tests/bundler-compat and tests/ts-compat do.
+  "extends": "@tsconfig/node20/tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"],
+    // esnext, not nodenext: the spec reads import.meta.url.
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    // dom is for the setup file below, which branches on `window`.
+    "lib": ["es2023", "dom"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "paths": {
+      "@aws-sdk/client-*": ["../../clients/client-*/"],
+      "@aws-sdk/lib-*": ["../../lib/*"]
+    }
+  },
+  // The setup file declares the global `aws` holding test credentials.
+  "include": ["**/*.ts", "../../vitest.nodejs.setup.mts"]
+}
