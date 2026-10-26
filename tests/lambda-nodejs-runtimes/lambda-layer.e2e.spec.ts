@@ -4,6 +4,7 @@ import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { CloudFormation } from "@aws-sdk/client-cloudformation";
 import { BillingMode, DynamoDB } from "@aws-sdk/client-dynamodb";
 import type { Runtime } from "@aws-sdk/client-lambda";
 import { Lambda } from "@aws-sdk/client-lambda";
@@ -16,8 +17,6 @@ import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
  * directory. A layer resolves from /opt/nodejs/node_modules rather than the runtime's
  * own path, so the prefix differs from production but the tree does not.
  *
- * Opt in, since assembling the payload takes several minutes. See README.md.
- *
  * expected running time: payload build (~5m, skipped with a prebuilt one) + AWS ~45s
  */
 
@@ -28,17 +27,18 @@ const repoRoot = join(__dirname, "..", "..");
 const runtime = (process.env.LAMBDA_NODEJS_RUNTIMES_RUNTIME ?? "nodejs26.x") as Runtime;
 
 const region = process.env.AWS_SMOKE_TEST_REGION ?? "us-west-2";
-const executionRoleArn = process.env.AWS_SMOKE_TEST_LAMBDA_EXECUTION_ROLE_ARN;
 const prebuiltPayload = process.env.LAMBDA_NODEJS_RUNTIMES_PAYLOAD;
+const INTEG_TEST_STACK = "SdkReleaseV3IntegTestResourcesStack";
 
-describe.skipIf(!process.env.LAMBDA_NODEJS_RUNTIMES_E2E)(
+describe(
   "AWS SDK for JavaScript v3 provided by Lambda Node.js runtimes",
-  // retry: 0 overrides the suite-wide retry; every AWS call is in beforeAll, so a retry
-  // re-checks the same recorded result at a 20s delay each time.
+  // retry: 0 overrides the suite-wide retry; the AWS calls are all in beforeAll, so a
+  // retry only re-checks the same result. Transient errors are covered by maxAttempts.
   { retry: 0, timeout: 1_200_000 },
   () => {
     const dynamodb = new DynamoDB({ region, maxAttempts: 10, credentials: aws?.testCredentials });
     const lambda = new Lambda({ region, maxAttempts: 10, credentials: aws?.testCredentials });
+    const cloudformation = new CloudFormation({ region, maxAttempts: 10, credentials: aws?.testCredentials });
 
     // Shared by all three resources, so an interrupted run leaves one name to clean up.
     // 61 chars: a Lambda function name may not exceed 64.
@@ -53,6 +53,26 @@ describe.skipIf(!process.env.LAMBDA_NODEJS_RUNTIMES_E2E)(
 
     let workDir: string;
     let layerVersionArn: string | undefined;
+
+    /** Read from the stack, since nothing in the e2e path sets AWS_SMOKE_TEST_*. */
+    const resolveExecutionRoleArn = async () => {
+      if (process.env.AWS_SMOKE_TEST_LAMBDA_EXECUTION_ROLE_ARN) {
+        return process.env.AWS_SMOKE_TEST_LAMBDA_EXECUTION_ROLE_ARN;
+      }
+      const { StackResources } = await cloudformation.describeStackResources({ StackName: INTEG_TEST_STACK });
+      const role = StackResources?.find(
+        (resource) =>
+          resource.ResourceType === "AWS::IAM::Role" &&
+          !!resource.LogicalResourceId?.startsWith("IntegTestLambdaExecutionRole")
+      );
+      expect(
+        role?.PhysicalResourceId,
+        `no IntegTestLambdaExecutionRole in ${INTEG_TEST_STACK}; deploy tests/e2e/IntegTestResourcesStack.template.json`
+      ).toBeDefined();
+      // StackId is an ARN, so the account comes from it rather than an STS call.
+      const account = role!.StackId?.split(":")[4];
+      return `arn:aws:iam::${account}:role/${role!.PhysicalResourceId}`;
+    };
 
     const log = {
       payloadDir: "",
@@ -84,7 +104,8 @@ describe.skipIf(!process.env.LAMBDA_NODEJS_RUNTIMES_E2E)(
     };
 
     beforeAll(async () => {
-      expect(executionRoleArn, "AWS_SMOKE_TEST_LAMBDA_EXECUTION_ROLE_ARN must be set").toBeDefined();
+      const executionRoleArn = await resolveExecutionRoleArn();
+      console.log(mark(), `Execution role ${executionRoleArn}`);
 
       workDir = mkdtempSync(join(tmpdir(), "lambda-nodejs-runtimes-e2e-"));
 
