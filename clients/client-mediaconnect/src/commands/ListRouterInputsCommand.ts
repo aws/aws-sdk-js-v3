@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListRouterInputsRequest, ListRouterInputsResponse } from "../models/models_0";
+import type { ListRouterInputsRequest, ListRouterInputsResponse } from "../models/models_1";
 import { ListRouterInputs$ } from "../schemas/schemas_0";
 
 /**
@@ -50,7 +50,7 @@ export interface ListRouterInputsCommandOutput extends ListRouterInputsResponse,
  *         "REGIONAL" || "GLOBAL",
  *       ],
  *       InputTypes: [ // RouterInputTypeList
- *         "STANDARD" || "FAILOVER" || "MERGE" || "MEDIACONNECT_FLOW" || "MEDIALIVE_CHANNEL",
+ *         "STANDARD" || "FAILOVER" || "MERGE" || "MEDIACONNECT_FLOW" || "MEDIALIVE_CHANNEL" || "DESTINATION_ENDPOINT",
  *       ],
  *     },
  *   ],
@@ -63,7 +63,7 @@ export interface ListRouterInputsCommandOutput extends ListRouterInputsResponse,
  * //       Name: "STRING_VALUE", // required
  * //       Arn: "STRING_VALUE", // required
  * //       Id: "STRING_VALUE", // required
- * //       InputType: "STANDARD" || "FAILOVER" || "MERGE" || "MEDIACONNECT_FLOW" || "MEDIALIVE_CHANNEL", // required
+ * //       InputType: "STANDARD" || "FAILOVER" || "MERGE" || "MEDIACONNECT_FLOW" || "MEDIALIVE_CHANNEL" || "DESTINATION_ENDPOINT", // required
  * //       State: "CREATING" || "STANDBY" || "STARTING" || "ACTIVE" || "STOPPING" || "DELETING" || "UPDATING" || "ERROR" || "RECOVERING" || "MIGRATING", // required
  * //       RoutedOutputs: Number("int"), // required
  * //       RegionName: "STRING_VALUE", // required

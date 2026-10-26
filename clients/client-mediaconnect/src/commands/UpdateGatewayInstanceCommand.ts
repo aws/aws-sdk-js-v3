@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateGatewayInstanceRequest, UpdateGatewayInstanceResponse } from "../models/models_0";
+import type { UpdateGatewayInstanceRequest, UpdateGatewayInstanceResponse } from "../models/models_1";
 import { UpdateGatewayInstance$ } from "../schemas/schemas_0";
 
 /**

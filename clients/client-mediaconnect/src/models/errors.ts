@@ -330,6 +330,29 @@ export class RouterOutputServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * <p>The request would cause you to exceed a service quota for destination endpoints. Delete unused destination endpoints or request a quota increase, then try your request again.</p>
+ * @public
+ */
+export class DestinationEndpointServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#DestinationEndpointServiceQuotaExceededException";
+  readonly name = "DestinationEndpointServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DestinationEndpointServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "DestinationEndpointServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DestinationEndpointServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>Exception raised by Elemental MediaConnect when granting the entitlement. See the error message for the operation for more information on the cause of this exception. </p>
  * @public
  */
@@ -348,6 +371,29 @@ export class GrantFlowEntitlements420Exception extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, GrantFlowEntitlements420Exception.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request would cause you to exceed a service quota for source endpoints. Delete unused source endpoints or request a quota increase, then try your request again.</p>
+ * @public
+ */
+export class SourceEndpointServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#SourceEndpointServiceQuotaExceededException";
+  readonly name = "SourceEndpointServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SourceEndpointServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "SourceEndpointServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SourceEndpointServiceQuotaExceededException.prototype);
     this.Message = opts.Message;
   }
 }

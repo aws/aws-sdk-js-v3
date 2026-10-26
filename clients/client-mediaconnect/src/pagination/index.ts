@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListBridgesPaginator";
+export * from "./ListDestinationEndpointsPaginator";
 export * from "./ListEntitlementsPaginator";
 export * from "./ListFlowsPaginator";
 export * from "./ListGatewayInstancesPaginator";
@@ -10,3 +11,4 @@ export * from "./ListReservationsPaginator";
 export * from "./ListRouterInputsPaginator";
 export * from "./ListRouterNetworkInterfacesPaginator";
 export * from "./ListRouterOutputsPaginator";
+export * from "./ListSourceEndpointsPaginator";

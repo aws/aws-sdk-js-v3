@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { StartFlowRequest, StartFlowResponse } from "../models/models_0";
+import type { StartFlowRequest, StartFlowResponse } from "../models/models_1";
 import { StartFlow$ } from "../schemas/schemas_0";
 
 /**
