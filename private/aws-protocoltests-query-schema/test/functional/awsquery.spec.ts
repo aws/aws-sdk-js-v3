@@ -274,7 +274,11 @@ it("AwsQueryDateTimeWithNegativeOffset:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -320,7 +324,11 @@ it("AwsQueryDateTimeWithPositiveOffset:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -516,7 +524,11 @@ it("QueryQueryFlattenedXmlMap:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -571,7 +583,11 @@ it("QueryQueryFlattenedXmlMapWithXmlName:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -626,7 +642,11 @@ it("QueryQueryFlattenedXmlMapWithXmlNamespace:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -672,7 +692,11 @@ it("AwsQueryDateTimeWithFractionalSeconds:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -718,7 +742,11 @@ it("QueryGreetingWithErrors:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -769,7 +797,11 @@ it("QueryInvalidGreetingError:Error:GreetingWithErrors", async () => {
     Object.keys(paramsToValidate).forEach((param) => {
       expect(
         r[param],
-        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+        `The output field ${param} should have been defined in ${JSON.stringify(
+          r,
+          (_, v) => (typeof v === "bigint" ? v.toString() : v),
+          2
+        )}`
       ).toBeDefined();
       expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
@@ -826,7 +858,11 @@ it("QueryComplexError:Error:GreetingWithErrors", async () => {
     Object.keys(paramsToValidate).forEach((param) => {
       expect(
         r[param],
-        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+        `The output field ${param} should have been defined in ${JSON.stringify(
+          r,
+          (_, v) => (typeof v === "bigint" ? v.toString() : v),
+          2
+        )}`
       ).toBeDefined();
       expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
@@ -880,7 +916,11 @@ it("QueryCustomizedError:Error:GreetingWithErrors", async () => {
     Object.keys(paramsToValidate).forEach((param) => {
       expect(
         r[param],
-        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+        `The output field ${param} should have been defined in ${JSON.stringify(
+          r,
+          (_, v) => (typeof v === "bigint" ? v.toString() : v),
+          2
+        )}`
       ).toBeDefined();
       expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
@@ -961,7 +1001,11 @@ it("QueryIgnoresWrappingXmlName:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2040,7 +2084,11 @@ it("QueryRecursiveShapes:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2560,7 +2608,11 @@ it("QuerySimpleScalarProperties:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2608,7 +2660,11 @@ it("AwsQuerySupportsNaNFloatOutputs:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2656,7 +2712,11 @@ it("AwsQuerySupportsInfinityFloatOutputs:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2704,7 +2764,11 @@ it("AwsQuerySupportsNegativeInfinityFloatOutputs:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2750,7 +2814,11 @@ it("QueryXmlBlobs:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2796,7 +2864,11 @@ it("QueryXmlEmptyBlobs:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2842,7 +2914,11 @@ it("QueryXmlEmptySelfClosedBlobs:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2892,7 +2968,11 @@ it("QueryXmlEmptyLists:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2940,7 +3020,11 @@ it("QueryXmlEmptyMaps:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2987,7 +3071,11 @@ it("QueryXmlEmptySelfClosedMaps:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -3067,7 +3155,11 @@ it("QueryXmlEnums:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -3147,7 +3239,11 @@ it("QueryXmlIntEnums:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -3319,7 +3415,11 @@ it("QueryXmlLists:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -3385,7 +3485,11 @@ it("QueryXmlMaps:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -3451,7 +3555,11 @@ it("QueryQueryXmlMapsXmlName:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -3509,7 +3617,11 @@ it("QueryXmlNamespaces:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -3555,7 +3667,11 @@ it("QueryXmlTimestamps:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -3601,7 +3717,11 @@ it("QueryXmlTimestampsWithDateTimeFormat:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -3647,7 +3767,11 @@ it("QueryXmlTimestampsWithDateTimeOnTargetFormat:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -3693,7 +3817,11 @@ it("QueryXmlTimestampsWithEpochSecondsFormat:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -3739,7 +3867,11 @@ it("QueryXmlTimestampsWithEpochSecondsOnTargetFormat:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -3785,7 +3917,11 @@ it("QueryXmlTimestampsWithHttpDateFormat:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -3831,7 +3967,11 @@ it("QueryXmlTimestampsWithHttpDateOnTargetFormat:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
