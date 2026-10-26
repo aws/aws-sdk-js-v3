@@ -55,17 +55,33 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  AssociateContractCommandInput,
+  AssociateContractCommandOutput,
+} from "./commands/AssociateContractCommand";
+import type {
   AssociateSourceViewsCommandInput,
   AssociateSourceViewsCommandOutput,
 } from "./commands/AssociateSourceViewsCommand";
+import type {
+  CancelContractualInvestmentAttestationCommandInput,
+  CancelContractualInvestmentAttestationCommandOutput,
+} from "./commands/CancelContractualInvestmentAttestationCommand";
 import type {
   CreateBillingViewCommandInput,
   CreateBillingViewCommandOutput,
 } from "./commands/CreateBillingViewCommand";
 import type {
+  CreateContractualInvestmentAttestationCommandInput,
+  CreateContractualInvestmentAttestationCommandOutput,
+} from "./commands/CreateContractualInvestmentAttestationCommand";
+import type {
   DeleteBillingViewCommandInput,
   DeleteBillingViewCommandOutput,
 } from "./commands/DeleteBillingViewCommand";
+import type {
+  DisassociateContractCommandInput,
+  DisassociateContractCommandOutput,
+} from "./commands/DisassociateContractCommand";
 import type {
   DisassociateSourceViewsCommandInput,
   DisassociateSourceViewsCommandOutput,
@@ -75,6 +91,10 @@ import type {
   GetBillingPreferencesCommandOutput,
 } from "./commands/GetBillingPreferencesCommand";
 import type { GetBillingViewCommandInput, GetBillingViewCommandOutput } from "./commands/GetBillingViewCommand";
+import type {
+  GetContractInformationCommandInput,
+  GetContractInformationCommandOutput,
+} from "./commands/GetContractInformationCommand";
 import type {
   GetCreditAllocationHistoryCommandInput,
   GetCreditAllocationHistoryCommandOutput,
@@ -105,6 +125,19 @@ import type {
   ListBusinessSupportSubscriptionHistoryCommandInput,
   ListBusinessSupportSubscriptionHistoryCommandOutput,
 } from "./commands/ListBusinessSupportSubscriptionHistoryCommand";
+import type { ListContractsCommandInput, ListContractsCommandOutput } from "./commands/ListContractsCommand";
+import type {
+  ListContractualInvestmentAttestationsCommandInput,
+  ListContractualInvestmentAttestationsCommandOutput,
+} from "./commands/ListContractualInvestmentAttestationsCommand";
+import type {
+  ListContractualInvestmentsCommandInput,
+  ListContractualInvestmentsCommandOutput,
+} from "./commands/ListContractualInvestmentsCommand";
+import type {
+  ListContractualInvestmentSummariesCommandInput,
+  ListContractualInvestmentSummariesCommandOutput,
+} from "./commands/ListContractualInvestmentSummariesCommand";
 import type {
   ListEnterpriseSupportLinkedAccountChargesCommandInput,
   ListEnterpriseSupportLinkedAccountChargesCommandOutput,
@@ -143,12 +176,17 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateContractCommandInput
   | AssociateSourceViewsCommandInput
+  | CancelContractualInvestmentAttestationCommandInput
   | CreateBillingViewCommandInput
+  | CreateContractualInvestmentAttestationCommandInput
   | DeleteBillingViewCommandInput
+  | DisassociateContractCommandInput
   | DisassociateSourceViewsCommandInput
   | GetBillingPreferencesCommandInput
   | GetBillingViewCommandInput
+  | GetContractInformationCommandInput
   | GetCreditAllocationHistoryCommandInput
   | GetCreditsCommandInput
   | GetEnterpriseSupportChargeSummaryCommandInput
@@ -158,6 +196,10 @@ export type ServiceInputTypes =
   | ListBillingViewsCommandInput
   | ListBusinessSupportAccountChargesCommandInput
   | ListBusinessSupportSubscriptionHistoryCommandInput
+  | ListContractsCommandInput
+  | ListContractualInvestmentAttestationsCommandInput
+  | ListContractualInvestmentSummariesCommandInput
+  | ListContractualInvestmentsCommandInput
   | ListEnterpriseSupportLinkedAccountChargesCommandInput
   | ListSourceViewsForBillingViewCommandInput
   | ListTagsForResourceCommandInput
@@ -171,12 +213,17 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateContractCommandOutput
   | AssociateSourceViewsCommandOutput
+  | CancelContractualInvestmentAttestationCommandOutput
   | CreateBillingViewCommandOutput
+  | CreateContractualInvestmentAttestationCommandOutput
   | DeleteBillingViewCommandOutput
+  | DisassociateContractCommandOutput
   | DisassociateSourceViewsCommandOutput
   | GetBillingPreferencesCommandOutput
   | GetBillingViewCommandOutput
+  | GetContractInformationCommandOutput
   | GetCreditAllocationHistoryCommandOutput
   | GetCreditsCommandOutput
   | GetEnterpriseSupportChargeSummaryCommandOutput
@@ -186,6 +233,10 @@ export type ServiceOutputTypes =
   | ListBillingViewsCommandOutput
   | ListBusinessSupportAccountChargesCommandOutput
   | ListBusinessSupportSubscriptionHistoryCommandOutput
+  | ListContractsCommandOutput
+  | ListContractualInvestmentAttestationsCommandOutput
+  | ListContractualInvestmentSummariesCommandOutput
+  | ListContractualInvestmentsCommandOutput
   | ListEnterpriseSupportLinkedAccountChargesCommandOutput
   | ListSourceViewsForBillingViewCommandOutput
   | ListTagsForResourceCommandOutput

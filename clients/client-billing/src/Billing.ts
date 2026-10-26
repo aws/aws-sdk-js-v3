@@ -9,20 +9,40 @@ import type {
 
 import { BillingClient } from "./BillingClient";
 import {
+  type AssociateContractCommandInput,
+  type AssociateContractCommandOutput,
+  AssociateContractCommand,
+} from "./commands/AssociateContractCommand";
+import {
   type AssociateSourceViewsCommandInput,
   type AssociateSourceViewsCommandOutput,
   AssociateSourceViewsCommand,
 } from "./commands/AssociateSourceViewsCommand";
+import {
+  type CancelContractualInvestmentAttestationCommandInput,
+  type CancelContractualInvestmentAttestationCommandOutput,
+  CancelContractualInvestmentAttestationCommand,
+} from "./commands/CancelContractualInvestmentAttestationCommand";
 import {
   type CreateBillingViewCommandInput,
   type CreateBillingViewCommandOutput,
   CreateBillingViewCommand,
 } from "./commands/CreateBillingViewCommand";
 import {
+  type CreateContractualInvestmentAttestationCommandInput,
+  type CreateContractualInvestmentAttestationCommandOutput,
+  CreateContractualInvestmentAttestationCommand,
+} from "./commands/CreateContractualInvestmentAttestationCommand";
+import {
   type DeleteBillingViewCommandInput,
   type DeleteBillingViewCommandOutput,
   DeleteBillingViewCommand,
 } from "./commands/DeleteBillingViewCommand";
+import {
+  type DisassociateContractCommandInput,
+  type DisassociateContractCommandOutput,
+  DisassociateContractCommand,
+} from "./commands/DisassociateContractCommand";
 import {
   type DisassociateSourceViewsCommandInput,
   type DisassociateSourceViewsCommandOutput,
@@ -38,6 +58,11 @@ import {
   type GetBillingViewCommandOutput,
   GetBillingViewCommand,
 } from "./commands/GetBillingViewCommand";
+import {
+  type GetContractInformationCommandInput,
+  type GetContractInformationCommandOutput,
+  GetContractInformationCommand,
+} from "./commands/GetContractInformationCommand";
 import {
   type GetCreditAllocationHistoryCommandInput,
   type GetCreditAllocationHistoryCommandOutput,
@@ -83,6 +108,26 @@ import {
   type ListBusinessSupportSubscriptionHistoryCommandOutput,
   ListBusinessSupportSubscriptionHistoryCommand,
 } from "./commands/ListBusinessSupportSubscriptionHistoryCommand";
+import {
+  type ListContractsCommandInput,
+  type ListContractsCommandOutput,
+  ListContractsCommand,
+} from "./commands/ListContractsCommand";
+import {
+  type ListContractualInvestmentAttestationsCommandInput,
+  type ListContractualInvestmentAttestationsCommandOutput,
+  ListContractualInvestmentAttestationsCommand,
+} from "./commands/ListContractualInvestmentAttestationsCommand";
+import {
+  type ListContractualInvestmentsCommandInput,
+  type ListContractualInvestmentsCommandOutput,
+  ListContractualInvestmentsCommand,
+} from "./commands/ListContractualInvestmentsCommand";
+import {
+  type ListContractualInvestmentSummariesCommandInput,
+  type ListContractualInvestmentSummariesCommandOutput,
+  ListContractualInvestmentSummariesCommand,
+} from "./commands/ListContractualInvestmentSummariesCommand";
 import {
   type ListEnterpriseSupportLinkedAccountChargesCommandInput,
   type ListEnterpriseSupportLinkedAccountChargesCommandOutput,
@@ -130,18 +175,29 @@ import { paginateListBusinessSupportAccountCharges } from "./pagination/ListBusi
 import {
   paginateListBusinessSupportSubscriptionHistory,
 } from "./pagination/ListBusinessSupportSubscriptionHistoryPaginator";
+import { paginateListContracts } from "./pagination/ListContractsPaginator";
+import {
+  paginateListContractualInvestmentAttestations,
+} from "./pagination/ListContractualInvestmentAttestationsPaginator";
+import { paginateListContractualInvestments } from "./pagination/ListContractualInvestmentsPaginator";
+import { paginateListContractualInvestmentSummaries } from "./pagination/ListContractualInvestmentSummariesPaginator";
 import {
   paginateListEnterpriseSupportLinkedAccountCharges,
 } from "./pagination/ListEnterpriseSupportLinkedAccountChargesPaginator";
 import { paginateListSourceViewsForBillingView } from "./pagination/ListSourceViewsForBillingViewPaginator";
 
 const commands = {
+  AssociateContractCommand,
   AssociateSourceViewsCommand,
+  CancelContractualInvestmentAttestationCommand,
   CreateBillingViewCommand,
+  CreateContractualInvestmentAttestationCommand,
   DeleteBillingViewCommand,
+  DisassociateContractCommand,
   DisassociateSourceViewsCommand,
   GetBillingPreferencesCommand,
   GetBillingViewCommand,
+  GetContractInformationCommand,
   GetCreditAllocationHistoryCommand,
   GetCreditsCommand,
   GetEnterpriseSupportChargeSummaryCommand,
@@ -151,6 +207,10 @@ const commands = {
   ListBillingViewSegmentsCommand,
   ListBusinessSupportAccountChargesCommand,
   ListBusinessSupportSubscriptionHistoryCommand,
+  ListContractsCommand,
+  ListContractualInvestmentAttestationsCommand,
+  ListContractualInvestmentsCommand,
+  ListContractualInvestmentSummariesCommand,
   ListEnterpriseSupportLinkedAccountChargesCommand,
   ListSourceViewsForBillingViewCommand,
   ListTagsForResourceCommand,
@@ -166,6 +226,10 @@ const paginators = {
   paginateListBillingViewSegments,
   paginateListBusinessSupportAccountCharges,
   paginateListBusinessSupportSubscriptionHistory,
+  paginateListContracts,
+  paginateListContractualInvestmentAttestations,
+  paginateListContractualInvestments,
+  paginateListContractualInvestmentSummaries,
   paginateListEnterpriseSupportLinkedAccountCharges,
   paginateListSourceViewsForBillingView,
 };
@@ -178,6 +242,23 @@ export interface BillingRequestOptions extends __HttpHandlerOptions {
 }
 
 export interface Billing {
+  /**
+   * @see {@link AssociateContractCommand}
+   */
+  associateContract(
+    args: AssociateContractCommandInput,
+    options?: BillingRequestOptions
+  ): Promise<AssociateContractCommandOutput>;
+  associateContract(
+    args: AssociateContractCommandInput,
+    cb: (err: any, data?: AssociateContractCommandOutput) => void
+  ): void;
+  associateContract(
+    args: AssociateContractCommandInput,
+    options: BillingRequestOptions,
+    cb: (err: any, data?: AssociateContractCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link AssociateSourceViewsCommand}
    */
@@ -193,6 +274,23 @@ export interface Billing {
     args: AssociateSourceViewsCommandInput,
     options: BillingRequestOptions,
     cb: (err: any, data?: AssociateSourceViewsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelContractualInvestmentAttestationCommand}
+   */
+  cancelContractualInvestmentAttestation(
+    args: CancelContractualInvestmentAttestationCommandInput,
+    options?: BillingRequestOptions
+  ): Promise<CancelContractualInvestmentAttestationCommandOutput>;
+  cancelContractualInvestmentAttestation(
+    args: CancelContractualInvestmentAttestationCommandInput,
+    cb: (err: any, data?: CancelContractualInvestmentAttestationCommandOutput) => void
+  ): void;
+  cancelContractualInvestmentAttestation(
+    args: CancelContractualInvestmentAttestationCommandInput,
+    options: BillingRequestOptions,
+    cb: (err: any, data?: CancelContractualInvestmentAttestationCommandOutput) => void
   ): void;
 
   /**
@@ -213,6 +311,23 @@ export interface Billing {
   ): void;
 
   /**
+   * @see {@link CreateContractualInvestmentAttestationCommand}
+   */
+  createContractualInvestmentAttestation(
+    args: CreateContractualInvestmentAttestationCommandInput,
+    options?: BillingRequestOptions
+  ): Promise<CreateContractualInvestmentAttestationCommandOutput>;
+  createContractualInvestmentAttestation(
+    args: CreateContractualInvestmentAttestationCommandInput,
+    cb: (err: any, data?: CreateContractualInvestmentAttestationCommandOutput) => void
+  ): void;
+  createContractualInvestmentAttestation(
+    args: CreateContractualInvestmentAttestationCommandInput,
+    options: BillingRequestOptions,
+    cb: (err: any, data?: CreateContractualInvestmentAttestationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteBillingViewCommand}
    */
   deleteBillingView(
@@ -227,6 +342,23 @@ export interface Billing {
     args: DeleteBillingViewCommandInput,
     options: BillingRequestOptions,
     cb: (err: any, data?: DeleteBillingViewCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateContractCommand}
+   */
+  disassociateContract(
+    args: DisassociateContractCommandInput,
+    options?: BillingRequestOptions
+  ): Promise<DisassociateContractCommandOutput>;
+  disassociateContract(
+    args: DisassociateContractCommandInput,
+    cb: (err: any, data?: DisassociateContractCommandOutput) => void
+  ): void;
+  disassociateContract(
+    args: DisassociateContractCommandInput,
+    options: BillingRequestOptions,
+    cb: (err: any, data?: DisassociateContractCommandOutput) => void
   ): void;
 
   /**
@@ -278,6 +410,23 @@ export interface Billing {
     args: GetBillingViewCommandInput,
     options: BillingRequestOptions,
     cb: (err: any, data?: GetBillingViewCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetContractInformationCommand}
+   */
+  getContractInformation(
+    args: GetContractInformationCommandInput,
+    options?: BillingRequestOptions
+  ): Promise<GetContractInformationCommandOutput>;
+  getContractInformation(
+    args: GetContractInformationCommandInput,
+    cb: (err: any, data?: GetContractInformationCommandOutput) => void
+  ): void;
+  getContractInformation(
+    args: GetContractInformationCommandInput,
+    options: BillingRequestOptions,
+    cb: (err: any, data?: GetContractInformationCommandOutput) => void
   ): void;
 
   /**
@@ -434,6 +583,75 @@ export interface Billing {
     args: ListBusinessSupportSubscriptionHistoryCommandInput,
     options: BillingRequestOptions,
     cb: (err: any, data?: ListBusinessSupportSubscriptionHistoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListContractsCommand}
+   */
+  listContracts(): Promise<ListContractsCommandOutput>;
+  listContracts(
+    args: ListContractsCommandInput,
+    options?: BillingRequestOptions
+  ): Promise<ListContractsCommandOutput>;
+  listContracts(
+    args: ListContractsCommandInput,
+    cb: (err: any, data?: ListContractsCommandOutput) => void
+  ): void;
+  listContracts(
+    args: ListContractsCommandInput,
+    options: BillingRequestOptions,
+    cb: (err: any, data?: ListContractsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListContractualInvestmentAttestationsCommand}
+   */
+  listContractualInvestmentAttestations(
+    args: ListContractualInvestmentAttestationsCommandInput,
+    options?: BillingRequestOptions
+  ): Promise<ListContractualInvestmentAttestationsCommandOutput>;
+  listContractualInvestmentAttestations(
+    args: ListContractualInvestmentAttestationsCommandInput,
+    cb: (err: any, data?: ListContractualInvestmentAttestationsCommandOutput) => void
+  ): void;
+  listContractualInvestmentAttestations(
+    args: ListContractualInvestmentAttestationsCommandInput,
+    options: BillingRequestOptions,
+    cb: (err: any, data?: ListContractualInvestmentAttestationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListContractualInvestmentsCommand}
+   */
+  listContractualInvestments(
+    args: ListContractualInvestmentsCommandInput,
+    options?: BillingRequestOptions
+  ): Promise<ListContractualInvestmentsCommandOutput>;
+  listContractualInvestments(
+    args: ListContractualInvestmentsCommandInput,
+    cb: (err: any, data?: ListContractualInvestmentsCommandOutput) => void
+  ): void;
+  listContractualInvestments(
+    args: ListContractualInvestmentsCommandInput,
+    options: BillingRequestOptions,
+    cb: (err: any, data?: ListContractualInvestmentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListContractualInvestmentSummariesCommand}
+   */
+  listContractualInvestmentSummaries(
+    args: ListContractualInvestmentSummariesCommandInput,
+    options?: BillingRequestOptions
+  ): Promise<ListContractualInvestmentSummariesCommandOutput>;
+  listContractualInvestmentSummaries(
+    args: ListContractualInvestmentSummariesCommandInput,
+    cb: (err: any, data?: ListContractualInvestmentSummariesCommandOutput) => void
+  ): void;
+  listContractualInvestmentSummaries(
+    args: ListContractualInvestmentSummariesCommandInput,
+    options: BillingRequestOptions,
+    cb: (err: any, data?: ListContractualInvestmentSummariesCommandOutput) => void
   ): void;
 
   /**
@@ -626,6 +844,50 @@ export interface Billing {
     args?: ListBusinessSupportSubscriptionHistoryCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListBusinessSupportSubscriptionHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListContractsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContractsCommandOutput}.
+   */
+  paginateListContracts(
+    args?: ListContractsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContractsCommandOutput>;
+
+  /**
+   * @see {@link ListContractualInvestmentAttestationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContractualInvestmentAttestationsCommandOutput}.
+   */
+  paginateListContractualInvestmentAttestations(
+    args: ListContractualInvestmentAttestationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContractualInvestmentAttestationsCommandOutput>;
+
+  /**
+   * @see {@link ListContractualInvestmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContractualInvestmentsCommandOutput}.
+   */
+  paginateListContractualInvestments(
+    args: ListContractualInvestmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContractualInvestmentsCommandOutput>;
+
+  /**
+   * @see {@link ListContractualInvestmentSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContractualInvestmentSummariesCommandOutput}.
+   */
+  paginateListContractualInvestmentSummaries(
+    args: ListContractualInvestmentSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContractualInvestmentSummariesCommandOutput>;
 
   /**
    * @see {@link ListEnterpriseSupportLinkedAccountChargesCommand}

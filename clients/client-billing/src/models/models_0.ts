@@ -1,15 +1,21 @@
 // smithy-typescript generated code
 import type {
   ApplicationType,
+  AssociationStatus,
   BillingDomain,
   BillingFeature,
   BillingFeatureFilterName,
   BillingViewStatus,
   BillingViewStatusReason,
   BillingViewType,
+  ContractRestriction,
+  ContractType,
   CreditSharingType,
   CreditStatus,
   Dimension,
+  InvestmentAttestationStatus,
+  InvestmentType,
+  MultiplierType,
   PreferenceValue,
   SearchOption,
 } from "./enums";
@@ -57,6 +63,18 @@ export interface AdditionalCharge {
 }
 
 /**
+ * <p>A recipient copied as a viewer on the executive approval request, in addition to the approver.</p>
+ * @public
+ */
+export interface AdditionalRecipient {
+  /**
+   * <p>The email address of the recipient. This value is 3–256 characters and must be a valid email address.</p>
+   * @public
+   */
+  email: string | undefined;
+}
+
+/**
  * <p>A monetary amount with a currency code. Used throughout the Billing API to represent credit balances, allocations, and adjustments.</p>
  * @public
  */
@@ -72,6 +90,70 @@ export interface Amount {
    * @public
    */
   currencyAmount: string | undefined;
+}
+
+/**
+ * <p>Information about the executive approver who signs off on an investment attestation.</p>
+ * @public
+ */
+export interface ApproverDetails {
+  /**
+   * <p>The name of the approver as it appears on the contract. This value can be up to 256 characters.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The title of the approver, such as <code>Chief Financial Officer</code>. This value can be up to 256 characters.</p>
+   * @public
+   */
+  title: string | undefined;
+
+  /**
+   * <p>The email address of the approver. This value is 3–256 characters and must be a valid email address.</p>
+   * @public
+   */
+  email: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateContractRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the contract to associate with your account.</p>
+   * @public
+   */
+  contractArn: string | undefined;
+
+  /**
+   * <p>The contract ID from the contract document. It can be found in the top right corner of your contract's pages. This value confirms that you have access to the contract you are associating.</p>
+   * @public
+   */
+  contractDocumentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateContractResponse {}
+
+/**
+ * <p>The field's information of a request that resulted in an exception. </p>
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The message describing why the field failed validation.</p>
+   * @public
+   */
+  message: string | undefined;
 }
 
 /**
@@ -103,22 +185,139 @@ export interface AssociateSourceViewsResponse {
 }
 
 /**
- * <p>The field's information of a request that resulted in an exception. </p>
+ * <p>A quantity-based attestation value, such as a count of workloads migrated.</p>
  * @public
  */
-export interface ValidationExceptionField {
+export interface AttestationQuantity {
   /**
-   * <p>The name of the field.</p>
+   * <p>The number of units being attested, expressed as a decimal string to preserve precision. The value is digits with an optional decimal point and is 1–1000 characters.</p>
    * @public
    */
-  name: string | undefined;
+  attestationVolume: string | undefined;
 
   /**
-   * <p>The message describing why the field failed validation.</p>
+   * <p>The unit of the attestation, such as <code>workloads migrated</code>. This value is 1–1000 characters.</p>
    * @public
    */
-  message: string | undefined;
+  attestationUnit: string | undefined;
 }
+
+/**
+ * <p>The value being attested. This is a union in which exactly one member is set. Set <code>attestationAmount</code> to attest a monetary amount directly, or set <code>attestationQuantities</code> to attest one or more quantities that are converted to a value using the investment's multipliers.</p>
+ * @public
+ */
+export type AttestationValue =
+  | AttestationValue.AttestationAmountMember
+  | AttestationValue.AttestationQuantitiesMember
+  | AttestationValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AttestationValue {
+  /**
+   * <p>The value attested as a monetary amount. This form is valid only when the investment has no multiplier.</p>
+   * @public
+   */
+  export interface AttestationAmountMember {
+    attestationAmount: Amount;
+    attestationQuantities?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The value attested as one or more quantities, each with its own unit. The list contains at most 50 quantities.</p>
+   * @public
+   */
+  export interface AttestationQuantitiesMember {
+    attestationAmount?: never;
+    attestationQuantities: AttestationQuantity[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    attestationAmount?: never;
+    attestationQuantities?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    attestationAmount: (value: Amount) => T;
+    attestationQuantities: (value: AttestationQuantity[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>An allocation of an investment disbursement to a specific recipient account. The account is the target account that receives the investment, not your account.</p>
+ * @public
+ */
+export interface InvestmentDistribution {
+  /**
+   * <p>The recipient Amazon Web Services account ID that receives this portion of the investment. This must be one of the eligible investment accounts on the contract.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The monetary value allocated to the recipient account.</p>
+   * @public
+   */
+  investmentAmount: Amount | undefined;
+}
+
+/**
+ * <p>The details of an investment attestation submission, including the value being attested and how the resulting investment is distributed.</p>
+ * @public
+ */
+export interface AttestationDetails {
+  /**
+   * <p>The value being attested, expressed as either a monetary amount or one or more quantities. Exactly one form is set.</p>
+   * @public
+   */
+  attestationValue: AttestationValue | undefined;
+
+  /**
+   * <p>The distribution of the resulting investment across the eligible investment accounts on the contract. If you omit this value, the full investment is allocated to the single eligible investment account on the contract. This value is required when multiple investment accounts are eligible. When you provide this value, the sum of all distributions must equal the resulting monetary investment value (the attested amount, or the value computed from the attested quantities using the investment multipliers). The list contains at most 200 distributions.</p>
+   * @public
+   */
+  investmentDistributions?: InvestmentDistribution[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelContractualInvestmentAttestationRequest {
+  /**
+   * <p>The identifier of the investment attestation to cancel.</p>
+   * @public
+   */
+  attestationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the contract that contains the attested investment.</p>
+   * @public
+   */
+  contractArn: string | undefined;
+
+  /**
+   * <p>The reason for the cancellation. This value can be 1 to 80 characters.</p>
+   * @public
+   */
+  reason: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelContractualInvestmentAttestationResponse {}
 
 /**
  * <p> The Cost Categories values used for filtering the costs. </p>
@@ -301,6 +500,76 @@ export interface CreateBillingViewResponse {
 /**
  * @public
  */
+export interface CreateContractualInvestmentAttestationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the contract that contains the investment being attested.</p>
+   * @public
+   */
+  contractArn: string | undefined;
+
+  /**
+   * <p>The identifier of the investment summary being attested. This is the parent to the investmentId.</p>
+   * @public
+   */
+  investmentSummaryId: string | undefined;
+
+  /**
+   * <p>The identifier of the investment (outcome) being attested.</p>
+   * @public
+   */
+  investmentId: string | undefined;
+
+  /**
+   * <p>The contract ID from the contract document, located in the top-right corner of the private pricing contract pages. This value confirms that you have access to the contract.</p>
+   * @public
+   */
+  contractDocumentId: string | undefined;
+
+  /**
+   * <p>The details of the executive who authorized the attestation, under the terms of the private pricing contract. The executive receives a click-to-accept email to confirm the attestation.</p>
+   * @public
+   */
+  approverDetails: ApproverDetails | undefined;
+
+  /**
+   * <p>The date on which the investment is disbursed to the investment accounts. The disbursement date is subject to review timelines.</p>
+   * @public
+   */
+  investmentDisbursedAt?: Date | undefined;
+
+  /**
+   * <p>The details of the attestation, including the value being claimed and how the resulting investment is distributed across investment accounts.</p>
+   * @public
+   */
+  attestationDetails: AttestationDetails | undefined;
+
+  /**
+   * <p>The email addresses to copy as viewers on the executive approval request.</p>
+   * @public
+   */
+  additionalRecipients?: AdditionalRecipient[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry completes without performing any further actions.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContractualInvestmentAttestationResponse {
+  /**
+   * <p>The identifier of the submitted attestation.</p>
+   * @public
+   */
+  attestationId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteBillingViewRequest {
   /**
    * <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
@@ -325,6 +594,22 @@ export interface DeleteBillingViewResponse {
    */
   arn: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DisassociateContractRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the contract to disassociate from your account.</p>
+   * @public
+   */
+  contractArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateContractResponse {}
 
 /**
  * @public
@@ -600,6 +885,139 @@ export interface GetBillingViewResponse {
    * @public
    */
   billingView: BillingViewElement | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContractInformationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the contract to retrieve information about.</p>
+   * @public
+   */
+  contractArn: string | undefined;
+}
+
+/**
+ * <p>A time period bounded by an inclusive start date and an inclusive end date.</p>
+ * @public
+ */
+export interface Interval {
+  /**
+   * <p>The start date of the interval. This date is included in the interval.</p>
+   * @public
+   */
+  startDateInclusive: Date | undefined;
+
+  /**
+   * <p>The end date of the interval. This date is included in the interval.</p>
+   * @public
+   */
+  endDateInclusive: Date | undefined;
+}
+
+/**
+ * <p>A legal entity on a private pricing contract. It can be found on your contract's signature page.</p>
+ * @public
+ */
+export interface LegalEntity {
+  /**
+   * <p>The name of the legal entity as it appears on the contract document. This value can be up to 256 characters.</p>
+   * @public
+   */
+  legalEntityName: string | undefined;
+}
+
+/**
+ * <p>The details of a private pricing addendum contract.</p>
+ * @public
+ */
+export interface PrivatePricingAddendum {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the private pricing addendum.</p>
+   * @public
+   */
+  contractArn: string | undefined;
+
+  /**
+   * <p>The contract term period of the private pricing addendum, expressed as an interval with an inclusive start date and an inclusive end date.</p>
+   * @public
+   */
+  contractTerm: Interval | undefined;
+
+  /**
+   * <p>The payer accounts that are eligible under the private pricing addendum. The list contains at most 100 account IDs.</p>
+   * @public
+   */
+  eligiblePayerAccounts: string[] | undefined;
+
+  /**
+   * <p>The accounts that are eligible to receive investments under the private pricing addendum. An <code>InvestmentDistribution</code> must target one of these accounts. The list contains at most 100 account IDs.</p>
+   * @public
+   */
+  investmentAccounts: string[] | undefined;
+
+  /**
+   * <p>The legal entities on the private pricing addendum. The list contains at most 10 legal entities.</p>
+   * @public
+   */
+  legalEntities: LegalEntity[] | undefined;
+
+  /**
+   * <p>The restrictions that limit the self-service actions you can take on the private pricing addendum. An empty or absent value indicates that no restrictions apply. The list contains at most 10 restrictions.</p>
+   * @public
+   */
+  contractRestrictions?: ContractRestriction[] | undefined;
+}
+
+/**
+ * <p>The details of a contract returned by <code>GetContractInformation</code>. This is a union in which exactly one member is set, corresponding to the contract type. For a private pricing addendum, the <code>privatePricingAddendum</code> member is set. Check which member is present to determine the contract type.</p>
+ * @public
+ */
+export type ContractDetails =
+  | ContractDetails.PrivatePricingAddendumMember
+  | ContractDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ContractDetails {
+  /**
+   * <p>The details of a private pricing addendum contract. This member is set when the contract is a private pricing addendum.</p>
+   * @public
+   */
+  export interface PrivatePricingAddendumMember {
+    privatePricingAddendum: PrivatePricingAddendum;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    privatePricingAddendum?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    privatePricingAddendum: (value: PrivatePricingAddendum) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface GetContractInformationResponse {
+  /**
+   * <p>The contract details such as term (duration), eligible payer accounts, investment accounts, and legal entities.</p>
+   * @public
+   */
+  contract: ContractDetails | undefined;
 }
 
 /**
@@ -1823,6 +2241,477 @@ export interface ListBusinessSupportSubscriptionHistoryResponse {
 
   /**
    * <p>The pagination token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContractsRequest {
+  /**
+   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of contracts to return in a single call. Minimum value of 1, maximum value of 100.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>A summary of a private pricing contract visible to your account. <code>ListContracts</code> returns these summaries.</p>
+ * @public
+ */
+export interface ContractSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the contract. Pass this value to operations such as <code>GetContractInformation</code>, <code>ListContractualInvestmentSummaries</code>, and <code>AssociateContract</code>.</p>
+   * @public
+   */
+  contractArn: string | undefined;
+
+  /**
+   * <p>The contract term period of the contract, expressed as an interval with an inclusive start date and an inclusive end date.</p>
+   * @public
+   */
+  contractTerm: Interval | undefined;
+
+  /**
+   * <p>The classification of the contract. Valid values are <code>Cross-Service</code>, <code>Service-Specific</code>, and <code>Other</code>. <code>Cross-Service</code> applies across multiple Amazon Web Services services. <code>Service-Specific</code> applies to a specific Amazon Web Services service. <code>Other</code> applies to other arrangements.</p>
+   * @public
+   */
+  contractType?: ContractType | undefined;
+
+  /**
+   * <p>Indicates whether the contract is currently associated with your account. Valid values are <code>ASSOCIATED</code> and <code>NOT_ASSOCIATED</code>. <code>ASSOCIATED</code> means the contract is associated with your account. <code>NOT_ASSOCIATED</code> means the contract is not associated with your account.</p>
+   * @public
+   */
+  associationStatus: AssociationStatus | undefined;
+
+  /**
+   * <p>The time when the contract was last associated with your account.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContractsResponse {
+  /**
+   * <p>The list of contracts that your Amazon Web Services account is an eligible payer account of.</p>
+   * @public
+   */
+  items: ContractSummary[] | undefined;
+
+  /**
+   * <p>The pagination token to use on subsequent calls to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContractualInvestmentAttestationsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the contract whose attestations you want to list.</p>
+   * @public
+   */
+  contractArn: string | undefined;
+
+  /**
+   * <p>The identifier of a specific investment summary to filter the attestations by. If omitted, attestations for all investment summaries in the contract are returned.</p>
+   * @public
+   */
+  investmentSummaryId?: string | undefined;
+
+  /**
+   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of attestations to return in a single call. Minimum value of 1, maximum value of 100.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>A summary of a submitted investment attestation, as returned by <code>ListContractualInvestmentAttestations</code>.</p>
+ * @public
+ */
+export interface InvestmentAttestation {
+  /**
+   * <p>The identifier of the attestation. This value is returned by <code>CreateContractualInvestmentAttestation</code> and is used to cancel the attestation with <code>CancelContractualInvestmentAttestation</code>. This value is 1–36 characters.</p>
+   * @public
+   */
+  attestationId: string | undefined;
+
+  /**
+   * <p>The name of the investment summary that contains the attested outcome. This value is 1–400 characters.</p>
+   * @public
+   */
+  investmentName: string | undefined;
+
+  /**
+   * <p>The description of the attested outcome. This value is 1–2048 characters.</p>
+   * @public
+   */
+  outcomeDescription: string | undefined;
+
+  /**
+   * <p>The identifier of the investment summary that was attested, as returned by <code>ListContractualInvestmentSummaries</code>.</p>
+   * @public
+   */
+  investmentSummaryId: string | undefined;
+
+  /**
+   * <p>The identifier of the investment that was attested, as returned by <code>ListContractualInvestments</code>.</p>
+   * @public
+   */
+  investmentId: string | undefined;
+
+  /**
+   * <p>The date on which the attestation was submitted.</p>
+   * @public
+   */
+  attestedAt: Date | undefined;
+
+  /**
+   * <p>The date on which the attestation was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the attestation. Valid values are <code>PENDING_REVIEW</code>, <code>PENDING_C_LEVEL_APPROVAL</code>, <code>PENDING_CANCELLATION</code>, <code>REJECTED</code>, <code>CANCELLED</code>, and <code>DISBURSED</code>. The values <code>DISBURSED</code>, <code>REJECTED</code>, and <code>CANCELLED</code> are terminal. The other values indicate the attestation is still in progress.</p>
+   * @public
+   */
+  attestationStatus: InvestmentAttestationStatus | undefined;
+
+  /**
+   * <p>The start date on which the investment is disbursed to the investment accounts. This is not the same as the time of disbursement, but reflects the date you submitted with the attestation.</p>
+   * @public
+   */
+  investmentDisbursedAt?: Date | undefined;
+
+  /**
+   * <p>The monetary value attested.</p>
+   * @public
+   */
+  attestedValue?: Amount | undefined;
+
+  /**
+   * <p>The distribution of the attested investment across the eligible investment accounts. The list contains at most 200 distributions.</p>
+   * @public
+   */
+  investmentDistributions?: InvestmentDistribution[] | undefined;
+
+  /**
+   * <p>The reasons the attestation was rejected. This value is present only when <code>attestationStatus</code> is <code>REJECTED</code>. The list contains at most 30 reasons.</p>
+   * @public
+   */
+  rejectionReasons?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether the attestation can be canceled with <code>CancelContractualInvestmentAttestation</code>.</p>
+   * @public
+   */
+  isCancellable?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContractualInvestmentAttestationsResponse {
+  /**
+   * <p>The list of investment attestations submitted under the contract.</p>
+   * @public
+   */
+  items: InvestmentAttestation[] | undefined;
+
+  /**
+   * <p>The pagination token to use on subsequent calls to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContractualInvestmentsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the contract that contains the investment summary.</p>
+   * @public
+   */
+  contractArn: string | undefined;
+
+  /**
+   * <p>The identifier of the investment summary whose investments you want to list.</p>
+   * @public
+   */
+  investmentSummaryId: string | undefined;
+
+  /**
+   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of investments to return in a single call. Minimum value of 1, maximum value of 100.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>An investment with a fixed value that is disbursed on a schedule. This corresponds to the <code>MILESTONE_BASED</code> investment type.</p>
+ * @public
+ */
+export interface MilestoneBasedInvestment {
+  /**
+   * <p>The identifier of the investment, as returned by <code>ListContractualInvestments</code>. This value is 1–36 characters.</p>
+   * @public
+   */
+  investmentId: string | undefined;
+
+  /**
+   * <p>The total value of the investment, including its currency and amount.</p>
+   * @public
+   */
+  investmentValue: Amount | undefined;
+
+  /**
+   * <p>The date on which the investment is disbursed to the investment accounts.</p>
+   * @public
+   */
+  investmentDisbursedAt: Date | undefined;
+}
+
+/**
+ * <p>A multiplier used to convert attestation input into an investment value.</p>
+ * @public
+ */
+export interface InvestmentMultiplier {
+  /**
+   * <p>The multiplier value, expressed as a decimal string to preserve precision. The value is digits with an optional decimal point and is 1–1000 characters. The terms of the contract define this value.</p>
+   * @public
+   */
+  value: string | undefined;
+
+  /**
+   * <p>The unit of the attestation input that the multiplier applies to, such as <code>workloads migrated</code>. This value is 1–1000 characters. The terms of the contract define this value.</p>
+   * @public
+   */
+  investmentAttestationInputUnit: string | undefined;
+
+  /**
+   * <p>The type of the multiplier. A value of <code>PERCENTAGE</code> applies a percentage of a value. A value of <code>CURRENCY_AMOUNT</code> applies a currency amount per unit of attestation input. The terms of the contract define this value.</p>
+   * @public
+   */
+  multiplierType: MultiplierType | undefined;
+}
+
+/**
+ * <p>A restriction that caps the value that can be disbursed for an investment. The cap applies for each attestation window.</p>
+ * @public
+ */
+export interface InvestmentRestriction {
+  /**
+   * <p>The maximum monetary amount allowed under the restriction.</p>
+   * @public
+   */
+  amount: Amount | undefined;
+}
+
+/**
+ * <p>An investment that is awarded upon completion of a defined outcome. This corresponds to the <code>OUTCOME_BASED</code> investment type and is claimed through <code>CreateContractualInvestmentAttestation</code>.</p>
+ * @public
+ */
+export interface OutcomeBasedInvestment {
+  /**
+   * <p>The identifier of the investment, as returned by <code>ListContractualInvestments</code>. This value is 1–36 characters.</p>
+   * @public
+   */
+  investmentId: string | undefined;
+
+  /**
+   * <p>The description of what must be completed to attest the outcome. This value is 1–2048 characters.</p>
+   * @public
+   */
+  outcomeDescription: string | undefined;
+
+  /**
+   * <p>The time window, expressed as an interval with inclusive start and end dates, during which outcomes can be attested to.</p>
+   * @public
+   */
+  attestationWindow: Interval | undefined;
+
+  /**
+   * <p>The restrictions that cap the value that can be disbursed for the investment. The list contains at most 10 restrictions.</p>
+   * @public
+   */
+  investmentRestrictions?: InvestmentRestriction[] | undefined;
+
+  /**
+   * <p>The multipliers used to compute the investment value from the attestation input. The list contains at most 200 multipliers. Multipliers are derived from the terms of the private pricing contract.</p>
+   * @public
+   */
+  investmentMultipliers?: InvestmentMultiplier[] | undefined;
+
+  /**
+   * <p>The total value already disbursed against the investment. This value can be distributed among the investment accounts distribution.</p>
+   * @public
+   */
+  disbursedValue: Amount | undefined;
+}
+
+/**
+ * <p>An investment within an investment summary. This is a union in which exactly one member is set. The <code>milestoneBasedInvestment</code> member represents a fixed, scheduled investment. The <code>outcomeBasedInvestment</code> member represents an attestable investment awarded upon completion of a defined outcome. Check which member is present to determine the investment type.</p>
+ * @public
+ */
+export type Investment =
+  | Investment.MilestoneBasedInvestmentMember
+  | Investment.OutcomeBasedInvestmentMember
+  | Investment.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Investment {
+  /**
+   * <p>An investment with a fixed value that is disbursed on a schedule. This member is set for a milestone-based investment and corresponds to the <code>MILESTONE_BASED</code> investment type.</p>
+   * @public
+   */
+  export interface MilestoneBasedInvestmentMember {
+    milestoneBasedInvestment: MilestoneBasedInvestment;
+    outcomeBasedInvestment?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An investment that is awarded upon completion of a defined outcome. This member is set for an outcome-based (attestable) investment and corresponds to the <code>OUTCOME_BASED</code> investment type.</p>
+   * @public
+   */
+  export interface OutcomeBasedInvestmentMember {
+    milestoneBasedInvestment?: never;
+    outcomeBasedInvestment: OutcomeBasedInvestment;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    milestoneBasedInvestment?: never;
+    outcomeBasedInvestment?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    milestoneBasedInvestment: (value: MilestoneBasedInvestment) => T;
+    outcomeBasedInvestment: (value: OutcomeBasedInvestment) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ListContractualInvestmentsResponse {
+  /**
+   * <p>The list of investments for the investment summary.</p>
+   * @public
+   */
+  items: Investment[] | undefined;
+
+  /**
+   * <p>The pagination token to use on subsequent calls to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContractualInvestmentSummariesRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the contract whose investment summaries you want to list.</p>
+   * @public
+   */
+  contractArn: string | undefined;
+
+  /**
+   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of investment summaries to return in a single call. Minimum value of 1, maximum value of 100.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Detailed information about an investment summary within a contract or a private pricing addendum.</p>
+ * @public
+ */
+export interface InvestmentSummary {
+  /**
+   * <p>The identifier of the investment summary. Pass this value to <code>ListContractualInvestments</code> to list the investments within the summary, and to <code>CreateContractualInvestmentAttestation</code> to attest an investment. This value is 1–36 characters.</p>
+   * @public
+   */
+  investmentSummaryId: string | undefined;
+
+  /**
+   * <p>The name of the investment summary, used to reference the investment against a term in the physical contract. This value is 1–400 characters.</p>
+   * @public
+   */
+  investmentName: string | undefined;
+
+  /**
+   * <p>The type of the investment summary. Valid values are <code>MILESTONE_BASED</code> and <code>OUTCOME_BASED</code>. <code>OUTCOME_BASED</code> investments can be attested to, upon completion of outcomes. <code>MILESTONE_BASED</code> are automatically triggered by Amazon Web Services, based on the time schedule in the contract.</p>
+   * @public
+   */
+  investmentType: InvestmentType | undefined;
+
+  /**
+   * <p>The maximum monetary value that can be disbursed against the investment summary, inclusive of all outcomes combined under the summary.</p>
+   * @public
+   */
+  maxAllowedInvestmentDisbursementValue?: Amount | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContractualInvestmentSummariesResponse {
+  /**
+   * <p>The list of investment summaries under the contract. It includes the investment name, maximum investment amount, and investment type. It does not provide investment details. Use this to know if the contract has investment terms and what type.</p>
+   * @public
+   */
+  items: InvestmentSummary[] | undefined;
+
+  /**
+   * <p>The pagination token to use on subsequent calls to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;

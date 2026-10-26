@@ -27,27 +27,6 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p> Exception thrown when a billing view's health status prevents an operation from being performed. This may occur if the billing view is in a state other than <code>HEALTHY</code>.</p>
- * @public
- */
-export class BillingViewHealthStatusException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.billing#BillingViewHealthStatusException";
-  readonly name = "BillingViewHealthStatusException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BillingViewHealthStatusException, __BaseException>) {
-    super({
-      name: "BillingViewHealthStatusException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BillingViewHealthStatusException.prototype);
-  }
-}
-
-/**
  * <p> The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
  * @public
  */
@@ -139,55 +118,6 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p> You've reached the limit of resources you can create, or exceeded the size of an individual resource. </p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.billing#ServiceQuotaExceededException";
-  readonly name = "ServiceQuotaExceededException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p> The ID of the resource. </p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p> The type of Amazon Web Services resource. </p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * <p> The container for the <code>serviceCode</code>. </p>
-   * @public
-   */
-  serviceCode: string | undefined;
-
-  /**
-   * <p> The container for the <code>quotaCode</code>. </p>
-   * @public
-   */
-  quotaCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
  * <p>The request was denied due to request throttling. </p>
  * @public
  */
@@ -240,5 +170,75 @@ export class ValidationException extends __BaseException {
     Object.setPrototypeOf(this, ValidationException.prototype);
     this.reason = opts.reason;
     this.fieldList = opts.fieldList;
+  }
+}
+
+/**
+ * <p> Exception thrown when a billing view's health status prevents an operation from being performed. This may occur if the billing view is in a state other than <code>HEALTHY</code>.</p>
+ * @public
+ */
+export class BillingViewHealthStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.billing#BillingViewHealthStatusException";
+  readonly name = "BillingViewHealthStatusException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BillingViewHealthStatusException, __BaseException>) {
+    super({
+      name: "BillingViewHealthStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BillingViewHealthStatusException.prototype);
+  }
+}
+
+/**
+ * <p> You've reached the limit of resources you can create, or exceeded the size of an individual resource. </p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.billing#ServiceQuotaExceededException";
+  readonly name = "ServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p> The ID of the resource. </p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p> The type of Amazon Web Services resource. </p>
+   * @public
+   */
+  resourceType: string | undefined;
+
+  /**
+   * <p> The container for the <code>serviceCode</code>. </p>
+   * @public
+   */
+  serviceCode: string | undefined;
+
+  /**
+   * <p> The container for the <code>quotaCode</code>. </p>
+   * @public
+   */
+  quotaCode: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
   }
 }
