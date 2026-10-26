@@ -265,7 +265,11 @@ it("Ec2QueryDateTimeWithNegativeOffset:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -310,7 +314,11 @@ it("Ec2QueryDateTimeWithPositiveOffset:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -502,7 +510,11 @@ it("Ec2QueryDateTimeWithFractionalSeconds:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -547,7 +559,11 @@ it("Ec2GreetingWithErrors:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -599,7 +615,11 @@ it("Ec2InvalidGreetingError:Error:GreetingWithErrors", async () => {
     Object.keys(paramsToValidate).forEach((param) => {
       expect(
         r[param],
-        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+        `The output field ${param} should have been defined in ${JSON.stringify(
+          r,
+          (_, v) => (typeof v === "bigint" ? v.toString() : v),
+          2
+        )}`
       ).toBeDefined();
       expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
@@ -658,7 +678,11 @@ it("Ec2ComplexError:Error:GreetingWithErrors", async () => {
     Object.keys(paramsToValidate).forEach((param) => {
       expect(
         r[param],
-        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+        `The output field ${param} should have been defined in ${JSON.stringify(
+          r,
+          (_, v) => (typeof v === "bigint" ? v.toString() : v),
+          2
+        )}`
       ).toBeDefined();
       expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
@@ -738,7 +762,11 @@ it("Ec2IgnoresWrappingXmlName:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -1319,7 +1347,11 @@ it("Ec2RecursiveShapes:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -1963,7 +1995,11 @@ it("Ec2SimpleScalarProperties:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2009,7 +2045,11 @@ it("Ec2QuerySupportsNaNFloatOutputs:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2055,7 +2095,11 @@ it("Ec2QuerySupportsInfinityFloatOutputs:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2101,7 +2145,11 @@ it("Ec2QuerySupportsNegativeInfinityFloatOutputs:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2146,7 +2194,11 @@ it("Ec2XmlBlobs:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2191,7 +2243,11 @@ it("Ec2XmlEmptyBlobs:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2236,7 +2292,11 @@ it("Ec2XmlEmptySelfClosedBlobs:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2284,7 +2344,11 @@ it("Ec2XmlEmptyLists:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2363,7 +2427,11 @@ it("Ec2XmlEnums:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2442,7 +2510,11 @@ it("Ec2XmlIntEnums:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2613,7 +2685,11 @@ it("Ec2XmlLists:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2670,7 +2746,11 @@ it("Ec2XmlNamespaces:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2715,7 +2795,11 @@ it("Ec2XmlTimestamps:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2760,7 +2844,11 @@ it("Ec2XmlTimestampsWithDateTimeFormat:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2805,7 +2893,11 @@ it("Ec2XmlTimestampsWithDateTimeOnTargetFormat:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2850,7 +2942,11 @@ it("Ec2XmlTimestampsWithEpochSecondsFormat:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2895,7 +2991,11 @@ it("Ec2XmlTimestampsWithEpochSecondsOnTargetFormat:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2940,7 +3040,11 @@ it("Ec2XmlTimestampsWithHttpDateFormat:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2985,7 +3089,11 @@ it("Ec2XmlTimestampsWithHttpDateOnTargetFormat:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
