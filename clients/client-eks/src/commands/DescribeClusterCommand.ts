@@ -75,6 +75,11 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //       ipFamily: "ipv4" || "ipv6",
  * //       elasticLoadBalancing: { // ElasticLoadBalancing
  * //         enabled: true || false,
+ * //         gatewayApi: { // GatewayApiConfiguration
+ * //           crds: { // CrdManagementConfiguration
+ * //             managed: true || false,
+ * //           },
+ * //         },
  * //       },
  * //     },
  * //     logging: { // Logging

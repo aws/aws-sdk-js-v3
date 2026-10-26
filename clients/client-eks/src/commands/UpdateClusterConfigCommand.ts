@@ -132,6 +132,11 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *     ipFamily: "ipv4" || "ipv6",
  *     elasticLoadBalancing: { // ElasticLoadBalancing
  *       enabled: true || false,
+ *       gatewayApi: { // GatewayApiConfiguration
+ *         crds: { // CrdManagementConfiguration
+ *           managed: true || false,
+ *         },
+ *       },
  *     },
  *   },
  *   storageConfig: { // StorageConfigRequest

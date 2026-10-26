@@ -91,6 +91,7 @@ const _CI = "CapabilityIssue";
 const _CIL = "CapabilityIssueList";
 const _CILl = "ClusterIssueList";
 const _CIl = "ClusterIssue";
+const _CMC = "CrdManagementConfiguration";
 const _CN = "CreateNodegroup";
 const _CNR = "CreateNodegroupRequest";
 const _CNRr = "CreateNodegroupResponse";
@@ -221,6 +222,7 @@ const _FPI = "FargateProfileIssue";
 const _FPIL = "FargateProfileIssueList";
 const _FPS = "FargateProfileSelector";
 const _FPSa = "FargateProfileSelectors";
+const _GAC = "GatewayApiConfiguration";
 const _HPACCR = "HorizontalPodAutoscalerControllerConfigRequest";
 const _HPACCRo = "HorizontalPodAutoscalerControllerConfigResponse";
 const _HPACVC = "HorizontalPodAutoscalerControllerVersionConfig";
@@ -505,6 +507,7 @@ const _co = "code";
 const _com = "compatibilities";
 const _con = "configuration";
 const _cons = "constraints";
+const _cr = "crds";
 const _d = "data";
 const _dD = "deprecationDetails";
 const _dN = "defaultNamespace";
@@ -552,6 +555,7 @@ const _fPA = "fargateProfileArn";
 const _fPN = "fargateProfileName";
 const _fPNa = "fargateProfileNames";
 const _fo = "force";
+const _gA = "gatewayApi";
 const _gC = "groupsClaim";
 const _gN = "groupName";
 const _gP = "groupsPrefix";
@@ -620,7 +624,8 @@ const _mU = "maxUnavailable";
 const _mUNTC = "maxUnhealthyNodeThresholdCount";
 const _mUNTP = "maxUnhealthyNodeThresholdPercentage";
 const _mUP = "maxUnavailablePercentage";
-const _ma = "max";
+const _ma = "managed";
+const _max = "max";
 const _mi = "min";
 const _n = "name";
 const _nA = "networkAccess";
@@ -1220,6 +1225,11 @@ export var ControlPlaneScalingTierInfo$: StaticStructureSchema = [3, n0, _CPSTI,
   [_tN, _aRC, _pSRPS, _cDSG, _cPCCO],
   [0, 1, 1, 1, () => ControlPlaneConfigInfo$]
 ];
+export var CrdManagementConfiguration$: StaticStructureSchema = [3, n0, _CMC,
+  0,
+  [_ma],
+  [2]
+];
 export var CreateAccessConfigRequest$: StaticStructureSchema = [3, n0, _CACR,
   0,
   [_bCCAP, _aM],
@@ -1602,7 +1612,7 @@ export var DisassociateIdentityProviderConfigResponse$: StaticStructureSchema = 
 ];
 export var DurationConstraints$: StaticStructureSchema = [3, n0, _DC,
   0,
-  [_mi, _ma],
+  [_mi, _max],
   [0, 0]
 ];
 export var DurationParameterConfig$: StaticStructureSchema = [3, n0, _DPC,
@@ -1622,8 +1632,8 @@ export var EksAnywhereSubscriptionTerm$: StaticStructureSchema = [3, n0, _EAST,
 ];
 export var ElasticLoadBalancing$: StaticStructureSchema = [3, n0, _ELB,
   0,
-  [_en],
-  [2]
+  [_en, _gA],
+  [2, () => GatewayApiConfiguration$]
 ];
 export var EncryptionConfig$: StaticStructureSchema = [3, n0, _EC,
   0,
@@ -1664,6 +1674,11 @@ export var FargateProfileSelector$: StaticStructureSchema = [3, n0, _FPS,
   0,
   [_nam, _la],
   [0, 128 | 0]
+];
+export var GatewayApiConfiguration$: StaticStructureSchema = [3, n0, _GAC,
+  0,
+  [_cr],
+  [() => CrdManagementConfiguration$]
 ];
 export var HorizontalPodAutoscalerControllerConfigRequest$: StaticStructureSchema = [3, n0, _HPACCR,
   0,
@@ -1727,7 +1742,7 @@ export var InsightSummary$: StaticStructureSchema = [3, n0, _ISn,
 ];
 export var IntegerConstraints$: StaticStructureSchema = [3, n0, _IC,
   0,
-  [_mi, _ma],
+  [_mi, _max],
   [1, 1]
 ];
 export var IntegerParameterConfig$: StaticStructureSchema = [3, n0, _IPCn,
@@ -1737,7 +1752,7 @@ export var IntegerParameterConfig$: StaticStructureSchema = [3, n0, _IPCn,
 ];
 export var IntegerRangeConstraint$: StaticStructureSchema = [3, n0, _IRC,
   0,
-  [_mi, _ma],
+  [_mi, _max],
   [1, 1]
 ];
 export var Issue$: StaticStructureSchema = [3, n0, _Is,
