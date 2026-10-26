@@ -23,7 +23,7 @@ export interface ListAvailableMeteredProductsCommandInput extends ListAvailableM
 export interface ListAvailableMeteredProductsCommandOutput extends ListAvailableMeteredProductsResponse, __MetadataBearer {}
 
 /**
- * <p>A list of the available metered products.</p>
+ * A list of the available metered products.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,10 +59,10 @@ export interface ListAvailableMeteredProductsCommandOutput extends ListAvailable
  * @see {@link DeadlineClientResolvedConfig | config} for DeadlineClient's `config` shape.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Deadline Cloud can't process your request right now. Try again later.</p>
+ *  Deadline Cloud can't process your request right now. Try again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a request rate quota.</p>
+ *  Your request exceeded a request rate quota.
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

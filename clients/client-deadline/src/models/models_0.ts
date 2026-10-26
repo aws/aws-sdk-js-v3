@@ -59,25 +59,25 @@ import type {
 } from "./enums";
 
 /**
- * <p>Defines the maximum and minimum number of GPU accelerators required for a worker instance..</p>
+ * Defines the maximum and minimum number of GPU accelerators required for a worker instance..
  * @public
  */
 export interface AcceleratorCountRange {
   /**
-   * <p>The minimum number of GPU accelerators in the worker host.</p>
+   * The minimum number of GPU accelerators in the worker host.
    * @public
    */
   min: number | undefined;
 
   /**
-   * <p>The maximum number of GPU accelerators in the worker host.</p>
+   * The maximum number of GPU accelerators in the worker host.
    * @public
    */
   max?: number | undefined;
 }
 
 /**
- * <p>Describes a specific GPU accelerator required for an Amazon Elastic Compute Cloud worker host.</p>
+ * Describes a specific GPU accelerator required for an Amazon Elastic Compute Cloud worker host.
  * @public
  */
 export interface AcceleratorSelection {
@@ -88,7 +88,7 @@ export interface AcceleratorSelection {
   name: AcceleratorName | undefined;
 
   /**
-   * <p>Specifies the runtime driver to use for the GPU accelerator. You must use the same runtime for all GPUs in a fleet. </p> <p>You can choose from the following runtimes:</p> <ul> <li> <p> <code>latest</code> - Use the latest runtime available for the chip. If you specify <code>latest</code> and a new version of the runtime is released, the new version of the runtime is used.</p> </li> <li> <p> <code>grid:r580</code> - <a href="https://docs.nvidia.com/vgpu/19.0/index.html">NVIDIA vGPU software 19</a> </p> </li> <li> <p> <code>grid:r570</code> - <a href="https://docs.nvidia.com/vgpu/18.0/index.html">NVIDIA vGPU software 18</a> </p> </li> <li> <p> <code>grid:r535</code> - <a href="https://docs.nvidia.com/vgpu/16.0/index.html">NVIDIA vGPU software 16</a> </p> </li> </ul> <p>If you don't specify a runtime, Amazon Web Services Deadline Cloud uses <code>latest</code> as the default. However, if you have multiple accelerators and specify <code>latest</code> for some and leave others blank, Amazon Web Services Deadline Cloud raises an exception.</p> <important> <p>Not all runtimes are compatible with all accelerator types:</p> <ul> <li> <p> <code>t4</code> and <code>a10g</code>: Support all runtimes (<code>grid:r580</code>, <code>grid:r570</code>, <code>grid:r535</code>)</p> </li> <li> <p> <code>l4</code> and <code>l40s</code>: Only support <code>grid:r570</code> and newer</p> </li> <li> <p> <code>rtx-pro-server-6000</code>: Only supports <code>grid:r580</code> </p> </li> </ul> <p>All accelerators in a fleet must use the same runtime version. You cannot mix different runtime versions within a single fleet.</p> </important> <note> <p>When you specify <code>latest</code>, it resolves to <code>grid:r580</code> for all currently supported accelerators.</p> </note>
+   * <p>Specifies the runtime driver to use for the GPU accelerator. You must use the same runtime for all GPUs in a fleet. </p> <p>You can choose from the following runtimes:</p> <ul> <li> <p> <code>latest</code> - Use the latest runtime available for the chip. If you specify <code>latest</code> and a new version of the runtime is released, the new version of the runtime is used.</p> </li> <li> <p> <code>grid:r580</code> - <a href="https://docs.nvidia.com/vgpu/19.0/index.html">NVIDIA vGPU software 19</a> </p> </li> </ul> <p>If you don't specify a runtime, Amazon Web Services Deadline Cloud uses <code>latest</code> as the default. However, if you have multiple accelerators and specify <code>latest</code> for some and leave others blank, Amazon Web Services Deadline Cloud raises an exception.</p> <important> <p>All accelerator types support <code>grid:r580</code>.</p> <p>All accelerators in a fleet must use the same runtime version. You cannot mix different runtime versions within a single fleet.</p> </important> <note> <p>When you specify <code>latest</code>, it resolves to <code>grid:r580</code> for all currently supported accelerators.</p> </note>
    * @public
    */
   runtime?: string | undefined;
@@ -113,109 +113,109 @@ export interface AcceleratorCapabilities {
 }
 
 /**
- * <p>Defines the maximum and minimum amount of memory, in MiB, to use for the accelerator.</p>
+ * Defines the maximum and minimum amount of memory, in MiB, to use for the accelerator.
  * @public
  */
 export interface AcceleratorTotalMemoryMiBRange {
   /**
-   * <p>The minimum amount of memory to use for the accelerator, measured in MiB.</p>
+   * The minimum amount of memory to use for the accelerator, measured in MiB.
    * @public
    */
   min: number | undefined;
 
   /**
-   * <p>The maximum amount of memory to use for the accelerator, measured in MiB.</p>
+   * The maximum amount of memory to use for the accelerator, measured in MiB.
    * @public
    */
   max?: number | undefined;
 }
 
 /**
- * <p>Provides information about the number of resources used.</p>
+ * Provides information about the number of resources used.
  * @public
  */
 export interface AcquiredLimit {
   /**
-   * <p>The unique identifier of the limit.</p>
+   * The unique identifier of the limit.
    * @public
    */
   limitId: string | undefined;
 
   /**
-   * <p>The number of limit resources used.</p>
+   * The number of limit resources used.
    * @public
    */
   count: number | undefined;
 }
 
 /**
- * <p>The assigned starting environment for a worker during session.</p>
+ * The assigned starting environment for a worker during session.
  * @public
  */
 export interface AssignedEnvironmentEnterSessionActionDefinition {
   /**
-   * <p>The environment ID of the assigned environment at the start of a session.</p>
+   * The environment ID of the assigned environment at the start of a session.
    * @public
    */
   environmentId: string | undefined;
 }
 
 /**
- * <p>The assigned environment when a worker exits a session.</p>
+ * The assigned environment when a worker exits a session.
  * @public
  */
 export interface AssignedEnvironmentExitSessionActionDefinition {
   /**
-   * <p>The environment ID of the assigned environment when exiting a session.</p>
+   * The environment ID of the assigned environment when exiting a session.
    * @public
    */
   environmentId: string | undefined;
 }
 
 /**
- * <p>Log configuration details.</p>
+ * Log configuration details.
  * @public
  */
 export interface LogConfiguration {
   /**
-   * <p>The log drivers for worker related logs.</p>
+   * The log drivers for worker related logs.
    * @public
    */
   logDriver: string | undefined;
 
   /**
-   * <p>The options for a log driver.</p>
+   * The options for a log driver.
    * @public
    */
   options?: Record<string, string> | undefined;
 
   /**
-   * <p>The parameters for the log configuration.</p>
+   * The parameters for the log configuration.
    * @public
    */
   parameters?: Record<string, string> | undefined;
 
   /**
-   * <p>The log configuration error details.</p>
+   * The log configuration error details.
    * @public
    */
   error?: string | undefined;
 }
 
 /**
- * <p>The assigned session action definition for syncing input job attachments.</p>
+ * The assigned session action definition for syncing input job attachments.
  * @public
  */
 export interface AssignedSyncInputJobAttachmentsSessionActionDefinition {
   /**
-   * <p>The step ID for the assigned sync input job attachments session action.</p>
+   * The step ID for the assigned sync input job attachments session action.
    * @public
    */
   stepId?: string | undefined;
 }
 
 /**
- * <p>The data types for the task parameters.</p>
+ * The data types for the task parameters.
  * @public
  */
 export type TaskParameterValue =
@@ -231,7 +231,7 @@ export type TaskParameterValue =
  */
 export namespace TaskParameterValue {
   /**
-   * <p>A signed integer represented as a string.</p>
+   * A signed integer represented as a string.
    * @public
    */
   export interface IntMember {
@@ -244,7 +244,7 @@ export namespace TaskParameterValue {
   }
 
   /**
-   * <p>A double precision IEEE-754 floating point number represented as a string.</p>
+   * A double precision IEEE-754 floating point number represented as a string.
    * @public
    */
   export interface FloatMember {
@@ -257,7 +257,7 @@ export namespace TaskParameterValue {
   }
 
   /**
-   * <p>A UTF-8 string.</p>
+   * A UTF-8 string.
    * @public
    */
   export interface StringMember {
@@ -270,7 +270,7 @@ export namespace TaskParameterValue {
   }
 
   /**
-   * <p>A file system path represented as a string.</p>
+   * A file system path represented as a string.
    * @public
    */
   export interface PathMember {
@@ -283,7 +283,7 @@ export namespace TaskParameterValue {
   }
 
   /**
-   * <p>A range (for example 1-10) or selection of specific (for example 1,3,7,8,10) integers represented as a string.</p>
+   * A range (for example 1-10) or selection of specific (for example 1,3,7,8,10) integers represented as a string.
    * @public
    */
   export interface ChunkIntMember {
@@ -322,31 +322,31 @@ export namespace TaskParameterValue {
 }
 
 /**
- * <p>The specific task, step, and parameters to include.</p>
+ * The specific task, step, and parameters to include.
  * @public
  */
 export interface AssignedTaskRunSessionActionDefinition {
   /**
-   * <p>The task ID.</p>
+   * The task ID.
    * @public
    */
   taskId?: string | undefined;
 
   /**
-   * <p>The step ID.</p>
+   * The step ID.
    * @public
    */
   stepId: string | undefined;
 
   /**
-   * <p>The parameters to include.</p>
+   * The parameters to include.
    * @public
    */
   parameters: Record<string, TaskParameterValue> | undefined;
 }
 
 /**
- * <p>The definition of the assigned session action.</p>
+ * The definition of the assigned session action.
  * @public
  */
 export type AssignedSessionActionDefinition =
@@ -361,7 +361,7 @@ export type AssignedSessionActionDefinition =
  */
 export namespace AssignedSessionActionDefinition {
   /**
-   * <p>The environment a session starts on.</p>
+   * The environment a session starts on.
    * @public
    */
   export interface EnvEnterMember {
@@ -373,7 +373,7 @@ export namespace AssignedSessionActionDefinition {
   }
 
   /**
-   * <p>The environment a session exits from.</p>
+   * The environment a session exits from.
    * @public
    */
   export interface EnvExitMember {
@@ -385,7 +385,7 @@ export namespace AssignedSessionActionDefinition {
   }
 
   /**
-   * <p>The task run.</p>
+   * The task run.
    * @public
    */
   export interface TaskRunMember {
@@ -397,7 +397,7 @@ export namespace AssignedSessionActionDefinition {
   }
 
   /**
-   * <p>The job attachments to sync for the assigned session action.</p>
+   * The job attachments to sync for the assigned session action.
    * @public
    */
   export interface SyncInputJobAttachmentsMember {
@@ -433,97 +433,95 @@ export namespace AssignedSessionActionDefinition {
 }
 
 /**
- * <p>The action for a session defined by the session action ID.</p>
+ * The action for a session defined by the session action ID.
  * @public
  */
 export interface AssignedSessionAction {
   /**
-   * <p>The session action ID for the assigned session.</p>
+   * The session action ID for the assigned session.
    * @public
    */
   sessionActionId: string | undefined;
 
   /**
-   * <p>The definition of the assigned session action.</p>
+   * The definition of the assigned session action.
    * @public
    */
   definition: AssignedSessionActionDefinition | undefined;
 }
 
 /**
- * <p>The assigned session for the worker.</p>
+ * The assigned session for the worker.
  * @public
  */
 export interface AssignedSession {
   /**
-   * <p>The queue ID of the assigned session.</p>
+   * The queue ID of the assigned session.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID for the assigned session.</p>
+   * The job ID for the assigned session.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The session actions to apply to the assigned session.</p>
+   * The session actions to apply to the assigned session.
    * @public
    */
   sessionActions: AssignedSessionAction[] | undefined;
 
   /**
-   * <p>The log configuration for the worker's assigned session.</p>
+   * The log configuration for the worker's assigned session.
    * @public
    */
   logConfiguration: LogConfiguration | undefined;
 
   /**
-   * <p>Key-value hints that the service provides to guide how the session runs. This value is used by the worker agent.</p>
+   * Key-value hints that the service provides to guide how the session runs. This value is used by the worker agent.
    * @public
    */
   metadata?: Record<string, string> | undefined;
 }
 
 /**
- * Shared member fields for Associate inputs and \{Resource\}Member response structures.
- * principalId is excluded because it has @httpLabel on inputs but not on responses.
  * @public
  */
 export interface AssociateMemberToFarmRequest {
   /**
-   * <p>The ID of the farm to associate with the member.</p>
+   * The ID of the farm to associate with the member.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The principal type of the member to associate with the farm.</p>
+   * The principal type of the member to associate with the farm.
    * @public
    */
   principalType: DeadlinePrincipalType | undefined;
 
   /**
-   * <p>The identity store ID of the member to associate with the farm.</p>
+   * The identity store ID of the member to associate with the farm.
    * @public
    */
   identityStoreId: string | undefined;
 
   /**
-   * <p>The principal's membership level for the associated farm.</p>
+   * The principal's membership level for the associated farm.
    * @public
    */
   membershipLevel: MembershipLevel | undefined;
 
   /**
-   * <p>The member's principal ID to associate with the farm.</p>
+   * The member's principal ID to associate with the farm.
    * @public
    */
   principalId: string | undefined;
 
   /**
-   * <p>The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.</p>
+   * The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.
    * @public
    */
   identityCenterRegion?: string | undefined;
@@ -535,67 +533,65 @@ export interface AssociateMemberToFarmRequest {
 export interface AssociateMemberToFarmResponse {}
 
 /**
- * <p>The details of a validation exception.</p>
+ * The details of a validation exception.
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the validation exception.</p>
+   * The name of the validation exception.
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The error message for the validation exception.</p>
+   * The error message for the validation exception.
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * Shared member fields for Associate inputs and \{Resource\}Member response structures.
- * principalId is excluded because it has @httpLabel on inputs but not on responses.
  * @public
  */
 export interface AssociateMemberToFleetRequest {
   /**
-   * <p>The farm ID of the fleet to associate with the member.</p>
+   * The farm ID of the fleet to associate with the member.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The ID of the fleet to associate with a member.</p>
+   * The ID of the fleet to associate with a member.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The member's principal type to associate with the fleet.</p>
+   * The member's principal type to associate with the fleet.
    * @public
    */
   principalType: DeadlinePrincipalType | undefined;
 
   /**
-   * <p>The member's identity store ID to associate with the fleet.</p>
+   * The member's identity store ID to associate with the fleet.
    * @public
    */
   identityStoreId: string | undefined;
 
   /**
-   * <p>The principal's membership level for the associated fleet.</p>
+   * The principal's membership level for the associated fleet.
    * @public
    */
   membershipLevel: MembershipLevel | undefined;
 
   /**
-   * <p>The member's principal ID to associate with a fleet.</p>
+   * The member's principal ID to associate with a fleet.
    * @public
    */
   principalId: string | undefined;
 
   /**
-   * <p>The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.</p>
+   * The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.
    * @public
    */
   identityCenterRegion?: string | undefined;
@@ -607,55 +603,53 @@ export interface AssociateMemberToFleetRequest {
 export interface AssociateMemberToFleetResponse {}
 
 /**
- * Shared member fields for Associate inputs and \{Resource\}Member response structures.
- * principalId is excluded because it has @httpLabel on inputs but not on responses.
  * @public
  */
 export interface AssociateMemberToJobRequest {
   /**
-   * <p>The farm ID of the job to associate with the member.</p>
+   * The farm ID of the job to associate with the member.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID to associate to the member.</p>
+   * The queue ID to associate to the member.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID to associate with the member.</p>
+   * The job ID to associate with the member.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The member's principal type to associate with the job.</p>
+   * The member's principal type to associate with the job.
    * @public
    */
   principalType: DeadlinePrincipalType | undefined;
 
   /**
-   * <p>The member's identity store ID to associate with the job.</p>
+   * The member's identity store ID to associate with the job.
    * @public
    */
   identityStoreId: string | undefined;
 
   /**
-   * <p>The principal's membership level for the associated job.</p>
+   * The principal's membership level for the associated job.
    * @public
    */
   membershipLevel: MembershipLevel | undefined;
 
   /**
-   * <p>The member's principal ID to associate with the job.</p>
+   * The member's principal ID to associate with the job.
    * @public
    */
   principalId: string | undefined;
 
   /**
-   * <p>The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.</p>
+   * The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.
    * @public
    */
   identityCenterRegion?: string | undefined;
@@ -667,49 +661,47 @@ export interface AssociateMemberToJobRequest {
 export interface AssociateMemberToJobResponse {}
 
 /**
- * Shared member fields for Associate inputs and \{Resource\}Member response structures.
- * principalId is excluded because it has @httpLabel on inputs but not on responses.
  * @public
  */
 export interface AssociateMemberToQueueRequest {
   /**
-   * <p>The farm ID of the queue to associate with the member.</p>
+   * The farm ID of the queue to associate with the member.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The ID of the queue to associate to the member.</p>
+   * The ID of the queue to associate to the member.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The member's principal type to associate with the queue.</p>
+   * The member's principal type to associate with the queue.
    * @public
    */
   principalType: DeadlinePrincipalType | undefined;
 
   /**
-   * <p>The member's identity store ID to associate with the queue.</p>
+   * The member's identity store ID to associate with the queue.
    * @public
    */
   identityStoreId: string | undefined;
 
   /**
-   * <p>The principal's membership level for the associated queue.</p>
+   * The principal's membership level for the associated queue.
    * @public
    */
   membershipLevel: MembershipLevel | undefined;
 
   /**
-   * <p>The member's principal ID to associate with the queue.</p>
+   * The member's principal ID to associate with the queue.
    * @public
    */
   principalId: string | undefined;
 
   /**
-   * <p>The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.</p>
+   * The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.
    * @public
    */
   identityCenterRegion?: string | undefined;
@@ -725,57 +717,54 @@ export interface AssociateMemberToQueueResponse {}
  */
 export interface AssumeFleetRoleForReadRequest {
   /**
-   * <p>The farm ID for the fleet's farm.</p>
+   * The farm ID for the fleet's farm.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID.</p>
+   * The fleet ID.
    * @public
    */
   fleetId: string | undefined;
 }
 
 /**
- * <p>The Identity and Access Management credentials.</p>
+ * The Identity and Access Management credentials.
  * @public
  */
 export interface AwsCredentials {
   /**
-   * <p>The IAM access key ID.</p>
+   * The IAM access key ID.
    * @public
    */
   accessKeyId: string | undefined;
 
   /**
-   * <p>The IAM secret access key.</p>
+   * The IAM secret access key.
    * @public
    */
   secretAccessKey: string | undefined;
 
   /**
-   * <p>The IAM session token</p>
+   * The IAM session token
    * @public
    */
   sessionToken: string | undefined;
 
   /**
-   * <p>The expiration date and time of the IAM credentials.</p>
+   * The expiration date and time of the IAM credentials.
    * @public
    */
   expiration: Date | undefined;
 }
 
 /**
- * Shared response body for AssumeRole operations where credentials are required.
- * AssumeQueueRoleForWorkerResponse is excluded because credentials is optional there
- * because Queue.roleArn is optional, so the mixin's @required trait would be incorrect.
  * @public
  */
 export interface AssumeFleetRoleForReadResponse {
   /**
-   * <p>The credentials for the fleet role.</p>
+   * The credentials for the fleet role.
    * @public
    */
   credentials: AwsCredentials | undefined;
@@ -786,33 +775,30 @@ export interface AssumeFleetRoleForReadResponse {
  */
 export interface AssumeFleetRoleForWorkerRequest {
   /**
-   * <p>The farm ID for the fleet's farm.</p>
+   * The farm ID for the fleet's farm.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID that contains the worker.</p>
+   * The fleet ID that contains the worker.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The ID of the worker assuming the fleet role.</p>
+   * The ID of the worker assuming the fleet role.
    * @public
    */
   workerId: string | undefined;
 }
 
 /**
- * Shared response body for AssumeRole operations where credentials are required.
- * AssumeQueueRoleForWorkerResponse is excluded because credentials is optional there
- * because Queue.roleArn is optional, so the mixin's @required trait would be incorrect.
  * @public
  */
 export interface AssumeFleetRoleForWorkerResponse {
   /**
-   * <p>The credentials for the worker.</p>
+   * The credentials for the worker.
    * @public
    */
   credentials: AwsCredentials | undefined;
@@ -823,27 +809,24 @@ export interface AssumeFleetRoleForWorkerResponse {
  */
 export interface AssumeQueueRoleForReadRequest {
   /**
-   * <p>The farm ID of the farm containing the queue.</p>
+   * The farm ID of the farm containing the queue.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID.</p>
+   * The queue ID.
    * @public
    */
   queueId: string | undefined;
 }
 
 /**
- * Shared response body for AssumeRole operations where credentials are required.
- * AssumeQueueRoleForWorkerResponse is excluded because credentials is optional there
- * because Queue.roleArn is optional, so the mixin's @required trait would be incorrect.
  * @public
  */
 export interface AssumeQueueRoleForReadResponse {
   /**
-   * <p>The credentials for the queue role.</p>
+   * The credentials for the queue role.
    * @public
    */
   credentials: AwsCredentials | undefined;
@@ -854,27 +837,24 @@ export interface AssumeQueueRoleForReadResponse {
  */
 export interface AssumeQueueRoleForUserRequest {
   /**
-   * <p>The farm ID of the queue that the user assumes the role for.</p>
+   * The farm ID of the queue that the user assumes the role for.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the queue that the user assumes the role for.</p>
+   * The queue ID of the queue that the user assumes the role for.
    * @public
    */
   queueId: string | undefined;
 }
 
 /**
- * Shared response body for AssumeRole operations where credentials are required.
- * AssumeQueueRoleForWorkerResponse is excluded because credentials is optional there
- * because Queue.roleArn is optional, so the mixin's @required trait would be incorrect.
  * @public
  */
 export interface AssumeQueueRoleForUserResponse {
   /**
-   * <p>The credentials for the queue role that a user has access to.</p>
+   * The credentials for the queue role that a user has access to.
    * @public
    */
   credentials: AwsCredentials | undefined;
@@ -885,25 +865,25 @@ export interface AssumeQueueRoleForUserResponse {
  */
 export interface AssumeQueueRoleForWorkerRequest {
   /**
-   * <p>The farm ID of the worker assuming the queue role.</p>
+   * The farm ID of the worker assuming the queue role.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the worker assuming the queue role.</p>
+   * The fleet ID of the worker assuming the queue role.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The worker ID of the worker assuming the queue role.</p>
+   * The worker ID of the worker assuming the queue role.
    * @public
    */
   workerId: string | undefined;
 
   /**
-   * <p>The queue ID of the worker assuming the queue role.</p>
+   * The queue ID of the worker assuming the queue role.
    * @public
    */
   queueId: string | undefined;
@@ -914,91 +894,91 @@ export interface AssumeQueueRoleForWorkerRequest {
  */
 export interface AssumeQueueRoleForWorkerResponse {
   /**
-   * <p>The Amazon Web Services credentials for the role that the worker is assuming.</p>
+   * The Amazon Web Services credentials for the role that the worker is assuming.
    * @public
    */
   credentials?: AwsCredentials | undefined;
 }
 
 /**
- * <p>The details of the manifest that links a job's source information.</p>
+ * The details of the manifest that links a job's source information.
  * @public
  */
 export interface ManifestProperties {
   /**
-   * <p>The file system location name.</p>
+   * The file system location name.
    * @public
    */
   fileSystemLocationName?: string | undefined;
 
   /**
-   * <p>The file's root path.</p>
+   * The file's root path.
    * @public
    */
   rootPath: string | undefined;
 
   /**
-   * <p>The format of the root path.</p>
+   * The format of the root path.
    * @public
    */
   rootPathFormat: PathFormat | undefined;
 
   /**
-   * <p>The file path relative to the directory.</p>
+   * The file path relative to the directory.
    * @public
    */
   outputRelativeDirectories?: string[] | undefined;
 
   /**
-   * <p>The file path.</p>
+   * The file path.
    * @public
    */
   inputManifestPath?: string | undefined;
 
   /**
-   * <p>The hash value of the file.</p>
+   * The hash value of the file.
    * @public
    */
   inputManifestHash?: string | undefined;
 }
 
 /**
- * <p>The job attachments.</p>
+ * The job attachments.
  * @public
  */
 export interface Attachments {
   /**
-   * <p>The manifest properties for the attachments.</p>
+   * The manifest properties for the attachments.
    * @public
    */
   manifests: ManifestProperties[] | undefined;
 
   /**
-   * <p>The file system location for the attachments.</p>
+   * The file system location for the attachments.
    * @public
    */
   fileSystem?: JobAttachmentsFileSystem | undefined;
 }
 
 /**
- * <p>The identifiers for a job.</p>
+ * The identifiers for a job.
  * @public
  */
 export interface BatchGetJobIdentifier {
   /**
-   * <p>The farm ID of the job.</p>
+   * The farm ID of the job.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the job.</p>
+   * The queue ID of the job.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
@@ -1009,50 +989,50 @@ export interface BatchGetJobIdentifier {
  */
 export interface BatchGetJobRequest {
   /**
-   * <p>The list of job identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
+   * The list of job identifiers to retrieve. You can specify up to 100 identifiers per request.
    * @public
    */
   identifiers: BatchGetJobIdentifier[] | undefined;
 }
 
 /**
- * <p>The error details for a job that could not be retrieved in a batch get operation.</p>
+ * The error details for a job that could not be retrieved in a batch get operation.
  * @public
  */
 export interface BatchGetJobError {
   /**
-   * <p>The farm ID of the job that could not be retrieved.</p>
+   * The farm ID of the job that could not be retrieved.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the job that could not be retrieved.</p>
+   * The queue ID of the job that could not be retrieved.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the job that could not be retrieved.</p>
+   * The job ID of the job that could not be retrieved.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
    * @public
    */
   code: BatchGetJobErrorCode | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The details of job parameters.</p>
+ * The details of job parameters.
  * @public
  */
 export type JobParameter =
@@ -1075,7 +1055,7 @@ export type JobParameter =
  */
 export namespace JobParameter {
   /**
-   * <p>A signed integer represented as a string.</p>
+   * A signed integer represented as a string.
    * @public
    */
   export interface IntMember {
@@ -1095,7 +1075,7 @@ export namespace JobParameter {
   }
 
   /**
-   * <p>A double precision IEEE-754 floating point number represented as a string.</p>
+   * A double precision IEEE-754 floating point number represented as a string.
    * @public
    */
   export interface FloatMember {
@@ -1115,7 +1095,7 @@ export namespace JobParameter {
   }
 
   /**
-   * <p>A UTF-8 string.</p>
+   * A UTF-8 string.
    * @public
    */
   export interface StringMember {
@@ -1135,7 +1115,7 @@ export namespace JobParameter {
   }
 
   /**
-   * <p>A file system path represented as a string.</p>
+   * A file system path represented as a string.
    * @public
    */
   export interface PathMember {
@@ -1155,7 +1135,7 @@ export namespace JobParameter {
   }
 
   /**
-   * <p>A boolean value represented as a string. Accepted values are <code>true</code>, <code>false</code>, <code>yes</code>, <code>no</code>, <code>on</code>, <code>off</code>, <code>1</code>, and <code>0</code>, case-insensitive.</p>
+   * A boolean value represented as a string. Accepted values are <code>true</code>, <code>false</code>, <code>yes</code>, <code>no</code>, <code>on</code>, <code>off</code>, <code>1</code>, and <code>0</code>, case-insensitive.
    * @public
    */
   export interface BoolMember {
@@ -1175,7 +1155,7 @@ export namespace JobParameter {
   }
 
   /**
-   * <p>An Open Job Description range expression represented as a string, such as <code>1-10:2</code>.</p>
+   * An Open Job Description range expression represented as a string, such as <code>1-10:2</code>.
    * @public
    */
   export interface RangeExprMember {
@@ -1195,7 +1175,7 @@ export namespace JobParameter {
   }
 
   /**
-   * <p>A list of UTF-8 strings.</p>
+   * A list of UTF-8 strings.
    * @public
    */
   export interface StringListMember {
@@ -1215,7 +1195,7 @@ export namespace JobParameter {
   }
 
   /**
-   * <p>A list of file system paths, each represented as a string.</p>
+   * A list of file system paths, each represented as a string.
    * @public
    */
   export interface PathListMember {
@@ -1235,7 +1215,7 @@ export namespace JobParameter {
   }
 
   /**
-   * <p>A list of signed integers, each represented as a string.</p>
+   * A list of signed integers, each represented as a string.
    * @public
    */
   export interface IntListMember {
@@ -1255,7 +1235,7 @@ export namespace JobParameter {
   }
 
   /**
-   * <p>A list of double precision IEEE-754 floating point numbers, each represented as a string.</p>
+   * A list of double precision IEEE-754 floating point numbers, each represented as a string.
    * @public
    */
   export interface FloatListMember {
@@ -1275,7 +1255,7 @@ export namespace JobParameter {
   }
 
   /**
-   * <p>A list of boolean values, each represented as a string.</p>
+   * A list of boolean values, each represented as a string.
    * @public
    */
   export interface BoolListMember {
@@ -1295,7 +1275,7 @@ export namespace JobParameter {
   }
 
   /**
-   * <p>A list of lists of signed integers, each represented as a string.</p>
+   * A list of lists of signed integers, each represented as a string.
    * @public
    */
   export interface IntListListMember {
@@ -1355,156 +1335,156 @@ export namespace JobParameter {
 }
 
 /**
- * <p>The details of a job returned in a batch get operation.</p>
+ * The details of a job returned in a batch get operation.
  * @public
  */
 export interface BatchGetJobItem {
   /**
-   * <p>The farm ID of the job.</p>
+   * The farm ID of the job.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the job.</p>
+   * The queue ID of the job.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The name of the job.</p>
+   * The name of the job.
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The life cycle status of the job.</p>
+   * The life cycle status of the job.
    * @public
    */
   lifecycleStatus: JobLifecycleStatus | undefined;
 
   /**
-   * <p>A message that communicates the status of the life cycle.</p>
+   * A message that communicates the status of the life cycle.
    * @public
    */
   lifecycleStatusMessage: string | undefined;
 
   /**
-   * <p>The job priority.</p>
+   * The job priority.
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The date and time the resource started running.</p>
+   * The date and time the resource started running.
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the resource ended running.</p>
+   * The date and time the resource ended running.
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The task run status for the job.</p>
+   * The task run status for the job.
    * @public
    */
   taskRunStatus?: TaskRunStatus | undefined;
 
   /**
-   * <p>The task status to start with on the job.</p>
+   * The task status to start with on the job.
    * @public
    */
   targetTaskRunStatus?: JobTargetTaskRunStatus | undefined;
 
   /**
-   * <p>The number of tasks for each run status for the job.</p>
+   * The number of tasks for each run status for the job.
    * @public
    */
   taskRunStatusCounts?: Partial<Record<TaskRunStatus, number>> | undefined;
 
   /**
-   * <p>The number of times that tasks failed and were retried.</p>
+   * The number of times that tasks failed and were retried.
    * @public
    */
   taskFailureRetryCount?: number | undefined;
 
   /**
-   * <p>The storage profile ID associated with the job.</p>
+   * The storage profile ID associated with the job.
    * @public
    */
   storageProfileId?: string | undefined;
 
   /**
-   * <p>The number of task failures before the job stops running and is marked as <code>FAILED</code>.</p>
+   * The number of task failures before the job stops running and is marked as <code>FAILED</code>.
    * @public
    */
   maxFailedTasksCount?: number | undefined;
 
   /**
-   * <p>The maximum number of retries per failed tasks.</p>
+   * The maximum number of retries per failed tasks.
    * @public
    */
   maxRetriesPerTask?: number | undefined;
 
   /**
-   * <p>The parameters for the job.</p>
+   * The parameters for the job.
    * @public
    */
   parameters?: Record<string, JobParameter> | undefined;
 
   /**
-   * <p>The attachments for the job.</p>
+   * The attachments for the job.
    * @public
    */
   attachments?: Attachments | undefined;
 
   /**
-   * <p>The description of the job.</p>
+   * The description of the job.
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The maximum number of worker hosts that can concurrently process a job.</p>
+   * The maximum number of worker hosts that can concurrently process a job.
    * @public
    */
   maxWorkerCount?: number | undefined;
 
   /**
-   * <p>The job ID for the source job.</p>
+   * The job ID for the source job.
    * @public
    */
   sourceJobId?: string | undefined;
@@ -1515,80 +1495,80 @@ export interface BatchGetJobItem {
  */
 export interface BatchGetJobResponse {
   /**
-   * <p>A list of jobs that were successfully retrieved.</p>
+   * A list of jobs that were successfully retrieved.
    * @public
    */
   jobs: BatchGetJobItem[] | undefined;
 
   /**
-   * <p>A list of errors for jobs that could not be retrieved.</p>
+   * A list of errors for jobs that could not be retrieved.
    * @public
    */
   errors: BatchGetJobError[] | undefined;
 }
 
 /**
- * <p>The IDs of the job and environment.</p>
+ * The IDs of the job and environment.
  * @public
  */
 export interface EnvironmentDetailsIdentifiers {
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The environment ID.</p>
+   * The environment ID.
    * @public
    */
   environmentId: string | undefined;
 }
 
 /**
- * <p>Identifier details for job attachments.</p>
+ * Identifier details for job attachments.
  * @public
  */
 export interface JobAttachmentDetailsIdentifiers {
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 }
 
 /**
- * <p>The identifiers for a job.</p>
+ * The identifiers for a job.
  * @public
  */
 export interface JobDetailsIdentifiers {
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 }
 
 /**
- * <p>The details of identifiers for a step.</p>
+ * The details of identifiers for a step.
  * @public
  */
 export interface StepDetailsIdentifiers {
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The step ID.</p>
+   * The step ID.
    * @public
    */
   stepId: string | undefined;
 }
 
 /**
- * <p>The details of a job entity identifier.</p>
+ * The details of a job entity identifier.
  * @public
  */
 export type JobEntityIdentifiersUnion =
@@ -1603,7 +1583,7 @@ export type JobEntityIdentifiersUnion =
  */
 export namespace JobEntityIdentifiersUnion {
   /**
-   * <p>The job details.</p>
+   * The job details.
    * @public
    */
   export interface JobDetailsMember {
@@ -1615,7 +1595,7 @@ export namespace JobEntityIdentifiersUnion {
   }
 
   /**
-   * <p>The job attachment details.</p>
+   * The job attachment details.
    * @public
    */
   export interface JobAttachmentDetailsMember {
@@ -1627,7 +1607,7 @@ export namespace JobEntityIdentifiersUnion {
   }
 
   /**
-   * <p>The step details.</p>
+   * The step details.
    * @public
    */
   export interface StepDetailsMember {
@@ -1639,7 +1619,7 @@ export namespace JobEntityIdentifiersUnion {
   }
 
   /**
-   * <p>The environment details.</p>
+   * The environment details.
    * @public
    */
   export interface EnvironmentDetailsMember {
@@ -1679,302 +1659,302 @@ export namespace JobEntityIdentifiersUnion {
  */
 export interface BatchGetJobEntityRequest {
   /**
-   * <p>The farm ID of the worker that's fetching job details. The worker must have an assignment on a job to fetch job details.</p>
+   * The farm ID of the worker that's fetching job details. The worker must have an assignment on a job to fetch job details.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the worker that's fetching job details. The worker must have an assignment on a job to fetch job details.</p>
+   * The fleet ID of the worker that's fetching job details. The worker must have an assignment on a job to fetch job details.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The worker ID of the worker containing the job details to get.</p>
+   * The worker ID of the worker containing the job details to get.
    * @public
    */
   workerId: string | undefined;
 
   /**
-   * <p>The job identifiers to include within the job entity batch details.</p>
+   * The job identifiers to include within the job entity batch details.
    * @public
    */
   identifiers: JobEntityIdentifiersUnion[] | undefined;
 }
 
 /**
- * <p>The details of a specified environment.</p>
+ * The details of a specified environment.
  * @public
  */
 export interface EnvironmentDetailsEntity {
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The environment ID.</p>
+   * The environment ID.
    * @public
    */
   environmentId: string | undefined;
 
   /**
-   * <p>The schema version in the environment.</p>
+   * The schema version in the environment.
    * @public
    */
   schemaVersion: string | undefined;
 
   /**
-   * <p>The template used for the environment.</p>
+   * The template used for the environment.
    * @public
    */
   template: __DocumentType | undefined;
 
   /**
-   * <p>The Open Job Description extensions that the environment uses. This value is used by the worker agent.</p>
+   * The Open Job Description extensions that the environment uses. This value is used by the worker agent.
    * @public
    */
   extensions?: string[] | undefined;
 
   /**
-   * <p>The resolved symbol table for the environment's expressions, serialized as JSON. This value is used by the worker agent.</p>
+   * The resolved symbol table for the environment's expressions, serialized as JSON. This value is used by the worker agent.
    * @public
    */
   resolvedSymbolTable?: string | undefined;
 }
 
 /**
- * <p>The job attachments.</p>
+ * The job attachments.
  * @public
  */
 export interface JobAttachmentDetailsEntity {
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The job attachments.</p>
+   * The job attachments.
    * @public
    */
   attachments: Attachments | undefined;
 }
 
 /**
- * <p>The job attachment settings returned to workers for a job. These are the Amazon S3 bucket name and the Amazon S3 prefix.</p>
+ * The job attachment settings returned to workers for a job. These are the Amazon S3 bucket name and the Amazon S3 prefix.
  * @public
  */
 export interface JobDetailsJobAttachmentSettings {
   /**
-   * <p>The Amazon S3 bucket name.</p>
+   * The Amazon S3 bucket name.
    * @public
    */
   s3BucketName: string | undefined;
 
   /**
-   * <p>The root prefix.</p>
+   * The root prefix.
    * @public
    */
   rootPrefix: string | undefined;
 }
 
 /**
- * <p>The POSIX user.</p>
+ * The POSIX user.
  * @public
  */
 export interface PosixUser {
   /**
-   * <p>The name of the POSIX user.</p>
+   * The name of the POSIX user.
    * @public
    */
   user: string | undefined;
 
   /**
-   * <p>The name of the POSIX user's group.</p>
+   * The name of the POSIX user's group.
    * @public
    */
   group: string | undefined;
 }
 
 /**
- * <p>The Windows user details.</p>
+ * The Windows user details.
  * @public
  */
 export interface WindowsUser {
   /**
-   * <p>The user.</p>
+   * The user.
    * @public
    */
   user: string | undefined;
 
   /**
-   * <p>The password ARN for the Windows user.</p>
+   * The password ARN for the Windows user.
    * @public
    */
   passwordArn: string | undefined;
 }
 
 /**
- * <p>Identifies the user for a job.</p>
+ * Identifies the user for a job.
  * @public
  */
 export interface JobRunAsUser {
   /**
-   * <p>The user and group that the jobs in the queue run as.</p>
+   * The user and group that the jobs in the queue run as.
    * @public
    */
   posix?: PosixUser | undefined;
 
   /**
-   * <p>Identifies a Microsoft Windows user.</p>
+   * Identifies a Microsoft Windows user.
    * @public
    */
   windows?: WindowsUser | undefined;
 
   /**
-   * <p>Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.</p>
+   * Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
    * @public
    */
   runAs: RunAs | undefined;
 }
 
 /**
- * <p>The details of a source and destination path.</p>
+ * The details of a source and destination path.
  * @public
  */
 export interface PathMappingRule {
   /**
-   * <p>The source path format.</p>
+   * The source path format.
    * @public
    */
   sourcePathFormat: PathFormat | undefined;
 
   /**
-   * <p>The source path.</p>
+   * The source path.
    * @public
    */
   sourcePath: string | undefined;
 
   /**
-   * <p>The destination path.</p>
+   * The destination path.
    * @public
    */
   destinationPath: string | undefined;
 }
 
 /**
- * <p>The job details for a specific job.</p>
+ * The job details for a specific job.
  * @public
  */
 export interface JobDetailsEntity {
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The job attachment settings.</p>
+   * The job attachment settings.
    * @public
    */
   jobAttachmentSettings?: JobDetailsJobAttachmentSettings | undefined;
 
   /**
-   * <p>The user name and group that the job uses when run.</p>
+   * The user name and group that the job uses when run.
    * @public
    */
   jobRunAsUser?: JobRunAsUser | undefined;
 
   /**
-   * <p>The log group name.</p>
+   * The log group name.
    * @public
    */
   logGroupName: string | undefined;
 
   /**
-   * <p>The queue role ARN.</p>
+   * The queue role ARN.
    * @public
    */
   queueRoleArn?: string | undefined;
 
   /**
-   * <p>The parameters.</p>
+   * The parameters.
    * @public
    */
   parameters?: Record<string, JobParameter> | undefined;
 
   /**
-   * <p>The schema version.</p>
+   * The schema version.
    * @public
    */
   schemaVersion: string | undefined;
 
   /**
-   * <p>The Open Job Description extensions that the job template uses. This value is used by the worker agent.</p>
+   * The Open Job Description extensions that the job template uses. This value is used by the worker agent.
    * @public
    */
   extensions?: string[] | undefined;
 
   /**
-   * <p>The path mapping rules.</p>
+   * The path mapping rules.
    * @public
    */
   pathMappingRules?: PathMappingRule[] | undefined;
 }
 
 /**
- * <p>The details of a step entity.</p>
+ * The details of a step entity.
  * @public
  */
 export interface StepDetailsEntity {
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The step ID.</p>
+   * The step ID.
    * @public
    */
   stepId: string | undefined;
 
   /**
-   * <p>The schema version for a step template.</p>
+   * The schema version for a step template.
    * @public
    */
   schemaVersion: string | undefined;
 
   /**
-   * <p>The template for a step.</p>
+   * The template for a step.
    * @public
    */
   template: __DocumentType | undefined;
 
   /**
-   * <p>The dependencies for a step.</p>
+   * The dependencies for a step.
    * @public
    */
   dependencies: string[] | undefined;
 
   /**
-   * <p>The Open Job Description extensions that the step uses. This value is used by the worker agent.</p>
+   * The Open Job Description extensions that the step uses. This value is used by the worker agent.
    * @public
    */
   extensions?: string[] | undefined;
 
   /**
-   * <p>The resolved symbol table for the step's expressions, serialized as JSON. This value is used by the worker agent.</p>
+   * The resolved symbol table for the step's expressions, serialized as JSON. This value is used by the worker agent.
    * @public
    */
   resolvedSymbolTable?: string | undefined;
 }
 
 /**
- * <p>The details of a job entity.</p>
+ * The details of a job entity.
  * @public
  */
 export type JobEntity =
@@ -1989,7 +1969,7 @@ export type JobEntity =
  */
 export namespace JobEntity {
   /**
-   * <p>The job details.</p>
+   * The job details.
    * @public
    */
   export interface JobDetailsMember {
@@ -2001,7 +1981,7 @@ export namespace JobEntity {
   }
 
   /**
-   * <p>The job attachment details.</p>
+   * The job attachment details.
    * @public
    */
   export interface JobAttachmentDetailsMember {
@@ -2013,7 +1993,7 @@ export namespace JobEntity {
   }
 
   /**
-   * <p>The step details.</p>
+   * The step details.
    * @public
    */
   export interface StepDetailsMember {
@@ -2025,7 +2005,7 @@ export namespace JobEntity {
   }
 
   /**
-   * <p>The environment details for the job entity.</p>
+   * The environment details for the job entity.
    * @public
    */
   export interface EnvironmentDetailsMember {
@@ -2061,115 +2041,115 @@ export namespace JobEntity {
 }
 
 /**
- * <p>The error details for the environment.</p>
+ * The error details for the environment.
  * @public
  */
 export interface EnvironmentDetailsError {
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The environment ID.</p>
+   * The environment ID.
    * @public
    */
   environmentId: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
    * @public
    */
   code: JobEntityErrorCode | undefined;
 
   /**
-   * <p>The error message detailing the error's cause.</p>
+   * The error message detailing the error's cause.
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The error details for job attachments.</p>
+ * The error details for job attachments.
  * @public
  */
 export interface JobAttachmentDetailsError {
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
    * @public
    */
   code: JobEntityErrorCode | undefined;
 
   /**
-   * <p>The error message detailing the error's cause.</p>
+   * The error message detailing the error's cause.
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The details of a job error.</p>
+ * The details of a job error.
  * @public
  */
 export interface JobDetailsError {
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
    * @public
    */
   code: JobEntityErrorCode | undefined;
 
   /**
-   * <p>The error message detailing the error's cause.</p>
+   * The error message detailing the error's cause.
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The details of the step error.</p>
+ * The details of the step error.
  * @public
  */
 export interface StepDetailsError {
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The step ID.</p>
+   * The step ID.
    * @public
    */
   stepId: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
    * @public
    */
   code: JobEntityErrorCode | undefined;
 
   /**
-   * <p>The error message detailing the error's cause.</p>
+   * The error message detailing the error's cause.
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The error for the job entity.</p>
+ * The error for the job entity.
  * @public
  */
 export type GetJobEntityError =
@@ -2184,7 +2164,7 @@ export type GetJobEntityError =
  */
 export namespace GetJobEntityError {
   /**
-   * <p>The job details for the failed job entity.</p>
+   * The job details for the failed job entity.
    * @public
    */
   export interface JobDetailsMember {
@@ -2196,7 +2176,7 @@ export namespace GetJobEntityError {
   }
 
   /**
-   * <p>The job attachment details for the failed job entity.</p>
+   * The job attachment details for the failed job entity.
    * @public
    */
   export interface JobAttachmentDetailsMember {
@@ -2208,7 +2188,7 @@ export namespace GetJobEntityError {
   }
 
   /**
-   * <p>The step details for the failed job entity.</p>
+   * The step details for the failed job entity.
    * @public
    */
   export interface StepDetailsMember {
@@ -2220,7 +2200,7 @@ export namespace GetJobEntityError {
   }
 
   /**
-   * <p>The environment details for the failed job entity.</p>
+   * The environment details for the failed job entity.
    * @public
    */
   export interface EnvironmentDetailsMember {
@@ -2260,43 +2240,43 @@ export namespace GetJobEntityError {
  */
 export interface BatchGetJobEntityResponse {
   /**
-   * <p>A list of the job entities, or details, in the batch.</p>
+   * A list of the job entities, or details, in the batch.
    * @public
    */
   entities: JobEntity[] | undefined;
 
   /**
-   * <p>A list of errors from the job error logs for the batch.</p>
+   * A list of errors from the job error logs for the batch.
    * @public
    */
   errors: GetJobEntityError[] | undefined;
 }
 
 /**
- * <p>The identifiers for a session.</p>
+ * The identifiers for a session.
  * @public
  */
 export interface BatchGetSessionIdentifier {
   /**
-   * <p>The farm ID of the session.</p>
+   * The farm ID of the session.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the session.</p>
+   * The queue ID of the session.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the session.</p>
+   * The job ID of the session.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The session ID.</p>
+   * The session ID.
    * @public
    */
   sessionId: string | undefined;
@@ -2307,193 +2287,193 @@ export interface BatchGetSessionIdentifier {
  */
 export interface BatchGetSessionRequest {
   /**
-   * <p>The list of session identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
+   * The list of session identifiers to retrieve. You can specify up to 100 identifiers per request.
    * @public
    */
   identifiers: BatchGetSessionIdentifier[] | undefined;
 }
 
 /**
- * <p>The error details for a session that could not be retrieved in a batch get operation.</p>
+ * The error details for a session that could not be retrieved in a batch get operation.
  * @public
  */
 export interface BatchGetSessionError {
   /**
-   * <p>The farm ID of the session that could not be retrieved.</p>
+   * The farm ID of the session that could not be retrieved.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the session that could not be retrieved.</p>
+   * The queue ID of the session that could not be retrieved.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the session that could not be retrieved.</p>
+   * The job ID of the session that could not be retrieved.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The session ID of the session that could not be retrieved.</p>
+   * The session ID of the session that could not be retrieved.
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
    * @public
    */
   code: BatchGetSessionErrorCode | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The IP addresses for a host.</p>
+ * The IP addresses for a host.
  * @public
  */
 export interface IpAddresses {
   /**
-   * <p>The IpV4 address of the network.</p>
+   * The IpV4 address of the network.
    * @public
    */
   ipV4Addresses?: string[] | undefined;
 
   /**
-   * <p>The IpV6 address for the network and node component.</p>
+   * The IpV6 address for the network and node component.
    * @public
    */
   ipV6Addresses?: string[] | undefined;
 }
 
 /**
- * <p>The host property details.</p>
+ * The host property details.
  * @public
  */
 export interface HostPropertiesResponse {
   /**
-   * <p>The IP address of the host.</p>
+   * The IP address of the host.
    * @public
    */
   ipAddresses?: IpAddresses | undefined;
 
   /**
-   * <p>The host name.</p>
+   * The host name.
    * @public
    */
   hostName?: string | undefined;
 
   /**
-   * <p>The ARN of the host EC2 instance.</p>
+   * The ARN of the host EC2 instance.
    * @public
    */
   ec2InstanceArn?: string | undefined;
 
   /**
-   * <p>The instance type of the host EC2 instance.</p>
+   * The instance type of the host EC2 instance.
    * @public
    */
   ec2InstanceType?: string | undefined;
 }
 
 /**
- * <p>The details of a session returned in a batch get operation.</p>
+ * The details of a session returned in a batch get operation.
  * @public
  */
 export interface BatchGetSessionItem {
   /**
-   * <p>The farm ID of the session.</p>
+   * The farm ID of the session.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the session.</p>
+   * The queue ID of the session.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the session.</p>
+   * The job ID of the session.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The session ID.</p>
+   * The session ID.
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The fleet ID of the session.</p>
+   * The fleet ID of the session.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The worker ID of the session.</p>
+   * The worker ID of the session.
    * @public
    */
   workerId: string | undefined;
 
   /**
-   * <p>The date and time the resource started running.</p>
+   * The date and time the resource started running.
    * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * <p>The life cycle status of the session.</p>
+   * The life cycle status of the session.
    * @public
    */
   lifecycleStatus: SessionLifecycleStatus | undefined;
 
   /**
-   * <p>The date and time the resource ended running.</p>
+   * The date and time the resource ended running.
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The target life cycle status for the session.</p>
+   * The target life cycle status for the session.
    * @public
    */
   targetLifecycleStatus?: SessionLifecycleTargetStatus | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The session log.</p>
+   * The session log.
    * @public
    */
   log: LogConfiguration | undefined;
 
   /**
-   * <p>The host properties for the session.</p>
+   * The host properties for the session.
    * @public
    */
   hostProperties?: HostPropertiesResponse | undefined;
 
   /**
-   * <p>The worker log for the session.</p>
+   * The worker log for the session.
    * @public
    */
   workerLog?: LogConfiguration | undefined;
@@ -2504,43 +2484,43 @@ export interface BatchGetSessionItem {
  */
 export interface BatchGetSessionResponse {
   /**
-   * <p>A list of sessions that were successfully retrieved.</p>
+   * A list of sessions that were successfully retrieved.
    * @public
    */
   sessions: BatchGetSessionItem[] | undefined;
 
   /**
-   * <p>A list of errors for sessions that could not be retrieved.</p>
+   * A list of errors for sessions that could not be retrieved.
    * @public
    */
   errors: BatchGetSessionError[] | undefined;
 }
 
 /**
- * <p>The identifiers for a session action.</p>
+ * The identifiers for a session action.
  * @public
  */
 export interface BatchGetSessionActionIdentifier {
   /**
-   * <p>The farm ID of the session action.</p>
+   * The farm ID of the session action.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the session action.</p>
+   * The queue ID of the session action.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the session action.</p>
+   * The job ID of the session action.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The session action ID.</p>
+   * The session action ID.
    * @public
    */
   sessionActionId: string | undefined;
@@ -2551,116 +2531,116 @@ export interface BatchGetSessionActionIdentifier {
  */
 export interface BatchGetSessionActionRequest {
   /**
-   * <p>The list of session action identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
+   * The list of session action identifiers to retrieve. You can specify up to 100 identifiers per request.
    * @public
    */
   identifiers: BatchGetSessionActionIdentifier[] | undefined;
 }
 
 /**
- * <p>The error details for a session action that could not be retrieved in a batch get operation.</p>
+ * The error details for a session action that could not be retrieved in a batch get operation.
  * @public
  */
 export interface BatchGetSessionActionError {
   /**
-   * <p>The farm ID of the session action that could not be retrieved.</p>
+   * The farm ID of the session action that could not be retrieved.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the session action that could not be retrieved.</p>
+   * The queue ID of the session action that could not be retrieved.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the session action that could not be retrieved.</p>
+   * The job ID of the session action that could not be retrieved.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The session action ID of the session action that could not be retrieved.</p>
+   * The session action ID of the session action that could not be retrieved.
    * @public
    */
   sessionActionId: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
    * @public
    */
   code: BatchGetSessionActionErrorCode | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The environment ID to use to enter a session action.</p>
+ * The environment ID to use to enter a session action.
  * @public
  */
 export interface EnvironmentEnterSessionActionDefinition {
   /**
-   * <p>The environment ID.</p>
+   * The environment ID.
    * @public
    */
   environmentId: string | undefined;
 }
 
 /**
- * <p>Defines the environment a session action exits from.</p>
+ * Defines the environment a session action exits from.
  * @public
  */
 export interface EnvironmentExitSessionActionDefinition {
   /**
-   * <p>The environment ID.</p>
+   * The environment ID.
    * @public
    */
   environmentId: string | undefined;
 }
 
 /**
- * <p>The session action definition for syncing input job attachments.</p>
+ * The session action definition for syncing input job attachments.
  * @public
  */
 export interface SyncInputJobAttachmentsSessionActionDefinition {
   /**
-   * <p>The step ID for the sync input job attachments session action.</p>
+   * The step ID for the sync input job attachments session action.
    * @public
    */
   stepId?: string | undefined;
 }
 
 /**
- * <p>The task, step, and parameters for the task run in the session action.</p>
+ * The task, step, and parameters for the task run in the session action.
  * @public
  */
 export interface TaskRunSessionActionDefinition {
   /**
-   * <p>The task ID.</p>
+   * The task ID.
    * @public
    */
   taskId?: string | undefined;
 
   /**
-   * <p>The step ID.</p>
+   * The step ID.
    * @public
    */
   stepId: string | undefined;
 
   /**
-   * <p>The task parameters.</p>
+   * The task parameters.
    * @public
    */
   parameters: Record<string, TaskParameterValue> | undefined;
 }
 
 /**
- * <p>The definition of the session action.</p>
+ * The definition of the session action.
  * @public
  */
 export type SessionActionDefinition =
@@ -2675,7 +2655,7 @@ export type SessionActionDefinition =
  */
 export namespace SessionActionDefinition {
   /**
-   * <p>The environment to enter into.</p>
+   * The environment to enter into.
    * @public
    */
   export interface EnvEnterMember {
@@ -2687,7 +2667,7 @@ export namespace SessionActionDefinition {
   }
 
   /**
-   * <p>The environment to exit from.</p>
+   * The environment to exit from.
    * @public
    */
   export interface EnvExitMember {
@@ -2699,7 +2679,7 @@ export namespace SessionActionDefinition {
   }
 
   /**
-   * <p>The task run in the session.</p>
+   * The task run in the session.
    * @public
    */
   export interface TaskRunMember {
@@ -2711,7 +2691,7 @@ export namespace SessionActionDefinition {
   }
 
   /**
-   * <p>The session action definition for syncing input job attachments.</p>
+   * The session action definition for syncing input job attachments.
    * @public
    */
   export interface SyncInputJobAttachmentsMember {
@@ -2747,114 +2727,114 @@ export namespace SessionActionDefinition {
 }
 
 /**
- * <p>The manifest properties for a task run, corresponding to the manifest properties in the job.</p>
+ * The manifest properties for a task run, corresponding to the manifest properties in the job.
  * @public
  */
 export interface TaskRunManifestPropertiesResponse {
   /**
-   * <p>The manifest file path.</p>
+   * The manifest file path.
    * @public
    */
   outputManifestPath?: string | undefined;
 
   /**
-   * <p>The hash value of the file.</p>
+   * The hash value of the file.
    * @public
    */
   outputManifestHash?: string | undefined;
 }
 
 /**
- * <p>The details of a session action returned in a batch get operation.</p>
+ * The details of a session action returned in a batch get operation.
  * @public
  */
 export interface BatchGetSessionActionItem {
   /**
-   * <p>The farm ID of the session action.</p>
+   * The farm ID of the session action.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the session action.</p>
+   * The queue ID of the session action.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the session action.</p>
+   * The job ID of the session action.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The session action ID.</p>
+   * The session action ID.
    * @public
    */
   sessionActionId: string | undefined;
 
   /**
-   * <p>The status of the session action.</p>
+   * The status of the session action.
    * @public
    */
   status: SessionActionStatus | undefined;
 
   /**
-   * <p>The date and time the resource started running.</p>
+   * The date and time the resource started running.
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the resource ended running.</p>
+   * The date and time the resource ended running.
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the resource was updated by a worker.</p>
+   * The date and time the resource was updated by a worker.
    * @public
    */
   workerUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The completion percentage for the session action.</p>
+   * The completion percentage for the session action.
    * @public
    */
   progressPercent?: number | undefined;
 
   /**
-   * <p>The manifests for the session action.</p>
+   * The manifests for the session action.
    * @public
    */
   manifests?: TaskRunManifestPropertiesResponse[] | undefined;
 
   /**
-   * <p>The session ID for the session action.</p>
+   * The session ID for the session action.
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The exit code to apply to the session action.</p>
+   * The exit code to apply to the session action.
    * @public
    */
   processExitCode?: number | undefined;
 
   /**
-   * <p>The message that communicates the progress of the session action.</p>
+   * The message that communicates the progress of the session action.
    * @public
    */
   progressMessage?: string | undefined;
 
   /**
-   * <p>The limits that were acquired for the session action.</p>
+   * The limits that were acquired for the session action.
    * @public
    */
   acquiredLimits?: AcquiredLimit[] | undefined;
 
   /**
-   * <p>The session action definition.</p>
+   * The session action definition.
    * @public
    */
   definition: SessionActionDefinition | undefined;
@@ -2865,43 +2845,43 @@ export interface BatchGetSessionActionItem {
  */
 export interface BatchGetSessionActionResponse {
   /**
-   * <p>A list of session actions that were successfully retrieved.</p>
+   * A list of session actions that were successfully retrieved.
    * @public
    */
   sessionActions: BatchGetSessionActionItem[] | undefined;
 
   /**
-   * <p>A list of errors for session actions that could not be retrieved.</p>
+   * A list of errors for session actions that could not be retrieved.
    * @public
    */
   errors: BatchGetSessionActionError[] | undefined;
 }
 
 /**
- * <p>The identifiers for a step.</p>
+ * The identifiers for a step.
  * @public
  */
 export interface BatchGetStepIdentifier {
   /**
-   * <p>The farm ID of the step.</p>
+   * The farm ID of the step.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the step.</p>
+   * The queue ID of the step.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the step.</p>
+   * The job ID of the step.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The step ID.</p>
+   * The step ID.
    * @public
    */
   stepId: string | undefined;
@@ -2912,349 +2892,349 @@ export interface BatchGetStepIdentifier {
  */
 export interface BatchGetStepRequest {
   /**
-   * <p>The list of step identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
+   * The list of step identifiers to retrieve. You can specify up to 100 identifiers per request.
    * @public
    */
   identifiers: BatchGetStepIdentifier[] | undefined;
 }
 
 /**
- * <p>The error details for a step that could not be retrieved in a batch get operation.</p>
+ * The error details for a step that could not be retrieved in a batch get operation.
  * @public
  */
 export interface BatchGetStepError {
   /**
-   * <p>The farm ID of the step that could not be retrieved.</p>
+   * The farm ID of the step that could not be retrieved.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the step that could not be retrieved.</p>
+   * The queue ID of the step that could not be retrieved.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the step that could not be retrieved.</p>
+   * The job ID of the step that could not be retrieved.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The step ID of the step that could not be retrieved.</p>
+   * The step ID of the step that could not be retrieved.
    * @public
    */
   stepId: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
    * @public
    */
   code: BatchGetStepErrorCode | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The number of dependencies for the consumer.</p>
+ * The number of dependencies for the consumer.
  * @public
  */
 export interface DependencyCounts {
   /**
-   * <p>The number of resolved dependencies.</p>
+   * The number of resolved dependencies.
    * @public
    */
   dependenciesResolved: number | undefined;
 
   /**
-   * <p>The number of unresolved dependencies.</p>
+   * The number of unresolved dependencies.
    * @public
    */
   dependenciesUnresolved: number | undefined;
 
   /**
-   * <p>The number of consumers resolved.</p>
+   * The number of consumers resolved.
    * @public
    */
   consumersResolved: number | undefined;
 
   /**
-   * <p>The number of unresolved consumers.</p>
+   * The number of unresolved consumers.
    * @public
    */
   consumersUnresolved: number | undefined;
 }
 
 /**
- * <p>Defines how a step parameter range should be divided into chunks.</p>
+ * Defines how a step parameter range should be divided into chunks.
  * @public
  */
 export interface StepParameterChunks {
   /**
-   * <p>The number of tasks to combine into a single chunk by default.</p>
+   * The number of tasks to combine into a single chunk by default.
    * @public
    */
   defaultTaskCount: number | undefined;
 
   /**
-   * <p>The number of seconds to aim for when forming chunks.</p>
+   * The number of seconds to aim for when forming chunks.
    * @public
    */
   targetRuntimeSeconds?: number | undefined;
 
   /**
-   * <p>Specifies whether the chunked ranges must be contiguous or can have gaps between them.</p>
+   * Specifies whether the chunked ranges must be contiguous or can have gaps between them.
    * @public
    */
   rangeConstraint: RangeConstraint | undefined;
 }
 
 /**
- * <p>The details of a step parameter.</p>
+ * The details of a step parameter.
  * @public
  */
 export interface StepParameter {
   /**
-   * <p>The name of the parameter.</p>
+   * The name of the parameter.
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The data type of the parameter.</p>
+   * The data type of the parameter.
    * @public
    */
   type: StepParameterType | undefined;
 
   /**
-   * <p>The configuration for task chunking.</p>
+   * The configuration for task chunking.
    * @public
    */
   chunks?: StepParameterChunks | undefined;
 }
 
 /**
- * <p>The details of a search for two or more step parameters.</p>
+ * The details of a search for two or more step parameters.
  * @public
  */
 export interface ParameterSpace {
   /**
-   * <p>The parameters to search for.</p>
+   * The parameters to search for.
    * @public
    */
   parameters: StepParameter[] | undefined;
 
   /**
-   * <p>The combination expression to use in the search.</p>
+   * The combination expression to use in the search.
    * @public
    */
   combination?: string | undefined;
 }
 
 /**
- * <p>The details outlining the minimum and maximum capability of a step.</p>
+ * The details outlining the minimum and maximum capability of a step.
  * @public
  */
 export interface StepAmountCapability {
   /**
-   * <p>The name of the step.</p>
+   * The name of the step.
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The minimum amount.</p>
+   * The minimum amount.
    * @public
    */
   min?: number | undefined;
 
   /**
-   * <p>The maximum amount.</p>
+   * The maximum amount.
    * @public
    */
   max?: number | undefined;
 
   /**
-   * <p>The amount value.</p>
+   * The amount value.
    * @public
    */
   value?: number | undefined;
 }
 
 /**
- * <p>The list of step attributes.</p>
+ * The list of step attributes.
  * @public
  */
 export interface StepAttributeCapability {
   /**
-   * <p>The name of the step attribute.</p>
+   * The name of the step attribute.
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Requires any of the step attributes in a given list.</p>
+   * Requires any of the step attributes in a given list.
    * @public
    */
   anyOf?: string[] | undefined;
 
   /**
-   * <p>Requires all of the step attribute values.</p>
+   * Requires all of the step attribute values.
    * @public
    */
   allOf?: string[] | undefined;
 }
 
 /**
- * <p>The details of required step capabilities.</p>
+ * The details of required step capabilities.
  * @public
  */
 export interface StepRequiredCapabilities {
   /**
-   * <p>The capability attributes that the step requires.</p>
+   * The capability attributes that the step requires.
    * @public
    */
   attributes: StepAttributeCapability[] | undefined;
 
   /**
-   * <p>The capability amounts that the step requires.</p>
+   * The capability amounts that the step requires.
    * @public
    */
   amounts: StepAmountCapability[] | undefined;
 }
 
 /**
- * <p>The details of a step returned in a batch get operation.</p>
+ * The details of a step returned in a batch get operation.
  * @public
  */
 export interface BatchGetStepItem {
   /**
-   * <p>The farm ID of the step.</p>
+   * The farm ID of the step.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the step.</p>
+   * The queue ID of the step.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the step.</p>
+   * The job ID of the step.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The step ID.</p>
+   * The step ID.
    * @public
    */
   stepId: string | undefined;
 
   /**
-   * <p>The name of the step.</p>
+   * The name of the step.
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The life cycle status of the step.</p>
+   * The life cycle status of the step.
    * @public
    */
   lifecycleStatus: StepLifecycleStatus | undefined;
 
   /**
-   * <p>A message that communicates the status of the life cycle.</p>
+   * A message that communicates the status of the life cycle.
    * @public
    */
   lifecycleStatusMessage?: string | undefined;
 
   /**
-   * <p>The task run status for the step.</p>
+   * The task run status for the step.
    * @public
    */
   taskRunStatus: TaskRunStatus | undefined;
 
   /**
-   * <p>The number of tasks for each run status for the step.</p>
+   * The number of tasks for each run status for the step.
    * @public
    */
   taskRunStatusCounts: Partial<Record<TaskRunStatus, number>> | undefined;
 
   /**
-   * <p>The number of times that tasks failed and were retried.</p>
+   * The number of times that tasks failed and were retried.
    * @public
    */
   taskFailureRetryCount?: number | undefined;
 
   /**
-   * <p>The task status to start with on the step.</p>
+   * The task status to start with on the step.
    * @public
    */
   targetTaskRunStatus?: StepTargetTaskRunStatus | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The date and time the resource started running.</p>
+   * The date and time the resource started running.
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the resource ended running.</p>
+   * The date and time the resource ended running.
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The number of dependencies for the step.</p>
+   * The number of dependencies for the step.
    * @public
    */
   dependencyCounts?: DependencyCounts | undefined;
 
   /**
-   * <p>The required capabilities for the step.</p>
+   * The required capabilities for the step.
    * @public
    */
   requiredCapabilities?: StepRequiredCapabilities | undefined;
 
   /**
-   * <p>The parameter space for the step.</p>
+   * The parameter space for the step.
    * @public
    */
   parameterSpace?: ParameterSpace | undefined;
 
   /**
-   * <p>The description of the step.</p>
+   * The description of the step.
    * @public
    */
   description?: string | undefined;
@@ -3265,49 +3245,49 @@ export interface BatchGetStepItem {
  */
 export interface BatchGetStepResponse {
   /**
-   * <p>A list of steps that were successfully retrieved.</p>
+   * A list of steps that were successfully retrieved.
    * @public
    */
   steps: BatchGetStepItem[] | undefined;
 
   /**
-   * <p>A list of errors for steps that could not be retrieved.</p>
+   * A list of errors for steps that could not be retrieved.
    * @public
    */
   errors: BatchGetStepError[] | undefined;
 }
 
 /**
- * <p>The identifiers for a task.</p>
+ * The identifiers for a task.
  * @public
  */
 export interface BatchGetTaskIdentifier {
   /**
-   * <p>The farm ID of the task.</p>
+   * The farm ID of the task.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the task.</p>
+   * The queue ID of the task.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the task.</p>
+   * The job ID of the task.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The step ID of the task.</p>
+   * The step ID of the task.
    * @public
    */
   stepId: string | undefined;
 
   /**
-   * <p>The task ID.</p>
+   * The task ID.
    * @public
    */
   taskId: string | undefined;
@@ -3318,157 +3298,157 @@ export interface BatchGetTaskIdentifier {
  */
 export interface BatchGetTaskRequest {
   /**
-   * <p>The list of task identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
+   * The list of task identifiers to retrieve. You can specify up to 100 identifiers per request.
    * @public
    */
   identifiers: BatchGetTaskIdentifier[] | undefined;
 }
 
 /**
- * <p>The error details for a task that could not be retrieved in a batch get operation.</p>
+ * The error details for a task that could not be retrieved in a batch get operation.
  * @public
  */
 export interface BatchGetTaskError {
   /**
-   * <p>The farm ID of the task that could not be retrieved.</p>
+   * The farm ID of the task that could not be retrieved.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the task that could not be retrieved.</p>
+   * The queue ID of the task that could not be retrieved.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the task that could not be retrieved.</p>
+   * The job ID of the task that could not be retrieved.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The step ID of the task that could not be retrieved.</p>
+   * The step ID of the task that could not be retrieved.
    * @public
    */
   stepId: string | undefined;
 
   /**
-   * <p>The task ID of the task that could not be retrieved.</p>
+   * The task ID of the task that could not be retrieved.
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
    * @public
    */
   code: BatchGetTaskErrorCode | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The details of a task returned in a batch get operation.</p>
+ * The details of a task returned in a batch get operation.
  * @public
  */
 export interface BatchGetTaskItem {
   /**
-   * <p>The farm ID of the task.</p>
+   * The farm ID of the task.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the task.</p>
+   * The queue ID of the task.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the task.</p>
+   * The job ID of the task.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The step ID of the task.</p>
+   * The step ID of the task.
    * @public
    */
   stepId: string | undefined;
 
   /**
-   * <p>The task ID.</p>
+   * The task ID.
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The run status of the task.</p>
+   * The run status of the task.
    * @public
    */
   runStatus: TaskRunStatus | undefined;
 
   /**
-   * <p>The run status with which to start the task.</p>
+   * The run status with which to start the task.
    * @public
    */
   targetRunStatus?: TaskTargetRunStatus | undefined;
 
   /**
-   * <p>The number of times the task failed and was retried.</p>
+   * The number of times the task failed and was retried.
    * @public
    */
   failureRetryCount?: number | undefined;
 
   /**
-   * <p>The date and time the resource started running.</p>
+   * The date and time the resource started running.
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the resource ended running.</p>
+   * The date and time the resource ended running.
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The latest session action for the task.</p>
+   * The latest session action for the task.
    * @public
    */
   latestSessionActionId?: string | undefined;
 
   /**
-   * <p>The parameters for the task.</p>
+   * The parameters for the task.
    * @public
    */
   parameters?: Record<string, TaskParameterValue> | undefined;
@@ -3479,37 +3459,37 @@ export interface BatchGetTaskItem {
  */
 export interface BatchGetTaskResponse {
   /**
-   * <p>A list of tasks that were successfully retrieved.</p>
+   * A list of tasks that were successfully retrieved.
    * @public
    */
   tasks: BatchGetTaskItem[] | undefined;
 
   /**
-   * <p>A list of errors for tasks that could not be retrieved.</p>
+   * A list of errors for tasks that could not be retrieved.
    * @public
    */
   errors: BatchGetTaskError[] | undefined;
 }
 
 /**
- * <p>The identifiers for a worker.</p>
+ * The identifiers for a worker.
  * @public
  */
 export interface BatchGetWorkerIdentifier {
   /**
-   * <p>The farm ID of the worker.</p>
+   * The farm ID of the worker.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the worker.</p>
+   * The fleet ID of the worker.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The worker ID.</p>
+   * The worker ID.
    * @public
    */
   workerId: string | undefined;
@@ -3520,109 +3500,109 @@ export interface BatchGetWorkerIdentifier {
  */
 export interface BatchGetWorkerRequest {
   /**
-   * <p>The list of worker identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
+   * The list of worker identifiers to retrieve. You can specify up to 100 identifiers per request.
    * @public
    */
   identifiers: BatchGetWorkerIdentifier[] | undefined;
 }
 
 /**
- * <p>The error details for a worker that could not be retrieved in a batch get operation.</p>
+ * The error details for a worker that could not be retrieved in a batch get operation.
  * @public
  */
 export interface BatchGetWorkerError {
   /**
-   * <p>The farm ID of the worker that could not be retrieved.</p>
+   * The farm ID of the worker that could not be retrieved.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the worker that could not be retrieved.</p>
+   * The fleet ID of the worker that could not be retrieved.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The worker ID of the worker that could not be retrieved.</p>
+   * The worker ID of the worker that could not be retrieved.
    * @public
    */
   workerId: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
    * @public
    */
   code: BatchGetWorkerErrorCode | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The details of a worker returned in a batch get operation.</p>
+ * The details of a worker returned in a batch get operation.
  * @public
  */
 export interface BatchGetWorkerItem {
   /**
-   * <p>The farm ID of the worker.</p>
+   * The farm ID of the worker.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the worker.</p>
+   * The fleet ID of the worker.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The worker ID.</p>
+   * The worker ID.
    * @public
    */
   workerId: string | undefined;
 
   /**
-   * <p>The host properties for the worker.</p>
+   * The host properties for the worker.
    * @public
    */
   hostProperties?: HostPropertiesResponse | undefined;
 
   /**
-   * <p>The status of the worker.</p>
+   * The status of the worker.
    * @public
    */
   status: WorkerStatus | undefined;
 
   /**
-   * <p>The log configuration for the worker.</p>
+   * The log configuration for the worker.
    * @public
    */
   log?: LogConfiguration | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
@@ -3633,61 +3613,61 @@ export interface BatchGetWorkerItem {
  */
 export interface BatchGetWorkerResponse {
   /**
-   * <p>A list of workers that were successfully retrieved.</p>
+   * A list of workers that were successfully retrieved.
    * @public
    */
   workers: BatchGetWorkerItem[] | undefined;
 
   /**
-   * <p>A list of errors for workers that could not be retrieved.</p>
+   * A list of errors for workers that could not be retrieved.
    * @public
    */
   errors: BatchGetWorkerError[] | undefined;
 }
 
 /**
- * <p>The details of a job to update in a batch update operation.</p>
+ * The details of a job to update in a batch update operation.
  * @public
  */
 export interface BatchUpdateJobItem {
   /**
-   * <p>The farm ID of the job to update.</p>
+   * The farm ID of the job to update.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the job to update.</p>
+   * The queue ID of the job to update.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the job to update.</p>
+   * The job ID of the job to update.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The task status to update the job's tasks to.</p>
+   * The task status to update the job's tasks to.
    * @public
    */
   targetTaskRunStatus?: JobTargetTaskRunStatus | undefined;
 
   /**
-   * <p>The job priority to update.</p>
+   * The job priority to update.
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>The number of task failures before the job stops running and is marked as <code>FAILED</code>.</p>
+   * The number of task failures before the job stops running and is marked as <code>FAILED</code>.
    * @public
    */
   maxFailedTasksCount?: number | undefined;
 
   /**
-   * <p>The maximum number of retries per failed tasks.</p>
+   * The maximum number of retries per failed tasks.
    * @public
    */
   maxRetriesPerTask?: number | undefined;
@@ -3699,19 +3679,19 @@ export interface BatchUpdateJobItem {
   lifecycleStatus?: UpdateJobLifecycleStatus | undefined;
 
   /**
-   * <p>The maximum number of worker hosts that can concurrently process a job.</p>
+   * The maximum number of worker hosts that can concurrently process a job.
    * @public
    */
   maxWorkerCount?: number | undefined;
 
   /**
-   * <p>The name of the job to update.</p>
+   * The name of the job to update.
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the job to update.</p>
+   * The description of the job to update.
    * @public
    */
   description?: string | undefined;
@@ -3722,49 +3702,49 @@ export interface BatchUpdateJobItem {
  */
 export interface BatchUpdateJobRequest {
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * The unique token which the server uses to recognize retries of the same request.
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The list of jobs to update. You can specify up to 100 jobs per request.</p>
+   * The list of jobs to update. You can specify up to 100 jobs per request.
    * @public
    */
   jobs: BatchUpdateJobItem[] | undefined;
 }
 
 /**
- * <p>The error details for a job that could not be updated in a batch update operation.</p>
+ * The error details for a job that could not be updated in a batch update operation.
  * @public
  */
 export interface BatchUpdateJobError {
   /**
-   * <p>The farm ID of the job that could not be updated.</p>
+   * The farm ID of the job that could not be updated.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the job that could not be updated.</p>
+   * The queue ID of the job that could not be updated.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the job that could not be updated.</p>
+   * The job ID of the job that could not be updated.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
    * @public
    */
   code: BatchUpdateJobErrorCode | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
    * @public
    */
   message: string | undefined;
@@ -3775,49 +3755,49 @@ export interface BatchUpdateJobError {
  */
 export interface BatchUpdateJobResponse {
   /**
-   * <p>A list of errors for jobs that could not be updated.</p>
+   * A list of errors for jobs that could not be updated.
    * @public
    */
   errors: BatchUpdateJobError[] | undefined;
 }
 
 /**
- * <p>The details of a task to update in a batch update operation.</p>
+ * The details of a task to update in a batch update operation.
  * @public
  */
 export interface BatchUpdateTaskItem {
   /**
-   * <p>The farm ID of the task to update.</p>
+   * The farm ID of the task to update.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the task to update.</p>
+   * The queue ID of the task to update.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the task to update.</p>
+   * The job ID of the task to update.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The step ID of the task to update.</p>
+   * The step ID of the task to update.
    * @public
    */
   stepId: string | undefined;
 
   /**
-   * <p>The task ID of the task to update.</p>
+   * The task ID of the task to update.
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>The run status with which to start the task.</p>
+   * The run status with which to start the task.
    * @public
    */
   targetRunStatus: TaskTargetRunStatus | undefined;
@@ -3828,61 +3808,61 @@ export interface BatchUpdateTaskItem {
  */
 export interface BatchUpdateTaskRequest {
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * The unique token which the server uses to recognize retries of the same request.
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The list of tasks to update. You can specify up to 100 tasks per request.</p>
+   * The list of tasks to update. You can specify up to 100 tasks per request.
    * @public
    */
   tasks: BatchUpdateTaskItem[] | undefined;
 }
 
 /**
- * <p>The error details for a task that could not be updated in a batch update operation.</p>
+ * The error details for a task that could not be updated in a batch update operation.
  * @public
  */
 export interface BatchUpdateTaskError {
   /**
-   * <p>The farm ID of the task that could not be updated.</p>
+   * The farm ID of the task that could not be updated.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the task that could not be updated.</p>
+   * The queue ID of the task that could not be updated.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the task that could not be updated.</p>
+   * The job ID of the task that could not be updated.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The step ID of the task that could not be updated.</p>
+   * The step ID of the task that could not be updated.
    * @public
    */
   stepId: string | undefined;
 
   /**
-   * <p>The task ID of the task that could not be updated.</p>
+   * The task ID of the task that could not be updated.
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
    * @public
    */
   code: BatchUpdateTaskErrorCode | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
    * @public
    */
   message: string | undefined;
@@ -3893,25 +3873,25 @@ export interface BatchUpdateTaskError {
  */
 export interface BatchUpdateTaskResponse {
   /**
-   * <p>A list of errors for tasks that could not be updated.</p>
+   * A list of errors for tasks that could not be updated.
    * @public
    */
   errors: BatchUpdateTaskError[] | undefined;
 }
 
 /**
- * <p>The budget action to add.</p>
+ * The budget action to add.
  * @public
  */
 export interface BudgetActionToAdd {
   /**
-   * <p>The type of budget action to add.</p>
+   * The type of budget action to add.
    * @public
    */
   type: BudgetActionType | undefined;
 
   /**
-   * <p>The percentage threshold for the budget action to add.</p>
+   * The percentage threshold for the budget action to add.
    * @public
    */
   thresholdPercentage: number | undefined;
@@ -3924,43 +3904,43 @@ export interface BudgetActionToAdd {
 }
 
 /**
- * <p>The budget action to remove.</p>
+ * The budget action to remove.
  * @public
  */
 export interface BudgetActionToRemove {
   /**
-   * <p>The type of budget action to remove.</p>
+   * The type of budget action to remove.
    * @public
    */
   type: BudgetActionType | undefined;
 
   /**
-   * <p>The percentage threshold for the budget action to remove.</p>
+   * The percentage threshold for the budget action to remove.
    * @public
    */
   thresholdPercentage: number | undefined;
 }
 
 /**
- * <p>The details of a fixed budget schedule.</p>
+ * The details of a fixed budget schedule.
  * @public
  */
 export interface FixedBudgetSchedule {
   /**
-   * <p>When the budget starts.</p>
+   * When the budget starts.
    * @public
    */
   startTime: Date | undefined;
 
   /**
-   * <p>When the budget ends.</p>
+   * When the budget ends.
    * @public
    */
   endTime: Date | undefined;
 }
 
 /**
- * <p>The start and end time of the budget.</p>
+ * The start and end time of the budget.
  * @public
  */
 export type BudgetSchedule =
@@ -3972,7 +3952,7 @@ export type BudgetSchedule =
  */
 export namespace BudgetSchedule {
   /**
-   * <p>The fixed start and end time of the budget's schedule.</p>
+   * The fixed start and end time of the budget's schedule.
    * @public
    */
   export interface FixedMember {
@@ -3999,7 +3979,7 @@ export namespace BudgetSchedule {
 }
 
 /**
- * <p>The usage details of the allotted budget.</p>
+ * The usage details of the allotted budget.
  * @public
  */
 export type UsageTrackingResource =
@@ -4011,7 +3991,7 @@ export type UsageTrackingResource =
  */
 export namespace UsageTrackingResource {
   /**
-   * <p>The queue ID.</p>
+   * The queue ID.
    * @public
    */
   export interface QueueIdMember {
@@ -4038,13 +4018,11 @@ export namespace UsageTrackingResource {
 }
 
 /**
- * Shared displayName + description for Create operations where both are present.
- * displayName is @required here - this mixin is Create-only by design (Update has optional displayName).
  * @public
  */
 export interface CreateBudgetRequest {
   /**
-   * <p>The farm ID to include in this budget.</p>
+   * The farm ID to include in this budget.
    * @public
    */
   farmId: string | undefined;
@@ -4062,50 +4040,48 @@ export interface CreateBudgetRequest {
   description?: string | undefined;
 
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * The unique token which the server uses to recognize retries of the same request.
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The queue ID provided to this budget to track usage.</p>
+   * The queue ID provided to this budget to track usage.
    * @public
    */
   usageTrackingResource: UsageTrackingResource | undefined;
 
   /**
-   * <p>The dollar limit based on consumed usage.</p>
+   * The dollar limit based on consumed usage.
    * @public
    */
   approximateDollarLimit: number | undefined;
 
   /**
-   * <p>The budget actions to specify what happens when the budget runs out.</p>
+   * The budget actions to specify what happens when the budget runs out.
    * @public
    */
   actions: BudgetActionToAdd[] | undefined;
 
   /**
-   * <p>The schedule to associate with this budget.</p>
+   * The schedule to associate with this budget.
    * @public
    */
   schedule: BudgetSchedule | undefined;
 
   /**
-   * <p>Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+   * Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Mixin that adds an optional ARN field to response structures.
- * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface CreateBudgetResponse {
   /**
-   * <p>The budget ID.</p>
+   * The budget ID.
    * @public
    */
   budgetId: string | undefined;
@@ -4116,13 +4092,13 @@ export interface CreateBudgetResponse {
  */
 export interface DeleteBudgetRequest {
   /**
-   * <p>The farm ID of the farm to remove from the budget.</p>
+   * The farm ID of the farm to remove from the budget.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The budget ID of the budget to delete.</p>
+   * The budget ID of the budget to delete.
    * @public
    */
   budgetId: string | undefined;
@@ -4138,31 +4114,31 @@ export interface DeleteBudgetResponse {}
  */
 export interface GetBudgetRequest {
   /**
-   * <p>The farm ID of the farm connected to the budget.</p>
+   * The farm ID of the farm connected to the budget.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The budget ID.</p>
+   * The budget ID.
    * @public
    */
   budgetId: string | undefined;
 }
 
 /**
- * <p>The details of a budget action.</p>
+ * The details of a budget action.
  * @public
  */
 export interface ResponseBudgetAction {
   /**
-   * <p>The action taken on the budget once scheduling stops.</p>
+   * The action taken on the budget once scheduling stops.
    * @public
    */
   type: BudgetActionType | undefined;
 
   /**
-   * <p>The percentage threshold for the budget.</p>
+   * The percentage threshold for the budget.
    * @public
    */
   thresholdPercentage: number | undefined;
@@ -4175,31 +4151,29 @@ export interface ResponseBudgetAction {
 }
 
 /**
- * <p>The consumed usage for the resource.</p>
+ * The consumed usage for the resource.
  * @public
  */
 export interface ConsumedUsages {
   /**
-   * <p>The amount of the budget consumed.</p>
+   * The amount of the budget consumed.
    * @public
    */
   approximateDollarUsage: number | undefined;
 }
 
 /**
- * Mixin that adds an optional ARN field to response structures.
- * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface GetBudgetResponse {
   /**
-   * <p>The budget ID.</p>
+   * The budget ID.
    * @public
    */
   budgetId: string | undefined;
 
   /**
-   * <p>The resource that the budget is tracking usage for.</p>
+   * The resource that the budget is tracking usage for.
    * @public
    */
   usageTrackingResource: UsageTrackingResource | undefined;
@@ -4217,37 +4191,37 @@ export interface GetBudgetResponse {
   displayName: string | undefined;
 
   /**
-   * <p>The consumed usage limit for the budget.</p>
+   * The consumed usage limit for the budget.
    * @public
    */
   approximateDollarLimit: number | undefined;
 
   /**
-   * <p>The usages of the budget.</p>
+   * The usages of the budget.
    * @public
    */
   usages: ConsumedUsages | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
@@ -4259,67 +4233,66 @@ export interface GetBudgetResponse {
   description?: string | undefined;
 
   /**
-   * <p>The budget actions for the budget.</p>
+   * The budget actions for the budget.
    * @public
    */
   actions: ResponseBudgetAction[] | undefined;
 
   /**
-   * <p>The budget schedule.</p>
+   * The budget schedule.
    * @public
    */
   schedule: BudgetSchedule | undefined;
 
   /**
-   * <p>The date and time the queue stopped.</p>
+   * The date and time the queue stopped.
    * @public
    */
   queueStoppedAt?: Date | undefined;
 }
 
 /**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListBudgetsRequest {
   /**
-   * <p>The farm ID associated with the budgets.</p>
+   * The farm ID associated with the budgets.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * The token for the next set of results, or <code>null</code> to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The status to list for the budgets.</p>
+   * The status to list for the budgets.
    * @public
    */
   status?: BudgetStatus | undefined;
 }
 
 /**
- * <p>The budget summary.</p>
+ * The budget summary.
  * @public
  */
 export interface BudgetSummary {
   /**
-   * <p>The budget ID.</p>
+   * The budget ID.
    * @public
    */
   budgetId: string | undefined;
 
   /**
-   * <p>The resource used to track expenditure in the budget.</p>
+   * The resource used to track expenditure in the budget.
    * @public
    */
   usageTrackingResource: UsageTrackingResource | undefined;
@@ -4337,37 +4310,37 @@ export interface BudgetSummary {
   displayName: string | undefined;
 
   /**
-   * <p>The approximate dollar limit of the budget.</p>
+   * The approximate dollar limit of the budget.
    * @public
    */
   approximateDollarLimit: number | undefined;
 
   /**
-   * <p>The consumed usage for the budget.</p>
+   * The consumed usage for the budget.
    * @public
    */
   usages: ConsumedUsages | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
@@ -4382,18 +4355,17 @@ export interface BudgetSummary {
 }
 
 /**
- * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListBudgetsResponse {
   /**
-   * <p>The budgets to include on the list.</p>
+   * The budgets to include on the list.
    * @public
    */
   budgets: BudgetSummary[] | undefined;
 
   /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
    * @public
    */
   nextToken?: string | undefined;
@@ -4404,19 +4376,19 @@ export interface ListBudgetsResponse {
  */
 export interface UpdateBudgetRequest {
   /**
-   * <p>The farm ID of the budget to update.</p>
+   * The farm ID of the budget to update.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The budget ID to update.</p>
+   * The budget ID to update.
    * @public
    */
   budgetId: string | undefined;
 
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * The unique token which the server uses to recognize retries of the same request.
    * @public
    */
   clientToken?: string | undefined;
@@ -4440,25 +4412,25 @@ export interface UpdateBudgetRequest {
   status?: BudgetStatus | undefined;
 
   /**
-   * <p>The dollar limit to update on the budget. Based on consumed usage.</p>
+   * The dollar limit to update on the budget. Based on consumed usage.
    * @public
    */
   approximateDollarLimit?: number | undefined;
 
   /**
-   * <p>The budget actions to add. Budget actions specify what happens when the budget runs out.</p>
+   * The budget actions to add. Budget actions specify what happens when the budget runs out.
    * @public
    */
   actionsToAdd?: BudgetActionToAdd[] | undefined;
 
   /**
-   * <p>The budget actions to remove from the budget.</p>
+   * The budget actions to remove from the budget.
    * @public
    */
   actionsToRemove?: BudgetActionToRemove[] | undefined;
 
   /**
-   * <p>The schedule to update.</p>
+   * The schedule to update.
    * @public
    */
   schedule?: BudgetSchedule | undefined;
@@ -4470,18 +4442,18 @@ export interface UpdateBudgetRequest {
 export interface UpdateBudgetResponse {}
 
 /**
- * <p>The Amazon S3 location information.</p>
+ * The Amazon S3 location information.
  * @public
  */
 export interface S3Location {
   /**
-   * <p>The name of the Amazon S3 bucket.</p>
+   * The name of the Amazon S3 bucket.
    * @public
    */
   bucketName: string | undefined;
 
   /**
-   * <p>The Amazon S3 object key that uniquely identifies the Amazon S3 bucket.</p>
+   * The Amazon S3 object key that uniquely identifies the Amazon S3 bucket.
    * @public
    */
   key: string | undefined;
@@ -4492,25 +4464,25 @@ export interface S3Location {
  */
 export interface CopyJobTemplateRequest {
   /**
-   * <p>The farm ID to copy.</p>
+   * The farm ID to copy.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID to copy.</p>
+   * The queue ID to copy.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID to copy.</p>
+   * The job ID to copy.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The Amazon S3 bucket name and key where you would like to add a copy of the job template.</p>
+   * The Amazon S3 bucket name and key where you would like to add a copy of the job template.
    * @public
    */
   targetS3Location: S3Location | undefined;
@@ -4521,20 +4493,18 @@ export interface CopyJobTemplateRequest {
  */
 export interface CopyJobTemplateResponse {
   /**
-   * <p>The format of the job template, either <code>JSON</code> or <code>YAML</code>.</p>
+   * The format of the job template, either <code>JSON</code> or <code>YAML</code>.
    * @public
    */
   templateType: JobTemplateType | undefined;
 }
 
 /**
- * Shared displayName + description for Create operations where both are present.
- * displayName is @required here - this mixin is Create-only by design (Update has optional displayName).
  * @public
  */
 export interface CreateFarmRequest {
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * The unique token which the server uses to recognize retries of the same request.
    * @public
    */
   clientToken?: string | undefined;
@@ -4552,471 +4522,469 @@ export interface CreateFarmRequest {
   description?: string | undefined;
 
   /**
-   * <p>The ARN of the KMS key to use on the farm.</p>
+   * The ARN of the KMS key to use on the farm.
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>A multiplier applied to the farm's calculated costs for usage data and budget tracking. A value less than 1 represents a discount, a value greater than 1 represents a premium, and a value of 1 represents no adjustment. The default value is 1.</p>
+   * A multiplier applied to the farm's calculated costs for usage data and budget tracking. A value less than 1 represents a discount, a value greater than 1 represents a premium, and a value of 1 represents no adjustment. The default value is 1.
    * @public
    */
   costScaleFactor?: number | undefined;
 
   /**
-   * <p>The tags to add to your farm. Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+   * The tags to add to your farm. Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Mixin that adds an optional ARN field to response structures.
- * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface CreateFarmResponse {
   /**
-   * <p>The farm ID.</p>
+   * The farm ID.
    * @public
    */
   farmId: string | undefined;
 }
 
 /**
- * <p>The auto scaling configuration settings for a customer managed fleet.</p>
+ * The auto scaling configuration settings for a customer managed fleet.
  * @public
  */
 export interface CustomerManagedAutoScalingConfiguration {
   /**
-   * <p>The number of idle workers maintained and ready to process incoming tasks. The default is 0.</p>
+   * The number of idle workers maintained and ready to process incoming tasks. The default is 0.
    * @public
    */
   standbyWorkerCount?: number | undefined;
 
   /**
-   * <p>The number of seconds that a worker can remain idle before it is shut down. The default is 300 seconds (5 minutes).</p>
+   * The number of seconds that a worker can remain idle before it is shut down. The default is 300 seconds (5 minutes).
    * @public
    */
   workerIdleDurationSeconds?: number | undefined;
 
   /**
-   * <p>The number of workers that can be added per minute to the fleet. The default is 10 workers per minute.</p>
+   * The number of workers that can be added per minute to the fleet. The default is 10 workers per minute.
    * @public
    */
   scaleOutWorkersPerMinute?: number | undefined;
 }
 
 /**
- * <p>The fleet amount and attribute capabilities.</p>
+ * The fleet amount and attribute capabilities.
  * @public
  */
 export interface FleetAmountCapability {
   /**
-   * <p>The name of the fleet capability.</p>
+   * The name of the fleet capability.
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The minimum amount of fleet worker capability.</p>
+   * The minimum amount of fleet worker capability.
    * @public
    */
   min: number | undefined;
 
   /**
-   * <p>The maximum amount of the fleet worker capability.</p>
+   * The maximum amount of the fleet worker capability.
    * @public
    */
   max?: number | undefined;
 }
 
 /**
- * <p>Defines the fleet's capability name, minimum, and maximum.</p>
+ * Defines the fleet's capability name, minimum, and maximum.
  * @public
  */
 export interface FleetAttributeCapability {
   /**
-   * <p>The name of the fleet attribute capability for the worker.</p>
+   * The name of the fleet attribute capability for the worker.
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The number of fleet attribute capabilities.</p>
+   * The number of fleet attribute capabilities.
    * @public
    */
   values: string[] | undefined;
 }
 
 /**
- * <p>The range of memory in MiB.</p>
+ * The range of memory in MiB.
  * @public
  */
 export interface MemoryMiBRange {
   /**
-   * <p>The minimum amount of memory (in MiB).</p>
+   * The minimum amount of memory (in MiB).
    * @public
    */
   min: number | undefined;
 
   /**
-   * <p>The maximum amount of memory (in MiB).</p>
+   * The maximum amount of memory (in MiB).
    * @public
    */
   max?: number | undefined;
 }
 
 /**
- * <p>The allowable range of vCPU processing power for the fleet.</p>
+ * The allowable range of vCPU processing power for the fleet.
  * @public
  */
 export interface VCpuCountRange {
   /**
-   * <p>The minimum amount of vCPU.</p>
+   * The minimum amount of vCPU.
    * @public
    */
   min: number | undefined;
 
   /**
-   * <p>The maximum amount of vCPU.</p>
+   * The maximum amount of vCPU.
    * @public
    */
   max?: number | undefined;
 }
 
 /**
- * <p>The worker capabilities for a customer managed workflow.</p>
+ * The worker capabilities for a customer managed workflow.
  * @public
  */
 export interface CustomerManagedWorkerCapabilities {
   /**
-   * <p>The vCPU count for the customer manged worker capabilities.</p>
+   * The vCPU count for the customer manged worker capabilities.
    * @public
    */
   vCpuCount: VCpuCountRange | undefined;
 
   /**
-   * <p>The memory (MiB).</p>
+   * The memory (MiB).
    * @public
    */
   memoryMiB: MemoryMiBRange | undefined;
 
   /**
-   * <p>The accelerator types for the customer managed worker capabilities.</p>
+   * The accelerator types for the customer managed worker capabilities.
    * @public
    */
   acceleratorTypes?: AcceleratorType[] | undefined;
 
   /**
-   * <p>The range of the accelerator.</p>
+   * The range of the accelerator.
    * @public
    */
   acceleratorCount?: AcceleratorCountRange | undefined;
 
   /**
-   * <p>The total memory (MiB) for the customer managed worker capabilities.</p>
+   * The total memory (MiB) for the customer managed worker capabilities.
    * @public
    */
   acceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiBRange | undefined;
 
   /**
-   * <p>The operating system (OS) family.</p>
+   * The operating system (OS) family.
    * @public
    */
   osFamily: CustomerManagedFleetOperatingSystemFamily | undefined;
 
   /**
-   * <p>The CPU architecture type for the customer managed worker capabilities.</p>
+   * The CPU architecture type for the customer managed worker capabilities.
    * @public
    */
   cpuArchitectureType: CpuArchitectureType | undefined;
 
   /**
-   * <p>Custom requirement ranges for customer managed worker capabilities.</p>
+   * Custom requirement ranges for customer managed worker capabilities.
    * @public
    */
   customAmounts?: FleetAmountCapability[] | undefined;
 
   /**
-   * <p>Custom attributes for the customer manged worker capabilities.</p>
+   * Custom attributes for the customer manged worker capabilities.
    * @public
    */
   customAttributes?: FleetAttributeCapability[] | undefined;
 }
 
 /**
- * <p>The configuration details for a customer managed fleet.</p>
+ * The configuration details for a customer managed fleet.
  * @public
  */
 export interface CustomerManagedFleetConfiguration {
   /**
-   * <p>The Auto Scaling mode for the customer managed fleet.</p>
+   * The Auto Scaling mode for the customer managed fleet.
    * @public
    */
   mode: AutoScalingMode | undefined;
 
   /**
-   * <p>The auto scaling configuration settings for the customer managed fleet.</p>
+   * The auto scaling configuration settings for the customer managed fleet.
    * @public
    */
   autoScalingConfiguration?: CustomerManagedAutoScalingConfiguration | undefined;
 
   /**
-   * <p>The worker capabilities for the customer managed fleet.</p>
+   * The worker capabilities for the customer managed fleet.
    * @public
    */
   workerCapabilities: CustomerManagedWorkerCapabilities | undefined;
 
   /**
-   * <p>The storage profile ID for the customer managed fleet.</p>
+   * The storage profile ID for the customer managed fleet.
    * @public
    */
   storageProfileId?: string | undefined;
 
   /**
-   * <p>The tag propagation mode for the customer managed fleet.</p>
+   * The tag propagation mode for the customer managed fleet.
    * @public
    */
   tagPropagationMode?: TagPropagationMode | undefined;
 }
 
 /**
- * <p>The auto scaling configuration settings for a service managed EC2 fleet.</p>
+ * The auto scaling configuration settings for a service managed EC2 fleet.
  * @public
  */
 export interface ServiceManagedEc2AutoScalingConfiguration {
   /**
-   * <p>The number of idle workers maintained and ready to process incoming tasks. The default is 0.</p>
+   * The number of idle workers maintained and ready to process incoming tasks. The default is 0.
    * @public
    */
   standbyWorkerCount?: number | undefined;
 
   /**
-   * <p>The number of seconds that a worker can remain idle before it is shut down. The default is 300 seconds (5 minutes).</p>
+   * The number of seconds that a worker can remain idle before it is shut down. The default is 300 seconds (5 minutes).
    * @public
    */
   workerIdleDurationSeconds?: number | undefined;
 
   /**
-   * <p>The number of workers that can be added per minute to the fleet. The default is 10 workers per minute.</p>
+   * The number of workers that can be added per minute to the fleet. The default is 10 workers per minute.
    * @public
    */
   scaleOutWorkersPerMinute?: number | undefined;
 }
 
 /**
- * <p>Specifies the EBS volume.</p>
+ * Specifies the EBS volume.
  * @public
  */
 export interface Ec2EbsVolume {
   /**
-   * <p>The EBS volume size in GiB.</p>
+   * The EBS volume size in GiB.
    * @public
    */
   sizeGiB?: number | undefined;
 
   /**
-   * <p>The IOPS per volume.</p>
+   * The IOPS per volume.
    * @public
    */
   iops?: number | undefined;
 
   /**
-   * <p>The throughput per volume in MiB.</p>
+   * The throughput per volume in MiB.
    * @public
    */
   throughputMiB?: number | undefined;
 }
 
 /**
- * <p>Software that the service installs on worker hosts in a service-managed fleet.</p>
+ * Software that the service installs on worker hosts in a service-managed fleet.
  * @public
  */
 export interface FleetSoftwareAddOn {
   /**
-   * <p>The name of the software add-on. The supported value is <code>docker</code>.</p>
+   * The name of the software add-on. The supported value is <code>docker</code>.
    * @public
    */
   name: FleetSoftwareAddOnName | undefined;
 }
 
 /**
- * <p>The Amazon EC2 instance capabilities.</p>
+ * The Amazon EC2 instance capabilities.
  * @public
  */
 export interface ServiceManagedEc2InstanceCapabilities {
   /**
-   * <p>The amount of vCPU to require for instances in this fleet.</p>
+   * The amount of vCPU to require for instances in this fleet.
    * @public
    */
   vCpuCount: VCpuCountRange | undefined;
 
   /**
-   * <p>The memory, as MiB, for the Amazon EC2 instance type.</p>
+   * The memory, as MiB, for the Amazon EC2 instance type.
    * @public
    */
   memoryMiB: MemoryMiBRange | undefined;
 
   /**
-   * <p>The operating system (OS) family.</p>
+   * The operating system (OS) family.
    * @public
    */
   osFamily: ServiceManagedFleetOperatingSystemFamily | undefined;
 
   /**
-   * <p>The CPU architecture type.</p>
+   * The CPU architecture type.
    * @public
    */
   cpuArchitectureType: CpuArchitectureType | undefined;
 
   /**
-   * <p>The root EBS volume.</p>
+   * The root EBS volume.
    * @public
    */
   rootEbsVolume?: Ec2EbsVolume | undefined;
 
   /**
-   * <p>Describes the GPU accelerator capabilities required for worker host instances in this fleet.</p>
+   * Describes the GPU accelerator capabilities required for worker host instances in this fleet.
    * @public
    */
   acceleratorCapabilities?: AcceleratorCapabilities | undefined;
 
   /**
-   * <p>The allowable Amazon EC2 instance types.</p>
+   * <p>The allowable Amazon EC2 instance types.</p> <note> <p>If you specify <code>allowedInstanceTypes</code>, you can't specify <code>excludedInstanceTypes</code>.</p> </note>
    * @public
    */
   allowedInstanceTypes?: string[] | undefined;
 
   /**
-   * <p>The instance types to exclude from the fleet.</p>
+   * <p>The instance types to exclude from the fleet.</p> <note> <p>If you specify <code>excludedInstanceTypes</code>, you can't specify <code>allowedInstanceTypes</code>.</p> </note>
    * @public
    */
   excludedInstanceTypes?: string[] | undefined;
 
   /**
-   * <p>The custom capability amounts to require for instances in this fleet.</p>
+   * The custom capability amounts to require for instances in this fleet.
    * @public
    */
   customAmounts?: FleetAmountCapability[] | undefined;
 
   /**
-   * <p>The custom capability attributes to require for instances in this fleet.</p>
+   * The custom capability attributes to require for instances in this fleet.
    * @public
    */
   customAttributes?: FleetAttributeCapability[] | undefined;
 
   /**
-   * <p>The software add-ons that the service installs on worker hosts when they launch.</p>
+   * The software add-ons that the service installs on worker hosts when they launch.
    * @public
    */
   softwareAddOns?: FleetSoftwareAddOn[] | undefined;
 }
 
 /**
- * <p>The details of the Amazon EC2 instance market options for a service managed fleet.</p>
+ * The details of the Amazon EC2 instance market options for a service managed fleet.
  * @public
  */
 export interface ServiceManagedEc2InstanceMarketOptions {
   /**
-   * <p>The Amazon EC2 instance type.</p>
+   * The Amazon EC2 instance type.
    * @public
    */
   type: Ec2MarketType | undefined;
 }
 
 /**
- * <p>Specifies the persistent EBS volume configuration for workers in a service managed fleet.</p>
+ * Specifies the persistent EBS volume configuration for workers in a service managed fleet.
  * @public
  */
 export interface PersistentVolumeConfiguration {
   /**
-   * <p>The persistent volume size in GiB. The default is 250.</p>
+   * The persistent volume size in GiB. The default is 250.
    * @public
    */
   sizeGiB?: number | undefined;
 
   /**
-   * <p>The IOPS per persistent volume. The default is 3000.</p>
+   * The IOPS per persistent volume. The default is 3000.
    * @public
    */
   iops?: number | undefined;
 
   /**
-   * <p>The throughput per persistent volume in MiB. The default is 125.</p>
+   * The throughput per persistent volume in MiB. The default is 125.
    * @public
    */
   throughputMiB?: number | undefined;
 
   /**
-   * <p>The file system path where the persistent volume is mounted on the worker instance.</p>
+   * The file system path where the persistent volume is mounted on the worker instance.
    * @public
    */
   mountPath: string | undefined;
 
   /**
-   * <p>The number of hours a persistent volume can remain unused before it is deleted. The default is 168 (7 days).</p>
+   * The number of hours a persistent volume can remain unused before it is deleted. The default is 12.
    * @public
    */
   lastUsedTtlHours?: number | undefined;
 }
 
 /**
- * <p>The configuration options for a service managed fleet's VPC.</p>
+ * The configuration options for a service managed fleet's VPC.
  * @public
  */
 export interface VpcConfiguration {
   /**
-   * <p>The ARNs of the VPC Lattice resource configurations attached to the fleet.</p>
+   * The ARNs of the VPC Lattice resource configurations attached to the fleet.
    * @public
    */
   resourceConfigurationArns?: string[] | undefined;
 }
 
 /**
- * <p>The configuration details for a service managed EC2 fleet.</p>
+ * The configuration details for a service managed EC2 fleet.
  * @public
  */
 export interface ServiceManagedEc2FleetConfiguration {
   /**
-   * <p>The instance capabilities for the service managed EC2 fleet.</p>
+   * The instance capabilities for the service managed EC2 fleet.
    * @public
    */
   instanceCapabilities: ServiceManagedEc2InstanceCapabilities | undefined;
 
   /**
-   * <p>The instance market options for the service managed EC2 fleet.</p>
+   * The instance market options for the service managed EC2 fleet.
    * @public
    */
   instanceMarketOptions: ServiceManagedEc2InstanceMarketOptions | undefined;
 
   /**
-   * <p>The VPC configuration for the service managed EC2 fleet.</p>
+   * The VPC configuration for the service managed EC2 fleet.
    * @public
    */
   vpcConfiguration?: VpcConfiguration | undefined;
 
   /**
-   * <p>The storage profile ID for the service managed EC2 fleet.</p>
+   * The storage profile ID for the service managed EC2 fleet.
    * @public
    */
   storageProfileId?: string | undefined;
 
   /**
-   * <p>The persistent volume configuration for the service managed EC2 fleet.</p>
+   * The persistent volume configuration for the service managed EC2 fleet.
    * @public
    */
   persistentVolumeConfiguration?: PersistentVolumeConfiguration | undefined;
 
   /**
-   * <p>The auto scaling configuration settings for the service managed EC2 fleet.</p>
+   * The auto scaling configuration settings for the service managed EC2 fleet.
    * @public
    */
   autoScalingConfiguration?: ServiceManagedEc2AutoScalingConfiguration | undefined;
 }
 
 /**
- * <p>Fleet configuration details.</p>
+ * Fleet configuration details.
  * @public
  */
 export type FleetConfiguration =
@@ -5029,7 +4997,7 @@ export type FleetConfiguration =
  */
 export namespace FleetConfiguration {
   /**
-   * <p>The customer managed fleets within a fleet configuration.</p>
+   * The customer managed fleets within a fleet configuration.
    * @public
    */
   export interface CustomerManagedMember {
@@ -5039,7 +5007,7 @@ export namespace FleetConfiguration {
   }
 
   /**
-   * <p>The service managed Amazon EC2 instances for a fleet configuration.</p>
+   * The service managed Amazon EC2 instances for a fleet configuration.
    * @public
    */
   export interface ServiceManagedEc2Member {
@@ -5087,19 +5055,17 @@ export interface HostConfiguration {
 }
 
 /**
- * Shared displayName + description for Create operations where both are present.
- * displayName is @required here - this mixin is Create-only by design (Update has optional displayName).
  * @public
  */
 export interface CreateFleetRequest {
   /**
-   * <p>The farm ID of the farm to connect to the fleet.</p>
+   * The farm ID of the farm to connect to the fleet.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * The unique token which the server uses to recognize retries of the same request.
    * @public
    */
   clientToken?: string | undefined;
@@ -5117,50 +5083,51 @@ export interface CreateFleetRequest {
   description?: string | undefined;
 
   /**
-   * <p>The IAM role ARN for the role that the fleet's workers will use.</p>
+   * The IAM role ARN for the role that the fleet's workers will use.
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The minimum number of workers for the fleet.</p>
+   * The minimum number of workers for the fleet.
    * @public
    */
   minWorkerCount?: number | undefined;
 
   /**
-   * <p>The maximum number of workers for the fleet.</p> <p>Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum worker count. The service maintains eventual consistency for the worker count. If you make multiple rapid calls to <code>CreateWorker</code> before the field updates, you might exceed your fleet's maximum worker count. For example, if your <code>maxWorkerCount</code> is 10 and you currently have 9 workers, making two quick <code>CreateWorker</code> calls might successfully create 2 workers instead of 1, resulting in 11 total workers.</p>
+   * The maximum number of workers for the fleet.
+   *
+   * Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum worker count. The service maintains eventual consistency for the worker count. If you make multiple rapid calls to <code>CreateWorker</code> before the field updates, you might exceed your fleet's maximum worker count. For example, if your <code>maxWorkerCount</code> is 10 and you currently have 9 workers, making two quick <code>CreateWorker</code> calls might successfully create 2 workers instead of 1, resulting in 11 total workers.
+   *
    * @public
    */
   maxWorkerCount: number | undefined;
 
   /**
-   * <p>The configuration settings for the fleet. Customer managed fleets are self-managed. Service managed Amazon EC2 fleets are managed by Deadline Cloud.</p>
+   * The configuration settings for the fleet. Customer managed fleets are self-managed. Service managed Amazon EC2 fleets are managed by Deadline Cloud.
    * @public
    */
   configuration: FleetConfiguration | undefined;
 
   /**
-   * <p>Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+   * Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.</p>
+   * Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
    * @public
    */
   hostConfiguration?: HostConfiguration | undefined;
 }
 
 /**
- * Mixin that adds an optional ARN field to response structures.
- * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface CreateFleetResponse {
   /**
-   * <p>The fleet ID.</p>
+   * The fleet ID.
    * @public
    */
   fleetId: string | undefined;
@@ -5171,116 +5138,119 @@ export interface CreateFleetResponse {
  */
 export interface CreateJobRequest {
   /**
-   * <p>The farm ID of the farm to connect to the job.</p>
+   * The farm ID of the farm to connect to the job.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The ID of the queue that the job is submitted to.</p>
+   * The ID of the queue that the job is submitted to.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * The unique token which the server uses to recognize retries of the same request.
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The job template to use for this job.</p>
+   * The job template to use for this job.
    * @public
    */
   template?: string | undefined;
 
   /**
-   * <p>The file type for the job template.</p>
+   * The file type for the job template.
    * @public
    */
   templateType?: JobTemplateType | undefined;
 
   /**
-   * <p>The priority of the job. The highest priority (first scheduled) is 100. When two jobs have the same priority, the oldest job is scheduled first.</p>
+   * The priority of the job. The highest priority (first scheduled) is 100. When two jobs have the same priority, the oldest job is scheduled first.
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The parameters for the job.</p>
+   * The parameters for the job.
    * @public
    */
   parameters?: Record<string, JobParameter> | undefined;
 
   /**
-   * <p>The attachments for the job. Attach files required for the job to run to a render job.</p>
+   * The attachments for the job. Attach files required for the job to run to a render job.
    * @public
    */
   attachments?: Attachments | undefined;
 
   /**
-   * <p>The storage profile ID for the storage profile to connect to the job.</p>
+   * The storage profile ID for the storage profile to connect to the job.
    * @public
    */
   storageProfileId?: string | undefined;
 
   /**
-   * <p>The initial job status when it is created. Jobs that are created with a <code>SUSPENDED</code> status will not run until manually requeued.</p>
+   * The initial job status when it is created. Jobs that are created with a <code>SUSPENDED</code> status will not run until manually requeued.
    * @public
    */
   targetTaskRunStatus?: CreateJobTargetTaskRunStatus | undefined;
 
   /**
-   * <p>The number of task failures before the job stops running and is marked as <code>FAILED</code>.</p>
+   * The number of task failures before the job stops running and is marked as <code>FAILED</code>.
    * @public
    */
   maxFailedTasksCount?: number | undefined;
 
   /**
-   * <p>The maximum number of retries for each task.</p>
+   * The maximum number of retries for each task.
    * @public
    */
   maxRetriesPerTask?: number | undefined;
 
   /**
-   * <p>The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.</p> <p>You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no maximum number of workers.</p> <p>If you don't specify the <code>maxWorkerCount</code>, Deadline Cloud won't throttle the number of workers used to process the job.</p>
+   * The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.
+   *
+   * You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no maximum number of workers.
+   *
+   * If you don't specify the <code>maxWorkerCount</code>, Deadline Cloud won't throttle the number of workers used to process the job.
+   *
    * @public
    */
   maxWorkerCount?: number | undefined;
 
   /**
-   * <p>The job ID for the source job.</p>
+   * The job ID for the source job.
    * @public
    */
   sourceJobId?: string | undefined;
 
   /**
-   * <p>A custom name to override the job name derived from the job template.</p>
+   * A custom name to override the job name derived from the job template.
    * @public
    */
   nameOverride?: string | undefined;
 
   /**
-   * <p>A custom description to override the job description derived from the job template.</p>
+   * A custom description to override the job description derived from the job template.
    * @public
    */
   descriptionOverride?: string | undefined;
 
   /**
-   * <p>The tags to add to your job. Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+   * The tags to add to your job. Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Mixin that adds an optional ARN field to response structures.
- * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface CreateJobResponse {
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
@@ -5291,44 +5261,42 @@ export interface CreateJobResponse {
  */
 export interface CreateLicenseEndpointRequest {
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * The unique token which the server uses to recognize retries of the same request.
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The VPC (virtual private cloud) ID to use with the license endpoint.</p>
+   * The VPC (virtual private cloud) ID to use with the license endpoint.
    * @public
    */
   vpcId: string | undefined;
 
   /**
-   * <p>The subnet IDs.</p>
+   * The subnet IDs.
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>The security group IDs.</p>
+   * The security group IDs.
    * @public
    */
   securityGroupIds: string[] | undefined;
 
   /**
-   * <p>Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+   * Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Mixin that adds an optional ARN field to response structures.
- * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface CreateLicenseEndpointResponse {
   /**
-   * <p>The license endpoint ID.</p>
+   * The license endpoint ID.
    * @public
    */
   licenseEndpointId: string | undefined;
@@ -5339,13 +5307,13 @@ export interface CreateLicenseEndpointResponse {
  */
 export interface CreateLimitRequest {
   /**
-   * <p>The farm ID of the farm that contains the limit.</p>
+   * The farm ID of the farm that contains the limit.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * The unique token which the server uses to recognize retries of the same request.
    * @public
    */
   clientToken?: string | undefined;
@@ -5357,7 +5325,7 @@ export interface CreateLimitRequest {
   displayName: string | undefined;
 
   /**
-   * <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.</p>
+   * The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.
    * @public
    */
   amountRequirementName: string | undefined;
@@ -5380,7 +5348,7 @@ export interface CreateLimitRequest {
  */
 export interface CreateLimitResponse {
   /**
-   * <p>A unique identifier for the limit. Use this identifier in other operations, such as <code>CreateQueueLimitAssociation</code> and <code>DeleteLimit</code>.</p>
+   * A unique identifier for the limit. Use this identifier in other operations, such as <code>CreateQueueLimitAssociation</code> and <code>DeleteLimit</code>.
    * @public
    */
   limitId: string | undefined;
@@ -5391,7 +5359,7 @@ export interface CreateLimitResponse {
  */
 export interface CreateMonitorRequest {
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * The unique token which the server uses to recognize retries of the same request.
    * @public
    */
   clientToken?: string | undefined;
@@ -5403,99 +5371,97 @@ export interface CreateMonitorRequest {
   displayName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name of the IAM Identity Center instance that authenticates monitor users.</p>
+   * The Amazon Resource Name of the IAM Identity Center instance that authenticates monitor users.
    * @public
    */
   identityCenterInstanceArn: string | undefined;
 
   /**
-   * <p>The Region where IAM Identity Center is enabled. Required when IAM Identity Center is in a different Region than the monitor.</p>
+   * The Region where IAM Identity Center is enabled. Required when IAM Identity Center is in a different Region than the monitor.
    * @public
    */
   identityCenterRegion?: string | undefined;
 
   /**
-   * <p>The subdomain to use when creating the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.</p>
+   * The subdomain to use when creating the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
    * @public
    */
   subdomain: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name of the IAM role that the monitor uses to connect to Deadline Cloud. Every user that signs in to the monitor using IAM Identity Center uses this role to access Deadline Cloud resources.</p>
+   * The Amazon Resource Name of the IAM role that the monitor uses to connect to Deadline Cloud. Every user that signs in to the monitor using IAM Identity Center uses this role to access Deadline Cloud resources.
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The tags to add to your monitor. Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+   * The tags to add to your monitor. Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Mixin that adds an optional ARN field to response structures.
- * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface CreateMonitorResponse {
   /**
-   * <p>The unique identifier of the monitor.</p>
+   * The unique identifier of the monitor.
    * @public
    */
   monitorId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name that IAM Identity Center assigns to the monitor.</p>
+   * The Amazon Resource Name that IAM Identity Center assigns to the monitor.
    * @public
    */
   identityCenterApplicationArn: string | undefined;
 }
 
 /**
- * <p>The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.</p>
+ * The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
  * @public
  */
 export interface JobAttachmentSettings {
   /**
-   * <p>The Amazon S3 bucket name.</p>
+   * The Amazon S3 bucket name.
    * @public
    */
   s3BucketName: string | undefined;
 
   /**
-   * <p>The root prefix.</p>
+   * The root prefix.
    * @public
    */
   rootPrefix: string | undefined;
 }
 
 /**
- * <p>Configuration for priority balanced scheduling. Workers are distributed evenly across all jobs at the highest priority level.</p>
+ * Configuration for priority balanced scheduling. Workers are distributed evenly across all jobs at the highest priority level.
  * @public
  */
 export interface PriorityBalancedSchedulingConfiguration {
   /**
-   * <p>The rendering task buffer controls worker stickiness. A worker only switches from its current job to another job at the same priority if the other job has fewer rendering tasks by more than this buffer value. Higher values make workers stickier to their current jobs. The default value is <code>1</code>.</p>
+   * The rendering task buffer controls worker stickiness. A worker only switches from its current job to another job at the same priority if the other job has fewer rendering tasks by more than this buffer value. Higher values make workers stickier to their current jobs. The default value is <code>1</code>.
    * @public
    */
   renderingTaskBuffer?: number | undefined;
 }
 
 /**
- * <p>Configuration for priority first-in, first-out (FIFO) scheduling. Workers are assigned to the highest-priority job first. When multiple jobs share the same priority, the job submitted earliest receives workers first.</p>
+ * Configuration for priority first-in, first-out (FIFO) scheduling. Workers are assigned to the highest-priority job first. When multiple jobs share the same priority, the job submitted earliest receives workers first.
  * @public
  */
 export interface PriorityFifoSchedulingConfiguration {}
 
 /**
- * <p>Specifies that jobs at the maximum priority (100) are always scheduled first.</p>
+ * Specifies that jobs at the maximum priority (100) are always scheduled first.
  * @public
  */
 export interface SchedulingMaxPriorityOverrideAlwaysScheduleFirst {}
 
 /**
- * <p>Defines the override behavior for jobs at the maximum priority (100) in weighted balanced scheduling.</p>
+ * Defines the override behavior for jobs at the maximum priority (100) in weighted balanced scheduling.
  * @public
  */
 export type SchedulingMaxPriorityOverride =
@@ -5507,7 +5473,7 @@ export type SchedulingMaxPriorityOverride =
  */
 export namespace SchedulingMaxPriorityOverride {
   /**
-   * <p>Jobs at the maximum priority (100) are always scheduled before other jobs, regardless of the weighted scheduling formula. If multiple jobs have priority 100, ties are broken using the standard weighted formula.</p>
+   * Jobs at the maximum priority (100) are always scheduled before other jobs, regardless of the weighted scheduling formula. If multiple jobs have priority 100, ties are broken using the standard weighted formula.
    * @public
    */
   export interface AlwaysScheduleFirstMember {
@@ -5534,13 +5500,13 @@ export namespace SchedulingMaxPriorityOverride {
 }
 
 /**
- * <p>Specifies that jobs at the minimum priority (0) are always scheduled last.</p>
+ * Specifies that jobs at the minimum priority (0) are always scheduled last.
  * @public
  */
 export interface SchedulingMinPriorityOverrideAlwaysScheduleLast {}
 
 /**
- * <p>Defines the override behavior for jobs at the minimum priority (0) in weighted balanced scheduling.</p>
+ * Defines the override behavior for jobs at the minimum priority (0) in weighted balanced scheduling.
  * @public
  */
 export type SchedulingMinPriorityOverride =
@@ -5552,7 +5518,7 @@ export type SchedulingMinPriorityOverride =
  */
 export namespace SchedulingMinPriorityOverride {
   /**
-   * <p>Jobs at the minimum priority (0) are always scheduled after all other jobs, regardless of the weighted scheduling formula. If multiple jobs have priority 0, ties are broken using the standard weighted formula.</p>
+   * Jobs at the minimum priority (0) are always scheduled after all other jobs, regardless of the weighted scheduling formula. If multiple jobs have priority 0, ties are broken using the standard weighted formula.
    * @public
    */
   export interface AlwaysScheduleLastMember {
@@ -5584,50 +5550,50 @@ export namespace SchedulingMinPriorityOverride {
  */
 export interface WeightedBalancedSchedulingConfiguration {
   /**
-   * <p>The weight applied to job priority in the scheduling formula. Higher values give more influence to job priority. A value of <code>0</code> means priority is ignored. The default value is <code>100.0</code>.</p>
+   * The weight applied to job priority in the scheduling formula. Higher values give more influence to job priority. A value of <code>0</code> means priority is ignored. The default value is <code>100.0</code>.
    * @public
    */
   priorityWeight?: number | undefined;
 
   /**
-   * <p>The weight applied to the number of errors on a job. A negative value means jobs without errors are scheduled first. A value of <code>0</code> means errors are ignored. The default value is <code>-10.0</code>.</p>
+   * The weight applied to the number of errors on a job. A negative value means jobs without errors are scheduled first. A value of <code>0</code> means errors are ignored. The default value is <code>-10.0</code>.
    * @public
    */
   errorWeight?: number | undefined;
 
   /**
-   * <p>The weight applied to job submission time. A positive value means earlier jobs are scheduled first. A value of <code>0</code> means submission time is ignored. The default value is <code>3.0</code>.</p>
+   * The weight applied to job submission time. A positive value means earlier jobs are scheduled first. A value of <code>0</code> means submission time is ignored. The default value is <code>3.0</code>.
    * @public
    */
   submissionTimeWeight?: number | undefined;
 
   /**
-   * <p>The weight applied to the number of tasks currently rendering on a job. A negative value means jobs that are not already rendering are scheduled next. A value of <code>0</code> means the rendering state is ignored. The default value is <code>-100.0</code>.</p>
+   * The weight applied to the number of tasks currently rendering on a job. A negative value means jobs that are not already rendering are scheduled next. A value of <code>0</code> means the rendering state is ignored. The default value is <code>-100.0</code>.
    * @public
    */
   renderingTaskWeight?: number | undefined;
 
   /**
-   * <p>The rendering task buffer is subtracted from the number of rendering tasks before applying the rendering task weight. This creates a stickiness effect where workers prefer to stay with their current job. Higher values make workers stickier. The default value is <code>1</code>. The buffer is only applied in the weight calculation for a job if the worker is currently assigned to that job.</p>
+   * The rendering task buffer is subtracted from the number of rendering tasks before applying the rendering task weight. This creates a stickiness effect where workers prefer to stay with their current job. Higher values make workers stickier. The default value is <code>1</code>. The buffer is only applied in the weight calculation for a job if the worker is currently assigned to that job.
    * @public
    */
   renderingTaskBuffer?: number | undefined;
 
   /**
-   * <p>Overrides the weighted scheduling formula for jobs at the maximum priority (100). When set, jobs with priority 100 are always scheduled first regardless of their calculated weight. When absent, maximum priority jobs use the standard weighted formula.</p>
+   * Overrides the weighted scheduling formula for jobs at the maximum priority (100). When set, jobs with priority 100 are always scheduled first regardless of their calculated weight. When absent, maximum priority jobs use the standard weighted formula.
    * @public
    */
   maxPriorityOverride?: SchedulingMaxPriorityOverride | undefined;
 
   /**
-   * <p>Overrides the weighted scheduling formula for jobs at the minimum priority (0). When set, jobs with priority 0 are always scheduled last regardless of their calculated weight. When absent, minimum priority jobs use the standard weighted formula.</p>
+   * Overrides the weighted scheduling formula for jobs at the minimum priority (0). When set, jobs with priority 0 are always scheduled last regardless of their calculated weight. When absent, minimum priority jobs use the standard weighted formula.
    * @public
    */
   minPriorityOverride?: SchedulingMinPriorityOverride | undefined;
 }
 
 /**
- * <p>The scheduling configuration for a queue. Defines the strategy used to assign workers to jobs.</p>
+ * The scheduling configuration for a queue. Defines the strategy used to assign workers to jobs.
  * @public
  */
 export type SchedulingConfiguration =
@@ -5641,7 +5607,7 @@ export type SchedulingConfiguration =
  */
 export namespace SchedulingConfiguration {
   /**
-   * <p>Workers are assigned to the highest-priority job first. When multiple jobs share the same priority, the job submitted earliest receives workers first. This is the default scheduling configuration for new queues.</p>
+   * Workers are assigned to the highest-priority job first. When multiple jobs share the same priority, the job submitted earliest receives workers first. This is the default scheduling configuration for new queues.
    * @public
    */
   export interface PriorityFifoMember {
@@ -5652,7 +5618,7 @@ export namespace SchedulingConfiguration {
   }
 
   /**
-   * <p>Workers are distributed evenly across all jobs at the highest priority level. When workers cannot be evenly divided, the extra workers are assigned to the jobs submitted earliest. If a job has fewer remaining tasks than its share of workers, the surplus workers are redistributed to other jobs at the same priority level.</p>
+   * Workers are distributed evenly across all jobs at the highest priority level. When workers cannot be evenly divided, the extra workers are assigned to the jobs submitted earliest. If a job has fewer remaining tasks than its share of workers, the surplus workers are redistributed to other jobs at the same priority level.
    * @public
    */
   export interface PriorityBalancedMember {
@@ -5663,7 +5629,7 @@ export namespace SchedulingConfiguration {
   }
 
   /**
-   * <p>Workers are assigned to jobs based on a weighted formula that considers job priority, error count, submission time, and the number of tasks currently rendering. Each factor has a configurable weight that determines its influence on scheduling decisions.</p>
+   * Workers are assigned to jobs based on a weighted formula that considers job priority, error count, submission time, and the number of tasks currently rendering. Each factor has a configurable weight that determines its influence on scheduling decisions.
    * @public
    */
   export interface WeightedBalancedMember {
@@ -5696,19 +5662,17 @@ export namespace SchedulingConfiguration {
 }
 
 /**
- * Shared displayName + description for Create operations where both are present.
- * displayName is @required here - this mixin is Create-only by design (Update has optional displayName).
  * @public
  */
 export interface CreateQueueRequest {
   /**
-   * <p>The farm ID of the farm to connect to the queue.</p>
+   * The farm ID of the farm to connect to the queue.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * The unique token which the server uses to recognize retries of the same request.
    * @public
    */
   clientToken?: string | undefined;
@@ -5726,62 +5690,63 @@ export interface CreateQueueRequest {
   description?: string | undefined;
 
   /**
-   * <p>The default action to take on a queue if a budget isn't configured.</p>
+   * The default action to take on a queue if a budget isn't configured.
    * @public
    */
   defaultBudgetAction?: DefaultQueueBudgetAction | undefined;
 
   /**
-   * <p>The job attachment settings for the queue. These are the Amazon S3 bucket name and the Amazon S3 prefix.</p>
+   * The job attachment settings for the queue. These are the Amazon S3 bucket name and the Amazon S3 prefix.
    * @public
    */
   jobAttachmentSettings?: JobAttachmentSettings | undefined;
 
   /**
-   * <p>The IAM role ARN that workers will use while running jobs for this queue.</p>
+   * The IAM role ARN that workers will use while running jobs for this queue.
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>The jobs in the queue run as the specified POSIX user.</p>
+   * The jobs in the queue run as the specified POSIX user.
    * @public
    */
   jobRunAsUser?: JobRunAsUser | undefined;
 
   /**
-   * <p>The file system location name to include in the queue.</p>
+   * The file system location name to include in the queue.
    * @public
    */
   requiredFileSystemLocationNames?: string[] | undefined;
 
   /**
-   * <p>The storage profile IDs to include in the queue.</p>
+   * The storage profile IDs to include in the queue.
    * @public
    */
   allowedStorageProfileIds?: string[] | undefined;
 
   /**
-   * <p>Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+   * Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The scheduling configuration for the queue. This configuration determines how workers are assigned to jobs in the queue.</p> <p>If not specified, the queue defaults to the <code>priorityFifo</code> scheduling configuration.</p>
+   * The scheduling configuration for the queue. This configuration determines how workers are assigned to jobs in the queue.
+   *
+   * If not specified, the queue defaults to the <code>priorityFifo</code> scheduling configuration.
+   *
    * @public
    */
   schedulingConfiguration?: SchedulingConfiguration | undefined;
 }
 
 /**
- * Mixin that adds an optional ARN field to response structures.
- * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface CreateQueueResponse {
   /**
-   * <p>The queue ID.</p>
+   * The queue ID.
    * @public
    */
   queueId: string | undefined;
@@ -5792,37 +5757,37 @@ export interface CreateQueueResponse {
  */
 export interface CreateQueueEnvironmentRequest {
   /**
-   * <p>The farm ID of the farm to connect to the environment.</p>
+   * The farm ID of the farm to connect to the environment.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID to connect the queue and environment.</p>
+   * The queue ID to connect the queue and environment.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * The unique token which the server uses to recognize retries of the same request.
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Sets the priority of the environments in the queue from 0 to 10,000, where 0 is the highest priority (activated first and deactivated last). If two environments share the same priority value, the environment created first takes higher priority.</p>
+   * Sets the priority of the environments in the queue from 0 to 10,000, where 0 is the highest priority (activated first and deactivated last). If two environments share the same priority value, the environment created first takes higher priority.
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The template's file type, <code>JSON</code> or <code>YAML</code>.</p>
+   * The template's file type, <code>JSON</code> or <code>YAML</code>.
    * @public
    */
   templateType: EnvironmentTemplateType | undefined;
 
   /**
-   * <p>The environment template to use in the queue.</p>
+   * The environment template to use in the queue.
    * @public
    */
   template: string | undefined;
@@ -5833,7 +5798,7 @@ export interface CreateQueueEnvironmentRequest {
  */
 export interface CreateQueueEnvironmentResponse {
   /**
-   * <p>The queue environment ID.</p>
+   * The queue environment ID.
    * @public
    */
   queueEnvironmentId: string | undefined;
@@ -5844,19 +5809,19 @@ export interface CreateQueueEnvironmentResponse {
  */
 export interface CreateQueueFleetAssociationRequest {
   /**
-   * <p>The ID of the farm that the queue and fleet belong to.</p>
+   * The ID of the farm that the queue and fleet belong to.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID.</p>
+   * The queue ID.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The fleet ID.</p>
+   * The fleet ID.
    * @public
    */
   fleetId: string | undefined;
@@ -5872,19 +5837,19 @@ export interface CreateQueueFleetAssociationResponse {}
  */
 export interface CreateQueueLimitAssociationRequest {
   /**
-   * <p>The unique identifier of the farm that contains the queue and limit to associate.</p>
+   * The unique identifier of the farm that contains the queue and limit to associate.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The unique identifier of the queue to associate with the limit.</p>
+   * The unique identifier of the queue to associate with the limit.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The unique identifier of the limit to associate with the queue.</p>
+   * The unique identifier of the limit to associate with the queue.
    * @public
    */
   limitId: string | undefined;
@@ -5896,24 +5861,24 @@ export interface CreateQueueLimitAssociationRequest {
 export interface CreateQueueLimitAssociationResponse {}
 
 /**
- * <p>The details of the file system location for the resource.</p>
+ * The details of the file system location for the resource.
  * @public
  */
 export interface FileSystemLocation {
   /**
-   * <p>The location name.</p>
+   * The location name.
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The file path.</p>
+   * The file path.
    * @public
    */
   path: string | undefined;
 
   /**
-   * <p>The type of file.</p>
+   * The type of file.
    * @public
    */
   type: FileSystemLocationType | undefined;
@@ -5924,13 +5889,13 @@ export interface FileSystemLocation {
  */
 export interface CreateStorageProfileRequest {
   /**
-   * <p>The farm ID of the farm to connect to the storage profile.</p>
+   * The farm ID of the farm to connect to the storage profile.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * The unique token which the server uses to recognize retries of the same request.
    * @public
    */
   clientToken?: string | undefined;
@@ -5942,13 +5907,13 @@ export interface CreateStorageProfileRequest {
   displayName: string | undefined;
 
   /**
-   * <p>The type of operating system (OS) for the storage profile.</p>
+   * The type of operating system (OS) for the storage profile.
    * @public
    */
   osFamily: StorageProfileOperatingSystemFamily | undefined;
 
   /**
-   * <p>File system paths to include in the storage profile.</p>
+   * File system paths to include in the storage profile.
    * @public
    */
   fileSystemLocations?: FileSystemLocation[] | undefined;
@@ -5959,25 +5924,25 @@ export interface CreateStorageProfileRequest {
  */
 export interface CreateStorageProfileResponse {
   /**
-   * <p>The storage profile ID.</p>
+   * The storage profile ID.
    * @public
    */
   storageProfileId: string | undefined;
 }
 
 /**
- * <p>The host property details.</p>
+ * The host property details.
  * @public
  */
 export interface HostPropertiesRequest {
   /**
-   * <p>The IP address of the host.</p>
+   * The IP address of the host.
    * @public
    */
   ipAddresses?: IpAddresses | undefined;
 
   /**
-   * <p>The host name.</p>
+   * The host name.
    * @public
    */
   hostName?: string | undefined;
@@ -5988,93 +5953,89 @@ export interface HostPropertiesRequest {
  */
 export interface CreateWorkerRequest {
   /**
-   * <p>The farm ID of the farm to connect to the worker.</p>
+   * The farm ID of the farm to connect to the worker.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID to connect to the worker.</p>
+   * The fleet ID to connect to the worker.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The IP address and host name of the worker.</p>
+   * The IP address and host name of the worker.
    * @public
    */
   hostProperties?: HostPropertiesRequest | undefined;
 
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * The unique token which the server uses to recognize retries of the same request.
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+   * Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Mixin that adds an optional ARN field to response structures.
- * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface CreateWorkerResponse {
   /**
-   * <p>The worker ID.</p>
+   * The worker ID.
    * @public
    */
   workerId: string | undefined;
 }
 
 /**
- * <p>The timestamp in date-time format.</p>
+ * The timestamp in date-time format.
  * @public
  */
 export interface DateTimeFilterExpression {
   /**
-   * <p>The name of the date-time field to filter on.</p>
+   * The name of the date-time field to filter on.
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of comparison to use to filter the results.</p>
+   * The type of comparison to use to filter the results.
    * @public
    */
   operator: ComparisonOperator | undefined;
 
   /**
-   * <p>The date and time.</p>
+   * The date and time.
    * @public
    */
   dateTime: Date | undefined;
 }
 
 /**
- * Identifier mixin for queue-fleet association operations.
- * Composes QueueIdentifierMixin (farmId + queueId) and adds fleetId.
  * @public
  */
 export interface DeleteQueueFleetAssociationRequest {
   /**
-   * <p>The farm ID of the farm that holds the queue-fleet association.</p>
+   * The farm ID of the farm that holds the queue-fleet association.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the queue-fleet association.</p>
+   * The queue ID of the queue-fleet association.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The fleet ID of the queue-fleet association.</p>
+   * The fleet ID of the queue-fleet association.
    * @public
    */
   fleetId: string | undefined;
@@ -6090,19 +6051,19 @@ export interface DeleteQueueFleetAssociationResponse {}
  */
 export interface DeleteQueueLimitAssociationRequest {
   /**
-   * <p>The unique identifier of the farm that contains the queue and limit to disassociate.</p>
+   * The unique identifier of the farm that contains the queue and limit to disassociate.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The unique identifier of the queue to disassociate.</p>
+   * The unique identifier of the queue to disassociate.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The unique identifier of the limit to disassociate.</p>
+   * The unique identifier of the limit to disassociate.
    * @public
    */
   limitId: string | undefined;
@@ -6118,7 +6079,7 @@ export interface DeleteQueueLimitAssociationResponse {}
  */
 export interface DeleteFarmRequest {
   /**
-   * <p>The farm ID of the farm to delete.</p>
+   * The farm ID of the farm to delete.
    * @public
    */
   farmId: string | undefined;
@@ -6134,13 +6095,13 @@ export interface DeleteFarmResponse {}
  */
 export interface DeleteLimitRequest {
   /**
-   * <p>The unique identifier of the farm that contains the limit to delete.</p>
+   * The unique identifier of the farm that contains the limit to delete.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The unique identifier of the limit to delete.</p>
+   * The unique identifier of the limit to delete.
    * @public
    */
   limitId: string | undefined;
@@ -6156,13 +6117,13 @@ export interface DeleteLimitResponse {}
  */
 export interface DeleteStorageProfileRequest {
   /**
-   * <p>The farm ID of the farm from which to remove the storage profile.</p>
+   * The farm ID of the farm from which to remove the storage profile.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The storage profile ID of the storage profile to delete.</p>
+   * The storage profile ID of the storage profile to delete.
    * @public
    */
   storageProfileId: string | undefined;
@@ -6178,13 +6139,13 @@ export interface DeleteStorageProfileResponse {}
  */
 export interface DisassociateMemberFromFarmRequest {
   /**
-   * <p>The farm ID of the farm to disassociate from the member.</p>
+   * The farm ID of the farm to disassociate from the member.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>A member's principal ID to disassociate from a farm.</p>
+   * A member's principal ID to disassociate from a farm.
    * @public
    */
   principalId: string | undefined;
@@ -6200,19 +6161,19 @@ export interface DisassociateMemberFromFarmResponse {}
  */
 export interface DeleteFleetRequest {
   /**
-   * <p>The farm ID of the farm to remove from the fleet.</p>
+   * The farm ID of the farm to remove from the fleet.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the fleet to delete.</p>
+   * The fleet ID of the fleet to delete.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * The unique token which the server uses to recognize retries of the same request.
    * @public
    */
   clientToken?: string | undefined;
@@ -6228,19 +6189,19 @@ export interface DeleteFleetResponse {}
  */
 export interface DisassociateMemberFromFleetRequest {
   /**
-   * <p>The farm ID of the fleet to disassociate a member from.</p>
+   * The farm ID of the fleet to disassociate a member from.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the fleet to from which to disassociate a member.</p>
+   * The fleet ID of the fleet to from which to disassociate a member.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>A member's principal ID to disassociate from a fleet.</p>
+   * A member's principal ID to disassociate from a fleet.
    * @public
    */
   principalId: string | undefined;
@@ -6256,50 +6217,48 @@ export interface DisassociateMemberFromFleetResponse {}
  */
 export interface GetFleetRequest {
   /**
-   * <p>The farm ID of the farm in the fleet.</p>
+   * The farm ID of the farm in the fleet.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the fleet to get.</p>
+   * The fleet ID of the fleet to get.
    * @public
    */
   fleetId: string | undefined;
 }
 
 /**
- * <p>The amounts and attributes of fleets.</p>
+ * The amounts and attributes of fleets.
  * @public
  */
 export interface FleetCapabilities {
   /**
-   * <p>Amount capabilities of the fleet.</p>
+   * Amount capabilities of the fleet.
    * @public
    */
   amounts?: FleetAmountCapability[] | undefined;
 
   /**
-   * <p>Attribute capabilities of the fleet.</p>
+   * Attribute capabilities of the fleet.
    * @public
    */
   attributes?: FleetAttributeCapability[] | undefined;
 }
 
 /**
- * Mixin that adds an optional ARN field to response structures.
- * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface GetFleetResponse {
   /**
-   * <p>The fleet ID.</p>
+   * The fleet ID.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The farm ID of the farm in the fleet.</p>
+   * The farm ID of the farm in the fleet.
    * @public
    */
   farmId: string | undefined;
@@ -6311,73 +6270,73 @@ export interface GetFleetResponse {
   displayName: string | undefined;
 
   /**
-   * <p>The status of the fleet.</p>
+   * The status of the fleet.
    * @public
    */
   status: FleetStatus | undefined;
 
   /**
-   * <p>A message that communicates a suspended status of the fleet.</p>
+   * A message that communicates a suspended status of the fleet.
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The Auto Scaling status of the fleet. Either <code>GROWING</code>, <code>STEADY</code>, or <code>SHRINKING</code>.</p>
+   * The Auto Scaling status of the fleet. Either <code>GROWING</code>, <code>STEADY</code>, or <code>SHRINKING</code>.
    * @public
    */
   autoScalingStatus?: AutoScalingStatus | undefined;
 
   /**
-   * <p>The number of target workers in the fleet.</p>
+   * The number of target workers in the fleet.
    * @public
    */
   targetWorkerCount?: number | undefined;
 
   /**
-   * <p>The number of workers in the fleet.</p>
+   * The number of workers in the fleet.
    * @public
    */
   workerCount: number | undefined;
 
   /**
-   * <p>The minimum number of workers specified in the fleet.</p>
+   * The minimum number of workers specified in the fleet.
    * @public
    */
   minWorkerCount: number | undefined;
 
   /**
-   * <p>The maximum number of workers specified in the fleet.</p>
+   * The maximum number of workers specified in the fleet.
    * @public
    */
   maxWorkerCount: number | undefined;
 
   /**
-   * <p>The configuration setting for the fleet.</p>
+   * The configuration setting for the fleet.
    * @public
    */
   configuration: FleetConfiguration | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
@@ -6389,139 +6348,136 @@ export interface GetFleetResponse {
   description?: string | undefined;
 
   /**
-   * <p>The script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.</p>
+   * The script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
    * @public
    */
   hostConfiguration?: HostConfiguration | undefined;
 
   /**
-   * <p>Outlines what the fleet is capable of for minimums, maximums, and naming, in addition to attribute names and values.</p>
+   * Outlines what the fleet is capable of for minimums, maximums, and naming, in addition to attribute names and values.
    * @public
    */
   capabilities?: FleetCapabilities | undefined;
 
   /**
-   * <p>The IAM role ARN.</p>
+   * The IAM role ARN.
    * @public
    */
   roleArn: string | undefined;
 }
 
 /**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListFleetMembersRequest {
   /**
-   * <p>The farm ID of the fleet.</p>
+   * The farm ID of the fleet.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID to include on the list.</p>
+   * The fleet ID to include on the list.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * The token for the next set of results, or <code>null</code> to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The fleet member.</p>
+ * The fleet member.
  * @public
  */
 export interface FleetMember {
   /**
-   * <p>The farm ID.</p>
+   * The farm ID.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID.</p>
+   * The fleet ID.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The principal ID of the fleet member.</p>
+   * The principal ID of the fleet member.
    * @public
    */
   principalId: string | undefined;
 
   /**
-   * <p>The principal type of the fleet member.</p>
+   * The principal type of the fleet member.
    * @public
    */
   principalType: DeadlinePrincipalType | undefined;
 
   /**
-   * <p>The identity store ID.</p>
+   * The identity store ID.
    * @public
    */
   identityStoreId: string | undefined;
 
   /**
-   * <p>The fleet member's membership level.</p>
+   * The fleet member's membership level.
    * @public
    */
   membershipLevel: MembershipLevel | undefined;
 }
 
 /**
- * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListFleetMembersResponse {
   /**
-   * <p>The members on the list.</p>
+   * The members on the list.
    * @public
    */
   members: FleetMember[] | undefined;
 
   /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListFleetsRequest {
   /**
-   * <p>The farm ID of the fleets.</p>
+   * The farm ID of the fleets.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * The token for the next set of results, or <code>null</code> to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The principal ID of the members to include in the fleet.</p>
+   * The principal ID of the members to include in the fleet.
    * @public
    */
   principalId?: string | undefined;
@@ -6533,25 +6489,25 @@ export interface ListFleetsRequest {
   displayName?: string | undefined;
 
   /**
-   * <p>The status of the fleet.</p>
+   * The status of the fleet.
    * @public
    */
   status?: FleetStatus | undefined;
 }
 
 /**
- * <p>The details of a fleet.</p>
+ * The details of a fleet.
  * @public
  */
 export interface FleetSummary {
   /**
-   * <p>The fleet ID.</p>
+   * The fleet ID.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The farm ID.</p>
+   * The farm ID.
    * @public
    */
   farmId: string | undefined;
@@ -6563,91 +6519,90 @@ export interface FleetSummary {
   displayName: string | undefined;
 
   /**
-   * <p>The status of the fleet.</p>
+   * The status of the fleet.
    * @public
    */
   status: FleetStatus | undefined;
 
   /**
-   * <p>A message that communicates a suspended status of the fleet.</p>
+   * A message that communicates a suspended status of the fleet.
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The Auto Scaling status of a fleet.</p>
+   * The Auto Scaling status of a fleet.
    * @public
    */
   autoScalingStatus?: AutoScalingStatus | undefined;
 
   /**
-   * <p>The target number of workers in a fleet.</p>
+   * The target number of workers in a fleet.
    * @public
    */
   targetWorkerCount?: number | undefined;
 
   /**
-   * <p>The number of workers in the fleet summary.</p>
+   * The number of workers in the fleet summary.
    * @public
    */
   workerCount: number | undefined;
 
   /**
-   * <p>The minimum number of workers in the fleet.</p>
+   * The minimum number of workers in the fleet.
    * @public
    */
   minWorkerCount: number | undefined;
 
   /**
-   * <p>The maximum number of workers specified in the fleet.</p>
+   * The maximum number of workers specified in the fleet.
    * @public
    */
   maxWorkerCount: number | undefined;
 
   /**
-   * <p>The configuration details for the fleet.</p>
+   * The configuration details for the fleet.
    * @public
    */
   configuration: FleetConfiguration | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 }
 
 /**
- * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListFleetsResponse {
   /**
-   * <p>The fleets on the list.</p>
+   * The fleets on the list.
    * @public
    */
   fleets: FleetSummary[] | undefined;
 
   /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
    * @public
    */
   nextToken?: string | undefined;
@@ -6658,19 +6613,19 @@ export interface ListFleetsResponse {
  */
 export interface UpdateFleetRequest {
   /**
-   * <p>The farm ID to update.</p>
+   * The farm ID to update.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID to update.</p>
+   * The fleet ID to update.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * The unique token which the server uses to recognize retries of the same request.
    * @public
    */
   clientToken?: string | undefined;
@@ -6688,31 +6643,34 @@ export interface UpdateFleetRequest {
   description?: string | undefined;
 
   /**
-   * <p>The IAM role ARN that the fleet's workers assume while running jobs.</p>
+   * The IAM role ARN that the fleet's workers assume while running jobs.
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>The minimum number of workers in the fleet.</p>
+   * The minimum number of workers in the fleet.
    * @public
    */
   minWorkerCount?: number | undefined;
 
   /**
-   * <p>The maximum number of workers in the fleet.</p> <p>Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum worker count. The service maintains eventual consistency for the worker count. If you make multiple rapid calls to <code>CreateWorker</code> before the field updates, you might exceed your fleet's maximum worker count. For example, if your <code>maxWorkerCount</code> is 10 and you currently have 9 workers, making two quick <code>CreateWorker</code> calls might successfully create 2 workers instead of 1, resulting in 11 total workers.</p>
+   * The maximum number of workers in the fleet.
+   *
+   * Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum worker count. The service maintains eventual consistency for the worker count. If you make multiple rapid calls to <code>CreateWorker</code> before the field updates, you might exceed your fleet's maximum worker count. For example, if your <code>maxWorkerCount</code> is 10 and you currently have 9 workers, making two quick <code>CreateWorker</code> calls might successfully create 2 workers instead of 1, resulting in 11 total workers.
+   *
    * @public
    */
   maxWorkerCount?: number | undefined;
 
   /**
-   * <p>The fleet configuration to update.</p>
+   * The fleet configuration to update.
    * @public
    */
   configuration?: FleetConfiguration | undefined;
 
   /**
-   * <p>Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.</p>
+   * Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
    * @public
    */
   hostConfiguration?: HostConfiguration | undefined;
@@ -6728,19 +6686,19 @@ export interface UpdateFleetResponse {}
  */
 export interface DeleteVolumeRequest {
   /**
-   * <p>The farm ID of the farm that contains the fleet.</p>
+   * The farm ID of the farm that contains the fleet.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the fleet that contains the volume.</p>
+   * The fleet ID of the fleet that contains the volume.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The volume ID of the volume to delete.</p>
+   * The volume ID of the volume to delete.
    * @public
    */
   volumeId: string | undefined;
@@ -6756,206 +6714,202 @@ export interface DeleteVolumeResponse {}
  */
 export interface GetVolumeRequest {
   /**
-   * <p>The farm ID of the farm that contains the fleet.</p>
+   * The farm ID of the farm that contains the fleet.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the fleet that contains the volume.</p>
+   * The fleet ID of the fleet that contains the volume.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The volume ID of the volume to retrieve.</p>
+   * The volume ID of the volume to retrieve.
    * @public
    */
   volumeId: string | undefined;
 }
 
 /**
- * Mixin that adds an optional ARN field to response structures.
- * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface GetVolumeResponse {
   /**
-   * <p>The volume ID.</p>
+   * The volume ID.
    * @public
    */
   volumeId: string | undefined;
 
   /**
-   * <p>The farm ID of the farm that contains the fleet.</p>
+   * The farm ID of the farm that contains the fleet.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the fleet that contains the volume.</p>
+   * The fleet ID of the fleet that contains the volume.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The state of the volume.</p>
+   * The state of the volume.
    * @public
    */
   state: VolumeState | undefined;
 
   /**
-   * <p>The volume size in GiB.</p>
+   * The volume size in GiB.
    * @public
    */
   sizeGiB: number | undefined;
 
   /**
-   * <p>The Availability Zone ID of the volume.</p>
+   * The Availability Zone ID of the volume.
    * @public
    */
   availabilityZoneId: string | undefined;
 
   /**
-   * <p>The worker ID of the worker the volume is attached to.</p>
+   * The worker ID of the worker the volume is attached to.
    * @public
    */
   attachedWorkerId?: string | undefined;
 
   /**
-   * <p>The EBS volume type.</p>
+   * The EBS volume type.
    * @public
    */
   volumeType: EbsVolumeType | undefined;
 
   /**
-   * <p>The IOPS of the volume.</p>
+   * The IOPS of the volume.
    * @public
    */
   iops?: number | undefined;
 
   /**
-   * <p>The throughput of the volume in MiB.</p>
+   * The throughput of the volume in MiB.
    * @public
    */
   throughputMiB?: number | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the volume was last assigned to a worker.</p>
+   * The date and time the volume was last assigned to a worker.
    * @public
    */
   lastAssignedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the volume was last released from a worker.</p>
+   * The date and time the volume was last released from a worker.
    * @public
    */
   lastReleasedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the volume expires and will be deleted.</p>
+   * The date and time the volume expires and will be deleted.
    * @public
    */
   expiresAt?: Date | undefined;
 }
 
 /**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListVolumesRequest {
   /**
-   * <p>The farm ID of the farm that contains the fleet.</p>
+   * The farm ID of the farm that contains the fleet.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the fleet that contains the volumes.</p>
+   * The fleet ID of the fleet that contains the volumes.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * The token for the next set of results, or <code>null</code> to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The summary of a persistent volume.</p>
+ * The summary of a persistent volume.
  * @public
  */
 export interface VolumeSummary {
   /**
-   * <p>The volume ID.</p>
+   * The volume ID.
    * @public
    */
   volumeId: string | undefined;
 
   /**
-   * <p>The farm ID of the farm that contains the fleet.</p>
+   * The farm ID of the farm that contains the fleet.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the fleet that contains the volume.</p>
+   * The fleet ID of the fleet that contains the volume.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The state of the volume.</p>
+   * The state of the volume.
    * @public
    */
   state: VolumeState | undefined;
 
   /**
-   * <p>The volume size in GiB.</p>
+   * The volume size in GiB.
    * @public
    */
   sizeGiB: number | undefined;
 
   /**
-   * <p>The Availability Zone ID of the volume.</p>
+   * The Availability Zone ID of the volume.
    * @public
    */
   availabilityZoneId: string | undefined;
 
   /**
-   * <p>The worker ID of the worker the volume is attached to.</p>
+   * The worker ID of the worker the volume is attached to.
    * @public
    */
   attachedWorkerId?: string | undefined;
 }
 
 /**
- * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListVolumesResponse {
   /**
-   * <p>The volumes on the list.</p>
+   * The volumes on the list.
    * @public
    */
   volumes: VolumeSummary[] | undefined;
 
   /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
    * @public
    */
   nextToken?: string | undefined;
@@ -6966,19 +6920,19 @@ export interface ListVolumesResponse {
  */
 export interface DeleteWorkerRequest {
   /**
-   * <p>The farm ID of the worker to delete.</p>
+   * The farm ID of the worker to delete.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the worker to delete.</p>
+   * The fleet ID of the worker to delete.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The worker ID of the worker to delete.</p>
+   * The worker ID of the worker to delete.
    * @public
    */
   workerId: string | undefined;
@@ -6994,164 +6948,161 @@ export interface DeleteWorkerResponse {}
  */
 export interface GetWorkerRequest {
   /**
-   * <p>The farm ID for the worker.</p>
+   * The farm ID for the worker.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the worker.</p>
+   * The fleet ID of the worker.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The worker ID.</p>
+   * The worker ID.
    * @public
    */
   workerId: string | undefined;
 }
 
 /**
- * Mixin that adds an optional ARN field to response structures.
- * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface GetWorkerResponse {
   /**
-   * <p>The farm ID.</p>
+   * The farm ID.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID.</p>
+   * The fleet ID.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The worker ID.</p>
+   * The worker ID.
    * @public
    */
   workerId: string | undefined;
 
   /**
-   * <p>The host properties for the worker.</p>
+   * The host properties for the worker.
    * @public
    */
   hostProperties?: HostPropertiesResponse | undefined;
 
   /**
-   * <p>The status of the worker.</p>
+   * The status of the worker.
    * @public
    */
   status: WorkerStatus | undefined;
 
   /**
-   * <p>The logs for the associated worker.</p>
+   * The logs for the associated worker.
    * @public
    */
   log?: LogConfiguration | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 }
 
 /**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListSessionsForWorkerRequest {
   /**
-   * <p>The farm ID for the session.</p>
+   * The farm ID for the session.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID for the session.</p>
+   * The fleet ID for the session.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The worker ID for the session.</p>
+   * The worker ID for the session.
    * @public
    */
   workerId: string | undefined;
 
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * The token for the next set of results, or <code>null</code> to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Summarizes the session for a particular worker.</p>
+ * Summarizes the session for a particular worker.
  * @public
  */
 export interface WorkerSessionSummary {
   /**
-   * <p>The session ID for the session action.</p>
+   * The session ID for the session action.
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The queue ID for the queue associated to the worker.</p>
+   * The queue ID for the queue associated to the worker.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID for the job associated with the worker's session.</p>
+   * The job ID for the job associated with the worker's session.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The date and time the resource started running.</p>
+   * The date and time the resource started running.
    * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * <p>The life cycle status for the worker's session.</p>
+   * The life cycle status for the worker's session.
    * @public
    */
   lifecycleStatus: SessionLifecycleStatus | undefined;
 
   /**
-   * <p>The date and time the resource ended running.</p>
+   * The date and time the resource ended running.
    * @public
    */
   endedAt?: Date | undefined;
@@ -7164,186 +7115,183 @@ export interface WorkerSessionSummary {
 }
 
 /**
- * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListSessionsForWorkerResponse {
   /**
-   * <p>The sessions in the response.</p>
+   * The sessions in the response.
    * @public
    */
   sessions: WorkerSessionSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * The token for the next set of results, or <code>null</code> to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListWorkersRequest {
   /**
-   * <p>The farm ID connected to the workers.</p>
+   * The farm ID connected to the workers.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the workers.</p>
+   * The fleet ID of the workers.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * The token for the next set of results, or <code>null</code> to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The summary of details for a worker.</p>
+ * The summary of details for a worker.
  * @public
  */
 export interface WorkerSummary {
   /**
-   * <p>The farm ID.</p>
+   * The farm ID.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID.</p>
+   * The fleet ID.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The worker ID.</p>
+   * The worker ID.
    * @public
    */
   workerId: string | undefined;
 
   /**
-   * <p>The host properties of the worker.</p>
+   * The host properties of the worker.
    * @public
    */
   hostProperties?: HostPropertiesResponse | undefined;
 
   /**
-   * <p>The status of the worker.</p>
+   * The status of the worker.
    * @public
    */
   status: WorkerStatus | undefined;
 
   /**
-   * <p>The log configuration for the worker.</p>
+   * The log configuration for the worker.
    * @public
    */
   log?: LogConfiguration | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 }
 
 /**
- * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListWorkersResponse {
   /**
-   * <p>The workers on the list.</p>
+   * The workers on the list.
    * @public
    */
   workers: WorkerSummary[] | undefined;
 
   /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The details of the worker amount capability.</p>
+ * The details of the worker amount capability.
  * @public
  */
 export interface WorkerAmountCapability {
   /**
-   * <p>The name of the worker amount capability.</p>
+   * The name of the worker amount capability.
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The value of the worker amount capability.</p>
+   * The value of the worker amount capability.
    * @public
    */
   value: number | undefined;
 }
 
 /**
- * <p>The details of the worker attribute capability.</p>
+ * The details of the worker attribute capability.
  * @public
  */
 export interface WorkerAttributeCapability {
   /**
-   * <p>The name of the worker attribute capability.</p>
+   * The name of the worker attribute capability.
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The values of the worker amount capability.</p>
+   * The values of the worker amount capability.
    * @public
    */
   values: string[] | undefined;
 }
 
 /**
- * <p>The details for worker capabilities.</p>
+ * The details for worker capabilities.
  * @public
  */
 export interface WorkerCapabilities {
   /**
-   * <p>The worker capabilities amounts on a list of worker capabilities.</p>
+   * The worker capabilities amounts on a list of worker capabilities.
    * @public
    */
   amounts: WorkerAmountCapability[] | undefined;
 
   /**
-   * <p>The worker attribute capabilities in the list of attribute capabilities.</p>
+   * The worker attribute capabilities in the list of attribute capabilities.
    * @public
    */
   attributes: WorkerAttributeCapability[] | undefined;
@@ -7354,37 +7302,37 @@ export interface WorkerCapabilities {
  */
 export interface UpdateWorkerRequest {
   /**
-   * <p>The farm ID to update.</p>
+   * The farm ID to update.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID to update.</p>
+   * The fleet ID to update.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The worker ID to update.</p>
+   * The worker ID to update.
    * @public
    */
   workerId: string | undefined;
 
   /**
-   * <p>The worker status to update.</p>
+   * The worker status to update.
    * @public
    */
   status?: UpdatedWorkerStatus | undefined;
 
   /**
-   * <p>The worker capabilities to update.</p>
+   * The worker capabilities to update.
    * @public
    */
   capabilities?: WorkerCapabilities | undefined;
 
   /**
-   * <p>The host properties to update.</p>
+   * The host properties to update.
    * @public
    */
   hostProperties?: HostPropertiesRequest | undefined;
@@ -7395,85 +7343,85 @@ export interface UpdateWorkerRequest {
  */
 export interface UpdateWorkerResponse {
   /**
-   * <p>The worker log to update.</p>
+   * The worker log to update.
    * @public
    */
   log?: LogConfiguration | undefined;
 
   /**
-   * <p>The script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.</p>
+   * The script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
    * @public
    */
   hostConfiguration?: HostConfiguration | undefined;
 }
 
 /**
- * <p>The output manifest properties reported by the worker agent for a completed task run.</p>
+ * The output manifest properties reported by the worker agent for a completed task run.
  * @public
  */
 export interface TaskRunManifestPropertiesRequest {
   /**
-   * <p>The manifest file path.</p>
+   * The manifest file path.
    * @public
    */
   outputManifestPath?: string | undefined;
 
   /**
-   * <p>The hash value of the file.</p>
+   * The hash value of the file.
    * @public
    */
   outputManifestHash?: string | undefined;
 }
 
 /**
- * <p>The updated session action information as it relates to completion and progress of the session.</p>
+ * The updated session action information as it relates to completion and progress of the session.
  * @public
  */
 export interface UpdatedSessionActionInfo {
   /**
-   * <p>The status of the session upon completion.</p>
+   * The status of the session upon completion.
    * @public
    */
   completedStatus?: CompletedStatus | undefined;
 
   /**
-   * <p>The process exit code. The default Deadline Cloud worker agent converts unsigned 32-bit exit codes to signed 32-bit exit codes.</p>
+   * The process exit code. The default Deadline Cloud worker agent converts unsigned 32-bit exit codes to signed 32-bit exit codes.
    * @public
    */
   processExitCode?: number | undefined;
 
   /**
-   * <p>A message to indicate the progress of the updated session action.</p>
+   * A message to indicate the progress of the updated session action.
    * @public
    */
   progressMessage?: string | undefined;
 
   /**
-   * <p>The date and time the resource started running.</p>
+   * The date and time the resource started running.
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the resource ended running.</p>
+   * The date and time the resource ended running.
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The updated time.</p>
+   * The updated time.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The percentage completed.</p>
+   * The percentage completed.
    * @public
    */
   progressPercent?: number | undefined;
 
   /**
-   * <p>A list of output manifest properties reported by the worker agent, with each entry corresponding to a manifest property in the job.</p>
+   * A list of output manifest properties reported by the worker agent, with each entry corresponding to a manifest property in the job.
    * @public
    */
   manifests?: TaskRunManifestPropertiesRequest[] | undefined;
@@ -7484,25 +7432,25 @@ export interface UpdatedSessionActionInfo {
  */
 export interface UpdateWorkerScheduleRequest {
   /**
-   * <p>The farm ID to update.</p>
+   * The farm ID to update.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID to update.</p>
+   * The fleet ID to update.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The worker ID to update.</p>
+   * The worker ID to update.
    * @public
    */
   workerId: string | undefined;
 
   /**
-   * <p>The session actions associated with the worker schedule to update.</p>
+   * The session actions associated with the worker schedule to update.
    * @public
    */
   updatedSessionActions?: Record<string, UpdatedSessionActionInfo> | undefined;
@@ -7513,25 +7461,25 @@ export interface UpdateWorkerScheduleRequest {
  */
 export interface UpdateWorkerScheduleResponse {
   /**
-   * <p>The assigned sessions to update.</p>
+   * The assigned sessions to update.
    * @public
    */
   assignedSessions: Record<string, AssignedSession> | undefined;
 
   /**
-   * <p>The session actions associated with the worker schedule to cancel.</p>
+   * The session actions associated with the worker schedule to cancel.
    * @public
    */
   cancelSessionActions: Record<string, string[]> | undefined;
 
   /**
-   * <p>The status to update the worker to.</p>
+   * The status to update the worker to.
    * @public
    */
   desiredWorkerStatus?: DesiredWorkerStatus | undefined;
 
   /**
-   * <p>Updates the time interval (in seconds) for the schedule.</p>
+   * Updates the time interval (in seconds) for the schedule.
    * @public
    */
   updateIntervalSeconds: number | undefined;
@@ -7542,20 +7490,18 @@ export interface UpdateWorkerScheduleResponse {
  */
 export interface GetFarmRequest {
   /**
-   * <p>The farm ID of the farm.</p>
+   * The farm ID of the farm.
    * @public
    */
   farmId: string | undefined;
 }
 
 /**
- * Mixin that adds an optional ARN field to response structures.
- * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface GetFarmResponse {
   /**
-   * <p>The farm ID of the farm to get.</p>
+   * The farm ID of the farm to get.
    * @public
    */
   farmId: string | undefined;
@@ -7567,31 +7513,31 @@ export interface GetFarmResponse {
   displayName: string | undefined;
 
   /**
-   * <p>The ARN of the KMS key used on the farm.</p>
+   * The ARN of the KMS key used on the farm.
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
@@ -7603,7 +7549,7 @@ export interface GetFarmResponse {
   description?: string | undefined;
 
   /**
-   * <p>A multiplier applied to the farm's calculated costs for usage data and budget tracking. A value less than 1 represents a discount, a value greater than 1 represents a premium, and a value of 1 represents no adjustment.</p>
+   * A multiplier applied to the farm's calculated costs for usage data and budget tracking. A value less than 1 represents a discount, a value greater than 1 represents a premium, and a value of 1 represents no adjustment.
    * @public
    */
   costScaleFactor: number | undefined;
@@ -7614,61 +7560,60 @@ export interface GetFarmResponse {
  */
 export interface GetLimitRequest {
   /**
-   * <p>The unique identifier of the farm that contains the limit.</p>
+   * The unique identifier of the farm that contains the limit.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The unique identifier of the limit to return.</p>
+   * The unique identifier of the limit to return.
    * @public
    */
   limitId: string | undefined;
 }
 
 /**
- * Domain fields for Limit summary/response shapes, ordered before timestamps.
  * @public
  */
 export interface GetLimitResponse {
   /**
-   * <p>The unique identifier of the farm that contains the limit.</p>
+   * The unique identifier of the farm that contains the limit.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The unique identifier of the limit.</p>
+   * The unique identifier of the limit.
    * @public
    */
   limitId: string | undefined;
 
   /**
-   * <p>The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.</p>
+   * The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.
    * @public
    */
   currentCount: number | undefined;
 
   /**
-   * <p>The Unix timestamp of the date and time that the limit was created.</p>
+   * The Unix timestamp of the date and time that the limit was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user identifier of the person that created the limit.</p>
+   * The user identifier of the person that created the limit.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The Unix timestamp of the date and time that the limit was last updated.</p>
+   * The Unix timestamp of the date and time that the limit was last updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user identifier of the person that last updated the limit.</p>
+   * The user identifier of the person that last updated the limit.
    * @public
    */
   updatedBy?: string | undefined;
@@ -7680,13 +7625,16 @@ export interface GetLimitResponse {
   displayName: string | undefined;
 
   /**
-   * <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.</p>
+   * The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.
    * @public
    */
   amountRequirementName: string | undefined;
 
   /**
-   * <p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>
+   * The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.
+   *
+   * The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
+   *
    * @public
    */
   maxCount: number | undefined;
@@ -7703,13 +7651,13 @@ export interface GetLimitResponse {
  */
 export interface GetStorageProfileRequest {
   /**
-   * <p>The farm ID for the storage profile.</p>
+   * The farm ID for the storage profile.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The storage profile ID.</p>
+   * The storage profile ID.
    * @public
    */
   storageProfileId: string | undefined;
@@ -7720,7 +7668,7 @@ export interface GetStorageProfileRequest {
  */
 export interface GetStorageProfileResponse {
   /**
-   * <p>The storage profile ID.</p>
+   * The storage profile ID.
    * @public
    */
   storageProfileId: string | undefined;
@@ -7732,151 +7680,148 @@ export interface GetStorageProfileResponse {
   displayName: string | undefined;
 
   /**
-   * <p>The operating system (OS) for the storage profile.</p>
+   * The operating system (OS) for the storage profile.
    * @public
    */
   osFamily: StorageProfileOperatingSystemFamily | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The location of the files for the storage profile.</p>
+   * The location of the files for the storage profile.
    * @public
    */
   fileSystemLocations?: FileSystemLocation[] | undefined;
 }
 
 /**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListFarmMembersRequest {
   /**
-   * <p>The farm ID.</p>
+   * The farm ID.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * The token for the next set of results, or <code>null</code> to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The member of a farm.</p>
+ * The member of a farm.
  * @public
  */
 export interface FarmMember {
   /**
-   * <p>The farm ID of the farm member.</p>
+   * The farm ID of the farm member.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The principal ID of the farm member.</p>
+   * The principal ID of the farm member.
    * @public
    */
   principalId: string | undefined;
 
   /**
-   * <p>The principal type of the farm member.</p>
+   * The principal type of the farm member.
    * @public
    */
   principalType: DeadlinePrincipalType | undefined;
 
   /**
-   * <p>The identity store ID of the farm member.</p>
+   * The identity store ID of the farm member.
    * @public
    */
   identityStoreId: string | undefined;
 
   /**
-   * <p>The farm member's membership level.</p>
+   * The farm member's membership level.
    * @public
    */
   membershipLevel: MembershipLevel | undefined;
 }
 
 /**
- * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListFarmMembersResponse {
   /**
-   * <p>The members on the list.</p>
+   * The members on the list.
    * @public
    */
   members: FarmMember[] | undefined;
 
   /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListFarmsRequest {
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * The token for the next set of results, or <code>null</code> to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The principal ID of the member to list on the farm.</p>
+   * The principal ID of the member to list on the farm.
    * @public
    */
   principalId?: string | undefined;
 }
 
 /**
- * <p>The summary of details for a farm.</p>
+ * The summary of details for a farm.
  * @public
  */
 export interface FarmSummary {
   /**
-   * <p>The farm ID.</p>
+   * The farm ID.
    * @public
    */
   farmId: string | undefined;
@@ -7888,121 +7833,119 @@ export interface FarmSummary {
   displayName: string | undefined;
 
   /**
-   * <p>The ARN for the KMS key.</p>
+   * The ARN for the KMS key.
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 }
 
 /**
- * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListFarmsResponse {
   /**
-   * <p>Farms on the list.</p>
+   * Farms on the list.
    * @public
    */
   farms: FarmSummary[] | undefined;
 
   /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListLimitsRequest {
   /**
-   * <p>The unique identifier of the farm that contains the limits.</p>
+   * The unique identifier of the farm that contains the limits.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * The token for the next set of results, or <code>null</code> to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of limits to return in each page of results.</p>
+   * The maximum number of limits to return in each page of results.
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Provides information about a specific limit.</p>
+ * Provides information about a specific limit.
  * @public
  */
 export interface LimitSummary {
   /**
-   * <p>The unique identifier of the farm that contains the limit.</p>
+   * The unique identifier of the farm that contains the limit.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The unique identifier of the limit.</p>
+   * The unique identifier of the limit.
    * @public
    */
   limitId: string | undefined;
 
   /**
-   * <p>The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.</p>
+   * The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.
    * @public
    */
   currentCount: number | undefined;
 
   /**
-   * <p>The Unix timestamp of the date and time that the limit was created.</p>
+   * The Unix timestamp of the date and time that the limit was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user identifier of the person that created the limit.</p>
+   * The user identifier of the person that created the limit.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The Unix timestamp of the date and time that the limit was last updated.</p>
+   * The Unix timestamp of the date and time that the limit was last updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user identifier of the person that last updated the limit.</p>
+   * The user identifier of the person that last updated the limit.
    * @public
    */
   updatedBy?: string | undefined;
@@ -8014,67 +7957,68 @@ export interface LimitSummary {
   displayName: string | undefined;
 
   /**
-   * <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.</p>
+   * The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.
    * @public
    */
   amountRequirementName: string | undefined;
 
   /**
-   * <p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>
+   * The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.
+   *
+   * The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
+   *
    * @public
    */
   maxCount: number | undefined;
 }
 
 /**
- * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListLimitsResponse {
   /**
-   * <p>A list of limits that the farm contains.</p>
+   * A list of limits that the farm contains.
    * @public
    */
   limits: LimitSummary[] | undefined;
 
   /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListStorageProfilesRequest {
   /**
-   * <p>The farm ID of the storage profile.</p>
+   * The farm ID of the storage profile.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * The token for the next set of results, or <code>null</code> to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The details of a storage profile.</p>
+ * The details of a storage profile.
  * @public
  */
 export interface StorageProfileSummary {
   /**
-   * <p>The storage profile ID.</p>
+   * The storage profile ID.
    * @public
    */
   storageProfileId: string | undefined;
@@ -8086,25 +8030,24 @@ export interface StorageProfileSummary {
   displayName: string | undefined;
 
   /**
-   * <p>The operating system (OS) family.</p>
+   * The operating system (OS) family.
    * @public
    */
   osFamily: StorageProfileOperatingSystemFamily | undefined;
 }
 
 /**
- * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListStorageProfilesResponse {
   /**
-   * <p>The storage profiles.</p>
+   * The storage profiles.
    * @public
    */
   storageProfiles: StorageProfileSummary[] | undefined;
 
   /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
    * @public
    */
   nextToken?: string | undefined;
@@ -8115,13 +8058,13 @@ export interface ListStorageProfilesResponse {
  */
 export interface DeleteQueueRequest {
   /**
-   * <p>The ID of the farm from which to remove the queue.</p>
+   * The ID of the farm from which to remove the queue.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the queue to delete.</p>
+   * The queue ID of the queue to delete.
    * @public
    */
   queueId: string | undefined;
@@ -8137,19 +8080,19 @@ export interface DeleteQueueResponse {}
  */
 export interface DeleteQueueEnvironmentRequest {
   /**
-   * <p>The farm ID of the farm from which to remove the queue environment.</p>
+   * The farm ID of the farm from which to remove the queue environment.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the queue environment to delete.</p>
+   * The queue ID of the queue environment to delete.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The queue environment ID of the queue environment to delete.</p>
+   * The queue environment ID of the queue environment to delete.
    * @public
    */
   queueEnvironmentId: string | undefined;
@@ -8165,19 +8108,19 @@ export interface DeleteQueueEnvironmentResponse {}
  */
 export interface DisassociateMemberFromQueueRequest {
   /**
-   * <p>The farm ID for the queue to disassociate from a member.</p>
+   * The farm ID for the queue to disassociate from a member.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID of the queue in which you're disassociating from a member.</p>
+   * The queue ID of the queue in which you're disassociating from a member.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>A member's principal ID to disassociate from a queue.</p>
+   * A member's principal ID to disassociate from a queue.
    * @public
    */
   principalId: string | undefined;
@@ -8193,32 +8136,30 @@ export interface DisassociateMemberFromQueueResponse {}
  */
 export interface GetQueueRequest {
   /**
-   * <p>The farm ID of the farm in the queue.</p>
+   * The farm ID of the farm in the queue.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID for the queue to retrieve.</p>
+   * The queue ID for the queue to retrieve.
    * @public
    */
   queueId: string | undefined;
 }
 
 /**
- * Mixin that adds an optional ARN field to response structures.
- * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface GetQueueResponse {
   /**
-   * <p>The farm ID for the queue.</p>
+   * The farm ID for the queue.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID.</p>
+   * The queue ID.
    * @public
    */
   queueId: string | undefined;
@@ -8236,37 +8177,37 @@ export interface GetQueueResponse {
   status: QueueStatus | undefined;
 
   /**
-   * <p>The default action taken on a queue if a budget wasn't configured.</p>
+   * The default action taken on a queue if a budget wasn't configured.
    * @public
    */
   defaultBudgetAction: DefaultQueueBudgetAction | undefined;
 
   /**
-   * <p>The reason the queue was blocked.</p>
+   * The reason the queue was blocked.
    * @public
    */
   blockedReason?: QueueBlockedReason | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
@@ -8278,37 +8219,37 @@ export interface GetQueueResponse {
   description?: string | undefined;
 
   /**
-   * <p>The job attachment settings for the queue.</p>
+   * The job attachment settings for the queue.
    * @public
    */
   jobAttachmentSettings?: JobAttachmentSettings | undefined;
 
   /**
-   * <p>The IAM role ARN.</p>
+   * The IAM role ARN.
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>A list of the required file system location names in the queue.</p>
+   * A list of the required file system location names in the queue.
    * @public
    */
   requiredFileSystemLocationNames?: string[] | undefined;
 
   /**
-   * <p>The storage profile IDs for the queue.</p>
+   * The storage profile IDs for the queue.
    * @public
    */
   allowedStorageProfileIds?: string[] | undefined;
 
   /**
-   * <p>The jobs in the queue ran as this specified POSIX user.</p>
+   * The jobs in the queue ran as this specified POSIX user.
    * @public
    */
   jobRunAsUser?: JobRunAsUser | undefined;
 
   /**
-   * <p>The scheduling configuration for the queue. This configuration determines how workers are assigned to jobs in the queue.</p>
+   * The scheduling configuration for the queue. This configuration determines how workers are assigned to jobs in the queue.
    * @public
    */
   schedulingConfiguration?: SchedulingConfiguration | undefined;
@@ -8319,19 +8260,19 @@ export interface GetQueueResponse {
  */
 export interface GetQueueEnvironmentRequest {
   /**
-   * <p>The farm ID for the queue environment.</p>
+   * The farm ID for the queue environment.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID for the queue environment.</p>
+   * The queue ID for the queue environment.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The queue environment ID.</p>
+   * The queue environment ID.
    * @public
    */
   queueEnvironmentId: string | undefined;
@@ -8342,55 +8283,55 @@ export interface GetQueueEnvironmentRequest {
  */
 export interface GetQueueEnvironmentResponse {
   /**
-   * <p>The queue environment ID.</p>
+   * The queue environment ID.
    * @public
    */
   queueEnvironmentId: string | undefined;
 
   /**
-   * <p>The name of the queue environment.</p>
+   * The name of the queue environment.
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The priority of the queue environment.</p>
+   * The priority of the queue environment.
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The type of template for the queue environment.</p>
+   * The type of template for the queue environment.
    * @public
    */
   templateType: EnvironmentTemplateType | undefined;
 
   /**
-   * <p>The template for the queue environment.</p>
+   * The template for the queue environment.
    * @public
    */
   template: string | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.&gt;</p>
+   * The user or system that created this resource.&gt;
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
@@ -8401,19 +8342,19 @@ export interface GetQueueEnvironmentResponse {
  */
 export interface GetStorageProfileForQueueRequest {
   /**
-   * <p>The farm ID for the queue in storage profile.</p>
+   * The farm ID for the queue in storage profile.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID the queue in the storage profile.</p>
+   * The queue ID the queue in the storage profile.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The storage profile ID for the storage profile in the queue.</p>
+   * The storage profile ID for the storage profile in the queue.
    * @public
    */
   storageProfileId: string | undefined;
@@ -8424,7 +8365,7 @@ export interface GetStorageProfileForQueueRequest {
  */
 export interface GetStorageProfileForQueueResponse {
   /**
-   * <p>The storage profile ID.</p>
+   * The storage profile ID.
    * @public
    */
   storageProfileId: string | undefined;
@@ -8436,13 +8377,13 @@ export interface GetStorageProfileForQueueResponse {
   displayName: string | undefined;
 
   /**
-   * <p>The operating system of the storage profile in the queue.</p>
+   * The operating system of the storage profile in the queue.
    * @public
    */
   osFamily: StorageProfileOperatingSystemFamily | undefined;
 
   /**
-   * <p>The location of the files for the storage profile within the queue.</p>
+   * The location of the files for the storage profile within the queue.
    * @public
    */
   fileSystemLocations?: FileSystemLocation[] | undefined;
@@ -8453,25 +8394,25 @@ export interface GetStorageProfileForQueueResponse {
  */
 export interface DisassociateMemberFromJobRequest {
   /**
-   * <p>The farm ID for the job to disassociate from the member.</p>
+   * The farm ID for the job to disassociate from the member.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID connected to a job for which you're disassociating a member.</p>
+   * The queue ID connected to a job for which you're disassociating a member.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID to disassociate from a member in a job.</p>
+   * The job ID to disassociate from a member in a job.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>A member's principal ID to disassociate from a job.</p>
+   * A member's principal ID to disassociate from a job.
    * @public
    */
   principalId: string | undefined;
@@ -8487,38 +8428,36 @@ export interface DisassociateMemberFromJobResponse {}
  */
 export interface GetJobRequest {
   /**
-   * <p>The farm ID of the farm in the job.</p>
+   * The farm ID of the farm in the job.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID associated with the job.</p>
+   * The queue ID associated with the job.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 }
 
 /**
- * Mixin that adds an optional ARN field to response structures.
- * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface GetJobResponse {
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The name of the job.</p>
+   * The name of the job.
    * @public
    */
   name: string | undefined;
@@ -8530,103 +8469,103 @@ export interface GetJobResponse {
   lifecycleStatus: JobLifecycleStatus | undefined;
 
   /**
-   * <p>A message that communicates the status of the life cycle for the job.</p>
+   * A message that communicates the status of the life cycle for the job.
    * @public
    */
   lifecycleStatusMessage: string | undefined;
 
   /**
-   * <p>The job priority.</p>
+   * The job priority.
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The date and time the resource started running.</p>
+   * The date and time the resource started running.
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the resource ended running.</p>
+   * The date and time the resource ended running.
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The task run status for the job.</p>
+   * The task run status for the job.
    * @public
    */
   taskRunStatus?: TaskRunStatus | undefined;
 
   /**
-   * <p>The task status with which the job started.</p>
+   * The task status with which the job started.
    * @public
    */
   targetTaskRunStatus?: JobTargetTaskRunStatus | undefined;
 
   /**
-   * <p>The number of tasks running on the job.</p>
+   * The number of tasks running on the job.
    * @public
    */
   taskRunStatusCounts?: Partial<Record<TaskRunStatus, number>> | undefined;
 
   /**
-   * <p>The total number of times tasks from the job failed and were retried.</p>
+   * The total number of times tasks from the job failed and were retried.
    * @public
    */
   taskFailureRetryCount?: number | undefined;
 
   /**
-   * <p>The storage profile ID associated with the job.</p>
+   * The storage profile ID associated with the job.
    * @public
    */
   storageProfileId?: string | undefined;
 
   /**
-   * <p>The number of task failures before the job stops running and is marked as <code>FAILED</code>.</p>
+   * The number of task failures before the job stops running and is marked as <code>FAILED</code>.
    * @public
    */
   maxFailedTasksCount?: number | undefined;
 
   /**
-   * <p>The maximum number of retries per failed tasks.</p>
+   * The maximum number of retries per failed tasks.
    * @public
    */
   maxRetriesPerTask?: number | undefined;
 
   /**
-   * <p>The parameters for the job.</p>
+   * The parameters for the job.
    * @public
    */
   parameters?: Record<string, JobParameter> | undefined;
 
   /**
-   * <p>The attachments for the job.</p>
+   * The attachments for the job.
    * @public
    */
   attachments?: Attachments | undefined;
@@ -8638,13 +8577,16 @@ export interface GetJobResponse {
   description?: string | undefined;
 
   /**
-   * <p>The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.</p> <p>If you don't set the <code>maxWorkerCount</code> when you create a job, this value is not returned in the response.</p>
+   * The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.
+   *
+   * If you don't set the <code>maxWorkerCount</code> when you create a job, this value is not returned in the response.
+   *
    * @public
    */
   maxWorkerCount?: number | undefined;
 
   /**
-   * <p>The job ID for the source job.</p>
+   * The job ID for the source job.
    * @public
    */
   sourceJobId?: string | undefined;
@@ -8655,103 +8597,102 @@ export interface GetJobResponse {
  */
 export interface GetSessionRequest {
   /**
-   * <p>The farm ID for the session.</p>
+   * The farm ID for the session.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID for the session.</p>
+   * The queue ID for the session.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID for the session.</p>
+   * The job ID for the session.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The session ID.</p>
+   * The session ID.
    * @public
    */
   sessionId: string | undefined;
 }
 
 /**
- * Session lifecycle/status fields, ordered after IDs in session shapes.
  * @public
  */
 export interface GetSessionResponse {
   /**
-   * <p>The session ID.</p>
+   * The session ID.
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The fleet ID for the session.</p>
+   * The fleet ID for the session.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The worker ID for the session.</p>
+   * The worker ID for the session.
    * @public
    */
   workerId: string | undefined;
 
   /**
-   * <p>The date and time the resource started running.</p>
+   * The date and time the resource started running.
    * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * <p>The life cycle status of the session.</p>
+   * The life cycle status of the session.
    * @public
    */
   lifecycleStatus: SessionLifecycleStatus | undefined;
 
   /**
-   * <p>The date and time the resource ended running.</p>
+   * The date and time the resource ended running.
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The life cycle status with which the session started.</p>
+   * The life cycle status with which the session started.
    * @public
    */
   targetLifecycleStatus?: SessionLifecycleTargetStatus | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The session log.</p>
+   * The session log.
    * @public
    */
   log: LogConfiguration | undefined;
 
   /**
-   * <p>Provides the Amazon EC2 properties of the host.</p>
+   * Provides the Amazon EC2 properties of the host.
    * @public
    */
   hostProperties?: HostPropertiesResponse | undefined;
 
   /**
-   * <p>The worker log for the session.</p>
+   * The worker log for the session.
    * @public
    */
   workerLog?: LogConfiguration | undefined;
@@ -8762,25 +8703,25 @@ export interface GetSessionResponse {
  */
 export interface GetSessionActionRequest {
   /**
-   * <p>The farm ID for the session action.</p>
+   * The farm ID for the session action.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID for the session action.</p>
+   * The queue ID for the session action.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID for the session.</p>
+   * The job ID for the session.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The session action ID for the session.</p>
+   * The session action ID for the session.
    * @public
    */
   sessionActionId: string | undefined;
@@ -8791,73 +8732,73 @@ export interface GetSessionActionRequest {
  */
 export interface GetSessionActionResponse {
   /**
-   * <p>The session action ID.</p>
+   * The session action ID.
    * @public
    */
   sessionActionId: string | undefined;
 
   /**
-   * <p>The status of the session action.</p>
+   * The status of the session action.
    * @public
    */
   status: SessionActionStatus | undefined;
 
   /**
-   * <p>The date and time the resource started running.</p>
+   * The date and time the resource started running.
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the resource ended running.</p>
+   * The date and time the resource ended running.
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The Linux timestamp of the date and time the session action was last updated.</p>
+   * The Linux timestamp of the date and time the session action was last updated.
    * @public
    */
   workerUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The percentage completed for a session action.</p>
+   * The percentage completed for a session action.
    * @public
    */
   progressPercent?: number | undefined;
 
   /**
-   * <p>The list of manifest properties that describe file attachments for the task run.</p>
+   * The list of manifest properties that describe file attachments for the task run.
    * @public
    */
   manifests?: TaskRunManifestPropertiesResponse[] | undefined;
 
   /**
-   * <p>The session ID for the session action.</p>
+   * The session ID for the session action.
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The process exit code. The default Deadline Cloud worker agent converts unsigned 32-bit exit codes to signed 32-bit exit codes.</p>
+   * The process exit code. The default Deadline Cloud worker agent converts unsigned 32-bit exit codes to signed 32-bit exit codes.
    * @public
    */
   processExitCode?: number | undefined;
 
   /**
-   * <p>The message that communicates the progress of the session action.</p>
+   * The message that communicates the progress of the session action.
    * @public
    */
   progressMessage?: string | undefined;
 
   /**
-   * <p>The limits and their amounts acquired during a session action. If no limits were acquired during the session, this field isn't returned.</p>
+   * The limits and their amounts acquired during a session action. If no limits were acquired during the session, this field isn't returned.
    * @public
    */
   acquiredLimits?: AcquiredLimit[] | undefined;
 
   /**
-   * <p>The session action definition.</p>
+   * The session action definition.
    * @public
    */
   definition: SessionActionDefinition | undefined;
@@ -8868,25 +8809,25 @@ export interface GetSessionActionResponse {
  */
 export interface GetStepRequest {
   /**
-   * <p>The farm ID for the step.</p>
+   * The farm ID for the step.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID for the step.</p>
+   * The queue ID for the step.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID for the step.</p>
+   * The job ID for the step.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The step ID.</p>
+   * The step ID.
    * @public
    */
   stepId: string | undefined;
@@ -8897,103 +8838,103 @@ export interface GetStepRequest {
  */
 export interface GetStepResponse {
   /**
-   * <p>The step ID.</p>
+   * The step ID.
    * @public
    */
   stepId: string | undefined;
 
   /**
-   * <p>The name of the step.</p>
+   * The name of the step.
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The life cycle status of the step.</p>
+   * The life cycle status of the step.
    * @public
    */
   lifecycleStatus: StepLifecycleStatus | undefined;
 
   /**
-   * <p>A message that describes the lifecycle status of the step.</p>
+   * A message that describes the lifecycle status of the step.
    * @public
    */
   lifecycleStatusMessage?: string | undefined;
 
   /**
-   * <p>The task run status for the job.</p>
+   * The task run status for the job.
    * @public
    */
   taskRunStatus: TaskRunStatus | undefined;
 
   /**
-   * <p>The number of tasks running on the job.</p>
+   * The number of tasks running on the job.
    * @public
    */
   taskRunStatusCounts: Partial<Record<TaskRunStatus, number>> | undefined;
 
   /**
-   * <p>The total number of times tasks from the step failed and were retried.</p>
+   * The total number of times tasks from the step failed and were retried.
    * @public
    */
   taskFailureRetryCount?: number | undefined;
 
   /**
-   * <p>The task status with which the job started.</p>
+   * The task status with which the job started.
    * @public
    */
   targetTaskRunStatus?: StepTargetTaskRunStatus | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The date and time the resource started running.</p>
+   * The date and time the resource started running.
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the resource ended running.</p>
+   * The date and time the resource ended running.
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The number of dependencies in the step.</p>
+   * The number of dependencies in the step.
    * @public
    */
   dependencyCounts?: DependencyCounts | undefined;
 
   /**
-   * <p>The required capabilities of the step.</p>
+   * The required capabilities of the step.
    * @public
    */
   requiredCapabilities?: StepRequiredCapabilities | undefined;
 
   /**
-   * <p>A list of step parameters and the combination expression for the step.</p>
+   * A list of step parameters and the combination expression for the step.
    * @public
    */
   parameterSpace?: ParameterSpace | undefined;
@@ -9010,31 +8951,31 @@ export interface GetStepResponse {
  */
 export interface GetTaskRequest {
   /**
-   * <p>The farm ID of the farm connected to the task.</p>
+   * The farm ID of the farm connected to the task.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID for the queue connected to the task.</p>
+   * The queue ID for the queue connected to the task.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID of the job connected to the task.</p>
+   * The job ID of the job connected to the task.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The step ID for the step connected to the task.</p>
+   * The step ID for the step connected to the task.
    * @public
    */
   stepId: string | undefined;
 
   /**
-   * <p>The task ID.</p>
+   * The task ID.
    * @public
    */
   taskId: string | undefined;
@@ -9045,337 +8986,332 @@ export interface GetTaskRequest {
  */
 export interface GetTaskResponse {
   /**
-   * <p>The task ID.</p>
+   * The task ID.
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The run status for the task.</p>
+   * The run status for the task.
    * @public
    */
   runStatus: TaskRunStatus | undefined;
 
   /**
-   * <p>The run status with which to start the task.</p>
+   * The run status with which to start the task.
    * @public
    */
   targetRunStatus?: TaskTargetRunStatus | undefined;
 
   /**
-   * <p>The number of times that the task failed and was retried.</p>
+   * The number of times that the task failed and was retried.
    * @public
    */
   failureRetryCount?: number | undefined;
 
   /**
-   * <p>The date and time the resource started running.</p>
+   * The date and time the resource started running.
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the resource ended running.</p>
+   * The date and time the resource ended running.
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The latest session action ID for the task.</p>
+   * The latest session action ID for the task.
    * @public
    */
   latestSessionActionId?: string | undefined;
 
   /**
-   * <p>The parameters for the task.</p>
+   * The parameters for the task.
    * @public
    */
   parameters?: Record<string, TaskParameterValue> | undefined;
 }
 
 /**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListJobMembersRequest {
   /**
-   * <p>The farm ID of the job to list.</p>
+   * The farm ID of the job to list.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID to include on the list.</p>
+   * The queue ID to include on the list.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID to include on the list.</p>
+   * The job ID to include on the list.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * The token for the next set of results, or <code>null</code> to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The details for a job member.</p>
+ * The details for a job member.
  * @public
  */
 export interface JobMember {
   /**
-   * <p>The farm ID.</p>
+   * The farm ID.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID.</p>
+   * The queue ID.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The principal ID of the job member.</p>
+   * The principal ID of the job member.
    * @public
    */
   principalId: string | undefined;
 
   /**
-   * <p>The principal type of the job member.</p>
+   * The principal type of the job member.
    * @public
    */
   principalType: DeadlinePrincipalType | undefined;
 
   /**
-   * <p>The identity store ID.</p>
+   * The identity store ID.
    * @public
    */
   identityStoreId: string | undefined;
 
   /**
-   * <p>The job member's membership level.</p>
+   * The job member's membership level.
    * @public
    */
   membershipLevel: MembershipLevel | undefined;
 }
 
 /**
- * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListJobMembersResponse {
   /**
-   * <p>The members on the list.</p>
+   * The members on the list.
    * @public
    */
   members: JobMember[] | undefined;
 
   /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListJobParameterDefinitionsRequest {
   /**
-   * <p>The farm ID of the job to list.</p>
+   * The farm ID of the job to list.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID to include on the list.</p>
+   * The queue ID to include on the list.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID to include on the list.</p>
+   * The job ID to include on the list.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * The token for the next set of results, or <code>null</code> to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListJobParameterDefinitionsResponse {
   /**
-   * <p>Lists parameter definitions of a job.</p>
+   * Lists parameter definitions of a job.
    * @public
    */
   jobParameterDefinitions: __DocumentType[] | undefined;
 
   /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListJobsRequest {
   /**
-   * <p>The farm ID for the jobs.</p>
+   * The farm ID for the jobs.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID for the job.</p>
+   * The queue ID for the job.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * The token for the next set of results, or <code>null</code> to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The principal ID of the members on the jobs.</p>
+   * The principal ID of the members on the jobs.
    * @public
    */
   principalId?: string | undefined;
 }
 
 /**
- * <p>A summary of job details.</p>
+ * A summary of job details.
  * @public
  */
 export interface JobSummary {
   /**
-   * <p>The job ID.</p>
+   * The job ID.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The job name.</p>
+   * The job name.
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The life cycle status.</p>
+   * The life cycle status.
    * @public
    */
   lifecycleStatus: JobLifecycleStatus | undefined;
 
   /**
-   * <p>The life cycle status message.</p>
+   * The life cycle status message.
    * @public
    */
   lifecycleStatusMessage: string | undefined;
 
   /**
-   * <p>The job priority.</p>
+   * The job priority.
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The user or system that created this resource.</p>
+   * The user or system that created this resource.
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The date and time the resource started running.</p>
+   * The date and time the resource started running.
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the resource ended running.</p>
+   * The date and time the resource ended running.
    * @public
    */
   endedAt?: Date | undefined;
@@ -9387,176 +9323,179 @@ export interface JobSummary {
   taskRunStatus?: TaskRunStatus | undefined;
 
   /**
-   * <p>The task status to update the job's tasks to.</p>
+   * The task status to update the job's tasks to.
    * @public
    */
   targetTaskRunStatus?: JobTargetTaskRunStatus | undefined;
 
   /**
-   * <p>The number of tasks running on the job.</p>
+   * The number of tasks running on the job.
    * @public
    */
   taskRunStatusCounts?: Partial<Record<TaskRunStatus, number>> | undefined;
 
   /**
-   * <p>The total number of times tasks from the job failed and were retried.</p>
+   * The total number of times tasks from the job failed and were retried.
    * @public
    */
   taskFailureRetryCount?: number | undefined;
 
   /**
-   * <p>The number of task failures before the job stops running and is marked as <code>FAILED</code>.</p>
+   * The number of task failures before the job stops running and is marked as <code>FAILED</code>.
    * @public
    */
   maxFailedTasksCount?: number | undefined;
 
   /**
-   * <p>The maximum number of retries for a job.</p>
+   * The maximum number of retries for a job.
    * @public
    */
   maxRetriesPerTask?: number | undefined;
 
   /**
-   * <p>The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.</p> <p>You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no maximum number of workers.</p> <p>If you don't specify the <code>maxWorkerCount</code>, the default is -1.</p>
+   * The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.
+   *
+   * You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no maximum number of workers.
+   *
+   * If you don't specify the <code>maxWorkerCount</code>, the default is -1.
+   *
    * @public
    */
   maxWorkerCount?: number | undefined;
 
   /**
-   * <p>The job ID for the source job.</p>
+   * The job ID for the source job.
    * @public
    */
   sourceJobId?: string | undefined;
 }
 
 /**
- * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListJobsResponse {
   /**
-   * <p>The jobs on the list.</p>
+   * The jobs on the list.
    * @public
    */
   jobs: JobSummary[] | undefined;
 
   /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListSessionActionsRequest {
   /**
-   * <p>The farm ID for the session actions list.</p>
+   * The farm ID for the session actions list.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID for the session actions list.</p>
+   * The queue ID for the session actions list.
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID for the session actions list.</p>
+   * The job ID for the session actions list.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * The token for the next set of results, or <code>null</code> to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The session ID to include on the sessions action list.</p>
+   * The session ID to include on the sessions action list.
    * @public
    */
   sessionId?: string | undefined;
 
   /**
-   * <p>The task ID for the session actions list.</p>
+   * The task ID for the session actions list.
    * @public
    */
   taskId?: string | undefined;
 }
 
 /**
- * <p>Defines the environment a session action enters in.</p>
+ * Defines the environment a session action enters in.
  * @public
  */
 export interface EnvironmentEnterSessionActionDefinitionSummary {
   /**
-   * <p>The environment ID.</p>
+   * The environment ID.
    * @public
    */
   environmentId: string | undefined;
 }
 
 /**
- * <p>A summary of the environment details for which a session action to exits.</p>
+ * A summary of the environment details for which a session action to exits.
  * @public
  */
 export interface EnvironmentExitSessionActionDefinitionSummary {
   /**
-   * <p>The environment ID.</p>
+   * The environment ID.
    * @public
    */
   environmentId: string | undefined;
 }
 
 /**
- * <p>The summary of the session action definition for syncing input job attachments.</p>
+ * The summary of the session action definition for syncing input job attachments.
  * @public
  */
 export interface SyncInputJobAttachmentsSessionActionDefinitionSummary {
   /**
-   * <p>The step ID for the sync input job attachments session action summary.</p>
+   * The step ID for the sync input job attachments session action summary.
    * @public
    */
   stepId?: string | undefined;
 }
 
 /**
- * <p>The details of a task run in a session action.</p>
+ * The details of a task run in a session action.
  * @public
  */
 export interface TaskRunSessionActionDefinitionSummary {
   /**
-   * <p>The task ID.</p>
+   * The task ID.
    * @public
    */
   taskId?: string | undefined;
 
   /**
-   * <p>The step ID.</p>
+   * The step ID.
    * @public
    */
   stepId: string | undefined;
 
   /**
-   * <p>The parameters of a task run in a session action.</p>
+   * The parameters of a task run in a session action.
    * @public
    */
   parameters?: Record<string, TaskParameterValue> | undefined;
 }
 
 /**
- * <p>The details of a session action definition.</p>
+ * The details of a session action definition.
  * @public
  */
 export type SessionActionDefinitionSummary =
@@ -9571,7 +9510,7 @@ export type SessionActionDefinitionSummary =
  */
 export namespace SessionActionDefinitionSummary {
   /**
-   * <p>The environment to enter into.</p>
+   * The environment to enter into.
    * @public
    */
   export interface EnvEnterMember {
@@ -9583,7 +9522,7 @@ export namespace SessionActionDefinitionSummary {
   }
 
   /**
-   * <p>The environment to exit from.</p>
+   * The environment to exit from.
    * @public
    */
   export interface EnvExitMember {
@@ -9595,7 +9534,7 @@ export namespace SessionActionDefinitionSummary {
   }
 
   /**
-   * <p>The task run.</p>
+   * The task run.
    * @public
    */
   export interface TaskRunMember {
@@ -9607,7 +9546,7 @@ export namespace SessionActionDefinitionSummary {
   }
 
   /**
-   * <p>The session action definition summary for syncing input job attachments.</p>
+   * The session action definition summary for syncing input job attachments.
    * @public
    */
   export interface SyncInputJobAttachmentsMember {
@@ -9643,186 +9582,183 @@ export namespace SessionActionDefinitionSummary {
 }
 
 /**
- * <p>The details of a session action.</p>
+ * The details of a session action.
  * @public
  */
 export interface SessionActionSummary {
   /**
-   * <p>The session action ID.</p>
+   * The session action ID.
    * @public
    */
   sessionActionId: string | undefined;
 
   /**
-   * <p>The status of the session action.</p>
+   * The status of the session action.
    * @public
    */
   status: SessionActionStatus | undefined;
 
   /**
-   * <p>The date and time the resource started running.</p>
+   * The date and time the resource started running.
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the resource ended running.</p>
+   * The date and time the resource ended running.
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The Linux timestamp of the last date and time that the session action was updated.</p>
+   * The Linux timestamp of the last date and time that the session action was updated.
    * @public
    */
   workerUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The completion percentage for the session action.</p>
+   * The completion percentage for the session action.
    * @public
    */
   progressPercent?: number | undefined;
 
   /**
-   * <p>The list of manifest properties that describe file attachments for the task run.</p>
+   * The list of manifest properties that describe file attachments for the task run.
    * @public
    */
   manifests?: TaskRunManifestPropertiesResponse[] | undefined;
 
   /**
-   * <p>The session action definition.</p>
+   * The session action definition.
    * @public
    */
   definition: SessionActionDefinitionSummary | undefined;
 }
 
 /**
- * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListSessionActionsResponse {
   /**
-   * <p>The session actions.</p>
+   * The session actions.
    * @public
    */
   sessionActions: SessionActionSummary[] | undefined;
 
   /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListSessionsRequest {
   /**
-   * <p>The farm ID for the list of sessions.</p>
+   * The farm ID for the list of sessions.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The queue ID for the list of sessions</p>
+   * The queue ID for the list of sessions
    * @public
    */
   queueId: string | undefined;
 
   /**
-   * <p>The job ID for the list of sessions.</p>
+   * The job ID for the list of sessions.
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * The token for the next set of results, or <code>null</code> to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The summary of a session.</p>
+ * The summary of a session.
  * @public
  */
 export interface SessionSummary {
   /**
-   * <p>The session ID.</p>
+   * The session ID.
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The fleet ID.</p>
+   * The fleet ID.
    * @public
    */
   fleetId: string | undefined;
 
   /**
-   * <p>The worker ID.</p>
+   * The worker ID.
    * @public
    */
   workerId: string | undefined;
 
   /**
-   * <p>The date and time the resource started running.</p>
+   * The date and time the resource started running.
    * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * <p>The life cycle status for the session.</p>
+   * The life cycle status for the session.
    * @public
    */
   lifecycleStatus: SessionLifecycleStatus | undefined;
 
   /**
-   * <p>The date and time the resource ended running.</p>
+   * The date and time the resource ended running.
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The target life cycle status for the session.</p>
+   * The target life cycle status for the session.
    * @public
    */
   targetLifecycleStatus?: SessionLifecycleTargetStatus | undefined;
 
   /**
-   * <p>The date and time the resource was updated.</p>
+   * The date and time the resource was updated.
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user or system that updated this resource.</p>
+   * The user or system that updated this resource.
    * @public
    */
   updatedBy?: string | undefined;
 }
 
 /**
- * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListSessionsResponse {
   /**
-   * <p>The sessions on the list.</p>
+   * The sessions on the list.
    * @public
    */
   sessions: SessionSummary[] | undefined;
 
   /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
    * @public
    */
   nextToken?: string | undefined;
