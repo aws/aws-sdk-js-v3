@@ -105,7 +105,7 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *   GranteePrincipal: "STRING_VALUE",
  *   RetiringPrincipal: "STRING_VALUE",
  *   Operations: [ // GrantOperationList // required
- *     "Decrypt" || "Encrypt" || "GenerateDataKey" || "GenerateDataKeyWithoutPlaintext" || "ReEncryptFrom" || "ReEncryptTo" || "Sign" || "Verify" || "GetPublicKey" || "CreateGrant" || "RetireGrant" || "DescribeKey" || "GenerateDataKeyPair" || "GenerateDataKeyPairWithoutPlaintext" || "GenerateMac" || "VerifyMac" || "DeriveSharedSecret",
+ *     "Decrypt" || "Encrypt" || "GenerateDataKey" || "GenerateDataKeyWithoutPlaintext" || "ReEncryptFrom" || "ReEncryptTo" || "Sign" || "Verify" || "GetPublicKey" || "CreateGrant" || "RetireGrant" || "DescribeKey" || "GenerateDataKeyPair" || "GenerateDataKeyPairWithoutPlaintext" || "GenerateMac" || "VerifyMac" || "DeriveSharedSecret" || "Encapsulate" || "Decapsulate",
  *   ],
  *   Constraints: { // GrantConstraints
  *     EncryptionContextSubset: { // EncryptionContextType

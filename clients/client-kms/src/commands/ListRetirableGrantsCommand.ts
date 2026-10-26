@@ -108,7 +108,7 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  * //       RetiringPrincipal: "STRING_VALUE",
  * //       IssuingAccount: "STRING_VALUE",
  * //       Operations: [ // GrantOperationList
- * //         "Decrypt" || "Encrypt" || "GenerateDataKey" || "GenerateDataKeyWithoutPlaintext" || "ReEncryptFrom" || "ReEncryptTo" || "Sign" || "Verify" || "GetPublicKey" || "CreateGrant" || "RetireGrant" || "DescribeKey" || "GenerateDataKeyPair" || "GenerateDataKeyPairWithoutPlaintext" || "GenerateMac" || "VerifyMac" || "DeriveSharedSecret",
+ * //         "Decrypt" || "Encrypt" || "GenerateDataKey" || "GenerateDataKeyWithoutPlaintext" || "ReEncryptFrom" || "ReEncryptTo" || "Sign" || "Verify" || "GetPublicKey" || "CreateGrant" || "RetireGrant" || "DescribeKey" || "GenerateDataKeyPair" || "GenerateDataKeyPairWithoutPlaintext" || "GenerateMac" || "VerifyMac" || "DeriveSharedSecret" || "Encapsulate" || "Decapsulate",
  * //       ],
  * //       Constraints: { // GrantConstraints
  * //         EncryptionContextSubset: { // EncryptionContextType

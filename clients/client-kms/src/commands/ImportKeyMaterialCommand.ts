@@ -212,6 +212,9 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  *       invalid.</p>
  *          <p>From the <a>ImportKeyMaterial</a> operation, the request was rejected because
  *       KMS could not decrypt the encrypted (wrapped) key material. </p>
+ *          <p>From the <a>Decapsulate</a> operation, the request was rejected because the
+ *       length of the <code>SharedSecretCiphertextBlob</code> is inconsistent with the specified ML-KEM
+ *       key spec.</p>
  *
  * @throws {@link InvalidImportTokenException} (client fault)
  *  <p>The request was rejected because the provided import token is invalid or is associated

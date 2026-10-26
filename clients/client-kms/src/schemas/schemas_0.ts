@@ -84,16 +84,21 @@ const _DKi = "DisableKey";
 const _DR = "DryRun";
 const _DRM = "DryRunModifiers";
 const _DROE = "DryRunOperationException";
-const _DRe = "DecryptRequest";
-const _DRec = "DecryptResponse";
+const _DRe = "DecapsulateRequest";
+const _DRec = "DecapsulateResponse";
+const _DRecr = "DecryptRequest";
+const _DRecry = "DecryptResponse";
 const _DSS = "DeriveSharedSecret";
 const _DSSR = "DeriveSharedSecretRequest";
 const _DSSRe = "DeriveSharedSecretResponse";
 const _DTE = "DependencyTimeoutException";
-const _De = "Decrypt";
+const _De = "Decapsulate";
+const _Dec = "Decrypt";
 const _E = "Enabled";
-const _EA = "EncryptionAlgorithm";
-const _EAn = "EncryptionAlgorithms";
+const _EA = "EncapsulationAlgorithm";
+const _EAn = "EncryptionAlgorithm";
+const _EAnc = "EncryptionAlgorithms";
+const _EAnca = "EncapsulationAlgorithms";
 const _EC = "EncryptionContext";
 const _ECE = "EncryptionContextEquals";
 const _ECS = "EncryptionContextSubset";
@@ -104,9 +109,12 @@ const _EKR = "EnableKeyRequest";
 const _EKRR = "EnableKeyRotationRequest";
 const _EKRn = "EnableKeyRotation";
 const _EM = "ExpirationModel";
-const _ER = "EncryptRequest";
-const _ERn = "EncryptResponse";
-const _En = "Encrypt";
+const _ER = "EncapsulateRequest";
+const _ERn = "EncapsulateResponse";
+const _ERnc = "EncryptRequest";
+const _ERncr = "EncryptResponse";
+const _En = "Encapsulate";
+const _Enc = "Encrypt";
 const _G = "Grants";
 const _GC = "GrantConstraints";
 const _GDK = "GenerateDataKey";
@@ -304,6 +312,7 @@ const _SKMI = "SourceKeyMaterialId";
 const _SR = "SignRequest";
 const _SRi = "SignResponse";
 const _SS = "SharedSecret";
+const _SSCB = "SharedSecretCiphertextBlob";
 const _SV = "SignatureValid";
 const _Si = "Sign";
 const _T = "Tags";
@@ -814,14 +823,24 @@ export var CustomKeyStoresListEntry$: StaticStructureSchema = [3, n0, _CKSLE,
   [_CKSI, _CKSN, _CHCI, _TAC, _CS, _CEC, _CD, _CKST, _XPCk],
   [0, 0, 0, 0, 0, 0, 4, 0, [() => XksProxyConfigurationType$, 0]]
 ];
-export var DecryptRequest$: StaticStructureSchema = [3, n0, _DRe,
+export var DecapsulateRequest$: StaticStructureSchema = [3, n0, _DRe,
   0,
-  [_CB, _EC, _GT, _KI, _EA, _R, _DR, _DRM],
+  [_KI, _SSCB, _EA, _GT, _DR],
+  [0, 21, 0, 64 | 0, 2], 3
+];
+export var DecapsulateResponse$: StaticStructureSchema = [3, n0, _DRec,
+  0,
+  [_KI, _SS, _EA],
+  [0, [() => PlaintextType, 0], 0]
+];
+export var DecryptRequest$: StaticStructureSchema = [3, n0, _DRecr,
+  0,
+  [_CB, _EC, _GT, _KI, _EAn, _R, _DR, _DRM],
   [21, 128 | 0, 64 | 0, 0, 0, () => RecipientInfo$, 2, 64 | 0]
 ];
-export var DecryptResponse$: StaticStructureSchema = [3, n0, _DRec,
+export var DecryptResponse$: StaticStructureSchema = [3, n0, _DRecry,
   0,
-  [_KI, _Pl, _EA, _CFR, _KMI],
+  [_KI, _Pl, _EAn, _CFR, _KMI],
   [0, [() => PlaintextType, 0], 0, 21, 0]
 ];
 export var DeleteAliasRequest$: StaticStructureSchema = [3, n0, _DAR,
@@ -909,14 +928,24 @@ export var EnableKeyRotationRequest$: StaticStructureSchema = [3, n0, _EKRR,
   [_KI, _RPID],
   [0, 1], 1
 ];
-export var EncryptRequest$: StaticStructureSchema = [3, n0, _ER,
+export var EncapsulateRequest$: StaticStructureSchema = [3, n0, _ER,
   0,
-  [_KI, _Pl, _EC, _GT, _EA, _DR],
+  [_KI, _EA, _GT, _DR],
+  [0, 0, 64 | 0, 2], 2
+];
+export var EncapsulateResponse$: StaticStructureSchema = [3, n0, _ERn,
+  0,
+  [_KI, _SS, _SSCB, _EA],
+  [0, [() => PlaintextType, 0], 21, 0]
+];
+export var EncryptRequest$: StaticStructureSchema = [3, n0, _ERnc,
+  0,
+  [_KI, _Pl, _EC, _GT, _EAn, _DR],
   [0, [() => PlaintextType, 0], 128 | 0, 64 | 0, 0, 2], 2
 ];
-export var EncryptResponse$: StaticStructureSchema = [3, n0, _ERn,
+export var EncryptResponse$: StaticStructureSchema = [3, n0, _ERncr,
   0,
-  [_CB, _KI, _EA],
+  [_CB, _KI, _EAn],
   [21, 0, 0]
 ];
 export var GenerateDataKeyPairRequest$: StaticStructureSchema = [3, n0, _GDKPR,
@@ -1026,8 +1055,8 @@ export var GetPublicKeyRequest$: StaticStructureSchema = [3, n0, _GPKR,
 ];
 export var GetPublicKeyResponse$: StaticStructureSchema = [3, n0, _GPKRe,
   0,
-  [_KI, _PK, _CMKS, _KS, _KU, _EAn, _SA, _KAAe],
-  [0, 21, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0]
+  [_KI, _PK, _CMKS, _KS, _KU, _EAnc, _SA, _KAAe, _EAnca],
+  [0, 21, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
 ];
 export var GrantConstraints$: StaticStructureSchema = [3, n0, _GC,
   0,
@@ -1061,8 +1090,8 @@ export var KeyListEntry$: StaticStructureSchema = [3, n0, _KLE,
 ];
 export var KeyMetadata$: StaticStructureSchema = [3, n0, _KM,
   0,
-  [_KI, _AWSAI, _A, _CD, _E, _D, _KU, _KSe, _DD, _VT, _Or, _CKSI, _CHCI, _EM, _KMe, _CMKS, _KS, _EAn, _SA, _KAAe, _MR, _MRC, _PDWID, _MAa, _XKC, _CKMI],
-  [0, 0, 0, 4, 2, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 2, () => MultiRegionConfiguration$, 1, 64 | 0, () => XksKeyConfigurationType$, 0], 1
+  [_KI, _AWSAI, _A, _CD, _E, _D, _KU, _KSe, _DD, _VT, _Or, _CKSI, _CHCI, _EM, _KMe, _CMKS, _KS, _EAnc, _SA, _KAAe, _EAnca, _MR, _MRC, _PDWID, _MAa, _XKC, _CKMI],
+  [0, 0, 0, 4, 2, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 2, () => MultiRegionConfiguration$, 1, 64 | 0, () => XksKeyConfigurationType$, 0], 1
 ];
 export var ListAliasesRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
@@ -1298,6 +1327,7 @@ var CustomKeyStoresList: StaticListSchema = [1, n0, _CKSL,
     0]
 ];
 var DryRunModifierList = 64 | 0;
+var EncapsulationAlgorithmSpecList = 64 | 0;
 var EncryptionAlgorithmSpecList = 64 | 0;
 var GrantList: StaticListSchema = [1, n0, _GL,
   0, () => GrantListEntry$
@@ -1340,7 +1370,10 @@ export var CreateGrant$: StaticOperationSchema = [9, n0, _CG,
 export var CreateKey$: StaticOperationSchema = [9, n0, _CK,
   0, () => CreateKeyRequest$, () => CreateKeyResponse$
 ];
-export var Decrypt$: StaticOperationSchema = [9, n0, _De,
+export var Decapsulate$: StaticOperationSchema = [9, n0, _De,
+  0, () => DecapsulateRequest$, () => DecapsulateResponse$
+];
+export var Decrypt$: StaticOperationSchema = [9, n0, _Dec,
   0, () => DecryptRequest$, () => DecryptResponse$
 ];
 export var DeleteAlias$: StaticOperationSchema = [9, n0, _DA,
@@ -1376,7 +1409,10 @@ export var EnableKey$: StaticOperationSchema = [9, n0, _EK,
 export var EnableKeyRotation$: StaticOperationSchema = [9, n0, _EKRn,
   0, () => EnableKeyRotationRequest$, () => __Unit
 ];
-export var Encrypt$: StaticOperationSchema = [9, n0, _En,
+export var Encapsulate$: StaticOperationSchema = [9, n0, _En,
+  0, () => EncapsulateRequest$, () => EncapsulateResponse$
+];
+export var Encrypt$: StaticOperationSchema = [9, n0, _Enc,
   0, () => EncryptRequest$, () => EncryptResponse$
 ];
 export var GenerateDataKey$: StaticOperationSchema = [9, n0, _GDK,

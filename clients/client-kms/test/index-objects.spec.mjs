@@ -53,6 +53,10 @@ import {
   CustomKeyStoreType,
   DataKeyPairSpec,
   DataKeySpec,
+  Decapsulate$,
+  DecapsulateCommand,
+  DecapsulateRequest$,
+  DecapsulateResponse$,
   Decrypt$,
   DecryptCommand,
   DecryptRequest$,
@@ -103,6 +107,11 @@ import {
   EnableKeyRotation$,
   EnableKeyRotationCommand,
   EnableKeyRotationRequest$,
+  Encapsulate$,
+  EncapsulateCommand,
+  EncapsulateRequest$,
+  EncapsulateResponse$,
+  EncapsulationAlgorithmSpec,
   Encrypt$,
   EncryptCommand,
   EncryptionAlgorithmSpec,
@@ -370,6 +379,8 @@ assert(typeof CreateGrantCommand === "function");
 assert(typeof CreateGrant$ === "object");
 assert(typeof CreateKeyCommand === "function");
 assert(typeof CreateKey$ === "object");
+assert(typeof DecapsulateCommand === "function");
+assert(typeof Decapsulate$ === "object");
 assert(typeof DecryptCommand === "function");
 assert(typeof Decrypt$ === "object");
 assert(typeof DeleteAliasCommand === "function");
@@ -394,6 +405,8 @@ assert(typeof EnableKeyCommand === "function");
 assert(typeof EnableKey$ === "object");
 assert(typeof EnableKeyRotationCommand === "function");
 assert(typeof EnableKeyRotation$ === "object");
+assert(typeof EncapsulateCommand === "function");
+assert(typeof Encapsulate$ === "object");
 assert(typeof EncryptCommand === "function");
 assert(typeof Encrypt$ === "object");
 assert(typeof GenerateDataKeyCommand === "function");
@@ -480,6 +493,8 @@ assert(typeof CreateGrantResponse$ === "object");
 assert(typeof CreateKeyRequest$ === "object");
 assert(typeof CreateKeyResponse$ === "object");
 assert(typeof CustomKeyStoresListEntry$ === "object");
+assert(typeof DecapsulateRequest$ === "object");
+assert(typeof DecapsulateResponse$ === "object");
 assert(typeof DecryptRequest$ === "object");
 assert(typeof DecryptResponse$ === "object");
 assert(typeof DeleteAliasRequest$ === "object");
@@ -499,6 +514,8 @@ assert(typeof DisconnectCustomKeyStoreRequest$ === "object");
 assert(typeof DisconnectCustomKeyStoreResponse$ === "object");
 assert(typeof EnableKeyRequest$ === "object");
 assert(typeof EnableKeyRotationRequest$ === "object");
+assert(typeof EncapsulateRequest$ === "object");
+assert(typeof EncapsulateResponse$ === "object");
 assert(typeof EncryptRequest$ === "object");
 assert(typeof EncryptResponse$ === "object");
 assert(typeof GenerateDataKeyPairRequest$ === "object");
@@ -584,6 +601,7 @@ assert(typeof CustomKeyStoreType === "object");
 assert(typeof DataKeyPairSpec === "object");
 assert(typeof DataKeySpec === "object");
 assert(typeof DryRunModifierType === "object");
+assert(typeof EncapsulationAlgorithmSpec === "object");
 assert(typeof EncryptionAlgorithmSpec === "object");
 assert(typeof ExpirationModelType === "object");
 assert(typeof GrantOperation === "object");

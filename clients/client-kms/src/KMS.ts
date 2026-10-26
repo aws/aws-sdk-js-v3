@@ -33,6 +33,11 @@ import {
   CreateGrantCommand,
 } from "./commands/CreateGrantCommand";
 import { type CreateKeyCommandInput, type CreateKeyCommandOutput, CreateKeyCommand } from "./commands/CreateKeyCommand";
+import {
+  type DecapsulateCommandInput,
+  type DecapsulateCommandOutput,
+  DecapsulateCommand,
+} from "./commands/DecapsulateCommand";
 import { type DecryptCommandInput, type DecryptCommandOutput, DecryptCommand } from "./commands/DecryptCommand";
 import {
   type DeleteAliasCommandInput,
@@ -85,6 +90,11 @@ import {
   type EnableKeyRotationCommandOutput,
   EnableKeyRotationCommand,
 } from "./commands/EnableKeyRotationCommand";
+import {
+  type EncapsulateCommandInput,
+  type EncapsulateCommandOutput,
+  EncapsulateCommand,
+} from "./commands/EncapsulateCommand";
 import { type EncryptCommandInput, type EncryptCommandOutput, EncryptCommand } from "./commands/EncryptCommand";
 import {
   type GenerateDataKeyCommandInput,
@@ -258,6 +268,7 @@ const commands = {
   CreateCustomKeyStoreCommand,
   CreateGrantCommand,
   CreateKeyCommand,
+  DecapsulateCommand,
   DecryptCommand,
   DeleteAliasCommand,
   DeleteCustomKeyStoreCommand,
@@ -270,6 +281,7 @@ const commands = {
   DisconnectCustomKeyStoreCommand,
   EnableKeyCommand,
   EnableKeyRotationCommand,
+  EncapsulateCommand,
   EncryptCommand,
   GenerateDataKeyCommand,
   GenerateDataKeyPairCommand,
@@ -427,6 +439,23 @@ export interface KMS {
     args: CreateKeyCommandInput,
     options: KMSRequestOptions,
     cb: (err: any, data?: CreateKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DecapsulateCommand}
+   */
+  decapsulate(
+    args: DecapsulateCommandInput,
+    options?: KMSRequestOptions
+  ): Promise<DecapsulateCommandOutput>;
+  decapsulate(
+    args: DecapsulateCommandInput,
+    cb: (err: any, data?: DecapsulateCommandOutput) => void
+  ): void;
+  decapsulate(
+    args: DecapsulateCommandInput,
+    options: KMSRequestOptions,
+    cb: (err: any, data?: DecapsulateCommandOutput) => void
   ): void;
 
   /**
@@ -633,6 +662,23 @@ export interface KMS {
     args: EnableKeyRotationCommandInput,
     options: KMSRequestOptions,
     cb: (err: any, data?: EnableKeyRotationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EncapsulateCommand}
+   */
+  encapsulate(
+    args: EncapsulateCommandInput,
+    options?: KMSRequestOptions
+  ): Promise<EncapsulateCommandOutput>;
+  encapsulate(
+    args: EncapsulateCommandInput,
+    cb: (err: any, data?: EncapsulateCommandOutput) => void
+  ): void;
+  encapsulate(
+    args: EncapsulateCommandInput,
+    options: KMSRequestOptions,
+    cb: (err: any, data?: EncapsulateCommandOutput) => void
   ): void;
 
   /**
@@ -1371,6 +1417,19 @@ export interface KMS {
  *       support cipher suites with Perfect Forward Secrecy (PFS) such as Ephemeral Diffie-Hellman
  *       (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems such as Java 7
  *       and later support these modes.</p>
+ *          <note>
+ *             <p>With current technology, brute force attacks on KMS TLS cipher suite key exchange
+ *         mechanisms are not feasible. However, cipher suites that use Rivest–Shamir–Adleman (RSA)
+ *         or Diffie-Hellman (DH) key exchange will be susceptible if large-scale quantum computing
+ *         becomes practical.
+ *         <a href="https://nvlpubs.nist.gov/nistpubs/ir/2024/NIST.IR.8547.ipd.pdf">NIST IR 8547</a>
+ *         on the NIST website establishes a timeline to phase out quantum-vulnerable algorithms
+ *         by 2030 and disallow them entirely by 2035. If your applications rely on the long-term
+ *         confidentiality of KMS API traffic, we recommend that you
+ *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/pqtls.html">use post-quantum TLS with KMS</a>.
+ *         For more information about post-quantum cybersecurity, see <a href="https://www.nsa.gov/Cybersecurity/Post-Quantum-Cybersecurity-Resources/">Post-Quantum Cybersecurity Resources</a> on the
+ *         National Security Agency (NSA) website.</p>
+ *          </note>
  *          <p>
  *             <b>Signing Requests</b>
  *          </p>

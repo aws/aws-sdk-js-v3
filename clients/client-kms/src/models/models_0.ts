@@ -8,6 +8,7 @@ import type {
   DataKeyPairSpec,
   DataKeySpec,
   DryRunModifierType,
+  EncapsulationAlgorithmSpec,
   EncryptionAlgorithmSpec,
   ExpirationModelType,
   GrantOperation,
@@ -765,6 +766,10 @@ export interface CreateKeyRequest {
    *           <code>SIGN_VERIFY</code>.</p>
    *             </li>
    *             <li>
+   *                <p>For asymmetric KMS keys with ML-KEM key pairs, specify
+   *           <code>ENCAPSULATE_DECAPSULATE</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>For asymmetric KMS keys with SM2 key pairs (China Regions only), specify
    *             <code>ENCRYPT_DECRYPT</code>, <code>SIGN_VERIFY</code>, or
    *           <code>KEY_AGREEMENT</code>.</p>
@@ -926,6 +931,27 @@ export interface CreateKeyRequest {
    *                      </p>
    *                   </li>
    *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Asymmetric ML-KEM key pairs (establishing shared secrets)</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>ML_KEM_512</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>ML_KEM_768</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>ML_KEM_1024</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>The ML-KEM key specs are not available in China Regions.</p>
    *             </li>
    *             <li>
    *                <p>SM2 key pairs (encryption and decryption -or- signing and verification -or- deriving
@@ -1288,6 +1314,13 @@ export interface KeyMetadata {
    * @public
    */
   KeyAgreementAlgorithms?: KeyAgreementAlgorithmSpec[] | undefined;
+
+  /**
+   * <p>The key encapsulation algorithm that the KMS key supports. This field appears only for KMS
+   *       keys with a <code>KeyUsage</code> value of <code>ENCAPSULATE_DECAPSULATE</code>.</p>
+   * @public
+   */
+  EncapsulationAlgorithms?: EncapsulationAlgorithmSpec[] | undefined;
 
   /**
    * <p>Indicates whether the KMS key is a multi-Region (<code>True</code>) or regional
@@ -1705,6 +1738,94 @@ export interface CustomKeyStoresListEntry {
    * @public
    */
   XksProxyConfiguration?: XksProxyConfigurationType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DecapsulateRequest {
+  /**
+   * <p>Identifies the asymmetric ML-KEM KMS key whose public key was used to produce the
+   *       encapsulated shared secret. KMS uses the private key in the specified key pair to decapsulate
+   *       the shared secret. </p>
+   *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
+   *          <p>For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name: <code>alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+   * @public
+   */
+  KeyId: string | undefined;
+
+  /**
+   * <p>The encapsulated (ciphertext) form of the shared secret to recover. This is the
+   *       <code>SharedSecretCiphertextBlob</code> value that the <a>Encapsulate</a> operation
+   *       returns. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+   * @public
+   */
+  SharedSecretCiphertextBlob: Uint8Array | undefined;
+
+  /**
+   * <p>Specifies the key encapsulation algorithm used to recover the shared secret. The only valid
+   *       value is <code>ML_KEM</code>.</p>
+   * @public
+   */
+  EncapsulationAlgorithm: EncapsulationAlgorithmSpec | undefined;
+
+  /**
+   * <p>A list of grant tokens.</p>
+   *          <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the
+   *     <i>Key Management Service Developer Guide</i>.</p>
+   * @public
+   */
+  GrantTokens?: string[] | undefined;
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DecapsulateResponse {
+  /**
+   * <p>The identifier of the ML-KEM KMS key used to decapsulate the shared secret.</p>
+   * @public
+   */
+  KeyId?: string | undefined;
+
+  /**
+   * <p>The plaintext shared secret recovered from the encapsulated form. It is a 32-byte value that
+   *       matches the shared secret held by the encapsulating party. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+   * @public
+   */
+  SharedSecret?: Uint8Array | undefined;
+
+  /**
+   * <p>The key encapsulation algorithm used to recover the shared secret.</p>
+   * @public
+   */
+  EncapsulationAlgorithm?: EncapsulationAlgorithmSpec | undefined;
 }
 
 /**
@@ -2370,6 +2491,99 @@ export interface EnableKeyRotationRequest {
 /**
  * @public
  */
+export interface EncapsulateRequest {
+  /**
+   * <p>Identifies an asymmetric ML-KEM KMS key. KMS uses the public key in the specified key pair
+   *       to encapsulate the shared secret. ML-KEM KMS keys have a <code>KeySpec</code> value of <code>ML_KEM_512</code>,
+   *       <code>ML_KEM_768</code>, or <code>ML_KEM_1024</code> and a <code>KeyUsage</code> value of
+   *       <code>ENCAPSULATE_DECAPSULATE</code>. To find the <code>KeySpec</code> and <code>KeyUsage</code> of a
+   *       KMS key, use the <a>DescribeKey</a> operation.</p>
+   *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
+   *          <p>For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name: <code>alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+   * @public
+   */
+  KeyId: string | undefined;
+
+  /**
+   * <p>Specifies the key encapsulation algorithm used to generate the shared secret and its
+   *       encapsulated form. The only valid value is <code>ML_KEM</code>.</p>
+   * @public
+   */
+  EncapsulationAlgorithm: EncapsulationAlgorithmSpec | undefined;
+
+  /**
+   * <p>A list of grant tokens.</p>
+   *          <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the
+   *     <i>Key Management Service Developer Guide</i>.</p>
+   * @public
+   */
+  GrantTokens?: string[] | undefined;
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EncapsulateResponse {
+  /**
+   * <p>The identifier of the ML-KEM KMS key used to encapsulate the shared secret.</p>
+   * @public
+   */
+  KeyId?: string | undefined;
+
+  /**
+   * <p>The plaintext shared secret. It is a 32-byte cryptographically random value that both
+   *       parties can use directly as key material or pass through a key derivation function to generate
+   *       multiple keys and nonces. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+   * @public
+   */
+  SharedSecret?: Uint8Array | undefined;
+
+  /**
+   * <p>The encapsulated form of the shared secret. Pass this value to the <a>Decapsulate</a> operation to recover the shared secret.  When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
+   *       The length of <code>SharedSecretCiphertextBlob</code> depends on the ML-KEM key spec.
+   *       Before Base64 encoding, the encapsulated shared secret is 768 bytes for <code>ML_KEM_512</code>,
+   *       1088 bytes for <code>ML_KEM_768</code>, and 1568 bytes for <code>ML_KEM_1024</code>.
+   *     </p>
+   * @public
+   */
+  SharedSecretCiphertextBlob?: Uint8Array | undefined;
+
+  /**
+   * <p>The key encapsulation algorithm used to generate the shared secret.</p>
+   * @public
+   */
+  EncapsulationAlgorithm?: EncapsulationAlgorithmSpec | undefined;
+}
+
+/**
+ * @public
+ */
 export interface EncryptRequest {
   /**
    * <p>Identifies the KMS key to use in the encryption operation. The KMS key must have a
@@ -2665,7 +2879,7 @@ export interface GenerateDataKeyPairRequest {
 
   /**
    * <p>Determines the type of data key pair that is generated. </p>
-   *          <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), the rule that permits you to use ECC KMS keys only to sign and verify, and the rule that permits you to use ML-DSA key pairs to sign and verify only are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
+   *          <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), the rule that permits you to use ECC KMS keys only to sign and verify, and the rule that permits you to use ML-DSA key pairs to sign and verify only are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions. The ML-KEM key specs are not available in China Regions.</p>
    * @public
    */
   KeyPairSpec: DataKeyPairSpec | undefined;
@@ -2812,7 +3026,7 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
 
   /**
    * <p>Determines the type of data key pair that is generated.</p>
-   *          <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), the rule that permits you to use ECC KMS keys only to sign and verify, and the rule that permits you to use ML-DSA key pairs to sign and verify only are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
+   *          <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), the rule that permits you to use ECC KMS keys only to sign and verify, and the rule that permits you to use ML-DSA key pairs to sign and verify only are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions. The ML-KEM key specs are not available in China Regions.</p>
    * @public
    */
   KeyPairSpec: DataKeyPairSpec | undefined;
@@ -3175,8 +3389,8 @@ export interface GetKeyLastUsageResponse {
 
   /**
    * <p>Contains usage information about the last time the KMS key was used for a successful cryptographic
-   *       operation. If the key has not been used since tracking began, this response element is
-   *       empty.</p>
+   *       operation. If the key has not been used since tracking began, this response element is an
+   *       empty object.</p>
    * @public
    */
   KeyLastUsage?: KeyLastUsageData | undefined;
@@ -3531,6 +3745,14 @@ export interface GetPublicKeyResponse {
    * @public
    */
   KeyAgreementAlgorithms?: KeyAgreementAlgorithmSpec[] | undefined;
+
+  /**
+   * <p>The key encapsulation algorithm used to establish a shared secret. This field is present
+   *       only when the KMS key has a <code>KeyUsage</code> value of
+   *       <code>ENCAPSULATE_DECAPSULATE</code>.</p>
+   * @public
+   */
+  EncapsulationAlgorithms?: EncapsulationAlgorithmSpec[] | undefined;
 }
 
 /**

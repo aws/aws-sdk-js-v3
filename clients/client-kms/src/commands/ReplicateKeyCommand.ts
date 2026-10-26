@@ -136,7 +136,7 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * //     CreationDate: new Date("TIMESTAMP"),
  * //     Enabled: true || false,
  * //     Description: "STRING_VALUE",
- * //     KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC" || "KEY_AGREEMENT",
+ * //     KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC" || "KEY_AGREEMENT" || "ENCAPSULATE_DECAPSULATE",
  * //     KeyState: "Creating" || "Enabled" || "Disabled" || "PendingDeletion" || "PendingImport" || "PendingReplicaDeletion" || "Unavailable" || "Updating",
  * //     DeletionDate: new Date("TIMESTAMP"),
  * //     ValidTo: new Date("TIMESTAMP"),
@@ -146,7 +146,7 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * //     ExpirationModel: "KEY_MATERIAL_EXPIRES" || "KEY_MATERIAL_DOES_NOT_EXPIRE",
  * //     KeyManager: "AWS" || "CUSTOMER",
  * //     CustomerMasterKeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2",
- * //     KeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2" || "ML_DSA_44" || "ML_DSA_65" || "ML_DSA_87" || "ECC_NIST_EDWARDS25519",
+ * //     KeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2" || "ML_DSA_44" || "ML_DSA_65" || "ML_DSA_87" || "ECC_NIST_EDWARDS25519" || "ML_KEM_512" || "ML_KEM_768" || "ML_KEM_1024",
  * //     EncryptionAlgorithms: [ // EncryptionAlgorithmSpecList
  * //       "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
  * //     ],
@@ -155,6 +155,9 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * //     ],
  * //     KeyAgreementAlgorithms: [ // KeyAgreementAlgorithmSpecList
  * //       "ECDH",
+ * //     ],
+ * //     EncapsulationAlgorithms: [ // EncapsulationAlgorithmSpecList
+ * //       "ML_KEM",
  * //     ],
  * //     MultiRegion: true || false,
  * //     MultiRegionConfiguration: { // MultiRegionConfiguration

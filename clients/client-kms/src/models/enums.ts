@@ -93,9 +93,11 @@ export type XksProxyConnectivityType = (typeof XksProxyConnectivityType)[keyof t
  */
 export const GrantOperation = {
   CreateGrant: "CreateGrant",
+  Decapsulate: "Decapsulate",
   Decrypt: "Decrypt",
   DeriveSharedSecret: "DeriveSharedSecret",
   DescribeKey: "DescribeKey",
+  Encapsulate: "Encapsulate",
   Encrypt: "Encrypt",
   GenerateDataKey: "GenerateDataKey",
   GenerateDataKeyPair: "GenerateDataKeyPair",
@@ -156,6 +158,9 @@ export const KeySpec = {
   ML_DSA_44: "ML_DSA_44",
   ML_DSA_65: "ML_DSA_65",
   ML_DSA_87: "ML_DSA_87",
+  ML_KEM_1024: "ML_KEM_1024",
+  ML_KEM_512: "ML_KEM_512",
+  ML_KEM_768: "ML_KEM_768",
   RSA_2048: "RSA_2048",
   RSA_3072: "RSA_3072",
   RSA_4096: "RSA_4096",
@@ -172,6 +177,7 @@ export type KeySpec = (typeof KeySpec)[keyof typeof KeySpec];
  * @enum
  */
 export const KeyUsageType = {
+  ENCAPSULATE_DECAPSULATE: "ENCAPSULATE_DECAPSULATE",
   ENCRYPT_DECRYPT: "ENCRYPT_DECRYPT",
   GENERATE_VERIFY_MAC: "GENERATE_VERIFY_MAC",
   KEY_AGREEMENT: "KEY_AGREEMENT",
@@ -196,6 +202,18 @@ export const OriginType = {
  * @public
  */
 export type OriginType = (typeof OriginType)[keyof typeof OriginType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncapsulationAlgorithmSpec = {
+  ML_KEM: "ML_KEM",
+} as const;
+/**
+ * @public
+ */
+export type EncapsulationAlgorithmSpec = (typeof EncapsulationAlgorithmSpec)[keyof typeof EncapsulationAlgorithmSpec];
 
 /**
  * @public
@@ -331,6 +349,9 @@ export const DataKeyPairSpec = {
   ECC_NIST_P384: "ECC_NIST_P384",
   ECC_NIST_P521: "ECC_NIST_P521",
   ECC_SECG_P256K1: "ECC_SECG_P256K1",
+  ML_KEM_1024: "ML_KEM_1024",
+  ML_KEM_512: "ML_KEM_512",
+  ML_KEM_768: "ML_KEM_768",
   RSA_2048: "RSA_2048",
   RSA_3072: "RSA_3072",
   RSA_4096: "RSA_4096",
@@ -383,8 +404,10 @@ export type KeyEncryptionMechanism = (typeof KeyEncryptionMechanism)[keyof typeo
  * @enum
  */
 export const KeyLastUsageTrackingOperation = {
+  Decapsulate: "Decapsulate",
   Decrypt: "Decrypt",
   DeriveSharedSecret: "DeriveSharedSecret",
+  Encapsulate: "Encapsulate",
   Encrypt: "Encrypt",
   GenerateDataKey: "GenerateDataKey",
   GenerateDataKeyPair: "GenerateDataKeyPair",
