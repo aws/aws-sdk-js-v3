@@ -41,7 +41,7 @@ export interface StartClusterHealthCheckCommandOutput extends StartClusterHealth
  *         "STRING_VALUE",
  *       ],
  *       DeepHealthChecks: [ // DeepHealthChecks // required
- *         "InstanceStress" || "InstanceConnectivity",
+ *         "InstanceStress" || "InstanceConnectivity" || "MultiNodeTrainingValidation",
  *       ],
  *     },
  *   ],
