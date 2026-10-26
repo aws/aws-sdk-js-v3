@@ -176,14 +176,17 @@ import {
   ExadbVmCluster$,
   ExadbVmClusterStorageDetails$,
   ExadbVmClusterSummary$,
+  ExascaleConfiguration$,
   ExascaleDbStorageDetails$,
   ExascaleDbStorageVault$,
   ExascaleDbStorageVaultSummary$,
+  ExascaleDbStorageVaultType,
   ExternalIdType,
   FailoverAutonomousDatabase$,
   FailoverAutonomousDatabaseCommand,
   FailoverAutonomousDatabaseInput$,
   FailoverAutonomousDatabaseOutput$,
+  FileSystemConfigurationDetails$,
   FlexComponentSummary$,
   GetAutonomousDatabase$,
   GetAutonomousDatabaseBackup$,
@@ -445,6 +448,7 @@ import {
   StopDbNodeCommand,
   StopDbNodeInput$,
   StopDbNodeOutput$,
+  StorageManagementType,
   StsAccess$,
   SubscriptionError$,
   SupportedAwsIntegration,
@@ -481,6 +485,10 @@ import {
   UpdateExadbVmClusterCommand,
   UpdateExadbVmClusterInput$,
   UpdateExadbVmClusterOutput$,
+  UpdateExascaleCloudExadataInfrastructure$,
+  UpdateExascaleCloudExadataInfrastructureCommand,
+  UpdateExascaleCloudExadataInfrastructureInput$,
+  UpdateExascaleCloudExadataInfrastructureOutput$,
   UpdateExascaleDbStorageVault$,
   UpdateExascaleDbStorageVaultCommand,
   UpdateExascaleDbStorageVaultInput$,
@@ -497,6 +505,7 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
+  VmStorageType,
   VpcEndpointType,
   WalletPasswordSource,
   WalletPasswordSourceConfiguration$,
@@ -664,6 +673,8 @@ assert(typeof UpdateCloudExadataInfrastructureCommand === "function");
 assert(typeof UpdateCloudExadataInfrastructure$ === "object");
 assert(typeof UpdateExadbVmClusterCommand === "function");
 assert(typeof UpdateExadbVmCluster$ === "object");
+assert(typeof UpdateExascaleCloudExadataInfrastructureCommand === "function");
+assert(typeof UpdateExascaleCloudExadataInfrastructure$ === "object");
 assert(typeof UpdateExascaleDbStorageVaultCommand === "function");
 assert(typeof UpdateExascaleDbStorageVault$ === "object");
 assert(typeof UpdateOdbNetworkCommand === "function");
@@ -772,11 +783,13 @@ assert(typeof ExadataIormConfig$ === "object");
 assert(typeof ExadbVmCluster$ === "object");
 assert(typeof ExadbVmClusterStorageDetails$ === "object");
 assert(typeof ExadbVmClusterSummary$ === "object");
+assert(typeof ExascaleConfiguration$ === "object");
 assert(typeof ExascaleDbStorageDetails$ === "object");
 assert(typeof ExascaleDbStorageVault$ === "object");
 assert(typeof ExascaleDbStorageVaultSummary$ === "object");
 assert(typeof FailoverAutonomousDatabaseInput$ === "object");
 assert(typeof FailoverAutonomousDatabaseOutput$ === "object");
+assert(typeof FileSystemConfigurationDetails$ === "object");
 assert(typeof FlexComponentSummary$ === "object");
 assert(typeof GetAutonomousDatabaseBackupInput$ === "object");
 assert(typeof GetAutonomousDatabaseBackupOutput$ === "object");
@@ -911,6 +924,8 @@ assert(typeof UpdateCloudExadataInfrastructureInput$ === "object");
 assert(typeof UpdateCloudExadataInfrastructureOutput$ === "object");
 assert(typeof UpdateExadbVmClusterInput$ === "object");
 assert(typeof UpdateExadbVmClusterOutput$ === "object");
+assert(typeof UpdateExascaleCloudExadataInfrastructureInput$ === "object");
+assert(typeof UpdateExascaleCloudExadataInfrastructureOutput$ === "object");
 assert(typeof UpdateExascaleDbStorageVaultInput$ === "object");
 assert(typeof UpdateExascaleDbStorageVaultOutput$ === "object");
 assert(typeof UpdateOdbNetworkInput$ === "object");
@@ -947,6 +962,7 @@ assert(typeof DisasterRecoveryType === "object");
 assert(typeof DiskRedundancy === "object");
 assert(typeof EncryptionKeyProvider === "object");
 assert(typeof EncryptionKeyProviderInput === "object");
+assert(typeof ExascaleDbStorageVaultType === "object");
 assert(typeof ExternalIdType === "object");
 assert(typeof GridImageType === "object");
 assert(typeof HardwareType === "object");
@@ -973,9 +989,11 @@ assert(typeof ShapeAttribute === "object");
 assert(typeof ShapeType === "object");
 assert(typeof SourceType === "object");
 assert(typeof StandbyAllowlistedIpsSource === "object");
+assert(typeof StorageManagementType === "object");
 assert(typeof SupportedAwsIntegration === "object");
 assert(typeof UpdateAction === "object");
 assert(typeof ValidationExceptionReason === "object");
+assert(typeof VmStorageType === "object");
 assert(typeof VpcEndpointType === "object");
 assert(typeof WalletPasswordSource === "object");
 assert(typeof WalletType === "object");

@@ -24,6 +24,7 @@ import type {
   DiskRedundancy,
   EncryptionKeyProvider,
   EncryptionKeyProviderInput,
+  ExascaleDbStorageVaultType,
   ExternalIdType,
   GridImageType,
   HardwareType,
@@ -50,8 +51,10 @@ import type {
   ShapeType,
   SourceType,
   StandbyAllowlistedIpsSource,
+  StorageManagementType,
   SupportedAwsIntegration,
   UpdateAction,
+  VmStorageType,
   VpcEndpointType,
   WalletPasswordSource,
   WalletType,
@@ -5313,6 +5316,36 @@ export interface CloudAutonomousVmClusterResourceDetails {
 }
 
 /**
+ * <p>The Exascale storage configuration of an Exadata infrastructure.</p>
+ * @public
+ */
+export interface ExascaleConfiguration {
+  /**
+   * <p>The total amount of Exascale storage, in gigabytes (GB), configured on the Exadata infrastructure.</p>
+   * @public
+   */
+  totalStorageSizeInGBs?: number | undefined;
+
+  /**
+   * <p>The amount of Exascale storage, in gigabytes (GB), that's available on the Exadata infrastructure.</p>
+   * @public
+   */
+  availableStorageSizeInGBs?: number | undefined;
+
+  /**
+   * <p>The total amount of Exascale VM storage, in gigabytes (GB), on the Exadata infrastructure. VM clusters use Exascale VM storage for their VM file systems and VM backups.</p>
+   * @public
+   */
+  totalVmStorageSizeInGBs?: number | undefined;
+
+  /**
+   * <p>The amount of Exascale VM storage, in gigabytes (GB), that's available on the Exadata infrastructure.</p>
+   * @public
+   */
+  availableVmStorageSizeInGBs?: number | undefined;
+}
+
+/**
  * <p>Information about an Exadata infrastructure.</p>
  * @public
  */
@@ -5516,7 +5549,7 @@ export interface CloudExadataInfrastructure {
   createdAt?: Date | undefined;
 
   /**
-   * <p>The total amount of storage, in gigabytes (GB), on the the Exadata infrastructure.</p>
+   * <p>The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.</p>
    * @public
    */
   totalStorageSizeInGBs?: number | undefined;
@@ -5544,6 +5577,12 @@ export interface CloudExadataInfrastructure {
    * @public
    */
   computeModel?: ComputeModel | undefined;
+
+  /**
+   * <p>The Exascale storage configuration of the Exadata infrastructure. This value is present only when Exascale storage is configured on the infrastructure.</p>
+   * @public
+   */
+  exascaleConfiguration?: ExascaleConfiguration | undefined;
 }
 
 /**
@@ -5750,7 +5789,7 @@ export interface CloudExadataInfrastructureSummary {
   createdAt?: Date | undefined;
 
   /**
-   * <p>The total amount of storage, in gigabytes (GB), on the the Exadata infrastructure.</p>
+   * <p>The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.</p>
    * @public
    */
   totalStorageSizeInGBs?: number | undefined;
@@ -5778,6 +5817,12 @@ export interface CloudExadataInfrastructureSummary {
    * @public
    */
   computeModel?: ComputeModel | undefined;
+
+  /**
+   * <p>The Exascale storage configuration of the Exadata infrastructure. This value is present only when Exascale storage is configured on the infrastructure.</p>
+   * @public
+   */
+  exascaleConfiguration?: ExascaleConfiguration | undefined;
 }
 
 /**
@@ -6431,6 +6476,58 @@ export interface UpdateCloudExadataInfrastructureOutput {
 }
 
 /**
+ * @public
+ */
+export interface UpdateExascaleCloudExadataInfrastructureInput {
+  /**
+   * <p>The unique identifier or Amazon Resource Name (ARN) of the Exadata infrastructure to update.</p>
+   * @public
+   */
+  cloudExadataInfrastructureId: string | undefined;
+
+  /**
+   * <p>The total amount of Exascale storage, in gigabytes (GB), to configure on the Exadata infrastructure.</p>
+   * @public
+   */
+  totalStorageSizeInGBs: number | undefined;
+
+  /**
+   * <p>The total amount of Exascale storage, in gigabytes (GB), to allocate for VM storage on the Exadata infrastructure. VM clusters that store their VM file systems or VM backups in Exascale storage use this capacity.</p>
+   * @public
+   */
+  totalVmStorageSizeInGBs?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExascaleCloudExadataInfrastructureOutput {
+  /**
+   * <p>The user-friendly name of the updated Exadata infrastructure.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Exadata infrastructure after the update operation.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Exadata infrastructure after the update operation.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the updated Exadata infrastructure.</p>
+   * @public
+   */
+  cloudExadataInfrastructureId: string | undefined;
+}
+
+/**
  * <p>Information about the data collection options enabled for a VM cluster.</p>
  * @public
  */
@@ -6452,6 +6549,24 @@ export interface DataCollectionOptions {
    * @public
    */
   isIncidentLogsEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>The configuration of a file system on a VM cluster.</p>
+ * @public
+ */
+export interface FileSystemConfigurationDetails {
+  /**
+   * <p>The mount point of the file system.</p>
+   * @public
+   */
+  mountPoint?: string | undefined;
+
+  /**
+   * <p>The size of the file system, in gigabytes (GB).</p>
+   * @public
+   */
+  fileSystemSizeInGBs?: number | undefined;
 }
 
 /**
@@ -6554,6 +6669,42 @@ export interface CloudVmCluster {
    * @public
    */
   cloudExadataInfrastructureArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Exascale storage vault that the VM cluster uses. This value is present only for VM clusters that use an Exascale storage vault.</p>
+   * @public
+   */
+  exascaleDbStorageVaultId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Exascale storage vault that the VM cluster uses. This value is present only for VM clusters that use an Exascale storage vault.</p>
+   * @public
+   */
+  exascaleDbStorageVaultArn?: string | undefined;
+
+  /**
+   * <p>The type of storage management for the VM cluster. A value of <code>ASM</code> indicates Oracle Automatic Storage Management, and <code>EXASCALE</code> indicates Exascale storage.</p>
+   * @public
+   */
+  storageManagementType?: StorageManagementType | undefined;
+
+  /**
+   * <p>The type of storage that the VM cluster uses for its VM file systems.</p>
+   * @public
+   */
+  vmFileSystemStorageType?: VmStorageType | undefined;
+
+  /**
+   * <p>The type of storage that the VM cluster uses for VM backups.</p>
+   * @public
+   */
+  vmBackupStorageType?: VmStorageType | undefined;
+
+  /**
+   * <p>The list of file system configurations for the VM cluster.</p>
+   * @public
+   */
+  fileSystemConfigurationDetails?: FileSystemConfigurationDetails[] | undefined;
 
   /**
    * <p>The name of the Grid Infrastructure (GI) cluster.</p>
@@ -6820,6 +6971,42 @@ export interface CloudVmClusterSummary {
   cloudExadataInfrastructureArn?: string | undefined;
 
   /**
+   * <p>The unique identifier of the Exascale storage vault that the VM cluster uses. This value is present only for VM clusters that use an Exascale storage vault.</p>
+   * @public
+   */
+  exascaleDbStorageVaultId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Exascale storage vault that the VM cluster uses. This value is present only for VM clusters that use an Exascale storage vault.</p>
+   * @public
+   */
+  exascaleDbStorageVaultArn?: string | undefined;
+
+  /**
+   * <p>The type of storage management for the VM cluster. A value of <code>ASM</code> indicates Oracle Automatic Storage Management, and <code>EXASCALE</code> indicates Exascale storage.</p>
+   * @public
+   */
+  storageManagementType?: StorageManagementType | undefined;
+
+  /**
+   * <p>The type of storage that the VM cluster uses for its VM file systems.</p>
+   * @public
+   */
+  vmFileSystemStorageType?: VmStorageType | undefined;
+
+  /**
+   * <p>The type of storage that the VM cluster uses for VM backups.</p>
+   * @public
+   */
+  vmBackupStorageType?: VmStorageType | undefined;
+
+  /**
+   * <p>The list of file system configurations for the VM cluster.</p>
+   * @public
+   */
+  fileSystemConfigurationDetails?: FileSystemConfigurationDetails[] | undefined;
+
+  /**
    * <p>The name of the Grid Infrastructure (GI) cluster.</p>
    * @public
    */
@@ -7045,6 +7232,30 @@ export interface CreateCloudVmClusterInput {
    * @public
    */
   cloudExadataInfrastructureId: string | undefined;
+
+  /**
+   * <p>The unique identifier or Amazon Resource Name (ARN) of the Exascale storage vault to use for the VM cluster. Specify this value to create a VM cluster that uses Exascale storage on dedicated Exadata infrastructure.</p>
+   * @public
+   */
+  exascaleDbStorageVaultId?: string | undefined;
+
+  /**
+   * <p>The type of storage to use for the VM file systems. Specify <code>EXASCALE</code> to store the VM file systems in Exascale storage on the storage servers, or <code>LOCAL</code> to store them on the database servers.</p>
+   * @public
+   */
+  vmFileSystemStorageType?: VmStorageType | undefined;
+
+  /**
+   * <p>The type of storage to use for VM backups. Specify <code>EXASCALE</code> to store VM backups in Exascale storage on the storage servers, or <code>LOCAL</code> to store them on the database servers.</p>
+   * @public
+   */
+  vmBackupStorageType?: VmStorageType | undefined;
+
+  /**
+   * <p>The list of file system configurations for the VM cluster. Each entry specifies the mount point of a file system and its size, in gigabytes (GB).</p>
+   * @public
+   */
+  fileSystemConfigurationDetails?: FileSystemConfigurationDetails[] | undefined;
 
   /**
    * <p>The number of CPU cores to enable on the VM cluster.</p>
@@ -7369,7 +7580,7 @@ export interface CreateExadbVmClusterInput {
   scanListenerPortTcp?: number | undefined;
 
   /**
-   * <p>The port number for TCP connections with SSL to the Single Client Access Name (SCAN) listener.</p>
+   * <p>Reserved for future use.</p>
    * @public
    */
   scanListenerPortTcpSsl?: number | undefined;
@@ -7461,6 +7672,12 @@ export interface CreateExascaleDbStorageVaultInput {
    * @public
    */
   autoscaleLimitInGBs?: number | undefined;
+
+  /**
+   * <p>The unique identifier or Amazon Resource Name (ARN) of the Exadata infrastructure on which to create the Exascale storage vault. Specify this value to create the Exascale storage vault on dedicated Exadata infrastructure that has Exascale storage configured. If you specify <code>availabilityZone</code> or <code>availabilityZoneId</code>, the value must match the Availability Zone of the Exadata infrastructure. If you specify neither, the service uses the Availability Zone of the Exadata infrastructure.</p>
+   * @public
+   */
+  cloudExadataInfrastructureId?: string | undefined;
 
   /**
    * <p>The Availability Zone ID for the Exascale storage vault.</p>
@@ -8828,7 +9045,7 @@ export interface ExadbVmCluster {
   scanListenerPortTcp?: number | undefined;
 
   /**
-   * <p>The port number for TCP connections with SSL to the Single Client Access Name (SCAN) listener for the Exascale VM cluster.</p>
+   * <p>Reserved for future use.</p>
    * @public
    */
   scanListenerPortTcpSsl?: number | undefined;
@@ -9098,7 +9315,7 @@ export interface ExadbVmClusterSummary {
   scanListenerPortTcp?: number | undefined;
 
   /**
-   * <p>The port number for TCP connections with SSL to the Single Client Access Name (SCAN) listener for the Exascale VM cluster.</p>
+   * <p>Reserved for future use.</p>
    * @public
    */
   scanListenerPortTcpSsl?: number | undefined;
@@ -9398,6 +9615,18 @@ export interface ExascaleDbStorageVault {
   availabilityZoneId?: string | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the Exadata infrastructure that hosts the Exascale storage vault. This value is present only for vaults on dedicated Exadata infrastructure.</p>
+   * @public
+   */
+  cloudExadataInfrastructureArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Exadata infrastructure that hosts the Exascale storage vault. This value is present only for vaults on dedicated Exadata infrastructure.</p>
+   * @public
+   */
+  cloudExadataInfrastructureId?: string | undefined;
+
+  /**
    * <p>The date and time when the Exascale storage vault was created.</p>
    * @public
    */
@@ -9492,6 +9721,12 @@ export interface ExascaleDbStorageVault {
    * @public
    */
   timeZone?: string | undefined;
+
+  /**
+   * <p>The type of infrastructure that hosts the Exascale storage vault.</p>
+   * @public
+   */
+  vaultType?: ExascaleDbStorageVaultType | undefined;
 }
 
 /**
@@ -9536,6 +9771,18 @@ export interface ExascaleDbStorageVaultSummary {
   availabilityZoneId?: string | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the Exadata infrastructure that hosts the Exascale storage vault. This value is present only for vaults on dedicated Exadata infrastructure.</p>
+   * @public
+   */
+  cloudExadataInfrastructureArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Exadata infrastructure that hosts the Exascale storage vault. This value is present only for vaults on dedicated Exadata infrastructure.</p>
+   * @public
+   */
+  cloudExadataInfrastructureId?: string | undefined;
+
+  /**
    * <p>The date and time when the Exascale storage vault was created.</p>
    * @public
    */
@@ -9630,6 +9877,12 @@ export interface ExascaleDbStorageVaultSummary {
    * @public
    */
   timeZone?: string | undefined;
+
+  /**
+   * <p>The type of infrastructure that hosts the Exascale storage vault.</p>
+   * @public
+   */
+  vaultType?: ExascaleDbStorageVaultType | undefined;
 }
 
 /**
@@ -9669,6 +9922,18 @@ export interface ListExascaleDbStorageVaultsInput {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier or Amazon Resource Name (ARN) of an Exadata infrastructure. If you specify this value, the operation returns only the Exascale storage vaults on that infrastructure that you own or that are shared with you. The infrastructure can be one that's shared with you through Amazon Web Services Resource Access Manager (Amazon Web Services RAM). You can't combine this filter with a <code>vaultType</code> of <code>EXASCALE_INFRASTRUCTURE</code>.</p>
+   * @public
+   */
+  cloudExadataInfrastructureId?: string | undefined;
+
+  /**
+   * <p>The type of Exascale storage vaults to return. Specify <code>DEDICATED_INFRASTRUCTURE</code> to return Exascale storage vaults on dedicated Exadata infrastructure, or <code>EXASCALE_INFRASTRUCTURE</code> to return Exascale storage vaults for Exascale VM clusters. If you don't specify a value, the operation returns both types. You can't combine <code>EXASCALE_INFRASTRUCTURE</code> with the <code>cloudExadataInfrastructureId</code> filter.</p>
+   * @public
+   */
+  vaultType?: ExascaleDbStorageVaultType | undefined;
 }
 
 /**

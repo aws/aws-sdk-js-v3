@@ -720,6 +720,13 @@ UpdateExadbVmCluster
 </details>
 <details>
 <summary>
+UpdateExascaleCloudExadataInfrastructure
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/UpdateExascaleCloudExadataInfrastructureCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/UpdateExascaleCloudExadataInfrastructureCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/UpdateExascaleCloudExadataInfrastructureCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateExascaleDbStorageVault
 </summary>
 

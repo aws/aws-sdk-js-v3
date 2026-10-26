@@ -23,7 +23,7 @@ export interface CreateExascaleDbStorageVaultCommandInput extends CreateExascale
 export interface CreateExascaleDbStorageVaultCommandOutput extends CreateExascaleDbStorageVaultOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an Exascale storage vault.</p>
+ * <p>Creates an Exascale storage vault.</p> <p>To create the Exascale storage vault on dedicated Exadata infrastructure, specify <code>cloudExadataInfrastructureId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,6 +37,7 @@ export interface CreateExascaleDbStorageVaultCommandOutput extends CreateExascal
  *   highCapacityDatabaseStorageTotalSizeInGBs: Number("int"), // required
  *   additionalFlashCacheInPercent: Number("int"),
  *   autoscaleLimitInGBs: Number("int"),
+ *   cloudExadataInfrastructureId: "STRING_VALUE",
  *   availabilityZoneId: "STRING_VALUE",
  *   availabilityZone: "STRING_VALUE",
  *   description: "STRING_VALUE",
@@ -72,6 +73,9 @@ export interface CreateExascaleDbStorageVaultCommandOutput extends CreateExascal
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the service quota.</p>

@@ -34,6 +34,15 @@ export interface CreateCloudVmClusterCommandOutput extends CreateCloudVmClusterO
  * const client = new OdbClient(config);
  * const input = { // CreateCloudVmClusterInput
  *   cloudExadataInfrastructureId: "STRING_VALUE", // required
+ *   exascaleDbStorageVaultId: "STRING_VALUE",
+ *   vmFileSystemStorageType: "LOCAL" || "EXASCALE",
+ *   vmBackupStorageType: "LOCAL" || "EXASCALE",
+ *   fileSystemConfigurationDetails: [ // FileSystemConfigurationDetailsList
+ *     { // FileSystemConfigurationDetails
+ *       mountPoint: "STRING_VALUE",
+ *       fileSystemSizeInGBs: Number("int"),
+ *     },
+ *   ],
  *   cpuCoreCount: Number("int"), // required
  *   displayName: "STRING_VALUE", // required
  *   giVersion: "STRING_VALUE", // required
