@@ -119,6 +119,11 @@ import {
   DescribeRegistryCommand,
 } from "./commands/DescribeRegistryCommand";
 import {
+  type DescribeReplicationBackfillResultsCommandInput,
+  type DescribeReplicationBackfillResultsCommandOutput,
+  DescribeReplicationBackfillResultsCommand,
+} from "./commands/DescribeReplicationBackfillResultsCommand";
+import {
   type DescribeRepositoriesCommandInput,
   type DescribeRepositoriesCommandOutput,
   DescribeRepositoriesCommand,
@@ -194,6 +199,11 @@ import {
   ListPullTimeUpdateExclusionsCommand,
 } from "./commands/ListPullTimeUpdateExclusionsCommand";
 import {
+  type ListReplicationBackfillsCommandInput,
+  type ListReplicationBackfillsCommandOutput,
+  ListReplicationBackfillsCommand,
+} from "./commands/ListReplicationBackfillsCommand";
+import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
@@ -260,6 +270,16 @@ import {
   StartLifecyclePolicyPreviewCommand,
 } from "./commands/StartLifecyclePolicyPreviewCommand";
 import {
+  type StartReplicationBackfillCommandInput,
+  type StartReplicationBackfillCommandOutput,
+  StartReplicationBackfillCommand,
+} from "./commands/StartReplicationBackfillCommand";
+import {
+  type StopReplicationBackfillCommandInput,
+  type StopReplicationBackfillCommandOutput,
+  StopReplicationBackfillCommand,
+} from "./commands/StopReplicationBackfillCommand";
+import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
   TagResourceCommand,
@@ -299,10 +319,12 @@ import type { ECRServiceException } from "./models/ECRServiceException";
 import { paginateDescribeImageScanFindings } from "./pagination/DescribeImageScanFindingsPaginator";
 import { paginateDescribeImages } from "./pagination/DescribeImagesPaginator";
 import { paginateDescribePullThroughCacheRules } from "./pagination/DescribePullThroughCacheRulesPaginator";
+import { paginateDescribeReplicationBackfillResults } from "./pagination/DescribeReplicationBackfillResultsPaginator";
 import { paginateDescribeRepositories } from "./pagination/DescribeRepositoriesPaginator";
 import { paginateDescribeRepositoryCreationTemplates } from "./pagination/DescribeRepositoryCreationTemplatesPaginator";
 import { paginateGetLifecyclePolicyPreview } from "./pagination/GetLifecyclePolicyPreviewPaginator";
 import { paginateListImages } from "./pagination/ListImagesPaginator";
+import { paginateListReplicationBackfills } from "./pagination/ListReplicationBackfillsPaginator";
 import { waitUntilImageScanComplete } from "./waiters/waitForImageScanComplete";
 import { waitUntilLifecyclePolicyPreviewComplete } from "./waiters/waitForLifecyclePolicyPreviewComplete";
 
@@ -329,6 +351,7 @@ const commands = {
   DescribeImageSigningStatusCommand,
   DescribePullThroughCacheRulesCommand,
   DescribeRegistryCommand,
+  DescribeReplicationBackfillResultsCommand,
   DescribeRepositoriesCommand,
   DescribeRepositoryCreationTemplatesCommand,
   GetAccountSettingCommand,
@@ -344,6 +367,7 @@ const commands = {
   ListImageReferrersCommand,
   ListImagesCommand,
   ListPullTimeUpdateExclusionsCommand,
+  ListReplicationBackfillsCommand,
   ListTagsForResourceCommand,
   PutAccountSettingCommand,
   PutImageCommand,
@@ -358,6 +382,8 @@ const commands = {
   SetRepositoryPolicyCommand,
   StartImageScanCommand,
   StartLifecyclePolicyPreviewCommand,
+  StartReplicationBackfillCommand,
+  StopReplicationBackfillCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateImageStorageClassCommand,
@@ -370,10 +396,12 @@ const paginators = {
   paginateDescribeImages,
   paginateDescribeImageScanFindings,
   paginateDescribePullThroughCacheRules,
+  paginateDescribeReplicationBackfillResults,
   paginateDescribeRepositories,
   paginateDescribeRepositoryCreationTemplates,
   paginateGetLifecyclePolicyPreview,
   paginateListImages,
+  paginateListReplicationBackfills,
 };
 const waiters = {
   waitUntilImageScanComplete,
@@ -767,6 +795,23 @@ export interface ECR {
   ): void;
 
   /**
+   * @see {@link DescribeReplicationBackfillResultsCommand}
+   */
+  describeReplicationBackfillResults(
+    args: DescribeReplicationBackfillResultsCommandInput,
+    options?: ECRRequestOptions
+  ): Promise<DescribeReplicationBackfillResultsCommandOutput>;
+  describeReplicationBackfillResults(
+    args: DescribeReplicationBackfillResultsCommandInput,
+    cb: (err: any, data?: DescribeReplicationBackfillResultsCommandOutput) => void
+  ): void;
+  describeReplicationBackfillResults(
+    args: DescribeReplicationBackfillResultsCommandInput,
+    options: ECRRequestOptions,
+    cb: (err: any, data?: DescribeReplicationBackfillResultsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeRepositoriesCommand}
    */
   describeRepositories(): Promise<DescribeRepositoriesCommandOutput>;
@@ -1029,6 +1074,24 @@ export interface ECR {
   ): void;
 
   /**
+   * @see {@link ListReplicationBackfillsCommand}
+   */
+  listReplicationBackfills(): Promise<ListReplicationBackfillsCommandOutput>;
+  listReplicationBackfills(
+    args: ListReplicationBackfillsCommandInput,
+    options?: ECRRequestOptions
+  ): Promise<ListReplicationBackfillsCommandOutput>;
+  listReplicationBackfills(
+    args: ListReplicationBackfillsCommandInput,
+    cb: (err: any, data?: ListReplicationBackfillsCommandOutput) => void
+  ): void;
+  listReplicationBackfills(
+    args: ListReplicationBackfillsCommandInput,
+    options: ECRRequestOptions,
+    cb: (err: any, data?: ListReplicationBackfillsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -1268,6 +1331,40 @@ export interface ECR {
   ): void;
 
   /**
+   * @see {@link StartReplicationBackfillCommand}
+   */
+  startReplicationBackfill(
+    args: StartReplicationBackfillCommandInput,
+    options?: ECRRequestOptions
+  ): Promise<StartReplicationBackfillCommandOutput>;
+  startReplicationBackfill(
+    args: StartReplicationBackfillCommandInput,
+    cb: (err: any, data?: StartReplicationBackfillCommandOutput) => void
+  ): void;
+  startReplicationBackfill(
+    args: StartReplicationBackfillCommandInput,
+    options: ECRRequestOptions,
+    cb: (err: any, data?: StartReplicationBackfillCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopReplicationBackfillCommand}
+   */
+  stopReplicationBackfill(
+    args: StopReplicationBackfillCommandInput,
+    options?: ECRRequestOptions
+  ): Promise<StopReplicationBackfillCommandOutput>;
+  stopReplicationBackfill(
+    args: StopReplicationBackfillCommandInput,
+    cb: (err: any, data?: StopReplicationBackfillCommandOutput) => void
+  ): void;
+  stopReplicationBackfill(
+    args: StopReplicationBackfillCommandInput,
+    options: ECRRequestOptions,
+    cb: (err: any, data?: StopReplicationBackfillCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(
@@ -1420,6 +1517,17 @@ export interface ECR {
   ): Paginator<DescribePullThroughCacheRulesCommandOutput>;
 
   /**
+   * @see {@link DescribeReplicationBackfillResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReplicationBackfillResultsCommandOutput}.
+   */
+  paginateDescribeReplicationBackfillResults(
+    args: DescribeReplicationBackfillResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReplicationBackfillResultsCommandOutput>;
+
+  /**
    * @see {@link DescribeRepositoriesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1462,6 +1570,17 @@ export interface ECR {
     args: ListImagesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListImagesCommandOutput>;
+
+  /**
+   * @see {@link ListReplicationBackfillsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReplicationBackfillsCommandOutput}.
+   */
+  paginateListReplicationBackfills(
+    args?: ListReplicationBackfillsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReplicationBackfillsCommandOutput>;
 
   /**
    * @see {@link DescribeImageScanFindingsCommand}

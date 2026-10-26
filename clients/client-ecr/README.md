@@ -343,6 +343,13 @@ DescribeRegistry
 </details>
 <details>
 <summary>
+DescribeReplicationBackfillResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/DescribeReplicationBackfillResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/DescribeReplicationBackfillResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/DescribeReplicationBackfillResultsCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeRepositories
 </summary>
 
@@ -448,6 +455,13 @@ ListPullTimeUpdateExclusions
 </details>
 <details>
 <summary>
+ListReplicationBackfills
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/ListReplicationBackfillsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/ListReplicationBackfillsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/ListReplicationBackfillsCommandOutput/)
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
@@ -543,6 +557,20 @@ StartLifecyclePolicyPreview
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/StartLifecyclePolicyPreviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/StartLifecyclePolicyPreviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/StartLifecyclePolicyPreviewCommandOutput/)
+</details>
+<details>
+<summary>
+StartReplicationBackfill
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/StartReplicationBackfillCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/StartReplicationBackfillCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/StartReplicationBackfillCommandOutput/)
+</details>
+<details>
+<summary>
+StopReplicationBackfill
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/StopReplicationBackfillCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/StopReplicationBackfillCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/StopReplicationBackfillCommandOutput/)
 </details>
 <details>
 <summary>

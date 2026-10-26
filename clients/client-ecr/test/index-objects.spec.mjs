@@ -98,6 +98,10 @@ import {
   DescribeRegistryCommand,
   DescribeRegistryRequest$,
   DescribeRegistryResponse$,
+  DescribeReplicationBackfillResults$,
+  DescribeReplicationBackfillResultsCommand,
+  DescribeReplicationBackfillResultsRequest$,
+  DescribeReplicationBackfillResultsResponse$,
   DescribeRepositories$,
   DescribeRepositoriesCommand,
   DescribeRepositoriesRequest$,
@@ -242,6 +246,10 @@ import {
   ListPullTimeUpdateExclusionsCommand,
   ListPullTimeUpdateExclusionsRequest$,
   ListPullTimeUpdateExclusionsResponse$,
+  ListReplicationBackfills$,
+  ListReplicationBackfillsCommand,
+  ListReplicationBackfillsRequest$,
+  ListReplicationBackfillsResponse$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -250,10 +258,12 @@ import {
   paginateDescribeImages,
   paginateDescribeImageScanFindings,
   paginateDescribePullThroughCacheRules,
+  paginateDescribeReplicationBackfillResults,
   paginateDescribeRepositories,
   paginateDescribeRepositoryCreationTemplates,
   paginateGetLifecyclePolicyPreview,
   paginateListImages,
+  paginateListReplicationBackfills,
   PullThroughCacheRule$,
   PullThroughCacheRuleAlreadyExistsException,
   PullThroughCacheRuleAlreadyExistsException$,
@@ -308,6 +318,17 @@ import {
   RegistryScanningConfiguration$,
   RegistryScanningRule$,
   Remediation$,
+  ReplicationBackfillInProgressException,
+  ReplicationBackfillInProgressException$,
+  ReplicationBackfillInvalidStatusException,
+  ReplicationBackfillInvalidStatusException$,
+  ReplicationBackfillNotFoundException,
+  ReplicationBackfillNotFoundException$,
+  ReplicationBackfillProgress$,
+  ReplicationBackfillResult$,
+  ReplicationBackfillResultStatus,
+  ReplicationBackfillStatus,
+  ReplicationBackfillSummary$,
   ReplicationConfiguration$,
   ReplicationDestination$,
   ReplicationRule$,
@@ -360,6 +381,14 @@ import {
   StartLifecyclePolicyPreviewCommand,
   StartLifecyclePolicyPreviewRequest$,
   StartLifecyclePolicyPreviewResponse$,
+  StartReplicationBackfill$,
+  StartReplicationBackfillCommand,
+  StartReplicationBackfillRequest$,
+  StartReplicationBackfillResponse$,
+  StopReplicationBackfill$,
+  StopReplicationBackfillCommand,
+  StopReplicationBackfillRequest$,
+  StopReplicationBackfillResponse$,
   SubjectIdentifier$,
   Tag$,
   TagResource$,
@@ -473,6 +502,8 @@ assert(typeof DescribePullThroughCacheRulesCommand === "function");
 assert(typeof DescribePullThroughCacheRules$ === "object");
 assert(typeof DescribeRegistryCommand === "function");
 assert(typeof DescribeRegistry$ === "object");
+assert(typeof DescribeReplicationBackfillResultsCommand === "function");
+assert(typeof DescribeReplicationBackfillResults$ === "object");
 assert(typeof DescribeRepositoriesCommand === "function");
 assert(typeof DescribeRepositories$ === "object");
 assert(typeof DescribeRepositoryCreationTemplatesCommand === "function");
@@ -503,6 +534,8 @@ assert(typeof ListImagesCommand === "function");
 assert(typeof ListImages$ === "object");
 assert(typeof ListPullTimeUpdateExclusionsCommand === "function");
 assert(typeof ListPullTimeUpdateExclusions$ === "object");
+assert(typeof ListReplicationBackfillsCommand === "function");
+assert(typeof ListReplicationBackfills$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof PutAccountSettingCommand === "function");
@@ -531,6 +564,10 @@ assert(typeof StartImageScanCommand === "function");
 assert(typeof StartImageScan$ === "object");
 assert(typeof StartLifecyclePolicyPreviewCommand === "function");
 assert(typeof StartLifecyclePolicyPreview$ === "object");
+assert(typeof StartReplicationBackfillCommand === "function");
+assert(typeof StartReplicationBackfill$ === "object");
+assert(typeof StopReplicationBackfillCommand === "function");
+assert(typeof StopReplicationBackfill$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -597,6 +634,8 @@ assert(typeof DescribePullThroughCacheRulesRequest$ === "object");
 assert(typeof DescribePullThroughCacheRulesResponse$ === "object");
 assert(typeof DescribeRegistryRequest$ === "object");
 assert(typeof DescribeRegistryResponse$ === "object");
+assert(typeof DescribeReplicationBackfillResultsRequest$ === "object");
+assert(typeof DescribeReplicationBackfillResultsResponse$ === "object");
 assert(typeof DescribeRepositoriesRequest$ === "object");
 assert(typeof DescribeRepositoriesResponse$ === "object");
 assert(typeof DescribeRepositoryCreationTemplatesRequest$ === "object");
@@ -651,6 +690,8 @@ assert(typeof ListImagesRequest$ === "object");
 assert(typeof ListImagesResponse$ === "object");
 assert(typeof ListPullTimeUpdateExclusionsRequest$ === "object");
 assert(typeof ListPullTimeUpdateExclusionsResponse$ === "object");
+assert(typeof ListReplicationBackfillsRequest$ === "object");
+assert(typeof ListReplicationBackfillsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof PackageVulnerabilityDetails$ === "object");
@@ -679,6 +720,9 @@ assert(typeof RegisterPullTimeUpdateExclusionResponse$ === "object");
 assert(typeof RegistryScanningConfiguration$ === "object");
 assert(typeof RegistryScanningRule$ === "object");
 assert(typeof Remediation$ === "object");
+assert(typeof ReplicationBackfillProgress$ === "object");
+assert(typeof ReplicationBackfillResult$ === "object");
+assert(typeof ReplicationBackfillSummary$ === "object");
 assert(typeof ReplicationConfiguration$ === "object");
 assert(typeof ReplicationDestination$ === "object");
 assert(typeof ReplicationRule$ === "object");
@@ -700,6 +744,10 @@ assert(typeof StartImageScanRequest$ === "object");
 assert(typeof StartImageScanResponse$ === "object");
 assert(typeof StartLifecyclePolicyPreviewRequest$ === "object");
 assert(typeof StartLifecyclePolicyPreviewResponse$ === "object");
+assert(typeof StartReplicationBackfillRequest$ === "object");
+assert(typeof StartReplicationBackfillResponse$ === "object");
+assert(typeof StopReplicationBackfillRequest$ === "object");
+assert(typeof StopReplicationBackfillResponse$ === "object");
 assert(typeof SubjectIdentifier$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagResourceRequest$ === "object");
@@ -735,6 +783,8 @@ assert(typeof LifecyclePolicyPreviewStatus === "object");
 assert(typeof LifecyclePolicyStorageClass === "object");
 assert(typeof LifecyclePolicyTargetStorageClass === "object");
 assert(typeof RCTAppliedFor === "object");
+assert(typeof ReplicationBackfillResultStatus === "object");
+assert(typeof ReplicationBackfillStatus === "object");
 assert(typeof ReplicationStatus === "object");
 assert(typeof RepositoryFilterType === "object");
 assert(typeof ScanFrequency === "object");
@@ -802,6 +852,12 @@ assert(ReferencedImagesNotFoundException.prototype instanceof ECRServiceExceptio
 assert(typeof ReferencedImagesNotFoundException$ === "object");
 assert(RegistryPolicyNotFoundException.prototype instanceof ECRServiceException);
 assert(typeof RegistryPolicyNotFoundException$ === "object");
+assert(ReplicationBackfillInProgressException.prototype instanceof ECRServiceException);
+assert(typeof ReplicationBackfillInProgressException$ === "object");
+assert(ReplicationBackfillInvalidStatusException.prototype instanceof ECRServiceException);
+assert(typeof ReplicationBackfillInvalidStatusException$ === "object");
+assert(ReplicationBackfillNotFoundException.prototype instanceof ECRServiceException);
+assert(typeof ReplicationBackfillNotFoundException$ === "object");
 assert(RepositoryAlreadyExistsException.prototype instanceof ECRServiceException);
 assert(typeof RepositoryAlreadyExistsException$ === "object");
 assert(RepositoryNotEmptyException.prototype instanceof ECRServiceException);
@@ -852,8 +908,10 @@ assert(typeof waitUntilLifecyclePolicyPreviewComplete === "function");
 assert(typeof paginateDescribeImageScanFindings === "function");
 assert(typeof paginateDescribeImages === "function");
 assert(typeof paginateDescribePullThroughCacheRules === "function");
+assert(typeof paginateDescribeReplicationBackfillResults === "function");
 assert(typeof paginateDescribeRepositories === "function");
 assert(typeof paginateDescribeRepositoryCreationTemplates === "function");
 assert(typeof paginateGetLifecyclePolicyPreview === "function");
 assert(typeof paginateListImages === "function");
+assert(typeof paginateListReplicationBackfills === "function");
 console.log(`ECR index test passed.`);

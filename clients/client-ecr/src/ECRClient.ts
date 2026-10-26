@@ -125,6 +125,10 @@ import type {
 } from "./commands/DescribePullThroughCacheRulesCommand";
 import type { DescribeRegistryCommandInput, DescribeRegistryCommandOutput } from "./commands/DescribeRegistryCommand";
 import type {
+  DescribeReplicationBackfillResultsCommandInput,
+  DescribeReplicationBackfillResultsCommandOutput,
+} from "./commands/DescribeReplicationBackfillResultsCommand";
+import type {
   DescribeRepositoriesCommandInput,
   DescribeRepositoriesCommandOutput,
 } from "./commands/DescribeRepositoriesCommand";
@@ -182,6 +186,10 @@ import type {
   ListPullTimeUpdateExclusionsCommandOutput,
 } from "./commands/ListPullTimeUpdateExclusionsCommand";
 import type {
+  ListReplicationBackfillsCommandInput,
+  ListReplicationBackfillsCommandOutput,
+} from "./commands/ListReplicationBackfillsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -231,6 +239,14 @@ import type {
   StartLifecyclePolicyPreviewCommandInput,
   StartLifecyclePolicyPreviewCommandOutput,
 } from "./commands/StartLifecyclePolicyPreviewCommand";
+import type {
+  StartReplicationBackfillCommandInput,
+  StartReplicationBackfillCommandOutput,
+} from "./commands/StartReplicationBackfillCommand";
+import type {
+  StopReplicationBackfillCommandInput,
+  StopReplicationBackfillCommandOutput,
+} from "./commands/StopReplicationBackfillCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
@@ -287,6 +303,7 @@ export type ServiceInputTypes =
   | DescribeImagesCommandInput
   | DescribePullThroughCacheRulesCommandInput
   | DescribeRegistryCommandInput
+  | DescribeReplicationBackfillResultsCommandInput
   | DescribeRepositoriesCommandInput
   | DescribeRepositoryCreationTemplatesCommandInput
   | GetAccountSettingCommandInput
@@ -302,6 +319,7 @@ export type ServiceInputTypes =
   | ListImageReferrersCommandInput
   | ListImagesCommandInput
   | ListPullTimeUpdateExclusionsCommandInput
+  | ListReplicationBackfillsCommandInput
   | ListTagsForResourceCommandInput
   | PutAccountSettingCommandInput
   | PutImageCommandInput
@@ -316,6 +334,8 @@ export type ServiceInputTypes =
   | SetRepositoryPolicyCommandInput
   | StartImageScanCommandInput
   | StartLifecyclePolicyPreviewCommandInput
+  | StartReplicationBackfillCommandInput
+  | StopReplicationBackfillCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateImageStorageClassCommandInput
@@ -350,6 +370,7 @@ export type ServiceOutputTypes =
   | DescribeImagesCommandOutput
   | DescribePullThroughCacheRulesCommandOutput
   | DescribeRegistryCommandOutput
+  | DescribeReplicationBackfillResultsCommandOutput
   | DescribeRepositoriesCommandOutput
   | DescribeRepositoryCreationTemplatesCommandOutput
   | GetAccountSettingCommandOutput
@@ -365,6 +386,7 @@ export type ServiceOutputTypes =
   | ListImageReferrersCommandOutput
   | ListImagesCommandOutput
   | ListPullTimeUpdateExclusionsCommandOutput
+  | ListReplicationBackfillsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutAccountSettingCommandOutput
   | PutImageCommandOutput
@@ -379,6 +401,8 @@ export type ServiceOutputTypes =
   | SetRepositoryPolicyCommandOutput
   | StartImageScanCommandOutput
   | StartLifecyclePolicyPreviewCommandOutput
+  | StartReplicationBackfillCommandOutput
+  | StopReplicationBackfillCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateImageStorageClassCommandOutput
