@@ -306,6 +306,21 @@ export type SaaSProductVisibilityString =
  * @public
  * @enum
  */
+export const SubsidiaryAuthorizationStatusString = {
+  Active: "Active",
+  Draft: "Draft",
+  Restricted: "Restricted",
+} as const;
+/**
+ * @public
+ */
+export type SubsidiaryAuthorizationStatusString =
+  (typeof SubsidiaryAuthorizationStatusString)[keyof typeof SubsidiaryAuthorizationStatusString];
+
+/**
+ * @public
+ * @enum
+ */
 export const ContainerProductSortBy = {
   CompatibleAWSServices: "CompatibleAWSServices",
   EntityId: "EntityId",
@@ -449,6 +464,24 @@ export const SaaSProductSortBy = {
  * @public
  */
 export type SaaSProductSortBy = (typeof SaaSProductSortBy)[keyof typeof SaaSProductSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SubsidiaryAuthorizationSortBy = {
+  CreatedDate: "CreatedDate",
+  EntityId: "EntityId",
+  LastModifiedDate: "LastModifiedDate",
+  ResourceId: "ResourceId",
+  Status: "Status",
+  SubsidiaryAccountId: "SubsidiaryAccountId",
+} as const;
+/**
+ * @public
+ */
+export type SubsidiaryAuthorizationSortBy =
+  (typeof SubsidiaryAuthorizationSortBy)[keyof typeof SubsidiaryAuthorizationSortBy];
 
 /**
  * @public
