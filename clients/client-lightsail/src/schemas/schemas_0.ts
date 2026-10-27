@@ -486,6 +486,7 @@ const _HO = "HeaderObject";
 const _I = "Instance";
 const _IAD = "InstanceAccessDetails";
 const _IAMAKI = "IAMAccessKeyId";
+const _IAU = "InstanceAttributeUpdates";
 const _IE = "InstanceEntry";
 const _IEL = "InstanceEntryList";
 const _IH = "InstanceHardware";
@@ -735,6 +736,7 @@ const _aT = "attachedTo";
 const _aTUB = "ableToUpdateBundle";
 const _aTc = "accessType";
 const _aTp = "applyType";
+const _aU = "attributeUpdates";
 const _aV = "allowedValues";
 const _aVt = "attributeValue";
 const _aZ = "availabilityZone";
@@ -2904,6 +2906,11 @@ export var InstanceAccessDetails$: StaticStructureSchema = [3, n0, _IAD,
   [_cK, _eA, _iApd, _iAp, _pas, _pD, _pKr, _pro, _iN, _us, _hK],
   [0, 4, 0, 64 | 0, 0, () => PasswordData$, 0, 0, 0, 0, () => HostKeysList]
 ];
+export var InstanceAttributeUpdates$: StaticStructureSchema = [3, n0, _IAU,
+  0,
+  [_bIu],
+  [0]
+];
 export var InstanceEntry$: StaticStructureSchema = [3, n0, _IE,
   0,
   [_sNo, _iT, _pIS, _aZ, _uD],
@@ -3336,8 +3343,8 @@ export var StartGUISessionResult$: StaticStructureSchema = [3, n0, _SGUISRt,
 ];
 export var StartInstanceRequest$: StaticStructureSchema = [3, n0, _SIR,
   0,
-  [_iN],
-  [0], 1
+  [_iN, _aU],
+  [0, () => InstanceAttributeUpdates$], 1
 ];
 export var StartInstanceResult$: StaticStructureSchema = [3, n0, _SIRt,
   0,

@@ -43,6 +43,9 @@ export interface StartInstanceCommandOutput extends StartInstanceResult, __Metad
  * const client = new LightsailClient(config);
  * const input = { // StartInstanceRequest
  *   instanceName: "STRING_VALUE", // required
+ *   attributeUpdates: { // InstanceAttributeUpdates
+ *     bundleId: "STRING_VALUE",
+ *   },
  * };
  * const command = new StartInstanceCommand(input);
  * const response = await client.send(command);

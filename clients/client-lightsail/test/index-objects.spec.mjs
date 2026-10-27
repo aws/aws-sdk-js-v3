@@ -616,6 +616,7 @@ import {
   Instance$,
   InstanceAccessDetails$,
   InstanceAccessProtocol,
+  InstanceAttributeUpdates$,
   InstanceEntry$,
   InstanceHardware$,
   InstanceHealthReason,
@@ -1532,6 +1533,7 @@ assert(typeof ImportKeyPairResult$ === "object");
 assert(typeof InputOrigin$ === "object");
 assert(typeof Instance$ === "object");
 assert(typeof InstanceAccessDetails$ === "object");
+assert(typeof InstanceAttributeUpdates$ === "object");
 assert(typeof InstanceEntry$ === "object");
 assert(typeof InstanceHardware$ === "object");
 assert(typeof InstanceHealthSummary$ === "object");

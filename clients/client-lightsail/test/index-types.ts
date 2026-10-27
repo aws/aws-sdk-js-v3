@@ -894,6 +894,7 @@ export type {
   InputOrigin,
   Instance,
   InstanceAccessDetails,
+  InstanceAttributeUpdates,
   InstanceEntry,
   InstanceHardware,
   InstanceHealthSummary,

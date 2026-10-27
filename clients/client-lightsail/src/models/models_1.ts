@@ -3181,6 +3181,48 @@ export interface ImportKeyPairResult {
 }
 
 /**
+ * <p>Describes the attributes to update on a Lightsail instance when it starts.</p>
+ * @public
+ */
+export interface InstanceAttributeUpdates {
+  /**
+   * <p>The ID of the bundle to update the instance to.</p>
+   *          <p>Specify one of the following values for the bundle ID:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>auto</code>
+   *                   </b> – Updates an instance that
+   *           runs on a previous-generation bundle to the newer-generation equivalent of that
+   *           bundle. For example, specify <code>auto</code> to update an instance that runs on
+   *             <code>small_2_0</code> to <code>small_3_0</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Newer-generation bundle ID</b> – Updates an
+   *           instance that runs on a previous-generation bundle to the specified bundle. For example,
+   *           specify <code>small_3_0</code> to update an instance that runs on <code>small_2_0</code>
+   *           to <code>small_3_0</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Original bundle ID</b> – Updates an instance to
+   *           the previous-generation bundle that it ran on before an earlier update. For example,
+   *           specify <code>small_2_0</code> to return an instance that runs on <code>small_3_0</code>
+   *           to <code>small_2_0</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>The instance must be in the <code>stopped</code> state to update its bundle.</p>
+   *             <p>There is no additional cost to update an instance to a newer-generation bundle.</p>
+   *          </note>
+   * @public
+   */
+  bundleId?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface IsVpcPeeredRequest {}
@@ -3844,6 +3886,12 @@ export interface StartInstanceRequest {
    * @public
    */
   instanceName: string | undefined;
+
+  /**
+   * <p>An object that describes the attributes to update on the instance before it starts.</p>
+   * @public
+   */
+  attributeUpdates?: InstanceAttributeUpdates | undefined;
 }
 
 /**
