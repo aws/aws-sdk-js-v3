@@ -72,6 +72,9 @@ export interface GetOauth2CredentialProviderCommandOutput extends GetOauth2Crede
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //         onBehalfOfAuthenticationConfig: { // OnBehalfOfAuthenticationConfig
+ * //           clientAuthenticationMethod: "NO_CLIENT", // required
+ * //         },
  * //       },
  * //       clientAuthenticationMethod: "CLIENT_SECRET_BASIC" || "CLIENT_SECRET_POST" || "AWS_IAM_ID_TOKEN_JWT" || "PRIVATE_KEY_JWT",
  * //       privateEndpoint: { // PrivateEndpoint Union: only one key present

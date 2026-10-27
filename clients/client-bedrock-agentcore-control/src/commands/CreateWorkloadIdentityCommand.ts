@@ -62,6 +62,9 @@ export interface CreateWorkloadIdentityCommandOutput extends CreateWorkloadIdent
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>This exception is thrown when a request is denied per access permissions</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This exception is thrown when there is a conflict performing an operation</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception is thrown if there was an unexpected error during processing of request</p>
  *

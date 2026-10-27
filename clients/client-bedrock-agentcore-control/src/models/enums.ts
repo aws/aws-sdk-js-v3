@@ -1339,6 +1339,19 @@ export type OnBehalfOfTokenExchangeGrantTypeType =
  * @public
  * @enum
  */
+export const OnBehalfOfClientAuthenticationMethod = {
+  NO_CLIENT: "NO_CLIENT",
+} as const;
+/**
+ * @public
+ */
+export type OnBehalfOfClientAuthenticationMethod =
+  (typeof OnBehalfOfClientAuthenticationMethod)[keyof typeof OnBehalfOfClientAuthenticationMethod];
+
+/**
+ * @public
+ * @enum
+ */
 export const SigningAlgorithm = {
   ES256: "ES256",
   PS256: "PS256",

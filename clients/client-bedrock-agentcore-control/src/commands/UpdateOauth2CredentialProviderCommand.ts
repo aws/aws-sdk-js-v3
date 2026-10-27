@@ -66,6 +66,9 @@ export interface UpdateOauth2CredentialProviderCommandOutput extends UpdateOauth
  *             "STRING_VALUE",
  *           ],
  *         },
+ *         onBehalfOfAuthenticationConfig: { // OnBehalfOfAuthenticationConfig
+ *           clientAuthenticationMethod: "NO_CLIENT", // required
+ *         },
  *       },
  *       clientAuthenticationMethod: "CLIENT_SECRET_BASIC" || "CLIENT_SECRET_POST" || "AWS_IAM_ID_TOKEN_JWT" || "PRIVATE_KEY_JWT",
  *       privateKeyJwtConfig: { // PrivateKeyJwtConfig
@@ -228,6 +231,9 @@ export interface UpdateOauth2CredentialProviderCommandOutput extends UpdateOauth
  * //           actorTokenScopes: [ // ScopesListType
  * //             "STRING_VALUE",
  * //           ],
+ * //         },
+ * //         onBehalfOfAuthenticationConfig: { // OnBehalfOfAuthenticationConfig
+ * //           clientAuthenticationMethod: "NO_CLIENT", // required
  * //         },
  * //       },
  * //       clientAuthenticationMethod: "CLIENT_SECRET_BASIC" || "CLIENT_SECRET_POST" || "AWS_IAM_ID_TOKEN_JWT" || "PRIVATE_KEY_JWT",

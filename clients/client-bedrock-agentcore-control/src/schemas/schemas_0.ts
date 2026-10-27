@@ -778,6 +778,7 @@ const _OACP = "OAuthCredentialProvider";
 const _OACPV = "OAuthCustomParametersValue";
 const _OACPu = "OAuthCustomParameters";
 const _OASM = "Oauth2AuthorizationServerMetadata";
+const _OBOAC = "OnBehalfOfAuthenticationConfig";
 const _OBOTECT = "OnBehalfOfTokenExchangeConfigType";
 const _OC = "OutputConfig";
 const _OCP = "Oauth2CredentialProviders";
@@ -856,6 +857,9 @@ const _RSL = "RegistrySummaryList";
 const _RSa = "RatingScale";
 const _RTC = "RuntimeTargetConfiguration";
 const _RTTA = "RouteToTargetAction";
+const _RTVKM = "ResetTokenVaultKeyMaterial";
+const _RTVKMR = "ResetTokenVaultKeyMaterialRequest";
+const _RTVKMRe = "ResetTokenVaultKeyMaterialResponse";
 const _RVC = "RootVolumeConfiguration";
 const _Re = "Resource";
 const _S = "Secret";
@@ -1529,6 +1533,7 @@ const _o = "operator";
 const _oA = "outboundAuth";
 const _oAMC = "openAiModelConfig";
 const _oAS = "openApiSchema";
+const _oBOAC = "onBehalfOfAuthenticationConfig";
 const _oBOTEC = "onBehalfOfTokenExchangeConfig";
 const _oC = "outputConfig";
 const _oCP = "oauthCredentialProvider";
@@ -4401,10 +4406,15 @@ export var OAuthCredentialProvider$: StaticStructureSchema = [3, n0, _OACP,
   [_pAr, _sc, _cPu, _gT, _dRU],
   [0, 64 | 0, [() => OAuthCustomParameters, 0], 0, 0], 2
 ];
+export var OnBehalfOfAuthenticationConfig$: StaticStructureSchema = [3, n0, _OBOAC,
+  0,
+  [_cAM],
+  [0], 1
+];
 export var OnBehalfOfTokenExchangeConfigType$: StaticStructureSchema = [3, n0, _OBOTECT,
   0,
-  [_gT, _tEGTC],
-  [0, () => TokenExchangeGrantTypeConfigType$], 1
+  [_gT, _tEGTC, _oBOAC],
+  [0, () => TokenExchangeGrantTypeConfigType$, () => OnBehalfOfAuthenticationConfig$], 1
 ];
 export var OnlineEvaluationConfigSummary$: StaticStructureSchema = [3, n0, _OECS,
   0,
@@ -4565,6 +4575,16 @@ export var RegistrySummary$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_n, _rIe, _rAeg, _st, _cA, _uA, _d, _aT, _sR],
   [0, 0, 0, 0, 5, 5, [() => Description, 0], 0, 0], 6
+];
+export var ResetTokenVaultKeyMaterialRequest$: StaticStructureSchema = [3, n0, _RTVKMR,
+  0,
+  [_tVI],
+  [0], 1
+];
+export var ResetTokenVaultKeyMaterialResponse$: StaticStructureSchema = [3, n0, _RTVKMRe,
+  0,
+  [_tVI, _kC, _lMD],
+  [0, () => KmsConfiguration$, 4], 3
 ];
 export var RootVolumeConfiguration$: StaticStructureSchema = [3, n0, _RVC,
   0,
@@ -6636,6 +6656,9 @@ export var ListWorkloadIdentities$: StaticOperationSchema = [9, n0, _LWI,
 ];
 export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
   { [_ht]: ["PUT", "/resourcepolicy/{resourceArn}", 201] }, () => PutResourcePolicyRequest$, () => PutResourcePolicyResponse$
+];
+export var ResetTokenVaultKeyMaterial$: StaticOperationSchema = [9, n0, _RTVKM,
+  { [_ht]: ["POST", "/identities/reset-token-vault-key-material", 200] }, () => ResetTokenVaultKeyMaterialRequest$, () => ResetTokenVaultKeyMaterialResponse$
 ];
 export var RotatePaymentConnectorCredentials$: StaticOperationSchema = [9, n0, _RPCC,
   { [_ht]: ["POST", "/payments/managers/{paymentManagerId}/connectors/{paymentConnectorId}/rotate-credentials", 202] }, () => RotatePaymentConnectorCredentialsRequest$, () => RotatePaymentConnectorCredentialsResponse$

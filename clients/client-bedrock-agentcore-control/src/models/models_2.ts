@@ -53,6 +53,23 @@ import type {
 /**
  * @public
  */
+export interface DeletePaymentManagerResponse {
+  /**
+   * <p>The current status of the payment manager, set to <code>DELETING</code> when deletion is initiated. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * @public
+   */
+  status: PaymentManagerStatus | undefined;
+
+  /**
+   * <p>The unique identifier of the deleted payment manager.</p>
+   * @public
+   */
+  paymentManagerId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetPaymentManagerRequest {
   /**
    * <p>The unique identifier of the payment manager to retrieve.</p>
@@ -4384,6 +4401,40 @@ export interface UpdateRegistryResponse {
    * @public
    */
   updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetTokenVaultKeyMaterialRequest {
+  /**
+   * <p>The unique identifier of the token vault to reset. To reset your account's default token vault, specify <code>default</code>.</p>
+   * @public
+   */
+  tokenVaultId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetTokenVaultKeyMaterialResponse {
+  /**
+   * <p>The ID of the token vault.</p>
+   * @public
+   */
+  tokenVaultId: string | undefined;
+
+  /**
+   * <p>The KMS configuration for the token vault after the reset. The token vault uses an Amazon Web Services managed key.</p>
+   * @public
+   */
+  kmsConfiguration: KmsConfiguration | undefined;
+
+  /**
+   * <p>The timestamp when the token vault was last modified.</p>
+   * @public
+   */
+  lastModifiedDate: Date | undefined;
 }
 
 /**

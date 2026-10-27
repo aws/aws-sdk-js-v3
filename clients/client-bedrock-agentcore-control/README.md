@@ -1140,6 +1140,13 @@ PutResourcePolicy
 </details>
 <details>
 <summary>
+ResetTokenVaultKeyMaterial
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/ResetTokenVaultKeyMaterialCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/ResetTokenVaultKeyMaterialCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/ResetTokenVaultKeyMaterialCommandOutput/)
+</details>
+<details>
+<summary>
 RotatePaymentConnectorCredentials
 </summary>
 

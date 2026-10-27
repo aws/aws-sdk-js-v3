@@ -687,6 +687,11 @@ import {
   PutResourcePolicyCommand,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type ResetTokenVaultKeyMaterialCommandInput,
+  type ResetTokenVaultKeyMaterialCommandOutput,
+  ResetTokenVaultKeyMaterialCommand,
+} from "./commands/ResetTokenVaultKeyMaterialCommand";
+import {
   type RotatePaymentConnectorCredentialsCommandInput,
   type RotatePaymentConnectorCredentialsCommandOutput,
   RotatePaymentConnectorCredentialsCommand,
@@ -1044,6 +1049,7 @@ const commands = {
   ListTagsForResourceCommand,
   ListWorkloadIdentitiesCommand,
   PutResourcePolicyCommand,
+  ResetTokenVaultKeyMaterialCommand,
   RotatePaymentConnectorCredentialsCommand,
   SetTokenVaultCMKCommand,
   StartPolicyGenerationCommand,
@@ -3486,6 +3492,23 @@ export interface BedrockAgentCoreControl {
     args: PutResourcePolicyCommandInput,
     options: BedrockAgentCoreControlRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResetTokenVaultKeyMaterialCommand}
+   */
+  resetTokenVaultKeyMaterial(
+    args: ResetTokenVaultKeyMaterialCommandInput,
+    options?: BedrockAgentCoreControlRequestOptions
+  ): Promise<ResetTokenVaultKeyMaterialCommandOutput>;
+  resetTokenVaultKeyMaterial(
+    args: ResetTokenVaultKeyMaterialCommandInput,
+    cb: (err: any, data?: ResetTokenVaultKeyMaterialCommandOutput) => void
+  ): void;
+  resetTokenVaultKeyMaterial(
+    args: ResetTokenVaultKeyMaterialCommandInput,
+    options: BedrockAgentCoreControlRequestOptions,
+    cb: (err: any, data?: ResetTokenVaultKeyMaterialCommandOutput) => void
   ): void;
 
   /**

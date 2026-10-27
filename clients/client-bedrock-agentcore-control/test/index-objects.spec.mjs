@@ -900,6 +900,8 @@ import {
   Oauth2ProviderConfigOutput$,
   OAuthCredentialProvider$,
   OAuthGrantType,
+  OnBehalfOfAuthenticationConfig$,
+  OnBehalfOfClientAuthenticationMethod,
   OnBehalfOfTokenExchangeConfigType$,
   OnBehalfOfTokenExchangeGrantTypeType,
   OnlineEvaluationConfigStatus,
@@ -1009,6 +1011,10 @@ import {
   RegistryStatus,
   RegistrySummary$,
   RequestHeaderConfiguration$,
+  ResetTokenVaultKeyMaterial$,
+  ResetTokenVaultKeyMaterialCommand,
+  ResetTokenVaultKeyMaterialRequest$,
+  ResetTokenVaultKeyMaterialResponse$,
   Resource$,
   ResourceLimitExceededException,
   ResourceLimitExceededException$,
@@ -1581,6 +1587,8 @@ assert(typeof ListWorkloadIdentitiesCommand === "function");
 assert(typeof ListWorkloadIdentities$ === "object");
 assert(typeof PutResourcePolicyCommand === "function");
 assert(typeof PutResourcePolicy$ === "object");
+assert(typeof ResetTokenVaultKeyMaterialCommand === "function");
+assert(typeof ResetTokenVaultKeyMaterial$ === "object");
 assert(typeof RotatePaymentConnectorCredentialsCommand === "function");
 assert(typeof RotatePaymentConnectorCredentials$ === "object");
 assert(typeof SetTokenVaultCMKCommand === "function");
@@ -2194,6 +2202,7 @@ assert(typeof Oauth2Discovery$ === "object");
 assert(typeof Oauth2ProviderConfigInput$ === "object");
 assert(typeof Oauth2ProviderConfigOutput$ === "object");
 assert(typeof OAuthCredentialProvider$ === "object");
+assert(typeof OnBehalfOfAuthenticationConfig$ === "object");
 assert(typeof OnBehalfOfTokenExchangeConfigType$ === "object");
 assert(typeof OnlineEvaluationConfigSummary$ === "object");
 assert(typeof OpenResponsesEvaluatorModelConfig$ === "object");
@@ -2237,6 +2246,8 @@ assert(typeof RegistryRecordOAuthCredentialProvider$ === "object");
 assert(typeof RegistryRecordSummary$ === "object");
 assert(typeof RegistrySummary$ === "object");
 assert(typeof RequestHeaderConfiguration$ === "object");
+assert(typeof ResetTokenVaultKeyMaterialRequest$ === "object");
+assert(typeof ResetTokenVaultKeyMaterialResponse$ === "object");
 assert(typeof Resource$ === "object");
 assert(typeof ResourceLocation$ === "object");
 assert(typeof RootVolumeConfiguration$ === "object");
@@ -2484,6 +2495,7 @@ assert(typeof MetadataValueType === "object");
 assert(typeof Monitoring === "object");
 assert(typeof NetworkMode === "object");
 assert(typeof OAuthGrantType === "object");
+assert(typeof OnBehalfOfClientAuthenticationMethod === "object");
 assert(typeof OnBehalfOfTokenExchangeGrantTypeType === "object");
 assert(typeof OnlineEvaluationConfigStatus === "object");
 assert(typeof OnlineEvaluationExecutionStatus === "object");

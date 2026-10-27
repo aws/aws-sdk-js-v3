@@ -29,6 +29,7 @@ import type {
   MemoryView,
   MetadataValueType,
   OAuthGrantType,
+  OnBehalfOfClientAuthenticationMethod,
   OnBehalfOfTokenExchangeGrantTypeType,
   OnlineEvaluationConfigStatus,
   OnlineEvaluationExecutionStatus,
@@ -7103,6 +7104,18 @@ export namespace Oauth2Discovery {
 }
 
 /**
+ * <p>Specifies the client authentication method to use for the on-behalf-of token exchange.</p>
+ * @public
+ */
+export interface OnBehalfOfAuthenticationConfig {
+  /**
+   * <p>The client authentication method to use during the on-behalf-of token exchange. The <code>NO_CLIENT</code> option omits the <code>clientId</code> and <code>clientSecret</code> during the on-behalf-of token exchange with the identity provider.</p>
+   * @public
+   */
+  clientAuthenticationMethod: OnBehalfOfClientAuthenticationMethod | undefined;
+}
+
+/**
  * <p>Configuration for RFC 8693 token exchange.</p>
  * @public
  */
@@ -7136,6 +7149,12 @@ export interface OnBehalfOfTokenExchangeConfigType {
    * @public
    */
   tokenExchangeGrantTypeConfig?: TokenExchangeGrantTypeConfigType | undefined;
+
+  /**
+   * <p>Specify the client authentication configuration to use for the on-behalf-of token exchange. With this configuration, you override the provider level client authentication method for the on-behalf-of exchange with the identity provider. If you don't specify this configuration, we use the provider level client authentication method.</p>
+   * @public
+   */
+  onBehalfOfAuthenticationConfig?: OnBehalfOfAuthenticationConfig | undefined;
 }
 
 /**
@@ -9981,21 +10000,4 @@ export interface DeletePaymentManagerRequest {
    * @public
    */
   clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePaymentManagerResponse {
-  /**
-   * <p>The current status of the payment manager, set to <code>DELETING</code> when deletion is initiated. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
-   * @public
-   */
-  status: PaymentManagerStatus | undefined;
-
-  /**
-   * <p>The unique identifier of the deleted payment manager.</p>
-   * @public
-   */
-  paymentManagerId?: string | undefined;
 }
