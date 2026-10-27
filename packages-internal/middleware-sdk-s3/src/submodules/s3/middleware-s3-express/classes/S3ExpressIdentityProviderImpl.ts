@@ -1,6 +1,4 @@
 import type { AwsCredentialIdentity } from "@aws-sdk/types";
-import { Sha256 } from "@smithy/core/checksum";
-import { toHex, toUint8Array } from "@smithy/core/serde";
 
 import type { S3ExpressIdentity } from "../interfaces/S3ExpressIdentity";
 import type { S3ExpressIdentityProvider } from "../interfaces/S3ExpressIdentityProvider";
@@ -26,9 +24,8 @@ type Credentials = {
 export class S3ExpressIdentityProviderImpl implements S3ExpressIdentityProvider {
   public static REFRESH_WINDOW_MS = 60_000;
 
-  private identityHash?: string;
+  private accessKeyId?: string;
   private cacheGeneration = 0;
-  private readonly identityHashes = new WeakMap<AwsCredentialIdentity, Promise<string>>();
 
   public constructor(
     private createSessionFn: (bucket: string) => Promise<{ Credentials: Credentials }>,
@@ -41,9 +38,8 @@ export class S3ExpressIdentityProviderImpl implements S3ExpressIdentityProvider 
   ): Promise<S3ExpressIdentity> {
     const bucket = identityProperties.Bucket;
     const { cache } = this;
-    const identityHash = await this.getIdentityHash(awsIdentity);
-    if (identityHash !== this.identityHash) {
-      this.identityHash = identityHash;
+    if (awsIdentity.accessKeyId !== this.accessKeyId) {
+      this.accessKeyId = awsIdentity.accessKeyId;
       this.cacheGeneration++;
       cache.clear();
     }
@@ -76,17 +72,6 @@ export class S3ExpressIdentityProviderImpl implements S3ExpressIdentityProvider 
     }
 
     return cache.set(bucket, new S3ExpressIdentityCacheEntry(this.getIdentity(bucket))).identity;
-  }
-
-  private getIdentityHash(identity: AwsCredentialIdentity): Promise<string> {
-    let identityHash = this.identityHashes.get(identity);
-    if (!identityHash) {
-      const hash = new Sha256();
-      hash.update(toUint8Array(identity.accessKeyId));
-      identityHash = hash.digest().then(toHex);
-      this.identityHashes.set(identity, identityHash);
-    }
-    return identityHash;
   }
 
   private async getIdentity(bucket: string): Promise<S3ExpressIdentity> {
