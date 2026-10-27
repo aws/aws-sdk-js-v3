@@ -5,6 +5,7 @@ export {
   AwsRestJsonProtocol,
   AwsRestXmlProtocol,
   AwsSmithyRpcV2CborProtocol,
+  AwsSmithyRpcV2JsonProtocol,
 } from "@aws-sdk/core/protocols";
 
 // abstract

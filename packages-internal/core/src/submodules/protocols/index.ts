@@ -6,6 +6,7 @@ export { AwsJson1_0Protocol } from "./json/AwsJson1_0Protocol";
 export { AwsJson1_1Protocol } from "./json/AwsJson1_1Protocol";
 export { AwsJsonRpcProtocol } from "./json/AwsJsonRpcProtocol";
 export { AwsRestJsonProtocol } from "./json/AwsRestJsonProtocol";
+export { AwsSmithyRpcV2JsonProtocol } from "./json/AwsSmithyRpcV2JsonProtocol";
 
 // The JSON codec (v1 and v2) and JSON body helpers now live in @smithy/core.
 // Re-export them so this package's public surface is unchanged while the

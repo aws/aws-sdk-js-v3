@@ -135,6 +135,7 @@
     "AwsRestJsonProtocol": "function",
     "AwsRestXmlProtocol": "function",
     "AwsSmithyRpcV2CborProtocol": "function",
+    "AwsSmithyRpcV2JsonProtocol": "function",
     "HttpBindingProtocol": "function",
     "HttpProtocol": "function",
     "RpcProtocol": "function"
@@ -357,6 +358,7 @@
     "AwsRestJsonProtocol": "function",
     "AwsRestXmlProtocol": "function",
     "AwsSmithyRpcV2CborProtocol": "function",
+    "AwsSmithyRpcV2JsonProtocol": "function",
     "JsonCodec": "function",
     "JsonCodec2": "function",
     "JsonSettings": "type(intersection)",
