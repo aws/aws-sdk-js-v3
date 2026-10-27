@@ -30,19 +30,24 @@ export class S3ExpressIdentityCache {
     delete this.data[key];
   }
 
+  public clear(): void {
+    this.data = {};
+  }
+
   public async purgeExpired(): Promise<void> {
     const now = Date.now();
     if (this.lastPurgeTime + S3ExpressIdentityCache.EXPIRED_CREDENTIAL_PURGE_INTERVAL_MS > now) {
       return;
     }
 
-    for (const key in this.data) {
-      const entry = this.data[key];
+    const data = this.data;
+    for (const key in data) {
+      const entry = data[key];
       if (!entry.isRefreshing) {
         const credential = await entry.identity;
         if (credential.expiration) {
-          if (credential.expiration.getTime() < now) {
-            delete this.data[key];
+          if (credential.expiration.getTime() < now && data[key] === entry) {
+            delete data[key];
           }
         }
       }
