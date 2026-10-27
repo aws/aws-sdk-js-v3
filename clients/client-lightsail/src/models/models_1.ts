@@ -52,13 +52,101 @@ import type {
   DistributionCustomErrorResponse,
   DomainEntry,
   InputOrigin,
+  InstanceState,
+  KeyPair,
   MetricDatapoint,
   Operation,
   PortInfo,
   PrivateRegistryAccessRequest,
   ResourceLocation,
   Tag,
+  WafRule,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetInstanceStateRequest {
+  /**
+   * <p>The name of the instance to get state information about.</p>
+   * @public
+   */
+  instanceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceStateResult {
+  /**
+   * <p>The state of the instance.</p>
+   * @public
+   */
+  state?: InstanceState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKeyPairRequest {
+  /**
+   * <p>The name of the key pair for which you are requesting information.</p>
+   * @public
+   */
+  keyPairName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKeyPairResult {
+  /**
+   * <p>An array of key-value pairs containing information about the key pair.</p>
+   * @public
+   */
+  keyPair?: KeyPair | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKeyPairsRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetKeyPairs</code> request. If your results
+   *       are paginated, the response will return a next page token that you can specify as the page
+   *       token in a subsequent request.</p>
+   * @public
+   */
+  pageToken?: string | undefined;
+
+  /**
+   * <p>A Boolean value that indicates whether to include the default key pair in the response of
+   *       your request.</p>
+   * @public
+   */
+  includeDefaultKeyPair?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKeyPairsResult {
+  /**
+   * <p>An array of key-value pairs containing information about the key pairs.</p>
+   * @public
+   */
+  keyPairs?: KeyPair[] | undefined;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetKeyPairs</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   * @public
+   */
+  nextPageToken?: string | undefined;
+}
 
 /**
  * @public
@@ -4307,6 +4395,55 @@ export interface UpdateDistributionRequest {
    * @public
    */
   customErrorResponses?: DistributionCustomErrorResponse[] | undefined;
+
+  /**
+   * <p>Specifies whether to enable Web Application Firewall (WAF) for the distribution. WAF
+   *       inspects viewer requests and blocks requests that match the WAF rule groups that you
+   *       enable.</p>
+   *          <p>When you enable WAF without specifying the <code>wafRules</code> parameter, the
+   *       distribution has no WAF rule groups enabled and doesn't block any requests.</p>
+   *          <note>
+   *             <p>WAF is available only for distributions that use the <code>medium_1_0</code> or
+   *           <code>large_1_0</code> bundle.</p>
+   *             <p>Setting this parameter to <code>false</code> disables WAF for the distribution and
+   *         removes its WAF rule groups. You must enable the WAF rule groups again if you enable WAF
+   *         again.</p>
+   *          </note>
+   * @public
+   */
+  enableWaf?: boolean | undefined;
+
+  /**
+   * <p>An array of objects that describe the WAF rule groups to enable for the
+   *       distribution.</p>
+   *          <p>The array that you specify replaces the existing WAF rule groups of the distribution.
+   *       To keep a WAF rule group enabled, include it in the array. To disable all WAF rule groups,
+   *       specify an empty array.</p>
+   *          <p>You can specify this parameter only when WAF is enabled for the distribution.</p>
+   *          <p>The WAF rule groups that you can specify depend on the bundle of the
+   *       distribution:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>medium_1_0</code> – Supports the <code>AWSManagedRulesCommonRuleSet</code>,
+   *             <code>AWSManagedRulesKnownBadInputsRuleSet</code>, and
+   *             <code>AWSManagedRulesAnonymousIpList</code> rule groups.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>large_1_0</code> – Supports the rule groups for <code>medium_1_0</code>, plus
+   *             <code>AWSManagedRulesAdminProtectionRuleSet</code>,
+   *             <code>AWSManagedRulesSQLiRuleSet</code>, <code>AWSManagedRulesLinuxRuleSet</code>,
+   *             <code>AWSManagedRulesUnixRuleSet</code>, <code>AWSManagedRulesWindowsRuleSet</code>,
+   *             <code>AWSManagedRulesPHPRuleSet</code>, <code>AWSManagedRulesWordPressRuleSet</code>,
+   *             <code>AWSManagedRulesAmazonIpReputationList</code>,
+   *             <code>AWSManagedRulesATPRuleSet</code>, <code>AWSManagedRulesACFPRuleSet</code>, and
+   *             <code>AWSManagedRulesBotControlRuleSet</code> rule groups.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  wafRules?: WafRule[] | undefined;
 }
 
 /**

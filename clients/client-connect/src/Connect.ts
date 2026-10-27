@@ -1807,6 +1807,11 @@ import {
   UpdateNotificationContentCommand,
 } from "./commands/UpdateNotificationContentCommand";
 import {
+  type UpdateOutboundEmailContactMessageCommandInput,
+  type UpdateOutboundEmailContactMessageCommandOutput,
+  UpdateOutboundEmailContactMessageCommand,
+} from "./commands/UpdateOutboundEmailContactMessageCommand";
+import {
   type UpdateParticipantAuthenticationCommandInput,
   type UpdateParticipantAuthenticationCommandOutput,
   UpdateParticipantAuthenticationCommand,
@@ -2470,6 +2475,7 @@ const commands = {
   UpdateMetricContentCommand,
   UpdateMetricMetadataCommand,
   UpdateNotificationContentCommand,
+  UpdateOutboundEmailContactMessageCommand,
   UpdateParticipantAuthenticationCommand,
   UpdateParticipantRoleConfigCommand,
   UpdatePhoneNumberCommand,
@@ -8790,6 +8796,23 @@ export interface Connect {
     args: UpdateNotificationContentCommandInput,
     options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateNotificationContentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateOutboundEmailContactMessageCommand}
+   */
+  updateOutboundEmailContactMessage(
+    args: UpdateOutboundEmailContactMessageCommandInput,
+    options?: ConnectRequestOptions
+  ): Promise<UpdateOutboundEmailContactMessageCommandOutput>;
+  updateOutboundEmailContactMessage(
+    args: UpdateOutboundEmailContactMessageCommandInput,
+    cb: (err: any, data?: UpdateOutboundEmailContactMessageCommandOutput) => void
+  ): void;
+  updateOutboundEmailContactMessage(
+    args: UpdateOutboundEmailContactMessageCommandInput,
+    options: ConnectRequestOptions,
+    cb: (err: any, data?: UpdateOutboundEmailContactMessageCommandOutput) => void
   ): void;
 
   /**

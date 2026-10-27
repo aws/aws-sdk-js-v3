@@ -253,6 +253,7 @@ export type {
   PrincipalType,
   ProvisioningStatus,
   ProvisionTargetType,
+  RegionScope,
   RegionStatus,
   ResourceNotFoundExceptionReason,
   SignInOrigin,

@@ -346,6 +346,7 @@ const _RS = "RelayState";
 const _RSC = "ResourceServerConfig";
 const _RSS = "ResourceServerScopes";
 const _RSSD = "ResourceServerScopeDetails";
+const _RSe = "RegionScope";
 const _RT = "RefreshToken";
 const _RTG = "RefreshTokenGrant";
 const _RU = "RedirectUris";
@@ -1153,8 +1154,8 @@ export var ListCustomerManagedPolicyReferencesInPermissionSetResponse$: StaticSt
 ];
 export var ListInstancesRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
-  [_MR, _NT],
-  [1, 0]
+  [_MR, _NT, _RSe],
+  [1, 0, 0]
 ];
 export var ListInstancesResponse$: StaticStructureSchema = [3, n0, _LIRi,
   0,

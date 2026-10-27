@@ -47,7 +47,7 @@ export interface ListRouterOutputsCommandOutput extends ListRouterOutputsRespons
  *         "REGIONAL" || "GLOBAL",
  *       ],
  *       OutputTypes: [ // RouterOutputTypeList
- *         "STANDARD" || "MEDIACONNECT_FLOW" || "MEDIALIVE_INPUT",
+ *         "STANDARD" || "MEDIACONNECT_FLOW" || "MEDIALIVE_INPUT" || "SOURCE_ENDPOINT",
  *       ],
  *       RoutedInputArns: [ // RouterInputArnList
  *         "STRING_VALUE",
@@ -66,7 +66,7 @@ export interface ListRouterOutputsCommandOutput extends ListRouterOutputsRespons
  * //       Name: "STRING_VALUE", // required
  * //       Arn: "STRING_VALUE", // required
  * //       Id: "STRING_VALUE", // required
- * //       OutputType: "STANDARD" || "MEDIACONNECT_FLOW" || "MEDIALIVE_INPUT", // required
+ * //       OutputType: "STANDARD" || "MEDIACONNECT_FLOW" || "MEDIALIVE_INPUT" || "SOURCE_ENDPOINT", // required
  * //       State: "CREATING" || "STANDBY" || "STARTING" || "ACTIVE" || "STOPPING" || "DELETING" || "UPDATING" || "ERROR" || "RECOVERING" || "MIGRATING", // required
  * //       RoutedState: "ROUTED" || "ROUTING" || "UNROUTED", // required
  * //       RegionName: "STRING_VALUE", // required

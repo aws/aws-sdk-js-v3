@@ -3,6 +3,7 @@ import type {
   ChannelLatencyMode,
   ChannelType,
   ContainerFormat,
+  FailoverSlateConfigurationState,
   MultitrackMaximumResolution,
   MultitrackPolicy,
   RecordingConfigurationState,
@@ -271,6 +272,12 @@ export interface Channel {
    * @public
    */
   adConfigurationArn?: string | undefined;
+
+  /**
+   * <p>Failover-slate-configuration ARN. A valid ARN value here both specifies the ARN and enables failover slate. Default: "" (empty string, no failover slate configuration is applied).</p>
+   * @public
+   */
+  failoverSlateConfigurationArn?: string | undefined;
 }
 
 /**
@@ -689,6 +696,12 @@ export interface CreateChannelRequest {
    * @public
    */
   adConfigurationArn?: string | undefined;
+
+  /**
+   * <p>Failover-slate-configuration ARN. A valid ARN value here both specifies the ARN and enables failover slate. Default: "" (empty string, no failover slate configuration is applied).</p>
+   * @public
+   */
+  failoverSlateConfigurationArn?: string | undefined;
 }
 
 /**
@@ -706,6 +719,100 @@ export interface CreateChannelResponse {
    * @public
    */
   streamKey?: StreamKey | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateFailoverSlateConfigurationRequest {
+  /**
+   * <p>Failover-slate-configuration name. The value does not need to be unique.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Number of seconds of ingest interruption before the failover slate activates. Minimum: <code>3</code>. Maximum: <code>5</code>. Default: <code>3</code>.</p>
+   * @public
+   */
+  activationThresholdSeconds?: number | undefined;
+
+  /**
+   * <p>Minimum number of seconds that the failover slate displays after activation. Minimum: <code>3</code>. Maximum: <code>10</code>. Default: <code>3</code>.</p>
+   * @public
+   */
+  minSlateDisplaySeconds?: number | undefined;
+
+  /**
+   * <p>Maximum number of seconds that the failover slate displays. Minimum: <code>60</code>. Maximum: <code>180</code>. Default: <code>60</code>.</p>
+   * @public
+   */
+  maxSlateDisplaySeconds?: number | undefined;
+
+  /**
+   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Object specifying a failover slate configuration.</p>
+ * @public
+ */
+export interface FailoverSlateConfiguration {
+  /**
+   * <p>Failover-slate-configuration ARN.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>Failover-slate-configuration name.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Number of seconds of ingest interruption before the failover slate activates. Minimum: <code>3</code>. Maximum: <code>5</code>. Default: <code>3</code>.</p>
+   * @public
+   */
+  activationThresholdSeconds?: number | undefined;
+
+  /**
+   * <p>Minimum number of seconds that the failover slate displays after activation. Minimum: <code>3</code>. Maximum: <code>10</code>. Default: <code>3</code>.</p>
+   * @public
+   */
+  minSlateDisplaySeconds?: number | undefined;
+
+  /**
+   * <p>Maximum number of seconds that the failover slate displays. Minimum: <code>60</code>. Maximum: <code>180</code>. Default: <code>60</code>.</p>
+   * @public
+   */
+  maxSlateDisplaySeconds?: number | undefined;
+
+  /**
+   * <p>Current state of the failover slate configuration.</p>
+   * @public
+   */
+  state: FailoverSlateConfigurationState | undefined;
+
+  /**
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateFailoverSlateConfigurationResponse {
+  /**
+   * <p>The failover slate configuration that was created.</p>
+   * @public
+   */
+  failoverSlateConfiguration: FailoverSlateConfiguration | undefined;
 }
 
 /**
@@ -1027,6 +1134,17 @@ export interface DeleteChannelRequest {
 /**
  * @public
  */
+export interface DeleteFailoverSlateConfigurationRequest {
+  /**
+   * <p>ARN of the failover slate configuration to be deleted.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeletePlaybackKeyPairRequest {
   /**
    * <p>ARN of the key pair to be deleted.</p>
@@ -1115,6 +1233,28 @@ export interface GetChannelResponse {
    * @public
    */
   channel?: Channel | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFailoverSlateConfigurationRequest {
+  /**
+   * <p>ARN of the failover slate configuration to be retrieved.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFailoverSlateConfigurationResponse {
+  /**
+   * <p>The failover slate configuration that was retrieved.</p>
+   * @public
+   */
+  failoverSlateConfiguration: FailoverSlateConfiguration | undefined;
 }
 
 /**
@@ -1548,6 +1688,12 @@ export interface StreamSession {
    * @public
    */
   truncatedEvents?: StreamEvent[] | undefined;
+
+  /**
+   * <p>The properties of the failover slate configuration at the time of going live.</p>
+   * @public
+   */
+  failoverSlateConfiguration?: FailoverSlateConfiguration | undefined;
 }
 
 /**
@@ -1686,6 +1832,12 @@ export interface ListChannelsRequest {
   filterByAdConfigurationArn?: string | undefined;
 
   /**
+   * <p>Filters the channel list to match the specified failover-slate-configuration ARN.</p>
+   * @public
+   */
+  filterByFailoverSlateConfigurationArn?: string | undefined;
+
+  /**
    * <p>The first channel to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
    * @public
    */
@@ -1768,6 +1920,12 @@ export interface ChannelSummary {
    * @public
    */
   adConfigurationArn?: string | undefined;
+
+  /**
+   * <p>Failover-slate-configuration ARN. A valid ARN value here both specifies the ARN and enables failover slate. Default: "" (empty string, no failover slate configuration is applied).</p>
+   * @public
+   */
+  failoverSlateConfigurationArn?: string | undefined;
 }
 
 /**
@@ -1782,6 +1940,88 @@ export interface ListChannelsResponse {
 
   /**
    * <p>If there are more channels than <code>maxResults</code>, use <code>nextToken</code> in the request to get the next set.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFailoverSlateConfigurationsRequest {
+  /**
+   * <p>The first failover slate configuration to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Maximum number of failover slate configurations to return. Default: your service quota or 100, whichever is smaller.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Summary information about a failover slate configuration.</p>
+ * @public
+ */
+export interface FailoverSlateConfigurationSummary {
+  /**
+   * <p>Failover-slate-configuration ARN.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>Failover-slate-configuration name.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Number of seconds of ingest interruption before the failover slate activates. Minimum: <code>3</code>. Maximum: <code>5</code>. Default: <code>3</code>.</p>
+   * @public
+   */
+  activationThresholdSeconds?: number | undefined;
+
+  /**
+   * <p>Minimum number of seconds that the failover slate displays after activation. Minimum: <code>3</code>. Maximum: <code>10</code>. Default: <code>3</code>.</p>
+   * @public
+   */
+  minSlateDisplaySeconds?: number | undefined;
+
+  /**
+   * <p>Maximum number of seconds that the failover slate displays. Minimum: <code>60</code>. Maximum: <code>180</code>. Default: <code>60</code>.</p>
+   * @public
+   */
+  maxSlateDisplaySeconds?: number | undefined;
+
+  /**
+   * <p>Current state of the failover slate configuration.</p>
+   * @public
+   */
+  state: FailoverSlateConfigurationState | undefined;
+
+  /**
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFailoverSlateConfigurationsResponse {
+  /**
+   * <p>List of the matching failover slate configurations.</p>
+   * @public
+   */
+  failoverSlateConfigurations: FailoverSlateConfigurationSummary[] | undefined;
+
+  /**
+   * <p>If there are more failover slate configurations than <code>maxResults</code>, use <code>nextToken</code> in the request to get the next set.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2461,6 +2701,12 @@ export interface UpdateChannelRequest {
    * @public
    */
   adConfigurationArn?: string | undefined;
+
+  /**
+   * <p>Failover-slate-configuration ARN. A valid ARN value here both specifies the ARN and enables failover slate. If this is set to an empty string, failover slate configuration is disabled.</p>
+   * @public
+   */
+  failoverSlateConfigurationArn?: string | undefined;
 }
 
 /**
@@ -2472,6 +2718,52 @@ export interface UpdateChannelResponse {
    * @public
    */
   channel?: Channel | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFailoverSlateConfigurationRequest {
+  /**
+   * <p>ARN of the failover slate configuration to be updated.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>Failover-slate-configuration name. The value does not need to be unique.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Number of seconds of ingest interruption before the failover slate activates. Minimum: <code>3</code>. Maximum: <code>5</code>. Default: <code>3</code>.</p>
+   * @public
+   */
+  activationThresholdSeconds?: number | undefined;
+
+  /**
+   * <p>Minimum number of seconds that the failover slate displays after activation. Minimum: <code>3</code>. Maximum: <code>10</code>. Default: <code>3</code>.</p>
+   * @public
+   */
+  minSlateDisplaySeconds?: number | undefined;
+
+  /**
+   * <p>Maximum number of seconds that the failover slate displays. Minimum: <code>60</code>. Maximum: <code>180</code>. Default: <code>60</code>.</p>
+   * @public
+   */
+  maxSlateDisplaySeconds?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFailoverSlateConfigurationResponse {
+  /**
+   * <p>Object specifying the updated failover slate configuration.</p>
+   * @public
+   */
+  failoverSlateConfiguration: FailoverSlateConfiguration | undefined;
 }
 
 /**

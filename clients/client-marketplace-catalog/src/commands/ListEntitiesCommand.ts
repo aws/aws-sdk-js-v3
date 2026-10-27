@@ -399,6 +399,52 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *         ],
  *       },
  *     },
+ *     SubsidiaryAuthorizationFilters: { // SubsidiaryAuthorizationFilters
+ *       EntityId: { // SubsidiaryAuthorizationEntityIdFilter
+ *         ValueList: [ // SubsidiaryAuthorizationEntityIdFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Status: { // SubsidiaryAuthorizationStatusFilter
+ *         ValueList: [ // SubsidiaryAuthorizationStatusFilterValueList
+ *           "Draft" || "Active" || "Restricted",
+ *         ],
+ *       },
+ *       ResourceId: { // SubsidiaryAuthorizationResourceIdFilter
+ *         ValueList: [ // SubsidiaryAuthorizationResourceIdFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       ResourceName: { // SubsidiaryAuthorizationResourceNameFilter
+ *         ValueList: [ // SubsidiaryAuthorizationResourceNameFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *         WildCardValue: "STRING_VALUE",
+ *       },
+ *       Name: { // SubsidiaryAuthorizationNameFilter
+ *         ValueList: [ // SubsidiaryAuthorizationNameFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *         WildCardValue: "STRING_VALUE",
+ *       },
+ *       SubsidiaryAccountId: { // SubsidiaryAuthorizationSubsidiaryAccountIdFilter
+ *         ValueList: [ // SubsidiaryAuthorizationSubsidiaryAccountIdFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       CreatedDate: { // SubsidiaryAuthorizationCreatedDateFilter
+ *         DateRange: { // SubsidiaryAuthorizationCreatedDateFilterDateRange
+ *           AfterValue: "STRING_VALUE",
+ *           BeforeValue: "STRING_VALUE",
+ *         },
+ *       },
+ *       LastModifiedDate: { // SubsidiaryAuthorizationLastModifiedDateFilter
+ *         DateRange: { // SubsidiaryAuthorizationLastModifiedDateFilterDateRange
+ *           AfterValue: "STRING_VALUE",
+ *           BeforeValue: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
  *   },
  *   EntityTypeSort: { // EntityTypeSort Union: only one key present
  *     DataProductSort: { // DataProductSort
@@ -435,6 +481,10 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *     },
  *     ExpressPrivateOfferConfigurationSort: { // ExpressPrivateOfferConfigurationSort
  *       SortBy: "EntityId" || "LastModifiedDate" || "ProductId" || "State",
+ *       SortOrder: "ASCENDING" || "DESCENDING",
+ *     },
+ *     SubsidiaryAuthorizationSort: { // SubsidiaryAuthorizationSort
+ *       SortBy: "EntityId" || "Status" || "ResourceId" || "SubsidiaryAccountId" || "CreatedDate" || "LastModifiedDate",
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *   },
@@ -516,6 +566,14 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * //       ExpressPrivateOfferConfigurationSummary: { // ExpressPrivateOfferConfigurationSummary
  * //         ProductId: "STRING_VALUE",
  * //         State: "ACTIVE" || "INACTIVE",
+ * //       },
+ * //       SubsidiaryAuthorizationSummary: { // SubsidiaryAuthorizationSummary
+ * //         Name: "STRING_VALUE",
+ * //         Status: "STRING_VALUE",
+ * //         ResourceId: "STRING_VALUE",
+ * //         ResourceName: "STRING_VALUE",
+ * //         SubsidiaryAccountId: "STRING_VALUE",
+ * //         CreatedDate: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

@@ -37,6 +37,10 @@ import {
   CreateChannelCommand,
   CreateChannelRequest$,
   CreateChannelResponse$,
+  CreateFailoverSlateConfiguration$,
+  CreateFailoverSlateConfigurationCommand,
+  CreateFailoverSlateConfigurationRequest$,
+  CreateFailoverSlateConfigurationResponse$,
   CreatePlaybackRestrictionPolicy$,
   CreatePlaybackRestrictionPolicyCommand,
   CreatePlaybackRestrictionPolicyRequest$,
@@ -55,6 +59,9 @@ import {
   DeleteChannel$,
   DeleteChannelCommand,
   DeleteChannelRequest$,
+  DeleteFailoverSlateConfiguration$,
+  DeleteFailoverSlateConfigurationCommand,
+  DeleteFailoverSlateConfigurationRequest$,
   DeletePlaybackKeyPair$,
   DeletePlaybackKeyPairCommand,
   DeletePlaybackKeyPairRequest$,
@@ -69,6 +76,9 @@ import {
   DeleteStreamKeyCommand,
   DeleteStreamKeyRequest$,
   DestinationConfiguration$,
+  FailoverSlateConfiguration$,
+  FailoverSlateConfigurationState,
+  FailoverSlateConfigurationSummary$,
   GetAdConfiguration$,
   GetAdConfigurationCommand,
   GetAdConfigurationRequest$,
@@ -77,6 +87,10 @@ import {
   GetChannelCommand,
   GetChannelRequest$,
   GetChannelResponse$,
+  GetFailoverSlateConfiguration$,
+  GetFailoverSlateConfigurationCommand,
+  GetFailoverSlateConfigurationRequest$,
+  GetFailoverSlateConfigurationResponse$,
   GetPlaybackKeyPair$,
   GetPlaybackKeyPairCommand,
   GetPlaybackKeyPairRequest$,
@@ -124,6 +138,10 @@ import {
   ListChannelsCommand,
   ListChannelsRequest$,
   ListChannelsResponse$,
+  ListFailoverSlateConfigurations$,
+  ListFailoverSlateConfigurationsCommand,
+  ListFailoverSlateConfigurationsRequest$,
+  ListFailoverSlateConfigurationsResponse$,
   ListPlaybackKeyPairs$,
   ListPlaybackKeyPairsCommand,
   ListPlaybackKeyPairsRequest$,
@@ -158,6 +176,7 @@ import {
   MultitrackPolicy,
   paginateListAdConfigurations,
   paginateListChannels,
+  paginateListFailoverSlateConfigurations,
   paginateListPlaybackKeyPairs,
   paginateListPlaybackRestrictionPolicies,
   paginateListRecordingConfigurations,
@@ -230,6 +249,10 @@ import {
   UpdateChannelCommand,
   UpdateChannelRequest$,
   UpdateChannelResponse$,
+  UpdateFailoverSlateConfiguration$,
+  UpdateFailoverSlateConfigurationCommand,
+  UpdateFailoverSlateConfigurationRequest$,
+  UpdateFailoverSlateConfigurationResponse$,
   UpdatePlaybackRestrictionPolicy$,
   UpdatePlaybackRestrictionPolicyCommand,
   UpdatePlaybackRestrictionPolicyRequest$,
@@ -253,6 +276,8 @@ assert(typeof CreateAdConfigurationCommand === "function");
 assert(typeof CreateAdConfiguration$ === "object");
 assert(typeof CreateChannelCommand === "function");
 assert(typeof CreateChannel$ === "object");
+assert(typeof CreateFailoverSlateConfigurationCommand === "function");
+assert(typeof CreateFailoverSlateConfiguration$ === "object");
 assert(typeof CreatePlaybackRestrictionPolicyCommand === "function");
 assert(typeof CreatePlaybackRestrictionPolicy$ === "object");
 assert(typeof CreateRecordingConfigurationCommand === "function");
@@ -263,6 +288,8 @@ assert(typeof DeleteAdConfigurationCommand === "function");
 assert(typeof DeleteAdConfiguration$ === "object");
 assert(typeof DeleteChannelCommand === "function");
 assert(typeof DeleteChannel$ === "object");
+assert(typeof DeleteFailoverSlateConfigurationCommand === "function");
+assert(typeof DeleteFailoverSlateConfiguration$ === "object");
 assert(typeof DeletePlaybackKeyPairCommand === "function");
 assert(typeof DeletePlaybackKeyPair$ === "object");
 assert(typeof DeletePlaybackRestrictionPolicyCommand === "function");
@@ -275,6 +302,8 @@ assert(typeof GetAdConfigurationCommand === "function");
 assert(typeof GetAdConfiguration$ === "object");
 assert(typeof GetChannelCommand === "function");
 assert(typeof GetChannel$ === "object");
+assert(typeof GetFailoverSlateConfigurationCommand === "function");
+assert(typeof GetFailoverSlateConfiguration$ === "object");
 assert(typeof GetPlaybackKeyPairCommand === "function");
 assert(typeof GetPlaybackKeyPair$ === "object");
 assert(typeof GetPlaybackRestrictionPolicyCommand === "function");
@@ -295,6 +324,8 @@ assert(typeof ListAdConfigurationsCommand === "function");
 assert(typeof ListAdConfigurations$ === "object");
 assert(typeof ListChannelsCommand === "function");
 assert(typeof ListChannels$ === "object");
+assert(typeof ListFailoverSlateConfigurationsCommand === "function");
+assert(typeof ListFailoverSlateConfigurations$ === "object");
 assert(typeof ListPlaybackKeyPairsCommand === "function");
 assert(typeof ListPlaybackKeyPairs$ === "object");
 assert(typeof ListPlaybackRestrictionPoliciesCommand === "function");
@@ -323,6 +354,8 @@ assert(typeof UpdateAdConfigurationCommand === "function");
 assert(typeof UpdateAdConfiguration$ === "object");
 assert(typeof UpdateChannelCommand === "function");
 assert(typeof UpdateChannel$ === "object");
+assert(typeof UpdateFailoverSlateConfigurationCommand === "function");
+assert(typeof UpdateFailoverSlateConfiguration$ === "object");
 assert(typeof UpdatePlaybackRestrictionPolicyCommand === "function");
 assert(typeof UpdatePlaybackRestrictionPolicy$ === "object");
 // structural schemas
@@ -344,6 +377,8 @@ assert(typeof CreateAdConfigurationRequest$ === "object");
 assert(typeof CreateAdConfigurationResponse$ === "object");
 assert(typeof CreateChannelRequest$ === "object");
 assert(typeof CreateChannelResponse$ === "object");
+assert(typeof CreateFailoverSlateConfigurationRequest$ === "object");
+assert(typeof CreateFailoverSlateConfigurationResponse$ === "object");
 assert(typeof CreatePlaybackRestrictionPolicyRequest$ === "object");
 assert(typeof CreatePlaybackRestrictionPolicyResponse$ === "object");
 assert(typeof CreateRecordingConfigurationRequest$ === "object");
@@ -352,16 +387,21 @@ assert(typeof CreateStreamKeyRequest$ === "object");
 assert(typeof CreateStreamKeyResponse$ === "object");
 assert(typeof DeleteAdConfigurationRequest$ === "object");
 assert(typeof DeleteChannelRequest$ === "object");
+assert(typeof DeleteFailoverSlateConfigurationRequest$ === "object");
 assert(typeof DeletePlaybackKeyPairRequest$ === "object");
 assert(typeof DeletePlaybackKeyPairResponse$ === "object");
 assert(typeof DeletePlaybackRestrictionPolicyRequest$ === "object");
 assert(typeof DeleteRecordingConfigurationRequest$ === "object");
 assert(typeof DeleteStreamKeyRequest$ === "object");
 assert(typeof DestinationConfiguration$ === "object");
+assert(typeof FailoverSlateConfiguration$ === "object");
+assert(typeof FailoverSlateConfigurationSummary$ === "object");
 assert(typeof GetAdConfigurationRequest$ === "object");
 assert(typeof GetAdConfigurationResponse$ === "object");
 assert(typeof GetChannelRequest$ === "object");
 assert(typeof GetChannelResponse$ === "object");
+assert(typeof GetFailoverSlateConfigurationRequest$ === "object");
+assert(typeof GetFailoverSlateConfigurationResponse$ === "object");
 assert(typeof GetPlaybackKeyPairRequest$ === "object");
 assert(typeof GetPlaybackKeyPairResponse$ === "object");
 assert(typeof GetPlaybackRestrictionPolicyRequest$ === "object");
@@ -384,6 +424,8 @@ assert(typeof ListAdConfigurationsRequest$ === "object");
 assert(typeof ListAdConfigurationsResponse$ === "object");
 assert(typeof ListChannelsRequest$ === "object");
 assert(typeof ListChannelsResponse$ === "object");
+assert(typeof ListFailoverSlateConfigurationsRequest$ === "object");
+assert(typeof ListFailoverSlateConfigurationsResponse$ === "object");
 assert(typeof ListPlaybackKeyPairsRequest$ === "object");
 assert(typeof ListPlaybackKeyPairsResponse$ === "object");
 assert(typeof ListPlaybackRestrictionPoliciesRequest$ === "object");
@@ -432,6 +474,8 @@ assert(typeof UpdateAdConfigurationRequest$ === "object");
 assert(typeof UpdateAdConfigurationResponse$ === "object");
 assert(typeof UpdateChannelRequest$ === "object");
 assert(typeof UpdateChannelResponse$ === "object");
+assert(typeof UpdateFailoverSlateConfigurationRequest$ === "object");
+assert(typeof UpdateFailoverSlateConfigurationResponse$ === "object");
 assert(typeof UpdatePlaybackRestrictionPolicyRequest$ === "object");
 assert(typeof UpdatePlaybackRestrictionPolicyResponse$ === "object");
 assert(typeof VideoConfiguration$ === "object");
@@ -439,6 +483,7 @@ assert(typeof VideoConfiguration$ === "object");
 assert(typeof ChannelLatencyMode === "object");
 assert(typeof ChannelType === "object");
 assert(typeof ContainerFormat === "object");
+assert(typeof FailoverSlateConfigurationState === "object");
 assert(typeof MultitrackMaximumResolution === "object");
 assert(typeof MultitrackPolicy === "object");
 assert(typeof RecordingConfigurationState === "object");
@@ -477,6 +522,7 @@ assert(IvsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAdConfigurations === "function");
 assert(typeof paginateListChannels === "function");
+assert(typeof paginateListFailoverSlateConfigurations === "function");
 assert(typeof paginateListPlaybackKeyPairs === "function");
 assert(typeof paginateListPlaybackRestrictionPolicies === "function");
 assert(typeof paginateListRecordingConfigurations === "function");

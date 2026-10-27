@@ -295,6 +295,19 @@ export type ProvisioningStatus = (typeof ProvisioningStatus)[keyof typeof Provis
  * @public
  * @enum
  */
+export const RegionScope = {
+  ALL_REGIONS: "ALL_REGIONS",
+  CURRENT_REGION: "CURRENT_REGION",
+} as const;
+/**
+ * @public
+ */
+export type RegionScope = (typeof RegionScope)[keyof typeof RegionScope];
+
+/**
+ * @public
+ * @enum
+ */
 export const ProvisionTargetType = {
   ALL_PROVISIONED_ACCOUNTS: "ALL_PROVISIONED_ACCOUNTS",
   AWS_ACCOUNT: "AWS_ACCOUNT",

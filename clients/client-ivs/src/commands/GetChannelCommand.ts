@@ -64,6 +64,7 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * //     },
  * //     containerFormat: "STRING_VALUE",
  * //     adConfigurationArn: "STRING_VALUE",
+ * //     failoverSlateConfigurationArn: "STRING_VALUE",
  * //   },
  * // };
  *

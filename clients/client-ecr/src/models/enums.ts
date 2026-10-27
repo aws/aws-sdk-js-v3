@@ -302,6 +302,37 @@ export type RepositoryFilterType = (typeof RepositoryFilterType)[keyof typeof Re
  * @public
  * @enum
  */
+export const ReplicationBackfillResultStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type ReplicationBackfillResultStatus =
+  (typeof ReplicationBackfillResultStatus)[keyof typeof ReplicationBackfillResultStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationBackfillStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PREPARING: "PREPARING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+/**
+ * @public
+ */
+export type ReplicationBackfillStatus = (typeof ReplicationBackfillStatus)[keyof typeof ReplicationBackfillStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const LifecyclePolicyTargetStorageClass = {
   ARCHIVE: "ARCHIVE",
 } as const;

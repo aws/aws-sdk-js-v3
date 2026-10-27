@@ -26,7 +26,7 @@ export interface StartSessionsStatisticsAggregationCommandInput extends StartSes
 export interface StartSessionsStatisticsAggregationCommandOutput extends StartSessionsStatisticsAggregationResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an asynchronous request for getting aggregated statistics about queues and farms. Get the statistics using the <code>GetSessionsStatisticsAggregation</code> operation. You can only have one running aggregation for your Deadline Cloud farm. Call the <code>GetSessionsStatisticsAggregation</code> operation and check the <code>status</code> field to see if an aggregation is running. Statistics are available for 1 hour after you call the <code>StartSessionsStatisticsAggregation</code> operation.</p>
+ * Starts an asynchronous request for getting aggregated statistics about queues and farms. Get the statistics using the <code>GetSessionsStatisticsAggregation</code> operation. You can only have one running aggregation for your Deadline Cloud farm. Call the <code>GetSessionsStatisticsAggregation</code> operation and check the <code>status</code> field to see if an aggregation is running. Statistics are available for 1 hour after you call the <code>StartSessionsStatisticsAggregation</code> operation.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,19 +71,19 @@ export interface StartSessionsStatisticsAggregationCommandOutput extends StartSe
  * @see {@link DeadlineClientResolvedConfig | config} for DeadlineClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action.</p>
+ *  You don't have permission to perform the action.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Deadline Cloud can't process your request right now. Try again later.</p>
+ *  Deadline Cloud can't process your request right now. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *  The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a request rate quota.</p>
+ *  Your request exceeded a request rate quota.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+ *  The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

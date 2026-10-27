@@ -1535,6 +1535,7 @@ import {
   NotificationSource,
   NotificationStatus,
   NotificationType,
+  NullableAdditionalRecipients$,
   NumberComparisonType,
   NumberCondition$,
   NumberReference$,
@@ -2292,6 +2293,13 @@ import {
   UpdateNotificationContentCommand,
   UpdateNotificationContentRequest$,
   UpdateNotificationContentResponse$,
+  UpdateOutboundEmailContactMessage$,
+  UpdateOutboundEmailContactMessageCommand,
+  UpdateOutboundEmailContactMessageRequest$,
+  UpdateOutboundEmailContactMessageResponse$,
+  UpdateOutboundEmailContent$,
+  UpdateOutboundEmailMessageSourceType,
+  UpdateOutboundRawMessage$,
   UpdateParticipantAuthentication$,
   UpdateParticipantAuthenticationCommand,
   UpdateParticipantAuthenticationRequest$,
@@ -3226,6 +3234,8 @@ assert(typeof UpdateMetricMetadataCommand === "function");
 assert(typeof UpdateMetricMetadata$ === "object");
 assert(typeof UpdateNotificationContentCommand === "function");
 assert(typeof UpdateNotificationContent$ === "object");
+assert(typeof UpdateOutboundEmailContactMessageCommand === "function");
+assert(typeof UpdateOutboundEmailContactMessage$ === "object");
 assert(typeof UpdateParticipantAuthenticationCommand === "function");
 assert(typeof UpdateParticipantAuthentication$ === "object");
 assert(typeof UpdateParticipantRoleConfigCommand === "function");
@@ -4145,6 +4155,7 @@ assert(typeof NotificationRecipientType$ === "object");
 assert(typeof NotificationSearchCriteria$ === "object");
 assert(typeof NotificationSearchFilter$ === "object");
 assert(typeof NotificationSearchSummary$ === "object");
+assert(typeof NullableAdditionalRecipients$ === "object");
 assert(typeof NumberCondition$ === "object");
 assert(typeof NumberReference$ === "object");
 assert(typeof NumericQuestionPropertyValueAutomation$ === "object");
@@ -4524,6 +4535,10 @@ assert(typeof UpdateMetricMetadataRequest$ === "object");
 assert(typeof UpdateMetricMetadataResponse$ === "object");
 assert(typeof UpdateNotificationContentRequest$ === "object");
 assert(typeof UpdateNotificationContentResponse$ === "object");
+assert(typeof UpdateOutboundEmailContactMessageRequest$ === "object");
+assert(typeof UpdateOutboundEmailContactMessageResponse$ === "object");
+assert(typeof UpdateOutboundEmailContent$ === "object");
+assert(typeof UpdateOutboundRawMessage$ === "object");
 assert(typeof UpdateParticipantAuthenticationRequest$ === "object");
 assert(typeof UpdateParticipantAuthenticationResponse$ === "object");
 assert(typeof UpdateParticipantRoleConfigChannelInfo$ === "object");
@@ -4832,6 +4847,7 @@ assert(typeof TrafficDistributionGroupStatus === "object");
 assert(typeof TrafficType === "object");
 assert(typeof TrendIndicator === "object");
 assert(typeof Unit === "object");
+assert(typeof UpdateOutboundEmailMessageSourceType === "object");
 assert(typeof UseCaseType === "object");
 assert(typeof VideoCapability === "object");
 assert(typeof ViewStatus === "object");

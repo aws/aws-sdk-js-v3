@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1157.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1156.0...v3.1157.0) (2026-10-26)
+
+
+### Features
+
+* **client-appstream:** Add Windows 11 to PlatformType enum ([52666c3](https://github.com/aws/aws-sdk-js-v3/commit/52666c319fac6c53cb7a44fc3043607f00292eac))
+
+
+
+
+
 # [3.1156.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1155.0...v3.1156.0) (2026-10-22)
 
 **Note:** Version bump only for package @aws-sdk/client-appstream

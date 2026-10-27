@@ -35,6 +35,7 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * const input = { // ListInstancesRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   RegionScope: "CURRENT_REGION" || "ALL_REGIONS",
  * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);

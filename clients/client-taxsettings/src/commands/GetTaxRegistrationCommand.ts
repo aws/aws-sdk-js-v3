@@ -160,6 +160,15 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  * //       monacoAdditionalInfo: { // MonacoAdditionalInfo
  * //         businessNumber: "STRING_VALUE", // required
  * //       },
+ * //       germanyAdditionalInfo: { // GermanyAdditionalInfo
+ * //         economicIdentificationNumber: "STRING_VALUE",
+ * //         steuernummer: "STRING_VALUE",
+ * //       },
+ * //       mexicoAdditionalInfo: { // MexicoAdditionalInfo
+ * //         taxRegime: "STRING_VALUE",
+ * //         taxRegimeFullName: "STRING_VALUE",
+ * //         cfdiUsageCode: "STRING_VALUE",
+ * //       },
  * //     },
  * //     legalAddress: { // Address
  * //       addressLine1: "STRING_VALUE",

@@ -30,6 +30,9 @@ const _CCR = "CreateChannelRequest";
 const _CCRr = "CreateChannelResponse";
 const _CCr = "CreateChannel";
 const _CE = "ConflictException";
+const _CFSC = "CreateFailoverSlateConfiguration";
+const _CFSCR = "CreateFailoverSlateConfigurationRequest";
+const _CFSCRr = "CreateFailoverSlateConfigurationResponse";
 const _CL = "ChannelList";
 const _CNB = "ChannelNotBroadcasting";
 const _CPRP = "CreatePlaybackRestrictionPolicy";
@@ -49,6 +52,8 @@ const _DACR = "DeleteAdConfigurationRequest";
 const _DC = "DestinationConfiguration";
 const _DCR = "DeleteChannelRequest";
 const _DCe = "DeleteChannel";
+const _DFSC = "DeleteFailoverSlateConfiguration";
+const _DFSCR = "DeleteFailoverSlateConfigurationRequest";
 const _DPKP = "DeletePlaybackKeyPair";
 const _DPKPR = "DeletePlaybackKeyPairRequest";
 const _DPKPRe = "DeletePlaybackKeyPairResponse";
@@ -58,12 +63,18 @@ const _DRC = "DeleteRecordingConfiguration";
 const _DRCR = "DeleteRecordingConfigurationRequest";
 const _DSK = "DeleteStreamKey";
 const _DSKR = "DeleteStreamKeyRequest";
+const _FSC = "FailoverSlateConfiguration";
+const _FSCL = "FailoverSlateConfigurationList";
+const _FSCS = "FailoverSlateConfigurationSummary";
 const _GAC = "GetAdConfiguration";
 const _GACR = "GetAdConfigurationRequest";
 const _GACRe = "GetAdConfigurationResponse";
 const _GC = "GetChannel";
 const _GCR = "GetChannelRequest";
 const _GCRe = "GetChannelResponse";
+const _GFSC = "GetFailoverSlateConfiguration";
+const _GFSCR = "GetFailoverSlateConfigurationRequest";
+const _GFSCRe = "GetFailoverSlateConfigurationResponse";
 const _GPKP = "GetPlaybackKeyPair";
 const _GPKPR = "GetPlaybackKeyPairRequest";
 const _GPKPRe = "GetPlaybackKeyPairResponse";
@@ -97,6 +108,9 @@ const _LACRi = "ListAdConfigurationsResponse";
 const _LC = "ListChannels";
 const _LCR = "ListChannelsRequest";
 const _LCRi = "ListChannelsResponse";
+const _LFSC = "ListFailoverSlateConfigurations";
+const _LFSCR = "ListFailoverSlateConfigurationsRequest";
+const _LFSCRi = "ListFailoverSlateConfigurationsResponse";
 const _LPKP = "ListPlaybackKeyPairs";
 const _LPKPR = "ListPlaybackKeyPairsRequest";
 const _LPKPRi = "ListPlaybackKeyPairsResponse";
@@ -175,6 +189,9 @@ const _UACRp = "UpdateAdConfigurationResponse";
 const _UC = "UpdateChannel";
 const _UCR = "UpdateChannelRequest";
 const _UCRp = "UpdateChannelResponse";
+const _UFSC = "UpdateFailoverSlateConfiguration";
+const _UFSCR = "UpdateFailoverSlateConfigurationRequest";
+const _UFSCRp = "UpdateFailoverSlateConfigurationResponse";
 const _UPRP = "UpdatePlaybackRestrictionPolicy";
 const _UPRPR = "UpdatePlaybackRestrictionPolicyRequest";
 const _UPRPRp = "UpdatePlaybackRestrictionPolicyResponse";
@@ -198,6 +215,7 @@ const _aCu = "audioConfigurations";
 const _aL = "avcLevel";
 const _aO = "allowedOrigins";
 const _aP = "avcProfile";
+const _aTS = "activationThresholdSeconds";
 const _ar = "arns";
 const _au = "authorized";
 const _aud = "audio";
@@ -225,9 +243,13 @@ const _er = "errors";
 const _f = "fingerprint";
 const _fB = "filterBy";
 const _fBACA = "filterByAdConfigurationArn";
+const _fBFSCA = "filterByFailoverSlateConfigurationArn";
 const _fBN = "filterByName";
 const _fBPRPA = "filterByPlaybackRestrictionPolicyArn";
 const _fBRCA = "filterByRecordingConfigurationArn";
+const _fSC = "failoverSlateConfiguration";
+const _fSCA = "failoverSlateConfigurationArn";
+const _fSCa = "failoverSlateConfigurations";
 const _h = "health";
 const _hE = "httpError";
 const _hEE = "hasErrorEvent";
@@ -246,6 +268,8 @@ const _m = "message";
 const _mIC = "multitrackInputConfiguration";
 const _mR = "maxResults";
 const _mRa = "maximumResolution";
+const _mSDS = "minSlateDisplaySeconds";
+const _mSDSa = "maxSlateDisplaySeconds";
 const _mTPC = "mediaTailorPlaybackConfigurations";
 const _me = "metadata";
 const _n = "name";
@@ -283,10 +307,10 @@ const _sTS = "strictTransportSecurity";
 const _s_ = "s3";
 const _se = "server";
 const _sr = "srt";
-const _st = "stream";
-const _sta = "state";
+const _st = "state";
 const _sto = "storage";
-const _str = "streams";
+const _str = "stream";
+const _stre = "streams";
 const _t = "tags";
 const _tB = "targetBitrate";
 const _tC = "thumbnailConfiguration";
@@ -482,13 +506,13 @@ export var BatchStartViewerSessionRevocationViewerSession$: StaticStructureSchem
 ];
 export var Channel$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_a, _n, _lM, _ty, _rCA, _iE, _pU, _au, _t, _iI, _p, _sr, _pRPA, _mIC, _cF, _aCA],
-  [0, 0, 0, 0, 0, 0, 0, 2, 128 | 0, 2, 0, [() => Srt$, 0], 0, () => MultitrackInputConfiguration$, 0, 0]
+  [_a, _n, _lM, _ty, _rCA, _iE, _pU, _au, _t, _iI, _p, _sr, _pRPA, _mIC, _cF, _aCA, _fSCA],
+  [0, 0, 0, 0, 0, 0, 0, 2, 128 | 0, 2, 0, [() => Srt$, 0], 0, () => MultitrackInputConfiguration$, 0, 0, 0]
 ];
 export var ChannelSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_a, _n, _lM, _au, _rCA, _t, _iI, _ty, _p, _pRPA, _aCA],
-  [0, 0, 0, 2, 0, 128 | 0, 2, 0, 0, 0, 0]
+  [_a, _n, _lM, _au, _rCA, _t, _iI, _ty, _p, _pRPA, _aCA, _fSCA],
+  [0, 0, 0, 2, 0, 128 | 0, 2, 0, 0, 0, 0, 0]
 ];
 export var CreateAdConfigurationRequest$: StaticStructureSchema = [3, n0, _CACR,
   0,
@@ -502,13 +526,23 @@ export var CreateAdConfigurationResponse$: StaticStructureSchema = [3, n0, _CACR
 ];
 export var CreateChannelRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_n, _lM, _ty, _au, _rCA, _t, _iI, _p, _pRPA, _mIC, _cF, _aCA],
-  [0, 0, 0, 2, 0, 128 | 0, 2, 0, 0, () => MultitrackInputConfiguration$, 0, 0]
+  [_n, _lM, _ty, _au, _rCA, _t, _iI, _p, _pRPA, _mIC, _cF, _aCA, _fSCA],
+  [0, 0, 0, 2, 0, 128 | 0, 2, 0, 0, () => MultitrackInputConfiguration$, 0, 0, 0]
 ];
 export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
   [_cha, _sKt],
   [[() => Channel$, 0], [() => StreamKey$, 0]]
+];
+export var CreateFailoverSlateConfigurationRequest$: StaticStructureSchema = [3, n0, _CFSCR,
+  0,
+  [_n, _aTS, _mSDS, _mSDSa, _t],
+  [0, 1, 1, 1, 128 | 0]
+];
+export var CreateFailoverSlateConfigurationResponse$: StaticStructureSchema = [3, n0, _CFSCRr,
+  0,
+  [_fSC],
+  [() => FailoverSlateConfiguration$], 1
 ];
 export var CreatePlaybackRestrictionPolicyRequest$: StaticStructureSchema = [3, n0, _CPRPR,
   0,
@@ -550,6 +584,11 @@ export var DeleteChannelRequest$: StaticStructureSchema = [3, n0, _DCR,
   [_a],
   [0], 1
 ];
+export var DeleteFailoverSlateConfigurationRequest$: StaticStructureSchema = [3, n0, _DFSCR,
+  0,
+  [_a],
+  [0], 1
+];
 export var DeletePlaybackKeyPairRequest$: StaticStructureSchema = [3, n0, _DPKPR,
   0,
   [_a],
@@ -580,6 +619,16 @@ export var DestinationConfiguration$: StaticStructureSchema = [3, n0, _DC,
   [_s_],
   [() => S3DestinationConfiguration$]
 ];
+export var FailoverSlateConfiguration$: StaticStructureSchema = [3, n0, _FSC,
+  0,
+  [_a, _st, _n, _aTS, _mSDS, _mSDSa, _t],
+  [0, 0, 0, 1, 1, 1, 128 | 0], 2
+];
+export var FailoverSlateConfigurationSummary$: StaticStructureSchema = [3, n0, _FSCS,
+  0,
+  [_a, _st, _n, _aTS, _mSDS, _mSDSa, _t],
+  [0, 0, 0, 1, 1, 1, 128 | 0], 2
+];
 export var GetAdConfigurationRequest$: StaticStructureSchema = [3, n0, _GACR,
   0,
   [_a],
@@ -599,6 +648,16 @@ export var GetChannelResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
   [_cha],
   [[() => Channel$, 0]]
+];
+export var GetFailoverSlateConfigurationRequest$: StaticStructureSchema = [3, n0, _GFSCR,
+  0,
+  [_a],
+  [0], 1
+];
+export var GetFailoverSlateConfigurationResponse$: StaticStructureSchema = [3, n0, _GFSCRe,
+  0,
+  [_fSC],
+  [() => FailoverSlateConfiguration$], 1
 ];
 export var GetPlaybackKeyPairRequest$: StaticStructureSchema = [3, n0, _GPKPR,
   0,
@@ -647,7 +706,7 @@ export var GetStreamRequest$: StaticStructureSchema = [3, n0, _GSR,
 ];
 export var GetStreamResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
-  [_st],
+  [_str],
   [() => _Stream$]
 ];
 export var GetStreamSessionRequest$: StaticStructureSchema = [3, n0, _GSSR,
@@ -702,13 +761,23 @@ export var ListAdConfigurationsResponse$: StaticStructureSchema = [3, n0, _LACRi
 ];
 export var ListChannelsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
-  [_fBN, _fBRCA, _fBPRPA, _fBACA, _nT, _mR],
-  [0, 0, 0, 0, 0, 1]
+  [_fBN, _fBRCA, _fBPRPA, _fBACA, _fBFSCA, _nT, _mR],
+  [0, 0, 0, 0, 0, 0, 1]
 ];
 export var ListChannelsResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
   [_ch, _nT],
   [() => ChannelList, 0], 1
+];
+export var ListFailoverSlateConfigurationsRequest$: StaticStructureSchema = [3, n0, _LFSCR,
+  0,
+  [_nT, _mR],
+  [0, 1]
+];
+export var ListFailoverSlateConfigurationsResponse$: StaticStructureSchema = [3, n0, _LFSCRi,
+  0,
+  [_fSCa, _nT],
+  [() => FailoverSlateConfigurationList, 0], 1
 ];
 export var ListPlaybackKeyPairsRequest$: StaticStructureSchema = [3, n0, _LPKPR,
   0,
@@ -767,7 +836,7 @@ export var ListStreamsRequest$: StaticStructureSchema = [3, n0, _LSR,
 ];
 export var ListStreamsResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
-  [_str, _nT],
+  [_stre, _nT],
   [() => StreamList, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
@@ -822,12 +891,12 @@ export var PutMetadataRequest$: StaticStructureSchema = [3, n0, _PMR,
 ];
 export var RecordingConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
-  [_a, _dC, _sta, _n, _t, _tC, _rRWS, _rC],
+  [_a, _dC, _st, _n, _t, _tC, _rRWS, _rC],
   [0, () => DestinationConfiguration$, 0, 0, 128 | 0, () => ThumbnailConfiguration$, 1, () => RenditionConfiguration$], 3
 ];
 export var RecordingConfigurationSummary$: StaticStructureSchema = [3, n0, _RCS,
   0,
-  [_a, _dC, _sta, _n, _t],
+  [_a, _dC, _st, _n, _t],
   [0, () => DestinationConfiguration$, 0, 0, 128 | 0], 3
 ];
 export var RenditionConfiguration$: StaticStructureSchema = [3, n0, _RCe,
@@ -867,7 +936,7 @@ export var StopStreamResponse$: StaticStructureSchema = [3, n0, _SSRt,
 ];
 export var _Stream$: StaticStructureSchema = [3, n0, _St,
   0,
-  [_cA, _sI, _pU, _sT, _sta, _h, _vCi],
+  [_cA, _sI, _pU, _sT, _st, _h, _vCi],
   [0, 0, 0, 5, 0, 0, 1]
 ];
 export var StreamEvent$: StaticStructureSchema = [3, n0, _SE,
@@ -892,8 +961,8 @@ export var StreamKeySummary$: StaticStructureSchema = [3, n0, _SKS,
 ];
 export var StreamSession$: StaticStructureSchema = [3, n0, _SS,
   0,
-  [_sI, _sT, _eTn, _cha, _iC, _iCn, _rCe, _tE],
-  [0, 5, 5, [() => Channel$, 0], () => IngestConfiguration$, () => IngestConfigurations$, () => RecordingConfiguration$, () => StreamEvents]
+  [_sI, _sT, _eTn, _cha, _iC, _iCn, _rCe, _tE, _fSC],
+  [0, 5, 5, [() => Channel$, 0], () => IngestConfiguration$, () => IngestConfigurations$, () => RecordingConfiguration$, () => StreamEvents, () => FailoverSlateConfiguration$]
 ];
 export var StreamSessionSummary$: StaticStructureSchema = [3, n0, _SSS,
   0,
@@ -902,7 +971,7 @@ export var StreamSessionSummary$: StaticStructureSchema = [3, n0, _SSS,
 ];
 export var StreamSummary$: StaticStructureSchema = [3, n0, _SSt,
   0,
-  [_cA, _sI, _sta, _h, _vCi, _sT],
+  [_cA, _sI, _st, _h, _vCi, _sT],
   [0, 0, 0, 0, 1, 5]
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
@@ -942,13 +1011,23 @@ export var UpdateAdConfigurationResponse$: StaticStructureSchema = [3, n0, _UACR
 ];
 export var UpdateChannelRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_a, _n, _lM, _ty, _au, _rCA, _iI, _p, _pRPA, _mIC, _cF, _aCA],
-  [0, 0, 0, 0, 2, 0, 2, 0, 0, () => MultitrackInputConfiguration$, 0, 0], 1
+  [_a, _n, _lM, _ty, _au, _rCA, _iI, _p, _pRPA, _mIC, _cF, _aCA, _fSCA],
+  [0, 0, 0, 0, 2, 0, 2, 0, 0, () => MultitrackInputConfiguration$, 0, 0, 0], 1
 ];
 export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
   [_cha],
   [[() => Channel$, 0]]
+];
+export var UpdateFailoverSlateConfigurationRequest$: StaticStructureSchema = [3, n0, _UFSCR,
+  0,
+  [_a, _n, _aTS, _mSDS, _mSDSa],
+  [0, 0, 1, 1, 1], 1
+];
+export var UpdateFailoverSlateConfigurationResponse$: StaticStructureSchema = [3, n0, _UFSCRp,
+  0,
+  [_fSC],
+  [() => FailoverSlateConfiguration$], 1
 ];
 export var UpdatePlaybackRestrictionPolicyRequest$: StaticStructureSchema = [3, n0, _UPRPR,
   0,
@@ -988,6 +1067,9 @@ var ChannelList: StaticListSchema = [1, n0, _CL,
 var Channels: StaticListSchema = [1, n0, _Ch,
   0, [() => Channel$,
     0]
+];
+var FailoverSlateConfigurationList: StaticListSchema = [1, n0, _FSCL,
+  0, () => FailoverSlateConfigurationSummary$
 ];
 var MediaTailorPlaybackConfigurationsList: StaticListSchema = [1, n0, _MTPCL,
   0, () => MediaTailorPlaybackConfiguration$
@@ -1042,6 +1124,9 @@ export var CreateAdConfiguration$: StaticOperationSchema = [9, n0, _CAC,
 export var CreateChannel$: StaticOperationSchema = [9, n0, _CCr,
   { [_ht]: ["POST", "/CreateChannel", 200] }, () => CreateChannelRequest$, () => CreateChannelResponse$
 ];
+export var CreateFailoverSlateConfiguration$: StaticOperationSchema = [9, n0, _CFSC,
+  { [_ht]: ["POST", "/CreateFailoverSlateConfiguration", 200] }, () => CreateFailoverSlateConfigurationRequest$, () => CreateFailoverSlateConfigurationResponse$
+];
 export var CreatePlaybackRestrictionPolicy$: StaticOperationSchema = [9, n0, _CPRP,
   { [_ht]: ["POST", "/CreatePlaybackRestrictionPolicy", 200] }, () => CreatePlaybackRestrictionPolicyRequest$, () => CreatePlaybackRestrictionPolicyResponse$
 ];
@@ -1056,6 +1141,9 @@ export var DeleteAdConfiguration$: StaticOperationSchema = [9, n0, _DAC,
 ];
 export var DeleteChannel$: StaticOperationSchema = [9, n0, _DCe,
   { [_ht]: ["POST", "/DeleteChannel", 204] }, () => DeleteChannelRequest$, () => __Unit
+];
+export var DeleteFailoverSlateConfiguration$: StaticOperationSchema = [9, n0, _DFSC,
+  { [_ht]: ["POST", "/DeleteFailoverSlateConfiguration", 204] }, () => DeleteFailoverSlateConfigurationRequest$, () => __Unit
 ];
 export var DeletePlaybackKeyPair$: StaticOperationSchema = [9, n0, _DPKP,
   { [_ht]: ["POST", "/DeletePlaybackKeyPair", 200] }, () => DeletePlaybackKeyPairRequest$, () => DeletePlaybackKeyPairResponse$
@@ -1074,6 +1162,9 @@ export var GetAdConfiguration$: StaticOperationSchema = [9, n0, _GAC,
 ];
 export var GetChannel$: StaticOperationSchema = [9, n0, _GC,
   { [_ht]: ["POST", "/GetChannel", 200] }, () => GetChannelRequest$, () => GetChannelResponse$
+];
+export var GetFailoverSlateConfiguration$: StaticOperationSchema = [9, n0, _GFSC,
+  { [_ht]: ["POST", "/GetFailoverSlateConfiguration", 200] }, () => GetFailoverSlateConfigurationRequest$, () => GetFailoverSlateConfigurationResponse$
 ];
 export var GetPlaybackKeyPair$: StaticOperationSchema = [9, n0, _GPKP,
   { [_ht]: ["POST", "/GetPlaybackKeyPair", 200] }, () => GetPlaybackKeyPairRequest$, () => GetPlaybackKeyPairResponse$
@@ -1104,6 +1195,9 @@ export var ListAdConfigurations$: StaticOperationSchema = [9, n0, _LAC,
 ];
 export var ListChannels$: StaticOperationSchema = [9, n0, _LC,
   { [_ht]: ["POST", "/ListChannels", 200] }, () => ListChannelsRequest$, () => ListChannelsResponse$
+];
+export var ListFailoverSlateConfigurations$: StaticOperationSchema = [9, n0, _LFSC,
+  { [_ht]: ["POST", "/ListFailoverSlateConfigurations", 200] }, () => ListFailoverSlateConfigurationsRequest$, () => ListFailoverSlateConfigurationsResponse$
 ];
 export var ListPlaybackKeyPairs$: StaticOperationSchema = [9, n0, _LPKP,
   { [_ht]: ["POST", "/ListPlaybackKeyPairs", 200] }, () => ListPlaybackKeyPairsRequest$, () => ListPlaybackKeyPairsResponse$
@@ -1146,6 +1240,9 @@ export var UpdateAdConfiguration$: StaticOperationSchema = [9, n0, _UAC,
 ];
 export var UpdateChannel$: StaticOperationSchema = [9, n0, _UC,
   { [_ht]: ["POST", "/UpdateChannel", 200] }, () => UpdateChannelRequest$, () => UpdateChannelResponse$
+];
+export var UpdateFailoverSlateConfiguration$: StaticOperationSchema = [9, n0, _UFSC,
+  { [_ht]: ["POST", "/UpdateFailoverSlateConfiguration", 200] }, () => UpdateFailoverSlateConfigurationRequest$, () => UpdateFailoverSlateConfigurationResponse$
 ];
 export var UpdatePlaybackRestrictionPolicy$: StaticOperationSchema = [9, n0, _UPRP,
   { [_ht]: ["POST", "/UpdatePlaybackRestrictionPolicy", 200] }, () => UpdatePlaybackRestrictionPolicyRequest$, () => UpdatePlaybackRestrictionPolicyResponse$

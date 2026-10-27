@@ -38,7 +38,7 @@ export interface GetDistributionMetricDataCommandOutput extends GetDistributionM
  * const client = new LightsailClient(config);
  * const input = { // GetDistributionMetricDataRequest
  *   distributionName: "STRING_VALUE", // required
- *   metricName: "Requests" || "BytesDownloaded" || "BytesUploaded" || "TotalErrorRate" || "Http4xxErrorRate" || "Http5xxErrorRate", // required
+ *   metricName: "Requests" || "BytesDownloaded" || "BytesUploaded" || "TotalErrorRate" || "Http4xxErrorRate" || "Http5xxErrorRate" || "WafAllowedRequests" || "WafBlockedRequests", // required
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required
  *   period: Number("int"), // required
@@ -50,7 +50,7 @@ export interface GetDistributionMetricDataCommandOutput extends GetDistributionM
  * const command = new GetDistributionMetricDataCommand(input);
  * const response = await client.send(command);
  * // { // GetDistributionMetricDataResult
- * //   metricName: "Requests" || "BytesDownloaded" || "BytesUploaded" || "TotalErrorRate" || "Http4xxErrorRate" || "Http5xxErrorRate",
+ * //   metricName: "Requests" || "BytesDownloaded" || "BytesUploaded" || "TotalErrorRate" || "Http4xxErrorRate" || "Http5xxErrorRate" || "WafAllowedRequests" || "WafBlockedRequests",
  * //   metricData: [ // MetricDatapointList
  * //     { // MetricDatapoint
  * //       average: Number("double"),

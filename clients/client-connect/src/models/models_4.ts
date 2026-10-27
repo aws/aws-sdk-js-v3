@@ -51,10 +51,12 @@ import type {
   EvaluationReviewConfiguration,
   FlowModule,
   GranularAccessControlConfiguration,
+  InputPredefinedAttributeConfiguration,
   MediaConcurrency,
   OutboundCallerConfig,
   OutboundEmailConfig,
   OutboundStrategy,
+  PredefinedAttributeValues,
   PreEvaluationFilters,
   QuickConnectConfig,
   Reference,
@@ -122,6 +124,7 @@ import type {
   ListCondition,
   MetricSearchFilter,
   NotificationSearchFilter,
+  NullableAdditionalRecipients,
   NumberCondition,
   ParticipantConfiguration,
   ParticipantDetails,
@@ -143,6 +146,126 @@ import type {
   WorkspaceAssociationSearchFilter,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface UpdateParticipantRoleConfigResponse {}
+
+/**
+ * @public
+ */
+export interface UpdatePhoneNumberRequest {
+  /**
+   * <p>A unique identifier for the phone number.</p>
+   * @public
+   */
+  PhoneNumberId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
+   * @public
+   */
+  TargetArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance that phone numbers are claimed to. You
+   *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
+   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePhoneNumberResponse {
+  /**
+   * <p>A unique identifier for the phone number.</p>
+   * @public
+   */
+  PhoneNumberId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the phone number.</p>
+   * @public
+   */
+  PhoneNumberArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePhoneNumberMetadataRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) or resource ID of the phone number.</p>
+   * @public
+   */
+  PhoneNumberId: string | undefined;
+
+  /**
+   * <p>The description of the phone number.</p>
+   * @public
+   */
+  PhoneNumberDescription?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePredefinedAttributeRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
+   *    instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the predefined attribute.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The values of the predefined attribute.</p>
+   * @public
+   */
+  Values?: PredefinedAttributeValues | undefined;
+
+  /**
+   * <p>Values that enable you to categorize your predefined attributes. You can use them in custom UI elements across the Connect Customer admin website.</p>
+   * @public
+   */
+  Purposes?: string[] | undefined;
+
+  /**
+   * <p>Custom metadata that is associated to predefined attributes to control behavior
+   * in upstream services, such as controlling
+   * how a predefined attribute should be displayed in the Connect Customer admin website.</p>
+   * @public
+   */
+  AttributeConfiguration?: InputPredefinedAttributeConfiguration | undefined;
+}
 
 /**
  * @public
@@ -4265,7 +4388,9 @@ export interface UpdateContactRequest {
    * <p>The endpoint of the customer for which the contact was initiated. For external audio contacts, this is usually
    *    the end customer's phone number. This value can only be updated for external audio contacts. For more information,
    *    see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Connect Customer
-   *     Contact Lens integration</a> in the <i>Connect Customer Administrator Guide</i>.</p>
+   *     Contact Lens integration</a> in the <i>Connect Customer Administrator Guide</i>. For email
+   *    contacts with an <code>OUTBOUND</code> or <code>AGENT_REPLY</code> initiation method, this value can be updated
+   *    while the outbound email is still a draft, before you send it.</p>
    * @public
    */
   CustomerEndpoint?: Endpoint | undefined;
@@ -4274,10 +4399,18 @@ export interface UpdateContactRequest {
    * <p>External system endpoint for the contact was initiated. For external audio contacts, this is the phone number of
    *    the external system such as the contact center. This value can only be updated for external audio contacts. For more
    *    information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Connect Customer Contact Lens integration</a> in the <i>Connect Customer Administrator
-   *    Guide</i>.</p>
+   *    Guide</i>. For email contacts with an <code>OUTBOUND</code> or <code>AGENT_REPLY</code> initiation method,
+   *    this value can be updated while the outbound email is still a draft, before you send it.</p>
    * @public
    */
   SystemEndpoint?: Endpoint | undefined;
+
+  /**
+   * <p>The additional recipients of an outbound email. Use this field to update the CC email address recipients of a
+   *    contact. An empty list clears the existing CC recipients.</p>
+   * @public
+   */
+  AdditionalRecipients?: NullableAdditionalRecipients | undefined;
 }
 
 /**

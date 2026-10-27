@@ -15,6 +15,7 @@ import type {
   PrincipalType,
   ProvisioningStatus,
   ProvisionTargetType,
+  RegionScope,
   RegionStatus,
   SignInOrigin,
   StatusValues,
@@ -3183,6 +3184,12 @@ export interface ListInstancesRequest {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>Specifies which Amazon Web Services Regions to list IAM Identity Center instances from. Valid values:</p> <ul> <li> <p> <code>CURRENT_REGION</code> - Lists only the instances in the Region that you call this API from.</p> </li> <li> <p> <code>ALL_REGIONS</code> - Lists the instances that the caller owns or that are shared with the caller across all Regions.</p> </li> </ul> <p>If you don't specify a value, the default is <code>CURRENT_REGION</code>.</p>
+   * @public
+   */
+  RegionScope?: RegionScope | undefined;
 }
 
 /**
@@ -3877,7 +3884,7 @@ export interface UpdateInstanceRequest {
   EncryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>Enables permission sets for this Identity Center instance. The only accepted value is <code>true </code>. After permission sets are enabled, they cannot be disabled.</p> <note> <p>You can't set <code>EncryptionConfiguration</code> and <code>PermissionSetsEnabled</code> in the same request. To configure both, make two separate <code>UpdateInstance</code> calls. These calls can be made in parallel.</p> </note>
+   * <p>Enables permission sets for this Identity Center instance. The only accepted value is <code>true </code>. After permission sets are enabled, they cannot be disabled.</p> <note> <p>You can't set <code>EncryptionConfiguration</code> and <code>PermissionSetsEnabled</code> in the same request. To configure both, make two separate <code>UpdateInstance</code> calls. You can make these calls in parallel.</p> </note>
    * @public
    */
   PermissionSetsEnabled?: boolean | undefined;

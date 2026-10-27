@@ -63,6 +63,8 @@ import type {
   StatusType,
   TreatMissingData,
   ViewerMinimumTlsProtocolVersionEnum,
+  WafInspectionLevelEnum,
+  WafPayloadTypeEnum,
 } from "./enums";
 
 /**
@@ -4489,6 +4491,300 @@ export interface InputOrigin {
 }
 
 /**
+ * <p>Describes the HTTP status codes that your application returns to indicate successful and
+ *       failed attempts. The Web Application Firewall (WAF) rule group uses these status codes to
+ *       track successful and failed attempts.</p>
+ * @public
+ */
+export interface WafResponseInspection {
+  /**
+   * <p>The HTTP status codes that indicate a successful attempt (for example,
+   *       <code>200</code>).</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 10 status codes.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each status code must be from <code>0</code> to <code>999</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't contain a status code that is also in
+   *           <code>failureCodes</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  successCodes?: number[] | undefined;
+
+  /**
+   * <p>The HTTP status codes that indicate a failed attempt (for example,
+   *       <code>401</code>).</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 10 status codes.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each status code must be from <code>0</code> to <code>999</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't contain a status code that is also in
+   *           <code>successCodes</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  failureCodes?: number[] | undefined;
+}
+
+/**
+ * <p>Describes the configuration of the account creation fraud prevention Web Application
+ *       Firewall (WAF) rule group. The rule group inspects account creation requests to your
+ *       application.</p>
+ * @public
+ */
+export interface WafAcfpConfig {
+  /**
+   * <p>The content type of the request body of account creation requests.</p>
+   *          <p>The following content types are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>JSON</code> – The request body is in JSON format.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FORM_ENCODED</code> – The request body is form encoded.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  payloadType?: WafPayloadTypeEnum | undefined;
+
+  /**
+   * <p>The path of the endpoint that accepts completed account creation forms (for example,
+   *         <code>/signup/submit</code>). This endpoint must accept <code>POST</code> requests.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must start with a forward slash (<code>/</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>Must contain from 1 to 256 characters.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  creationPath?: string | undefined;
+
+  /**
+   * <p>The path of the page that displays the account creation form (for example,
+   *         <code>/signup</code>).</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must start with a forward slash (<code>/</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>Must contain from 1 to 256 characters.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  registrationPagePath?: string | undefined;
+
+  /**
+   * <p>An object that describes the HTTP status codes that your application returns for
+   *       successful and failed account creation attempts.</p>
+   * @public
+   */
+  responseInspection?: WafResponseInspection | undefined;
+}
+
+/**
+ * <p>Describes the configuration of the account takeover prevention Web Application Firewall
+ *       (WAF) rule group. The rule group inspects login requests to the login path of your
+ *       application.</p>
+ * @public
+ */
+export interface WafAtpConfig {
+  /**
+   * <p>The path of the login endpoint of your application (for example,
+   *       <code>/login</code>). Login paths that start with the path that you specify are a
+   *       match.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must start with a forward slash (<code>/</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>Must contain from 1 to 256 characters.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  loginPath?: string | undefined;
+
+  /**
+   * <p>The content type of the request body of login requests.</p>
+   *          <p>The following content types are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>JSON</code> – The request body is in JSON format.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FORM_ENCODED</code> – The request body is form encoded.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  payloadType?: WafPayloadTypeEnum | undefined;
+
+  /**
+   * <p>The name of the field in the request body that contains the username (for example,
+   *         <code>/username</code> for <code>JSON</code> or <code>username</code> for
+   *         <code>FORM_ENCODED</code>).</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For a <code>JSON</code> payload, must be a JSON pointer that starts with a forward
+   *           slash (<code>/</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>Must contain from 1 to 512 characters.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  usernameField?: string | undefined;
+
+  /**
+   * <p>The name of the field in the request body that contains the password (for example,
+   *         <code>/password</code> for <code>JSON</code> or <code>password</code> for
+   *         <code>FORM_ENCODED</code>).</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For a <code>JSON</code> payload, must be a JSON pointer that starts with a forward
+   *           slash (<code>/</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>Must contain from 1 to 512 characters.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  passwordField?: string | undefined;
+
+  /**
+   * <p>An object that describes the HTTP status codes that your application returns for
+   *       successful and failed login attempts.</p>
+   * @public
+   */
+  responseInspection?: WafResponseInspection | undefined;
+}
+
+/**
+ * <p>Describes the configuration of the bot control Web Application Firewall (WAF) rule
+ *       group.</p>
+ * @public
+ */
+export interface WafBotControlConfig {
+  /**
+   * <p>The inspection level of the bot control rule group.</p>
+   *          <p>The following inspection levels are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMMON</code> – Detects a variety of bots that identify themselves, such as
+   *           web scraping frameworks, search engines, and automated browsers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TARGETED</code> – Includes the <code>COMMON</code> protections, and adds
+   *           detection for sophisticated bots that don't identify themselves. This level uses rate
+   *           limiting, CAPTCHA, and background browser challenges.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  inspectionLevel?: WafInspectionLevelEnum | undefined;
+}
+
+/**
+ * <p>Describes a Web Application Firewall (WAF) rule group for a Lightsail distribution. A
+ *       WAF rule group is a set of rules managed by AWS. The rules inspect viewer requests and block
+ *       requests that match them.</p>
+ * @public
+ */
+export interface WafRule {
+  /**
+   * <p>The name of the WAF rule group (for example,
+   *       <code>AWSManagedRulesCommonRuleSet</code>).</p>
+   *          <p>For the WAF rule groups that you can specify for each bundle, see the
+   *         <code>wafRules</code> parameter of the <code>CreateDistribution</code> action.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>An object that describes the configuration of the account takeover prevention rule
+   *       group.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Define this parameter only when the <code>name</code> is
+   *             <code>AWSManagedRulesATPRuleSet</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>This parameter is required when the <code>name</code> is
+   *             <code>AWSManagedRulesATPRuleSet</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  atpConfig?: WafAtpConfig | undefined;
+
+  /**
+   * <p>An object that describes the configuration of the account creation fraud prevention
+   *       rule group.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Define this parameter only when the <code>name</code> is
+   *             <code>AWSManagedRulesACFPRuleSet</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>This parameter is required when the <code>name</code> is
+   *             <code>AWSManagedRulesACFPRuleSet</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  acfpConfig?: WafAcfpConfig | undefined;
+
+  /**
+   * <p>An object that describes the configuration of the bot control rule group.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Define this parameter only when the <code>name</code> is
+   *             <code>AWSManagedRulesBotControlRuleSet</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>This parameter is required when the <code>name</code> is
+   *             <code>AWSManagedRulesBotControlRuleSet</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  botControlConfig?: WafBotControlConfig | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateDistributionRequest {
@@ -4594,6 +4890,48 @@ export interface CreateDistributionRequest {
    * @public
    */
   customErrorResponses?: DistributionCustomErrorResponse[] | undefined;
+
+  /**
+   * <p>Specifies whether to enable Web Application Firewall (WAF) for the distribution. WAF
+   *       inspects viewer requests and blocks requests that match the WAF rule groups that you
+   *       enable.</p>
+   *          <p>When you enable WAF without specifying the <code>wafRules</code> parameter, the
+   *       distribution has no WAF rule groups enabled and doesn't block any requests.</p>
+   *          <note>
+   *             <p>WAF is available only for distributions that use the <code>medium_1_0</code> or
+   *           <code>large_1_0</code> bundle.</p>
+   *          </note>
+   * @public
+   */
+  enableWaf?: boolean | undefined;
+
+  /**
+   * <p>An array of objects that describe the WAF rule groups to enable for the
+   *       distribution.</p>
+   *          <p>The WAF rule groups that you can specify depend on the bundle of the
+   *       distribution:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>medium_1_0</code> – Supports the <code>AWSManagedRulesCommonRuleSet</code>,
+   *             <code>AWSManagedRulesKnownBadInputsRuleSet</code>, and
+   *             <code>AWSManagedRulesAnonymousIpList</code> rule groups.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>large_1_0</code> – Supports the rule groups for <code>medium_1_0</code>, plus
+   *             <code>AWSManagedRulesAdminProtectionRuleSet</code>,
+   *             <code>AWSManagedRulesSQLiRuleSet</code>, <code>AWSManagedRulesLinuxRuleSet</code>,
+   *             <code>AWSManagedRulesUnixRuleSet</code>, <code>AWSManagedRulesWindowsRuleSet</code>,
+   *             <code>AWSManagedRulesPHPRuleSet</code>, <code>AWSManagedRulesWordPressRuleSet</code>,
+   *             <code>AWSManagedRulesAmazonIpReputationList</code>,
+   *             <code>AWSManagedRulesATPRuleSet</code>, <code>AWSManagedRulesACFPRuleSet</code>, and
+   *             <code>AWSManagedRulesBotControlRuleSet</code> rule groups.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  wafRules?: WafRule[] | undefined;
 }
 
 /**
@@ -4656,6 +4994,26 @@ export interface Origin {
    * @public
    */
   isPrivateOriginAccessEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the Web Application Firewall (WAF) configuration of a Lightsail
+ *       distribution.</p>
+ * @public
+ */
+export interface WafConfig {
+  /**
+   * <p>Specifies whether WAF is enabled for the distribution.</p>
+   * @public
+   */
+  isWafEnabled?: boolean | undefined;
+
+  /**
+   * <p>An array of objects that describe the WAF rule groups enabled for the
+   *       distribution.</p>
+   * @public
+   */
+  wafRules?: WafRule[] | undefined;
 }
 
 /**
@@ -4820,6 +5178,13 @@ export interface LightsailDistribution {
    * @public
    */
   customErrorResponses?: DistributionCustomErrorResponse[] | undefined;
+
+  /**
+   * <p>An object that describes the Web Application Firewall (WAF) configuration of the
+   *       distribution.</p>
+   * @public
+   */
+  waf?: WafConfig | undefined;
 }
 
 /**
@@ -8795,6 +9160,30 @@ export interface GetDistributionMetricDataRequest {
    *                <p>
    *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>WafAllowedRequests</code>
+   *                   </b> - The number of
+   *           viewer requests that Web Application Firewall (WAF) allowed. This metric is available only
+   *           when WAF is enabled for the distribution.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>WafBlockedRequests</code>
+   *                   </b> - The number of
+   *           viewer requests that WAF blocked. This metric is available only when WAF is enabled for
+   *           the distribution.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -10436,91 +10825,6 @@ export interface GetInstanceSnapshotsResult {
    *          <p>A next page token is not returned if there are no more results to display.</p>
    *          <p>To get the next page of results, perform another <code>GetInstanceSnapshots</code> request
    *       and specify the next page token using the <code>pageToken</code> parameter.</p>
-   * @public
-   */
-  nextPageToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstanceStateRequest {
-  /**
-   * <p>The name of the instance to get state information about.</p>
-   * @public
-   */
-  instanceName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstanceStateResult {
-  /**
-   * <p>The state of the instance.</p>
-   * @public
-   */
-  state?: InstanceState | undefined;
-}
-
-/**
- * @public
- */
-export interface GetKeyPairRequest {
-  /**
-   * <p>The name of the key pair for which you are requesting information.</p>
-   * @public
-   */
-  keyPairName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetKeyPairResult {
-  /**
-   * <p>An array of key-value pairs containing information about the key pair.</p>
-   * @public
-   */
-  keyPair?: KeyPair | undefined;
-}
-
-/**
- * @public
- */
-export interface GetKeyPairsRequest {
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>To get a page token, perform an initial <code>GetKeyPairs</code> request. If your results
-   *       are paginated, the response will return a next page token that you can specify as the page
-   *       token in a subsequent request.</p>
-   * @public
-   */
-  pageToken?: string | undefined;
-
-  /**
-   * <p>A Boolean value that indicates whether to include the default key pair in the response of
-   *       your request.</p>
-   * @public
-   */
-  includeDefaultKeyPair?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetKeyPairsResult {
-  /**
-   * <p>An array of key-value pairs containing information about the key pairs.</p>
-   * @public
-   */
-  keyPairs?: KeyPair[] | undefined;
-
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>A next page token is not returned if there are no more results to display.</p>
-   *          <p>To get the next page of results, perform another <code>GetKeyPairs</code> request and
-   *       specify the next page token using the <code>pageToken</code> parameter.</p>
    * @public
    */
   nextPageToken?: string | undefined;

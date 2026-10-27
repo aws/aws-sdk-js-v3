@@ -1243,6 +1243,10 @@ import type {
   UpdateNotificationContentCommandOutput,
 } from "./commands/UpdateNotificationContentCommand";
 import type {
+  UpdateOutboundEmailContactMessageCommandInput,
+  UpdateOutboundEmailContactMessageCommandOutput,
+} from "./commands/UpdateOutboundEmailContactMessageCommand";
+import type {
   UpdateParticipantAuthenticationCommandInput,
   UpdateParticipantAuthenticationCommandOutput,
 } from "./commands/UpdateParticipantAuthenticationCommand";
@@ -1765,6 +1769,7 @@ export type ServiceInputTypes =
   | UpdateMetricContentCommandInput
   | UpdateMetricMetadataCommandInput
   | UpdateNotificationContentCommandInput
+  | UpdateOutboundEmailContactMessageCommandInput
   | UpdateParticipantAuthenticationCommandInput
   | UpdateParticipantRoleConfigCommandInput
   | UpdatePhoneNumberCommandInput
@@ -2173,6 +2178,7 @@ export type ServiceOutputTypes =
   | UpdateMetricContentCommandOutput
   | UpdateMetricMetadataCommandOutput
   | UpdateNotificationContentCommandOutput
+  | UpdateOutboundEmailContactMessageCommandOutput
   | UpdateParticipantAuthenticationCommandOutput
   | UpdateParticipantRoleConfigCommandOutput
   | UpdatePhoneNumberCommandOutput

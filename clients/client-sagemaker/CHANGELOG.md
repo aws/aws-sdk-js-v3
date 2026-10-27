@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1157.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1156.0...v3.1157.0) (2026-10-26)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker HyperPod adds the MultiNodeTrainingValidation deep health check for clusters orchestrated by Amazon EKS. It validates NVIDIA GPU instances by running a short multi-node training workload and flags instances that produce numerical errors or fall behind expected training time. ([836ff16](https://github.com/aws/aws-sdk-js-v3/commit/836ff165c9044cbc5c9920bc5a4868e715d107dc))
+
+
+
+
+
 # [3.1156.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1155.0...v3.1156.0) (2026-10-22)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

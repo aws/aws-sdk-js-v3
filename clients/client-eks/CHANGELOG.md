@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1157.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1156.0...v3.1157.0) (2026-10-26)
+
+
+### Features
+
+* **client-eks:** This release adds support for EKS management of Gateway API CRDs (Custom Resource Definitions) ([67c963f](https://github.com/aws/aws-sdk-js-v3/commit/67c963fe3ec571dbefaf96adaa81886228ba56dc))
+
+
+
+
+
 # [3.1156.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1155.0...v3.1156.0) (2026-10-22)
 
 **Note:** Version bump only for package @aws-sdk/client-eks

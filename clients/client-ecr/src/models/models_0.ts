@@ -16,6 +16,8 @@ import type {
   LifecyclePolicyStorageClass,
   LifecyclePolicyTargetStorageClass,
   RCTAppliedFor,
+  ReplicationBackfillResultStatus,
+  ReplicationBackfillStatus,
   ReplicationStatus,
   RepositoryFilterType,
   ScanFrequency,
@@ -800,8 +802,8 @@ export interface CreateRepositoryRequest {
 export interface Repository {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the <code>arn:aws:ecr</code> namespace, followed by the region of the
-   *     repository, Amazon Web Services account ID of the repository owner, repository namespace, and repository name.
-   *     For example, <code>arn:aws:ecr:region:012345678910:repository-namespace/repository-name</code>.</p>
+   *     repository, Amazon Web Services account ID of the repository owner, and repository name.
+   *     For example, <code>arn:aws:ecr:region:012345678910:repository/repository-name</code>.</p>
    * @public
    */
   repositoryArn?: string | undefined;
@@ -2799,6 +2801,211 @@ export interface DescribeRegistryResponse {
 /**
  * @public
  */
+export interface DescribeReplicationBackfillResultsRequest {
+  /**
+   * <p>The Amazon Web Services account ID associated with the registry that contains the replication
+   *             backfill to describe. If you do not specify a registry, the default registry is assumed.</p>
+   * @public
+   */
+  registryId?: string | undefined;
+
+  /**
+   * <p>The ID of the replication backfill to describe.</p>
+   * @public
+   */
+  replicationBackfillId: string | undefined;
+
+  /**
+   * <p>The status used to filter the returned results. Each result has a status of
+   *                 <code>COMPLETE</code> or <code>FAILED</code>. If you omit this parameter, results
+   *             with both statuses are returned.</p>
+   * @public
+   */
+  resultStatusFilter?: ReplicationBackfillResultStatus | undefined;
+
+  /**
+   * <p>The maximum number of replication backfill results returned by
+   *                 <code>DescribeReplicationBackfillResults</code> in paginated output. When this
+   *             parameter is used, <code>DescribeReplicationBackfillResults</code> only returns
+   *                 <code>maxResults</code> results in a single page along with a <code>nextToken</code>
+   *             response element. The remaining results of the initial request can be seen by sending
+   *             another <code>DescribeReplicationBackfillResults</code> request with the returned
+   *                 <code>nextToken</code> value. This value can be between 1 and
+   *                 1000. If this parameter is not used, then
+   *                 <code>DescribeReplicationBackfillResults</code> returns up to 100
+   *             results and a <code>nextToken</code> value, if applicable.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *                 <code>DescribeReplicationBackfillResults</code> request where <code>maxResults</code>
+   *             was used and the results exceeded the value of that parameter. Pagination continues from
+   *             the end of the previous results that returned the <code>nextToken</code> value. This
+   *             value is <code>null</code> when there are no more results to return.</p>
+   *          <note>
+   *             <p>This token should be treated as an opaque identifier that is only used to
+   *                 retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>An object representing the progress of a replication backfill, including the total,
+ *             completed, and failed replication counts.</p>
+ * @public
+ */
+export interface ReplicationBackfillProgress {
+  /**
+   * <p>The total number of replications that the backfill will perform. Each image and tag
+   *             combination is counted as a single replication.</p>
+   * @public
+   */
+  totalReplicationCount: number | undefined;
+
+  /**
+   * <p>The number of replications that have completed successfully.</p>
+   * @public
+   */
+  completedReplicationCount: number | undefined;
+
+  /**
+   * <p>The number of replications that have failed.</p>
+   * @public
+   */
+  failedReplicationCount: number | undefined;
+
+  /**
+   * <p>The distinct failure codes for the replications that have failed. Each failure code
+   *             appears at most once, regardless of how many replications failed with that code.</p>
+   * @public
+   */
+  failureCodes: string[] | undefined;
+}
+
+/**
+ * <p>An object representing the result of a single replication during a replication
+ *             backfill. Each image and tag combination is replicated as a single replication.</p>
+ * @public
+ */
+export interface ReplicationBackfillResult {
+  /**
+   * <p>The name of the repository that contains the image.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>An object with identifying information for the image.</p>
+   * @public
+   */
+  imageId: ImageIdentifier | undefined;
+
+  /**
+   * <p>The replication status of the image.</p>
+   * @public
+   */
+  status: ReplicationBackfillResultStatus | undefined;
+
+  /**
+   * <p>The failure code for a replication that has failed.</p>
+   * @public
+   */
+  failureCode?: string | undefined;
+
+  /**
+   * <p>The distinct failure codes for the images referenced by a manifest list that failed to
+   *             replicate. Each failure code appears at most once, regardless of how many referenced
+   *             images failed with that code. This field is present only when the image is a manifest
+   *             list.</p>
+   * @public
+   */
+  subImageFailureCodes?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeReplicationBackfillResultsResponse {
+  /**
+   * <p>The registry ID associated with the request.</p>
+   * @public
+   */
+  registryId?: string | undefined;
+
+  /**
+   * <p>The ID of the replication backfill.</p>
+   * @public
+   */
+  replicationBackfillId?: string | undefined;
+
+  /**
+   * <p>The destination Region and registry to which the images are replicated.</p>
+   * @public
+   */
+  destination?: ReplicationDestination | undefined;
+
+  /**
+   * <p>The current status of the replication backfill.</p>
+   * @public
+   */
+  status?: ReplicationBackfillStatus | undefined;
+
+  /**
+   * <p>The failure code for a replication backfill that has failed.</p>
+   * @public
+   */
+  failureCode?: string | undefined;
+
+  /**
+   * <p>The progress of the replication backfill, including the total, completed, and failed
+   *             replication counts. This value is <code>null</code> until the replication backfill
+   *             finishes preparing the set of images to replicate. It is therefore <code>null</code>
+   *             while the replication backfill is <code>PREPARING</code>, and remains <code>null</code>
+   *             if the replication backfill is stopped before preparation completes.</p>
+   * @public
+   */
+  progress?: ReplicationBackfillProgress | undefined;
+
+  /**
+   * <p>The per-image results for the replication backfill. Results are available only after
+   *             the replication backfill reaches a terminal status.</p>
+   * @public
+   */
+  results?: ReplicationBackfillResult[] | undefined;
+
+  /**
+   * <p>The date and time, in JavaScript date format, when the replication backfill was
+   *             started.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time, in JavaScript date format, when the replication backfill ended.
+   *             This value is <code>null</code> while the replication backfill is still in
+   *             progress.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future
+   *                 <code>DescribeReplicationBackfillResults</code> request. When the results of a
+   *                 <code>DescribeReplicationBackfillResults</code> request exceed
+   *                 <code>maxResults</code>, this value can be used to retrieve the next page of results.
+   *             This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeRepositoriesRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the registry that contains the repositories to be
@@ -3823,6 +4030,129 @@ export interface ListPullTimeUpdateExclusionsResponse {
 /**
  * @public
  */
+export interface ListReplicationBackfillsRequest {
+  /**
+   * <p>The Amazon Web Services account ID associated with the registry for which to list replication
+   *             backfills. If you do not specify a registry, the default registry is assumed.</p>
+   * @public
+   */
+  registryId?: string | undefined;
+
+  /**
+   * <p>The maximum number of replication backfill results returned by
+   *                 <code>ListReplicationBackfills</code> in paginated output. When this parameter is
+   *             used, <code>ListReplicationBackfills</code> only returns <code>maxResults</code> results
+   *             in a single page along with a <code>nextToken</code> response element. The remaining
+   *             results of the initial request can be seen by sending another
+   *                 <code>ListReplicationBackfills</code> request with the returned
+   *                 <code>nextToken</code> value. This value can be between 1 and 50. If this parameter
+   *             is not used, then <code>ListReplicationBackfills</code> returns up to 25 results and a
+   *                 <code>nextToken</code> value, if applicable.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *                 <code>ListReplicationBackfills</code> request where <code>maxResults</code> was used
+   *             and the results exceeded the value of that parameter. Pagination continues from the end
+   *             of the previous results that returned the <code>nextToken</code> value. This value is
+   *                 <code>null</code> when there are no more results to return.</p>
+   *          <note>
+   *             <p>This token should be treated as an opaque identifier that is only used to
+   *                 retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>An object representing a summary of a replication backfill, including its status,
+ *             destination, progress, and start and end times.</p>
+ * @public
+ */
+export interface ReplicationBackfillSummary {
+  /**
+   * <p>The ID of the replication backfill.</p>
+   * @public
+   */
+  replicationBackfillId: string | undefined;
+
+  /**
+   * <p>The destination Region and registry to which the images are replicated.</p>
+   * @public
+   */
+  destination: ReplicationDestination | undefined;
+
+  /**
+   * <p>The current status of the replication backfill.</p>
+   * @public
+   */
+  status: ReplicationBackfillStatus | undefined;
+
+  /**
+   * <p>The failure code for a replication backfill that has failed.</p>
+   * @public
+   */
+  failureCode?: string | undefined;
+
+  /**
+   * <p>The progress of the replication backfill, including the total, completed, and failed
+   *             replication counts. This value is <code>null</code> until the replication backfill
+   *             finishes preparing the set of images to replicate. It is therefore <code>null</code>
+   *             while the replication backfill is <code>PREPARING</code>, and remains <code>null</code>
+   *             if the replication backfill is stopped before preparation completes.</p>
+   * @public
+   */
+  progress?: ReplicationBackfillProgress | undefined;
+
+  /**
+   * <p>The date and time, in JavaScript date format, when the replication backfill was
+   *             started.</p>
+   * @public
+   */
+  startedAt: Date | undefined;
+
+  /**
+   * <p>The date and time, in JavaScript date format, when the replication backfill ended.
+   *             This value is <code>null</code> while the replication backfill is still in
+   *             progress.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListReplicationBackfillsResponse {
+  /**
+   * <p>The registry ID associated with the request.</p>
+   * @public
+   */
+  registryId?: string | undefined;
+
+  /**
+   * <p>A list of the replication backfills for the registry.</p>
+   * @public
+   */
+  backfills?: ReplicationBackfillSummary[] | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future
+   *                 <code>ListReplicationBackfills</code> request. When the results of a
+   *                 <code>ListReplicationBackfills</code> request exceed <code>maxResults</code>, this
+   *             value can be used to retrieve the next page of results. This value is <code>null</code>
+   *             when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the
@@ -4400,6 +4730,119 @@ export interface StartLifecyclePolicyPreviewResponse {
    * @public
    */
   status?: LifecyclePolicyPreviewStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartReplicationBackfillRequest {
+  /**
+   * <p>The Amazon Web Services account ID associated with the registry from which to start the replication
+   *             backfill. If you do not specify a registry, the default registry is assumed.</p>
+   * @public
+   */
+  registryId?: string | undefined;
+
+  /**
+   * <p>The destination Region and registry to which the images are replicated.</p>
+   * @public
+   */
+  destination: ReplicationDestination | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartReplicationBackfillResponse {
+  /**
+   * <p>The ID of the replication backfill that was started. Use this value to describe or
+   *             stop the backfill.</p>
+   * @public
+   */
+  replicationBackfillId?: string | undefined;
+
+  /**
+   * <p>The registry ID associated with the request.</p>
+   * @public
+   */
+  registryId?: string | undefined;
+
+  /**
+   * <p>The destination Region and registry to which the images are replicated.</p>
+   * @public
+   */
+  destination?: ReplicationDestination | undefined;
+
+  /**
+   * <p>The current status of the replication backfill. A newly started replication backfill
+   *             is returned with a status of <code>PREPARING</code>.</p>
+   * @public
+   */
+  status?: ReplicationBackfillStatus | undefined;
+
+  /**
+   * <p>The date and time, in JavaScript date format, when the replication backfill was
+   *             started.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopReplicationBackfillRequest {
+  /**
+   * <p>The Amazon Web Services account ID associated with the registry that contains the replication
+   *             backfill to stop. If you do not specify a registry, the default registry is assumed.</p>
+   * @public
+   */
+  registryId?: string | undefined;
+
+  /**
+   * <p>The ID of the replication backfill to stop.</p>
+   * @public
+   */
+  replicationBackfillId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopReplicationBackfillResponse {
+  /**
+   * <p>The registry ID associated with the request.</p>
+   * @public
+   */
+  registryId?: string | undefined;
+
+  /**
+   * <p>The ID of the replication backfill.</p>
+   * @public
+   */
+  replicationBackfillId?: string | undefined;
+
+  /**
+   * <p>The destination Region and registry to which the images are replicated.</p>
+   * @public
+   */
+  destination?: ReplicationDestination | undefined;
+
+  /**
+   * <p>The current status of the replication backfill. When you stop a replication backfill,
+   *             its status is <code>STOPPED</code> if the backfill is stopped immediately, or
+   *             <code>STOPPING</code> if there are replications still in progress that must complete
+   *             before the backfill stops.</p>
+   * @public
+   */
+  status?: ReplicationBackfillStatus | undefined;
+
+  /**
+   * <p>The date and time, in JavaScript date format, when the replication backfill was
+   *             started.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
 }
 
 /**

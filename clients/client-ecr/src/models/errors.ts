@@ -684,6 +684,28 @@ export class ScanNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>The specified replication backfill could not be found. Check the specified replication
+ *             backfill ID and ensure that you are operating on the correct registry.</p>
+ * @public
+ */
+export class ReplicationBackfillNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecr#ReplicationBackfillNotFoundException";
+  readonly name = "ReplicationBackfillNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicationBackfillNotFoundException, __BaseException>) {
+    super({
+      name: "ReplicationBackfillNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicationBackfillNotFoundException.prototype);
+  }
+}
+
+/**
  * <p>The specified layer is not available because it is not associated with an image.
  *             Unassociated image layers may be cleaned up at any time.</p>
  * @public
@@ -983,6 +1005,55 @@ export class LifecyclePolicyPreviewInProgressException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, LifecyclePolicyPreviewInProgressException.prototype);
+  }
+}
+
+/**
+ * <p>A replication backfill is already in progress for the specified destination Region.
+ *             This occurs because only one replication backfill can be in progress for a given
+ *             destination Region at a time. Wait for the in progress backfill to reach a terminal
+ *             status, or stop it with the <a>StopReplicationBackfill</a> operation, before
+ *             starting another one.</p>
+ * @public
+ */
+export class ReplicationBackfillInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecr#ReplicationBackfillInProgressException";
+  readonly name = "ReplicationBackfillInProgressException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicationBackfillInProgressException, __BaseException>) {
+    super({
+      name: "ReplicationBackfillInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicationBackfillInProgressException.prototype);
+  }
+}
+
+/**
+ * <p>The requested operation can't be performed on the replication backfill because it is
+ *             not in a valid status for that operation. For example, you can't stop a replication
+ *             backfill that has already reached a terminal status. Use the <a>DescribeReplicationBackfillResults</a> operation to check the current status
+ *             before retrying.</p>
+ * @public
+ */
+export class ReplicationBackfillInvalidStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecr#ReplicationBackfillInvalidStatusException";
+  readonly name = "ReplicationBackfillInvalidStatusException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicationBackfillInvalidStatusException, __BaseException>) {
+    super({
+      name: "ReplicationBackfillInvalidStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicationBackfillInvalidStatusException.prototype);
   }
 }
 

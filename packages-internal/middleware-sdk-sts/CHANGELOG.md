@@ -36,6 +36,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.34 (2026-10-26)
+### Chores
+* **middleware-sdk-sts:** update dependencies.
+
+
+
 # 3.972.33 (2026-10-21)
 ### Chores
 * **middleware-sdk-sts:** update dependencies.

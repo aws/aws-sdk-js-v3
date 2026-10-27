@@ -23,7 +23,7 @@ export interface DeleteMonitorCommandInput extends DeleteMonitorRequest {}
 export interface DeleteMonitorCommandOutput extends DeleteMonitorResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a Deadline Cloud monitor. After you delete a monitor, you can create a new one and attach farms to the monitor.</p>
+ * Removes a Deadline Cloud monitor. After you delete a monitor, you can create a new one and attach farms to the monitor.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,19 +48,19 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorResponse, __Met
  * @see {@link DeadlineClientResolvedConfig | config} for DeadlineClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action.</p>
+ *  You don't have permission to perform the action.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Deadline Cloud can't process your request right now. Try again later.</p>
+ *  Deadline Cloud can't process your request right now. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *  The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a request rate quota.</p>
+ *  Your request exceeded a request rate quota.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+ *  The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

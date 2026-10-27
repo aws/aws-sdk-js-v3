@@ -23,7 +23,7 @@ export interface ListQueueLimitAssociationsCommandInput extends ListQueueLimitAs
 export interface ListQueueLimitAssociationsCommandOutput extends ListQueueLimitAssociationsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of the associations between queues and limits defined in a farm.</p>
+ * Gets a list of the associations between queues and limits defined in a farm.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,16 +65,16 @@ export interface ListQueueLimitAssociationsCommandOutput extends ListQueueLimitA
  * @see {@link DeadlineClientResolvedConfig | config} for DeadlineClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action.</p>
+ *  You don't have permission to perform the action.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Deadline Cloud can't process your request right now. Try again later.</p>
+ *  Deadline Cloud can't process your request right now. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *  The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a request rate quota.</p>
+ *  Your request exceeded a request rate quota.
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

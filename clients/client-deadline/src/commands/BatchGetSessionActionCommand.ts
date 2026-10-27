@@ -23,7 +23,10 @@ export interface BatchGetSessionActionCommandInput extends BatchGetSessionAction
 export interface BatchGetSessionActionCommandOutput extends BatchGetSessionActionResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves multiple session actions in a single request. This is a batch version of the <code>GetSessionAction</code> API.</p> <p>The result of getting each session action is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p>
+ * Retrieves multiple session actions in a single request. This is a batch version of the <code>GetSessionAction</code> API.
+ *
+ * The result of getting each session action is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,16 +121,16 @@ export interface BatchGetSessionActionCommandOutput extends BatchGetSessionActio
  * @see {@link DeadlineClientResolvedConfig | config} for DeadlineClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action.</p>
+ *  You don't have permission to perform the action.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Deadline Cloud can't process your request right now. Try again later.</p>
+ *  Deadline Cloud can't process your request right now. Try again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a request rate quota.</p>
+ *  Your request exceeded a request rate quota.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+ *  The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

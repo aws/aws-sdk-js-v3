@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/polly-request-presigner",
-  "version": "3.1156.0",
+  "version": "3.1157.0",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/polly-request-presigner",
   "license": "Apache-2.0",
   "author": {
@@ -41,10 +41,10 @@
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
   },
   "dependencies": {
-    "@aws-sdk/client-polly": "workspace:3.1156.0",
-    "@aws-sdk/core": "workspace:^3.978.5",
+    "@aws-sdk/client-polly": "workspace:3.1157.0",
+    "@aws-sdk/core": "workspace:^3.978.6",
     "@aws-sdk/types": "workspace:^3.975.0",
-    "@smithy/core": "^3.36.1",
+    "@smithy/core": "^3.37.0",
     "@smithy/signature-v4": "^5.7.4",
     "@smithy/types": "^4.19.0",
     "tslib": "^2.6.2"

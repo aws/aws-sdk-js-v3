@@ -31,6 +31,19 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
  * @public
  * @enum
  */
+export const AssociationStatus = {
+  ASSOCIATED: "ASSOCIATED",
+  NOT_ASSOCIATED: "NOT_ASSOCIATED",
+} as const;
+/**
+ * @public
+ */
+export type AssociationStatus = (typeof AssociationStatus)[keyof typeof AssociationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const Dimension = {
   LINKED_ACCOUNT: "LINKED_ACCOUNT",
 } as const;
@@ -136,6 +149,18 @@ export type BillingViewStatusReason = (typeof BillingViewStatusReason)[keyof typ
  * @public
  * @enum
  */
+export const ContractRestriction = {
+  ATTESTATION_SELF_SERVICE_BLOCKED: "ATTESTATION_SELF_SERVICE_BLOCKED",
+} as const;
+/**
+ * @public
+ */
+export type ContractRestriction = (typeof ContractRestriction)[keyof typeof ContractRestriction];
+
+/**
+ * @public
+ * @enum
+ */
 export const CreditSharingType = {
   COST_CATEGORY_RULE: "COST_CATEGORY_RULE",
   CUSTOM: "CUSTOM",
@@ -184,3 +209,61 @@ export const BillingDomain = {
  * @public
  */
 export type BillingDomain = (typeof BillingDomain)[keyof typeof BillingDomain];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContractType = {
+  CROSS_SERVICE: "Cross-Service",
+  OTHER: "Other",
+  SERVICE_SPECIFIC: "Service-Specific",
+} as const;
+/**
+ * @public
+ */
+export type ContractType = (typeof ContractType)[keyof typeof ContractType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InvestmentAttestationStatus = {
+  CANCELLED: "CANCELLED",
+  DISBURSED: "DISBURSED",
+  PENDING_CANCELLATION: "PENDING_CANCELLATION",
+  PENDING_C_LEVEL_APPROVAL: "PENDING_C_LEVEL_APPROVAL",
+  PENDING_REVIEW: "PENDING_REVIEW",
+  REJECTED: "REJECTED",
+} as const;
+/**
+ * @public
+ */
+export type InvestmentAttestationStatus =
+  (typeof InvestmentAttestationStatus)[keyof typeof InvestmentAttestationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const MultiplierType = {
+  CURRENCY_AMOUNT: "CURRENCY_AMOUNT",
+  PERCENTAGE: "PERCENTAGE",
+} as const;
+/**
+ * @public
+ */
+export type MultiplierType = (typeof MultiplierType)[keyof typeof MultiplierType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InvestmentType = {
+  MILESTONE_BASED: "MILESTONE_BASED",
+  OUTCOME_BASED: "OUTCOME_BASED",
+} as const;
+/**
+ * @public
+ */
+export type InvestmentType = (typeof InvestmentType)[keyof typeof InvestmentType];

@@ -47,6 +47,8 @@ export interface GetExascaleDbStorageVaultCommandOutput extends GetExascaleDbSto
  * //     autoscaleLimitInGBs: Number("int"),
  * //     availabilityZone: "STRING_VALUE",
  * //     availabilityZoneId: "STRING_VALUE",
+ * //     cloudExadataInfrastructureArn: "STRING_VALUE",
+ * //     cloudExadataInfrastructureId: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
  * //     description: "STRING_VALUE",
  * //     displayName: "STRING_VALUE",
@@ -70,6 +72,7 @@ export interface GetExascaleDbStorageVaultCommandOutput extends GetExascaleDbSto
  * //     status: "AVAILABLE" || "FAILED" || "PROVISIONING" || "TERMINATED" || "TERMINATING" || "UPDATING" || "MAINTENANCE_IN_PROGRESS",
  * //     statusReason: "STRING_VALUE",
  * //     timeZone: "STRING_VALUE",
+ * //     vaultType: "EXASCALE_INFRASTRUCTURE" || "DEDICATED_INFRASTRUCTURE",
  * //   },
  * // };
  *

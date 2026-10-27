@@ -49,6 +49,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *   },
  *   containerFormat: "STRING_VALUE",
  *   adConfigurationArn: "STRING_VALUE",
+ *   failoverSlateConfigurationArn: "STRING_VALUE",
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
@@ -79,6 +80,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //     },
  * //     containerFormat: "STRING_VALUE",
  * //     adConfigurationArn: "STRING_VALUE",
+ * //     failoverSlateConfigurationArn: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -101,6 +103,9 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource which does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>

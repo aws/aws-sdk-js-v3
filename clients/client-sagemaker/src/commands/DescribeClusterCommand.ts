@@ -91,7 +91,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //         },
  * //       ],
  * //       OnStartDeepHealthChecks: [ // OnStartDeepHealthChecks
- * //         "InstanceStress" || "InstanceConnectivity",
+ * //         "InstanceStress" || "InstanceConnectivity" || "MultiNodeTrainingValidation",
  * //       ],
  * //       Status: "InService" || "Creating" || "Updating" || "Failed" || "Degraded" || "SystemUpdating" || "Deleting",
  * //       TrainingPlanArn: "STRING_VALUE",
@@ -241,7 +241,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //         },
  * //       ],
  * //       OnStartDeepHealthChecks: [
- * //         "InstanceStress" || "InstanceConnectivity",
+ * //         "InstanceStress" || "InstanceConnectivity" || "MultiNodeTrainingValidation",
  * //       ],
  * //       Status: "InService" || "Creating" || "Updating" || "Failed" || "Degraded" || "SystemUpdating" || "Deleting",
  * //       TrainingPlanArn: "STRING_VALUE",

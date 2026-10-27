@@ -59,6 +59,9 @@ const _DPTUE = "DeregisterPullTimeUpdateExclusion";
 const _DPTUER = "DeregisterPullTimeUpdateExclusionRequest";
 const _DPTUERe = "DeregisterPullTimeUpdateExclusionResponse";
 const _DR = "DeleteRepository";
+const _DRBR = "DescribeReplicationBackfillResults";
+const _DRBRR = "DescribeReplicationBackfillResultsRequest";
+const _DRBRRe = "DescribeReplicationBackfillResultsResponse";
 const _DRCT = "DeleteRepositoryCreationTemplate";
 const _DRCTR = "DeleteRepositoryCreationTemplateRequest";
 const _DRCTRe = "DeleteRepositoryCreationTemplateResponse";
@@ -181,6 +184,9 @@ const _LPTSE = "LayerPartTooSmallException";
 const _LPTUE = "ListPullTimeUpdateExclusions";
 const _LPTUER = "ListPullTimeUpdateExclusionsRequest";
 const _LPTUERi = "ListPullTimeUpdateExclusionsResponse";
+const _LRB = "ListReplicationBackfills";
+const _LRBR = "ListReplicationBackfillsRequest";
+const _LRBRi = "ListReplicationBackfillsResponse";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -218,6 +224,14 @@ const _PTCRNFE = "PullThroughCacheRuleNotFoundException";
 const _PVD = "PackageVulnerabilityDetails";
 const _R = "Recommendation";
 const _RAEE = "RepositoryAlreadyExistsException";
+const _RBIPE = "ReplicationBackfillInProgressException";
+const _RBISE = "ReplicationBackfillInvalidStatusException";
+const _RBNFE = "ReplicationBackfillNotFoundException";
+const _RBP = "ReplicationBackfillProgress";
+const _RBR = "ReplicationBackfillResult";
+const _RBRL = "ReplicationBackfillResultList";
+const _RBS = "ReplicationBackfillSummary";
+const _RBSL = "ReplicationBackfillSummaryList";
 const _RC = "ReplicationConfiguration";
 const _RCT = "RepositoryCreationTemplate";
 const _RCTL = "RepositoryCreationTemplateList";
@@ -262,6 +276,12 @@ const _SLPPRt = "StartLifecyclePolicyPreviewResponse";
 const _SNFE = "ScanNotFoundException";
 const _SNFEe = "SecretNotFoundException";
 const _SR = "SigningRule";
+const _SRB = "StartReplicationBackfill";
+const _SRBR = "StartReplicationBackfillRequest";
+const _SRBRt = "StartReplicationBackfillResponse";
+const _SRBRto = "StopReplicationBackfillRequest";
+const _SRBRtop = "StopReplicationBackfillResponse";
+const _SRBt = "StopReplicationBackfill";
 const _SRF = "ScanningRepositoryFilter";
 const _SRFL = "ScanningRepositoryFilterList";
 const _SRFLi = "SigningRepositoryFilterList";
@@ -329,19 +349,23 @@ const _an = "annotations";
 const _ar = "arch";
 const _at = "attributes";
 const _au = "author";
+const _b = "backfills";
 const _bS = "baseScore";
 const _c = "client";
 const _cA = "credentialArn";
 const _cAr = "createdAt";
 const _cRA = "customRoleArn";
+const _cRC = "completedReplicationCount";
 const _cv = "cvss";
 const _d = "description";
 const _dU = "downloadUrl";
-const _de = "destinations";
+const _de = "destination";
+const _des = "destinations";
 const _det = "details";
 const _di = "digest";
 const _e = "error";
 const _eA = "expiresAt";
+const _eAn = "endedAt";
 const _eAx = "exploitAvailable";
 const _eC = "encryptionConfiguration";
 const _eF = "enhancedFindings";
@@ -354,10 +378,12 @@ const _f = "failures";
 const _fA = "findingArn";
 const _fAi = "fixAvailable";
 const _fC = "failureCode";
+const _fCa = "failureCodes";
 const _fIV = "fixedInVersion";
 const _fOA = "firstObservedAt";
 const _fP = "filePath";
 const _fR = "failureReason";
+const _fRC = "failedReplicationCount";
 const _fSC = "findingSeverityCounts";
 const _fT = "filterType";
 const _fa = "failure";
@@ -430,9 +456,11 @@ const _pTUE = "pullTimeUpdateExclusions";
 const _pVD = "packageVulnerabilityDetails";
 const _pr = "prefix";
 const _pre = "prefixes";
+const _pro = "progress";
 const _r = "registry";
 const _rA = "resourceArn";
 const _rAe = "repositoryArn";
+const _rBI = "replicationBackfillId";
 const _rC = "replicationConfiguration";
 const _rCT = "repositoryCreationTemplate";
 const _rCTe = "repositoryCreationTemplates";
@@ -444,6 +472,7 @@ const _rNe = "repositoryNames";
 const _rP = "repositoryPolicy";
 const _rS = "replicationStatuses";
 const _rSC = "registryScanningConfiguration";
+const _rSF = "resultStatusFilter";
 const _rT = "resourceTags";
 const _rU = "referenceUrls";
 const _rUe = "repositoryUri";
@@ -456,9 +485,11 @@ const _reg = "region";
 const _rel = "release";
 const _rem = "remediation";
 const _rep = "repositories";
-const _res = "resources";
+const _res = "results";
+const _reso = "resources";
 const _ru = "rules";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.ecr";
+const _sA = "startedAt";
 const _sC = "scanningConfigurations";
 const _sCc = "scanningConfiguration";
 const _sCi = "signingConfiguration";
@@ -466,6 +497,7 @@ const _sCt = "storageClass";
 const _sD = "scoreDetails";
 const _sF = "scanFrequency";
 const _sI = "subjectId";
+const _sIFC = "subImageFailureCodes";
 const _sLH = "sourceLayerHash";
 const _sMD = "subjectManifestDigest";
 const _sOP = "scanOnPush";
@@ -485,6 +517,7 @@ const _su = "summary";
 const _t = "tags";
 const _tITC = "transitioningImageTotalCounts";
 const _tK = "tagKeys";
+const _tRC = "totalReplicationCount";
 const _tS = "tagStatus";
 const _tSC = "targetStorageClass";
 const _te = "text";
@@ -546,6 +579,9 @@ import {
   PullThroughCacheRuleNotFoundException,
   ReferencedImagesNotFoundException,
   RegistryPolicyNotFoundException,
+  ReplicationBackfillInProgressException,
+  ReplicationBackfillInvalidStatusException,
+  ReplicationBackfillNotFoundException,
   RepositoryAlreadyExistsException,
   RepositoryNotEmptyException,
   RepositoryNotFoundException,
@@ -735,6 +771,24 @@ export var RegistryPolicyNotFoundException$: StaticErrorSchema = [-3, n0, _RPNFE
   [0]
 ];
 n0_registry.registerError(RegistryPolicyNotFoundException$, RegistryPolicyNotFoundException);
+export var ReplicationBackfillInProgressException$: StaticErrorSchema = [-3, n0, _RBIPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ReplicationBackfillInProgressException$, ReplicationBackfillInProgressException);
+export var ReplicationBackfillInvalidStatusException$: StaticErrorSchema = [-3, n0, _RBISE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ReplicationBackfillInvalidStatusException$, ReplicationBackfillInvalidStatusException);
+export var ReplicationBackfillNotFoundException$: StaticErrorSchema = [-3, n0, _RBNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ReplicationBackfillNotFoundException$, ReplicationBackfillNotFoundException);
 export var RepositoryAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
   { [_e]: _c },
   [_m],
@@ -1119,6 +1173,16 @@ export var DescribeRegistryResponse$: StaticStructureSchema = [3, n0, _DRResc,
   [_rI, _rC],
   [0, () => ReplicationConfiguration$]
 ];
+export var DescribeReplicationBackfillResultsRequest$: StaticStructureSchema = [3, n0, _DRBRR,
+  0,
+  [_rBI, _rI, _rSF, _mR, _nT],
+  [0, 0, 0, 1, 0], 1
+];
+export var DescribeReplicationBackfillResultsResponse$: StaticStructureSchema = [3, n0, _DRBRRe,
+  0,
+  [_rI, _rBI, _de, _st, _fC, _pro, _res, _sA, _eAn, _nT],
+  [0, 0, () => ReplicationDestination$, 0, 0, () => ReplicationBackfillProgress$, () => ReplicationBackfillResultList, 4, 4, 0]
+];
 export var DescribeRepositoriesRequest$: StaticStructureSchema = [3, n0, _DRRescr,
   0,
   [_rI, _rNe, _nT, _mR],
@@ -1151,7 +1215,7 @@ export var EncryptionConfigurationForRepositoryCreationTemplate$: StaticStructur
 ];
 export var EnhancedImageScanFinding$: StaticStructureSchema = [3, n0, _EISF,
   0,
-  [_aAI, _d, _fA, _fOA, _lOA, _pVD, _rem, _res, _sc, _sD, _sev, _st, _ti, _ty, _uA, _fAi, _eAx],
+  [_aAI, _d, _fA, _fOA, _lOA, _pVD, _rem, _reso, _sc, _sD, _sev, _st, _ti, _ty, _uA, _fAi, _eAx],
   [0, 0, 0, 4, 4, () => PackageVulnerabilityDetails$, () => Remediation$, () => ResourceList, 1, () => ScoreDetails$, 0, 0, 0, 0, 4, 0, 0]
 ];
 export var GetAccountSettingRequest$: StaticStructureSchema = [3, n0, _GASR,
@@ -1389,6 +1453,16 @@ export var ListPullTimeUpdateExclusionsResponse$: StaticStructureSchema = [3, n0
   [_pTUE, _nT],
   [64 | 0, 0]
 ];
+export var ListReplicationBackfillsRequest$: StaticStructureSchema = [3, n0, _LRBR,
+  0,
+  [_rI, _mR, _nT],
+  [0, 1, 0]
+];
+export var ListReplicationBackfillsResponse$: StaticStructureSchema = [3, n0, _LRBRi,
+  0,
+  [_rI, _b, _nT],
+  [0, () => ReplicationBackfillSummaryList, 0]
+];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
@@ -1529,6 +1603,21 @@ export var Remediation$: StaticStructureSchema = [3, n0, _Re,
   [_rec],
   [() => Recommendation$]
 ];
+export var ReplicationBackfillProgress$: StaticStructureSchema = [3, n0, _RBP,
+  0,
+  [_tRC, _cRC, _fRC, _fCa],
+  [1, 1, 1, 64 | 0], 4
+];
+export var ReplicationBackfillResult$: StaticStructureSchema = [3, n0, _RBR,
+  0,
+  [_rN, _iIm, _st, _fC, _sIFC],
+  [0, () => ImageIdentifier$, 0, 0, 64 | 0], 3
+];
+export var ReplicationBackfillSummary$: StaticStructureSchema = [3, n0, _RBS,
+  0,
+  [_rBI, _de, _st, _sA, _fC, _pro, _eAn],
+  [0, () => ReplicationDestination$, 0, 4, 0, () => ReplicationBackfillProgress$, 4], 4
+];
 export var ReplicationConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_ru],
@@ -1541,7 +1630,7 @@ export var ReplicationDestination$: StaticStructureSchema = [3, n0, _RD,
 ];
 export var ReplicationRule$: StaticStructureSchema = [3, n0, _RR,
   0,
-  [_de, _rF],
+  [_des, _rF],
   [() => ReplicationDestinationList, () => RepositoryFilterList], 1
 ];
 export var Repository$: StaticStructureSchema = [3, n0, _Rep,
@@ -1633,6 +1722,26 @@ export var StartLifecyclePolicyPreviewResponse$: StaticStructureSchema = [3, n0,
   0,
   [_rI, _rN, _lPT, _st],
   [0, 0, 0, 0]
+];
+export var StartReplicationBackfillRequest$: StaticStructureSchema = [3, n0, _SRBR,
+  0,
+  [_de, _rI],
+  [() => ReplicationDestination$, 0], 1
+];
+export var StartReplicationBackfillResponse$: StaticStructureSchema = [3, n0, _SRBRt,
+  0,
+  [_rBI, _rI, _de, _st, _sA],
+  [0, 0, () => ReplicationDestination$, 0, 4]
+];
+export var StopReplicationBackfillRequest$: StaticStructureSchema = [3, n0, _SRBRto,
+  0,
+  [_rBI, _rI],
+  [0, 0], 1
+];
+export var StopReplicationBackfillResponse$: StaticStructureSchema = [3, n0, _SRBRtop,
+  0,
+  [_rI, _rBI, _de, _st, _sA],
+  [0, 0, () => ReplicationDestination$, 0, 4]
 ];
 export var SubjectIdentifier$: StaticStructureSchema = [3, n0, _SI,
   0,
@@ -1794,9 +1903,16 @@ var RegistryScanningRuleList: StaticListSchema = [1, n0, _RSRL,
   0, () => RegistryScanningRule$
 ];
 var RelatedVulnerabilitiesList = 64 | 0;
+var ReplicationBackfillResultList: StaticListSchema = [1, n0, _RBRL,
+  0, () => ReplicationBackfillResult$
+];
+var ReplicationBackfillSummaryList: StaticListSchema = [1, n0, _RBSL,
+  0, () => ReplicationBackfillSummary$
+];
 var ReplicationDestinationList: StaticListSchema = [1, n0, _RDL,
   0, () => ReplicationDestination$
 ];
+var ReplicationErrorList = 64 | 0;
 var ReplicationRuleList: StaticListSchema = [1, n0, _RRL,
   0, () => ReplicationRule$
 ];
@@ -1908,6 +2024,9 @@ export var DescribePullThroughCacheRules$: StaticOperationSchema = [9, n0, _DPTC
 export var DescribeRegistry$: StaticOperationSchema = [9, n0, _DRe,
   0, () => DescribeRegistryRequest$, () => DescribeRegistryResponse$
 ];
+export var DescribeReplicationBackfillResults$: StaticOperationSchema = [9, n0, _DRBR,
+  0, () => DescribeReplicationBackfillResultsRequest$, () => DescribeReplicationBackfillResultsResponse$
+];
 export var DescribeRepositories$: StaticOperationSchema = [9, n0, _DRes,
   0, () => DescribeRepositoriesRequest$, () => DescribeRepositoriesResponse$
 ];
@@ -1953,6 +2072,9 @@ export var ListImages$: StaticOperationSchema = [9, n0, _LI,
 export var ListPullTimeUpdateExclusions$: StaticOperationSchema = [9, n0, _LPTUE,
   0, () => ListPullTimeUpdateExclusionsRequest$, () => ListPullTimeUpdateExclusionsResponse$
 ];
+export var ListReplicationBackfills$: StaticOperationSchema = [9, n0, _LRB,
+  0, () => ListReplicationBackfillsRequest$, () => ListReplicationBackfillsResponse$
+];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
@@ -1994,6 +2116,12 @@ export var StartImageScan$: StaticOperationSchema = [9, n0, _SIS,
 ];
 export var StartLifecyclePolicyPreview$: StaticOperationSchema = [9, n0, _SLPP,
   0, () => StartLifecyclePolicyPreviewRequest$, () => StartLifecyclePolicyPreviewResponse$
+];
+export var StartReplicationBackfill$: StaticOperationSchema = [9, n0, _SRB,
+  0, () => StartReplicationBackfillRequest$, () => StartReplicationBackfillResponse$
+];
+export var StopReplicationBackfill$: StaticOperationSchema = [9, n0, _SRBt,
+  0, () => StopReplicationBackfillRequest$, () => StopReplicationBackfillResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   0, () => TagResourceRequest$, () => TagResourceResponse$

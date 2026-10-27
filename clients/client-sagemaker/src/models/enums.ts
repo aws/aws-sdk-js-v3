@@ -2793,6 +2793,7 @@ export type ClusterInterfaceType = (typeof ClusterInterfaceType)[keyof typeof Cl
 export const DeepHealthCheckType = {
   INSTANCE_CONNECTIVITY: "InstanceConnectivity",
   INSTANCE_STRESS: "InstanceStress",
+  MULTI_NODE_TRAINING_VALIDATION: "MultiNodeTrainingValidation",
 } as const;
 /**
  * @public

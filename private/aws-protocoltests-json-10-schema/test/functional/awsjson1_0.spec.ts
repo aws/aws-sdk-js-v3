@@ -399,7 +399,11 @@ it("AwsJson10InvalidGreetingError:Error:GreetingWithErrors", async () => {
     Object.keys(paramsToValidate).forEach((param) => {
       expect(
         r[param],
-        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+        `The output field ${param} should have been defined in ${JSON.stringify(
+          r,
+          (_, v) => (typeof v === "bigint" ? v.toString() : v),
+          2
+        )}`
       ).toBeDefined();
       expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
@@ -454,7 +458,11 @@ it("AwsJson10ComplexError:Error:GreetingWithErrors", async () => {
     Object.keys(paramsToValidate).forEach((param) => {
       expect(
         r[param],
-        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+        `The output field ${param} should have been defined in ${JSON.stringify(
+          r,
+          (_, v) => (typeof v === "bigint" ? v.toString() : v),
+          2
+        )}`
       ).toBeDefined();
       expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
@@ -1425,7 +1433,11 @@ it("AwsJson10DeserializeStringUnionValue:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -1472,7 +1484,11 @@ it("AwsJson10DeserializeBooleanUnionValue:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -1519,7 +1535,11 @@ it("AwsJson10DeserializeNumberUnionValue:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -1566,7 +1586,11 @@ it("AwsJson10DeserializeBlobUnionValue:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -1613,7 +1637,11 @@ it("AwsJson10DeserializeTimestampUnionValue:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -1660,7 +1688,11 @@ it("AwsJson10DeserializeEnumUnionValue:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -1707,7 +1739,11 @@ it("AwsJson10DeserializeIntEnumUnionValue:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -1757,7 +1793,11 @@ it("AwsJson10DeserializeListUnionValue:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -1810,7 +1850,11 @@ it("AwsJson10DeserializeMapUnionValue:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -1861,7 +1905,11 @@ it("AwsJson10DeserializeStructureUnionValue:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -1913,7 +1961,11 @@ it("AwsJson10DeserializeIgnoreType:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -1973,7 +2025,11 @@ it("AwsJson10DeserializeAllowNulls:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2533,7 +2589,11 @@ it.skip("AwsJson10ClientPopulatesDefaultsValuesWhenMissingInResponse:Response", 
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2637,7 +2697,11 @@ it.skip("AwsJson10ClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:R
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2863,7 +2927,11 @@ it.skip("AwsJson10ClientPopulatesNestedDefaultsWhenMissingInResponseBody:Respons
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2917,7 +2985,11 @@ it.skip("AwsJson10ClientErrorCorrectsWhenServerFailsToSerializeRequiredValues:Re
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -2973,7 +3045,11 @@ it.skip("AwsJson10ClientErrorCorrectsWithDefaultValuesWhenServerFailsToSerialize
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -3246,7 +3322,11 @@ it("AwsJson10SupportsNaNFloatInputs:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -3291,7 +3371,11 @@ it("AwsJson10SupportsInfinityFloatInputs:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
@@ -3336,7 +3420,11 @@ it("AwsJson10SupportsNegativeInfinityFloatInputs:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(
       r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      `The output field ${param} should have been defined in ${JSON.stringify(
+        r,
+        (_, v) => (typeof v === "bigint" ? v.toString() : v),
+        2
+      )}`
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });

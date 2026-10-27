@@ -104,6 +104,12 @@ export interface GetCloudExadataInfrastructureCommandOutput extends GetCloudExad
  * //     databaseServerType: "STRING_VALUE",
  * //     storageServerType: "STRING_VALUE",
  * //     computeModel: "ECPU" || "OCPU",
+ * //     exascaleConfiguration: { // ExascaleConfiguration
+ * //       totalStorageSizeInGBs: Number("int"),
+ * //       availableStorageSizeInGBs: Number("int"),
+ * //       totalVmStorageSizeInGBs: Number("int"),
+ * //       availableVmStorageSizeInGBs: Number("int"),
+ * //     },
  * //   },
  * // };
  *

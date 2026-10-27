@@ -13,6 +13,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 0.2.1 (2026-10-26)
+### Chores
+* **codegen:** sync for service default socket timeout and RPC v2 JSON ([#8378](https://github.com/aws/aws-sdk-js-v3/issues/8378)) ([f9d9119](https://github.com/aws/aws-sdk-js-v3/commit/f9d9119f02ea9ed0e0c2ab486b308cac15139651))
+
+
+
 # 0.2.0 (2026-10-21)
 ### Features
 * **lib-transfer-manager:** add featureId tracking for TM ([#8367](https://github.com/aws/aws-sdk-js-v3/issues/8367)) ([edb912d](https://github.com/aws/aws-sdk-js-v3/commit/edb912d5b2f6ca25f82d6c7756a90bde04be5564))

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/xhr-http-handler",
-  "version": "3.1156.0",
+  "version": "3.1157.0",
   "description": "Provides a way to make requests using XMLHttpRequest",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/xhr-http-handler",
   "bugs": {
@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.975.0",
-    "@smithy/core": "^3.36.1",
+    "@smithy/core": "^3.37.0",
     "@smithy/types": "^4.19.0",
     "events": "3.3.0",
     "tslib": "^2.6.2"

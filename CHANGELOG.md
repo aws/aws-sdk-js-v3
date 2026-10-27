@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1157.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1156.0...v3.1157.0) (2026-10-26)
+
+
+### Features
+
+* **client-appstream:** Add Windows 11 to PlatformType enum ([52666c3](https://github.com/aws/aws-sdk-js-v3/commit/52666c319fac6c53cb7a44fc3043607f00292eac))
+* **client-billing:** Adds support for managing private pricing contracts and contractual investments including listing and associating contracts, retrieving contractual investments and their summaries, and creating, listing, and canceling contractual investment attestations ([b4e7d78](https://github.com/aws/aws-sdk-js-v3/commit/b4e7d786a7b001ae8fa211d67834779f62814218))
+* **client-connect:** Amazon Connect now automatically saves agents' in-progress email drafts preserving the message, recipients, and subject during browser or network interruptions so agents can return to the mail and continue instead of starting over. ([d03e570](https://github.com/aws/aws-sdk-js-v3/commit/d03e57005a9ec2bdf7041ed540201edd61c48bf0))
+* **client-ecr:** Add support for ECR replication backfill ([f5199b4](https://github.com/aws/aws-sdk-js-v3/commit/f5199b48ced2c4ae1871380bc89b74e5c4bdae37))
+* **client-eks:** This release adds support for EKS management of Gateway API CRDs (Custom Resource Definitions) ([67c963f](https://github.com/aws/aws-sdk-js-v3/commit/67c963fe3ec571dbefaf96adaa81886228ba56dc))
+* **client-ivs:** The release adds failover slate configurations, which show viewers a slate during temporary broadcaster network disruptions to reduce viewer drop-off and refresh storms. ([dc8e658](https://github.com/aws/aws-sdk-js-v3/commit/dc8e6587a8e0cf2940c23b049420ed0fbeca12ac))
+* **client-kms:** This release adds support for ML-KEM (Module-Lattice-Based Key-Encapsulation Mechanism) keys in AWS KMS. ML-KEM, as specified in NIST FIPS 203, is a post-quantum key encapsulation mechanism that can be used to establish a shared secret between two parties. ([838d95e](https://github.com/aws/aws-sdk-js-v3/commit/838d95e4c53f4d53f21296d0106e525b929429ac))
+* **client-lightsail:** This release adds Web Application Firewall (WAF) support for Lightsail distribution. ([1fee104](https://github.com/aws/aws-sdk-js-v3/commit/1fee104e7364c16e9967e932314485d5155608cf))
+* **client-marketplace-catalog:** This release adds support for the SubsidiaryAuthorization entity type in the ListEntities operation, including entity-type filters with partial name search, sort options, and a summary returned for each subsidiary authorization. ([a3f6ea1](https://github.com/aws/aws-sdk-js-v3/commit/a3f6ea1b377177fc23830b4cdf9055c5ade69a68))
+* **client-mediaconnect:** This release adds support for managing and sharing endpoint across accounts in AWS Elemental MediaConnect. You can now register endpoints to represent external or service-managed sources and destinations, and share them across AWS accounts. ([370e182](https://github.com/aws/aws-sdk-js-v3/commit/370e182f6789fdd4db729a36becb7b03c7d4a902))
+* **client-medialive:** AWS Elemental MediaLive now lets you control whether explicit weighted prediction is applied to H.264 outputs. It also introduces Perceptual Filter, a new noise reduction filter designed to improve video quality by increasing VMAF scores, now with Auto, None, and strength options. ([b515e6c](https://github.com/aws/aws-sdk-js-v3/commit/b515e6cd0343182b9964a59704510a7798156dbb))
+* **client-odb:** Adds support for Exascale storage with Oracle Exadata Database Service on Dedicated Infrastructure ([c3b03d4](https://github.com/aws/aws-sdk-js-v3/commit/c3b03d4679b93718b5d680aeb63efca10e4eba08))
+* **client-sagemaker:** Amazon SageMaker HyperPod adds the MultiNodeTrainingValidation deep health check for clusters orchestrated by Amazon EKS. It validates NVIDIA GPU instances by running a short multi-node training workload and flags instances that produce numerical errors or fall behind expected training time. ([836ff16](https://github.com/aws/aws-sdk-js-v3/commit/836ff165c9044cbc5c9920bc5a4868e715d107dc))
+* **client-signin:** Adds support for the OAuth 2.0 Token Exchange grant (RFC 8693), enabling applications to exchange identity provider issued JSON Web Tokens (JWTs) for short-lived OAuth access tokens to access supported AWS services without managing separate AWS credentials. ([28e1d4c](https://github.com/aws/aws-sdk-js-v3/commit/28e1d4c8ae70626c7d861e7880c8c6ca2ae4c308))
+* **client-sso-admin:** Added support for the RegionScope parameter on ListInstances, allowing you to list IAM Identity Center instances in the current Region or across all Regions. ([6cc5db1](https://github.com/aws/aws-sdk-js-v3/commit/6cc5db1bcff5c4ca2e4afb6c7cac69231b695611))
+* **client-taxsettings:** Add Mexico Additional Info changes ([88e365c](https://github.com/aws/aws-sdk-js-v3/commit/88e365c50f3e31851650ce3b28e4c162b93e04bf))
+* **clients:** update client endpoints as of 2026-10-26 ([a95658f](https://github.com/aws/aws-sdk-js-v3/commit/a95658fde70222e2b5368ba4e105f73dc0dec5c5))
+
+
+
+
+
 # [3.1156.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1155.0...v3.1156.0) (2026-10-22)
 
 

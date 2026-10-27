@@ -53,6 +53,11 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *       to encrypt the private key. The public key is a DER-encoded X.509 SubjectPublicKeyInfo, as
  *       specified in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. The private
  *       key is a DER-encoded PKCS8 PrivateKeyInfo, as specified in <a href="https://tools.ietf.org/html/rfc5958">RFC 5958</a>.</p>
+ *          <note>
+ *             <p>For ML-KEM data key pairs, the DER-encoded PKCS8 PrivateKeyInfo contains the private key
+ *         in seed format. As a result, the length of the private key is the same for all ML-KEM key pair
+ *         specs.</p>
+ *          </note>
  *          <p>
  *             <code>GenerateDataKeyPair</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon Web Services Nitro Enclaves</a>, which provide an
  *       isolated compute environment in Amazon EC2. To call <code>GenerateDataKeyPair</code> for an Amazon Web Services
@@ -121,7 +126,7 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *     "<keys>": "STRING_VALUE",
  *   },
  *   KeyId: "STRING_VALUE", // required
- *   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2" || "ECC_NIST_EDWARDS25519", // required
+ *   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2" || "ECC_NIST_EDWARDS25519" || "ML_KEM_512" || "ML_KEM_768" || "ML_KEM_1024", // required
  *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],
@@ -138,7 +143,7 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  * //   PrivateKeyPlaintext: new Uint8Array(),
  * //   PublicKey: new Uint8Array(),
  * //   KeyId: "STRING_VALUE",
- * //   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2" || "ECC_NIST_EDWARDS25519",
+ * //   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2" || "ECC_NIST_EDWARDS25519" || "ML_KEM_512" || "ML_KEM_768" || "ML_KEM_1024",
  * //   CiphertextForRecipient: new Uint8Array(),
  * //   KeyMaterialId: "STRING_VALUE",
  * // };
@@ -181,8 +186,9 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
  *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
  *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
- *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code>
- *       of a KMS key, use the <a>DescribeKey</a> operation.</p>
+ *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. For encapsulating and decapsulating
+ *       shared secrets, the <code>KeyUsage</code> must be <code>ENCAPSULATE_DECAPSULATE</code>. To find
+ *       the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</p>
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
  *

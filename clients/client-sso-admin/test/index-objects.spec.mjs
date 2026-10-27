@@ -356,6 +356,7 @@ import {
   PutPermissionsBoundaryToPermissionSetResponse$,
   RefreshTokenGrant$,
   RegionMetadata$,
+  RegionScope,
   RegionStatus,
   RemoveRegion$,
   RemoveRegionCommand,
@@ -798,6 +799,7 @@ assert(typeof KmsKeyType === "object");
 assert(typeof PrincipalType === "object");
 assert(typeof ProvisioningStatus === "object");
 assert(typeof ProvisionTargetType === "object");
+assert(typeof RegionScope === "object");
 assert(typeof RegionStatus === "object");
 assert(typeof ResourceNotFoundExceptionReason === "object");
 assert(typeof SignInOrigin === "object");

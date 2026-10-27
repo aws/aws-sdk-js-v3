@@ -138,6 +138,7 @@ const _DTL = "DatabaseToolList";
 const _DVMFEVC = "DisassociateVirtualMachinesFromExadbVmCluster";
 const _DVMFEVCI = "DisassociateVirtualMachinesFromExadbVmClusterInput";
 const _DVMFEVCO = "DisassociateVirtualMachinesFromExadbVmClusterOutput";
+const _EC = "ExascaleConfiguration";
 const _EDSD = "ExascaleDbStorageDetails";
 const _EDSV = "ExascaleDbStorageVault";
 const _EDSVL = "ExascaleDbStorageVaultList";
@@ -155,6 +156,8 @@ const _FADI = "FailoverAutonomousDatabaseInput";
 const _FADO = "FailoverAutonomousDatabaseOutput";
 const _FCL = "FlexComponentList";
 const _FCS = "FlexComponentSummary";
+const _FSCD = "FileSystemConfigurationDetails";
+const _FSCDL = "FileSystemConfigurationDetailsList";
 const _GAD = "GetAutonomousDatabase";
 const _GADB = "GetAutonomousDatabaseBackup";
 const _GADBI = "GetAutonomousDatabaseBackupInput";
@@ -352,6 +355,9 @@ const _UADO = "UpdateAutonomousDatabaseOutput";
 const _UCEI = "UpdateCloudExadataInfrastructure";
 const _UCEII = "UpdateCloudExadataInfrastructureInput";
 const _UCEIO = "UpdateCloudExadataInfrastructureOutput";
+const _UECEI = "UpdateExascaleCloudExadataInfrastructure";
+const _UECEII = "UpdateExascaleCloudExadataInfrastructureInput";
+const _UECEIO = "UpdateExascaleCloudExadataInfrastructureOutput";
 const _UEDSV = "UpdateExascaleDbStorageVault";
 const _UEDSVI = "UpdateExascaleDbStorageVaultInput";
 const _UEDSVO = "UpdateExascaleDbStorageVaultOutput";
@@ -440,6 +446,7 @@ const _aVCI = "autonomousVmClusterIds";
 const _aVM = "autonomousVirtualMachines";
 const _aVMI = "autonomousVirtualMachineId";
 const _aVMIu = "autonomousVirtualMachineIds";
+const _aVSSIGB = "availableVmStorageSizeInGBs";
 const _aZ = "availabilityZone";
 const _aZI = "availabilityZoneId";
 const _bCCL = "byolComputeCountLimit";
@@ -541,6 +548,7 @@ const _de = "details";
 const _des = "description";
 const _do = "domain";
 const _e = "error";
+const _eC = "exascaleConfiguration";
 const _eDSV = "exascaleDbStorageVault";
 const _eDSVA = "exascaleDbStorageVaultArn";
 const _eDSVI = "exascaleDbStorageVaultId";
@@ -568,6 +576,8 @@ const _fD = "faultDomain";
 const _fDRIS = "failedDataRecoveryInSeconds";
 const _fIA = "floatingIpAddress";
 const _fL = "fieldList";
+const _fSCD = "fileSystemConfigurationDetails";
+const _fSSIGB = "fileSystemSizeInGBs";
 const _gII = "gridImageId";
 const _gIT = "gridImageType";
 const _gMV = "giMinorVersions";
@@ -653,6 +663,7 @@ const _mMIGB = "maxMemoryInGBs";
 const _mMPNIGB = "minMemoryPerNodeInGBs";
 const _mNC = "maximumNodeCount";
 const _mNCi = "minimumNodeCount";
+const _mP = "mountPoint";
 const _mPOCUIGB = "memoryPerOracleComputeUnitInGBs";
 const _mR = "maxResults";
 const _mRT = "marketplaceRegistrationToken";
@@ -794,6 +805,7 @@ const _sLPT = "scanListenerPortTls";
 const _sLPTS = "scanListenerPortTcpSsl";
 const _sLPTc = "scanListenerPortTcp";
 const _sM = "sessionMode";
+const _sMT = "storageManagementType";
 const _sNA = "serviceNetworkArn";
 const _sNE = "serviceNetworkEndpoint";
 const _sO = "scheduledOperations";
@@ -860,6 +872,7 @@ const _tSSIGB = "totalStorageSizeInGBs";
 const _tT = "transportableTablespace";
 const _tU = "timeUndeleted";
 const _tURCE = "timeUntilReconnectCloneEnabled";
+const _tVSSIGB = "totalVmStorageSizeInGBs";
 const _tZ = "timeZone";
 const _ta = "tags";
 const _ti = "timestamp";
@@ -869,18 +882,21 @@ const _uDSSIGB = "usedDataStorageSizeInGBs";
 const _uDSSITB = "usedDataStorageSizeInTBs";
 const _uLABT = "useLatestAvailableBackupTimestamp";
 const _v = "version";
+const _vBST = "vmBackupStorageType";
 const _vCA = "vmClusterArns";
 const _vCC = "vmClusterCount";
 const _vCI = "vmClusterIds";
 const _vEI = "vpcEndpointId";
 const _vET = "vpcEndpointType";
 const _vFSS = "vmFileSystemStorage";
+const _vFSST = "vmFileSystemStorageType";
 const _vFSSTSIGB = "vmFileSystemStorageTotalSizeInGBs";
 const _vI = "vipIds";
 const _vIa = "vaultId";
 const _vIn = "vnic2Id";
 const _vIni = "vnicId";
 const _vN = "vmName";
+const _vT = "vaultType";
 const _va = "value";
 const _wOM = "weeksOfMonth";
 const _wT = "walletType";
@@ -1095,13 +1111,13 @@ export var CloudAutonomousVmClusterSummary$: StaticStructureSchema = [3, n0, _CA
 ];
 export var CloudExadataInfrastructure$: StaticStructureSchema = [3, n0, _CEI,
   0,
-  [_cEII, _dN, _st, _sR, _cEIA, _aSC, _aSCd, _aSSIGB, _aZ, _aZI, _cCo, _cCp, _cCTSTOCI, _dSSITB, _dNSSIGB, _dSV, _lMRI, _mW, _mCC, _mDSITB, _mDNSSIGB, _mMIGB, _mSIGB, _mDSV, _mSSV, _nMRI, _oRAN, _oU, _o, _sh, _sC, _sSV, _cA, _tSSIGB, _pP, _dST, _sST, _cM],
-  [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, [() => CustomerContacts, 0], 1, 1, 0, 0, () => MaintenanceWindow$, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 1, 0, 0, 0], 1
+  [_cEII, _dN, _st, _sR, _cEIA, _aSC, _aSCd, _aSSIGB, _aZ, _aZI, _cCo, _cCp, _cCTSTOCI, _dSSITB, _dNSSIGB, _dSV, _lMRI, _mW, _mCC, _mDSITB, _mDNSSIGB, _mMIGB, _mSIGB, _mDSV, _mSSV, _nMRI, _oRAN, _oU, _o, _sh, _sC, _sSV, _cA, _tSSIGB, _pP, _dST, _sST, _cM, _eC],
+  [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, [() => CustomerContacts, 0], 1, 1, 0, 0, () => MaintenanceWindow$, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 1, 0, 0, 0, () => ExascaleConfiguration$], 1
 ];
 export var CloudExadataInfrastructureSummary$: StaticStructureSchema = [3, n0, _CEIS,
   0,
-  [_cEII, _dN, _st, _sR, _cEIA, _aSC, _aSCd, _aSSIGB, _aZ, _aZI, _cCo, _cCp, _cCTSTOCI, _dSSITB, _dNSSIGB, _dSV, _lMRI, _mW, _mCC, _mDSITB, _mDNSSIGB, _mMIGB, _mSIGB, _mDSV, _mSSV, _nMRI, _oRAN, _oU, _o, _sh, _sC, _sSV, _cA, _tSSIGB, _pP, _dST, _sST, _cM],
-  [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, [() => CustomerContacts, 0], 1, 1, 0, 0, () => MaintenanceWindow$, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 1, 0, 0, 0], 1
+  [_cEII, _dN, _st, _sR, _cEIA, _aSC, _aSCd, _aSSIGB, _aZ, _aZI, _cCo, _cCp, _cCTSTOCI, _dSSITB, _dNSSIGB, _dSV, _lMRI, _mW, _mCC, _mDSITB, _mDNSSIGB, _mMIGB, _mSIGB, _mDSV, _mSSV, _nMRI, _oRAN, _oU, _o, _sh, _sC, _sSV, _cA, _tSSIGB, _pP, _dST, _sST, _cM, _eC],
+  [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, [() => CustomerContacts, 0], 1, 1, 0, 0, () => MaintenanceWindow$, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 1, 0, 0, 0, () => ExascaleConfiguration$], 1
 ];
 export var CloudExadataInfrastructureUnallocatedResources$: StaticStructureSchema = [3, n0, _CEIUR,
   0,
@@ -1110,13 +1126,13 @@ export var CloudExadataInfrastructureUnallocatedResources$: StaticStructureSchem
 ];
 export var CloudVmCluster$: StaticStructureSchema = [3, n0, _CVC,
   0,
-  [_cVCI, _dN, _st, _sR, _cVCA, _cEII, _cEIA, _cN, _cCC, _dCO, _dSSITB, _dNSSIGB, _dS, _dR, _gV, _ho, _iCC, _iLBE, _iSDE, _lUHEI, _lM, _lP, _mSIGB, _nC, _o, _oRAN, _oU, _do, _sDN, _sDRI, _sII, _sh, _sPK, _sSIGB, _sV, _cA, _tZ, _vI, _oNI, _oNA, _pP, _cM, _iR],
-  [0, 0, 0, 0, 0, 0, 0, 0, 1, () => DataCollectionOptions$, 1, 1, 64 | 0, 0, 0, 0, () => ExadataIormConfig$, 2, 2, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 64 | 0, 0, [() => SensitiveStringList, 0], 1, 0, 5, 0, 64 | 0, 0, 0, 1, 0, () => IamRoleList], 1
+  [_cVCI, _dN, _st, _sR, _cVCA, _cEII, _cEIA, _eDSVI, _eDSVA, _sMT, _vFSST, _vBST, _fSCD, _cN, _cCC, _dCO, _dSSITB, _dNSSIGB, _dS, _dR, _gV, _ho, _iCC, _iLBE, _iSDE, _lUHEI, _lM, _lP, _mSIGB, _nC, _o, _oRAN, _oU, _do, _sDN, _sDRI, _sII, _sh, _sPK, _sSIGB, _sV, _cA, _tZ, _vI, _oNI, _oNA, _pP, _cM, _iR],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => FileSystemConfigurationDetailsList, 0, 1, () => DataCollectionOptions$, 1, 1, 64 | 0, 0, 0, 0, () => ExadataIormConfig$, 2, 2, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 64 | 0, 0, [() => SensitiveStringList, 0], 1, 0, 5, 0, 64 | 0, 0, 0, 1, 0, () => IamRoleList], 1
 ];
 export var CloudVmClusterSummary$: StaticStructureSchema = [3, n0, _CVCS,
   0,
-  [_cVCI, _dN, _st, _sR, _cVCA, _cEII, _cEIA, _cN, _cCC, _dCO, _dSSITB, _dNSSIGB, _dS, _dR, _gV, _ho, _iCC, _iLBE, _iSDE, _lUHEI, _lM, _lP, _mSIGB, _nC, _o, _oRAN, _oU, _do, _sDN, _sDRI, _sII, _sh, _sPK, _sSIGB, _sV, _cA, _tZ, _vI, _oNI, _oNA, _pP, _cM, _iR],
-  [0, 0, 0, 0, 0, 0, 0, 0, 1, () => DataCollectionOptions$, 1, 1, 64 | 0, 0, 0, 0, () => ExadataIormConfig$, 2, 2, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 64 | 0, 0, [() => SensitiveStringList, 0], 1, 0, 5, 0, 64 | 0, 0, 0, 1, 0, () => IamRoleList], 1
+  [_cVCI, _dN, _st, _sR, _cVCA, _cEII, _cEIA, _eDSVI, _eDSVA, _sMT, _vFSST, _vBST, _fSCD, _cN, _cCC, _dCO, _dSSITB, _dNSSIGB, _dS, _dR, _gV, _ho, _iCC, _iLBE, _iSDE, _lUHEI, _lM, _lP, _mSIGB, _nC, _o, _oRAN, _oU, _do, _sDN, _sDRI, _sII, _sh, _sPK, _sSIGB, _sV, _cA, _tZ, _vI, _oNI, _oNA, _pP, _cM, _iR],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => FileSystemConfigurationDetailsList, 0, 1, () => DataCollectionOptions$, 1, 1, 64 | 0, 0, 0, 0, () => ExadataIormConfig$, 2, 2, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 64 | 0, 0, [() => SensitiveStringList, 0], 1, 0, 5, 0, 64 | 0, 0, 0, 1, 0, () => IamRoleList], 1
 ];
 export var CreateAutonomousDatabaseBackupInput$: StaticStructureSchema = [3, n0, _CADBI,
   0,
@@ -1170,8 +1186,8 @@ export var CreateCloudExadataInfrastructureOutput$: StaticStructureSchema = [3, 
 ];
 export var CreateCloudVmClusterInput$: StaticStructureSchema = [3, n0, _CCVCI,
   0,
-  [_cEII, _cCC, _dN, _gV, _ho, _sPK, _oNI, _cN, _dCO, _dSSITB, _dNSSIGB, _dS, _ta, _iLBE, _iSDE, _lM, _mSIGB, _sV, _tZ, _cTl, _sLPTc],
-  [0, 1, 0, 0, 0, 64 | 0, 0, 0, () => DataCollectionOptions$, 1, 1, 64 | 0, 128 | 0, 2, 2, 0, 1, 0, 0, [0, 4], 1], 7
+  [_cEII, _cCC, _dN, _gV, _ho, _sPK, _oNI, _eDSVI, _vFSST, _vBST, _fSCD, _cN, _dCO, _dSSITB, _dNSSIGB, _dS, _ta, _iLBE, _iSDE, _lM, _mSIGB, _sV, _tZ, _cTl, _sLPTc],
+  [0, 1, 0, 0, 0, 64 | 0, 0, 0, 0, 0, () => FileSystemConfigurationDetailsList, 0, () => DataCollectionOptions$, 1, 1, 64 | 0, 128 | 0, 2, 2, 0, 1, 0, 0, [0, 4], 1], 7
 ];
 export var CreateCloudVmClusterOutput$: StaticStructureSchema = [3, n0, _CCVCO,
   0,
@@ -1190,8 +1206,8 @@ export var CreateExadbVmClusterOutput$: StaticStructureSchema = [3, n0, _CEVCO,
 ];
 export var CreateExascaleDbStorageVaultInput$: StaticStructureSchema = [3, n0, _CEDSVI,
   0,
-  [_dN, _hCDSTSIGB, _aFCIP, _aLIGB, _aZI, _aZ, _des, _iAE, _ta, _tZ, _cTl],
-  [0, 1, 1, 1, 0, 0, 0, 2, 128 | 0, 0, [0, 4]], 2
+  [_dN, _hCDSTSIGB, _aFCIP, _aLIGB, _cEII, _aZI, _aZ, _des, _iAE, _ta, _tZ, _cTl],
+  [0, 1, 1, 1, 0, 0, 0, 0, 2, 128 | 0, 0, [0, 4]], 2
 ];
 export var CreateExascaleDbStorageVaultOutput$: StaticStructureSchema = [3, n0, _CEDSVO,
   0,
@@ -1453,6 +1469,11 @@ export var ExadbVmClusterSummary$: StaticStructureSchema = [3, n0, _EVCS,
   [_eVCI, _cN, _cA, _dCO, _dN, _do, _eEC, _eVCA, _eDSVA, _eDSVI, _gV, _gII, _gIT, _ho, _iR, _iCC, _lUHEI, _lM, _lP, _mSIGB, _nC, _o, _oRAN, _oU, _oNA, _oNI, _pP, _sDN, _sDRI, _sII, _sLPTc, _sLPTS, _sh, _sA, _sFSS, _sPK, _st, _sR, _sV, _tZ, _tEC, _tFSS, _vI, _vFSS],
   [0, 0, 5, () => DataCollectionOptions$, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, () => IamRoleList, () => ExadataIormConfig$, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 64 | 0, 1, 1, 0, 0, () => ExadbVmClusterStorageDetails$, 64 | 0, 0, 0, 0, 0, 1, () => ExadbVmClusterStorageDetails$, 64 | 0, () => ExadbVmClusterStorageDetails$], 1
 ];
+export var ExascaleConfiguration$: StaticStructureSchema = [3, n0, _EC,
+  0,
+  [_tSSIGB, _aSSIGB, _tVSSIGB, _aVSSIGB],
+  [1, 1, 1, 1]
+];
 export var ExascaleDbStorageDetails$: StaticStructureSchema = [3, n0, _EDSD,
   0,
   [_aSIGB, _tSIGB],
@@ -1460,13 +1481,13 @@ export var ExascaleDbStorageDetails$: StaticStructureSchema = [3, n0, _EDSD,
 ];
 export var ExascaleDbStorageVault$: StaticStructureSchema = [3, n0, _EDSV,
   0,
-  [_eDSVI, _aFCIP, _aSA, _aLIGB, _aZ, _aZI, _cA, _des, _dN, _vCA, _vCC, _vCI, _eDSVA, _hCDS, _iAE, _o, _oRAN, _oU, _pP, _st, _sR, _tZ],
-  [0, 1, 64 | 0, 1, 0, 0, 5, 0, 0, 64 | 0, 1, 64 | 0, 0, () => ExascaleDbStorageDetails$, 2, 0, 0, 0, 1, 0, 0, 0], 1
+  [_eDSVI, _aFCIP, _aSA, _aLIGB, _aZ, _aZI, _cEIA, _cEII, _cA, _des, _dN, _vCA, _vCC, _vCI, _eDSVA, _hCDS, _iAE, _o, _oRAN, _oU, _pP, _st, _sR, _tZ, _vT],
+  [0, 1, 64 | 0, 1, 0, 0, 0, 0, 5, 0, 0, 64 | 0, 1, 64 | 0, 0, () => ExascaleDbStorageDetails$, 2, 0, 0, 0, 1, 0, 0, 0, 0], 1
 ];
 export var ExascaleDbStorageVaultSummary$: StaticStructureSchema = [3, n0, _EDSVS,
   0,
-  [_eDSVI, _aFCIP, _aSA, _aLIGB, _aZ, _aZI, _cA, _des, _dN, _vCA, _vCC, _vCI, _eDSVA, _hCDS, _iAE, _o, _oRAN, _oU, _pP, _st, _sR, _tZ],
-  [0, 1, 64 | 0, 1, 0, 0, 5, 0, 0, 64 | 0, 1, 64 | 0, 0, () => ExascaleDbStorageDetails$, 2, 0, 0, 0, 1, 0, 0, 0], 1
+  [_eDSVI, _aFCIP, _aSA, _aLIGB, _aZ, _aZI, _cEIA, _cEII, _cA, _des, _dN, _vCA, _vCC, _vCI, _eDSVA, _hCDS, _iAE, _o, _oRAN, _oU, _pP, _st, _sR, _tZ, _vT],
+  [0, 1, 64 | 0, 1, 0, 0, 0, 0, 5, 0, 0, 64 | 0, 1, 64 | 0, 0, () => ExascaleDbStorageDetails$, 2, 0, 0, 0, 1, 0, 0, 0, 0], 1
 ];
 export var FailoverAutonomousDatabaseInput$: StaticStructureSchema = [3, n0, _FADI,
   0,
@@ -1477,6 +1498,11 @@ export var FailoverAutonomousDatabaseOutput$: StaticStructureSchema = [3, n0, _F
   0,
   [_aDI, _dN, _st, _sR],
   [0, 0, 0, 0], 1
+];
+export var FileSystemConfigurationDetails$: StaticStructureSchema = [3, n0, _FSCD,
+  0,
+  [_mP, _fSSIGB],
+  [0, 1]
 ];
 export var FlexComponentSummary$: StaticStructureSchema = [3, n0, _FCS,
   0,
@@ -1795,8 +1821,8 @@ export var ListExadbVmClustersOutput$: StaticStructureSchema = [3, n0, _LEVCO,
 ];
 export var ListExascaleDbStorageVaultsInput$: StaticStructureSchema = [3, n0, _LEDSVI,
   0,
-  [_mR, _nT],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [_mR, _nT, _cEII, _vT],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0, 0]
 ];
 export var ListExascaleDbStorageVaultsOutput$: StaticStructureSchema = [3, n0, _LEDSVO,
   0,
@@ -2143,6 +2169,16 @@ export var UpdateExadbVmClusterOutput$: StaticStructureSchema = [3, n0, _UEVCO,
   [_eVCI, _dN, _st, _sR],
   [0, 0, 0, 0], 1
 ];
+export var UpdateExascaleCloudExadataInfrastructureInput$: StaticStructureSchema = [3, n0, _UECEII,
+  0,
+  [_cEII, _tSSIGB, _tVSSIGB],
+  [[0, 1], 1, 1], 2
+];
+export var UpdateExascaleCloudExadataInfrastructureOutput$: StaticStructureSchema = [3, n0, _UECEIO,
+  0,
+  [_cEII, _dN, _st, _sR],
+  [0, 0, 0, 0], 1
+];
 export var UpdateExascaleDbStorageVaultInput$: StaticStructureSchema = [3, n0, _UEDSVI,
   0,
   [_eDSVI, _aFCIP, _aLIGB, _des, _dN, _hCDSTSIGB, _iAE],
@@ -2254,6 +2290,9 @@ var ExadbVmClusterList: StaticListSchema = [1, n0, _EVCL,
 ];
 var ExascaleDbStorageVaultList: StaticListSchema = [1, n0, _EDSVL,
   0, () => ExascaleDbStorageVaultSummary$
+];
+var FileSystemConfigurationDetailsList: StaticListSchema = [1, n0, _FSCDL,
+  0, () => FileSystemConfigurationDetails$
 ];
 var FlexComponentList: StaticListSchema = [1, n0, _FCL,
   0, () => FlexComponentSummary$
@@ -2576,6 +2615,9 @@ export var UpdateCloudExadataInfrastructure$: StaticOperationSchema = [9, n0, _U
 ];
 export var UpdateExadbVmCluster$: StaticOperationSchema = [9, n0, _UEVC,
   0, () => UpdateExadbVmClusterInput$, () => UpdateExadbVmClusterOutput$
+];
+export var UpdateExascaleCloudExadataInfrastructure$: StaticOperationSchema = [9, n0, _UECEI,
+  0, () => UpdateExascaleCloudExadataInfrastructureInput$, () => UpdateExascaleCloudExadataInfrastructureOutput$
 ];
 export var UpdateExascaleDbStorageVault$: StaticOperationSchema = [9, n0, _UEDSV,
   0, () => UpdateExascaleDbStorageVaultInput$, () => UpdateExascaleDbStorageVaultOutput$

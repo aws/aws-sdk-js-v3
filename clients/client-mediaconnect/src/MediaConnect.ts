@@ -39,6 +39,11 @@ import {
   AddFlowVpcInterfacesCommand,
 } from "./commands/AddFlowVpcInterfacesCommand";
 import {
+  type BatchGetDestinationEndpointCommandInput,
+  type BatchGetDestinationEndpointCommandOutput,
+  BatchGetDestinationEndpointCommand,
+} from "./commands/BatchGetDestinationEndpointCommand";
+import {
   type BatchGetRouterInputCommandInput,
   type BatchGetRouterInputCommandOutput,
   BatchGetRouterInputCommand,
@@ -53,6 +58,16 @@ import {
   type BatchGetRouterOutputCommandOutput,
   BatchGetRouterOutputCommand,
 } from "./commands/BatchGetRouterOutputCommand";
+import {
+  type BatchGetSourceEndpointCommandInput,
+  type BatchGetSourceEndpointCommandOutput,
+  BatchGetSourceEndpointCommand,
+} from "./commands/BatchGetSourceEndpointCommand";
+import {
+  type ConnectEndpointsCommandInput,
+  type ConnectEndpointsCommandOutput,
+  ConnectEndpointsCommand,
+} from "./commands/ConnectEndpointsCommand";
 import {
   type CreateBridgeCommandInput,
   type CreateBridgeCommandOutput,
@@ -114,10 +129,20 @@ import {
   DeleteRouterOutputCommand,
 } from "./commands/DeleteRouterOutputCommand";
 import {
+  type DeregisterDestinationEndpointCommandInput,
+  type DeregisterDestinationEndpointCommandOutput,
+  DeregisterDestinationEndpointCommand,
+} from "./commands/DeregisterDestinationEndpointCommand";
+import {
   type DeregisterGatewayInstanceCommandInput,
   type DeregisterGatewayInstanceCommandOutput,
   DeregisterGatewayInstanceCommand,
 } from "./commands/DeregisterGatewayInstanceCommand";
+import {
+  type DeregisterSourceEndpointCommandInput,
+  type DeregisterSourceEndpointCommandOutput,
+  DeregisterSourceEndpointCommand,
+} from "./commands/DeregisterSourceEndpointCommand";
 import {
   type DescribeBridgeCommandInput,
   type DescribeBridgeCommandOutput,
@@ -159,6 +184,16 @@ import {
   DescribeReservationCommand,
 } from "./commands/DescribeReservationCommand";
 import {
+  type DisconnectEndpointsCommandInput,
+  type DisconnectEndpointsCommandOutput,
+  DisconnectEndpointsCommand,
+} from "./commands/DisconnectEndpointsCommand";
+import {
+  type GetDestinationEndpointCommandInput,
+  type GetDestinationEndpointCommandOutput,
+  GetDestinationEndpointCommand,
+} from "./commands/GetDestinationEndpointCommand";
+import {
   type GetRouterInputCommandInput,
   type GetRouterInputCommandOutput,
   GetRouterInputCommand,
@@ -184,6 +219,11 @@ import {
   GetRouterOutputCommand,
 } from "./commands/GetRouterOutputCommand";
 import {
+  type GetSourceEndpointCommandInput,
+  type GetSourceEndpointCommandOutput,
+  GetSourceEndpointCommand,
+} from "./commands/GetSourceEndpointCommand";
+import {
   type GrantFlowEntitlementsCommandInput,
   type GrantFlowEntitlementsCommandOutput,
   GrantFlowEntitlementsCommand,
@@ -193,6 +233,11 @@ import {
   type ListBridgesCommandOutput,
   ListBridgesCommand,
 } from "./commands/ListBridgesCommand";
+import {
+  type ListDestinationEndpointsCommandInput,
+  type ListDestinationEndpointsCommandOutput,
+  ListDestinationEndpointsCommand,
+} from "./commands/ListDestinationEndpointsCommand";
 import {
   type ListEntitlementsCommandInput,
   type ListEntitlementsCommandOutput,
@@ -235,6 +280,11 @@ import {
   ListRouterOutputsCommand,
 } from "./commands/ListRouterOutputsCommand";
 import {
+  type ListSourceEndpointsCommandInput,
+  type ListSourceEndpointsCommandOutput,
+  ListSourceEndpointsCommand,
+} from "./commands/ListSourceEndpointsCommand";
+import {
   type ListTagsForGlobalResourceCommandInput,
   type ListTagsForGlobalResourceCommandOutput,
   ListTagsForGlobalResourceCommand,
@@ -249,6 +299,16 @@ import {
   type PurchaseOfferingCommandOutput,
   PurchaseOfferingCommand,
 } from "./commands/PurchaseOfferingCommand";
+import {
+  type RegisterDestinationEndpointCommandInput,
+  type RegisterDestinationEndpointCommandOutput,
+  RegisterDestinationEndpointCommand,
+} from "./commands/RegisterDestinationEndpointCommand";
+import {
+  type RegisterSourceEndpointCommandInput,
+  type RegisterSourceEndpointCommandOutput,
+  RegisterSourceEndpointCommand,
+} from "./commands/RegisterSourceEndpointCommand";
 import {
   type RemoveBridgeOutputCommandInput,
   type RemoveBridgeOutputCommandOutput,
@@ -362,6 +422,11 @@ import {
   UpdateBridgeStateCommand,
 } from "./commands/UpdateBridgeStateCommand";
 import {
+  type UpdateDestinationEndpointCommandInput,
+  type UpdateDestinationEndpointCommandOutput,
+  UpdateDestinationEndpointCommand,
+} from "./commands/UpdateDestinationEndpointCommand";
+import {
   type UpdateFlowCommandInput,
   type UpdateFlowCommandOutput,
   UpdateFlowCommand,
@@ -406,10 +471,16 @@ import {
   type UpdateRouterOutputCommandOutput,
   UpdateRouterOutputCommand,
 } from "./commands/UpdateRouterOutputCommand";
+import {
+  type UpdateSourceEndpointCommandInput,
+  type UpdateSourceEndpointCommandOutput,
+  UpdateSourceEndpointCommand,
+} from "./commands/UpdateSourceEndpointCommand";
 import { MediaConnectClient } from "./MediaConnectClient";
 import type { NotFoundException } from "./models/errors";
 import type { MediaConnectServiceException } from "./models/MediaConnectServiceException";
 import { paginateListBridges } from "./pagination/ListBridgesPaginator";
+import { paginateListDestinationEndpoints } from "./pagination/ListDestinationEndpointsPaginator";
 import { paginateListEntitlements } from "./pagination/ListEntitlementsPaginator";
 import { paginateListFlows } from "./pagination/ListFlowsPaginator";
 import { paginateListGatewayInstances } from "./pagination/ListGatewayInstancesPaginator";
@@ -419,6 +490,11 @@ import { paginateListReservations } from "./pagination/ListReservationsPaginator
 import { paginateListRouterInputs } from "./pagination/ListRouterInputsPaginator";
 import { paginateListRouterNetworkInterfaces } from "./pagination/ListRouterNetworkInterfacesPaginator";
 import { paginateListRouterOutputs } from "./pagination/ListRouterOutputsPaginator";
+import { paginateListSourceEndpoints } from "./pagination/ListSourceEndpointsPaginator";
+import { waitUntilDestinationEndpointConnected } from "./waiters/waitForDestinationEndpointConnected";
+import { waitUntilDestinationEndpointDeregistered } from "./waiters/waitForDestinationEndpointDeregistered";
+import { waitUntilDestinationEndpointDisconnected } from "./waiters/waitForDestinationEndpointDisconnected";
+import { waitUntilDestinationEndpointRegistered } from "./waiters/waitForDestinationEndpointRegistered";
 import { waitUntilFlowActive } from "./waiters/waitForFlowActive";
 import { waitUntilFlowDeleted } from "./waiters/waitForFlowDeleted";
 import { waitUntilFlowStandby } from "./waiters/waitForFlowStandby";
@@ -430,6 +506,12 @@ import { waitUntilOutputDeleted } from "./waiters/waitForOutputDeleted";
 import { waitUntilOutputRouted } from "./waiters/waitForOutputRouted";
 import { waitUntilOutputStandby } from "./waiters/waitForOutputStandby";
 import { waitUntilOutputUnrouted } from "./waiters/waitForOutputUnrouted";
+import { waitUntilSourceEndpointConnected } from "./waiters/waitForSourceEndpointConnected";
+import { waitUntilSourceEndpointConnecting } from "./waiters/waitForSourceEndpointConnecting";
+import { waitUntilSourceEndpointDeregistered } from "./waiters/waitForSourceEndpointDeregistered";
+import { waitUntilSourceEndpointDisconnected } from "./waiters/waitForSourceEndpointDisconnected";
+import { waitUntilSourceEndpointDisconnecting } from "./waiters/waitForSourceEndpointDisconnecting";
+import { waitUntilSourceEndpointRegistered } from "./waiters/waitForSourceEndpointRegistered";
 
 const commands = {
   AddBridgeOutputsCommand,
@@ -438,9 +520,12 @@ const commands = {
   AddFlowOutputsCommand,
   AddFlowSourcesCommand,
   AddFlowVpcInterfacesCommand,
+  BatchGetDestinationEndpointCommand,
   BatchGetRouterInputCommand,
   BatchGetRouterNetworkInterfaceCommand,
   BatchGetRouterOutputCommand,
+  BatchGetSourceEndpointCommand,
+  ConnectEndpointsCommand,
   CreateBridgeCommand,
   CreateFlowCommand,
   CreateGatewayCommand,
@@ -453,7 +538,9 @@ const commands = {
   DeleteRouterInputCommand,
   DeleteRouterNetworkInterfaceCommand,
   DeleteRouterOutputCommand,
+  DeregisterDestinationEndpointCommand,
   DeregisterGatewayInstanceCommand,
+  DeregisterSourceEndpointCommand,
   DescribeBridgeCommand,
   DescribeFlowCommand,
   DescribeFlowSourceMetadataCommand,
@@ -462,13 +549,17 @@ const commands = {
   DescribeGatewayInstanceCommand,
   DescribeOfferingCommand,
   DescribeReservationCommand,
+  DisconnectEndpointsCommand,
+  GetDestinationEndpointCommand,
   GetRouterInputCommand,
   GetRouterInputSourceMetadataCommand,
   GetRouterInputThumbnailCommand,
   GetRouterNetworkInterfaceCommand,
   GetRouterOutputCommand,
+  GetSourceEndpointCommand,
   GrantFlowEntitlementsCommand,
   ListBridgesCommand,
+  ListDestinationEndpointsCommand,
   ListEntitlementsCommand,
   ListFlowsCommand,
   ListGatewayInstancesCommand,
@@ -478,9 +569,12 @@ const commands = {
   ListRouterInputsCommand,
   ListRouterNetworkInterfacesCommand,
   ListRouterOutputsCommand,
+  ListSourceEndpointsCommand,
   ListTagsForGlobalResourceCommand,
   ListTagsForResourceCommand,
   PurchaseOfferingCommand,
+  RegisterDestinationEndpointCommand,
+  RegisterSourceEndpointCommand,
   RemoveBridgeOutputCommand,
   RemoveBridgeSourceCommand,
   RemoveFlowMediaStreamCommand,
@@ -505,6 +599,7 @@ const commands = {
   UpdateBridgeOutputCommand,
   UpdateBridgeSourceCommand,
   UpdateBridgeStateCommand,
+  UpdateDestinationEndpointCommand,
   UpdateFlowCommand,
   UpdateFlowEntitlementCommand,
   UpdateFlowMediaStreamCommand,
@@ -514,9 +609,11 @@ const commands = {
   UpdateRouterInputCommand,
   UpdateRouterNetworkInterfaceCommand,
   UpdateRouterOutputCommand,
+  UpdateSourceEndpointCommand,
 };
 const paginators = {
   paginateListBridges,
+  paginateListDestinationEndpoints,
   paginateListEntitlements,
   paginateListFlows,
   paginateListGatewayInstances,
@@ -526,11 +623,16 @@ const paginators = {
   paginateListRouterInputs,
   paginateListRouterNetworkInterfaces,
   paginateListRouterOutputs,
+  paginateListSourceEndpoints,
 };
 const waiters = {
   waitUntilFlowActive,
   waitUntilFlowStandby,
   waitUntilFlowDeleted,
+  waitUntilDestinationEndpointConnected,
+  waitUntilDestinationEndpointDisconnected,
+  waitUntilDestinationEndpointDeregistered,
+  waitUntilDestinationEndpointRegistered,
   waitUntilInputActive,
   waitUntilInputStandby,
   waitUntilInputDeleted,
@@ -539,6 +641,12 @@ const waiters = {
   waitUntilOutputRouted,
   waitUntilOutputStandby,
   waitUntilOutputUnrouted,
+  waitUntilSourceEndpointConnected,
+  waitUntilSourceEndpointDisconnected,
+  waitUntilSourceEndpointConnecting,
+  waitUntilSourceEndpointRegistered,
+  waitUntilSourceEndpointDisconnecting,
+  waitUntilSourceEndpointDeregistered,
 };
 
 /**
@@ -652,6 +760,23 @@ export interface MediaConnect {
   ): void;
 
   /**
+   * @see {@link BatchGetDestinationEndpointCommand}
+   */
+  batchGetDestinationEndpoint(
+    args: BatchGetDestinationEndpointCommandInput,
+    options?: MediaConnectRequestOptions
+  ): Promise<BatchGetDestinationEndpointCommandOutput>;
+  batchGetDestinationEndpoint(
+    args: BatchGetDestinationEndpointCommandInput,
+    cb: (err: any, data?: BatchGetDestinationEndpointCommandOutput) => void
+  ): void;
+  batchGetDestinationEndpoint(
+    args: BatchGetDestinationEndpointCommandInput,
+    options: MediaConnectRequestOptions,
+    cb: (err: any, data?: BatchGetDestinationEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link BatchGetRouterInputCommand}
    */
   batchGetRouterInput(
@@ -700,6 +825,40 @@ export interface MediaConnect {
     args: BatchGetRouterOutputCommandInput,
     options: MediaConnectRequestOptions,
     cb: (err: any, data?: BatchGetRouterOutputCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetSourceEndpointCommand}
+   */
+  batchGetSourceEndpoint(
+    args: BatchGetSourceEndpointCommandInput,
+    options?: MediaConnectRequestOptions
+  ): Promise<BatchGetSourceEndpointCommandOutput>;
+  batchGetSourceEndpoint(
+    args: BatchGetSourceEndpointCommandInput,
+    cb: (err: any, data?: BatchGetSourceEndpointCommandOutput) => void
+  ): void;
+  batchGetSourceEndpoint(
+    args: BatchGetSourceEndpointCommandInput,
+    options: MediaConnectRequestOptions,
+    cb: (err: any, data?: BatchGetSourceEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ConnectEndpointsCommand}
+   */
+  connectEndpoints(
+    args: ConnectEndpointsCommandInput,
+    options?: MediaConnectRequestOptions
+  ): Promise<ConnectEndpointsCommandOutput>;
+  connectEndpoints(
+    args: ConnectEndpointsCommandInput,
+    cb: (err: any, data?: ConnectEndpointsCommandOutput) => void
+  ): void;
+  connectEndpoints(
+    args: ConnectEndpointsCommandInput,
+    options: MediaConnectRequestOptions,
+    cb: (err: any, data?: ConnectEndpointsCommandOutput) => void
   ): void;
 
   /**
@@ -907,6 +1066,23 @@ export interface MediaConnect {
   ): void;
 
   /**
+   * @see {@link DeregisterDestinationEndpointCommand}
+   */
+  deregisterDestinationEndpoint(
+    args: DeregisterDestinationEndpointCommandInput,
+    options?: MediaConnectRequestOptions
+  ): Promise<DeregisterDestinationEndpointCommandOutput>;
+  deregisterDestinationEndpoint(
+    args: DeregisterDestinationEndpointCommandInput,
+    cb: (err: any, data?: DeregisterDestinationEndpointCommandOutput) => void
+  ): void;
+  deregisterDestinationEndpoint(
+    args: DeregisterDestinationEndpointCommandInput,
+    options: MediaConnectRequestOptions,
+    cb: (err: any, data?: DeregisterDestinationEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeregisterGatewayInstanceCommand}
    */
   deregisterGatewayInstance(
@@ -921,6 +1097,23 @@ export interface MediaConnect {
     args: DeregisterGatewayInstanceCommandInput,
     options: MediaConnectRequestOptions,
     cb: (err: any, data?: DeregisterGatewayInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterSourceEndpointCommand}
+   */
+  deregisterSourceEndpoint(
+    args: DeregisterSourceEndpointCommandInput,
+    options?: MediaConnectRequestOptions
+  ): Promise<DeregisterSourceEndpointCommandOutput>;
+  deregisterSourceEndpoint(
+    args: DeregisterSourceEndpointCommandInput,
+    cb: (err: any, data?: DeregisterSourceEndpointCommandOutput) => void
+  ): void;
+  deregisterSourceEndpoint(
+    args: DeregisterSourceEndpointCommandInput,
+    options: MediaConnectRequestOptions,
+    cb: (err: any, data?: DeregisterSourceEndpointCommandOutput) => void
   ): void;
 
   /**
@@ -1060,6 +1253,40 @@ export interface MediaConnect {
   ): void;
 
   /**
+   * @see {@link DisconnectEndpointsCommand}
+   */
+  disconnectEndpoints(
+    args: DisconnectEndpointsCommandInput,
+    options?: MediaConnectRequestOptions
+  ): Promise<DisconnectEndpointsCommandOutput>;
+  disconnectEndpoints(
+    args: DisconnectEndpointsCommandInput,
+    cb: (err: any, data?: DisconnectEndpointsCommandOutput) => void
+  ): void;
+  disconnectEndpoints(
+    args: DisconnectEndpointsCommandInput,
+    options: MediaConnectRequestOptions,
+    cb: (err: any, data?: DisconnectEndpointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDestinationEndpointCommand}
+   */
+  getDestinationEndpoint(
+    args: GetDestinationEndpointCommandInput,
+    options?: MediaConnectRequestOptions
+  ): Promise<GetDestinationEndpointCommandOutput>;
+  getDestinationEndpoint(
+    args: GetDestinationEndpointCommandInput,
+    cb: (err: any, data?: GetDestinationEndpointCommandOutput) => void
+  ): void;
+  getDestinationEndpoint(
+    args: GetDestinationEndpointCommandInput,
+    options: MediaConnectRequestOptions,
+    cb: (err: any, data?: GetDestinationEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetRouterInputCommand}
    */
   getRouterInput(
@@ -1145,6 +1372,23 @@ export interface MediaConnect {
   ): void;
 
   /**
+   * @see {@link GetSourceEndpointCommand}
+   */
+  getSourceEndpoint(
+    args: GetSourceEndpointCommandInput,
+    options?: MediaConnectRequestOptions
+  ): Promise<GetSourceEndpointCommandOutput>;
+  getSourceEndpoint(
+    args: GetSourceEndpointCommandInput,
+    cb: (err: any, data?: GetSourceEndpointCommandOutput) => void
+  ): void;
+  getSourceEndpoint(
+    args: GetSourceEndpointCommandInput,
+    options: MediaConnectRequestOptions,
+    cb: (err: any, data?: GetSourceEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GrantFlowEntitlementsCommand}
    */
   grantFlowEntitlements(
@@ -1177,6 +1421,24 @@ export interface MediaConnect {
     args: ListBridgesCommandInput,
     options: MediaConnectRequestOptions,
     cb: (err: any, data?: ListBridgesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDestinationEndpointsCommand}
+   */
+  listDestinationEndpoints(): Promise<ListDestinationEndpointsCommandOutput>;
+  listDestinationEndpoints(
+    args: ListDestinationEndpointsCommandInput,
+    options?: MediaConnectRequestOptions
+  ): Promise<ListDestinationEndpointsCommandOutput>;
+  listDestinationEndpoints(
+    args: ListDestinationEndpointsCommandInput,
+    cb: (err: any, data?: ListDestinationEndpointsCommandOutput) => void
+  ): void;
+  listDestinationEndpoints(
+    args: ListDestinationEndpointsCommandInput,
+    options: MediaConnectRequestOptions,
+    cb: (err: any, data?: ListDestinationEndpointsCommandOutput) => void
   ): void;
 
   /**
@@ -1342,6 +1604,24 @@ export interface MediaConnect {
   ): void;
 
   /**
+   * @see {@link ListSourceEndpointsCommand}
+   */
+  listSourceEndpoints(): Promise<ListSourceEndpointsCommandOutput>;
+  listSourceEndpoints(
+    args: ListSourceEndpointsCommandInput,
+    options?: MediaConnectRequestOptions
+  ): Promise<ListSourceEndpointsCommandOutput>;
+  listSourceEndpoints(
+    args: ListSourceEndpointsCommandInput,
+    cb: (err: any, data?: ListSourceEndpointsCommandOutput) => void
+  ): void;
+  listSourceEndpoints(
+    args: ListSourceEndpointsCommandInput,
+    options: MediaConnectRequestOptions,
+    cb: (err: any, data?: ListSourceEndpointsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForGlobalResourceCommand}
    */
   listTagsForGlobalResource(
@@ -1390,6 +1670,40 @@ export interface MediaConnect {
     args: PurchaseOfferingCommandInput,
     options: MediaConnectRequestOptions,
     cb: (err: any, data?: PurchaseOfferingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterDestinationEndpointCommand}
+   */
+  registerDestinationEndpoint(
+    args: RegisterDestinationEndpointCommandInput,
+    options?: MediaConnectRequestOptions
+  ): Promise<RegisterDestinationEndpointCommandOutput>;
+  registerDestinationEndpoint(
+    args: RegisterDestinationEndpointCommandInput,
+    cb: (err: any, data?: RegisterDestinationEndpointCommandOutput) => void
+  ): void;
+  registerDestinationEndpoint(
+    args: RegisterDestinationEndpointCommandInput,
+    options: MediaConnectRequestOptions,
+    cb: (err: any, data?: RegisterDestinationEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterSourceEndpointCommand}
+   */
+  registerSourceEndpoint(
+    args: RegisterSourceEndpointCommandInput,
+    options?: MediaConnectRequestOptions
+  ): Promise<RegisterSourceEndpointCommandOutput>;
+  registerSourceEndpoint(
+    args: RegisterSourceEndpointCommandInput,
+    cb: (err: any, data?: RegisterSourceEndpointCommandOutput) => void
+  ): void;
+  registerSourceEndpoint(
+    args: RegisterSourceEndpointCommandInput,
+    options: MediaConnectRequestOptions,
+    cb: (err: any, data?: RegisterSourceEndpointCommandOutput) => void
   ): void;
 
   /**
@@ -1801,6 +2115,23 @@ export interface MediaConnect {
   ): void;
 
   /**
+   * @see {@link UpdateDestinationEndpointCommand}
+   */
+  updateDestinationEndpoint(
+    args: UpdateDestinationEndpointCommandInput,
+    options?: MediaConnectRequestOptions
+  ): Promise<UpdateDestinationEndpointCommandOutput>;
+  updateDestinationEndpoint(
+    args: UpdateDestinationEndpointCommandInput,
+    cb: (err: any, data?: UpdateDestinationEndpointCommandOutput) => void
+  ): void;
+  updateDestinationEndpoint(
+    args: UpdateDestinationEndpointCommandInput,
+    options: MediaConnectRequestOptions,
+    cb: (err: any, data?: UpdateDestinationEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateFlowCommand}
    */
   updateFlow(
@@ -1954,6 +2285,23 @@ export interface MediaConnect {
   ): void;
 
   /**
+   * @see {@link UpdateSourceEndpointCommand}
+   */
+  updateSourceEndpoint(
+    args: UpdateSourceEndpointCommandInput,
+    options?: MediaConnectRequestOptions
+  ): Promise<UpdateSourceEndpointCommandOutput>;
+  updateSourceEndpoint(
+    args: UpdateSourceEndpointCommandInput,
+    cb: (err: any, data?: UpdateSourceEndpointCommandOutput) => void
+  ): void;
+  updateSourceEndpoint(
+    args: UpdateSourceEndpointCommandInput,
+    options: MediaConnectRequestOptions,
+    cb: (err: any, data?: UpdateSourceEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListBridgesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1963,6 +2311,17 @@ export interface MediaConnect {
     args?: ListBridgesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListBridgesCommandOutput>;
+
+  /**
+   * @see {@link ListDestinationEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDestinationEndpointsCommandOutput}.
+   */
+  paginateListDestinationEndpoints(
+    args?: ListDestinationEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDestinationEndpointsCommandOutput>;
 
   /**
    * @see {@link ListEntitlementsCommand}
@@ -2064,6 +2423,17 @@ export interface MediaConnect {
   ): Paginator<ListRouterOutputsCommandOutput>;
 
   /**
+   * @see {@link ListSourceEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSourceEndpointsCommandOutput}.
+   */
+  paginateListSourceEndpoints(
+    args?: ListSourceEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSourceEndpointsCommandOutput>;
+
+  /**
    * @see {@link DescribeFlowCommand}
    * @param args - command input.
    * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
@@ -2092,6 +2462,46 @@ export interface MediaConnect {
     args: DescribeFlowCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
   ): Promise<WaiterResult<NotFoundException>>;
+
+  /**
+   * @see {@link GetDestinationEndpointCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDestinationEndpointConnected(
+    args: GetDestinationEndpointCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult<GetDestinationEndpointCommandOutput>>;
+
+  /**
+   * @see {@link GetDestinationEndpointCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDestinationEndpointDisconnected(
+    args: GetDestinationEndpointCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult<GetDestinationEndpointCommandOutput>>;
+
+  /**
+   * @see {@link GetDestinationEndpointCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDestinationEndpointDeregistered(
+    args: GetDestinationEndpointCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult<NotFoundException>>;
+
+  /**
+   * @see {@link GetDestinationEndpointCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDestinationEndpointRegistered(
+    args: GetDestinationEndpointCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult<GetDestinationEndpointCommandOutput>>;
 
   /**
    * @see {@link GetRouterInputCommand}
@@ -2172,6 +2582,66 @@ export interface MediaConnect {
     args: GetRouterOutputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
   ): Promise<WaiterResult<GetRouterOutputCommandOutput>>;
+
+  /**
+   * @see {@link GetSourceEndpointCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSourceEndpointConnected(
+    args: GetSourceEndpointCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult<GetSourceEndpointCommandOutput>>;
+
+  /**
+   * @see {@link GetSourceEndpointCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSourceEndpointDisconnected(
+    args: GetSourceEndpointCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult<GetSourceEndpointCommandOutput>>;
+
+  /**
+   * @see {@link GetSourceEndpointCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSourceEndpointConnecting(
+    args: GetSourceEndpointCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult<GetSourceEndpointCommandOutput>>;
+
+  /**
+   * @see {@link GetSourceEndpointCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSourceEndpointRegistered(
+    args: GetSourceEndpointCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult<GetSourceEndpointCommandOutput>>;
+
+  /**
+   * @see {@link GetSourceEndpointCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSourceEndpointDisconnecting(
+    args: GetSourceEndpointCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult<GetSourceEndpointCommandOutput>>;
+
+  /**
+   * @see {@link GetSourceEndpointCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSourceEndpointDeregistered(
+    args: GetSourceEndpointCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult<NotFoundException>>;
 }
 
 /**

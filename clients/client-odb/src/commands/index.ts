@@ -76,6 +76,7 @@ export * from "./UpdateAutonomousDatabaseBackupCommand";
 export * from "./UpdateAutonomousDatabaseCommand";
 export * from "./UpdateCloudExadataInfrastructureCommand";
 export * from "./UpdateExadbVmClusterCommand";
+export * from "./UpdateExascaleCloudExadataInfrastructureCommand";
 export * from "./UpdateExascaleDbStorageVaultCommand";
 export * from "./UpdateOdbNetworkCommand";
 export * from "./UpdateOdbPeeringConnectionCommand";

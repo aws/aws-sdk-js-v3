@@ -389,6 +389,11 @@ import {
   UpdateExadbVmClusterCommand,
 } from "./commands/UpdateExadbVmClusterCommand";
 import {
+  type UpdateExascaleCloudExadataInfrastructureCommandInput,
+  type UpdateExascaleCloudExadataInfrastructureCommandOutput,
+  UpdateExascaleCloudExadataInfrastructureCommand,
+} from "./commands/UpdateExascaleCloudExadataInfrastructureCommand";
+import {
   type UpdateExascaleDbStorageVaultCommandInput,
   type UpdateExascaleDbStorageVaultCommandOutput,
   UpdateExascaleDbStorageVaultCommand,
@@ -504,6 +509,7 @@ const commands = {
   UpdateAutonomousDatabaseBackupCommand,
   UpdateCloudExadataInfrastructureCommand,
   UpdateExadbVmClusterCommand,
+  UpdateExascaleCloudExadataInfrastructureCommand,
   UpdateExascaleDbStorageVaultCommand,
   UpdateOdbNetworkCommand,
   UpdateOdbPeeringConnectionCommand,
@@ -1864,6 +1870,23 @@ export interface Odb {
     args: UpdateExadbVmClusterCommandInput,
     options: OdbRequestOptions,
     cb: (err: any, data?: UpdateExadbVmClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateExascaleCloudExadataInfrastructureCommand}
+   */
+  updateExascaleCloudExadataInfrastructure(
+    args: UpdateExascaleCloudExadataInfrastructureCommandInput,
+    options?: OdbRequestOptions
+  ): Promise<UpdateExascaleCloudExadataInfrastructureCommandOutput>;
+  updateExascaleCloudExadataInfrastructure(
+    args: UpdateExascaleCloudExadataInfrastructureCommandInput,
+    cb: (err: any, data?: UpdateExascaleCloudExadataInfrastructureCommandOutput) => void
+  ): void;
+  updateExascaleCloudExadataInfrastructure(
+    args: UpdateExascaleCloudExadataInfrastructureCommandInput,
+    options: OdbRequestOptions,
+    cb: (err: any, data?: UpdateExascaleCloudExadataInfrastructureCommandOutput) => void
   ): void;
 
   /**

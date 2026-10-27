@@ -74,6 +74,7 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * //       },
  * //       containerFormat: "STRING_VALUE",
  * //       adConfigurationArn: "STRING_VALUE",
+ * //       failoverSlateConfigurationArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   errors: [ // BatchErrors

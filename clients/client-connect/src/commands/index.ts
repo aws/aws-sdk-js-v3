@@ -362,6 +362,7 @@ export * from "./UpdateInstanceStorageConfigCommand";
 export * from "./UpdateMetricContentCommand";
 export * from "./UpdateMetricMetadataCommand";
 export * from "./UpdateNotificationContentCommand";
+export * from "./UpdateOutboundEmailContactMessageCommand";
 export * from "./UpdateParticipantAuthenticationCommand";
 export * from "./UpdateParticipantRoleConfigCommand";
 export * from "./UpdatePhoneNumberCommand";

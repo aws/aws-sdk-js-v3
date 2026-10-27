@@ -8,10 +8,18 @@ import type {
   ContentQualityAnalysisState,
   Day,
   DesiredState,
+  DestinationEndpointConnectionState,
+  DestinationEndpointNetworkingType,
+  DestinationEndpointProtocol,
+  DestinationEndpointRegistrationState,
+  DestinationEndpointType,
   DurationUnits,
   EncoderProfile,
   EncodingName,
   EncodingProfile,
+  EndpointEncryptionSecretType,
+  EndpointEncryptionType,
+  EndpointLifecycle,
   EntitlementStatus,
   FabricLatencyMode,
   FailoverInputSourcePriorityMode,
@@ -37,6 +45,8 @@ import type {
   Protocol,
   Range,
   ReservationState,
+  ResourceShareOwnership,
+  ResourceShareState,
   ResourceType,
   RouterContentQualityAnalysisType,
   RouterInputProtocol,
@@ -53,6 +63,11 @@ import type {
   RouterOutputType,
   RoutingScope,
   ScanMode,
+  SourceEndpointConnectionState,
+  SourceEndpointNetworkingType,
+  SourceEndpointProtocol,
+  SourceEndpointRegistrationState,
+  SourceEndpointType,
   SourceType,
   State,
   Status,
@@ -2902,6 +2917,991 @@ export interface AddMaintenance {
 }
 
 /**
+ * <p>The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.</p>
+ * @public
+ */
+export interface AutomaticEndpointEncryptionConfiguration {}
+
+/**
+ * @public
+ */
+export interface BatchGetDestinationEndpointRequest {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of one or more destination endpoints to retrieve. You can specify from 1 to 20 ARNs.</p>
+   * @public
+   */
+  Arns: string[] | undefined;
+}
+
+/**
+ * <p>A message associated with a router input, including a code and a message.</p>
+ * @public
+ */
+export interface RouterInputMessage {
+  /**
+   * <p>The code associated with the router input message.</p>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>The message text associated with the router input message.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * <p>The details of the router input that is associated with a destination endpoint.</p>
+ * @public
+ */
+export interface RouterInputDestinationEndpointAssociatedResourceDetails {
+  /**
+   * <p>The name of the router input.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The maximum bitrate of the router input, in bits per second.</p>
+   * @public
+   */
+  MaximumBitrate: number | undefined;
+
+  /**
+   * <p>The state of the router input.</p>
+   * @public
+   */
+  State: RouterInputState | undefined;
+
+  /**
+   * <p>The status messages for the router input.</p>
+   * @public
+   */
+  Messages: RouterInputMessage[] | undefined;
+}
+
+/**
+ * <p>The associated resource details for a standard destination endpoint. This type does not require any additional settings.</p>
+ * @public
+ */
+export interface StandardDestinationEndpointAssociatedResourceDetails {}
+
+/**
+ * <p>The details of the resource that is associated with a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.</p>
+ * @public
+ */
+export type DestinationEndpointAssociatedResourceDetails =
+  | DestinationEndpointAssociatedResourceDetails.RouterInputMember
+  | DestinationEndpointAssociatedResourceDetails.StandardMember
+  | DestinationEndpointAssociatedResourceDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DestinationEndpointAssociatedResourceDetails {
+  /**
+   * <p>The associated resource details for a standard destination endpoint.</p>
+   * @public
+   */
+  export interface StandardMember {
+    Standard: StandardDestinationEndpointAssociatedResourceDetails;
+    RouterInput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The associated resource details for a destination endpoint that represents a router input.</p>
+   * @public
+   */
+  export interface RouterInputMember {
+    Standard?: never;
+    RouterInput: RouterInputDestinationEndpointAssociatedResourceDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Standard?: never;
+    RouterInput?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Standard: (value: StandardDestinationEndpointAssociatedResourceDetails) => T;
+    RouterInput: (value: RouterInputDestinationEndpointAssociatedResourceDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The configuration settings for a destination endpoint that represents a router input.</p>
+ * @public
+ */
+export interface RouterInputDestinationEndpointConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input that the destination endpoint represents.</p>
+   * @public
+   */
+  RouterInputArn: string | undefined;
+}
+
+/**
+ * <p>A rule that allows a specific CIDR block to connect to the public destination endpoint.</p>
+ * @public
+ */
+export interface PublicDestinationEndpointNetworkingConfigurationAllowRule {
+  /**
+   * <p>The CIDR block that is allowed to connect to the destination endpoint, in CIDR notation.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+}
+
+/**
+ * <p>The networking configuration for a publicly accessible destination endpoint, including the CIDR blocks that are allowed to connect.</p>
+ * @public
+ */
+export interface PublicDestinationEndpointNetworkingConfiguration {
+  /**
+   * <p>The rules that specify which CIDR blocks can connect to the destination endpoint. You can specify up to 10 rules.</p>
+   * @public
+   */
+  DestinationAllowRules: PublicDestinationEndpointNetworkingConfigurationAllowRule[] | undefined;
+}
+
+/**
+ * <p>The networking configuration for a destination endpoint in a virtual private cloud (VPC).</p>
+ * @public
+ */
+export interface VpcDestinationEndpointNetworkingConfiguration {
+  /**
+   * <p>The IDs of the security groups to associate with the destination endpoint. You can specify from 1 to 5 security groups.</p>
+   * @public
+   */
+  SecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>The ID of the subnet to use for the destination endpoint.</p>
+   * @public
+   */
+  SubnetId: string | undefined;
+}
+
+/**
+ * <p>The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: <code>public</code> for a publicly accessible endpoint, or <code>vpc</code> for an endpoint in a virtual private cloud (VPC).</p>
+ * @public
+ */
+export type StandardDestinationEndpointNetworkingConfiguration =
+  | StandardDestinationEndpointNetworkingConfiguration.PublicMember
+  | StandardDestinationEndpointNetworkingConfiguration.VpcMember
+  | StandardDestinationEndpointNetworkingConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace StandardDestinationEndpointNetworkingConfiguration {
+  /**
+   * <p>The configuration for a publicly accessible destination endpoint.</p>
+   * @public
+   */
+  export interface PublicMember {
+    Public: PublicDestinationEndpointNetworkingConfiguration;
+    Vpc?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for a destination endpoint in a virtual private cloud (VPC).</p>
+   * @public
+   */
+  export interface VpcMember {
+    Public?: never;
+    Vpc: VpcDestinationEndpointNetworkingConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Public?: never;
+    Vpc?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Public: (value: PublicDestinationEndpointNetworkingConfiguration) => T;
+    Vpc: (value: VpcDestinationEndpointNetworkingConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The configuration settings for a destination endpoint that uses the RIST protocol.</p>
+ * @public
+ */
+export interface RistStandardDestinationEndpointConfiguration {
+  /**
+   * <p>The IP address on which the destination endpoint receives content.</p>
+   * @public
+   */
+  DestinationAddress: string | undefined;
+
+  /**
+   * <p>The port on which the destination endpoint receives content. The valid range is 1024 to 65531.</p>
+   * @public
+   */
+  DestinationIngestPort: number | undefined;
+}
+
+/**
+ * <p>The configuration settings for a destination endpoint that uses the RTP protocol.</p>
+ * @public
+ */
+export interface RtpStandardDestinationEndpointConfiguration {
+  /**
+   * <p>The IP address on which the destination endpoint receives content.</p>
+   * @public
+   */
+  DestinationAddress: string | undefined;
+
+  /**
+   * <p>The port on which the destination endpoint receives content. The valid range is 1024 to 65531.</p>
+   * @public
+   */
+  DestinationIngestPort: number | undefined;
+
+  /**
+   * <p>Indicates whether forward error correction (FEC) is enabled for the destination endpoint.</p>
+   * @public
+   */
+  ForwardErrorCorrectionState: ForwardErrorCorrectionState | undefined;
+}
+
+/**
+ * <p>The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.</p>
+ * @public
+ */
+export interface EndpointEncryptionSecretConfiguration {
+  /**
+   * <p>The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key <code>aws/secretsmanager</code>. The secret must be in the same Amazon Web Services account and Region as the endpoint.</p>
+   * @public
+   */
+  SecretArn: string | undefined;
+}
+
+/**
+ * <p>The configuration settings for a destination endpoint that uses SRT in caller mode.</p>
+ * @public
+ */
+export interface SrtCallerStandardDestinationEndpointConfiguration {
+  /**
+   * <p>The port on which the source listens for the connection. The valid range is 3000 to 30000.</p>
+   * @public
+   */
+  SourceListenerPort: number | undefined;
+
+  /**
+   * <p>The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.</p>
+   * @public
+   */
+  MinimumLatencyMilliseconds: number | undefined;
+
+  /**
+   * <p>The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.</p>
+   * @public
+   */
+  EncryptionPassphrase?: EndpointEncryptionSecretConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration settings for a destination endpoint that uses SRT in listener mode.</p>
+ * @public
+ */
+export interface SrtListenerStandardDestinationEndpointConfiguration {
+  /**
+   * <p>The IP address on which the destination endpoint listens for incoming connections.</p>
+   * @public
+   */
+  DestinationAddress: string | undefined;
+
+  /**
+   * <p>The port on which the destination endpoint listens for incoming connections. The valid range is 0 to 65531.</p>
+   * @public
+   */
+  DestinationIngestPort: number | undefined;
+
+  /**
+   * <p>The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.</p>
+   * @public
+   */
+  MinimumLatencyMilliseconds: number | undefined;
+
+  /**
+   * <p>The stream ID that identifies the content for the SRT connection.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
+
+  /**
+   * <p>The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.</p>
+   * @public
+   */
+  EncryptionPassphrase?: EndpointEncryptionSecretConfiguration | undefined;
+}
+
+/**
+ * <p>The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.</p>
+ * @public
+ */
+export type StandardDestinationEndpointProtocolConfiguration =
+  | StandardDestinationEndpointProtocolConfiguration.RistMember
+  | StandardDestinationEndpointProtocolConfiguration.RtpMember
+  | StandardDestinationEndpointProtocolConfiguration.SrtCallerMember
+  | StandardDestinationEndpointProtocolConfiguration.SrtListenerMember
+  | StandardDestinationEndpointProtocolConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace StandardDestinationEndpointProtocolConfiguration {
+  /**
+   * <p>The configuration settings for a destination endpoint that uses the RIST protocol.</p>
+   * @public
+   */
+  export interface RistMember {
+    Rist: RistStandardDestinationEndpointConfiguration;
+    SrtListener?: never;
+    SrtCaller?: never;
+    Rtp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a destination endpoint that uses SRT in listener mode.</p>
+   * @public
+   */
+  export interface SrtListenerMember {
+    Rist?: never;
+    SrtListener: SrtListenerStandardDestinationEndpointConfiguration;
+    SrtCaller?: never;
+    Rtp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a destination endpoint that uses SRT in caller mode.</p>
+   * @public
+   */
+  export interface SrtCallerMember {
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller: SrtCallerStandardDestinationEndpointConfiguration;
+    Rtp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a destination endpoint that uses the RTP protocol.</p>
+   * @public
+   */
+  export interface RtpMember {
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller?: never;
+    Rtp: RtpStandardDestinationEndpointConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller?: never;
+    Rtp?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Rist: (value: RistStandardDestinationEndpointConfiguration) => T;
+    SrtListener: (value: SrtListenerStandardDestinationEndpointConfiguration) => T;
+    SrtCaller: (value: SrtCallerStandardDestinationEndpointConfiguration) => T;
+    Rtp: (value: RtpStandardDestinationEndpointConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The configuration settings for a standard destination endpoint.</p>
+ * @public
+ */
+export interface StandardDestinationEndpointConfiguration {
+  /**
+   * <p>The name of the destination endpoint.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The networking configuration for the destination endpoint, which determines whether it is publicly accessible or in a virtual private cloud (VPC).</p>
+   * @public
+   */
+  DestinationNetworkingConfiguration: StandardDestinationEndpointNetworkingConfiguration | undefined;
+
+  /**
+   * <p>The protocol configuration for the destination endpoint.</p>
+   * @public
+   */
+  ProtocolConfiguration: StandardDestinationEndpointProtocolConfiguration | undefined;
+
+  /**
+   * <p>The networking type of the destination endpoint. Valid values include the following:</p> <ul> <li> <p> <code>PUBLIC</code> – The destination endpoint is publicly accessible.</p> </li> <li> <p> <code>VPC</code> – The destination endpoint is in a virtual private cloud (VPC).</p> </li> </ul>
+   * @public
+   */
+  DestinationNetworkingType?: DestinationEndpointNetworkingType | undefined;
+
+  /**
+   * <p>The protocol used by the destination endpoint. Valid values include the following:</p> <ul> <li> <p> <code>RTP</code> – Real-time Transport Protocol.</p> </li> <li> <p> <code>RIST</code> – Reliable Internet Stream Transport.</p> </li> <li> <p> <code>SRT_CALLER</code> – Secure Reliable Transport (SRT) in caller mode.</p> </li> <li> <p> <code>SRT_LISTENER</code> – Secure Reliable Transport (SRT) in listener mode.</p> </li> </ul>
+   * @public
+   */
+  Protocol?: DestinationEndpointProtocol | undefined;
+}
+
+/**
+ * <p>The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.</p>
+ * @public
+ */
+export type DestinationEndpointConfiguration =
+  | DestinationEndpointConfiguration.RouterInputMember
+  | DestinationEndpointConfiguration.StandardMember
+  | DestinationEndpointConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DestinationEndpointConfiguration {
+  /**
+   * <p>The configuration settings for a standard destination endpoint, which represents an external destination.</p>
+   * @public
+   */
+  export interface StandardMember {
+    Standard: StandardDestinationEndpointConfiguration;
+    RouterInput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a destination endpoint that represents a router input.</p>
+   * @public
+   */
+  export interface RouterInputMember {
+    Standard?: never;
+    RouterInput: RouterInputDestinationEndpointConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Standard?: never;
+    RouterInput?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Standard: (value: StandardDestinationEndpointConfiguration) => T;
+    RouterInput: (value: RouterInputDestinationEndpointConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.</p>
+ * @public
+ */
+export interface SecretsManagerEndpointEncryptionConfiguration {
+  /**
+   * <p>The type of secret used to encrypt the connection. Valid values include the following:</p> <ul> <li> <p> <code>AES_128_KEY</code> – A 128-bit AES encryption key.</p> </li> <li> <p> <code>AES_192_KEY</code> – A 192-bit AES encryption key.</p> </li> <li> <p> <code>AES_256_KEY</code> – A 256-bit AES encryption key.</p> </li> <li> <p> <code>SRT_PASSPHRASE</code> – An SRT passphrase.</p> </li> </ul>
+   * @public
+   */
+  EncryptionSecretType?: EndpointEncryptionSecretType | undefined;
+
+  /**
+   * <p>The Secrets Manager secret that holds the key or passphrase used to encrypt the connection.</p>
+   * @public
+   */
+  EncryptionSecret: EndpointEncryptionSecretConfiguration | undefined;
+}
+
+/**
+ * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+ * @public
+ */
+export type EndpointEncryptionConfiguration =
+  | EndpointEncryptionConfiguration.AutomaticMember
+  | EndpointEncryptionConfiguration.SecretsManagerMember
+  | EndpointEncryptionConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EndpointEncryptionConfiguration {
+  /**
+   * <p>The encryption configuration for a connection that uses a key or passphrase that you store in Secrets Manager.</p>
+   * @public
+   */
+  export interface SecretsManagerMember {
+    SecretsManager: SecretsManagerEndpointEncryptionConfiguration;
+    Automatic?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for automatic encryption, where MediaConnect determines the encryption key when the endpoint connects.</p>
+   * @public
+   */
+  export interface AutomaticMember {
+    SecretsManager?: never;
+    Automatic: AutomaticEndpointEncryptionConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    SecretsManager?: never;
+    Automatic?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    SecretsManager: (value: SecretsManagerEndpointEncryptionConfiguration) => T;
+    Automatic: (value: AutomaticEndpointEncryptionConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The connection details for a destination endpoint that represents a router input.</p>
+ * @public
+ */
+export interface RouterInputDestinationEndpointConnectionDetails {
+  /**
+   * <p>The type of encryption that the source uses for the connection.</p>
+   * @public
+   */
+  SourceEncryptionType?: EndpointEncryptionType | undefined;
+
+  /**
+   * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+   * @public
+   */
+  SourceEncryptionConfiguration?: EndpointEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The type of the connected source endpoint.</p>
+   * @public
+   */
+  SourceEndpointType?: SourceEndpointType | undefined;
+}
+
+/**
+ * <p>The connection details for a standard destination endpoint.</p>
+ * @public
+ */
+export interface StandardDestinationEndpointConnectionDetails {
+  /**
+   * <p>The IP address of the source that is connected to the destination endpoint.</p>
+   * @public
+   */
+  SourceIpAddress?: string | undefined;
+
+  /**
+   * <p>The port on which the source listens for the connection.</p>
+   * @public
+   */
+  SourceListenerPort?: number | undefined;
+
+  /**
+   * <p>The type of encryption that the source uses for the connection.</p>
+   * @public
+   */
+  SourceEncryptionType?: EndpointEncryptionType | undefined;
+
+  /**
+   * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+   * @public
+   */
+  SourceEncryptionConfiguration?: EndpointEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The type of the connected source endpoint.</p>
+   * @public
+   */
+  SourceEndpointType?: SourceEndpointType | undefined;
+}
+
+/**
+ * <p>The connection details for a destination endpoint. After the destination endpoint connects to a source endpoint, MediaConnect populates these details to describe the connected source. This is a union type, so exactly one of its members is set, depending on the destination endpoint type.</p>
+ * @public
+ */
+export type DestinationEndpointConnectionDetails =
+  | DestinationEndpointConnectionDetails.RouterInputMember
+  | DestinationEndpointConnectionDetails.StandardMember
+  | DestinationEndpointConnectionDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DestinationEndpointConnectionDetails {
+  /**
+   * <p>The connection details for a standard destination endpoint.</p>
+   * @public
+   */
+  export interface StandardMember {
+    Standard: StandardDestinationEndpointConnectionDetails;
+    RouterInput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The connection details for a destination endpoint that represents a router input.</p>
+   * @public
+   */
+  export interface RouterInputMember {
+    Standard?: never;
+    RouterInput: RouterInputDestinationEndpointConnectionDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Standard?: never;
+    RouterInput?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Standard: (value: StandardDestinationEndpointConnectionDetails) => T;
+    RouterInput: (value: RouterInputDestinationEndpointConnectionDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A status message for a destination endpoint.</p>
+ * @public
+ */
+export interface DestinationEndpointMessage {
+  /**
+   * <p>The message code.</p>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>The message text.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * <p>The cross-account sharing details for an endpoint that another account shares with this account.</p>
+ * @public
+ */
+export interface ConsumedResourceShareDetails {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the shared endpoint.</p>
+   * @public
+   */
+  OwnerAccountId: string | undefined;
+}
+
+/**
+ * <p>The cross-account sharing details for an endpoint that this account owns and shares with other accounts.</p>
+ * @public
+ */
+export interface OwnedResourceShareDetails {
+  /**
+   * <p>The sharing state of the endpoint. Valid values include the following:</p> <ul> <li> <p> <code>SHARED</code> – The endpoint is shared with one or more accounts.</p> </li> <li> <p> <code>UNSHARED</code> – The endpoint is not shared with other accounts.</p> </li> </ul>
+   * @public
+   */
+  ShareState: ResourceShareState | undefined;
+}
+
+/**
+ * <p>The cross-account sharing details for an endpoint. Endpoints are shared through Resource Access Manager (RAM). This is a union type, so exactly one of its members is set: <code>owned</code> when this account owns the endpoint and shares it with other accounts, or <code>consumed</code> when this account consumes an endpoint that another account shares. To change how an endpoint is shared, use RAM.</p>
+ * @public
+ */
+export type ResourceShareDetails =
+  | ResourceShareDetails.ConsumedMember
+  | ResourceShareDetails.OwnedMember
+  | ResourceShareDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ResourceShareDetails {
+  /**
+   * <p>The sharing details for an endpoint that this account owns and shares with other accounts through RAM.</p>
+   * @public
+   */
+  export interface OwnedMember {
+    Owned: OwnedResourceShareDetails;
+    Consumed?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The sharing details for an endpoint that another account shares with this account through RAM.</p>
+   * @public
+   */
+  export interface ConsumedMember {
+    Owned?: never;
+    Consumed: ConsumedResourceShareDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Owned?: never;
+    Consumed?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Owned: (value: OwnedResourceShareDetails) => T;
+    Consumed: (value: ConsumedResourceShareDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The details of a destination endpoint in MediaConnect, including its configuration, state, and connection details.</p>
+ * @public
+ */
+export interface DestinationEndpoint {
+  /**
+   * <p>The name of the destination endpoint.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination endpoint.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the destination endpoint.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The description of the destination endpoint.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The name of the Amazon Web Services Region in which the destination endpoint is located.</p>
+   * @public
+   */
+  RegionName: string | undefined;
+
+  /**
+   * <p>The Availability Zone in which the destination endpoint is located.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone in which the destination endpoint is located.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The date and time when the destination endpoint was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the destination endpoint was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+
+  /**
+   * <p>The entity that manages the lifecycle of the destination endpoint.</p>
+   * @public
+   */
+  LifecycleManagement: EndpointLifecycle | undefined;
+
+  /**
+   * <p>The status messages for the destination endpoint.</p>
+   * @public
+   */
+  Messages: DestinationEndpointMessage[] | undefined;
+
+  /**
+   * <p>The type of the destination endpoint. Valid values include the following:</p> <ul> <li> <p> <code>STANDARD</code> – A destination endpoint that represents an external destination over a standard protocol, such as RTP, RIST, or SRT.</p> </li> <li> <p> <code>ROUTER_INPUT</code> – A destination endpoint that represents a router input.</p> </li> </ul>
+   * @public
+   */
+  DestinationType: DestinationEndpointType | undefined;
+
+  /**
+   * <p>The configuration settings for the destination endpoint.</p>
+   * @public
+   */
+  Configuration: DestinationEndpointConfiguration | undefined;
+
+  /**
+   * <p>Indicates whether this account owns the destination endpoint or consumes it from another account through RAM.</p>
+   * @public
+   */
+  ResourceShareOwnership: ResourceShareOwnership | undefined;
+
+  /**
+   * <p>The cross-account sharing details for an endpoint. Endpoints are shared through Resource Access Manager (RAM). This is a union type, so exactly one of its members is set: <code>owned</code> when this account owns the endpoint and shares it with other accounts, or <code>consumed</code> when this account consumes an endpoint that another account shares. To change how an endpoint is shared, use RAM.</p>
+   * @public
+   */
+  ResourceShareDetails: ResourceShareDetails | undefined;
+
+  /**
+   * <p>The registration state of the destination endpoint. Valid values include the following:</p> <ul> <li> <p> <code>REGISTERED</code> – The destination endpoint is registered and ready to use.</p> </li> <li> <p> <code>REGISTERING</code> – MediaConnect is registering the destination endpoint.</p> </li> <li> <p> <code>DEREGISTERING</code> – MediaConnect is deregistering the destination endpoint.</p> </li> <li> <p> <code>REGISTRATION_FAILED</code> – MediaConnect couldn't register the destination endpoint.</p> </li> </ul>
+   * @public
+   */
+  RegistrationState: DestinationEndpointRegistrationState | undefined;
+
+  /**
+   * <p>The connection details for the destination endpoint.</p>
+   * @public
+   */
+  ConnectionDetails?: DestinationEndpointConnectionDetails | undefined;
+
+  /**
+   * <p>The connection state of the destination endpoint. Valid values include the following:</p> <ul> <li> <p> <code>CONNECTED</code> – The destination endpoint is connected to a source endpoint.</p> </li> <li> <p> <code>DISCONNECTED</code> – The destination endpoint isn't connected to a source endpoint.</p> </li> <li> <p> <code>CONNECTING</code> – The destination endpoint is connecting to a source endpoint.</p> </li> <li> <p> <code>DISCONNECTING</code> – The destination endpoint is disconnecting from a source endpoint.</p> </li> </ul>
+   * @public
+   */
+  ConnectionState: DestinationEndpointConnectionState | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source endpoint that is connected to the destination endpoint.</p>
+   * @public
+   */
+  ConnectedSource?: string | undefined;
+
+  /**
+   * <p>The type of decryption used for the destination endpoint connection.</p>
+   * @public
+   */
+  DecryptionType?: EndpointEncryptionType | undefined;
+
+  /**
+   * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+   * @public
+   */
+  DecryptionConfiguration?: EndpointEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The details of the resource that is associated with the destination endpoint.</p>
+   * @public
+   */
+  AssociatedResourceDetails: DestinationEndpointAssociatedResourceDetails | undefined;
+
+  /**
+   * <p>The tags associated with the destination endpoint. Each tag is a key-value pair.</p>
+   * @public
+   */
+  Tags: Record<string, string> | undefined;
+}
+
+/**
+ * <p>An error for a destination endpoint that MediaConnect couldn't retrieve in a <code>BatchGetDestinationEndpoint</code> request.</p>
+ * @public
+ */
+export interface BatchGetDestinationEndpointError {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination endpoint that MediaConnect couldn't retrieve.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>A description of the error.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetDestinationEndpointResponse {
+  /**
+   * <p>The destination endpoints that MediaConnect successfully retrieved.</p>
+   * @public
+   */
+  DestinationEndpoints: DestinationEndpoint[] | undefined;
+
+  /**
+   * <p>The errors for any destination endpoints that MediaConnect couldn't retrieve.</p>
+   * @public
+   */
+  Errors: BatchGetDestinationEndpointError[] | undefined;
+}
+
+/**
  * @public
  */
 export interface BatchGetRouterInputRequest {
@@ -2934,6 +3934,30 @@ export interface BatchGetRouterInputError {
    * @public
    */
   Message: string | undefined;
+}
+
+/**
+ * <p>Configuration settings for a router input that is represented by a destination endpoint.</p>
+ * @public
+ */
+export interface DestinationEndpointRouterInputConfiguration {
+  /**
+   * <p>The entity that manages the lifecycle of the associated destination endpoint. Valid values include the following:</p> <ul> <li> <p> <code>MANAGED</code> – MediaConnect manages the lifecycle of the associated destination endpoint.</p> </li> <li> <p> <code>UNMANAGED</code> – You manage the lifecycle of the associated destination endpoint.</p> </li> </ul>
+   * @public
+   */
+  EndpointLifecycleManagement: EndpointLifecycle | undefined;
+
+  /**
+   * <p>The type of transit decryption applied to the source content that this router input receives. Valid values include the following:</p> <ul> <li> <p> <code>SECRETS_MANAGER</code> – The decryption key or passphrase is stored in Secrets Manager.</p> </li> <li> <p> <code>AUTOMATIC</code> – MediaConnect determines the decryption key when the endpoint connects.</p> </li> </ul>
+   * @public
+   */
+  SourceTransitDecryptionType?: EndpointEncryptionType | undefined;
+
+  /**
+   * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+   * @public
+   */
+  SourceTransitDecryption: EndpointEncryptionConfiguration | undefined;
 }
 
 /**
@@ -3479,6 +4503,7 @@ export interface StandardRouterInputConfiguration {
  * @public
  */
 export type RouterInputConfiguration =
+  | RouterInputConfiguration.DestinationEndpointMember
   | RouterInputConfiguration.FailoverMember
   | RouterInputConfiguration.MediaConnectFlowMember
   | RouterInputConfiguration.MediaLiveChannelMember
@@ -3491,10 +4516,25 @@ export type RouterInputConfiguration =
  */
 export namespace RouterInputConfiguration {
   /**
+   * <p>Configuration settings for a router input that is represented by a destination endpoint.</p>
+   * @public
+   */
+  export interface DestinationEndpointMember {
+    DestinationEndpoint: DestinationEndpointRouterInputConfiguration;
+    Standard?: never;
+    MediaLiveChannel?: never;
+    Failover?: never;
+    MediaConnectFlow?: never;
+    Merge?: never;
+    $unknown?: never;
+  }
+
+  /**
    * <p>The configuration settings for a standard router input, including the protocol, protocol-specific configuration, network interface, and availability zone.</p>
    * @public
    */
   export interface StandardMember {
+    DestinationEndpoint?: never;
     Standard: StandardRouterInputConfiguration;
     MediaLiveChannel?: never;
     Failover?: never;
@@ -3508,6 +4548,7 @@ export namespace RouterInputConfiguration {
    * @public
    */
   export interface MediaLiveChannelMember {
+    DestinationEndpoint?: never;
     Standard?: never;
     MediaLiveChannel: MediaLiveChannelRouterInputConfiguration;
     Failover?: never;
@@ -3521,6 +4562,7 @@ export namespace RouterInputConfiguration {
    * @public
    */
   export interface FailoverMember {
+    DestinationEndpoint?: never;
     Standard?: never;
     MediaLiveChannel?: never;
     Failover: FailoverRouterInputConfiguration;
@@ -3534,6 +4576,7 @@ export namespace RouterInputConfiguration {
    * @public
    */
   export interface MediaConnectFlowMember {
+    DestinationEndpoint?: never;
     Standard?: never;
     MediaLiveChannel?: never;
     Failover?: never;
@@ -3547,6 +4590,7 @@ export namespace RouterInputConfiguration {
    * @public
    */
   export interface MergeMember {
+    DestinationEndpoint?: never;
     Standard?: never;
     MediaLiveChannel?: never;
     Failover?: never;
@@ -3559,6 +4603,7 @@ export namespace RouterInputConfiguration {
    * @public
    */
   export interface $UnknownMember {
+    DestinationEndpoint?: never;
     Standard?: never;
     MediaLiveChannel?: never;
     Failover?: never;
@@ -3572,6 +4617,7 @@ export namespace RouterInputConfiguration {
    *
    */
   export interface Visitor<T> {
+    DestinationEndpoint: (value: DestinationEndpointRouterInputConfiguration) => T;
     Standard: (value: StandardRouterInputConfiguration) => T;
     MediaLiveChannel: (value: MediaLiveChannelRouterInputConfiguration) => T;
     Failover: (value: FailoverRouterInputConfiguration) => T;
@@ -3839,22 +4885,10 @@ export namespace MaintenanceSchedule {
 }
 
 /**
- * <p>A message associated with a router input, including a code and a message.</p>
+ * <p>Configuration details for a router input stream that is represented by a destination endpoint.</p>
  * @public
  */
-export interface RouterInputMessage {
-  /**
-   * <p>The code associated with the router input message.</p>
-   * @public
-   */
-  Code: string | undefined;
-
-  /**
-   * <p>The message text associated with the router input message.</p>
-   * @public
-   */
-  Message: string | undefined;
-}
+export interface DestinationEndpointRouterInputStreamDetails {}
 
 /**
  * <p>Configuration details for an indexed stream in a failover router input setup.</p>
@@ -3957,6 +4991,7 @@ export interface StandardRouterInputStreamDetails {
  * @public
  */
 export type RouterInputStreamDetails =
+  | RouterInputStreamDetails.DestinationEndpointMember
   | RouterInputStreamDetails.FailoverMember
   | RouterInputStreamDetails.MediaConnectFlowMember
   | RouterInputStreamDetails.MediaLiveChannelMember
@@ -3969,10 +5004,25 @@ export type RouterInputStreamDetails =
  */
 export namespace RouterInputStreamDetails {
   /**
+   * <p>Configuration details for a router input stream that is represented by a destination endpoint.</p>
+   * @public
+   */
+  export interface DestinationEndpointMember {
+    DestinationEndpoint: DestinationEndpointRouterInputStreamDetails;
+    Standard?: never;
+    MediaLiveChannel?: never;
+    Failover?: never;
+    MediaConnectFlow?: never;
+    Merge?: never;
+    $unknown?: never;
+  }
+
+  /**
    * <p>Configuration details for a standard router input stream type.</p>
    * @public
    */
   export interface StandardMember {
+    DestinationEndpoint?: never;
     Standard: StandardRouterInputStreamDetails;
     MediaLiveChannel?: never;
     Failover?: never;
@@ -3986,6 +5036,7 @@ export namespace RouterInputStreamDetails {
    * @public
    */
   export interface MediaLiveChannelMember {
+    DestinationEndpoint?: never;
     Standard?: never;
     MediaLiveChannel: MediaLiveChannelRouterInputStreamDetails;
     Failover?: never;
@@ -3999,6 +5050,7 @@ export namespace RouterInputStreamDetails {
    * @public
    */
   export interface FailoverMember {
+    DestinationEndpoint?: never;
     Standard?: never;
     MediaLiveChannel?: never;
     Failover: FailoverRouterInputStreamDetails;
@@ -4012,6 +5064,7 @@ export namespace RouterInputStreamDetails {
    * @public
    */
   export interface MediaConnectFlowMember {
+    DestinationEndpoint?: never;
     Standard?: never;
     MediaLiveChannel?: never;
     Failover?: never;
@@ -4025,6 +5078,7 @@ export namespace RouterInputStreamDetails {
    * @public
    */
   export interface MergeMember {
+    DestinationEndpoint?: never;
     Standard?: never;
     MediaLiveChannel?: never;
     Failover?: never;
@@ -4037,6 +5091,7 @@ export namespace RouterInputStreamDetails {
    * @public
    */
   export interface $UnknownMember {
+    DestinationEndpoint?: never;
     Standard?: never;
     MediaLiveChannel?: never;
     Failover?: never;
@@ -4050,6 +5105,7 @@ export namespace RouterInputStreamDetails {
    *
    */
   export interface Visitor<T> {
+    DestinationEndpoint: (value: DestinationEndpointRouterInputStreamDetails) => T;
     Standard: (value: StandardRouterInputStreamDetails) => T;
     MediaLiveChannel: (value: MediaLiveChannelRouterInputStreamDetails) => T;
     Failover: (value: FailoverRouterInputStreamDetails) => T;
@@ -4290,6 +5346,12 @@ export interface RouterInput {
    * @public
    */
   ContentQualityAnalysisConfiguration: RouterContentQualityAnalysisConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of one or more destination endpoints that are associated with this router input.</p>
+   * @public
+   */
+  AssociatedDestinationEndpointArns?: string[] | undefined;
 }
 
 /**
@@ -4615,6 +5677,30 @@ export interface MediaLiveInputRouterOutputConfiguration {
    * @public
    */
   DestinationTransitEncryption: MediaLiveTransitEncryption | undefined;
+}
+
+/**
+ * <p>Configuration settings for a router output that is represented by a source endpoint.</p>
+ * @public
+ */
+export interface SourceEndpointRouterOutputConfiguration {
+  /**
+   * <p>The entity that manages the lifecycle of the associated source endpoint. Valid values include the following:</p> <ul> <li> <p> <code>MANAGED</code> – MediaConnect manages the lifecycle of the associated source endpoint.</p> </li> <li> <p> <code>UNMANAGED</code> – You manage the lifecycle of the associated source endpoint.</p> </li> </ul>
+   * @public
+   */
+  EndpointLifecycleManagement: EndpointLifecycle | undefined;
+
+  /**
+   * <p>The type of transit encryption applied to the destination content that this router output sends. Valid values include the following:</p> <ul> <li> <p> <code>SECRETS_MANAGER</code> – The encryption key or passphrase is stored in Secrets Manager.</p> </li> <li> <p> <code>AUTOMATIC</code> – MediaConnect determines the encryption key when the endpoint connects.</p> </li> </ul>
+   * @public
+   */
+  DestinationTransitEncryptionType?: EndpointEncryptionType | undefined;
+
+  /**
+   * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+   * @public
+   */
+  DestinationTransitEncryption: EndpointEncryptionConfiguration | undefined;
 }
 
 /**
@@ -4968,6 +6054,7 @@ export interface StandardRouterOutputConfiguration {
 export type RouterOutputConfiguration =
   | RouterOutputConfiguration.MediaConnectFlowMember
   | RouterOutputConfiguration.MediaLiveInputMember
+  | RouterOutputConfiguration.SourceEndpointMember
   | RouterOutputConfiguration.StandardMember
   | RouterOutputConfiguration.$UnknownMember;
 
@@ -4983,6 +6070,7 @@ export namespace RouterOutputConfiguration {
     Standard: StandardRouterOutputConfiguration;
     MediaConnectFlow?: never;
     MediaLiveInput?: never;
+    SourceEndpoint?: never;
     $unknown?: never;
   }
 
@@ -4994,6 +6082,7 @@ export namespace RouterOutputConfiguration {
     Standard?: never;
     MediaConnectFlow: MediaConnectFlowRouterOutputConfiguration;
     MediaLiveInput?: never;
+    SourceEndpoint?: never;
     $unknown?: never;
   }
 
@@ -5005,6 +6094,19 @@ export namespace RouterOutputConfiguration {
     Standard?: never;
     MediaConnectFlow?: never;
     MediaLiveInput: MediaLiveInputRouterOutputConfiguration;
+    SourceEndpoint?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration settings for a router output that is represented by a source endpoint.</p>
+   * @public
+   */
+  export interface SourceEndpointMember {
+    Standard?: never;
+    MediaConnectFlow?: never;
+    MediaLiveInput?: never;
+    SourceEndpoint: SourceEndpointRouterOutputConfiguration;
     $unknown?: never;
   }
 
@@ -5015,6 +6117,7 @@ export namespace RouterOutputConfiguration {
     Standard?: never;
     MediaConnectFlow?: never;
     MediaLiveInput?: never;
+    SourceEndpoint?: never;
     $unknown: [string, any];
   }
 
@@ -5026,6 +6129,7 @@ export namespace RouterOutputConfiguration {
     Standard: (value: StandardRouterOutputConfiguration) => T;
     MediaConnectFlow: (value: MediaConnectFlowRouterOutputConfiguration) => T;
     MediaLiveInput: (value: MediaLiveInputRouterOutputConfiguration) => T;
+    SourceEndpoint: (value: SourceEndpointRouterOutputConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -5073,6 +6177,12 @@ export interface MediaConnectFlowRouterOutputStreamDetails {}
 export interface MediaLiveInputRouterOutputStreamDetails {}
 
 /**
+ * <p>Configuration details for a router output stream that is represented by a source endpoint.</p>
+ * @public
+ */
+export interface SourceEndpointRouterOutputStreamDetails {}
+
+/**
  * <p>Configuration details for a standard router output stream type. Contains information about the destination IP address and connection state for basic output routing.</p>
  * @public
  */
@@ -5091,6 +6201,7 @@ export interface StandardRouterOutputStreamDetails {
 export type RouterOutputStreamDetails =
   | RouterOutputStreamDetails.MediaConnectFlowMember
   | RouterOutputStreamDetails.MediaLiveInputMember
+  | RouterOutputStreamDetails.SourceEndpointMember
   | RouterOutputStreamDetails.StandardMember
   | RouterOutputStreamDetails.$UnknownMember;
 
@@ -5106,6 +6217,7 @@ export namespace RouterOutputStreamDetails {
     Standard: StandardRouterOutputStreamDetails;
     MediaConnectFlow?: never;
     MediaLiveInput?: never;
+    SourceEndpoint?: never;
     $unknown?: never;
   }
 
@@ -5117,6 +6229,7 @@ export namespace RouterOutputStreamDetails {
     Standard?: never;
     MediaConnectFlow: MediaConnectFlowRouterOutputStreamDetails;
     MediaLiveInput?: never;
+    SourceEndpoint?: never;
     $unknown?: never;
   }
 
@@ -5128,6 +6241,19 @@ export namespace RouterOutputStreamDetails {
     Standard?: never;
     MediaConnectFlow?: never;
     MediaLiveInput: MediaLiveInputRouterOutputStreamDetails;
+    SourceEndpoint?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration details for a router output stream that is represented by a source endpoint.</p>
+   * @public
+   */
+  export interface SourceEndpointMember {
+    Standard?: never;
+    MediaConnectFlow?: never;
+    MediaLiveInput?: never;
+    SourceEndpoint: SourceEndpointRouterOutputStreamDetails;
     $unknown?: never;
   }
 
@@ -5138,6 +6264,7 @@ export namespace RouterOutputStreamDetails {
     Standard?: never;
     MediaConnectFlow?: never;
     MediaLiveInput?: never;
+    SourceEndpoint?: never;
     $unknown: [string, any];
   }
 
@@ -5149,6 +6276,7 @@ export namespace RouterOutputStreamDetails {
     Standard: (value: StandardRouterOutputStreamDetails) => T;
     MediaConnectFlow: (value: MediaConnectFlowRouterOutputStreamDetails) => T;
     MediaLiveInput: (value: MediaLiveInputRouterOutputStreamDetails) => T;
+    SourceEndpoint: (value: SourceEndpointRouterOutputStreamDetails) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -5301,6 +6429,12 @@ export interface RouterOutput {
    * @public
    */
   FabricConfiguration: FabricConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of one or more source endpoints that are associated with this router output.</p>
+   * @public
+   */
+  AssociatedSourceEndpointArns?: string[] | undefined;
 }
 
 /**
@@ -5318,6 +6452,801 @@ export interface BatchGetRouterOutputResponse {
    * @public
    */
   Errors: BatchGetRouterOutputError[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetSourceEndpointRequest {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of one or more source endpoints to retrieve. You can specify from 1 to 20 ARNs.</p>
+   * @public
+   */
+  Arns: string[] | undefined;
+}
+
+/**
+ * <p>An error for a source endpoint that MediaConnect couldn't retrieve in a <code>BatchGetSourceEndpoint</code> request.</p>
+ * @public
+ */
+export interface BatchGetSourceEndpointError {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source endpoint that MediaConnect couldn't retrieve.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>A description of the error.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * <p>The details of the router output that is associated with a source endpoint.</p>
+ * @public
+ */
+export interface RouterOutputSourceEndpointAssociatedResourceDetails {
+  /**
+   * <p>The name of the router output.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The maximum bitrate of the router output, in bits per second.</p>
+   * @public
+   */
+  MaximumBitrate: number | undefined;
+
+  /**
+   * <p>The state of the router output.</p>
+   * @public
+   */
+  State: RouterOutputState | undefined;
+
+  /**
+   * <p>The status messages for the router output.</p>
+   * @public
+   */
+  Messages: RouterOutputMessage[] | undefined;
+}
+
+/**
+ * <p>The associated resource details for a standard source endpoint. This type does not require any additional settings.</p>
+ * @public
+ */
+export interface StandardSourceEndpointAssociatedResourceDetails {}
+
+/**
+ * <p>The details of the resource that is associated with a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.</p>
+ * @public
+ */
+export type SourceEndpointAssociatedResourceDetails =
+  | SourceEndpointAssociatedResourceDetails.RouterOutputMember
+  | SourceEndpointAssociatedResourceDetails.StandardMember
+  | SourceEndpointAssociatedResourceDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SourceEndpointAssociatedResourceDetails {
+  /**
+   * <p>The associated resource details for a standard source endpoint.</p>
+   * @public
+   */
+  export interface StandardMember {
+    Standard: StandardSourceEndpointAssociatedResourceDetails;
+    RouterOutput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The associated resource details for a source endpoint that represents a router output.</p>
+   * @public
+   */
+  export interface RouterOutputMember {
+    Standard?: never;
+    RouterOutput: RouterOutputSourceEndpointAssociatedResourceDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Standard?: never;
+    RouterOutput?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Standard: (value: StandardSourceEndpointAssociatedResourceDetails) => T;
+    RouterOutput: (value: RouterOutputSourceEndpointAssociatedResourceDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The configuration settings for a source endpoint that represents a router output.</p>
+ * @public
+ */
+export interface RouterOutputSourceEndpointConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router output that the source endpoint represents.</p>
+   * @public
+   */
+  RouterOutputArn: string | undefined;
+}
+
+/**
+ * <p>The configuration settings for a source endpoint that uses the RIST protocol.</p>
+ * @public
+ */
+export interface RistStandardSourceEndpointConfiguration {
+  /**
+   * <p>The port on the destination that receives the content. The valid range is 3000 to 30000.</p>
+   * @public
+   */
+  DestinationIngestPort: number | undefined;
+
+  /**
+   * <p>The amount of time, in milliseconds, that the source endpoint allows for recovering lost packets. The valid range is 10 to 10000.</p>
+   * @public
+   */
+  RecoveryLatencyMilliseconds: number | undefined;
+}
+
+/**
+ * <p>The configuration settings for a source endpoint that uses the RTP protocol.</p>
+ * @public
+ */
+export interface RtpStandardSourceEndpointConfiguration {
+  /**
+   * <p>The port on the destination that receives the content. The valid range is 3000 to 30000.</p>
+   * @public
+   */
+  DestinationIngestPort: number | undefined;
+
+  /**
+   * <p>Indicates whether forward error correction (FEC) is enabled for the source endpoint.</p>
+   * @public
+   */
+  ForwardErrorCorrectionState: ForwardErrorCorrectionState | undefined;
+}
+
+/**
+ * <p>The configuration settings for a source endpoint that uses SRT in caller mode.</p>
+ * @public
+ */
+export interface SrtCallerStandardSourceEndpointConfiguration {
+  /**
+   * <p>The port on which the destination listens for the connection. The valid range is 3000 to 30000.</p>
+   * @public
+   */
+  DestinationIngestPort: number | undefined;
+
+  /**
+   * <p>The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.</p>
+   * @public
+   */
+  MinimumLatencyMilliseconds: number | undefined;
+
+  /**
+   * <p>The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.</p>
+   * @public
+   */
+  EncryptionPassphrase?: EndpointEncryptionSecretConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration settings for a source endpoint that uses SRT in listener mode.</p>
+ * @public
+ */
+export interface SrtListenerStandardSourceEndpointConfiguration {
+  /**
+   * <p>The port that the source endpoint listens on for incoming connections. The valid range is 1024 to 65535.</p>
+   * @public
+   */
+  SourceListenerPort: number | undefined;
+
+  /**
+   * <p>The IP address that the source endpoint listens on for incoming connections.</p>
+   * @public
+   */
+  SourceAddress: string | undefined;
+
+  /**
+   * <p>The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.</p>
+   * @public
+   */
+  MinimumLatencyMilliseconds: number | undefined;
+
+  /**
+   * <p>The stream ID that identifies the content for the SRT connection.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
+
+  /**
+   * <p>The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.</p>
+   * @public
+   */
+  EncryptionPassphrase?: EndpointEncryptionSecretConfiguration | undefined;
+}
+
+/**
+ * <p>The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.</p>
+ * @public
+ */
+export type StandardSourceEndpointProtocolConfiguration =
+  | StandardSourceEndpointProtocolConfiguration.RistMember
+  | StandardSourceEndpointProtocolConfiguration.RtpMember
+  | StandardSourceEndpointProtocolConfiguration.SrtCallerMember
+  | StandardSourceEndpointProtocolConfiguration.SrtListenerMember
+  | StandardSourceEndpointProtocolConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace StandardSourceEndpointProtocolConfiguration {
+  /**
+   * <p>The configuration settings for a source endpoint that uses the RIST protocol.</p>
+   * @public
+   */
+  export interface RistMember {
+    Rist: RistStandardSourceEndpointConfiguration;
+    SrtListener?: never;
+    SrtCaller?: never;
+    Rtp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a source endpoint that uses SRT in listener mode.</p>
+   * @public
+   */
+  export interface SrtListenerMember {
+    Rist?: never;
+    SrtListener: SrtListenerStandardSourceEndpointConfiguration;
+    SrtCaller?: never;
+    Rtp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a source endpoint that uses SRT in caller mode.</p>
+   * @public
+   */
+  export interface SrtCallerMember {
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller: SrtCallerStandardSourceEndpointConfiguration;
+    Rtp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a source endpoint that uses the RTP protocol.</p>
+   * @public
+   */
+  export interface RtpMember {
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller?: never;
+    Rtp: RtpStandardSourceEndpointConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller?: never;
+    Rtp?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Rist: (value: RistStandardSourceEndpointConfiguration) => T;
+    SrtListener: (value: SrtListenerStandardSourceEndpointConfiguration) => T;
+    SrtCaller: (value: SrtCallerStandardSourceEndpointConfiguration) => T;
+    Rtp: (value: RtpStandardSourceEndpointConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A rule that allows a specific CIDR block to connect to the public source endpoint.</p>
+ * @public
+ */
+export interface PublicSourceEndpointNetworkingConfigurationAllowRule {
+  /**
+   * <p>The CIDR block that is allowed to connect to the source endpoint, in CIDR notation.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+}
+
+/**
+ * <p>The networking configuration for a publicly accessible source endpoint, including the CIDR blocks that are allowed to connect.</p>
+ * @public
+ */
+export interface PublicSourceEndpointNetworkingConfiguration {
+  /**
+   * <p>The rules that specify which CIDR blocks can connect to the source endpoint. You can specify up to 10 rules.</p>
+   * @public
+   */
+  SourceAllowRules: PublicSourceEndpointNetworkingConfigurationAllowRule[] | undefined;
+}
+
+/**
+ * <p>The networking configuration for a source endpoint in a virtual private cloud (VPC).</p>
+ * @public
+ */
+export interface VpcSourceEndpointNetworkingConfiguration {
+  /**
+   * <p>The IDs of the security groups to associate with the source endpoint. You can specify from 1 to 5 security groups.</p>
+   * @public
+   */
+  SecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>The ID of the subnet to use for the source endpoint.</p>
+   * @public
+   */
+  SubnetId: string | undefined;
+}
+
+/**
+ * <p>The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: <code>public</code> for a publicly accessible endpoint, or <code>vpc</code> for an endpoint in a virtual private cloud (VPC).</p>
+ * @public
+ */
+export type StandardSourceEndpointNetworkingConfiguration =
+  | StandardSourceEndpointNetworkingConfiguration.PublicMember
+  | StandardSourceEndpointNetworkingConfiguration.VpcMember
+  | StandardSourceEndpointNetworkingConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace StandardSourceEndpointNetworkingConfiguration {
+  /**
+   * <p>The configuration for a publicly accessible source endpoint.</p>
+   * @public
+   */
+  export interface PublicMember {
+    Public: PublicSourceEndpointNetworkingConfiguration;
+    Vpc?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for a source endpoint in a virtual private cloud (VPC).</p>
+   * @public
+   */
+  export interface VpcMember {
+    Public?: never;
+    Vpc: VpcSourceEndpointNetworkingConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Public?: never;
+    Vpc?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Public: (value: PublicSourceEndpointNetworkingConfiguration) => T;
+    Vpc: (value: VpcSourceEndpointNetworkingConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The configuration settings for a standard source endpoint.</p>
+ * @public
+ */
+export interface StandardSourceEndpointConfiguration {
+  /**
+   * <p>The name of the source endpoint.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The networking configuration for the source endpoint, which determines whether it is publicly accessible or in a virtual private cloud (VPC).</p>
+   * @public
+   */
+  SourceNetworkingConfiguration: StandardSourceEndpointNetworkingConfiguration | undefined;
+
+  /**
+   * <p>The protocol configuration for the source endpoint.</p>
+   * @public
+   */
+  ProtocolConfiguration: StandardSourceEndpointProtocolConfiguration | undefined;
+
+  /**
+   * <p>The networking type of the source endpoint. Valid values include the following:</p> <ul> <li> <p> <code>PUBLIC</code> – The source endpoint is publicly accessible.</p> </li> <li> <p> <code>VPC</code> – The source endpoint is in a virtual private cloud (VPC).</p> </li> </ul>
+   * @public
+   */
+  SourceNetworkingType?: SourceEndpointNetworkingType | undefined;
+
+  /**
+   * <p>The protocol used by the source endpoint. Valid values include the following:</p> <ul> <li> <p> <code>RTP</code> – Real-time Transport Protocol.</p> </li> <li> <p> <code>RIST</code> – Reliable Internet Stream Transport.</p> </li> <li> <p> <code>SRT_CALLER</code> – Secure Reliable Transport (SRT) in caller mode.</p> </li> <li> <p> <code>SRT_LISTENER</code> – Secure Reliable Transport (SRT) in listener mode.</p> </li> </ul>
+   * @public
+   */
+  Protocol?: SourceEndpointProtocol | undefined;
+}
+
+/**
+ * <p>The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.</p>
+ * @public
+ */
+export type SourceEndpointConfiguration =
+  | SourceEndpointConfiguration.RouterOutputMember
+  | SourceEndpointConfiguration.StandardMember
+  | SourceEndpointConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SourceEndpointConfiguration {
+  /**
+   * <p>The configuration settings for a standard source endpoint, which represents an external source.</p>
+   * @public
+   */
+  export interface StandardMember {
+    Standard: StandardSourceEndpointConfiguration;
+    RouterOutput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a source endpoint that represents a router output.</p>
+   * @public
+   */
+  export interface RouterOutputMember {
+    Standard?: never;
+    RouterOutput: RouterOutputSourceEndpointConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Standard?: never;
+    RouterOutput?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Standard: (value: StandardSourceEndpointConfiguration) => T;
+    RouterOutput: (value: RouterOutputSourceEndpointConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The connection details for a source endpoint that represents a router output.</p>
+ * @public
+ */
+export interface RouterOutputSourceEndpointConnectionDetails {
+  /**
+   * <p>The type of decryption that the destination uses for the connection.</p>
+   * @public
+   */
+  DestinationDecryptionType?: EndpointEncryptionType | undefined;
+
+  /**
+   * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+   * @public
+   */
+  DestinationDecryptionConfiguration?: EndpointEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The type of the connected destination endpoint.</p>
+   * @public
+   */
+  DestinationEndpointType?: DestinationEndpointType | undefined;
+}
+
+/**
+ * <p>The connection details for a standard source endpoint.</p>
+ * @public
+ */
+export interface StandardSourceEndpointConnectionDetails {
+  /**
+   * <p>The IP address of the destination that receives the content.</p>
+   * @public
+   */
+  DestinationIpAddress?: string | undefined;
+
+  /**
+   * <p>The port on the destination that receives the content.</p>
+   * @public
+   */
+  DestinationIngestPort?: number | undefined;
+
+  /**
+   * <p>The type of decryption that the destination uses for the connection.</p>
+   * @public
+   */
+  DestinationDecryptionType?: EndpointEncryptionType | undefined;
+
+  /**
+   * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+   * @public
+   */
+  DestinationDecryptionConfiguration?: EndpointEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The type of the connected destination endpoint.</p>
+   * @public
+   */
+  DestinationEndpointType?: DestinationEndpointType | undefined;
+}
+
+/**
+ * <p>The connection details for a source endpoint. After the source endpoint connects to a destination endpoint, MediaConnect populates these details to describe the connected destination and how the source delivers content to it. This is a union type, so exactly one of its members is set, depending on the source endpoint type.</p>
+ * @public
+ */
+export type SourceEndpointConnectionDetails =
+  | SourceEndpointConnectionDetails.RouterOutputMember
+  | SourceEndpointConnectionDetails.StandardMember
+  | SourceEndpointConnectionDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SourceEndpointConnectionDetails {
+  /**
+   * <p>The connection details for a standard source endpoint.</p>
+   * @public
+   */
+  export interface StandardMember {
+    Standard: StandardSourceEndpointConnectionDetails;
+    RouterOutput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The connection details for a source endpoint that represents a router output.</p>
+   * @public
+   */
+  export interface RouterOutputMember {
+    Standard?: never;
+    RouterOutput: RouterOutputSourceEndpointConnectionDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Standard?: never;
+    RouterOutput?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Standard: (value: StandardSourceEndpointConnectionDetails) => T;
+    RouterOutput: (value: RouterOutputSourceEndpointConnectionDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A status message for a source endpoint.</p>
+ * @public
+ */
+export interface SourceEndpointMessage {
+  /**
+   * <p>The message code.</p>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>The message text.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * <p>The details of a source endpoint in MediaConnect, including its configuration, state, and connection details.</p>
+ * @public
+ */
+export interface SourceEndpoint {
+  /**
+   * <p>The name of the source endpoint.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source endpoint.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the source endpoint.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The description of the source endpoint.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The name of the Amazon Web Services Region in which the source endpoint is located.</p>
+   * @public
+   */
+  RegionName: string | undefined;
+
+  /**
+   * <p>The Availability Zone in which the source endpoint is located.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone in which the source endpoint is located.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The date and time when the source endpoint was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the source endpoint was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+
+  /**
+   * <p>The entity that manages the lifecycle of the source endpoint.</p>
+   * @public
+   */
+  LifecycleManagement: EndpointLifecycle | undefined;
+
+  /**
+   * <p>The status messages for the source endpoint.</p>
+   * @public
+   */
+  Messages: SourceEndpointMessage[] | undefined;
+
+  /**
+   * <p>The type of the source endpoint. Valid values include the following:</p> <ul> <li> <p> <code>STANDARD</code> – A source endpoint that represents an external source over a standard protocol, such as RTP, RIST, or SRT.</p> </li> <li> <p> <code>ROUTER_OUTPUT</code> – A source endpoint that represents a router output.</p> </li> </ul>
+   * @public
+   */
+  SourceType: SourceEndpointType | undefined;
+
+  /**
+   * <p>The configuration settings for the source endpoint.</p>
+   * @public
+   */
+  Configuration: SourceEndpointConfiguration | undefined;
+
+  /**
+   * <p>Indicates whether this account owns the source endpoint or consumes it from another account through RAM.</p>
+   * @public
+   */
+  ResourceShareOwnership: ResourceShareOwnership | undefined;
+
+  /**
+   * <p>The cross-account sharing details for an endpoint. Endpoints are shared through Resource Access Manager (RAM). This is a union type, so exactly one of its members is set: <code>owned</code> when this account owns the endpoint and shares it with other accounts, or <code>consumed</code> when this account consumes an endpoint that another account shares. To change how an endpoint is shared, use RAM.</p>
+   * @public
+   */
+  ResourceShareDetails: ResourceShareDetails | undefined;
+
+  /**
+   * <p>The registration state of the source endpoint. Valid values include the following:</p> <ul> <li> <p> <code>REGISTERED</code> – The source endpoint is registered and ready to use.</p> </li> <li> <p> <code>REGISTERING</code> – MediaConnect is registering the source endpoint.</p> </li> <li> <p> <code>DEREGISTERING</code> – MediaConnect is deregistering the source endpoint.</p> </li> <li> <p> <code>REGISTRATION_FAILED</code> – MediaConnect couldn't register the source endpoint.</p> </li> </ul>
+   * @public
+   */
+  RegistrationState: SourceEndpointRegistrationState | undefined;
+
+  /**
+   * <p>The connection state of the source endpoint. Valid values include the following:</p> <ul> <li> <p> <code>CONNECTED</code> – The source endpoint is connected to a destination endpoint.</p> </li> <li> <p> <code>DISCONNECTED</code> – The source endpoint isn't connected to a destination endpoint.</p> </li> <li> <p> <code>CONNECTING</code> – The source endpoint is connecting to a destination endpoint.</p> </li> <li> <p> <code>DISCONNECTING</code> – The source endpoint is disconnecting from a destination endpoint.</p> </li> </ul>
+   * @public
+   */
+  ConnectionState: SourceEndpointConnectionState | undefined;
+
+  /**
+   * <p>The connection details for the source endpoint.</p>
+   * @public
+   */
+  ConnectionDetails?: SourceEndpointConnectionDetails | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the destination endpoints that are connected to the source endpoint.</p>
+   * @public
+   */
+  ConnectedDestinations: string[] | undefined;
+
+  /**
+   * <p>The type of encryption used for the source endpoint connection.</p>
+   * @public
+   */
+  EncryptionType?: EndpointEncryptionType | undefined;
+
+  /**
+   * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+   * @public
+   */
+  EncryptionConfiguration?: EndpointEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The details of the resource that is associated with the source endpoint.</p>
+   * @public
+   */
+  AssociatedResourceDetails: SourceEndpointAssociatedResourceDetails | undefined;
+
+  /**
+   * <p>The tags associated with the source endpoint. Each tag is a key-value pair.</p>
+   * @public
+   */
+  Tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetSourceEndpointResponse {
+  /**
+   * <p>The source endpoints that MediaConnect successfully retrieved.</p>
+   * @public
+   */
+  SourceEndpoints: SourceEndpoint[] | undefined;
+
+  /**
+   * <p>The errors for any source endpoints that MediaConnect couldn't retrieve.</p>
+   * @public
+   */
+  Errors: BatchGetSourceEndpointError[] | undefined;
 }
 
 /**
@@ -5988,6 +7917,52 @@ export interface UpdateBridgeStateResponse {
    * @public
    */
   DesiredState?: DesiredState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ConnectEndpointsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination endpoint to connect.</p>
+   * @public
+   */
+  DestinationEndpointArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source endpoint to connect.</p>
+   * @public
+   */
+  SourceEndpointArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ConnectEndpointsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connected destination endpoint.</p>
+   * @public
+   */
+  DestinationEndpointArn: string | undefined;
+
+  /**
+   * <p>The name of the connected destination endpoint.</p>
+   * @public
+   */
+  DestinationEndpointName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connected source endpoint.</p>
+   * @public
+   */
+  SourceEndpointArn: string | undefined;
+
+  /**
+   * <p>The name of the connected source endpoint.</p>
+   * @public
+   */
+  SourceEndpointName: string | undefined;
 }
 
 /**
@@ -6729,6 +8704,34 @@ export interface DeleteRouterOutputResponse {
 /**
  * @public
  */
+export interface DeregisterDestinationEndpointRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination endpoint to deregister.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeregisterDestinationEndpointResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination endpoint that was deregistered.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the destination endpoint that was deregistered.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeregisterGatewayInstanceRequest {
   /**
    * <p> Force the deregistration of an instance. Force will deregister an instance, even if there are bridges running on it.</p>
@@ -6758,6 +8761,34 @@ export interface DeregisterGatewayInstanceResponse {
    * @public
    */
   InstanceState?: InstanceState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeregisterSourceEndpointRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source endpoint to deregister.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeregisterSourceEndpointResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source endpoint that was deregistered.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the source endpoint that was deregistered.</p>
+   * @public
+   */
+  Name: string | undefined;
 }
 
 /**
@@ -7104,1841 +9135,4 @@ export interface DescribeReservationResponse {
    * @public
    */
   Reservation?: Reservation | undefined;
-}
-
-/**
- * @public
- */
-export interface GrantFlowEntitlementsRequest {
-  /**
-   * <p> The list of entitlements that you want to grant.</p>
-   * @public
-   */
-  Entitlements: GrantEntitlementRequest[] | undefined;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) of the flow that you want to grant entitlements on.</p>
-   * @public
-   */
-  FlowArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GrantFlowEntitlementsResponse {
-  /**
-   * <p> The entitlements that were just granted.</p>
-   * @public
-   */
-  Entitlements?: Entitlement[] | undefined;
-
-  /**
-   * <p> The ARN of the flow that these entitlements were granted to.</p>
-   * @public
-   */
-  FlowArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFlowsRequest {
-  /**
-   * <p> The maximum number of results to return per API request. </p> <p>For example, you submit a <code>ListFlows</code> request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a <code>NextToken</code> value that you can use to fetch the next batch of results.) </p> <p>The service might return fewer results than the <code>MaxResults</code> value. If <code>MaxResults</code> is not included in the request, the service defaults to pagination with a maximum of 10 results per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p> The token that identifies the batch of results that you want to see. </p> <p>For example, you submit a <code>ListFlows</code> request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the <code>ListFlows</code> request a second time and specify the <code>NextToken</code> value.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFlowsResponse {
-  /**
-   * <p> A list of flow summaries.</p>
-   * @public
-   */
-  Flows?: ListedFlow[] | undefined;
-
-  /**
-   * <p> The token that identifies the batch of results that you want to see. </p> <p>For example, you submit a <code>ListFlows</code> request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the <code>ListFlows</code> request a second time and specify the <code>NextToken</code> value.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveFlowMediaStreamRequest {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the flow that you want to update.</p>
-   * @public
-   */
-  FlowArn: string | undefined;
-
-  /**
-   * <p> The name of the media stream that you want to remove.</p>
-   * @public
-   */
-  MediaStreamName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveFlowMediaStreamResponse {
-  /**
-   * <p> The ARN of the flow that was updated.</p>
-   * @public
-   */
-  FlowArn?: string | undefined;
-
-  /**
-   * <p> The name of the media stream that was removed.</p>
-   * @public
-   */
-  MediaStreamName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveFlowOutputRequest {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the flow that you want to remove an output from.</p>
-   * @public
-   */
-  FlowArn: string | undefined;
-
-  /**
-   * <p> The ARN of the output that you want to remove. </p>
-   * @public
-   */
-  OutputArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveFlowOutputResponse {
-  /**
-   * <p> The ARN of the flow that the output was removed from. </p>
-   * @public
-   */
-  FlowArn?: string | undefined;
-
-  /**
-   * <p> The ARN of the output that was removed. </p>
-   * @public
-   */
-  OutputArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveFlowSourceRequest {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the flow that you want to remove a source from.</p>
-   * @public
-   */
-  FlowArn: string | undefined;
-
-  /**
-   * <p> The ARN of the source that you want to remove.</p>
-   * @public
-   */
-  SourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveFlowSourceResponse {
-  /**
-   * <p> The ARN of the flow that the source was removed from. </p>
-   * @public
-   */
-  FlowArn?: string | undefined;
-
-  /**
-   * <p> The ARN of the source that was removed. </p>
-   * @public
-   */
-  SourceArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveFlowVpcInterfaceRequest {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the flow that you want to remove a VPC interface from.</p>
-   * @public
-   */
-  FlowArn: string | undefined;
-
-  /**
-   * <p> The name of the VPC interface that you want to remove.</p>
-   * @public
-   */
-  VpcInterfaceName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveFlowVpcInterfaceResponse {
-  /**
-   * <p> The ARN of the flow that is associated with the VPC interface you removed.</p>
-   * @public
-   */
-  FlowArn?: string | undefined;
-
-  /**
-   * <p> IDs of network interfaces associated with the removed VPC interface that MediaConnect was unable to remove.</p>
-   * @public
-   */
-  NonDeletedNetworkInterfaceIds?: string[] | undefined;
-
-  /**
-   * <p> The name of the VPC interface that was removed.</p>
-   * @public
-   */
-  VpcInterfaceName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RevokeFlowEntitlementRequest {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the entitlement that you want to revoke.</p>
-   * @public
-   */
-  EntitlementArn: string | undefined;
-
-  /**
-   * <p> The flow that you want to revoke an entitlement from.</p>
-   * @public
-   */
-  FlowArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RevokeFlowEntitlementResponse {
-  /**
-   * <p> The ARN of the entitlement that was revoked.</p>
-   * @public
-   */
-  EntitlementArn?: string | undefined;
-
-  /**
-   * <p> The ARN of the flow that the entitlement was revoked from.</p>
-   * @public
-   */
-  FlowArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartFlowRequest {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the flow that you want to start.</p>
-   * @public
-   */
-  FlowArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartFlowResponse {
-  /**
-   * <p> The ARN of the flow that you started.</p>
-   * @public
-   */
-  FlowArn?: string | undefined;
-
-  /**
-   * <p> The status of the flow when the <code>StartFlow</code> process begins.</p>
-   * @public
-   */
-  Status?: Status | undefined;
-}
-
-/**
- * @public
- */
-export interface StopFlowRequest {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the flow that you want to stop.</p>
-   * @public
-   */
-  FlowArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopFlowResponse {
-  /**
-   * <p> The ARN of the flow that you stopped.</p>
-   * @public
-   */
-  FlowArn?: string | undefined;
-
-  /**
-   * <p> The status of the flow when the <code>StopFlow</code> process begins.</p>
-   * @public
-   */
-  Status?: Status | undefined;
-}
-
-/**
- * <p> Update maintenance setting for a flow.</p>
- * @public
- */
-export interface UpdateMaintenance {
-  /**
-   * <p> A day of a week when the maintenance will happen.</p>
-   * @public
-   */
-  MaintenanceDay?: MaintenanceDay | undefined;
-
-  /**
-   * <p> A scheduled date in ISO UTC format when the maintenance will happen. Use YYYY-MM-DD format. Example: 2021-01-30.</p>
-   * @public
-   */
-  MaintenanceScheduledDate?: string | undefined;
-
-  /**
-   * <p> UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.</p>
-   * @public
-   */
-  MaintenanceStartHour?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFlowRequest {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the flow that you want to update.</p>
-   * @public
-   */
-  FlowArn: string | undefined;
-
-  /**
-   * <p> The settings for source failover. </p>
-   * @public
-   */
-  SourceFailoverConfig?: UpdateFailoverConfig | undefined;
-
-  /**
-   * <p> The maintenance setting of the flow. </p>
-   * @public
-   */
-  Maintenance?: UpdateMaintenance | undefined;
-
-  /**
-   * <p> The settings for source monitoring. </p>
-   * @public
-   */
-  SourceMonitoringConfig?: MonitoringConfig | undefined;
-
-  /**
-   * <p> Specifies the configuration settings for a flow's NDI source or output. Required when the flow includes an NDI source or output. </p>
-   * @public
-   */
-  NdiConfig?: NdiConfig | undefined;
-
-  /**
-   * <p> Determines the processing capacity and feature set of the flow. </p>
-   * @public
-   */
-  FlowSize?: FlowSize | undefined;
-
-  /**
-   * <p> The encoding configuration to apply to the NDI® source when transcoding it to a transport stream for downstream distribution. You can choose between several predefined encoding profiles based on common use cases. </p>
-   * @public
-   */
-  EncodingConfig?: EncodingConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFlowResponse {
-  /**
-   * <p> The updated flow. </p>
-   * @public
-   */
-  Flow?: Flow | undefined;
-}
-
-/**
- * <p> Information about the encryption of the flow.</p>
- * @public
- */
-export interface UpdateEncryption {
-  /**
-   * <p> The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).</p>
-   * @public
-   */
-  Algorithm?: Algorithm | undefined;
-
-  /**
-   * <p> A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.</p>
-   * @public
-   */
-  ConstantInitializationVector?: string | undefined;
-
-  /**
-   * <p> The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
-   * @public
-   */
-  DeviceId?: string | undefined;
-
-  /**
-   * <p> The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).</p>
-   * @public
-   */
-  KeyType?: KeyType | undefined;
-
-  /**
-   * <p> The Amazon Web Services Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
-   * @public
-   */
-  Region?: string | undefined;
-
-  /**
-   * <p> An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption. </p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p> The ARN of the role that you created during setup (when you set up MediaConnect as a trusted entity).</p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p> The ARN of the secret that you created in Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.</p>
-   * @public
-   */
-  SecretArn?: string | undefined;
-
-  /**
-   * <p> The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
-   * @public
-   */
-  Url?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFlowEntitlementRequest {
-  /**
-   * <p> A description of the entitlement. This description appears only on the MediaConnect console and will not be seen by the subscriber or end user.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p> The type of encryption that will be used on the output associated with this entitlement. Allowable encryption types: static-key, speke.</p>
-   * @public
-   */
-  Encryption?: UpdateEncryption | undefined;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) of the entitlement that you want to update.</p>
-   * @public
-   */
-  EntitlementArn: string | undefined;
-
-  /**
-   * <p> An indication of whether you want to enable the entitlement to allow access, or disable it to stop streaming content to the subscriber’s flow temporarily. If you don’t specify the <code>entitlementStatus</code> field in your request, MediaConnect leaves the value unchanged.</p>
-   * @public
-   */
-  EntitlementStatus?: EntitlementStatus | undefined;
-
-  /**
-   * <p> The ARN of the flow that is associated with the entitlement that you want to update.</p>
-   * @public
-   */
-  FlowArn: string | undefined;
-
-  /**
-   * <p> The Amazon Web Services account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.</p>
-   * @public
-   */
-  Subscribers?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFlowEntitlementResponse {
-  /**
-   * <p> The new configuration of the entitlement that you updated.</p>
-   * @public
-   */
-  Entitlement?: Entitlement | undefined;
-
-  /**
-   * <p> The ARN of the flow that this entitlement was granted on.</p>
-   * @public
-   */
-  FlowArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFlowMediaStreamRequest {
-  /**
-   * <p> The attributes that you want to assign to the media stream.</p>
-   * @public
-   */
-  Attributes?: MediaStreamAttributesRequest | undefined;
-
-  /**
-   * <p>The sample rate for the stream. This value in measured in kHz. </p>
-   * @public
-   */
-  ClockRate?: number | undefined;
-
-  /**
-   * <p>A description that can help you quickly identify what your media stream is used for. </p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) of the flow that is associated with the media stream that you updated.</p>
-   * @public
-   */
-  FlowArn: string | undefined;
-
-  /**
-   * <p> The media stream that you updated.</p>
-   * @public
-   */
-  MediaStreamName: string | undefined;
-
-  /**
-   * <p>The type of media stream. </p>
-   * @public
-   */
-  MediaStreamType?: MediaStreamType | undefined;
-
-  /**
-   * <p>The resolution of the video. </p>
-   * @public
-   */
-  VideoFormat?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFlowMediaStreamResponse {
-  /**
-   * <p>The ARN of the flow that is associated with the media stream that you updated. </p>
-   * @public
-   */
-  FlowArn?: string | undefined;
-
-  /**
-   * <p>The media stream that you updated. </p>
-   * @public
-   */
-  MediaStream?: MediaStream | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFlowOutputRequest {
-  /**
-   * <p> The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
-   * @public
-   */
-  CidrAllowList?: string[] | undefined;
-
-  /**
-   * <p> A description of the output. This description appears only on the MediaConnect console and will not be seen by the end user.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p> The IP address where you want to send the output.</p>
-   * @public
-   */
-  Destination?: string | undefined;
-
-  /**
-   * <p> The type of key used for the encryption. If no <code>keyType</code> is provided, the service will use the default setting (static-key). Allowable encryption types: static-key.</p>
-   * @public
-   */
-  Encryption?: UpdateEncryption | undefined;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) of the flow that is associated with the output that you want to update.</p>
-   * @public
-   */
-  FlowArn: string | undefined;
-
-  /**
-   * <p> The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.</p>
-   * @public
-   */
-  MaxLatency?: number | undefined;
-
-  /**
-   * <p> The media streams that are associated with the output, and the parameters for those associations.</p>
-   * @public
-   */
-  MediaStreamOutputConfigurations?: MediaStreamOutputConfigurationRequest[] | undefined;
-
-  /**
-   * <p> The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.</p>
-   * @public
-   */
-  MinLatency?: number | undefined;
-
-  /**
-   * <p> The ARN of the output that you want to update.</p>
-   * @public
-   */
-  OutputArn: string | undefined;
-
-  /**
-   * <p> The port to use when content is distributed to this output.</p>
-   * @public
-   */
-  Port?: number | undefined;
-
-  /**
-   * <p> The protocol to use for the output.</p> <note> <p>Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.</p> </note>
-   * @public
-   */
-  Protocol?: Protocol | undefined;
-
-  /**
-   * <p> The remote ID for the Zixi-pull stream.</p>
-   * @public
-   */
-  RemoteId?: string | undefined;
-
-  /**
-   * <p> The port that the flow uses to send outbound requests to initiate connection with the sender.</p>
-   * @public
-   */
-  SenderControlPort?: number | undefined;
-
-  /**
-   * <p> The IP address that the flow communicates with to initiate connection with the sender.</p>
-   * @public
-   */
-  SenderIpAddress?: string | undefined;
-
-  /**
-   * <p> The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.</p>
-   * @public
-   */
-  SmoothingLatency?: number | undefined;
-
-  /**
-   * <p> The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.</p>
-   * @public
-   */
-  StreamId?: string | undefined;
-
-  /**
-   * <p> The name of the VPC interface attachment to use for this output.</p>
-   * @public
-   */
-  VpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
-
-  /**
-   * <p> An indication of whether the output should transmit data or not. If you don't specify the <code>outputStatus</code> field in your request, MediaConnect leaves the value unchanged.</p>
-   * @public
-   */
-  OutputStatus?: OutputStatus | undefined;
-
-  /**
-   * <p> A suffix for the name of the NDI® sender that the flow creates. If a custom name isn't specified, MediaConnect uses the output name. </p>
-   * @public
-   */
-  NdiProgramName?: string | undefined;
-
-  /**
-   * <p>A quality setting for the NDI Speed HQ encoder. </p>
-   * @public
-   */
-  NdiSpeedHqQuality?: number | undefined;
-
-  /**
-   * <p>Indicates whether to enable or disable router integration for this flow output.</p>
-   * @public
-   */
-  RouterIntegrationState?: State | undefined;
-
-  /**
-   * <p>The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.</p>
-   * @public
-   */
-  RouterIntegrationTransitEncryption?: FlowTransitEncryption | undefined;
-
-  /**
-   * <p>Controls how MediaConnect generates timecodes for NDI output frames. If you don't specify this field, MediaConnect leaves the value unchanged.</p> <ul> <li> <p> <code>EMBEDDED_TIMECODE</code> - Preserves timecodes from the input transport stream. The timecodes must be embedded in the video stream as SEI timing messages. If no embedded timecode is detected, MediaConnect uses the UTC system time instead.</p> </li> <li> <p> <code>UTC_SYSTEM_TIME</code> - Generates timecodes based on the system clock time when each frame is sent.</p> </li> </ul>
-   * @public
-   */
-  NdiOutputTimecodeSource?: NdiOutputTimecodeSource | undefined;
-
-  /**
-   * <p>The audio reference level of the NDI receiver, in decibels relative to full scale (dBFS). Common values are <code>-20</code> (NDI and SMPTE) and <code>-18</code> (EBU). If you don't specify this field, MediaConnect leaves the value unchanged.</p>
-   * @public
-   */
-  NdiAudioReferenceLevel?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFlowOutputResponse {
-  /**
-   * <p> The ARN of the flow that is associated with the updated output.</p>
-   * @public
-   */
-  FlowArn?: string | undefined;
-
-  /**
-   * <p> The new settings of the output that you updated.</p>
-   * @public
-   */
-  Output?: Output | undefined;
-}
-
-/**
- * <p> The source configuration for cloud flows receiving a stream from a bridge.</p>
- * @public
- */
-export interface UpdateGatewayBridgeSourceRequest {
-  /**
-   * <p> The ARN of the bridge feeding this flow.</p>
-   * @public
-   */
-  BridgeArn?: string | undefined;
-
-  /**
-   * <p> The name of the VPC interface attachment to use for this bridge source.</p>
-   * @public
-   */
-  VpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFlowSourceRequest {
-  /**
-   * <p>The type of encryption that is used on the content ingested from the source. </p>
-   * @public
-   */
-  Decryption?: UpdateEncryption | undefined;
-
-  /**
-   * <p>A description of the source. This description is not visible outside of the current Amazon Web Services account. </p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the entitlement that allows you to subscribe to the flow. The entitlement is set by the content originator, and the ARN is generated as part of the originator's flow. </p>
-   * @public
-   */
-  EntitlementArn?: string | undefined;
-
-  /**
-   * <p> The ARN of the flow that you want to update. </p>
-   * @public
-   */
-  FlowArn: string | undefined;
-
-  /**
-   * <p>The port that the flow listens on for incoming content. If the protocol of the source is Zixi, the port must be set to 2088. </p>
-   * @public
-   */
-  IngestPort?: number | undefined;
-
-  /**
-   * <p>The maximum bitrate for RIST, RTP, and RTP-FEC streams. </p>
-   * @public
-   */
-  MaxBitrate?: number | undefined;
-
-  /**
-   * <p>The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams. </p>
-   * @public
-   */
-  MaxLatency?: number | undefined;
-
-  /**
-   * <p>The size of the buffer (in milliseconds) to use to sync incoming source data. </p>
-   * @public
-   */
-  MaxSyncBuffer?: number | undefined;
-
-  /**
-   * <p>The media stream that is associated with the source, and the parameters for that association. </p>
-   * @public
-   */
-  MediaStreamSourceConfigurations?: MediaStreamSourceConfigurationRequest[] | undefined;
-
-  /**
-   * <p>The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency. </p>
-   * @public
-   */
-  MinLatency?: number | undefined;
-
-  /**
-   * <p>The protocol that the source uses to deliver the content to MediaConnect. </p> <note> <p>Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.</p> </note>
-   * @public
-   */
-  Protocol?: Protocol | undefined;
-
-  /**
-   * <p>The port that the flow uses to send outbound requests to initiate connection with the sender. </p>
-   * @public
-   */
-  SenderControlPort?: number | undefined;
-
-  /**
-   * <p>The IP address that the flow communicates with to initiate connection with the sender. </p>
-   * @public
-   */
-  SenderIpAddress?: string | undefined;
-
-  /**
-   * <p>The ARN of the source that you want to update. </p>
-   * @public
-   */
-  SourceArn: string | undefined;
-
-  /**
-   * <p>The source IP or domain name for SRT-caller protocol. </p>
-   * @public
-   */
-  SourceListenerAddress?: string | undefined;
-
-  /**
-   * <p>Source port for SRT-caller protocol. </p>
-   * @public
-   */
-  SourceListenerPort?: number | undefined;
-
-  /**
-   * <p>The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams. </p>
-   * @public
-   */
-  StreamId?: string | undefined;
-
-  /**
-   * <p>The name of the VPC interface that you want to send your output to.</p>
-   * @public
-   */
-  VpcInterfaceName?: string | undefined;
-
-  /**
-   * <p>The range of IP addresses that are allowed to contribute content to your source. Format the IP addresses as a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16. </p>
-   * @public
-   */
-  WhitelistCidr?: string | undefined;
-
-  /**
-   * <p>The source configuration for cloud flows receiving a stream from a bridge. </p>
-   * @public
-   */
-  GatewayBridgeSource?: UpdateGatewayBridgeSourceRequest | undefined;
-
-  /**
-   * <p> The settings for the NDI source. This includes the exact name of the upstream NDI sender that you want to connect to your source. </p>
-   * @public
-   */
-  NdiSourceSettings?: NdiSourceSettings | undefined;
-
-  /**
-   * <p>Indicates whether to enable or disable router integration for this flow source.</p>
-   * @public
-   */
-  RouterIntegrationState?: State | undefined;
-
-  /**
-   * <p>The encryption configuration for the flow source when router integration is enabled.</p>
-   * @public
-   */
-  RouterIntegrationTransitDecryption?: FlowTransitEncryption | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFlowSourceResponse {
-  /**
-   * <p>The ARN of the flow that you updated.</p>
-   * @public
-   */
-  FlowArn?: string | undefined;
-
-  /**
-   * <p>The details of the sources that are assigned to the flow. </p>
-   * @public
-   */
-  Source?: Source | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGatewayInstancesRequest {
-  /**
-   * <p> Filter the list results to display only the instances associated with the selected Gateway ARN.</p>
-   * @public
-   */
-  FilterArn?: string | undefined;
-
-  /**
-   * <p> The maximum number of results to return per API request. </p> <p>For example, you submit a ListInstances request with <code>MaxResults</code> set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a <code>NextToken</code> value that you can use to fetch the next batch of results.) </p> <p>The service might return fewer results than the <code>MaxResults</code> value. If <code>MaxResults</code> is not included in the request, the service defaults to pagination with a maximum of 10 results per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p> The token that identifies the batch of results that you want to see. </p> <p>For example, you submit a <code>ListInstances</code> request with <code>MaxResults</code> set at 5. The service returns the first batch of results (up to 5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the <code>ListInstances</code> request a second time and specify the <code>NextToken</code> value.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGatewayInstancesResponse {
-  /**
-   * <p> A list of instance summaries.</p>
-   * @public
-   */
-  Instances?: ListedGatewayInstance[] | undefined;
-
-  /**
-   * <p> The token that identifies the batch of results that you want to see. </p> <p>For example, you submit a <code>ListInstances</code> request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the <code>ListInstances</code> request a second time and specify the <code>NextToken</code> value.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateGatewayInstanceRequest {
-  /**
-   * <p>The state of the instance. <code>ACTIVE</code> or <code>INACTIVE</code>. </p>
-   * @public
-   */
-  BridgePlacement?: BridgePlacement | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway instance that you want to update. </p>
-   * @public
-   */
-  GatewayInstanceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateGatewayInstanceResponse {
-  /**
-   * <p>The state of the instance. <code>ACTIVE</code> or <code>INACTIVE</code>. </p>
-   * @public
-   */
-  BridgePlacement?: BridgePlacement | undefined;
-
-  /**
-   * <p>The ARN of the instance that was updated. </p>
-   * @public
-   */
-  GatewayInstanceArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGatewaysRequest {
-  /**
-   * <p> The maximum number of results to return per API request. </p> <p>For example, you submit a <code>ListGateways</code> request with <code>MaxResults</code> set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a <code>NextToken</code> value that you can use to fetch the next batch of results.) </p> <p>The service might return fewer results than the <code>MaxResults</code> value. If <code>MaxResults</code> is not included in the request, the service defaults to pagination with a maximum of 10 results per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p> The token that identifies the batch of results that you want to see. </p> <p>For example, you submit a <code>ListGateways</code> request with <code>MaxResults</code> set at 5. The service returns the first batch of results (up to 5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the <code>ListGateways</code> request a second time and specify the <code>NextToken</code> value.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGatewaysResponse {
-  /**
-   * <p> A list of gateway summaries.</p>
-   * @public
-   */
-  Gateways?: ListedGateway[] | undefined;
-
-  /**
-   * <p> The token that identifies the batch of results that you want to see. </p> <p>For example, you submit a <code>ListGateways</code> request with <code>MaxResults</code> set at 5. The service returns the first batch of results (up to 5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the <code>ListGateways</code> request a second time and specify the <code>NextToken</code> value.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRouterInputRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the router input to retrieve information about.</p>
-   * @public
-   */
-  Arn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRouterInputResponse {
-  /**
-   * <p>The details of the requested router input, including its configuration, state, and other attributes.</p>
-   * @public
-   */
-  RouterInput: RouterInput | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRouterInputSourceMetadataRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the router input to retrieve metadata for.</p>
-   * @public
-   */
-  Arn: string | undefined;
-}
-
-/**
- * <p>Metadata information associated with the router input, including stream details and connection state.</p>
- * @public
- */
-export type RouterInputMetadata =
-  | RouterInputMetadata.TransportStreamMediaInfoMember
-  | RouterInputMetadata.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RouterInputMetadata {
-  /**
-   * <p> The metadata of the transport stream in the current flow's source.</p>
-   * @public
-   */
-  export interface TransportStreamMediaInfoMember {
-    TransportStreamMediaInfo: TransportMediaInfo;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    TransportStreamMediaInfo?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    TransportStreamMediaInfo: (value: TransportMediaInfo) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Detailed metadata information about a router input source.</p>
- * @public
- */
-export interface RouterInputSourceMetadataDetails {
-  /**
-   * <p>Collection of metadata messages associated with the router input source.</p>
-   * @public
-   */
-  SourceMetadataMessages: RouterInputMessage[] | undefined;
-
-  /**
-   * <p>The timestamp when the metadata was last updated.</p>
-   * @public
-   */
-  Timestamp: Date | undefined;
-
-  /**
-   * <p>Metadata information specific to the router input configuration and state.</p>
-   * @public
-   */
-  RouterInputMetadata?: RouterInputMetadata | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRouterInputSourceMetadataResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the router input.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The name of the router input.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Detailed metadata information about the router input source, including connection state, timestamps, and stream configuration.</p>
-   * @public
-   */
-  SourceMetadataDetails: RouterInputSourceMetadataDetails | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRouterInputThumbnailRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the router input that you want to see a thumbnail of.</p>
-   * @public
-   */
-  Arn: string | undefined;
-}
-
-/**
- * <p>The details of a thumbnail associated with a router input, including the thumbnail messages, the thumbnail image, the timecode, and the timestamp.</p>
- * @public
- */
-export interface RouterInputThumbnailDetails {
-  /**
-   * <p>The messages associated with the router input thumbnail.</p>
-   * @public
-   */
-  ThumbnailMessages: RouterInputMessage[] | undefined;
-
-  /**
-   * <p>The thumbnail image, encoded as a Base64-encoded binary data object.</p>
-   * @public
-   */
-  Thumbnail?: Uint8Array | undefined;
-
-  /**
-   * <p>The timecode associated with the thumbnail.</p>
-   * @public
-   */
-  Timecode?: string | undefined;
-
-  /**
-   * <p>The timestamp associated with the thumbnail.</p>
-   * @public
-   */
-  Timestamp?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRouterInputThumbnailResponse {
-  /**
-   * <p>The ARN of the router input.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The name of the router input.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The details of the thumbnail associated with the router input, including the thumbnail image, timecode, timestamp, and any associated error messages.</p>
-   * @public
-   */
-  ThumbnailDetails: RouterInputThumbnailDetails | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRouterNetworkInterfaceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the router network interface that you want to retrieve information about.</p>
-   * @public
-   */
-  Arn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRouterNetworkInterfaceResponse {
-  /**
-   * <p>The details of the requested router network interface, including its configuration and other attributes.</p>
-   * @public
-   */
-  RouterNetworkInterface: RouterNetworkInterface | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRouterOutputRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the router output that you want to retrieve information about.</p>
-   * @public
-   */
-  Arn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRouterOutputResponse {
-  /**
-   * <p>The details of the requested router output, including its configuration, state, and other attributes.</p>
-   * @public
-   */
-  RouterOutput: RouterOutput | undefined;
-}
-
-/**
- * <p>A summary of a router input, including its name, type, ARN, ID, state, and other key details. This structure is used in the response of the ListRouterInputs operation.</p>
- * @public
- */
-export interface ListedRouterInput {
-  /**
-   * <p>The name of the router input.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the router input.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the router input.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The type of the router input.</p>
-   * @public
-   */
-  InputType: RouterInputType | undefined;
-
-  /**
-   * <p>The overall state of the router input.</p>
-   * @public
-   */
-  State: RouterInputState | undefined;
-
-  /**
-   * <p>The number of router outputs that are associated with this router input.</p>
-   * @public
-   */
-  RoutedOutputs: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where the router input is located.</p>
-   * @public
-   */
-  RegionName: string | undefined;
-
-  /**
-   * <p>The Availability Zone of the router input.</p>
-   * @public
-   */
-  AvailabilityZone: string | undefined;
-
-  /**
-   * <p>The maximum bitrate of the router input.</p>
-   * @public
-   */
-  MaximumBitrate: number | undefined;
-
-  /**
-   * <p>Indicates whether the router input is configured for Regional or global routing.</p>
-   * @public
-   */
-  RoutingScope: RoutingScope | undefined;
-
-  /**
-   * <p>The timestamp when the router input was created.</p>
-   * @public
-   */
-  CreatedAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the router input was last updated.</p>
-   * @public
-   */
-  UpdatedAt: Date | undefined;
-
-  /**
-   * <p>The number of messages associated with the router input.</p>
-   * @public
-   */
-  MessageCount: number | undefined;
-
-  /**
-   * <p>The ARN of the network interface associated with the router input.</p>
-   * @public
-   */
-  NetworkInterfaceArn?: string | undefined;
-
-  /**
-   * <p>The type of maintenance schedule currently associated with the listed router input.</p>
-   * @public
-   */
-  MaintenanceScheduleType?: MaintenanceScheduleType | undefined;
-
-  /**
-   * <p>The details of the maintenance schedule for the listed router input.</p>
-   * @public
-   */
-  MaintenanceSchedule?: MaintenanceSchedule | undefined;
-}
-
-/**
- * <p>A summary of a router network interface, including its name, type, ARN, ID, associated input/output counts, state, and other key details. This structure is used in the response of the ListRouterNetworkInterfaces operation.</p>
- * @public
- */
-export interface ListedRouterNetworkInterface {
-  /**
-   * <p>The name of the router network interface.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the router network interface.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the router network interface.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The type of the router network interface.</p>
-   * @public
-   */
-  NetworkInterfaceType: RouterNetworkInterfaceType | undefined;
-
-  /**
-   * <p>The number of router outputs associated with the network interface.</p>
-   * @public
-   */
-  AssociatedOutputCount: number | undefined;
-
-  /**
-   * <p>The number of router inputs associated with the network interface.</p>
-   * @public
-   */
-  AssociatedInputCount: number | undefined;
-
-  /**
-   * <p>The current state of the router network interface.</p>
-   * @public
-   */
-  State: RouterNetworkInterfaceState | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where the router network interface is located.</p>
-   * @public
-   */
-  RegionName: string | undefined;
-
-  /**
-   * <p>The timestamp when the network interface was created.</p>
-   * @public
-   */
-  CreatedAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the router network interface was last updated.</p>
-   * @public
-   */
-  UpdatedAt: Date | undefined;
-}
-
-/**
- * <p>A summary of a router output, including its name, type, ARN, ID, state, routed state, and other key details. This structure is used in the response of the ListRouterOutputs operation.</p>
- * @public
- */
-export interface ListedRouterOutput {
-  /**
-   * <p>The name of the router output.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the router output.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the router output.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The type of the router output.</p>
-   * @public
-   */
-  OutputType: RouterOutputType | undefined;
-
-  /**
-   * <p>The overall state of the router output.</p>
-   * @public
-   */
-  State: RouterOutputState | undefined;
-
-  /**
-   * <p>The current state of the association between the router output and its input.</p>
-   * @public
-   */
-  RoutedState: RouterOutputRoutedState | undefined;
-
-  /**
-   * <p>The AAmazon Web Services Region where the router output is located.</p>
-   * @public
-   */
-  RegionName: string | undefined;
-
-  /**
-   * <p>The Availability Zone of the router output.</p>
-   * @public
-   */
-  AvailabilityZone: string | undefined;
-
-  /**
-   * <p>The maximum bitrate of the router output.</p>
-   * @public
-   */
-  MaximumBitrate: number | undefined;
-
-  /**
-   * <p>Indicates whether the router output is configured for Regional or global routing.</p>
-   * @public
-   */
-  RoutingScope: RoutingScope | undefined;
-
-  /**
-   * <p>The timestamp when the router output was created.</p>
-   * @public
-   */
-  CreatedAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the router output was last updated.</p>
-   * @public
-   */
-  UpdatedAt: Date | undefined;
-
-  /**
-   * <p>The number of messages associated with the router output.</p>
-   * @public
-   */
-  MessageCount: number | undefined;
-
-  /**
-   * <p>The ARN of the router input associated with the output.</p>
-   * @public
-   */
-  RoutedInputArn?: string | undefined;
-
-  /**
-   * <p>The ARN of the network interface associated with the router output.</p>
-   * @public
-   */
-  NetworkInterfaceArn?: string | undefined;
-
-  /**
-   * <p>The type of maintenance schedule currently associated with the listed router output.</p>
-   * @public
-   */
-  MaintenanceScheduleType?: MaintenanceScheduleType | undefined;
-
-  /**
-   * <p>The details of the maintenance schedule for the listed router output.</p>
-   * @public
-   */
-  MaintenanceSchedule?: MaintenanceSchedule | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEntitlementsRequest {
-  /**
-   * <p> The maximum number of results to return per API request. </p> <p>For example, you submit a <code>ListEntitlements</code> request with set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) </p> <p>The service might return fewer results than the <code>MaxResults</code> value. If <code>MaxResults</code> is not included in the request, the service defaults to pagination with a maximum of 20 results per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p> The token that identifies the batch of results that you want to see. </p> <p>For example, you submit a <code>ListEntitlements</code> request with <code>MaxResults</code> set at 5. The service returns the first batch of results (up to 5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the <code>ListEntitlements</code> request a second time and specify the <code>NextToken</code> value.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEntitlementsResponse {
-  /**
-   * <p>A list of entitlements that have been granted to you from other Amazon Web Services accounts. </p>
-   * @public
-   */
-  Entitlements?: ListedEntitlement[] | undefined;
-
-  /**
-   * <p>The token that identifies the batch of results that you want to see. </p> <p>For example, you submit a ListEntitlements request with <code>MaxResults</code> set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the <code>ListEntitlements</code> request a second time and specify the <code>NextToken</code> value. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListOfferingsRequest {
-  /**
-   * <p> The maximum number of results to return per API request. </p> <p>For example, you submit a <code>ListOfferings</code> request with <code>MaxResults</code> set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a <code>NextToken</code> value that you can use to fetch the next batch of results.) </p> <p>The service might return fewer results than the <code>MaxResults</code> value. If <code>MaxResults</code> is not included in the request, the service defaults to pagination with a maximum of 10 results per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p> The token that identifies the batch of results that you want to see. </p> <p>For example, you submit a <code>ListOfferings</code> request with <code>MaxResults</code> set at 5. The service returns the first batch of results (up to 5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the <code>ListOfferings</code> request a second time and specify the <code>NextToken</code> value.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListOfferingsResponse {
-  /**
-   * <p> The token that identifies the batch of results that you want to see. </p> <p>For example, you submit a <code>ListOfferings</code> request with <code>MaxResults</code> set at 5. The service returns the first batch of results (up to 5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the <code>ListOfferings</code> request a second time and specify the <code>NextToken</code> value.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p> A list of offerings that are available to this account in the current Amazon Web Services Region.</p>
-   * @public
-   */
-  Offerings?: Offering[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListReservationsRequest {
-  /**
-   * <p> The maximum number of results to return per API request. </p> <p>For example, you submit a <code>ListReservations</code> request with <code>MaxResults</code> set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) </p> <p>The service might return fewer results than the <code>MaxResults</code> value. If <code>MaxResults</code> is not included in the request, the service defaults to pagination with a maximum of 10 results per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p> The token that identifies the batch of results that you want to see. </p> <p>For example, you submit a <code>ListReservations</code> request with <code>MaxResults</code> set at 5. The service returns the first batch of results (up to 5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the <code>ListOfferings</code> request a second time and specify the <code>NextToken</code> value. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListReservationsResponse {
-  /**
-   * <p> The token that identifies the batch of results that you want to see. </p> <p>For example, you submit a <code>ListReservations</code> request with <code>MaxResults</code> set at 5. The service returns the first batch of results (up to 5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the <code>ListReservations</code> request a second time and specify the <code>NextToken</code> value.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p> A list of all reservations that have been purchased by this account in the current Amazon Web Services Region. </p>
-   * @public
-   */
-  Reservations?: Reservation[] | undefined;
-}
-
-/**
- * <p>A filter that can be used to retrieve a list of router inputs.</p>
- * @public
- */
-export type RouterInputFilter =
-  | RouterInputFilter.InputTypesMember
-  | RouterInputFilter.NameContainsMember
-  | RouterInputFilter.NetworkInterfaceArnsMember
-  | RouterInputFilter.RegionNamesMember
-  | RouterInputFilter.RoutingScopesMember
-  | RouterInputFilter.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RouterInputFilter {
-  /**
-   * <p>The names of the router inputs to include in the filter.</p>
-   * @public
-   */
-  export interface NameContainsMember {
-    NameContains: string[];
-    RegionNames?: never;
-    NetworkInterfaceArns?: never;
-    RoutingScopes?: never;
-    InputTypes?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The AWS Regions of the router inputs to include in the filter.</p>
-   * @public
-   */
-  export interface RegionNamesMember {
-    NameContains?: never;
-    RegionNames: string[];
-    NetworkInterfaceArns?: never;
-    RoutingScopes?: never;
-    InputTypes?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the network interfaces associated with the router inputs to include in the filter.</p>
-   * @public
-   */
-  export interface NetworkInterfaceArnsMember {
-    NameContains?: never;
-    RegionNames?: never;
-    NetworkInterfaceArns: string[];
-    RoutingScopes?: never;
-    InputTypes?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Filter criteria to list router inputs based on their routing scope (REGIONAL or GLOBAL).</p>
-   * @public
-   */
-  export interface RoutingScopesMember {
-    NameContains?: never;
-    RegionNames?: never;
-    NetworkInterfaceArns?: never;
-    RoutingScopes: RoutingScope[];
-    InputTypes?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The types of router inputs to include in the filter.</p>
-   * @public
-   */
-  export interface InputTypesMember {
-    NameContains?: never;
-    RegionNames?: never;
-    NetworkInterfaceArns?: never;
-    RoutingScopes?: never;
-    InputTypes: RouterInputType[];
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    NameContains?: never;
-    RegionNames?: never;
-    NetworkInterfaceArns?: never;
-    RoutingScopes?: never;
-    InputTypes?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    NameContains: (value: string[]) => T;
-    RegionNames: (value: string[]) => T;
-    NetworkInterfaceArns: (value: string[]) => T;
-    RoutingScopes: (value: RoutingScope[]) => T;
-    InputTypes: (value: RouterInputType[]) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface ListRouterInputsRequest {
-  /**
-   * <p>The maximum number of router inputs to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A token used to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The filters to apply when retrieving the list of router inputs.</p>
-   * @public
-   */
-  Filters?: RouterInputFilter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRouterInputsResponse {
-  /**
-   * <p>The summary information for the retrieved router inputs.</p>
-   * @public
-   */
-  RouterInputs: ListedRouterInput[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>A filter that can be used to retrieve a list of router network interfaces.</p>
- * @public
- */
-export type RouterNetworkInterfaceFilter =
-  | RouterNetworkInterfaceFilter.NameContainsMember
-  | RouterNetworkInterfaceFilter.NetworkInterfaceTypesMember
-  | RouterNetworkInterfaceFilter.RegionNamesMember
-  | RouterNetworkInterfaceFilter.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RouterNetworkInterfaceFilter {
-  /**
-   * <p>The AWS Regions of the router network interfaces to include in the filter.</p>
-   * @public
-   */
-  export interface RegionNamesMember {
-    RegionNames: string[];
-    NetworkInterfaceTypes?: never;
-    NameContains?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The types of router network interfaces to include in the filter.</p>
-   * @public
-   */
-  export interface NetworkInterfaceTypesMember {
-    RegionNames?: never;
-    NetworkInterfaceTypes: RouterNetworkInterfaceType[];
-    NameContains?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The names of the router network interfaces to include in the filter.</p>
-   * @public
-   */
-  export interface NameContainsMember {
-    RegionNames?: never;
-    NetworkInterfaceTypes?: never;
-    NameContains: string[];
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    RegionNames?: never;
-    NetworkInterfaceTypes?: never;
-    NameContains?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    RegionNames: (value: string[]) => T;
-    NetworkInterfaceTypes: (value: RouterNetworkInterfaceType[]) => T;
-    NameContains: (value: string[]) => T;
-    _: (name: string, value: any) => T;
-  }
 }

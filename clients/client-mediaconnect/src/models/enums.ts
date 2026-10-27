@@ -472,6 +472,57 @@ export type NetworkInterfaceType = (typeof NetworkInterfaceType)[keyof typeof Ne
  * @public
  * @enum
  */
+export const RouterInputState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  MIGRATING: "MIGRATING",
+  RECOVERING: "RECOVERING",
+  STANDBY: "STANDBY",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type RouterInputState = (typeof RouterInputState)[keyof typeof RouterInputState];
+
+/**
+ * @public
+ * @enum
+ */
+export const DestinationEndpointNetworkingType = {
+  PUBLIC: "PUBLIC",
+  VPC: "VPC",
+} as const;
+/**
+ * @public
+ */
+export type DestinationEndpointNetworkingType =
+  (typeof DestinationEndpointNetworkingType)[keyof typeof DestinationEndpointNetworkingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DestinationEndpointProtocol = {
+  RIST: "RIST",
+  RTP: "RTP",
+  SRT_CALLER: "SRT_CALLER",
+  SRT_LISTENER: "SRT_LISTENER",
+} as const;
+/**
+ * @public
+ */
+export type DestinationEndpointProtocol =
+  (typeof DestinationEndpointProtocol)[keyof typeof DestinationEndpointProtocol];
+
+/**
+ * @public
+ * @enum
+ */
 export const ForwardErrorCorrectionState = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -481,6 +532,132 @@ export const ForwardErrorCorrectionState = {
  */
 export type ForwardErrorCorrectionState =
   (typeof ForwardErrorCorrectionState)[keyof typeof ForwardErrorCorrectionState];
+
+/**
+ * @public
+ * @enum
+ */
+export const EndpointEncryptionSecretType = {
+  AES_128_KEY: "AES_128_KEY",
+  AES_192_KEY: "AES_192_KEY",
+  AES_256_KEY: "AES_256_KEY",
+  SRT_PASSPHRASE: "SRT_PASSPHRASE",
+} as const;
+/**
+ * @public
+ */
+export type EndpointEncryptionSecretType =
+  (typeof EndpointEncryptionSecretType)[keyof typeof EndpointEncryptionSecretType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EndpointEncryptionType = {
+  AUTOMATIC: "AUTOMATIC",
+  SECRETS_MANAGER: "SECRETS_MANAGER",
+} as const;
+/**
+ * @public
+ */
+export type EndpointEncryptionType = (typeof EndpointEncryptionType)[keyof typeof EndpointEncryptionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceEndpointType = {
+  ROUTER_OUTPUT: "ROUTER_OUTPUT",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type SourceEndpointType = (typeof SourceEndpointType)[keyof typeof SourceEndpointType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DestinationEndpointConnectionState = {
+  CONNECTED: "CONNECTED",
+  CONNECTING: "CONNECTING",
+  DISCONNECTED: "DISCONNECTED",
+  DISCONNECTING: "DISCONNECTING",
+} as const;
+/**
+ * @public
+ */
+export type DestinationEndpointConnectionState =
+  (typeof DestinationEndpointConnectionState)[keyof typeof DestinationEndpointConnectionState];
+
+/**
+ * @public
+ * @enum
+ */
+export const DestinationEndpointType = {
+  ROUTER_INPUT: "ROUTER_INPUT",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type DestinationEndpointType = (typeof DestinationEndpointType)[keyof typeof DestinationEndpointType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EndpointLifecycle = {
+  MANAGED: "MANAGED",
+  UNMANAGED: "UNMANAGED",
+} as const;
+/**
+ * @public
+ */
+export type EndpointLifecycle = (typeof EndpointLifecycle)[keyof typeof EndpointLifecycle];
+
+/**
+ * @public
+ * @enum
+ */
+export const DestinationEndpointRegistrationState = {
+  DEREGISTERING: "DEREGISTERING",
+  REGISTERED: "REGISTERED",
+  REGISTERING: "REGISTERING",
+  REGISTRATION_FAILED: "REGISTRATION_FAILED",
+} as const;
+/**
+ * @public
+ */
+export type DestinationEndpointRegistrationState =
+  (typeof DestinationEndpointRegistrationState)[keyof typeof DestinationEndpointRegistrationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceShareState = {
+  SHARED: "SHARED",
+  UNSHARED: "UNSHARED",
+} as const;
+/**
+ * @public
+ */
+export type ResourceShareState = (typeof ResourceShareState)[keyof typeof ResourceShareState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceShareOwnership = {
+  CONSUMED: "CONSUMED",
+  OWNED: "OWNED",
+} as const;
+/**
+ * @public
+ */
+export type ResourceShareOwnership = (typeof ResourceShareOwnership)[keyof typeof ResourceShareOwnership];
 
 /**
  * @public
@@ -570,6 +747,7 @@ export type RouterContentQualityAnalysisType =
  * @enum
  */
 export const RouterInputType = {
+  DESTINATION_ENDPOINT: "DESTINATION_ENDPOINT",
   FAILOVER: "FAILOVER",
   MEDIACONNECT_FLOW: "MEDIACONNECT_FLOW",
   MEDIALIVE_CHANNEL: "MEDIALIVE_CHANNEL",
@@ -636,27 +814,6 @@ export const RoutingScope = {
  * @public
  */
 export type RoutingScope = (typeof RoutingScope)[keyof typeof RoutingScope];
-
-/**
- * @public
- * @enum
- */
-export const RouterInputState = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  ERROR: "ERROR",
-  MIGRATING: "MIGRATING",
-  RECOVERING: "RECOVERING",
-  STANDBY: "STANDBY",
-  STARTING: "STARTING",
-  STOPPING: "STOPPING",
-  UPDATING: "UPDATING",
-} as const;
-/**
- * @public
- */
-export type RouterInputState = (typeof RouterInputState)[keyof typeof RouterInputState];
 
 /**
  * @public
@@ -780,6 +937,7 @@ export type FabricLatencyMode = (typeof FabricLatencyMode)[keyof typeof FabricLa
 export const RouterOutputType = {
   MEDIACONNECT_FLOW: "MEDIACONNECT_FLOW",
   MEDIALIVE_INPUT: "MEDIALIVE_INPUT",
+  SOURCE_ENDPOINT: "SOURCE_ENDPOINT",
   STANDARD: "STANDARD",
 } as const;
 /**
@@ -837,6 +995,67 @@ export const RouterOutputTier = {
  * @public
  */
 export type RouterOutputTier = (typeof RouterOutputTier)[keyof typeof RouterOutputTier];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceEndpointProtocol = {
+  RIST: "RIST",
+  RTP: "RTP",
+  SRT_CALLER: "SRT_CALLER",
+  SRT_LISTENER: "SRT_LISTENER",
+} as const;
+/**
+ * @public
+ */
+export type SourceEndpointProtocol = (typeof SourceEndpointProtocol)[keyof typeof SourceEndpointProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceEndpointNetworkingType = {
+  PUBLIC: "PUBLIC",
+  VPC: "VPC",
+} as const;
+/**
+ * @public
+ */
+export type SourceEndpointNetworkingType =
+  (typeof SourceEndpointNetworkingType)[keyof typeof SourceEndpointNetworkingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceEndpointConnectionState = {
+  CONNECTED: "CONNECTED",
+  CONNECTING: "CONNECTING",
+  DISCONNECTED: "DISCONNECTED",
+  DISCONNECTING: "DISCONNECTING",
+} as const;
+/**
+ * @public
+ */
+export type SourceEndpointConnectionState =
+  (typeof SourceEndpointConnectionState)[keyof typeof SourceEndpointConnectionState];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceEndpointRegistrationState = {
+  DEREGISTERING: "DEREGISTERING",
+  REGISTERED: "REGISTERED",
+  REGISTERING: "REGISTERING",
+  REGISTRATION_FAILED: "REGISTRATION_FAILED",
+} as const;
+/**
+ * @public
+ */
+export type SourceEndpointRegistrationState =
+  (typeof SourceEndpointRegistrationState)[keyof typeof SourceEndpointRegistrationState];
 
 /**
  * @public

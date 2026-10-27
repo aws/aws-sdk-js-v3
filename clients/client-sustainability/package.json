@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-sustainability",
-  "version": "3.1156.0",
+  "version": "3.1157.0",
   "description": "AWS SDK for JavaScript Sustainability Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sustainability",
   "license": "Apache-2.0",
@@ -46,13 +46,13 @@
     "test:index": "tsc -p tsconfig.test.json && node ./test/index-objects.spec.mjs"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.978.5",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.88",
+    "@aws-sdk/core": "workspace:^3.978.6",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.89",
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.49",
     "@aws-sdk/types": "workspace:^3.975.0",
-    "@smithy/core": "^3.36.1",
+    "@smithy/core": "^3.37.0",
     "@smithy/fetch-http-handler": "^5.8.0",
-    "@smithy/node-http-handler": "^4.12.1",
+    "@smithy/node-http-handler": "^4.13.0",
     "@smithy/types": "^4.19.0",
     "tslib": "^2.6.2"
   },

@@ -670,6 +670,44 @@ export type Objective = (typeof Objective)[keyof typeof Objective];
  * @public
  * @enum
  */
+export const StorageManagementType = {
+  /**
+   * <p>Oracle Automatic Storage Management (ASM).</p>
+   */
+  ASM: "ASM",
+  /**
+   * <p>Exascale storage.</p>
+   */
+  EXASCALE: "EXASCALE",
+} as const;
+/**
+ * @public
+ */
+export type StorageManagementType = (typeof StorageManagementType)[keyof typeof StorageManagementType];
+
+/**
+ * @public
+ * @enum
+ */
+export const VmStorageType = {
+  /**
+   * <p>Exascale storage on the storage servers.</p>
+   */
+  EXASCALE: "EXASCALE",
+  /**
+   * <p>Local storage on the database servers.</p>
+   */
+  LOCAL: "LOCAL",
+} as const;
+/**
+ * @public
+ */
+export type VmStorageType = (typeof VmStorageType)[keyof typeof VmStorageType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ShapeAttribute = {
   /**
    * <p>Block storage shape attribute.</p>
@@ -780,6 +818,25 @@ export const UpdateAction = {
  * @public
  */
 export type UpdateAction = (typeof UpdateAction)[keyof typeof UpdateAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExascaleDbStorageVaultType = {
+  /**
+   * <p>An Exascale storage vault on dedicated Exadata infrastructure for VM clusters.</p>
+   */
+  DEDICATED_INFRASTRUCTURE: "DEDICATED_INFRASTRUCTURE",
+  /**
+   * <p>An Exascale storage vault for Exascale VM clusters.</p>
+   */
+  EXASCALE_INFRASTRUCTURE: "EXASCALE_INFRASTRUCTURE",
+} as const;
+/**
+ * @public
+ */
+export type ExascaleDbStorageVaultType = (typeof ExascaleDbStorageVaultType)[keyof typeof ExascaleDbStorageVaultType];
 
 /**
  * @public

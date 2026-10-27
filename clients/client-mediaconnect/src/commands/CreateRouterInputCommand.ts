@@ -35,6 +35,19 @@ export interface CreateRouterInputCommandOutput extends CreateRouterInputRespons
  * const input = { // CreateRouterInputRequest
  *   Name: "STRING_VALUE", // required
  *   Configuration: { // RouterInputConfiguration Union: only one key present
+ *     DestinationEndpoint: { // DestinationEndpointRouterInputConfiguration
+ *       EndpointLifecycleManagement: "MANAGED" || "UNMANAGED", // required
+ *       SourceTransitDecryptionType: "SECRETS_MANAGER" || "AUTOMATIC",
+ *       SourceTransitDecryption: { // EndpointEncryptionConfiguration Union: only one key present
+ *         SecretsManager: { // SecretsManagerEndpointEncryptionConfiguration
+ *           EncryptionSecretType: "AES_128_KEY" || "AES_192_KEY" || "AES_256_KEY" || "SRT_PASSPHRASE",
+ *           EncryptionSecret: { // EndpointEncryptionSecretConfiguration
+ *             SecretArn: "STRING_VALUE", // required
+ *           },
+ *         },
+ *         Automatic: {},
+ *       },
+ *     },
  *     Standard: { // StandardRouterInputConfiguration
  *       NetworkInterfaceArn: "STRING_VALUE", // required
  *       ProtocolConfiguration: { // RouterInputProtocolConfiguration Union: only one key present
@@ -195,8 +208,21 @@ export interface CreateRouterInputCommandOutput extends CreateRouterInputRespons
  * //     Arn: "STRING_VALUE", // required
  * //     Id: "STRING_VALUE", // required
  * //     State: "CREATING" || "STANDBY" || "STARTING" || "ACTIVE" || "STOPPING" || "DELETING" || "UPDATING" || "ERROR" || "RECOVERING" || "MIGRATING", // required
- * //     InputType: "STANDARD" || "FAILOVER" || "MERGE" || "MEDIACONNECT_FLOW" || "MEDIALIVE_CHANNEL", // required
+ * //     InputType: "STANDARD" || "FAILOVER" || "MERGE" || "MEDIACONNECT_FLOW" || "MEDIALIVE_CHANNEL" || "DESTINATION_ENDPOINT", // required
  * //     Configuration: { // RouterInputConfiguration Union: only one key present
+ * //       DestinationEndpoint: { // DestinationEndpointRouterInputConfiguration
+ * //         EndpointLifecycleManagement: "MANAGED" || "UNMANAGED", // required
+ * //         SourceTransitDecryptionType: "SECRETS_MANAGER" || "AUTOMATIC",
+ * //         SourceTransitDecryption: { // EndpointEncryptionConfiguration Union: only one key present
+ * //           SecretsManager: { // SecretsManagerEndpointEncryptionConfiguration
+ * //             EncryptionSecretType: "AES_128_KEY" || "AES_192_KEY" || "AES_256_KEY" || "SRT_PASSPHRASE",
+ * //             EncryptionSecret: { // EndpointEncryptionSecretConfiguration
+ * //               SecretArn: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //           Automatic: {},
+ * //         },
+ * //       },
  * //       Standard: { // StandardRouterInputConfiguration
  * //         NetworkInterfaceArn: "STRING_VALUE", // required
  * //         ProtocolConfiguration: { // RouterInputProtocolConfiguration Union: only one key present
@@ -335,6 +361,7 @@ export interface CreateRouterInputCommandOutput extends CreateRouterInputRespons
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     StreamDetails: { // RouterInputStreamDetails Union: only one key present
+ * //       DestinationEndpoint: {},
  * //       Standard: { // StandardRouterInputStreamDetails
  * //         SourceIpAddress: "STRING_VALUE",
  * //       },
@@ -395,6 +422,9 @@ export interface CreateRouterInputCommandOutput extends CreateRouterInputRespons
  * //         },
  * //       },
  * //     },
+ * //     AssociatedDestinationEndpointArns: [ // DestinationEndpointArnList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

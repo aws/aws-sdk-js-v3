@@ -93,6 +93,11 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *     ipFamily: "ipv4" || "ipv6",
  *     elasticLoadBalancing: { // ElasticLoadBalancing
  *       enabled: true || false,
+ *       gatewayApi: { // GatewayApiConfiguration
+ *         crds: { // CrdManagementConfiguration
+ *           managed: true || false,
+ *         },
+ *       },
  *     },
  *   },
  *   logging: { // Logging
@@ -231,6 +236,11 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //       ipFamily: "ipv4" || "ipv6",
  * //       elasticLoadBalancing: { // ElasticLoadBalancing
  * //         enabled: true || false,
+ * //         gatewayApi: { // GatewayApiConfiguration
+ * //           crds: { // CrdManagementConfiguration
+ * //             managed: true || false,
+ * //           },
+ * //         },
  * //       },
  * //     },
  * //     logging: { // Logging

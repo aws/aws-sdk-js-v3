@@ -321,6 +321,10 @@ import type {
   UpdateExadbVmClusterCommandOutput,
 } from "./commands/UpdateExadbVmClusterCommand";
 import type {
+  UpdateExascaleCloudExadataInfrastructureCommandInput,
+  UpdateExascaleCloudExadataInfrastructureCommandOutput,
+} from "./commands/UpdateExascaleCloudExadataInfrastructureCommand";
+import type {
   UpdateExascaleDbStorageVaultCommandInput,
   UpdateExascaleDbStorageVaultCommandOutput,
 } from "./commands/UpdateExascaleDbStorageVaultCommand";
@@ -421,6 +425,7 @@ export type ServiceInputTypes =
   | UpdateAutonomousDatabaseCommandInput
   | UpdateCloudExadataInfrastructureCommandInput
   | UpdateExadbVmClusterCommandInput
+  | UpdateExascaleCloudExadataInfrastructureCommandInput
   | UpdateExascaleDbStorageVaultCommandInput
   | UpdateOdbNetworkCommandInput
   | UpdateOdbPeeringConnectionCommandInput;
@@ -506,6 +511,7 @@ export type ServiceOutputTypes =
   | UpdateAutonomousDatabaseCommandOutput
   | UpdateCloudExadataInfrastructureCommandOutput
   | UpdateExadbVmClusterCommandOutput
+  | UpdateExascaleCloudExadataInfrastructureCommandOutput
   | UpdateExascaleDbStorageVaultCommandOutput
   | UpdateOdbNetworkCommandOutput
   | UpdateOdbPeeringConnectionCommandOutput;

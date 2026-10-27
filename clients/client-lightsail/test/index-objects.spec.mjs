@@ -874,6 +874,14 @@ import {
   UpdateRelationalDatabaseRequest$,
   UpdateRelationalDatabaseResult$,
   ViewerMinimumTlsProtocolVersionEnum,
+  WafAcfpConfig$,
+  WafAtpConfig$,
+  WafBotControlConfig$,
+  WafConfig$,
+  WafInspectionLevelEnum,
+  WafPayloadTypeEnum,
+  WafResponseInspection$,
+  WafRule$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -1652,6 +1660,12 @@ assert(typeof UpdateRelationalDatabaseParametersRequest$ === "object");
 assert(typeof UpdateRelationalDatabaseParametersResult$ === "object");
 assert(typeof UpdateRelationalDatabaseRequest$ === "object");
 assert(typeof UpdateRelationalDatabaseResult$ === "object");
+assert(typeof WafAcfpConfig$ === "object");
+assert(typeof WafAtpConfig$ === "object");
+assert(typeof WafBotControlConfig$ === "object");
+assert(typeof WafConfig$ === "object");
+assert(typeof WafResponseInspection$ === "object");
+assert(typeof WafRule$ === "object");
 // enums
 assert(typeof AccessDirection === "object");
 assert(typeof AccessType === "object");
@@ -1738,6 +1752,8 @@ assert(typeof StatusType === "object");
 assert(typeof TierName === "object");
 assert(typeof TreatMissingData === "object");
 assert(typeof ViewerMinimumTlsProtocolVersionEnum === "object");
+assert(typeof WafInspectionLevelEnum === "object");
+assert(typeof WafPayloadTypeEnum === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof LightsailServiceException);
 assert(typeof AccessDeniedException$ === "object");

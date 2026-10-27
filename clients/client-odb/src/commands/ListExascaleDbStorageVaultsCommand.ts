@@ -35,6 +35,8 @@ export interface ListExascaleDbStorageVaultsCommandOutput extends ListExascaleDb
  * const input = { // ListExascaleDbStorageVaultsInput
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   cloudExadataInfrastructureId: "STRING_VALUE",
+ *   vaultType: "EXASCALE_INFRASTRUCTURE" || "DEDICATED_INFRASTRUCTURE",
  * };
  * const command = new ListExascaleDbStorageVaultsCommand(input);
  * const response = await client.send(command);
@@ -50,6 +52,8 @@ export interface ListExascaleDbStorageVaultsCommandOutput extends ListExascaleDb
  * //       autoscaleLimitInGBs: Number("int"),
  * //       availabilityZone: "STRING_VALUE",
  * //       availabilityZoneId: "STRING_VALUE",
+ * //       cloudExadataInfrastructureArn: "STRING_VALUE",
+ * //       cloudExadataInfrastructureId: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       description: "STRING_VALUE",
  * //       displayName: "STRING_VALUE",
@@ -73,6 +77,7 @@ export interface ListExascaleDbStorageVaultsCommandOutput extends ListExascaleDb
  * //       status: "AVAILABLE" || "FAILED" || "PROVISIONING" || "TERMINATED" || "TERMINATING" || "UPDATING" || "MAINTENANCE_IN_PROGRESS",
  * //       statusReason: "STRING_VALUE",
  * //       timeZone: "STRING_VALUE",
+ * //       vaultType: "EXASCALE_INFRASTRUCTURE" || "DEDICATED_INFRASTRUCTURE",
  * //     },
  * //   ],
  * // };
@@ -90,6 +95,9 @@ export interface ListExascaleDbStorageVaultsCommandOutput extends ListExascaleDb
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

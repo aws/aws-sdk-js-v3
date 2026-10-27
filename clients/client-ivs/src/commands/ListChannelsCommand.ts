@@ -37,6 +37,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  *   filterByRecordingConfigurationArn: "STRING_VALUE",
  *   filterByPlaybackRestrictionPolicyArn: "STRING_VALUE",
  *   filterByAdConfigurationArn: "STRING_VALUE",
+ *   filterByFailoverSlateConfigurationArn: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
@@ -58,6 +59,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //       preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
  * //       playbackRestrictionPolicyArn: "STRING_VALUE",
  * //       adConfigurationArn: "STRING_VALUE",
+ * //       failoverSlateConfigurationArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -38,8 +38,14 @@ import {
   Algorithm,
   AudioMonitoringSetting$,
   AutomaticEncryptionKeyConfiguration$,
+  AutomaticEndpointEncryptionConfiguration$,
   BadRequestException,
   BadRequestException$,
+  BatchGetDestinationEndpoint$,
+  BatchGetDestinationEndpointCommand,
+  BatchGetDestinationEndpointError$,
+  BatchGetDestinationEndpointRequest$,
+  BatchGetDestinationEndpointResponse$,
   BatchGetRouterInput$,
   BatchGetRouterInputCommand,
   BatchGetRouterInputError$,
@@ -55,6 +61,11 @@ import {
   BatchGetRouterOutputError$,
   BatchGetRouterOutputRequest$,
   BatchGetRouterOutputResponse$,
+  BatchGetSourceEndpoint$,
+  BatchGetSourceEndpointCommand,
+  BatchGetSourceEndpointError$,
+  BatchGetSourceEndpointRequest$,
+  BatchGetSourceEndpointResponse$,
   BlackFrames$,
   BlackFramesConfiguration$,
   Bridge$,
@@ -70,7 +81,12 @@ import {
   ColorInformation$,
   ConflictException,
   ConflictException$,
+  ConnectEndpoints$,
+  ConnectEndpointsCommand,
+  ConnectEndpointsRequest$,
+  ConnectEndpointsResponse$,
   ConnectionStatus,
+  ConsumedResourceShareDetails$,
   ContentQualityAnalysisFeatureConfiguration$,
   ContentQualityAnalysisState,
   CreateBridge$,
@@ -129,10 +145,18 @@ import {
   DeleteRouterOutputCommand,
   DeleteRouterOutputRequest$,
   DeleteRouterOutputResponse$,
+  DeregisterDestinationEndpoint$,
+  DeregisterDestinationEndpointCommand,
+  DeregisterDestinationEndpointRequest$,
+  DeregisterDestinationEndpointResponse$,
   DeregisterGatewayInstance$,
   DeregisterGatewayInstanceCommand,
   DeregisterGatewayInstanceRequest$,
   DeregisterGatewayInstanceResponse$,
+  DeregisterSourceEndpoint$,
+  DeregisterSourceEndpointCommand,
+  DeregisterSourceEndpointRequest$,
+  DeregisterSourceEndpointResponse$,
   DescribeBridge$,
   DescribeBridgeCommand,
   DescribeBridgeRequest$,
@@ -168,6 +192,25 @@ import {
   DesiredState,
   DestinationConfiguration$,
   DestinationConfigurationRequest$,
+  DestinationEndpoint$,
+  DestinationEndpointAssociatedResourceDetails$,
+  DestinationEndpointConfiguration$,
+  DestinationEndpointConnectionDetails$,
+  DestinationEndpointConnectionState,
+  DestinationEndpointFilter$,
+  DestinationEndpointMessage$,
+  DestinationEndpointNetworkingType,
+  DestinationEndpointProtocol,
+  DestinationEndpointRegistrationState,
+  DestinationEndpointRouterInputConfiguration$,
+  DestinationEndpointRouterInputStreamDetails$,
+  DestinationEndpointServiceQuotaExceededException,
+  DestinationEndpointServiceQuotaExceededException$,
+  DestinationEndpointType,
+  DisconnectEndpoints$,
+  DisconnectEndpointsCommand,
+  DisconnectEndpointsRequest$,
+  DisconnectEndpointsResponse$,
   DurationUnits,
   EgressGatewayBridge$,
   EncoderProfile,
@@ -177,6 +220,11 @@ import {
   EncodingParametersRequest$,
   EncodingProfile,
   Encryption$,
+  EndpointEncryptionConfiguration$,
+  EndpointEncryptionSecretConfiguration$,
+  EndpointEncryptionSecretType,
+  EndpointEncryptionType,
+  EndpointLifecycle,
   Entitlement$,
   EntitlementStatus,
   FabricConfiguration$,
@@ -206,6 +254,10 @@ import {
   GatewayInstance$,
   GatewayNetwork$,
   GatewayState,
+  GetDestinationEndpoint$,
+  GetDestinationEndpointCommand,
+  GetDestinationEndpointRequest$,
+  GetDestinationEndpointResponse$,
   GetRouterInput$,
   GetRouterInputCommand,
   GetRouterInputRequest$,
@@ -226,6 +278,10 @@ import {
   GetRouterOutputCommand,
   GetRouterOutputRequest$,
   GetRouterOutputResponse$,
+  GetSourceEndpoint$,
+  GetSourceEndpointCommand,
+  GetSourceEndpointRequest$,
+  GetSourceEndpointResponse$,
   GrantEntitlementRequest$,
   GrantFlowEntitlements$,
   GrantFlowEntitlements420Exception,
@@ -246,7 +302,12 @@ import {
   ListBridgesCommand,
   ListBridgesRequest$,
   ListBridgesResponse$,
+  ListDestinationEndpoints$,
+  ListDestinationEndpointsCommand,
+  ListDestinationEndpointsRequest$,
+  ListDestinationEndpointsResponse$,
   ListedBridge$,
+  ListedDestinationEndpoint$,
   ListedEntitlement$,
   ListedFlow$,
   ListedGateway$,
@@ -254,6 +315,7 @@ import {
   ListedRouterInput$,
   ListedRouterNetworkInterface$,
   ListedRouterOutput$,
+  ListedSourceEndpoint$,
   ListEntitlements$,
   ListEntitlementsCommand,
   ListEntitlementsRequest$,
@@ -290,6 +352,10 @@ import {
   ListRouterOutputsCommand,
   ListRouterOutputsRequest$,
   ListRouterOutputsResponse$,
+  ListSourceEndpoints$,
+  ListSourceEndpointsCommand,
+  ListSourceEndpointsRequest$,
+  ListSourceEndpointsResponse$,
   ListTagsForGlobalResource$,
   ListTagsForGlobalResourceCommand,
   ListTagsForGlobalResourceRequest$,
@@ -351,7 +417,9 @@ import {
   Offering$,
   Output$,
   OutputStatus,
+  OwnedResourceShareDetails$,
   paginateListBridges,
+  paginateListDestinationEndpoints,
   paginateListEntitlements,
   paginateListFlows,
   paginateListGatewayInstances,
@@ -361,17 +429,30 @@ import {
   paginateListRouterInputs,
   paginateListRouterNetworkInterfaces,
   paginateListRouterOutputs,
+  paginateListSourceEndpoints,
   PreferredDayTimeMaintenanceConfiguration$,
   PriceUnits,
   Protocol,
+  PublicDestinationEndpointNetworkingConfiguration$,
+  PublicDestinationEndpointNetworkingConfigurationAllowRule$,
   PublicRouterNetworkInterfaceConfiguration$,
   PublicRouterNetworkInterfaceRule$,
+  PublicSourceEndpointNetworkingConfiguration$,
+  PublicSourceEndpointNetworkingConfigurationAllowRule$,
   PublicTlsEncryptionConfiguration$,
   PurchaseOffering$,
   PurchaseOfferingCommand,
   PurchaseOfferingRequest$,
   PurchaseOfferingResponse$,
   Range,
+  RegisterDestinationEndpoint$,
+  RegisterDestinationEndpointCommand,
+  RegisterDestinationEndpointRequest$,
+  RegisterDestinationEndpointResponse$,
+  RegisterSourceEndpoint$,
+  RegisterSourceEndpointCommand,
+  RegisterSourceEndpointRequest$,
+  RegisterSourceEndpointResponse$,
   RemoveBridgeOutput$,
   RemoveBridgeOutputCommand,
   RemoveBridgeOutputRequest$,
@@ -398,6 +479,9 @@ import {
   RemoveFlowVpcInterfaceResponse$,
   Reservation$,
   ReservationState,
+  ResourceShareDetails$,
+  ResourceShareOwnership,
+  ResourceShareState,
   ResourceSpecification$,
   ResourceType,
   RestartRouterInput$,
@@ -414,10 +498,15 @@ import {
   RevokeFlowEntitlementResponse$,
   RistRouterInputConfiguration$,
   RistRouterOutputConfiguration$,
+  RistStandardDestinationEndpointConfiguration$,
+  RistStandardSourceEndpointConfiguration$,
   RouterContentQualityAnalysisConfiguration$,
   RouterContentQualityAnalysisType,
   RouterInput$,
   RouterInputConfiguration$,
+  RouterInputDestinationEndpointAssociatedResourceDetails$,
+  RouterInputDestinationEndpointConfiguration$,
+  RouterInputDestinationEndpointConnectionDetails$,
   RouterInputFilter$,
   RouterInputMessage$,
   RouterInputMetadata$,
@@ -450,6 +539,9 @@ import {
   RouterOutputRoutedState,
   RouterOutputServiceQuotaExceededException,
   RouterOutputServiceQuotaExceededException$,
+  RouterOutputSourceEndpointAssociatedResourceDetails$,
+  RouterOutputSourceEndpointConfiguration$,
+  RouterOutputSourceEndpointConnectionDetails$,
   RouterOutputState,
   RouterOutputStreamDetails$,
   RouterOutputTier,
@@ -458,8 +550,11 @@ import {
   RtmpPushRouterOutputConfiguration$,
   RtpRouterInputConfiguration$,
   RtpRouterOutputConfiguration$,
+  RtpStandardDestinationEndpointConfiguration$,
+  RtpStandardSourceEndpointConfiguration$,
   ScanMode,
   SecretsManagerEncryptionKeyConfiguration$,
+  SecretsManagerEndpointEncryptionConfiguration$,
   ServiceUnavailableException,
   ServiceUnavailableException$,
   SetGatewayBridgeSourceRequest$,
@@ -467,18 +562,47 @@ import {
   SilentAudio$,
   SilentAudioConfiguration$,
   Source$,
+  SourceEndpoint$,
+  SourceEndpointAssociatedResourceDetails$,
+  SourceEndpointConfiguration$,
+  SourceEndpointConnectionDetails$,
+  SourceEndpointConnectionState,
+  SourceEndpointFilter$,
+  SourceEndpointMessage$,
+  SourceEndpointNetworkingType,
+  SourceEndpointProtocol,
+  SourceEndpointRegistrationState,
+  SourceEndpointRouterOutputConfiguration$,
+  SourceEndpointRouterOutputStreamDetails$,
+  SourceEndpointServiceQuotaExceededException,
+  SourceEndpointServiceQuotaExceededException$,
+  SourceEndpointType,
   SourcePriority$,
   SourceType,
   SrtCallerRouterInputConfiguration$,
   SrtCallerRouterOutputConfiguration$,
+  SrtCallerStandardDestinationEndpointConfiguration$,
+  SrtCallerStandardSourceEndpointConfiguration$,
   SrtDecryptionConfiguration$,
   SrtEncryptionConfiguration$,
   SrtListenerRouterInputConfiguration$,
   SrtListenerRouterOutputConfiguration$,
+  SrtListenerStandardDestinationEndpointConfiguration$,
+  SrtListenerStandardSourceEndpointConfiguration$,
+  StandardDestinationEndpointAssociatedResourceDetails$,
+  StandardDestinationEndpointConfiguration$,
+  StandardDestinationEndpointConnectionDetails$,
+  StandardDestinationEndpointNetworkingConfiguration$,
+  StandardDestinationEndpointProtocolConfiguration$,
   StandardRouterInputConfiguration$,
   StandardRouterInputStreamDetails$,
   StandardRouterOutputConfiguration$,
   StandardRouterOutputStreamDetails$,
+  StandardSourceEndpointAssociatedResourceDetails$,
+  StandardSourceEndpointConfiguration$,
+  StandardSourceEndpointConnectionDetails$,
+  StandardSourceEndpointNetworkingConfiguration$,
+  StandardSourceEndpointProtocolConfiguration$,
   StartFlow$,
   StartFlowCommand,
   StartFlowRequest$,
@@ -552,6 +676,10 @@ import {
   UpdateBridgeStateCommand,
   UpdateBridgeStateRequest$,
   UpdateBridgeStateResponse$,
+  UpdateDestinationEndpoint$,
+  UpdateDestinationEndpointCommand,
+  UpdateDestinationEndpointRequest$,
+  UpdateDestinationEndpointResponse$,
   UpdateEgressGatewayBridgeRequest$,
   UpdateEncryption$,
   UpdateFailoverConfig$,
@@ -594,14 +722,24 @@ import {
   UpdateRouterOutputCommand,
   UpdateRouterOutputRequest$,
   UpdateRouterOutputResponse$,
+  UpdateSourceEndpoint$,
+  UpdateSourceEndpointCommand,
+  UpdateSourceEndpointRequest$,
+  UpdateSourceEndpointResponse$,
   VideoColorimetry,
   VideoMatrixCoefficients,
   VideoMonitoringSetting$,
   VideoTransferCharacteristics,
+  VpcDestinationEndpointNetworkingConfiguration$,
   VpcInterface$,
   VpcInterfaceAttachment$,
   VpcInterfaceRequest$,
   VpcRouterNetworkInterfaceConfiguration$,
+  VpcSourceEndpointNetworkingConfiguration$,
+  waitForDestinationEndpointConnected,
+  waitForDestinationEndpointDeregistered,
+  waitForDestinationEndpointDisconnected,
+  waitForDestinationEndpointRegistered,
   waitForFlowActive,
   waitForFlowDeleted,
   waitForFlowStandby,
@@ -613,6 +751,16 @@ import {
   waitForOutputRouted,
   waitForOutputStandby,
   waitForOutputUnrouted,
+  waitForSourceEndpointConnected,
+  waitForSourceEndpointConnecting,
+  waitForSourceEndpointDeregistered,
+  waitForSourceEndpointDisconnected,
+  waitForSourceEndpointDisconnecting,
+  waitForSourceEndpointRegistered,
+  waitUntilDestinationEndpointConnected,
+  waitUntilDestinationEndpointDeregistered,
+  waitUntilDestinationEndpointDisconnected,
+  waitUntilDestinationEndpointRegistered,
   waitUntilFlowActive,
   waitUntilFlowDeleted,
   waitUntilFlowStandby,
@@ -624,6 +772,12 @@ import {
   waitUntilOutputRouted,
   waitUntilOutputStandby,
   waitUntilOutputUnrouted,
+  waitUntilSourceEndpointConnected,
+  waitUntilSourceEndpointConnecting,
+  waitUntilSourceEndpointDeregistered,
+  waitUntilSourceEndpointDisconnected,
+  waitUntilSourceEndpointDisconnecting,
+  waitUntilSourceEndpointRegistered,
   WindowMaintenanceSchedule$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -643,12 +797,18 @@ assert(typeof AddFlowSourcesCommand === "function");
 assert(typeof AddFlowSources$ === "object");
 assert(typeof AddFlowVpcInterfacesCommand === "function");
 assert(typeof AddFlowVpcInterfaces$ === "object");
+assert(typeof BatchGetDestinationEndpointCommand === "function");
+assert(typeof BatchGetDestinationEndpoint$ === "object");
 assert(typeof BatchGetRouterInputCommand === "function");
 assert(typeof BatchGetRouterInput$ === "object");
 assert(typeof BatchGetRouterNetworkInterfaceCommand === "function");
 assert(typeof BatchGetRouterNetworkInterface$ === "object");
 assert(typeof BatchGetRouterOutputCommand === "function");
 assert(typeof BatchGetRouterOutput$ === "object");
+assert(typeof BatchGetSourceEndpointCommand === "function");
+assert(typeof BatchGetSourceEndpoint$ === "object");
+assert(typeof ConnectEndpointsCommand === "function");
+assert(typeof ConnectEndpoints$ === "object");
 assert(typeof CreateBridgeCommand === "function");
 assert(typeof CreateBridge$ === "object");
 assert(typeof CreateFlowCommand === "function");
@@ -673,8 +833,12 @@ assert(typeof DeleteRouterNetworkInterfaceCommand === "function");
 assert(typeof DeleteRouterNetworkInterface$ === "object");
 assert(typeof DeleteRouterOutputCommand === "function");
 assert(typeof DeleteRouterOutput$ === "object");
+assert(typeof DeregisterDestinationEndpointCommand === "function");
+assert(typeof DeregisterDestinationEndpoint$ === "object");
 assert(typeof DeregisterGatewayInstanceCommand === "function");
 assert(typeof DeregisterGatewayInstance$ === "object");
+assert(typeof DeregisterSourceEndpointCommand === "function");
+assert(typeof DeregisterSourceEndpoint$ === "object");
 assert(typeof DescribeBridgeCommand === "function");
 assert(typeof DescribeBridge$ === "object");
 assert(typeof DescribeFlowCommand === "function");
@@ -691,6 +855,10 @@ assert(typeof DescribeOfferingCommand === "function");
 assert(typeof DescribeOffering$ === "object");
 assert(typeof DescribeReservationCommand === "function");
 assert(typeof DescribeReservation$ === "object");
+assert(typeof DisconnectEndpointsCommand === "function");
+assert(typeof DisconnectEndpoints$ === "object");
+assert(typeof GetDestinationEndpointCommand === "function");
+assert(typeof GetDestinationEndpoint$ === "object");
 assert(typeof GetRouterInputCommand === "function");
 assert(typeof GetRouterInput$ === "object");
 assert(typeof GetRouterInputSourceMetadataCommand === "function");
@@ -701,10 +869,14 @@ assert(typeof GetRouterNetworkInterfaceCommand === "function");
 assert(typeof GetRouterNetworkInterface$ === "object");
 assert(typeof GetRouterOutputCommand === "function");
 assert(typeof GetRouterOutput$ === "object");
+assert(typeof GetSourceEndpointCommand === "function");
+assert(typeof GetSourceEndpoint$ === "object");
 assert(typeof GrantFlowEntitlementsCommand === "function");
 assert(typeof GrantFlowEntitlements$ === "object");
 assert(typeof ListBridgesCommand === "function");
 assert(typeof ListBridges$ === "object");
+assert(typeof ListDestinationEndpointsCommand === "function");
+assert(typeof ListDestinationEndpoints$ === "object");
 assert(typeof ListEntitlementsCommand === "function");
 assert(typeof ListEntitlements$ === "object");
 assert(typeof ListFlowsCommand === "function");
@@ -723,12 +895,18 @@ assert(typeof ListRouterNetworkInterfacesCommand === "function");
 assert(typeof ListRouterNetworkInterfaces$ === "object");
 assert(typeof ListRouterOutputsCommand === "function");
 assert(typeof ListRouterOutputs$ === "object");
+assert(typeof ListSourceEndpointsCommand === "function");
+assert(typeof ListSourceEndpoints$ === "object");
 assert(typeof ListTagsForGlobalResourceCommand === "function");
 assert(typeof ListTagsForGlobalResource$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof PurchaseOfferingCommand === "function");
 assert(typeof PurchaseOffering$ === "object");
+assert(typeof RegisterDestinationEndpointCommand === "function");
+assert(typeof RegisterDestinationEndpoint$ === "object");
+assert(typeof RegisterSourceEndpointCommand === "function");
+assert(typeof RegisterSourceEndpoint$ === "object");
 assert(typeof RemoveBridgeOutputCommand === "function");
 assert(typeof RemoveBridgeOutput$ === "object");
 assert(typeof RemoveBridgeSourceCommand === "function");
@@ -777,6 +955,8 @@ assert(typeof UpdateBridgeSourceCommand === "function");
 assert(typeof UpdateBridgeSource$ === "object");
 assert(typeof UpdateBridgeStateCommand === "function");
 assert(typeof UpdateBridgeState$ === "object");
+assert(typeof UpdateDestinationEndpointCommand === "function");
+assert(typeof UpdateDestinationEndpoint$ === "object");
 assert(typeof UpdateFlowCommand === "function");
 assert(typeof UpdateFlow$ === "object");
 assert(typeof UpdateFlowEntitlementCommand === "function");
@@ -795,6 +975,8 @@ assert(typeof UpdateRouterNetworkInterfaceCommand === "function");
 assert(typeof UpdateRouterNetworkInterface$ === "object");
 assert(typeof UpdateRouterOutputCommand === "function");
 assert(typeof UpdateRouterOutput$ === "object");
+assert(typeof UpdateSourceEndpointCommand === "function");
+assert(typeof UpdateSourceEndpoint$ === "object");
 // structural schemas
 assert(typeof AddBridgeFlowSourceRequest$ === "object");
 assert(typeof AddBridgeNetworkOutputRequest$ === "object");
@@ -820,6 +1002,10 @@ assert(typeof AddMediaStreamRequest$ === "object");
 assert(typeof AddOutputRequest$ === "object");
 assert(typeof AudioMonitoringSetting$ === "object");
 assert(typeof AutomaticEncryptionKeyConfiguration$ === "object");
+assert(typeof AutomaticEndpointEncryptionConfiguration$ === "object");
+assert(typeof BatchGetDestinationEndpointError$ === "object");
+assert(typeof BatchGetDestinationEndpointRequest$ === "object");
+assert(typeof BatchGetDestinationEndpointResponse$ === "object");
 assert(typeof BatchGetRouterInputError$ === "object");
 assert(typeof BatchGetRouterInputRequest$ === "object");
 assert(typeof BatchGetRouterInputResponse$ === "object");
@@ -829,6 +1015,9 @@ assert(typeof BatchGetRouterNetworkInterfaceResponse$ === "object");
 assert(typeof BatchGetRouterOutputError$ === "object");
 assert(typeof BatchGetRouterOutputRequest$ === "object");
 assert(typeof BatchGetRouterOutputResponse$ === "object");
+assert(typeof BatchGetSourceEndpointError$ === "object");
+assert(typeof BatchGetSourceEndpointRequest$ === "object");
+assert(typeof BatchGetSourceEndpointResponse$ === "object");
 assert(typeof BlackFrames$ === "object");
 assert(typeof BlackFramesConfiguration$ === "object");
 assert(typeof Bridge$ === "object");
@@ -839,6 +1028,9 @@ assert(typeof BridgeNetworkSource$ === "object");
 assert(typeof BridgeOutput$ === "object");
 assert(typeof BridgeSource$ === "object");
 assert(typeof ColorInformation$ === "object");
+assert(typeof ConnectEndpointsRequest$ === "object");
+assert(typeof ConnectEndpointsResponse$ === "object");
+assert(typeof ConsumedResourceShareDetails$ === "object");
 assert(typeof ContentQualityAnalysisFeatureConfiguration$ === "object");
 assert(typeof CreateBridgeRequest$ === "object");
 assert(typeof CreateBridgeResponse$ === "object");
@@ -865,8 +1057,12 @@ assert(typeof DeleteRouterNetworkInterfaceRequest$ === "object");
 assert(typeof DeleteRouterNetworkInterfaceResponse$ === "object");
 assert(typeof DeleteRouterOutputRequest$ === "object");
 assert(typeof DeleteRouterOutputResponse$ === "object");
+assert(typeof DeregisterDestinationEndpointRequest$ === "object");
+assert(typeof DeregisterDestinationEndpointResponse$ === "object");
 assert(typeof DeregisterGatewayInstanceRequest$ === "object");
 assert(typeof DeregisterGatewayInstanceResponse$ === "object");
+assert(typeof DeregisterSourceEndpointRequest$ === "object");
+assert(typeof DeregisterSourceEndpointResponse$ === "object");
 assert(typeof DescribeBridgeRequest$ === "object");
 assert(typeof DescribeBridgeResponse$ === "object");
 assert(typeof DescribeFlowRequest$ === "object");
@@ -885,11 +1081,23 @@ assert(typeof DescribeReservationRequest$ === "object");
 assert(typeof DescribeReservationResponse$ === "object");
 assert(typeof DestinationConfiguration$ === "object");
 assert(typeof DestinationConfigurationRequest$ === "object");
+assert(typeof DestinationEndpoint$ === "object");
+assert(typeof DestinationEndpointAssociatedResourceDetails$ === "object");
+assert(typeof DestinationEndpointConfiguration$ === "object");
+assert(typeof DestinationEndpointConnectionDetails$ === "object");
+assert(typeof DestinationEndpointFilter$ === "object");
+assert(typeof DestinationEndpointMessage$ === "object");
+assert(typeof DestinationEndpointRouterInputConfiguration$ === "object");
+assert(typeof DestinationEndpointRouterInputStreamDetails$ === "object");
+assert(typeof DisconnectEndpointsRequest$ === "object");
+assert(typeof DisconnectEndpointsResponse$ === "object");
 assert(typeof EgressGatewayBridge$ === "object");
 assert(typeof EncodingConfig$ === "object");
 assert(typeof EncodingParameters$ === "object");
 assert(typeof EncodingParametersRequest$ === "object");
 assert(typeof Encryption$ === "object");
+assert(typeof EndpointEncryptionConfiguration$ === "object");
+assert(typeof EndpointEncryptionSecretConfiguration$ === "object");
 assert(typeof Entitlement$ === "object");
 assert(typeof FabricConfiguration$ === "object");
 assert(typeof FailoverConfig$ === "object");
@@ -909,6 +1117,8 @@ assert(typeof Gateway$ === "object");
 assert(typeof GatewayBridgeSource$ === "object");
 assert(typeof GatewayInstance$ === "object");
 assert(typeof GatewayNetwork$ === "object");
+assert(typeof GetDestinationEndpointRequest$ === "object");
+assert(typeof GetDestinationEndpointResponse$ === "object");
 assert(typeof GetRouterInputRequest$ === "object");
 assert(typeof GetRouterInputResponse$ === "object");
 assert(typeof GetRouterInputSourceMetadataRequest$ === "object");
@@ -919,6 +1129,8 @@ assert(typeof GetRouterNetworkInterfaceRequest$ === "object");
 assert(typeof GetRouterNetworkInterfaceResponse$ === "object");
 assert(typeof GetRouterOutputRequest$ === "object");
 assert(typeof GetRouterOutputResponse$ === "object");
+assert(typeof GetSourceEndpointRequest$ === "object");
+assert(typeof GetSourceEndpointResponse$ === "object");
 assert(typeof GrantEntitlementRequest$ === "object");
 assert(typeof GrantFlowEntitlementsRequest$ === "object");
 assert(typeof GrantFlowEntitlementsResponse$ === "object");
@@ -929,7 +1141,10 @@ assert(typeof Interface$ === "object");
 assert(typeof InterfaceRequest$ === "object");
 assert(typeof ListBridgesRequest$ === "object");
 assert(typeof ListBridgesResponse$ === "object");
+assert(typeof ListDestinationEndpointsRequest$ === "object");
+assert(typeof ListDestinationEndpointsResponse$ === "object");
 assert(typeof ListedBridge$ === "object");
+assert(typeof ListedDestinationEndpoint$ === "object");
 assert(typeof ListedEntitlement$ === "object");
 assert(typeof ListedFlow$ === "object");
 assert(typeof ListedGateway$ === "object");
@@ -937,6 +1152,7 @@ assert(typeof ListedGatewayInstance$ === "object");
 assert(typeof ListedRouterInput$ === "object");
 assert(typeof ListedRouterNetworkInterface$ === "object");
 assert(typeof ListedRouterOutput$ === "object");
+assert(typeof ListedSourceEndpoint$ === "object");
 assert(typeof ListEntitlementsRequest$ === "object");
 assert(typeof ListEntitlementsResponse$ === "object");
 assert(typeof ListFlowsRequest$ === "object");
@@ -955,6 +1171,8 @@ assert(typeof ListRouterNetworkInterfacesRequest$ === "object");
 assert(typeof ListRouterNetworkInterfacesResponse$ === "object");
 assert(typeof ListRouterOutputsRequest$ === "object");
 assert(typeof ListRouterOutputsResponse$ === "object");
+assert(typeof ListSourceEndpointsRequest$ === "object");
+assert(typeof ListSourceEndpointsResponse$ === "object");
 assert(typeof ListTagsForGlobalResourceRequest$ === "object");
 assert(typeof ListTagsForGlobalResourceResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
@@ -996,12 +1214,21 @@ assert(typeof NdiSourceMetadataInfo$ === "object");
 assert(typeof NdiSourceSettings$ === "object");
 assert(typeof Offering$ === "object");
 assert(typeof Output$ === "object");
+assert(typeof OwnedResourceShareDetails$ === "object");
 assert(typeof PreferredDayTimeMaintenanceConfiguration$ === "object");
+assert(typeof PublicDestinationEndpointNetworkingConfiguration$ === "object");
+assert(typeof PublicDestinationEndpointNetworkingConfigurationAllowRule$ === "object");
 assert(typeof PublicRouterNetworkInterfaceConfiguration$ === "object");
 assert(typeof PublicRouterNetworkInterfaceRule$ === "object");
+assert(typeof PublicSourceEndpointNetworkingConfiguration$ === "object");
+assert(typeof PublicSourceEndpointNetworkingConfigurationAllowRule$ === "object");
 assert(typeof PublicTlsEncryptionConfiguration$ === "object");
 assert(typeof PurchaseOfferingRequest$ === "object");
 assert(typeof PurchaseOfferingResponse$ === "object");
+assert(typeof RegisterDestinationEndpointRequest$ === "object");
+assert(typeof RegisterDestinationEndpointResponse$ === "object");
+assert(typeof RegisterSourceEndpointRequest$ === "object");
+assert(typeof RegisterSourceEndpointResponse$ === "object");
 assert(typeof RemoveBridgeOutputRequest$ === "object");
 assert(typeof RemoveBridgeOutputResponse$ === "object");
 assert(typeof RemoveBridgeSourceRequest$ === "object");
@@ -1015,6 +1242,7 @@ assert(typeof RemoveFlowSourceResponse$ === "object");
 assert(typeof RemoveFlowVpcInterfaceRequest$ === "object");
 assert(typeof RemoveFlowVpcInterfaceResponse$ === "object");
 assert(typeof Reservation$ === "object");
+assert(typeof ResourceShareDetails$ === "object");
 assert(typeof ResourceSpecification$ === "object");
 assert(typeof RestartRouterInputRequest$ === "object");
 assert(typeof RestartRouterInputResponse$ === "object");
@@ -1024,9 +1252,14 @@ assert(typeof RevokeFlowEntitlementRequest$ === "object");
 assert(typeof RevokeFlowEntitlementResponse$ === "object");
 assert(typeof RistRouterInputConfiguration$ === "object");
 assert(typeof RistRouterOutputConfiguration$ === "object");
+assert(typeof RistStandardDestinationEndpointConfiguration$ === "object");
+assert(typeof RistStandardSourceEndpointConfiguration$ === "object");
 assert(typeof RouterContentQualityAnalysisConfiguration$ === "object");
 assert(typeof RouterInput$ === "object");
 assert(typeof RouterInputConfiguration$ === "object");
+assert(typeof RouterInputDestinationEndpointAssociatedResourceDetails$ === "object");
+assert(typeof RouterInputDestinationEndpointConfiguration$ === "object");
+assert(typeof RouterInputDestinationEndpointConnectionDetails$ === "object");
 assert(typeof RouterInputFilter$ === "object");
 assert(typeof RouterInputMessage$ === "object");
 assert(typeof RouterInputMetadata$ === "object");
@@ -1044,27 +1277,55 @@ assert(typeof RouterOutputConfiguration$ === "object");
 assert(typeof RouterOutputFilter$ === "object");
 assert(typeof RouterOutputMessage$ === "object");
 assert(typeof RouterOutputProtocolConfiguration$ === "object");
+assert(typeof RouterOutputSourceEndpointAssociatedResourceDetails$ === "object");
+assert(typeof RouterOutputSourceEndpointConfiguration$ === "object");
+assert(typeof RouterOutputSourceEndpointConnectionDetails$ === "object");
 assert(typeof RouterOutputStreamDetails$ === "object");
 assert(typeof RtmpPushRouterOutputConfiguration$ === "object");
 assert(typeof RtpRouterInputConfiguration$ === "object");
 assert(typeof RtpRouterOutputConfiguration$ === "object");
+assert(typeof RtpStandardDestinationEndpointConfiguration$ === "object");
+assert(typeof RtpStandardSourceEndpointConfiguration$ === "object");
 assert(typeof SecretsManagerEncryptionKeyConfiguration$ === "object");
+assert(typeof SecretsManagerEndpointEncryptionConfiguration$ === "object");
 assert(typeof SetGatewayBridgeSourceRequest$ === "object");
 assert(typeof SetSourceRequest$ === "object");
 assert(typeof SilentAudio$ === "object");
 assert(typeof SilentAudioConfiguration$ === "object");
 assert(typeof Source$ === "object");
+assert(typeof SourceEndpoint$ === "object");
+assert(typeof SourceEndpointAssociatedResourceDetails$ === "object");
+assert(typeof SourceEndpointConfiguration$ === "object");
+assert(typeof SourceEndpointConnectionDetails$ === "object");
+assert(typeof SourceEndpointFilter$ === "object");
+assert(typeof SourceEndpointMessage$ === "object");
+assert(typeof SourceEndpointRouterOutputConfiguration$ === "object");
+assert(typeof SourceEndpointRouterOutputStreamDetails$ === "object");
 assert(typeof SourcePriority$ === "object");
 assert(typeof SrtCallerRouterInputConfiguration$ === "object");
 assert(typeof SrtCallerRouterOutputConfiguration$ === "object");
+assert(typeof SrtCallerStandardDestinationEndpointConfiguration$ === "object");
+assert(typeof SrtCallerStandardSourceEndpointConfiguration$ === "object");
 assert(typeof SrtDecryptionConfiguration$ === "object");
 assert(typeof SrtEncryptionConfiguration$ === "object");
 assert(typeof SrtListenerRouterInputConfiguration$ === "object");
 assert(typeof SrtListenerRouterOutputConfiguration$ === "object");
+assert(typeof SrtListenerStandardDestinationEndpointConfiguration$ === "object");
+assert(typeof SrtListenerStandardSourceEndpointConfiguration$ === "object");
+assert(typeof StandardDestinationEndpointAssociatedResourceDetails$ === "object");
+assert(typeof StandardDestinationEndpointConfiguration$ === "object");
+assert(typeof StandardDestinationEndpointConnectionDetails$ === "object");
+assert(typeof StandardDestinationEndpointNetworkingConfiguration$ === "object");
+assert(typeof StandardDestinationEndpointProtocolConfiguration$ === "object");
 assert(typeof StandardRouterInputConfiguration$ === "object");
 assert(typeof StandardRouterInputStreamDetails$ === "object");
 assert(typeof StandardRouterOutputConfiguration$ === "object");
 assert(typeof StandardRouterOutputStreamDetails$ === "object");
+assert(typeof StandardSourceEndpointAssociatedResourceDetails$ === "object");
+assert(typeof StandardSourceEndpointConfiguration$ === "object");
+assert(typeof StandardSourceEndpointConnectionDetails$ === "object");
+assert(typeof StandardSourceEndpointNetworkingConfiguration$ === "object");
+assert(typeof StandardSourceEndpointProtocolConfiguration$ === "object");
 assert(typeof StartFlowRequest$ === "object");
 assert(typeof StartFlowResponse$ === "object");
 assert(typeof StartRouterInputRequest$ === "object");
@@ -1101,6 +1362,8 @@ assert(typeof UpdateBridgeSourceRequest$ === "object");
 assert(typeof UpdateBridgeSourceResponse$ === "object");
 assert(typeof UpdateBridgeStateRequest$ === "object");
 assert(typeof UpdateBridgeStateResponse$ === "object");
+assert(typeof UpdateDestinationEndpointRequest$ === "object");
+assert(typeof UpdateDestinationEndpointResponse$ === "object");
 assert(typeof UpdateEgressGatewayBridgeRequest$ === "object");
 assert(typeof UpdateEncryption$ === "object");
 assert(typeof UpdateFailoverConfig$ === "object");
@@ -1125,11 +1388,15 @@ assert(typeof UpdateRouterNetworkInterfaceRequest$ === "object");
 assert(typeof UpdateRouterNetworkInterfaceResponse$ === "object");
 assert(typeof UpdateRouterOutputRequest$ === "object");
 assert(typeof UpdateRouterOutputResponse$ === "object");
+assert(typeof UpdateSourceEndpointRequest$ === "object");
+assert(typeof UpdateSourceEndpointResponse$ === "object");
 assert(typeof VideoMonitoringSetting$ === "object");
+assert(typeof VpcDestinationEndpointNetworkingConfiguration$ === "object");
 assert(typeof VpcInterface$ === "object");
 assert(typeof VpcInterfaceAttachment$ === "object");
 assert(typeof VpcInterfaceRequest$ === "object");
 assert(typeof VpcRouterNetworkInterfaceConfiguration$ === "object");
+assert(typeof VpcSourceEndpointNetworkingConfiguration$ === "object");
 assert(typeof WindowMaintenanceSchedule$ === "object");
 // enums
 assert(typeof Algorithm === "object");
@@ -1140,10 +1407,18 @@ assert(typeof ConnectionStatus === "object");
 assert(typeof ContentQualityAnalysisState === "object");
 assert(typeof Day === "object");
 assert(typeof DesiredState === "object");
+assert(typeof DestinationEndpointConnectionState === "object");
+assert(typeof DestinationEndpointNetworkingType === "object");
+assert(typeof DestinationEndpointProtocol === "object");
+assert(typeof DestinationEndpointRegistrationState === "object");
+assert(typeof DestinationEndpointType === "object");
 assert(typeof DurationUnits === "object");
 assert(typeof EncoderProfile === "object");
 assert(typeof EncodingName === "object");
 assert(typeof EncodingProfile === "object");
+assert(typeof EndpointEncryptionSecretType === "object");
+assert(typeof EndpointEncryptionType === "object");
+assert(typeof EndpointLifecycle === "object");
 assert(typeof EntitlementStatus === "object");
 assert(typeof FabricLatencyMode === "object");
 assert(typeof FailoverInputSourcePriorityMode === "object");
@@ -1169,6 +1444,8 @@ assert(typeof PriceUnits === "object");
 assert(typeof Protocol === "object");
 assert(typeof Range === "object");
 assert(typeof ReservationState === "object");
+assert(typeof ResourceShareOwnership === "object");
+assert(typeof ResourceShareState === "object");
 assert(typeof ResourceType === "object");
 assert(typeof RouterContentQualityAnalysisType === "object");
 assert(typeof RouterInputProtocol === "object");
@@ -1185,6 +1462,11 @@ assert(typeof RouterOutputTier === "object");
 assert(typeof RouterOutputType === "object");
 assert(typeof RoutingScope === "object");
 assert(typeof ScanMode === "object");
+assert(typeof SourceEndpointConnectionState === "object");
+assert(typeof SourceEndpointNetworkingType === "object");
+assert(typeof SourceEndpointProtocol === "object");
+assert(typeof SourceEndpointRegistrationState === "object");
+assert(typeof SourceEndpointType === "object");
 assert(typeof SourceType === "object");
 assert(typeof State === "object");
 assert(typeof Status === "object");
@@ -1207,6 +1489,8 @@ assert(CreateFlow420Exception.prototype instanceof MediaConnectServiceException)
 assert(typeof CreateFlow420Exception$ === "object");
 assert(CreateGateway420Exception.prototype instanceof MediaConnectServiceException);
 assert(typeof CreateGateway420Exception$ === "object");
+assert(DestinationEndpointServiceQuotaExceededException.prototype instanceof MediaConnectServiceException);
+assert(typeof DestinationEndpointServiceQuotaExceededException$ === "object");
 assert(ForbiddenException.prototype instanceof MediaConnectServiceException);
 assert(typeof ForbiddenException$ === "object");
 assert(GrantFlowEntitlements420Exception.prototype instanceof MediaConnectServiceException);
@@ -1223,10 +1507,16 @@ assert(RouterOutputServiceQuotaExceededException.prototype instanceof MediaConne
 assert(typeof RouterOutputServiceQuotaExceededException$ === "object");
 assert(ServiceUnavailableException.prototype instanceof MediaConnectServiceException);
 assert(typeof ServiceUnavailableException$ === "object");
+assert(SourceEndpointServiceQuotaExceededException.prototype instanceof MediaConnectServiceException);
+assert(typeof SourceEndpointServiceQuotaExceededException$ === "object");
 assert(TooManyRequestsException.prototype instanceof MediaConnectServiceException);
 assert(typeof TooManyRequestsException$ === "object");
 assert(MediaConnectServiceException.prototype instanceof Error);
 // waiters
+assert(typeof waitForDestinationEndpointConnected === "function");
+assert(typeof waitForDestinationEndpointDeregistered === "function");
+assert(typeof waitForDestinationEndpointDisconnected === "function");
+assert(typeof waitForDestinationEndpointRegistered === "function");
 assert(typeof waitForFlowActive === "function");
 assert(typeof waitForFlowDeleted === "function");
 assert(typeof waitForFlowStandby === "function");
@@ -1238,6 +1528,16 @@ assert(typeof waitForOutputDeleted === "function");
 assert(typeof waitForOutputRouted === "function");
 assert(typeof waitForOutputStandby === "function");
 assert(typeof waitForOutputUnrouted === "function");
+assert(typeof waitForSourceEndpointConnected === "function");
+assert(typeof waitForSourceEndpointConnecting === "function");
+assert(typeof waitForSourceEndpointDeregistered === "function");
+assert(typeof waitForSourceEndpointDisconnected === "function");
+assert(typeof waitForSourceEndpointDisconnecting === "function");
+assert(typeof waitForSourceEndpointRegistered === "function");
+assert(typeof waitUntilDestinationEndpointConnected === "function");
+assert(typeof waitUntilDestinationEndpointDeregistered === "function");
+assert(typeof waitUntilDestinationEndpointDisconnected === "function");
+assert(typeof waitUntilDestinationEndpointRegistered === "function");
 assert(typeof waitUntilFlowActive === "function");
 assert(typeof waitUntilFlowDeleted === "function");
 assert(typeof waitUntilFlowStandby === "function");
@@ -1249,8 +1549,15 @@ assert(typeof waitUntilOutputDeleted === "function");
 assert(typeof waitUntilOutputRouted === "function");
 assert(typeof waitUntilOutputStandby === "function");
 assert(typeof waitUntilOutputUnrouted === "function");
+assert(typeof waitUntilSourceEndpointConnected === "function");
+assert(typeof waitUntilSourceEndpointConnecting === "function");
+assert(typeof waitUntilSourceEndpointDeregistered === "function");
+assert(typeof waitUntilSourceEndpointDisconnected === "function");
+assert(typeof waitUntilSourceEndpointDisconnecting === "function");
+assert(typeof waitUntilSourceEndpointRegistered === "function");
 // paginators
 assert(typeof paginateListBridges === "function");
+assert(typeof paginateListDestinationEndpoints === "function");
 assert(typeof paginateListEntitlements === "function");
 assert(typeof paginateListFlows === "function");
 assert(typeof paginateListGatewayInstances === "function");
@@ -1260,4 +1567,5 @@ assert(typeof paginateListReservations === "function");
 assert(typeof paginateListRouterInputs === "function");
 assert(typeof paginateListRouterNetworkInterfaces === "function");
 assert(typeof paginateListRouterOutputs === "function");
+assert(typeof paginateListSourceEndpoints === "function");
 console.log(`MediaConnect index test passed.`);

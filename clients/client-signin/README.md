@@ -6,8 +6,7 @@
 
 AWS SDK for JavaScript Signin Client for Node.js, Browser and React Native.
 
-AWS Sign-In manages authentication for AWS services. This service provides
-secure authentication flows for accessing AWS resources from the console and developer tools.
+AWS Sign-In manages authentication for AWS services. It implements OAuth 2.0, providing secure token exchange and refresh capabilities.
 
 ## Installing
 
@@ -193,6 +192,13 @@ CreateOAuth2TokenWithIAM
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/CreateOAuth2TokenWithIAMCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/CreateOAuth2TokenWithIAMCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/CreateOAuth2TokenWithIAMCommandOutput/)
+</details>
+<details>
+<summary>
+CreateOAuth2TokenWithTokenExchange
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/CreateOAuth2TokenWithTokenExchangeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/CreateOAuth2TokenWithTokenExchangeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/CreateOAuth2TokenWithTokenExchangeCommandOutput/)
 </details>
 <details>
 <summary>

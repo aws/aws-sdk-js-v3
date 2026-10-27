@@ -2,6 +2,17 @@
 
 [Commit logs](https://github.com/aws/aws-sdk-js-v3/commits/main/codegen/smithy-aws-typescript-codegen/src/main/java/software/amazon/smithy/aws/typescript/codegen)
 
+## 0.55.0 (2026-10-27)
+
+### Features
+
+- Exposed transact write item types in the DynamoDB document client ([#8334](https://github.com/aws/aws-sdk-js-v3/pull/8334))
+- Added BatchGet item paginators for the low-level and document clients ([#8340](https://github.com/aws/aws-sdk-js-v3/pull/8340))
+
+### Chores
+
+- Upgraded to smithy-typescript 0.55.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0550-2026-10-27))
+
 ## 0.54.0 (2026-09-24)
 
 ### Chores

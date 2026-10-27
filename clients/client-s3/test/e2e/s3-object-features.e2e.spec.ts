@@ -92,16 +92,18 @@ describe("@aws-sdk/client-s3", () => {
     });
 
     describe("keys with special characters", () => {
+      const keyPrefix = `s3-object-features-${crypto.randomUUID()}-`;
+      const specialKey = `${keyPrefix}special_c0_\x15\x15\x15\x15`;
       const keys = [
-        `\r`,
-        `\n`,
-        `\x85`,
-        `\u2028`,
-        "\n \n",
-        "a\r\n b\n c\r",
-        "a\r\u0085 b\u0085",
-        "a\r\u2028 b\u0085 c\u2028 d\x15",
-        "special_c0_\x15\x15\x15\x15",
+        `${keyPrefix}\r`,
+        `${keyPrefix}\n`,
+        `${keyPrefix}\x85`,
+        `${keyPrefix}\u2028`,
+        `${keyPrefix}\n \n`,
+        `${keyPrefix}a\r\n b\n c\r`,
+        `${keyPrefix}a\r\u0085 b\u0085`,
+        `${keyPrefix}a\r\u2028 b\u0085 c\u2028 d\x15`,
+        specialKey,
       ];
 
       beforeAll(async () => {
@@ -130,11 +132,10 @@ describe("@aws-sdk/client-s3", () => {
       it("can list objects with special character keys", async () => {
         const listObjects = await client.listObjects({
           Bucket,
-          Prefix: "special_c0_",
+          Prefix: `${keyPrefix}special_c0_`,
         });
 
-        expect(listObjects.Contents?.length).toBeGreaterThanOrEqual(1);
-        expect(listObjects.Contents?.[0].Key).toEqual("special_c0_\x15\x15\x15\x15");
+        expect(listObjects.Contents?.some(({ Key }) => Key === specialKey)).toBe(true);
       });
 
       it("can delete keys containing special characters", async () => {

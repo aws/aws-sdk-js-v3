@@ -98,6 +98,42 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  *       errorCachingMinTTL: Number("long"),
  *     },
  *   ],
+ *   enableWaf: true || false,
+ *   wafRules: [ // WafRuleList
+ *     { // WafRule
+ *       name: "STRING_VALUE", // required
+ *       atpConfig: { // WafAtpConfig
+ *         loginPath: "STRING_VALUE",
+ *         payloadType: "JSON" || "FORM_ENCODED",
+ *         usernameField: "STRING_VALUE",
+ *         passwordField: "STRING_VALUE",
+ *         responseInspection: { // WafResponseInspection
+ *           successCodes: [ // WafStatusCodeList
+ *             Number("int"),
+ *           ],
+ *           failureCodes: [
+ *             Number("int"),
+ *           ],
+ *         },
+ *       },
+ *       acfpConfig: { // WafAcfpConfig
+ *         payloadType: "JSON" || "FORM_ENCODED",
+ *         creationPath: "STRING_VALUE",
+ *         registrationPagePath: "STRING_VALUE",
+ *         responseInspection: {
+ *           successCodes: [
+ *             Number("int"),
+ *           ],
+ *           failureCodes: [
+ *             Number("int"),
+ *           ],
+ *         },
+ *       },
+ *       botControlConfig: { // WafBotControlConfig
+ *         inspectionLevel: "COMMON" || "TARGETED",
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new CreateDistributionCommand(input);
  * const response = await client.send(command);
@@ -182,6 +218,44 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * //         errorCachingMinTTL: Number("long"),
  * //       },
  * //     ],
+ * //     waf: { // WafConfig
+ * //       isWafEnabled: true || false,
+ * //       wafRules: [ // WafRuleList
+ * //         { // WafRule
+ * //           name: "STRING_VALUE", // required
+ * //           atpConfig: { // WafAtpConfig
+ * //             loginPath: "STRING_VALUE",
+ * //             payloadType: "JSON" || "FORM_ENCODED",
+ * //             usernameField: "STRING_VALUE",
+ * //             passwordField: "STRING_VALUE",
+ * //             responseInspection: { // WafResponseInspection
+ * //               successCodes: [ // WafStatusCodeList
+ * //                 Number("int"),
+ * //               ],
+ * //               failureCodes: [
+ * //                 Number("int"),
+ * //               ],
+ * //             },
+ * //           },
+ * //           acfpConfig: { // WafAcfpConfig
+ * //             payloadType: "JSON" || "FORM_ENCODED",
+ * //             creationPath: "STRING_VALUE",
+ * //             registrationPagePath: "STRING_VALUE",
+ * //             responseInspection: {
+ * //               successCodes: [
+ * //                 Number("int"),
+ * //               ],
+ * //               failureCodes: [
+ * //                 Number("int"),
+ * //               ],
+ * //             },
+ * //           },
+ * //           botControlConfig: { // WafBotControlConfig
+ * //             inspectionLevel: "COMMON" || "TARGETED",
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   operation: { // Operation
  * //     id: "STRING_VALUE",

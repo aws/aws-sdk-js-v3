@@ -690,9 +690,18 @@ const _URRn = "UntagResourceResult";
 const _UV = "UnpeerVpc";
 const _UVR = "UnpeerVpcRequest";
 const _UVRn = "UnpeerVpcResult";
+const _WAC = "WafAcfpConfig";
+const _WACa = "WafAtpConfig";
+const _WBCC = "WafBotControlConfig";
+const _WC = "WafConfig";
+const _WR = "WafRule";
+const _WRI = "WafResponseInspection";
+const _WRL = "WafRuleList";
 const _a = "arn";
 const _aBU = "acceptBundleUpdate";
 const _aC = "appCategory";
+const _aCc = "acfpConfig";
+const _aCt = "atpConfig";
 const _aD = "accessDetails";
 const _aDM = "attachedDiskMapping";
 const _aDN = "alternativeDomainNames";
@@ -737,6 +746,7 @@ const _al = "alarms";
 const _alg = "algorithm";
 const _av = "average";
 const _b = "behavior";
+const _bCC = "botControlConfig";
 const _bI = "blueprintId";
 const _bIL = "bpaImpactsLightsail";
 const _bIu = "bundleId";
@@ -780,6 +790,7 @@ const _cOo = "configurationOptions";
 const _cP = "contactProtocols";
 const _cPe = "certificateProvider";
 const _cPo = "containerPort";
+const _cPr = "creationPath";
 const _cS = "containerServices";
 const _cSN = "containerServiceName";
 const _cSe = "certificateStatuses";
@@ -857,6 +868,7 @@ const _eT = "endTime";
 const _eTR = "eligibleToRenew";
 const _eV = "engineVersion";
 const _eVD = "engineVersionDescription";
+const _eW = "enableWaf";
 const _en = "enabled";
 const _end = "end";
 const _eng = "engine";
@@ -866,6 +878,7 @@ const _fAD = "fromAttachedDisks";
 const _fBI = "fromBlueprintId";
 const _fBIr = "fromBundleId";
 const _fC = "forwardedCookies";
+const _fCa = "failureCodes";
 const _fD = "forceDelete";
 const _fDA = "fromDiskArn";
 const _fDAO = "forceDeleteAddOns";
@@ -931,6 +944,7 @@ const _iH = "instanceHealth";
 const _iHR = "instanceHealthReason";
 const _iHS = "instanceHealthSummary";
 const _iI = "includeInactive";
+const _iL = "inspectionLevel";
 const _iM = "isModifiable";
 const _iN = "instanceName";
 const _iNn = "instanceNames";
@@ -949,6 +963,7 @@ const _iSns = "instanceSnapshots";
 const _iT = "instanceType";
 const _iTs = "isTerminal";
 const _iURC = "inUseResourceCount";
+const _iWE = "isWafEnabled";
 const _im = "image";
 const _in = "instances";
 const _ins = "instance";
@@ -964,6 +979,7 @@ const _lB = "loadBalancer";
 const _lBN = "loadBalancerName";
 const _lBo = "loadBalancers";
 const _lE = "logEvents";
+const _lP = "loginPath";
 const _lRT = "latestRestorableTime";
 const _lS = "logStreams";
 const _lSA = "lastSyncedAt";
@@ -1027,6 +1043,7 @@ const _pD = "passwordData";
 const _pDN = "privateDomainName";
 const _pDNu = "publicDomainNames";
 const _pE = "publicEndpoint";
+const _pF = "passwordField";
 const _pI = "portInfo";
 const _pIA = "privateIpAddress";
 const _pIAC = "publicIpv4AddressCount";
@@ -1047,6 +1064,7 @@ const _pPu = "publicPorts";
 const _pRA = "privateRegistryAccess";
 const _pS = "portStates";
 const _pT = "pageToken";
+const _pTa = "payloadType";
 const _pTr = "profileType";
 const _pU = "productUrl";
 const _pUr = "pricingUnit";
@@ -1088,12 +1106,14 @@ const _rDe = "relationalDatabase";
 const _rDel = "relationalDatabases";
 const _rFR = "requestFailureReason";
 const _rHZDS = "r53HostedZoneDeletionState";
+const _rI = "responseInspection";
 const _rL = "registryLogin";
 const _rLE = "resourceLogEvents";
 const _rMUP = "rotateMasterUserPassword";
 const _rN = "resourceName";
 const _rNe = "regionName";
 const _rPP = "responsePagePath";
+const _rPPe = "registrationPagePath";
 const _rR = "revocationReason";
 const _rRA = "resourcesReceivingAccess";
 const _rRe = "resourceRecord";
@@ -1181,6 +1201,7 @@ const _uA = "updatedAt";
 const _uC = "usageCost";
 const _uD = "userData";
 const _uDC = "useDefaultCertificate";
+const _uF = "usernameField";
 const _uLRAS = "useLatestRestorableAutoSnapshot";
 const _uLRT = "useLatestRestorableTime";
 const _uT = "unhealthyThreshold";
@@ -1193,7 +1214,9 @@ const _vMTPV = "viewerMinimumTlsProtocolVersion";
 const _vS = "validationStatus";
 const _va = "value";
 const _ve = "versioning";
+const _w = "waf";
 const _wA = "witnessedAt";
+const _wR = "wafRules";
 const _zN = "zoneName";
 const n0 = "com.amazonaws.lightsail";
 
@@ -1693,8 +1716,8 @@ export var CreateDiskSnapshotResult$: StaticStructureSchema = [3, n0, _CDSRr,
 ];
 export var CreateDistributionRequest$: StaticStructureSchema = [3, n0, _CDRre,
   0,
-  [_dN, _or, _dCB, _bIu, _cBS, _cB, _iAT, _ta, _cN, _vMTPV, _ePOA, _dRO, _cER],
-  [0, () => InputOrigin$, () => CacheBehavior$, 0, () => CacheSettings$, () => CacheBehaviorList, 0, () => TagList, 0, 0, 2, 0, () => DistributionCustomErrorResponseList], 4
+  [_dN, _or, _dCB, _bIu, _cBS, _cB, _iAT, _ta, _cN, _vMTPV, _ePOA, _dRO, _cER, _eW, _wR],
+  [0, () => InputOrigin$, () => CacheBehavior$, 0, () => CacheSettings$, () => CacheBehaviorList, 0, () => TagList, 0, 0, 2, 0, () => DistributionCustomErrorResponseList, 2, () => WafRuleList], 4
 ];
 export var CreateDistributionResult$: StaticStructureSchema = [3, n0, _CDRrea,
   0,
@@ -2948,8 +2971,8 @@ export var KeyPair$: StaticStructureSchema = [3, n0, _KP,
 ];
 export var LightsailDistribution$: StaticStructureSchema = [3, n0, _LD,
   0,
-  [_n, _a, _sC, _cA, _l, _rT, _aDN, _st, _iE, _dNo, _bIu, _cN, _or, _oPDNS, _dCB, _cBS, _cB, _aTUB, _iAT, _ta, _vMTPV, _dRO, _cER],
-  [0, 0, 0, 4, () => ResourceLocation$, 0, 64 | 0, 0, 2, 0, 0, 0, () => Origin$, 0, () => CacheBehavior$, () => CacheSettings$, () => CacheBehaviorList, 2, 0, () => TagList, 0, 0, () => DistributionCustomErrorResponseList]
+  [_n, _a, _sC, _cA, _l, _rT, _aDN, _st, _iE, _dNo, _bIu, _cN, _or, _oPDNS, _dCB, _cBS, _cB, _aTUB, _iAT, _ta, _vMTPV, _dRO, _cER, _w],
+  [0, 0, 0, 4, () => ResourceLocation$, 0, 64 | 0, 0, 2, 0, 0, 0, () => Origin$, 0, () => CacheBehavior$, () => CacheSettings$, () => CacheBehaviorList, 2, 0, () => TagList, 0, 0, () => DistributionCustomErrorResponseList, () => WafConfig$]
 ];
 export var LoadBalancer$: StaticStructureSchema = [3, n0, _LB,
   0,
@@ -3463,8 +3486,8 @@ export var UpdateDistributionBundleResult$: StaticStructureSchema = [3, n0, _UDB
 ];
 export var UpdateDistributionRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
-  [_dN, _or, _dCB, _cBS, _cB, _iE, _vMTPV, _cN, _uDC, _ePOA, _dRO, _cER],
-  [0, () => InputOrigin$, () => CacheBehavior$, () => CacheSettings$, () => CacheBehaviorList, 2, 0, 0, 2, 2, 0, () => DistributionCustomErrorResponseList], 1
+  [_dN, _or, _dCB, _cBS, _cB, _iE, _vMTPV, _cN, _uDC, _ePOA, _dRO, _cER, _eW, _wR],
+  [0, () => InputOrigin$, () => CacheBehavior$, () => CacheSettings$, () => CacheBehaviorList, 2, 0, 0, 2, 2, 0, () => DistributionCustomErrorResponseList, 2, () => WafRuleList], 1
 ];
 export var UpdateDistributionResult$: StaticStructureSchema = [3, n0, _UDRp,
   0,
@@ -3520,6 +3543,36 @@ export var UpdateRelationalDatabaseResult$: StaticStructureSchema = [3, n0, _URD
   0,
   [_o],
   [() => OperationList]
+];
+export var WafAcfpConfig$: StaticStructureSchema = [3, n0, _WAC,
+  0,
+  [_pTa, _cPr, _rPPe, _rI],
+  [0, 0, 0, () => WafResponseInspection$]
+];
+export var WafAtpConfig$: StaticStructureSchema = [3, n0, _WACa,
+  0,
+  [_lP, _pTa, _uF, _pF, _rI],
+  [0, 0, 0, 0, () => WafResponseInspection$]
+];
+export var WafBotControlConfig$: StaticStructureSchema = [3, n0, _WBCC,
+  0,
+  [_iL],
+  [0]
+];
+export var WafConfig$: StaticStructureSchema = [3, n0, _WC,
+  0,
+  [_iWE, _wR],
+  [2, () => WafRuleList]
+];
+export var WafResponseInspection$: StaticStructureSchema = [3, n0, _WRI,
+  0,
+  [_sCu, _fCa],
+  [64 | 1, 64 | 1]
+];
+export var WafRule$: StaticStructureSchema = [3, n0, _WR,
+  0,
+  [_n, _aCt, _aCc, _bCC],
+  [0, () => WafAtpConfig$, () => WafAcfpConfig$, () => WafBotControlConfig$], 1
 ];
 var AccessKeyList: StaticListSchema = [1, n0, _AKL,
   0, [() => AccessKey$,
@@ -3751,6 +3804,10 @@ var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL,
   0, () => Tag$
 ];
+var WafRuleList: StaticListSchema = [1, n0, _WRL,
+  0, () => WafRule$
+];
+var WafStatusCodeList = 64 | 1;
 var AttachedDiskMap: StaticMapSchema = [2, n0, _ADM,
   0, 0, () => DiskMapList
 ];

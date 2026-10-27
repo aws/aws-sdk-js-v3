@@ -67,6 +67,10 @@ import type {
   AddFlowVpcInterfacesCommandOutput,
 } from "./commands/AddFlowVpcInterfacesCommand";
 import type {
+  BatchGetDestinationEndpointCommandInput,
+  BatchGetDestinationEndpointCommandOutput,
+} from "./commands/BatchGetDestinationEndpointCommand";
+import type {
   BatchGetRouterInputCommandInput,
   BatchGetRouterInputCommandOutput,
 } from "./commands/BatchGetRouterInputCommand";
@@ -78,6 +82,11 @@ import type {
   BatchGetRouterOutputCommandInput,
   BatchGetRouterOutputCommandOutput,
 } from "./commands/BatchGetRouterOutputCommand";
+import type {
+  BatchGetSourceEndpointCommandInput,
+  BatchGetSourceEndpointCommandOutput,
+} from "./commands/BatchGetSourceEndpointCommand";
+import type { ConnectEndpointsCommandInput, ConnectEndpointsCommandOutput } from "./commands/ConnectEndpointsCommand";
 import type { CreateBridgeCommandInput, CreateBridgeCommandOutput } from "./commands/CreateBridgeCommand";
 import type { CreateFlowCommandInput, CreateFlowCommandOutput } from "./commands/CreateFlowCommand";
 import type { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
@@ -109,9 +118,17 @@ import type {
   DeleteRouterOutputCommandOutput,
 } from "./commands/DeleteRouterOutputCommand";
 import type {
+  DeregisterDestinationEndpointCommandInput,
+  DeregisterDestinationEndpointCommandOutput,
+} from "./commands/DeregisterDestinationEndpointCommand";
+import type {
   DeregisterGatewayInstanceCommandInput,
   DeregisterGatewayInstanceCommandOutput,
 } from "./commands/DeregisterGatewayInstanceCommand";
+import type {
+  DeregisterSourceEndpointCommandInput,
+  DeregisterSourceEndpointCommandOutput,
+} from "./commands/DeregisterSourceEndpointCommand";
 import type { DescribeBridgeCommandInput, DescribeBridgeCommandOutput } from "./commands/DescribeBridgeCommand";
 import type { DescribeFlowCommandInput, DescribeFlowCommandOutput } from "./commands/DescribeFlowCommand";
 import type {
@@ -132,6 +149,14 @@ import type {
   DescribeReservationCommandInput,
   DescribeReservationCommandOutput,
 } from "./commands/DescribeReservationCommand";
+import type {
+  DisconnectEndpointsCommandInput,
+  DisconnectEndpointsCommandOutput,
+} from "./commands/DisconnectEndpointsCommand";
+import type {
+  GetDestinationEndpointCommandInput,
+  GetDestinationEndpointCommandOutput,
+} from "./commands/GetDestinationEndpointCommand";
 import type { GetRouterInputCommandInput, GetRouterInputCommandOutput } from "./commands/GetRouterInputCommand";
 import type {
   GetRouterInputSourceMetadataCommandInput,
@@ -147,10 +172,18 @@ import type {
 } from "./commands/GetRouterNetworkInterfaceCommand";
 import type { GetRouterOutputCommandInput, GetRouterOutputCommandOutput } from "./commands/GetRouterOutputCommand";
 import type {
+  GetSourceEndpointCommandInput,
+  GetSourceEndpointCommandOutput,
+} from "./commands/GetSourceEndpointCommand";
+import type {
   GrantFlowEntitlementsCommandInput,
   GrantFlowEntitlementsCommandOutput,
 } from "./commands/GrantFlowEntitlementsCommand";
 import type { ListBridgesCommandInput, ListBridgesCommandOutput } from "./commands/ListBridgesCommand";
+import type {
+  ListDestinationEndpointsCommandInput,
+  ListDestinationEndpointsCommandOutput,
+} from "./commands/ListDestinationEndpointsCommand";
 import type { ListEntitlementsCommandInput, ListEntitlementsCommandOutput } from "./commands/ListEntitlementsCommand";
 import type { ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
 import type {
@@ -170,6 +203,10 @@ import type {
   ListRouterOutputsCommandOutput,
 } from "./commands/ListRouterOutputsCommand";
 import type {
+  ListSourceEndpointsCommandInput,
+  ListSourceEndpointsCommandOutput,
+} from "./commands/ListSourceEndpointsCommand";
+import type {
   ListTagsForGlobalResourceCommandInput,
   ListTagsForGlobalResourceCommandOutput,
 } from "./commands/ListTagsForGlobalResourceCommand";
@@ -178,6 +215,14 @@ import type {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import type { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand";
+import type {
+  RegisterDestinationEndpointCommandInput,
+  RegisterDestinationEndpointCommandOutput,
+} from "./commands/RegisterDestinationEndpointCommand";
+import type {
+  RegisterSourceEndpointCommandInput,
+  RegisterSourceEndpointCommandOutput,
+} from "./commands/RegisterSourceEndpointCommand";
 import type {
   RemoveBridgeOutputCommandInput,
   RemoveBridgeOutputCommandOutput,
@@ -241,6 +286,10 @@ import type {
   UpdateBridgeStateCommandInput,
   UpdateBridgeStateCommandOutput,
 } from "./commands/UpdateBridgeStateCommand";
+import type {
+  UpdateDestinationEndpointCommandInput,
+  UpdateDestinationEndpointCommandOutput,
+} from "./commands/UpdateDestinationEndpointCommand";
 import type { UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
 import type {
   UpdateFlowEntitlementCommandInput,
@@ -268,6 +317,10 @@ import type {
   UpdateRouterOutputCommandInput,
   UpdateRouterOutputCommandOutput,
 } from "./commands/UpdateRouterOutputCommand";
+import type {
+  UpdateSourceEndpointCommandInput,
+  UpdateSourceEndpointCommandOutput,
+} from "./commands/UpdateSourceEndpointCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -289,9 +342,12 @@ export type ServiceInputTypes =
   | AddFlowOutputsCommandInput
   | AddFlowSourcesCommandInput
   | AddFlowVpcInterfacesCommandInput
+  | BatchGetDestinationEndpointCommandInput
   | BatchGetRouterInputCommandInput
   | BatchGetRouterNetworkInterfaceCommandInput
   | BatchGetRouterOutputCommandInput
+  | BatchGetSourceEndpointCommandInput
+  | ConnectEndpointsCommandInput
   | CreateBridgeCommandInput
   | CreateFlowCommandInput
   | CreateGatewayCommandInput
@@ -304,7 +360,9 @@ export type ServiceInputTypes =
   | DeleteRouterInputCommandInput
   | DeleteRouterNetworkInterfaceCommandInput
   | DeleteRouterOutputCommandInput
+  | DeregisterDestinationEndpointCommandInput
   | DeregisterGatewayInstanceCommandInput
+  | DeregisterSourceEndpointCommandInput
   | DescribeBridgeCommandInput
   | DescribeFlowCommandInput
   | DescribeFlowSourceMetadataCommandInput
@@ -313,13 +371,17 @@ export type ServiceInputTypes =
   | DescribeGatewayInstanceCommandInput
   | DescribeOfferingCommandInput
   | DescribeReservationCommandInput
+  | DisconnectEndpointsCommandInput
+  | GetDestinationEndpointCommandInput
   | GetRouterInputCommandInput
   | GetRouterInputSourceMetadataCommandInput
   | GetRouterInputThumbnailCommandInput
   | GetRouterNetworkInterfaceCommandInput
   | GetRouterOutputCommandInput
+  | GetSourceEndpointCommandInput
   | GrantFlowEntitlementsCommandInput
   | ListBridgesCommandInput
+  | ListDestinationEndpointsCommandInput
   | ListEntitlementsCommandInput
   | ListFlowsCommandInput
   | ListGatewayInstancesCommandInput
@@ -329,9 +391,12 @@ export type ServiceInputTypes =
   | ListRouterInputsCommandInput
   | ListRouterNetworkInterfacesCommandInput
   | ListRouterOutputsCommandInput
+  | ListSourceEndpointsCommandInput
   | ListTagsForGlobalResourceCommandInput
   | ListTagsForResourceCommandInput
   | PurchaseOfferingCommandInput
+  | RegisterDestinationEndpointCommandInput
+  | RegisterSourceEndpointCommandInput
   | RemoveBridgeOutputCommandInput
   | RemoveBridgeSourceCommandInput
   | RemoveFlowMediaStreamCommandInput
@@ -356,6 +421,7 @@ export type ServiceInputTypes =
   | UpdateBridgeOutputCommandInput
   | UpdateBridgeSourceCommandInput
   | UpdateBridgeStateCommandInput
+  | UpdateDestinationEndpointCommandInput
   | UpdateFlowCommandInput
   | UpdateFlowEntitlementCommandInput
   | UpdateFlowMediaStreamCommandInput
@@ -364,7 +430,8 @@ export type ServiceInputTypes =
   | UpdateGatewayInstanceCommandInput
   | UpdateRouterInputCommandInput
   | UpdateRouterNetworkInterfaceCommandInput
-  | UpdateRouterOutputCommandInput;
+  | UpdateRouterOutputCommandInput
+  | UpdateSourceEndpointCommandInput;
 
 /**
  * @public
@@ -376,9 +443,12 @@ export type ServiceOutputTypes =
   | AddFlowOutputsCommandOutput
   | AddFlowSourcesCommandOutput
   | AddFlowVpcInterfacesCommandOutput
+  | BatchGetDestinationEndpointCommandOutput
   | BatchGetRouterInputCommandOutput
   | BatchGetRouterNetworkInterfaceCommandOutput
   | BatchGetRouterOutputCommandOutput
+  | BatchGetSourceEndpointCommandOutput
+  | ConnectEndpointsCommandOutput
   | CreateBridgeCommandOutput
   | CreateFlowCommandOutput
   | CreateGatewayCommandOutput
@@ -391,7 +461,9 @@ export type ServiceOutputTypes =
   | DeleteRouterInputCommandOutput
   | DeleteRouterNetworkInterfaceCommandOutput
   | DeleteRouterOutputCommandOutput
+  | DeregisterDestinationEndpointCommandOutput
   | DeregisterGatewayInstanceCommandOutput
+  | DeregisterSourceEndpointCommandOutput
   | DescribeBridgeCommandOutput
   | DescribeFlowCommandOutput
   | DescribeFlowSourceMetadataCommandOutput
@@ -400,13 +472,17 @@ export type ServiceOutputTypes =
   | DescribeGatewayInstanceCommandOutput
   | DescribeOfferingCommandOutput
   | DescribeReservationCommandOutput
+  | DisconnectEndpointsCommandOutput
+  | GetDestinationEndpointCommandOutput
   | GetRouterInputCommandOutput
   | GetRouterInputSourceMetadataCommandOutput
   | GetRouterInputThumbnailCommandOutput
   | GetRouterNetworkInterfaceCommandOutput
   | GetRouterOutputCommandOutput
+  | GetSourceEndpointCommandOutput
   | GrantFlowEntitlementsCommandOutput
   | ListBridgesCommandOutput
+  | ListDestinationEndpointsCommandOutput
   | ListEntitlementsCommandOutput
   | ListFlowsCommandOutput
   | ListGatewayInstancesCommandOutput
@@ -416,9 +492,12 @@ export type ServiceOutputTypes =
   | ListRouterInputsCommandOutput
   | ListRouterNetworkInterfacesCommandOutput
   | ListRouterOutputsCommandOutput
+  | ListSourceEndpointsCommandOutput
   | ListTagsForGlobalResourceCommandOutput
   | ListTagsForResourceCommandOutput
   | PurchaseOfferingCommandOutput
+  | RegisterDestinationEndpointCommandOutput
+  | RegisterSourceEndpointCommandOutput
   | RemoveBridgeOutputCommandOutput
   | RemoveBridgeSourceCommandOutput
   | RemoveFlowMediaStreamCommandOutput
@@ -443,6 +522,7 @@ export type ServiceOutputTypes =
   | UpdateBridgeOutputCommandOutput
   | UpdateBridgeSourceCommandOutput
   | UpdateBridgeStateCommandOutput
+  | UpdateDestinationEndpointCommandOutput
   | UpdateFlowCommandOutput
   | UpdateFlowEntitlementCommandOutput
   | UpdateFlowMediaStreamCommandOutput
@@ -451,7 +531,8 @@ export type ServiceOutputTypes =
   | UpdateGatewayInstanceCommandOutput
   | UpdateRouterInputCommandOutput
   | UpdateRouterNetworkInterfaceCommandOutput
-  | UpdateRouterOutputCommandOutput;
+  | UpdateRouterOutputCommandOutput
+  | UpdateSourceEndpointCommandOutput;
 
 /**
  * @public

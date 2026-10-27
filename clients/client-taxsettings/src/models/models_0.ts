@@ -294,6 +294,24 @@ export interface GeorgiaAdditionalInfo {
 }
 
 /**
+ * <p>Contains additional tax information associated with your Tax Registration Number (TRN) in Germany, such as the economic identification number and Steuernummer.</p>
+ * @public
+ */
+export interface GermanyAdditionalInfo {
+  /**
+   * <p>The economic identification number (Wirtschafts-Identifikationsnummer, or W-IdNr) in Germany.</p>
+   * @public
+   */
+  economicIdentificationNumber?: string | undefined;
+
+  /**
+   * <p>The Steuernummer (tax number issued by the local tax office) in Germany.</p>
+   * @public
+   */
+  steuernummer?: string | undefined;
+}
+
+/**
  * <p>Additional tax information to specify for a TRN in Greece. </p>
  * @public
  */
@@ -429,6 +447,30 @@ export interface MalaysiaAdditionalInfo {
    * @public
    */
   businessRegistrationNumber?: string | undefined;
+}
+
+/**
+ * <p>Contains additional tax information associated with your Tax Registration Number (TRN) in Mexico, such as the SAT tax regime and CFDI usage code.</p>
+ * @public
+ */
+export interface MexicoAdditionalInfo {
+  /**
+   * <p>The SAT-assigned tax regime code for your business in Mexico. Must be a 3-digit number (for example, <code>601</code> for General de Ley Personas Morales).</p>
+   * @public
+   */
+  taxRegime?: string | undefined;
+
+  /**
+   * <p>The full name of the SAT tax regime associated with your business in Mexico.</p>
+   * @public
+   */
+  taxRegimeFullName?: string | undefined;
+
+  /**
+   * <p>The SAT CFDI usage code that identifies the purpose of the invoice in Mexico (for example, <code>G01</code> for goods acquisition, <code>S01</code> for no tax effects).</p>
+   * @public
+   */
+  cfdiUsageCode?: string | undefined;
 }
 
 /**
@@ -789,6 +831,18 @@ export interface AdditionalInfoResponse {
    * @public
    */
   monacoAdditionalInfo?: MonacoAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information associated with your Tax Registration Number (TRN) in Germany.</p>
+   * @public
+   */
+  germanyAdditionalInfo?: GermanyAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information associated with your Tax Registration Number (TRN) in Mexico.</p>
+   * @public
+   */
+  mexicoAdditionalInfo?: MexicoAdditionalInfo | undefined;
 }
 
 /**
@@ -1047,6 +1101,18 @@ export interface AdditionalInfoRequest {
    * @public
    */
   monacoAdditionalInfo?: MonacoAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a Tax Registration Number (TRN) in Germany.</p>
+   * @public
+   */
+  germanyAdditionalInfo?: GermanyAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a Tax Registration Number (TRN) in Mexico.</p>
+   * @public
+   */
+  mexicoAdditionalInfo?: MexicoAdditionalInfo | undefined;
 }
 
 /**

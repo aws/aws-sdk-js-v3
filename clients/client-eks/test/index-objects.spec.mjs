@@ -103,6 +103,7 @@ import {
   ControlPlanePlacementResponse$,
   ControlPlaneScalingConfig$,
   ControlPlaneScalingTierInfo$,
+  CrdManagementConfiguration$,
   CreateAccessConfigRequest$,
   CreateAccessEntry$,
   CreateAccessEntryCommand,
@@ -275,6 +276,7 @@ import {
   FargateProfileIssueCode,
   FargateProfileSelector$,
   FargateProfileStatus,
+  GatewayApiConfiguration$,
   HorizontalPodAutoscalerControllerConfigRequest$,
   HorizontalPodAutoscalerControllerConfigResponse$,
   HorizontalPodAutoscalerControllerVersionConfig$,
@@ -763,6 +765,7 @@ assert(typeof ControlPlanePlacementRequest$ === "object");
 assert(typeof ControlPlanePlacementResponse$ === "object");
 assert(typeof ControlPlaneScalingConfig$ === "object");
 assert(typeof ControlPlaneScalingTierInfo$ === "object");
+assert(typeof CrdManagementConfiguration$ === "object");
 assert(typeof CreateAccessConfigRequest$ === "object");
 assert(typeof CreateAccessEntryRequest$ === "object");
 assert(typeof CreateAccessEntryResponse$ === "object");
@@ -852,6 +855,7 @@ assert(typeof FargateProfile$ === "object");
 assert(typeof FargateProfileHealth$ === "object");
 assert(typeof FargateProfileIssue$ === "object");
 assert(typeof FargateProfileSelector$ === "object");
+assert(typeof GatewayApiConfiguration$ === "object");
 assert(typeof HorizontalPodAutoscalerControllerConfigRequest$ === "object");
 assert(typeof HorizontalPodAutoscalerControllerConfigResponse$ === "object");
 assert(typeof HorizontalPodAutoscalerControllerVersionConfig$ === "object");

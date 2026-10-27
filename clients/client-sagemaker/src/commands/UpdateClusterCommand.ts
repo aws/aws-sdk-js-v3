@@ -71,7 +71,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *         },
  *       ],
  *       OnStartDeepHealthChecks: [ // OnStartDeepHealthChecks
- *         "InstanceStress" || "InstanceConnectivity",
+ *         "InstanceStress" || "InstanceConnectivity" || "MultiNodeTrainingValidation",
  *       ],
  *       TrainingPlanArn: "STRING_VALUE",
  *       OverrideVpcConfig: { // VpcConfig
@@ -182,7 +182,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *         },
  *       ],
  *       OnStartDeepHealthChecks: [
- *         "InstanceStress" || "InstanceConnectivity",
+ *         "InstanceStress" || "InstanceConnectivity" || "MultiNodeTrainingValidation",
  *       ],
  *       TrainingPlanArn: "STRING_VALUE",
  *       OverrideVpcConfig: {

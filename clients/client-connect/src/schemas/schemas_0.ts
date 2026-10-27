@@ -1838,6 +1838,7 @@ const _N = "Name";
 const _NA = "NotificationArn";
 const _NAC = "NotAttributeCondition";
 const _NAE = "NotApplicableEnabled";
+const _NAR = "NullableAdditionalRecipients";
 const _NAo = "NotApplicable";
 const _NC = "NumberCondition";
 const _NCC = "NewChatCreated";
@@ -1886,6 +1887,7 @@ const _OCINI = "OutboundCallerIdNumberId";
 const _OCNPE = "OutboundContactNotPermittedException";
 const _OE = "OrExpression";
 const _OEAI = "OutboundEmailAddressId";
+const _OEARL = "OptionalEmailAddressRecipientList";
 const _OEC = "OutboundEmailConfig";
 const _OECu = "OutboundEmailContent";
 const _OF = "ObservationsFailed";
@@ -2839,6 +2841,11 @@ const _UNCRp = "UpdateNotificationContentResponse";
 const _UNFE = "UserNotFoundException";
 const _UNS = "UserNotificationSummary";
 const _UNSL = "UserNotificationSummaryList";
+const _UOEC = "UpdateOutboundEmailContent";
+const _UOECM = "UpdateOutboundEmailContactMessage";
+const _UOECMR = "UpdateOutboundEmailContactMessageRequest";
+const _UOECMRp = "UpdateOutboundEmailContactMessageResponse";
+const _UORM = "UpdateOutboundRawMessage";
 const _UP = "UserProficiencies";
 const _UPA = "UpdateParticipantAuthentication";
 const _UPAR = "UpdateParticipantAuthenticationRequest";
@@ -7494,6 +7501,11 @@ export var NotificationSearchSummary$: StaticStructureSchema = [3, n0, _NSS,
   [_I, _A, _II, _Con, _Prio, _Reci, _CAr, _EAx, _LMR, _LMT, _Ta],
   [0, 0, 0, 128 | 0, 0, 64 | 0, 4, 4, 0, 4, 128 | 0]
 ];
+export var NullableAdditionalRecipients$: StaticStructureSchema = [3, n0, _NAR,
+  0,
+  [_CEA],
+  [[() => OptionalEmailAddressRecipientList, 0]]
+];
 export var NumberCondition$: StaticStructureSchema = [3, n0, _NC,
   0,
   [_FNi, _MV, _MVa, _CTo],
@@ -9201,8 +9213,8 @@ export var UpdateContactFlowNameResponse$: StaticStructureSchema = [3, n0, _UCFN
 ];
 export var UpdateContactRequest$: StaticStructureSchema = [3, n0, _UCRp,
   0,
-  [_II, _CI, _N, _D, _Ref, _SAe, _QIu, _UIs, _CEu, _SE],
-  [[0, 1], [0, 1], [() => Name, 0], [() => Description, 0], () => ContactReferences, () => SegmentAttributes, () => QueueInfoInput$, () => UserInfo$, () => Endpoint$, () => Endpoint$], 2
+  [_II, _CI, _N, _D, _Ref, _SAe, _QIu, _UIs, _CEu, _SE, _ARd],
+  [[0, 1], [0, 1], [() => Name, 0], [() => Description, 0], () => ContactReferences, () => SegmentAttributes, () => QueueInfoInput$, () => UserInfo$, () => Endpoint$, () => Endpoint$, [() => NullableAdditionalRecipients$, 0]], 2
 ];
 export var UpdateContactResponse$: StaticStructureSchema = [3, n0, _UCRpd,
   0,
@@ -9358,6 +9370,26 @@ export var UpdateNotificationContentResponse$: StaticStructureSchema = [3, n0, _
   0,
   [],
   []
+];
+export var UpdateOutboundEmailContactMessageRequest$: StaticStructureSchema = [3, n0, _UOECMR,
+  0,
+  [_II, _CI, _EMm],
+  [[0, 1], [0, 1], [() => UpdateOutboundEmailContent$, 0]], 3
+];
+export var UpdateOutboundEmailContactMessageResponse$: StaticStructureSchema = [3, n0, _UOECMRp,
+  0,
+  [_CI],
+  [0], 1
+];
+export var UpdateOutboundEmailContent$: StaticStructureSchema = [3, n0, _UOEC,
+  0,
+  [_MST, _RM],
+  [0, [() => UpdateOutboundRawMessage$, 0]], 2
+];
+export var UpdateOutboundRawMessage$: StaticStructureSchema = [3, n0, _UORM,
+  0,
+  [_B, _CTon],
+  [[() => Body, 0], 0], 2
 ];
 export var UpdateParticipantAuthenticationRequest$: StaticStructureSchema = [3, n0, _UPAR,
   0,
@@ -10389,6 +10421,10 @@ var NotificationSummaryList: StaticListSchema = [1, n0, _NSL,
 var NumberValueList = 64 | 1;
 var OperationalHours: StaticListSchema = [1, n0, _OH,
   0, () => OperationalHour$
+];
+var OptionalEmailAddressRecipientList: StaticListSchema = [1, n0, _OEARL,
+  0, [() => EmailAddressInfo$,
+    0]
 ];
 var OriginsList = 64 | 0;
 var OverrideHours: StaticListSchema = [1, n0, _OHv,
@@ -12019,6 +12055,9 @@ export var UpdateMetricMetadata$: StaticOperationSchema = [9, n0, _UMM,
 ];
 export var UpdateNotificationContent$: StaticOperationSchema = [9, n0, _UNC,
   { [_h]: ["POST", "/notifications/{InstanceId}/{NotificationId}", 200] }, () => UpdateNotificationContentRequest$, () => UpdateNotificationContentResponse$
+];
+export var UpdateOutboundEmailContactMessage$: StaticOperationSchema = [9, n0, _UOECM,
+  { [_h]: ["PUT", "/instances/{InstanceId}/contacts/{ContactId}/outbound-email-message", 200] }, () => UpdateOutboundEmailContactMessageRequest$, () => UpdateOutboundEmailContactMessageResponse$
 ];
 export var UpdateParticipantAuthentication$: StaticOperationSchema = [9, n0, _UPA,
   { [_h]: ["POST", "/contact/update-participant-authentication", 200] }, () => UpdateParticipantAuthenticationRequest$, () => UpdateParticipantAuthenticationResponse$

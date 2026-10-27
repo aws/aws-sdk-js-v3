@@ -50,6 +50,17 @@ export interface ListCloudVmClustersCommandOutput extends ListCloudVmClustersOut
  * //       cloudVmClusterArn: "STRING_VALUE",
  * //       cloudExadataInfrastructureId: "STRING_VALUE",
  * //       cloudExadataInfrastructureArn: "STRING_VALUE",
+ * //       exascaleDbStorageVaultId: "STRING_VALUE",
+ * //       exascaleDbStorageVaultArn: "STRING_VALUE",
+ * //       storageManagementType: "ASM" || "EXASCALE",
+ * //       vmFileSystemStorageType: "LOCAL" || "EXASCALE",
+ * //       vmBackupStorageType: "LOCAL" || "EXASCALE",
+ * //       fileSystemConfigurationDetails: [ // FileSystemConfigurationDetailsList
+ * //         { // FileSystemConfigurationDetails
+ * //           mountPoint: "STRING_VALUE",
+ * //           fileSystemSizeInGBs: Number("int"),
+ * //         },
+ * //       ],
  * //       clusterName: "STRING_VALUE",
  * //       cpuCoreCount: Number("int"),
  * //       dataCollectionOptions: { // DataCollectionOptions

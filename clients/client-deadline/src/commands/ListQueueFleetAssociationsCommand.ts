@@ -23,7 +23,7 @@ export interface ListQueueFleetAssociationsCommandInput extends ListQueueFleetAs
 export interface ListQueueFleetAssociationsCommandOutput extends ListQueueFleetAssociationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists queue-fleet associations.</p>
+ * Lists queue-fleet associations.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,16 +65,16 @@ export interface ListQueueFleetAssociationsCommandOutput extends ListQueueFleetA
  * @see {@link DeadlineClientResolvedConfig | config} for DeadlineClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action.</p>
+ *  You don't have permission to perform the action.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Deadline Cloud can't process your request right now. Try again later.</p>
+ *  Deadline Cloud can't process your request right now. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *  The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a request rate quota.</p>
+ *  Your request exceeded a request rate quota.
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

@@ -892,6 +892,32 @@ export type ViewerMinimumTlsProtocolVersionEnum =
  * @public
  * @enum
  */
+export const WafPayloadTypeEnum = {
+  FORM_ENCODED: "FORM_ENCODED",
+  JSON: "JSON",
+} as const;
+/**
+ * @public
+ */
+export type WafPayloadTypeEnum = (typeof WafPayloadTypeEnum)[keyof typeof WafPayloadTypeEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const WafInspectionLevelEnum = {
+  COMMON: "COMMON",
+  TARGETED: "TARGETED",
+} as const;
+/**
+ * @public
+ */
+export type WafInspectionLevelEnum = (typeof WafInspectionLevelEnum)[keyof typeof WafInspectionLevelEnum];
+
+/**
+ * @public
+ * @enum
+ */
 export const Status = {
   FailedInstanceCreation: "failedInstanceCreation",
   FailedStartingGUISession: "failedStartingGUISession",
@@ -951,6 +977,8 @@ export const DistributionMetricName = {
   Http5xxErrorRate: "Http5xxErrorRate",
   Requests: "Requests",
   TotalErrorRate: "TotalErrorRate",
+  WafAllowedRequests: "WafAllowedRequests",
+  WafBlockedRequests: "WafBlockedRequests",
 } as const;
 /**
  * @public

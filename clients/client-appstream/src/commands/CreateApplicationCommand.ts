@@ -50,7 +50,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationResult,
  *   WorkingDirectory: "STRING_VALUE",
  *   LaunchParameters: "STRING_VALUE",
  *   Platforms: [ // Platforms // required
- *     "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "WINDOWS_SERVER_2025" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8" || "UBUNTU_PRO_2404",
+ *     "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "WINDOWS_SERVER_2025" || "WINDOWS_11" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8" || "UBUNTU_PRO_2404",
  *   ],
  *   InstanceFamilies: [ // StringList // required
  *     "STRING_VALUE",
@@ -82,7 +82,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationResult,
  * //       S3Key: "STRING_VALUE",
  * //     },
  * //     Platforms: [ // Platforms
- * //       "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "WINDOWS_SERVER_2025" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8" || "UBUNTU_PRO_2404",
+ * //       "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "WINDOWS_SERVER_2025" || "WINDOWS_11" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8" || "UBUNTU_PRO_2404",
  * //     ],
  * //     InstanceFamilies: [ // StringList
  * //       "STRING_VALUE",

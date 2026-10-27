@@ -6,7 +6,7 @@ import type { ConflictExceptionReason, ServiceQuotaExceededExceptionReason, Vali
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>You don't have permission to perform the action.</p>
+ * You don't have permission to perform the action.
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -14,7 +14,7 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Information about the resources in use when the exception was thrown.</p>
+   * Information about the resources in use when the exception was thrown.
    * @public
    */
   context?: Record<string, string> | undefined;
@@ -34,7 +34,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Deadline Cloud can't process your request right now. Try again later.</p>
+ * Deadline Cloud can't process your request right now. Try again later.
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
@@ -43,7 +43,7 @@ export class InternalServerErrorException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>The number of seconds a client should wait before retrying the request.</p>
+   * The number of seconds a client should wait before retrying the request.
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -63,7 +63,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * <p>The requested resource can't be found.</p>
+ * The requested resource can't be found.
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -71,19 +71,19 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that couldn't be found.</p>
+   * The identifier of the resource that couldn't be found.
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the resource that couldn't be found.</p>
+   * The type of the resource that couldn't be found.
    * @public
    */
   resourceType: string | undefined;
 
   /**
-   * <p>Information about the resources in use when the exception was thrown.</p>
+   * Information about the resources in use when the exception was thrown.
    * @public
    */
   context?: Record<string, string> | undefined;
@@ -105,7 +105,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+ * You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -113,37 +113,37 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A string that describes the reason the quota was exceeded.</p>
+   * A string that describes the reason the quota was exceeded.
    * @public
    */
   reason: ServiceQuotaExceededExceptionReason | undefined;
 
   /**
-   * <p>The type of the affected resource</p>
+   * The type of the affected resource
    * @public
    */
   resourceType: string | undefined;
 
   /**
-   * <p>Identifies the service that exceeded the quota.</p>
+   * Identifies the service that exceeded the quota.
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>Identifies the quota that has been exceeded.</p>
+   * Identifies the quota that has been exceeded.
    * @public
    */
   quotaCode: string | undefined;
 
   /**
-   * <p>The identifier of the affected resource.</p>
+   * The identifier of the affected resource.
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>Information about the resources in use when the exception was thrown.</p>
+   * Information about the resources in use when the exception was thrown.
    * @public
    */
   context?: Record<string, string> | undefined;
@@ -168,7 +168,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Your request exceeded a request rate quota.</p>
+ * Your request exceeded a request rate quota.
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -179,25 +179,25 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>Identifies the service that is being throttled.</p>
+   * Identifies the service that is being throttled.
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>Identifies the quota that is being throttled.</p>
+   * Identifies the quota that is being throttled.
    * @public
    */
   quotaCode?: string | undefined;
 
   /**
-   * <p>The number of seconds a client should wait before retrying the request.</p>
+   * The number of seconds a client should wait before retrying the request.
    * @public
    */
   retryAfterSeconds?: number | undefined;
 
   /**
-   * <p>Information about the resources in use when the exception was thrown.</p>
+   * Information about the resources in use when the exception was thrown.
    * @public
    */
   context?: Record<string, string> | undefined;
@@ -220,7 +220,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -228,19 +228,19 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason that the request failed validation.</p>
+   * The reason that the request failed validation.
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>A list of fields that failed validation.</p>
+   * A list of fields that failed validation.
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
 
   /**
-   * <p>Information about the resources in use when the exception was thrown.</p>
+   * Information about the resources in use when the exception was thrown.
    * @public
    */
   context?: Record<string, string> | undefined;
@@ -262,7 +262,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+ * Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -270,25 +270,25 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A description of the error.</p>
+   * A description of the error.
    * @public
    */
   reason: ConflictExceptionReason | undefined;
 
   /**
-   * <p>The identifier of the resource in use.</p>
+   * The identifier of the resource in use.
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the resource in use.</p>
+   * The type of the resource in use.
    * @public
    */
   resourceType: string | undefined;
 
   /**
-   * <p>Information about the resources in use when the exception was thrown.</p>
+   * Information about the resources in use when the exception was thrown.
    * @public
    */
   context?: Record<string, string> | undefined;

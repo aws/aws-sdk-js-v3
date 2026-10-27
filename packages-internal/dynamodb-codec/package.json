@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/dynamodb-codec",
-  "version": "3.973.50",
+  "version": "3.973.51",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/dynamodb-codec",
   "license": "Apache-2.0",
   "author": {
@@ -38,8 +38,8 @@
     "test:watch": "yarn g:vitest watch"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.978.5",
-    "@smithy/core": "^3.36.1",
+    "@aws-sdk/core": "workspace:^3.978.6",
+    "@smithy/core": "^3.37.0",
     "@smithy/types": "^4.19.0",
     "tslib": "^2.6.2"
   },

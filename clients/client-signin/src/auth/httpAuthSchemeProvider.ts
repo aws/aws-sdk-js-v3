@@ -92,6 +92,10 @@ export const defaultSigninHttpAuthSchemeProvider: SigninHttpAuthSchemeProvider =
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     };
+    case "CreateOAuth2TokenWithTokenExchange": {
+      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      break;
+    };
     default: {
       options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
     }

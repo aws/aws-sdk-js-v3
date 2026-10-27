@@ -2158,6 +2158,39 @@ export interface KubeControllerManagerConfigRequest {
 }
 
 /**
+ * <p>Indicates the current configuration of Gateway API custom resource definition (CRD)
+ *             management on your EKS Auto Mode cluster. For example, if CRD management is enabled or
+ *             disabled. For more information, see EKS Auto Mode load balancing capability in the
+ *             <i>Amazon EKS User Guide</i>.</p>
+ * @public
+ */
+export interface CrdManagementConfiguration {
+  /**
+   * <p>Indicates if Gateway API CRD management is enabled on your EKS Auto Mode cluster. If
+   *             CRD management is enabled, EKS Auto Mode will create and update the Gateway API CRDs in
+   *             your EKS Auto Mode cluster.</p>
+   * @public
+   */
+  managed?: boolean | undefined;
+}
+
+/**
+ * <p>Indicates the current configuration of the Kubernetes Gateway API for the load
+ *             balancing capability on your EKS Auto Mode cluster. For more information, see EKS Auto
+ *             Mode load balancing capability in the <i>Amazon EKS User Guide</i>.</p>
+ * @public
+ */
+export interface GatewayApiConfiguration {
+  /**
+   * <p>Indicates the current configuration of Gateway API custom resource definition (CRD)
+   *             management on your EKS Auto Mode cluster. For example, if CRD management is enabled or
+   *             disabled.</p>
+   * @public
+   */
+  crds?: CrdManagementConfiguration | undefined;
+}
+
+/**
  * <p>Indicates the current configuration of the load balancing capability on your EKS Auto
  *             Mode cluster. For example, if the capability is enabled or disabled. For more
  *             information, see EKS Auto Mode load balancing capability in the <i>Amazon EKS User Guide</i>.</p>
@@ -2171,6 +2204,14 @@ export interface ElasticLoadBalancing {
    * @public
    */
   enabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates the current configuration of the Kubernetes Gateway API for the load
+   *             balancing capability on your EKS Auto Mode cluster. For more information, see EKS Auto
+   *             Mode load balancing capability in the <i>Amazon EKS User Guide</i>.</p>
+   * @public
+   */
+  gatewayApi?: GatewayApiConfiguration | undefined;
 }
 
 /**

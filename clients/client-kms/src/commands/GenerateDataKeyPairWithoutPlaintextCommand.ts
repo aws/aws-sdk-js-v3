@@ -47,6 +47,11 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput extends Genera
  *       request. The bytes in the key are not related to the caller or KMS key that is used to encrypt
  *       the private key. The public key is a DER-encoded X.509 SubjectPublicKeyInfo, as specified in
  *         <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>.</p>
+ *          <note>
+ *             <p>For ML-KEM data key pairs, the DER-encoded PKCS8 PrivateKeyInfo contains the private key
+ *         in seed format. As a result, the length of the private key is the same for all ML-KEM key pair
+ *         specs.</p>
+ *          </note>
  *          <p>You can use an optional encryption context to add additional security to the encryption
  *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
  *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
@@ -106,7 +111,7 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput extends Genera
  *     "<keys>": "STRING_VALUE",
  *   },
  *   KeyId: "STRING_VALUE", // required
- *   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2" || "ECC_NIST_EDWARDS25519", // required
+ *   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2" || "ECC_NIST_EDWARDS25519" || "ML_KEM_512" || "ML_KEM_768" || "ML_KEM_1024", // required
  *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],
@@ -118,7 +123,7 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput extends Genera
  * //   PrivateKeyCiphertextBlob: new Uint8Array(),
  * //   PublicKey: new Uint8Array(),
  * //   KeyId: "STRING_VALUE",
- * //   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2" || "ECC_NIST_EDWARDS25519",
+ * //   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2" || "ECC_NIST_EDWARDS25519" || "ML_KEM_512" || "ML_KEM_768" || "ML_KEM_1024",
  * //   KeyMaterialId: "STRING_VALUE",
  * // };
  *
@@ -160,8 +165,9 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput extends Genera
  *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
  *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
  *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
- *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code>
- *       of a KMS key, use the <a>DescribeKey</a> operation.</p>
+ *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. For encapsulating and decapsulating
+ *       shared secrets, the <code>KeyUsage</code> must be <code>ENCAPSULATE_DECAPSULATE</code>. To find
+ *       the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</p>
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
  *

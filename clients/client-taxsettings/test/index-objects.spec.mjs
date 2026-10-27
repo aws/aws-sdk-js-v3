@@ -49,6 +49,7 @@ import {
   ExemptionCertificate$,
   FranceAdditionalInfo$,
   GeorgiaAdditionalInfo$,
+  GermanyAdditionalInfo$,
   GetTaxExemptionTypes$,
   GetTaxExemptionTypesCommand,
   GetTaxExemptionTypesRequest$,
@@ -93,6 +94,7 @@ import {
   ListTaxRegistrationsResponse$,
   MalaysiaAdditionalInfo$,
   MalaysiaServiceTaxCode,
+  MexicoAdditionalInfo$,
   MonacoAdditionalInfo$,
   paginateListSupplementalTaxRegistrations,
   paginateListTaxExemptions,
@@ -224,6 +226,7 @@ assert(typeof EstoniaAdditionalInfo$ === "object");
 assert(typeof ExemptionCertificate$ === "object");
 assert(typeof FranceAdditionalInfo$ === "object");
 assert(typeof GeorgiaAdditionalInfo$ === "object");
+assert(typeof GermanyAdditionalInfo$ === "object");
 assert(typeof GetTaxExemptionTypesRequest$ === "object");
 assert(typeof GetTaxExemptionTypesResponse$ === "object");
 assert(typeof GetTaxInheritanceRequest$ === "object");
@@ -246,6 +249,7 @@ assert(typeof ListTaxExemptionsResponse$ === "object");
 assert(typeof ListTaxRegistrationsRequest$ === "object");
 assert(typeof ListTaxRegistrationsResponse$ === "object");
 assert(typeof MalaysiaAdditionalInfo$ === "object");
+assert(typeof MexicoAdditionalInfo$ === "object");
 assert(typeof MonacoAdditionalInfo$ === "object");
 assert(typeof PhilippinesAdditionalInfo$ === "object");
 assert(typeof PolandAdditionalInfo$ === "object");
