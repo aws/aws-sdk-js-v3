@@ -1,4 +1,6 @@
 import type { AwsCredentialIdentity } from "@aws-sdk/types";
+import { Sha256 } from "@smithy/core/checksum";
+import { toHex, toUint8Array } from "@smithy/core/serde";
 
 import type { S3ExpressIdentity } from "../interfaces/S3ExpressIdentity";
 import type { S3ExpressIdentityProvider } from "../interfaces/S3ExpressIdentityProvider";
@@ -24,6 +26,10 @@ type Credentials = {
 export class S3ExpressIdentityProviderImpl implements S3ExpressIdentityProvider {
   public static REFRESH_WINDOW_MS = 60_000;
 
+  private identityHash?: string;
+  private cacheGeneration = 0;
+  private readonly identityHashes = new WeakMap<AwsCredentialIdentity, Promise<string>>();
+
   public constructor(
     private createSessionFn: (bucket: string) => Promise<{ Credentials: Credentials }>,
     private cache: S3ExpressIdentityCache = new S3ExpressIdentityCache()
@@ -34,15 +40,21 @@ export class S3ExpressIdentityProviderImpl implements S3ExpressIdentityProvider 
     identityProperties: { Bucket: string } & Record<string, string>
   ): Promise<S3ExpressIdentity> {
     const bucket = identityProperties.Bucket;
-    const cacheKey = JSON.stringify([awsIdentity.accessKeyId, bucket]);
     const { cache } = this;
+    const identityHash = await this.getIdentityHash(awsIdentity);
+    if (identityHash !== this.identityHash) {
+      this.identityHash = identityHash;
+      this.cacheGeneration++;
+      cache.clear();
+    }
+    const cacheGeneration = this.cacheGeneration;
 
-    const entry = cache.get(cacheKey);
+    const entry = cache.get(bucket);
     if (entry) {
       return entry.identity.then((identity) => {
         const isExpired = (identity.expiration?.getTime() ?? 0) < Date.now();
         if (isExpired) {
-          return cache.set(cacheKey, new S3ExpressIdentityCacheEntry(this.getIdentity(bucket))).identity;
+          return cache.set(bucket, new S3ExpressIdentityCacheEntry(this.getIdentity(bucket))).identity;
         }
 
         const isExpiringSoon =
@@ -53,7 +65,9 @@ export class S3ExpressIdentityProviderImpl implements S3ExpressIdentityProvider 
 
           // Promise not awaited. The cache entry is not replaced until the credential is received.
           this.getIdentity(bucket).then((id) => {
-            cache.set(cacheKey, new S3ExpressIdentityCacheEntry(Promise.resolve(id)));
+            if (cacheGeneration === this.cacheGeneration) {
+              cache.set(bucket, new S3ExpressIdentityCacheEntry(Promise.resolve(id)));
+            }
           });
         }
 
@@ -61,7 +75,18 @@ export class S3ExpressIdentityProviderImpl implements S3ExpressIdentityProvider 
       });
     }
 
-    return cache.set(cacheKey, new S3ExpressIdentityCacheEntry(this.getIdentity(bucket))).identity;
+    return cache.set(bucket, new S3ExpressIdentityCacheEntry(this.getIdentity(bucket))).identity;
+  }
+
+  private getIdentityHash(identity: AwsCredentialIdentity): Promise<string> {
+    let identityHash = this.identityHashes.get(identity);
+    if (!identityHash) {
+      const hash = new Sha256();
+      hash.update(toUint8Array(identity.accessKeyId));
+      identityHash = hash.digest().then(toHex);
+      this.identityHashes.set(identity, identityHash);
+    }
+    return identityHash;
   }
 
   private async getIdentity(bucket: string): Promise<S3ExpressIdentity> {

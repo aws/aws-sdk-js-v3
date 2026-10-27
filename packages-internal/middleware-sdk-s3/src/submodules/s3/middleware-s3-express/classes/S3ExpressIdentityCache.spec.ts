@@ -24,6 +24,10 @@ describe(S3ExpressIdentityCache.name, () => {
 
     cache.delete("abc");
     expect(cache.get("abc")).toBeUndefined();
+
+    cache.set("abc", entry);
+    cache.clear();
+    expect(cache.get("abc")).toBeUndefined();
   });
 
   it("can purge expired entries", async () => {
