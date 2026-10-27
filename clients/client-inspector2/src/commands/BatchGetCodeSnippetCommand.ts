@@ -23,8 +23,7 @@ export interface BatchGetCodeSnippetCommandInput extends BatchGetCodeSnippetRequ
 export interface BatchGetCodeSnippetCommandOutput extends BatchGetCodeSnippetResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves code snippets from findings that Amazon Inspector detected code vulnerabilities
- *          in.</p>
+ * <p>Retrieves code snippets from findings that Amazon Inspector detected code vulnerabilities in.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,9 +77,7 @@ export interface BatchGetCodeSnippetCommandOutput extends BatchGetCodeSnippetRes
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
- *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
- *          unsupported Amazon Web Services Region. </p>
+ *  <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
@@ -89,8 +86,7 @@ export interface BatchGetCodeSnippetCommandOutput extends BatchGetCodeSnippetRes
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation due to missing required fields or having invalid
- *          inputs.</p>
+ *  <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
  *
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>

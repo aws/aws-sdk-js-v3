@@ -172,6 +172,10 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *     ],
  *     codeRepositoryProjectName: "<StringFilterList>",
  *     codeRepositoryProviderType: "<StringFilterList>",
+ *     machineImageId: "<StringFilterList>",
+ *     machineImageName: "<StringFilterList>",
+ *     machineImageOwnerAccountId: "<StringFilterList>",
+ *     machineImagePlatform: "<StringFilterList>",
  *     cloudProvider: "<StringFilterList>",
  *     cloudProviderRegion: "<StringFilterList>",
  *     cloudProviderAccountId: "<StringFilterList>",
@@ -292,6 +296,19 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * //               projectName: "STRING_VALUE",
  * //               integrationArn: "STRING_VALUE",
  * //               providerType: "STRING_VALUE",
+ * //             },
+ * //             machineImage: { // MachineImageDetails
+ * //               machineImageId: "STRING_VALUE", // required
+ * //               name: "STRING_VALUE",
+ * //               ownerAccountId: "STRING_VALUE",
+ * //               platform: "STRING_VALUE",
+ * //               architecture: "STRING_VALUE",
+ * //               creationDate: new Date("TIMESTAMP"),
+ * //               state: "STRING_VALUE",
+ * //               isPublic: true || false,
+ * //               rootDeviceType: "STRING_VALUE",
+ * //               virtualizationType: "STRING_VALUE",
+ * //               sourceResourceId: "STRING_VALUE",
  * //             },
  * //             vm: { // Vm
  * //               type: "STRING_VALUE",
@@ -474,8 +491,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation due to missing required fields or having invalid
- *          inputs.</p>
+ *  <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
  *
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>

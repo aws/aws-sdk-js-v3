@@ -26,8 +26,7 @@ export interface UpdateOrgEc2DeepInspectionConfigurationCommandInput extends Upd
 export interface UpdateOrgEc2DeepInspectionConfigurationCommandOutput extends UpdateOrgEc2DeepInspectionConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the Amazon Inspector deep inspection custom paths for your organization. You must be an
- *          Amazon Inspector delegated administrator to use this API.</p>
+ * <p>Updates the Amazon Inspector deep inspection custom paths for your organization. You must be an Amazon Inspector delegated administrator to use this API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,9 +53,7 @@ export interface UpdateOrgEc2DeepInspectionConfigurationCommandOutput extends Up
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
- *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
- *          unsupported Amazon Web Services Region. </p>
+ *  <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
@@ -65,8 +62,7 @@ export interface UpdateOrgEc2DeepInspectionConfigurationCommandOutput extends Up
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation due to missing required fields or having invalid
- *          inputs.</p>
+ *  <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
  *
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>

@@ -26,8 +26,7 @@ export interface BatchDisassociateCodeSecurityScanConfigurationCommandInput exte
 export interface BatchDisassociateCodeSecurityScanConfigurationCommandOutput extends BatchDisassociateCodeSecurityScanConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Disassociates multiple code repositories from an Amazon Inspector code security scan
- *          configuration.</p>
+ * <p>Disassociates multiple code repositories from an Amazon Inspector code security scan configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,27 +77,22 @@ export interface BatchDisassociateCodeSecurityScanConfigurationCommandOutput ext
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
- *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
- *          unsupported Amazon Web Services Region. </p>
+ *  <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict occurred. This exception occurs when the same resource is being modified by
- *          concurrent requests.</p>
+ *  <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access an invalid resource. Make sure the resource is specified
- *          correctly.</p>
+ *  <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation due to missing required fields or having invalid
- *          inputs.</p>
+ *  <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
  *
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>

@@ -6,9 +6,7 @@ import { Inspector2ServiceException as __BaseException } from "./Inspector2Servi
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
- *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
- *          unsupported Amazon Web Services Region. </p>
+ * <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -58,8 +56,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded your service quota. To perform the requested action, remove some of
- *          the relevant resources, or use Service Quotas to request a service quota increase.</p>
+ * <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -118,8 +115,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request has failed validation due to missing required fields or having invalid
- *          inputs.</p>
+ * <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -175,8 +171,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>A conflict occurred. This exception occurs when the same resource is being modified by
- *          concurrent requests.</p>
+ * <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -211,8 +206,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The operation tried to access an invalid resource. Make sure the resource is specified
- *          correctly.</p>
+ * <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

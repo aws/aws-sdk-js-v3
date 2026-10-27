@@ -16,5 +16,6 @@ export * from "./ListFiltersPaginator";
 export * from "./ListFindingAggregationsPaginator";
 export * from "./ListFindingsPaginator";
 export * from "./ListMembersPaginator";
+export * from "./ListOnDemandScansPaginator";
 export * from "./ListUsageTotalsPaginator";
 export * from "./SearchVulnerabilitiesPaginator";

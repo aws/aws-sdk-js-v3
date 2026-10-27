@@ -179,6 +179,10 @@ import type {
   GetFindingsReportStatusCommandOutput,
 } from "./commands/GetFindingsReportStatusCommand";
 import type { GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
+import type {
+  GetOnDemandScanStatusCommandInput,
+  GetOnDemandScanStatusCommandOutput,
+} from "./commands/GetOnDemandScanStatusCommand";
 import type { GetSbomExportCommandInput, GetSbomExportCommandOutput } from "./commands/GetSbomExportCommand";
 import type {
   ListAccountPermissionsCommandInput,
@@ -231,6 +235,10 @@ import type {
 import type { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
 import type { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import type {
+  ListOnDemandScansCommandInput,
+  ListOnDemandScansCommandOutput,
+} from "./commands/ListOnDemandScansCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -256,6 +264,10 @@ import type {
   StartCodeSecurityScanCommandInput,
   StartCodeSecurityScanCommandOutput,
 } from "./commands/StartCodeSecurityScanCommand";
+import type {
+  StartOnDemandScanCommandInput,
+  StartOnDemandScanCommandOutput,
+} from "./commands/StartOnDemandScanCommand";
 import type { StopCisSessionCommandInput, StopCisSessionCommandOutput } from "./commands/StopCisSessionCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -353,6 +365,7 @@ export type ServiceInputTypes =
   | GetEncryptionKeyCommandInput
   | GetFindingsReportStatusCommandInput
   | GetMemberCommandInput
+  | GetOnDemandScanStatusCommandInput
   | GetSbomExportCommandInput
   | ListAccountPermissionsCommandInput
   | ListCisScanConfigurationsCommandInput
@@ -371,6 +384,7 @@ export type ServiceInputTypes =
   | ListFindingAggregationsCommandInput
   | ListFindingsCommandInput
   | ListMembersCommandInput
+  | ListOnDemandScansCommandInput
   | ListTagsForResourceCommandInput
   | ListUsageTotalsCommandInput
   | ResetEncryptionKeyCommandInput
@@ -379,6 +393,7 @@ export type ServiceInputTypes =
   | SendCisSessionTelemetryCommandInput
   | StartCisSessionCommandInput
   | StartCodeSecurityScanCommandInput
+  | StartOnDemandScanCommandInput
   | StopCisSessionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -439,6 +454,7 @@ export type ServiceOutputTypes =
   | GetEncryptionKeyCommandOutput
   | GetFindingsReportStatusCommandOutput
   | GetMemberCommandOutput
+  | GetOnDemandScanStatusCommandOutput
   | GetSbomExportCommandOutput
   | ListAccountPermissionsCommandOutput
   | ListCisScanConfigurationsCommandOutput
@@ -457,6 +473,7 @@ export type ServiceOutputTypes =
   | ListFindingAggregationsCommandOutput
   | ListFindingsCommandOutput
   | ListMembersCommandOutput
+  | ListOnDemandScansCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUsageTotalsCommandOutput
   | ResetEncryptionKeyCommandOutput
@@ -465,6 +482,7 @@ export type ServiceOutputTypes =
   | SendCisSessionTelemetryCommandOutput
   | StartCisSessionCommandOutput
   | StartCodeSecurityScanCommandOutput
+  | StartOnDemandScanCommandOutput
   | StopCisSessionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -672,8 +690,7 @@ export type Inspector2ClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface Inspector2ClientResolvedConfig extends Inspector2ClientResolvedConfigType {}
 
 /**
- * <p>Amazon Inspector is a vulnerability discovery service that automates continuous scanning for
- *          security vulnerabilities within your Amazon EC2, Amazon ECR, and Amazon Web Services Lambda environments.</p>
+ * <p>Amazon Inspector is a vulnerability discovery service that automates continuous scanning for security vulnerabilities within your Amazon EC2, Amazon ECR, and Amazon Web Services Lambda environments.</p>
  * @public
  */
 export class Inspector2Client extends __Client<

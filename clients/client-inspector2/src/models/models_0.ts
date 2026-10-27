@@ -3,6 +3,9 @@ import type {
   AccountSortBy,
   AggregationFindingType,
   AggregationResourceType,
+  AmiConfigurationStatus,
+  AmiScanDuration,
+  AmiScanMode,
   AmiSortBy,
   Architecture,
   AssociationResultStatusCode,
@@ -18,7 +21,6 @@ import type {
   CisScanConfigurationsSortBy,
   CisScanResultDetailsSortBy,
   CisScanResultsAggregatedByChecksSortBy,
-  CisScanResultsAggregatedByTargetResourceSortBy,
   CisScanStatus,
   CisScanStatusComparison,
   CisSecurityLevel,
@@ -77,10 +79,12 @@ import type {
   IntegrationType,
   LambdaFunctionSortBy,
   LambdaLayerSortBy,
-  ListCisScansDetailLevel,
-  ListCisScansSortBy,
+  MachineImagePlatform,
   MapComparison,
   NetworkProtocol,
+  OnDemandResourceType,
+  OnDemandScanStatus,
+  OnDemandScanStatusReason,
   Operation,
   PackageManager,
   PackageSortBy,
@@ -101,6 +105,7 @@ import type {
   Runtime,
   SbomReportFormat,
   ScanMode,
+  ScanSource,
   ScanStatusCode,
   ScanStatusReason,
   ScanType,
@@ -143,8 +148,7 @@ export interface ResourceStatus {
   lambda?: Status | undefined;
 
   /**
-   * <p>The status of Amazon Inspector scanning for custom application code for Amazon Web Services Lambda
-   *          functions. </p>
+   * <p>The status of Amazon Inspector scanning for custom application code for Amazon Web Services Lambda functions. </p>
    * @public
    */
   lambdaCode?: Status | undefined;
@@ -154,6 +158,12 @@ export interface ResourceStatus {
    * @public
    */
   codeRepository?: Status | undefined;
+
+  /**
+   * <p>The status of Amazon Machine Image (AMI) scanning for the account.</p>
+   * @public
+   */
+  ami?: Status | undefined;
 }
 
 /**
@@ -181,8 +191,7 @@ export interface Account {
 }
 
 /**
- * <p>An object that contains details about an aggregation response based on
- *          Amazon Web Services accounts.</p>
+ * <p>An object that contains details about an aggregation response based on Amazon Web Services accounts.</p>
  * @public
  */
 export interface AccountAggregation {
@@ -365,11 +374,16 @@ export interface ResourceState {
    * @public
    */
   codeRepository?: State | undefined;
+
+  /**
+   * <p>An object that described the state of Amazon Inspector scans for an account.</p>
+   * @public
+   */
+  ami?: State | undefined;
 }
 
 /**
- * <p>An object with details the status of an Amazon Web Services account within your Amazon Inspector
- *          environment.</p>
+ * <p>An object with details the status of an Amazon Web Services account within your Amazon Inspector environment.</p>
  * @public
  */
 export interface AccountState {
@@ -432,6 +446,12 @@ export interface AmiAggregation {
    * @public
    */
   sortBy?: AmiSortBy | undefined;
+
+  /**
+   * <p>The scan sources to filter the aggregation results by.</p>
+   * @public
+   */
+  scanSources?: ScanSource[] | undefined;
 }
 
 /**
@@ -518,8 +538,7 @@ export interface AwsEcrContainerAggregation {
   sortBy?: AwsEcrContainerSortBy | undefined;
 
   /**
-   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or
-   *             Amazon EKS pod.</p>
+   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or Amazon EKS pod.</p>
    * @public
    */
   lastInUseAt?: DateFilter[] | undefined;
@@ -549,8 +568,7 @@ export interface CodeRepositoryAggregation {
   providerTypes?: StringFilter[] | undefined;
 
   /**
-   * <p>The order to sort results by (ascending or descending) in the code repository
-   *          aggregation.</p>
+   * <p>The order to sort results by (ascending or descending) in the code repository aggregation.</p>
    * @public
    */
   sortOrder?: SortOrder | undefined;
@@ -610,55 +628,19 @@ export interface ContainerImageAggregation {
   imageTags?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud providers to aggregate findings for. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud providers to aggregate findings for. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
    * @public
    */
   cloudProviders?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud partitions to aggregate findings for. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud partitions to aggregate findings for. Valid values:</p> <ul> <li> <p> <code>aws</code> – Amazon Web Services commercial Regions.</p> </li> <li> <p> <code>aws-cn</code> – Amazon Web Services China Regions.</p> </li> <li> <p> <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p> </li> <li> <p> <code>AzureCloud</code> – Azure commercial Regions.</p> </li> </ul>
    * @public
    */
   cloudPartitions?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p>
-   *          <ul>
-   *             <li>
-   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>An Azure region, such as <code>eastus</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
    * @public
    */
   cloudRegions?: StringFilter[] | undefined;
@@ -736,9 +718,7 @@ export interface Ec2InstanceAggregation {
   amis?: StringFilter[] | undefined;
 
   /**
-   * <p>The operating system types to aggregate findings for. Valid values must be uppercase and
-   *          underscore separated, examples are <code>ORACLE_LINUX_7</code> and
-   *             <code>ALPINE_LINUX_3_8</code>.</p>
+   * <p>The operating system types to aggregate findings for. Valid values must be uppercase and underscore separated, examples are <code>ORACLE_LINUX_7</code> and <code>ALPINE_LINUX_3_8</code>.</p>
    * @public
    */
   operatingSystems?: StringFilter[] | undefined;
@@ -822,17 +802,7 @@ export interface ImageLayerAggregation {
   layerHashes?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud providers to aggregate findings for. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud providers to aggregate findings for. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
    * @public
    */
   cloudProviders?: StringFilter[] | undefined;
@@ -850,39 +820,13 @@ export interface ImageLayerAggregation {
   cloudOrgIds?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p>
-   *          <ul>
-   *             <li>
-   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>An Azure region, such as <code>eastus</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
    * @public
    */
   cloudRegions?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud partitions to aggregate findings for. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud partitions to aggregate findings for. Valid values:</p> <ul> <li> <p> <code>aws</code> – Amazon Web Services commercial Regions.</p> </li> <li> <p> <code>aws-cn</code> – Amazon Web Services China Regions.</p> </li> <li> <p> <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p> </li> <li> <p> <code>AzureCloud</code> – Azure commercial Regions.</p> </li> </ul>
    * @public
    */
   cloudPartitions?: StringFilter[] | undefined;
@@ -901,8 +845,7 @@ export interface ImageLayerAggregation {
 }
 
 /**
- * <p>The details that define a findings aggregation based on Amazon Web Services Lambda
- *          functions.</p>
+ * <p>The details that define a findings aggregation based on Amazon Web Services Lambda functions.</p>
  * @public
  */
 export interface LambdaFunctionAggregation {
@@ -913,15 +856,13 @@ export interface LambdaFunctionAggregation {
   resourceIds?: StringFilter[] | undefined;
 
   /**
-   * <p>The Amazon Web Services Lambda function names to include in the aggregation
-   *          results.</p>
+   * <p>The Amazon Web Services Lambda function names to include in the aggregation results.</p>
    * @public
    */
   functionNames?: StringFilter[] | undefined;
 
   /**
-   * <p>Returns findings aggregated by Amazon Web Services Lambda function runtime
-   *          environments.</p>
+   * <p>Returns findings aggregated by Amazon Web Services Lambda function runtime environments.</p>
    * @public
    */
   runtimes?: StringFilter[] | undefined;
@@ -946,8 +887,7 @@ export interface LambdaFunctionAggregation {
 }
 
 /**
- * <p>The details that define a findings aggregation based on an Amazon Web Services Lambda
- *          function's layers.</p>
+ * <p>The details that define a findings aggregation based on an Amazon Web Services Lambda function's layers.</p>
  * @public
  */
 export interface LambdaLayerAggregation {
@@ -1060,55 +1000,19 @@ export interface ServerlessFunctionAggregation {
   functionTags?: MapFilter[] | undefined;
 
   /**
-   * <p>The cloud providers to aggregate findings for. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud providers to aggregate findings for. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
    * @public
    */
   cloudProviders?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud partitions to aggregate findings for. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud partitions to aggregate findings for. Valid values:</p> <ul> <li> <p> <code>aws</code> – Amazon Web Services commercial Regions.</p> </li> <li> <p> <code>aws-cn</code> – Amazon Web Services China Regions.</p> </li> <li> <p> <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p> </li> <li> <p> <code>AzureCloud</code> – Azure commercial Regions.</p> </li> </ul>
    * @public
    */
   cloudPartitions?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p>
-   *          <ul>
-   *             <li>
-   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>An Azure region, such as <code>eastus</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
    * @public
    */
   cloudRegions?: StringFilter[] | undefined;
@@ -1210,55 +1114,19 @@ export interface VmInstanceAggregation {
   vmImageReferences?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud providers to aggregate findings for. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud providers to aggregate findings for. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
    * @public
    */
   cloudProviders?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud partitions to aggregate findings for. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud partitions to aggregate findings for. Valid values:</p> <ul> <li> <p> <code>aws</code> – Amazon Web Services commercial Regions.</p> </li> <li> <p> <code>aws-cn</code> – Amazon Web Services China Regions.</p> </li> <li> <p> <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p> </li> <li> <p> <code>AzureCloud</code> – Azure commercial Regions.</p> </li> </ul>
    * @public
    */
   cloudPartitions?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p>
-   *          <ul>
-   *             <li>
-   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>An Azure region, such as <code>eastus</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
    * @public
    */
   cloudRegions?: StringFilter[] | undefined;
@@ -1315,8 +1183,7 @@ export type AggregationRequest =
  */
 export namespace AggregationRequest {
   /**
-   * <p>An object that contains details about an aggregation request based on Amazon Web Services account
-   *          IDs.</p>
+   * <p>An object that contains details about an aggregation request based on Amazon Web Services account IDs.</p>
    * @public
    */
   export interface AccountAggregationMember {
@@ -1339,8 +1206,7 @@ export namespace AggregationRequest {
   }
 
   /**
-   * <p>An object that contains details about an aggregation request based on Amazon Machine
-   *          Images (AMIs).</p>
+   * <p>An object that contains details about an aggregation request based on Amazon Machine Images (AMIs).</p>
    * @public
    */
   export interface AmiAggregationMember {
@@ -1363,8 +1229,7 @@ export namespace AggregationRequest {
   }
 
   /**
-   * <p>An object that contains details about an aggregation request based on Amazon ECR container
-   *          images.</p>
+   * <p>An object that contains details about an aggregation request based on Amazon ECR container images.</p>
    * @public
    */
   export interface AwsEcrContainerAggregationMember {
@@ -1387,8 +1252,7 @@ export namespace AggregationRequest {
   }
 
   /**
-   * <p>An object that contains details about an aggregation request based on Amazon EC2
-   *          instances.</p>
+   * <p>An object that contains details about an aggregation request based on Amazon EC2 instances.</p>
    * @public
    */
   export interface Ec2InstanceAggregationMember {
@@ -1411,8 +1275,7 @@ export namespace AggregationRequest {
   }
 
   /**
-   * <p>An object that contains details about an aggregation request based on finding
-   *          types.</p>
+   * <p>An object that contains details about an aggregation request based on finding types.</p>
    * @public
    */
   export interface FindingTypeAggregationMember {
@@ -1435,8 +1298,7 @@ export namespace AggregationRequest {
   }
 
   /**
-   * <p>An object that contains details about an aggregation request based on container image
-   *          layers.</p>
+   * <p>An object that contains details about an aggregation request based on container image layers.</p>
    * @public
    */
   export interface ImageLayerAggregationMember {
@@ -1459,8 +1321,7 @@ export namespace AggregationRequest {
   }
 
   /**
-   * <p>An object that contains details about an aggregation request based on operating system
-   *          package type.</p>
+   * <p>An object that contains details about an aggregation request based on operating system package type.</p>
    * @public
    */
   export interface PackageAggregationMember {
@@ -1483,8 +1344,7 @@ export namespace AggregationRequest {
   }
 
   /**
-   * <p>An object that contains details about an aggregation request based on Amazon ECR
-   *          repositories.</p>
+   * <p>An object that contains details about an aggregation request based on Amazon ECR repositories.</p>
    * @public
    */
   export interface RepositoryAggregationMember {
@@ -1507,8 +1367,7 @@ export namespace AggregationRequest {
   }
 
   /**
-   * <p>An object that contains details about an aggregation request based on finding
-   *          title.</p>
+   * <p>An object that contains details about an aggregation request based on finding title.</p>
    * @public
    */
   export interface TitleAggregationMember {
@@ -1577,8 +1436,7 @@ export namespace AggregationRequest {
   }
 
   /**
-   * <p>An object that contains details about an aggregation request based on code
-   *          repositories.</p>
+   * <p>An object that contains details about an aggregation request based on code repositories.</p>
    * @public
    */
   export interface CodeRepositoryAggregationMember {
@@ -1733,55 +1591,19 @@ export interface AmiAggregationResponse {
   accountId?: string | undefined;
 
   /**
-   * <p>The cloud service provider associated with this Amazon Machine Image (AMI) aggregation. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud service provider associated with this Amazon Machine Image (AMI) aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: Provider | undefined;
 
   /**
-   * <p>The cloud infrastructure partition associated with this AMI aggregation. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud infrastructure partition associated with this AMI aggregation. Valid values:</p> <ul> <li> <p> <code>aws</code> – Amazon Web Services commercial Regions.</p> </li> <li> <p> <code>aws-cn</code> – Amazon Web Services China Regions.</p> </li> <li> <p> <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p> </li> <li> <p> <code>AzureCloud</code> – Azure commercial Regions.</p> </li> </ul>
    * @public
    */
   cloudPartition?: string | undefined;
 
   /**
-   * <p>The cloud Region associated with this AMI aggregation. The value format depends on the cloud provider:</p>
-   *          <ul>
-   *             <li>
-   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>An Azure region, such as <code>eastus</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud Region associated with this AMI aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
    * @public
    */
   cloudRegion?: string | undefined;
@@ -1809,6 +1631,12 @@ export interface AmiAggregationResponse {
    * @public
    */
   affectedInstances?: number | undefined;
+
+  /**
+   * <p>The source of the scan that generated the findings for the Amazon Machine Image (AMI).</p>
+   * @public
+   */
+  scanSource?: ScanSource | undefined;
 }
 
 /**
@@ -1859,8 +1687,7 @@ export interface AwsEcrContainerAggregationResponse {
   severityCounts?: SeverityCounts | undefined;
 
   /**
-   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or
-   *             Amazon EKS pod.</p>
+   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or Amazon EKS pod.</p>
    * @public
    */
   lastInUseAt?: Date | undefined;
@@ -1896,8 +1723,7 @@ export interface CodeRepositoryAggregationResponse {
   severityCounts?: SeverityCounts | undefined;
 
   /**
-   * <p>The number of active findings that have an exploit available for the code
-   *          repository.</p>
+   * <p>The number of active findings that have an exploit available for the code repository.</p>
    * @public
    */
   exploitAvailableActiveFindingsCount?: number | undefined;
@@ -1933,17 +1759,7 @@ export interface ContainerImageAggregationResponse {
   resourceId: string | undefined;
 
   /**
-   * <p>The cloud service provider associated with this container image aggregation. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud service provider associated with this container image aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: Provider | undefined;
@@ -1955,39 +1771,13 @@ export interface ContainerImageAggregationResponse {
   cloudAccountId?: string | undefined;
 
   /**
-   * <p>The cloud infrastructure partition associated with this container image aggregation. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud infrastructure partition associated with this container image aggregation. Valid values:</p> <ul> <li> <p> <code>aws</code> – Amazon Web Services commercial Regions.</p> </li> <li> <p> <code>aws-cn</code> – Amazon Web Services China Regions.</p> </li> <li> <p> <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p> </li> <li> <p> <code>AzureCloud</code> – Azure commercial Regions.</p> </li> </ul>
    * @public
    */
   cloudPartition?: string | undefined;
 
   /**
-   * <p>The cloud Region associated with this container image aggregation. The value format depends on the cloud provider:</p>
-   *          <ul>
-   *             <li>
-   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>An Azure region, such as <code>eastus</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud Region associated with this container image aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
    * @public
    */
   cloudRegion?: string | undefined;
@@ -2143,17 +1933,7 @@ export interface FindingTypeAggregationResponse {
   fixAvailableCount?: number | undefined;
 
   /**
-   * <p>The cloud service provider associated with this finding type aggregation. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud service provider associated with this finding type aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: string | undefined;
@@ -2171,39 +1951,13 @@ export interface FindingTypeAggregationResponse {
   cloudOrgId?: string | undefined;
 
   /**
-   * <p>The cloud Region associated with this finding type aggregation. The value format depends on the cloud provider:</p>
-   *          <ul>
-   *             <li>
-   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>An Azure region, such as <code>eastus</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud Region associated with this finding type aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
    * @public
    */
   cloudRegion?: string | undefined;
 
   /**
-   * <p>The cloud infrastructure partition associated with this finding type aggregation. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud infrastructure partition associated with this finding type aggregation. Valid values:</p> <ul> <li> <p> <code>aws</code> – Amazon Web Services commercial Regions.</p> </li> <li> <p> <code>aws-cn</code> – Amazon Web Services China Regions.</p> </li> <li> <p> <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p> </li> <li> <p> <code>AzureCloud</code> – Azure commercial Regions.</p> </li> </ul>
    * @public
    */
   cloudPartition?: string | undefined;
@@ -2233,24 +1987,13 @@ export interface ImageLayerAggregationResponse {
   layerHash: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the container image hosting the layer
-   *          image.</p>
+   * <p>The ID of the Amazon Web Services account that owns the container image hosting the layer image.</p>
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p>The cloud service provider associated with this image layer aggregation. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud service provider associated with this image layer aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: string | undefined;
@@ -2268,39 +2011,13 @@ export interface ImageLayerAggregationResponse {
   cloudOrgId?: string | undefined;
 
   /**
-   * <p>The cloud Region associated with this image layer aggregation. The value format depends on the cloud provider:</p>
-   *          <ul>
-   *             <li>
-   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>An Azure region, such as <code>eastus</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud Region associated with this image layer aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
    * @public
    */
   cloudRegion?: string | undefined;
 
   /**
-   * <p>The cloud infrastructure partition associated with this image layer aggregation. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud infrastructure partition associated with this image layer aggregation. Valid values:</p> <ul> <li> <p> <code>aws</code> – Amazon Web Services commercial Regions.</p> </li> <li> <p> <code>aws-cn</code> – Amazon Web Services China Regions.</p> </li> <li> <p> <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p> </li> <li> <p> <code>AzureCloud</code> – Azure commercial Regions.</p> </li> </ul>
    * @public
    */
   cloudPartition?: string | undefined;
@@ -2313,8 +2030,7 @@ export interface ImageLayerAggregationResponse {
 }
 
 /**
- * <p>A response that contains the results of an Amazon Web Services Lambda function finding
- *          aggregation.</p>
+ * <p>A response that contains the results of an Amazon Web Services Lambda function finding aggregation.</p>
  * @public
  */
 export interface LambdaFunctionAggregationResponse {
@@ -2343,8 +2059,7 @@ export interface LambdaFunctionAggregationResponse {
   lambdaTags?: Record<string, string> | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the Amazon Web Services Lambda
-   *          function. </p>
+   * <p>The ID of the Amazon Web Services account that owns the Amazon Web Services Lambda function. </p>
    * @public
    */
   accountId?: string | undefined;
@@ -2356,16 +2071,14 @@ export interface LambdaFunctionAggregationResponse {
   severityCounts?: SeverityCounts | undefined;
 
   /**
-   * <p>The date that the Amazon Web Services Lambda function included in the aggregation results
-   *          was last changed.</p>
+   * <p>The date that the Amazon Web Services Lambda function included in the aggregation results was last changed.</p>
    * @public
    */
   lastModifiedAt?: Date | undefined;
 }
 
 /**
- * <p>A response that contains the results of an Amazon Web Services Lambda function layer
- *          finding aggregation.</p>
+ * <p>A response that contains the results of an Amazon Web Services Lambda function layer finding aggregation.</p>
  * @public
  */
 export interface LambdaLayerAggregationResponse {
@@ -2425,8 +2138,7 @@ export interface PackageAggregationResponse {
 }
 
 /**
- * <p>A response that contains details on the results of a finding aggregation by
- *          repository.</p>
+ * <p>A response that contains details on the results of a finding aggregation by repository.</p>
  * @public
  */
 export interface RepositoryAggregationResponse {
@@ -2443,55 +2155,19 @@ export interface RepositoryAggregationResponse {
   accountId?: string | undefined;
 
   /**
-   * <p>The cloud service provider associated with this repository aggregation. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud service provider associated with this repository aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: Provider | undefined;
 
   /**
-   * <p>The cloud infrastructure partition associated with this repository aggregation. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud infrastructure partition associated with this repository aggregation. Valid values:</p> <ul> <li> <p> <code>aws</code> – Amazon Web Services commercial Regions.</p> </li> <li> <p> <code>aws-cn</code> – Amazon Web Services China Regions.</p> </li> <li> <p> <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p> </li> <li> <p> <code>AzureCloud</code> – Azure commercial Regions.</p> </li> </ul>
    * @public
    */
   cloudPartition?: string | undefined;
 
   /**
-   * <p>The cloud Region associated with this repository aggregation. The value format depends on the cloud provider:</p>
-   *          <ul>
-   *             <li>
-   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>An Azure region, such as <code>eastus</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud Region associated with this repository aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
    * @public
    */
   cloudRegion?: string | undefined;
@@ -2533,17 +2209,7 @@ export interface ServerlessFunctionAggregationResponse {
   resourceId: string | undefined;
 
   /**
-   * <p>The cloud service provider associated with this serverless function aggregation. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud service provider associated with this serverless function aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: Provider | undefined;
@@ -2555,39 +2221,13 @@ export interface ServerlessFunctionAggregationResponse {
   cloudAccountId?: string | undefined;
 
   /**
-   * <p>The cloud infrastructure partition associated with this serverless function aggregation. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud infrastructure partition associated with this serverless function aggregation. Valid values:</p> <ul> <li> <p> <code>aws</code> – Amazon Web Services commercial Regions.</p> </li> <li> <p> <code>aws-cn</code> – Amazon Web Services China Regions.</p> </li> <li> <p> <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p> </li> <li> <p> <code>AzureCloud</code> – Azure commercial Regions.</p> </li> </ul>
    * @public
    */
   cloudPartition?: string | undefined;
 
   /**
-   * <p>The cloud Region associated with this serverless function aggregation. The value format depends on the cloud provider:</p>
-   *          <ul>
-   *             <li>
-   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>An Azure region, such as <code>eastus</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud Region associated with this serverless function aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
    * @public
    */
   cloudRegion?: string | undefined;
@@ -2648,8 +2288,7 @@ export interface ServerlessFunctionAggregationResponse {
 }
 
 /**
- * <p>A response that contains details on the results of a finding aggregation by
- *          title.</p>
+ * <p>A response that contains details on the results of a finding aggregation by title.</p>
  * @public
  */
 export interface TitleAggregationResponse {
@@ -2690,17 +2329,7 @@ export interface VmInstanceAggregationResponse {
   resourceId: string | undefined;
 
   /**
-   * <p>The cloud service provider associated with this VM instance aggregation. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud service provider associated with this VM instance aggregation. Valid values:</p> <ul> <li> <p> <code>AWS</code> – Findings from Amazon Web Services resources.</p> </li> <li> <p> <code>AZURE</code> – Findings from Microsoft Azure resources.</p> </li> </ul>
    * @public
    */
   cloudProvider?: Provider | undefined;
@@ -2712,39 +2341,13 @@ export interface VmInstanceAggregationResponse {
   cloudAccountId?: string | undefined;
 
   /**
-   * <p>The cloud infrastructure partition associated with this VM instance aggregation. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud infrastructure partition associated with this VM instance aggregation. Valid values:</p> <ul> <li> <p> <code>aws</code> – Amazon Web Services commercial Regions.</p> </li> <li> <p> <code>aws-cn</code> – Amazon Web Services China Regions.</p> </li> <li> <p> <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p> </li> <li> <p> <code>AzureCloud</code> – Azure commercial Regions.</p> </li> </ul>
    * @public
    */
   cloudPartition?: string | undefined;
 
   /**
-   * <p>The cloud Region associated with this VM instance aggregation. The value format depends on the cloud provider:</p>
-   *          <ul>
-   *             <li>
-   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>An Azure region, such as <code>eastus</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The cloud Region associated with this VM instance aggregation. The value format depends on the cloud provider:</p> <ul> <li> <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p> </li> <li> <p>An Azure region, such as <code>eastus</code>.</p> </li> </ul>
    * @public
    */
   cloudRegion?: string | undefined;
@@ -2831,8 +2434,7 @@ export type AggregationResponse =
  */
 export namespace AggregationResponse {
   /**
-   * <p>An object that contains details about an aggregation response based on Amazon Web Services account
-   *          IDs.</p>
+   * <p>An object that contains details about an aggregation response based on Amazon Web Services account IDs.</p>
    * @public
    */
   export interface AccountAggregationMember {
@@ -2855,8 +2457,7 @@ export namespace AggregationResponse {
   }
 
   /**
-   * <p>An object that contains details about an aggregation response based on Amazon Machine
-   *          Images (AMIs).</p>
+   * <p>An object that contains details about an aggregation response based on Amazon Machine Images (AMIs).</p>
    * @public
    */
   export interface AmiAggregationMember {
@@ -2879,8 +2480,7 @@ export namespace AggregationResponse {
   }
 
   /**
-   * <p>An object that contains details about an aggregation response based on Amazon ECR container
-   *          images.</p>
+   * <p>An object that contains details about an aggregation response based on Amazon ECR container images.</p>
    * @public
    */
   export interface AwsEcrContainerAggregationMember {
@@ -2903,8 +2503,7 @@ export namespace AggregationResponse {
   }
 
   /**
-   * <p>An object that contains details about an aggregation response based on Amazon EC2
-   *          instances.</p>
+   * <p>An object that contains details about an aggregation response based on Amazon EC2 instances.</p>
    * @public
    */
   export interface Ec2InstanceAggregationMember {
@@ -2927,8 +2526,7 @@ export namespace AggregationResponse {
   }
 
   /**
-   * <p>An object that contains details about an aggregation response based on finding
-   *          types.</p>
+   * <p>An object that contains details about an aggregation response based on finding types.</p>
    * @public
    */
   export interface FindingTypeAggregationMember {
@@ -2951,8 +2549,7 @@ export namespace AggregationResponse {
   }
 
   /**
-   * <p>An object that contains details about an aggregation response based on container image
-   *          layers.</p>
+   * <p>An object that contains details about an aggregation response based on container image layers.</p>
    * @public
    */
   export interface ImageLayerAggregationMember {
@@ -2975,8 +2572,7 @@ export namespace AggregationResponse {
   }
 
   /**
-   * <p>An object that contains details about an aggregation response based on operating system
-   *          package type.</p>
+   * <p>An object that contains details about an aggregation response based on operating system package type.</p>
    * @public
    */
   export interface PackageAggregationMember {
@@ -2999,8 +2595,7 @@ export namespace AggregationResponse {
   }
 
   /**
-   * <p>An object that contains details about an aggregation response based on Amazon ECR
-   *          repositories.</p>
+   * <p>An object that contains details about an aggregation response based on Amazon ECR repositories.</p>
    * @public
    */
   export interface RepositoryAggregationMember {
@@ -3023,8 +2618,7 @@ export namespace AggregationResponse {
   }
 
   /**
-   * <p>An object that contains details about an aggregation response based on finding
-   *          title.</p>
+   * <p>An object that contains details about an aggregation response based on finding title.</p>
    * @public
    */
   export interface TitleAggregationMember {
@@ -3093,8 +2687,7 @@ export namespace AggregationResponse {
   }
 
   /**
-   * <p>An object that contains details about an aggregation response based on code
-   *          repositories.</p>
+   * <p>An object that contains details about an aggregation response based on code repositories.</p>
    * @public
    */
   export interface CodeRepositoryAggregationMember {
@@ -3232,6 +2825,114 @@ export namespace AggregationResponse {
 }
 
 /**
+ * <p>A filter that matches Amazon Machine Images (AMIs) by tag key and, optionally, tag value.</p>
+ * @public
+ */
+export interface AmiTagFilter {
+  /**
+   * <p>The tag key to match against an AMI's tags.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The tag value to match against an AMI's tags. If omitted, the filter matches on the tag key alone.</p>
+   * @public
+   */
+  value?: string | undefined;
+}
+
+/**
+ * <p>The scan mode configuration that determines which Amazon Machine Images (AMIs) are scanned.</p>
+ * @public
+ */
+export interface AmiScanModeConfiguration {
+  /**
+   * <p>The scan mode that determines whether all AMIs are scanned or only those matching the specified tags.</p>
+   * @public
+   */
+  scanMode: AmiScanMode | undefined;
+
+  /**
+   * <p>The tag filters used to select which AMIs are scanned when using targeted scanning.</p>
+   * @public
+   */
+  tags?: AmiTagFilter[] | undefined;
+
+  /**
+   * <p>Whether to exclude AMIs that are copies of other AMIs from scanning.</p>
+   * @public
+   */
+  excludeCopiedAmis?: boolean | undefined;
+
+  /**
+   * <p>Whether to exclude AMIs created by Amazon Data Lifecycle Manager (DLM) backups from scanning.</p>
+   * @public
+   */
+  excludeBackupDlmAmis?: boolean | undefined;
+}
+
+/**
+ * <p>The configuration that controls how Amazon Machine Images (AMIs) are scanned for an account.</p>
+ * @public
+ */
+export interface AmiConfiguration {
+  /**
+   * <p>Restricts scanning to AMIs that were last launched within the specified duration.</p>
+   * @public
+   */
+  lastLaunchedWithin?: AmiScanDuration | undefined;
+
+  /**
+   * <p>Restricts scanning to AMIs that were created within the specified duration.</p>
+   * @public
+   */
+  createdWithin?: AmiScanDuration | undefined;
+
+  /**
+   * <p>The scan mode configuration that determines which AMIs are scanned.</p>
+   * @public
+   */
+  scanModeConfiguration: AmiScanModeConfiguration | undefined;
+}
+
+/**
+ * <p>The current state of the Amazon Machine Image (AMI) scan configuration for an account.</p>
+ * @public
+ */
+export interface AmiConfigurationState {
+  /**
+   * <p>Restricts scanning to AMIs that were last launched within the specified duration.</p>
+   * @public
+   */
+  lastLaunchedWithin?: AmiScanDuration | undefined;
+
+  /**
+   * <p>Restricts scanning to AMIs that were created within the specified duration.</p>
+   * @public
+   */
+  createdWithin?: AmiScanDuration | undefined;
+
+  /**
+   * <p>The scan mode configuration that determines which AMIs are scanned.</p>
+   * @public
+   */
+  scanModeConfiguration?: AmiScanModeConfiguration | undefined;
+
+  /**
+   * <p>The status of the AMI scan configuration.</p>
+   * @public
+   */
+  status?: AmiConfigurationStatus | undefined;
+
+  /**
+   * <p>The date and time when the AMI scan configuration was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
  * <p>Identifies a specific resource in a code repository that will be scanned.</p>
  * @public
  */
@@ -3271,8 +2972,7 @@ export namespace CodeSecurityResource {
 }
 
 /**
- * <p>Contains details about a request to associate a code repository with a scan
- *          configuration.</p>
+ * <p>Contains details about a request to associate a code repository with a scan configuration.</p>
  * @public
  */
 export interface AssociateConfigurationRequest {
@@ -3330,8 +3030,7 @@ export interface ValidationExceptionField {
 }
 
 /**
- * <p>The Amazon Web Services Threat Intel Group (ATIG) details for a specific
- *          vulnerability.</p>
+ * <p>The Amazon Web Services Threat Intel Group (ATIG) details for a specific vulnerability.</p>
  * @public
  */
 export interface AtigData {
@@ -3354,53 +3053,52 @@ export interface AtigData {
   targets?: string[] | undefined;
 
   /**
-   * <p>The <a href="https://attack.mitre.org/">MITRE ATT&amp;CK</a> tactics, techniques,
-   *          and procedures (TTPs) associated with vulnerability.</p>
+   * <p>The <a href="https://attack.mitre.org/">MITRE ATT&amp;CK</a> tactics, techniques, and procedures (TTPs) associated with vulnerability.</p>
    * @public
    */
   ttps?: string[] | undefined;
 }
 
 /**
- * <p>Represents which scan types are automatically enabled for new members of your Amazon Inspector
- *          organization.</p>
+ * <p>Represents which scan types are automatically enabled for new members of your Amazon Inspector organization.</p>
  * @public
  */
 export interface AutoEnable {
   /**
-   * <p>Represents whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector
-   *          organization.</p>
+   * <p>Represents whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.</p>
    * @public
    */
   ec2: boolean | undefined;
 
   /**
-   * <p>Represents whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector
-   *          organization.</p>
+   * <p>Represents whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.</p>
    * @public
    */
   ecr: boolean | undefined;
 
   /**
-   * <p>Represents whether Amazon Web Services Lambda standard scans are automatically enabled
-   *          for new members of your Amazon Inspector organization. </p>
+   * <p>Represents whether Amazon Web Services Lambda standard scans are automatically enabled for new members of your Amazon Inspector organization. </p>
    * @public
    */
   lambda?: boolean | undefined;
 
   /**
-   * <p>Represents whether Lambda code scans are automatically enabled for new members of your
-   *          Amazon Inspector organization. </p>
+   * <p>Represents whether Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. </p>
    * @public
    */
   lambdaCode?: boolean | undefined;
 
   /**
-   * <p>Represents whether code repository scans are automatically enabled for new members of
-   *          your Amazon Inspector organization.</p>
+   * <p>Represents whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.</p>
    * @public
    */
   codeRepository?: boolean | undefined;
+
+  /**
+   * <p>Represents whether Amazon Machine Image (AMI) scans are automatically enabled for new members of your Amazon Inspector organization.</p>
+   * @public
+   */
+  ami?: boolean | undefined;
 }
 
 /**
@@ -3541,8 +3239,7 @@ export interface AwsEcrContainerImageDetails {
   platform?: string | undefined;
 
   /**
-   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or
-   *             Amazon EKS pod.</p>
+   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or Amazon EKS pod.</p>
    * @public
    */
   lastInUseAt?: Date | undefined;
@@ -3591,8 +3288,7 @@ export interface AwsEksWorkloadInfo {
 }
 
 /**
- * <p>The metadata for an Amazon EKS pod where an Amazon ECR image is in
- *          use.</p>
+ * <p>The metadata for an Amazon EKS pod where an Amazon ECR image is in use.</p>
  * @public
  */
 export interface AwsEksMetadataDetails {
@@ -3610,8 +3306,7 @@ export interface AwsEksMetadataDetails {
 }
 
 /**
- * <p>The VPC security groups and subnets that are attached to an Amazon Web Services Lambda
- *          function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+ * <p>The VPC security groups and subnets that are attached to an Amazon Web Services Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
  * @public
  */
 export interface LambdaVpcConfig {
@@ -3622,8 +3317,7 @@ export interface LambdaVpcConfig {
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>The VPC security groups and subnets that are attached to an Amazon Web Services Lambda
-   *          function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+   * <p>The VPC security groups and subnets that are attached to an Amazon Web Services Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
    * @public
    */
   securityGroupIds?: string[] | undefined;
@@ -3671,8 +3365,7 @@ export interface AwsLambdaFunctionDetails {
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Lambda function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>. A
-   *          Lambda function can have up to five layers.</p>
+   * <p>The Amazon Web Services Lambda function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>. A Lambda function can have up to five layers.</p>
    * @public
    */
   layers?: string[] | undefined;
@@ -3684,24 +3377,19 @@ export interface AwsLambdaFunctionDetails {
   vpcConfig?: LambdaVpcConfig | undefined;
 
   /**
-   * <p>The type of deployment package. Set to <code>Image</code> for container image and set
-   *             <code>Zip</code> for .zip file archive.</p>
+   * <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
    * @public
    */
   packageType?: PackageType | undefined;
 
   /**
-   * <p>The instruction set architecture that the Amazon Web Services Lambda function supports.
-   *          Architecture is a string array with one of the valid values. The default architecture value
-   *          is <code>x86_64</code>.</p>
+   * <p>The instruction set architecture that the Amazon Web Services Lambda function supports. Architecture is a string array with one of the valid values. The default architecture value is <code>x86_64</code>.</p>
    * @public
    */
   architectures?: Architecture[] | undefined;
 
   /**
-   * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601
-   *          format</a>
-   *          </p>
+   * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a> </p>
    * @public
    */
   lastModifiedAt?: Date | undefined;
@@ -3869,14 +3557,12 @@ export interface BatchAssociateCodeSecurityScanConfigurationRequest {
 }
 
 /**
- * <p>Details about a failed attempt to associate or disassociate a code repository with a
- *          scan configuration.</p>
+ * <p>Details about a failed attempt to associate or disassociate a code repository with a scan configuration.</p>
  * @public
  */
 export interface FailedAssociationResult {
   /**
-   * <p>The Amazon Resource Name (ARN) of the scan configuration that failed to be associated or
-   *          disassociated.</p>
+   * <p>The Amazon Resource Name (ARN) of the scan configuration that failed to be associated or disassociated.</p>
    * @public
    */
   scanConfigurationArn?: string | undefined;
@@ -3901,14 +3587,12 @@ export interface FailedAssociationResult {
 }
 
 /**
- * <p>Details about a successful association or disassociation between a code repository and a
- *          scan configuration.</p>
+ * <p>Details about a successful association or disassociation between a code repository and a scan configuration.</p>
  * @public
  */
 export interface SuccessfulAssociationResult {
   /**
-   * <p>The Amazon Resource Name (ARN) of the scan configuration that was successfully
-   *          associated or disassociated.</p>
+   * <p>The Amazon Resource Name (ARN) of the scan configuration that was successfully associated or disassociated.</p>
    * @public
    */
   scanConfigurationArn?: string | undefined;
@@ -3925,29 +3609,25 @@ export interface SuccessfulAssociationResult {
  */
 export interface BatchAssociateCodeSecurityScanConfigurationResponse {
   /**
-   * <p>Details of any code repositories that failed to be associated with the scan
-   *          configuration.</p>
+   * <p>Details of any code repositories that failed to be associated with the scan configuration.</p>
    * @public
    */
   failedAssociations?: FailedAssociationResult[] | undefined;
 
   /**
-   * <p>Details of code repositories that were successfully associated with the scan
-   *          configuration.</p>
+   * <p>Details of code repositories that were successfully associated with the scan configuration.</p>
    * @public
    */
   successfulAssociations?: SuccessfulAssociationResult[] | undefined;
 }
 
 /**
- * <p>Contains details about a request to disassociate a code repository from a scan
- *          configuration.</p>
+ * <p>Contains details about a request to disassociate a code repository from a scan configuration.</p>
  * @public
  */
 export interface DisassociateConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the scan configuration to disassociate from a code
-   *          repository.</p>
+   * <p>The Amazon Resource Name (ARN) of the scan configuration to disassociate from a code repository.</p>
    * @public
    */
   scanConfigurationArn: string | undefined;
@@ -3964,8 +3644,7 @@ export interface DisassociateConfigurationRequest {
  */
 export interface BatchDisassociateCodeSecurityScanConfigurationRequest {
   /**
-   * <p>A list of code repositories to disassociate from the specified scan
-   *          configuration.</p>
+   * <p>A list of code repositories to disassociate from the specified scan configuration.</p>
    * @public
    */
   disassociateConfigurationRequests: DisassociateConfigurationRequest[] | undefined;
@@ -3976,15 +3655,13 @@ export interface BatchDisassociateCodeSecurityScanConfigurationRequest {
  */
 export interface BatchDisassociateCodeSecurityScanConfigurationResponse {
   /**
-   * <p>Details of any code repositories that failed to be disassociated from the scan
-   *          configuration.</p>
+   * <p>Details of any code repositories that failed to be disassociated from the scan configuration.</p>
    * @public
    */
   failedAssociations?: FailedAssociationResult[] | undefined;
 
   /**
-   * <p>Details of code repositories that were successfully disassociated from the scan
-   *          configuration.</p>
+   * <p>Details of code repositories that were successfully disassociated from the scan configuration.</p>
    * @public
    */
   successfulAssociations?: SuccessfulAssociationResult[] | undefined;
@@ -4042,8 +3719,7 @@ export interface FailedAccount {
  */
 export interface BatchGetAccountStatusResponse {
   /**
-   * <p>An array of objects that provide details on the status of Amazon Inspector for each of the
-   *          requested accounts.</p>
+   * <p>An array of objects that provide details on the status of Amazon Inspector for each of the requested accounts.</p>
    * @public
    */
   accounts: AccountState[] | undefined;
@@ -4060,8 +3736,7 @@ export interface BatchGetAccountStatusResponse {
  */
 export interface BatchGetCodeSnippetRequest {
   /**
-   * <p>An array of finding ARNs for the findings you want to retrieve code snippets
-   *          from.</p>
+   * <p>An array of finding ARNs for the findings you want to retrieve code snippets from.</p>
    * @public
    */
   findingArns: string[] | undefined;
@@ -4104,8 +3779,7 @@ export interface SuggestedFix {
 }
 
 /**
- * <p>Contains information on a code snippet retrieved by Amazon Inspector from a code vulnerability
- *          finding.</p>
+ * <p>Contains information on a code snippet retrieved by Amazon Inspector from a code vulnerability finding.</p>
  * @public
  */
 export interface CodeSnippetResult {
@@ -4141,8 +3815,7 @@ export interface CodeSnippetResult {
 }
 
 /**
- * <p>Contains information about any errors encountered while trying to retrieve a code
- *          snippet.</p>
+ * <p>Contains information about any errors encountered while trying to retrieve a code snippet.</p>
  * @public
  */
 export interface CodeSnippetError {
@@ -4176,8 +3849,7 @@ export interface BatchGetCodeSnippetResponse {
   codeSnippetResults?: CodeSnippetResult[] | undefined;
 
   /**
-   * <p>Any errors Amazon Inspector encountered while trying to retrieve the requested code
-   *          snippets.</p>
+   * <p>Any errors Amazon Inspector encountered while trying to retrieve the requested code snippets.</p>
    * @public
    */
   errors?: CodeSnippetError[] | undefined;
@@ -4195,8 +3867,7 @@ export interface BatchGetFindingDetailsRequest {
 }
 
 /**
- * <p>Details about an error encountered when trying to return vulnerability data for a
- *          finding.</p>
+ * <p>Details about an error encountered when trying to return vulnerability data for a finding.</p>
  * @public
  */
 export interface FindingDetailsError {
@@ -4220,8 +3891,7 @@ export interface FindingDetailsError {
 }
 
 /**
- * <p>The Cybersecurity and Infrastructure Security Agency (CISA) details for a specific
- *          vulnerability.</p>
+ * <p>The Cybersecurity and Infrastructure Security Agency (CISA) details for a specific vulnerability.</p>
  * @public
  */
 export interface CisaData {
@@ -4298,8 +3968,7 @@ export interface FindingDetail {
   findingArn?: string | undefined;
 
   /**
-   * <p>The Cybersecurity and Infrastructure Security Agency (CISA) details for a specific
-   *          vulnerability.</p>
+   * <p>The Cybersecurity and Infrastructure Security Agency (CISA) details for a specific vulnerability.</p>
    * @public
    */
   cisaData?: CisaData | undefined;
@@ -4317,8 +3986,7 @@ export interface FindingDetail {
   evidences?: Evidence[] | undefined;
 
   /**
-   * <p>The MITRE adversary tactics, techniques, or procedures (TTPs) associated with the
-   *          vulnerability.</p>
+   * <p>The MITRE adversary tactics, techniques, or procedures (TTPs) associated with the vulnerability.</p>
    * @public
    */
   ttps?: string[] | undefined;
@@ -4437,8 +4105,7 @@ export interface FreeTrialAccountInfo {
 }
 
 /**
- * <p>Information about an error received while accessing free trail data for an
- *          account.</p>
+ * <p>Information about an error received while accessing free trail data for an account.</p>
  * @public
  */
 export interface FreeTrialInfoError {
@@ -4466,15 +4133,13 @@ export interface FreeTrialInfoError {
  */
 export interface BatchGetFreeTrialInfoResponse {
   /**
-   * <p>An array of objects that provide Amazon Inspector free trial details for each of the requested
-   *          accounts. </p>
+   * <p>An array of objects that provide Amazon Inspector free trial details for each of the requested accounts. </p>
    * @public
    */
   accounts: FreeTrialAccountInfo[] | undefined;
 
   /**
-   * <p>An array of objects detailing any accounts that free trial data could not be returned
-   *          for.</p>
+   * <p>An array of objects detailing any accounts that free trial data could not be returned for.</p>
    * @public
    */
   failedAccounts: FreeTrialInfoError[] | undefined;
@@ -4485,16 +4150,14 @@ export interface BatchGetFreeTrialInfoResponse {
  */
 export interface BatchGetMemberEc2DeepInspectionStatusRequest {
   /**
-   * <p>The unique identifiers for the Amazon Web Services accounts to retrieve Amazon Inspector deep inspection
-   *          activation status for. </p>
+   * <p>The unique identifiers for the Amazon Web Services accounts to retrieve Amazon Inspector deep inspection activation status for. </p>
    * @public
    */
   accountIds?: string[] | undefined;
 }
 
 /**
- * <p>An object that contains details about the state of Amazon Inspector deep inspection for a member
- *          account.</p>
+ * <p>An object that contains details about the state of Amazon Inspector deep inspection for a member account.</p>
  * @public
  */
 export interface MemberAccountEc2DeepInspectionStatusState {
@@ -4511,36 +4174,31 @@ export interface MemberAccountEc2DeepInspectionStatusState {
   status?: Ec2DeepInspectionStatus | undefined;
 
   /**
-   * <p>The error message explaining why the account failed to activate Amazon Inspector deep
-   *          inspection.</p>
+   * <p>The error message explaining why the account failed to activate Amazon Inspector deep inspection.</p>
    * @public
    */
   errorMessage?: string | undefined;
 }
 
 /**
- * <p>An object that contains details about a member account in your organization that failed
- *          to activate Amazon Inspector deep inspection.</p>
+ * <p>An object that contains details about a member account in your organization that failed to activate Amazon Inspector deep inspection.</p>
  * @public
  */
 export interface FailedMemberAccountEc2DeepInspectionStatusState {
   /**
-   * <p>The unique identifier for the Amazon Web Services account of the organization member that failed to
-   *          activate Amazon Inspector deep inspection.</p>
+   * <p>The unique identifier for the Amazon Web Services account of the organization member that failed to activate Amazon Inspector deep inspection.</p>
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p>The status of EC2 scanning in the account that failed to activate Amazon Inspector deep
-   *          inspection.</p>
+   * <p>The status of EC2 scanning in the account that failed to activate Amazon Inspector deep inspection.</p>
    * @public
    */
   ec2ScanStatus?: Status | undefined;
 
   /**
-   * <p>The error message explaining why the account failed to activate Amazon Inspector deep
-   *          inspection.</p>
+   * <p>The error message explaining why the account failed to activate Amazon Inspector deep inspection.</p>
    * @public
    */
   errorMessage?: string | undefined;
@@ -4551,23 +4209,20 @@ export interface FailedMemberAccountEc2DeepInspectionStatusState {
  */
 export interface BatchGetMemberEc2DeepInspectionStatusResponse {
   /**
-   * <p>An array of objects that provide details on the activation status of Amazon Inspector deep
-   *          inspection for each of the requested accounts. </p>
+   * <p>An array of objects that provide details on the activation status of Amazon Inspector deep inspection for each of the requested accounts. </p>
    * @public
    */
   accountIds?: MemberAccountEc2DeepInspectionStatusState[] | undefined;
 
   /**
-   * <p>An array of objects that provide details on any accounts that failed to activate Amazon Inspector
-   *          deep inspection and why. </p>
+   * <p>An array of objects that provide details on any accounts that failed to activate Amazon Inspector deep inspection and why. </p>
    * @public
    */
   failedAccountIds?: FailedMemberAccountEc2DeepInspectionStatusState[] | undefined;
 }
 
 /**
- * <p>An object that contains details about the status of Amazon Inspector deep inspection for a member
- *          account in your organization.</p>
+ * <p>An object that contains details about the status of Amazon Inspector deep inspection for a member account in your organization.</p>
  * @public
  */
 export interface MemberAccountEc2DeepInspectionStatus {
@@ -4578,8 +4233,7 @@ export interface MemberAccountEc2DeepInspectionStatus {
   accountId: string | undefined;
 
   /**
-   * <p>Whether Amazon Inspector deep inspection is active in the account. If <code>TRUE</code> Amazon Inspector deep
-   *          inspection is active, if <code>FALSE</code> it is not active.</p>
+   * <p>Whether Amazon Inspector deep inspection is active in the account. If <code>TRUE</code> Amazon Inspector deep inspection is active, if <code>FALSE</code> it is not active.</p>
    * @public
    */
   activateDeepInspection: boolean | undefined;
@@ -4590,8 +4244,7 @@ export interface MemberAccountEc2DeepInspectionStatus {
  */
 export interface BatchUpdateMemberEc2DeepInspectionStatusRequest {
   /**
-   * <p>The unique identifiers for the Amazon Web Services accounts to change Amazon Inspector deep inspection status
-   *          for.</p>
+   * <p>The unique identifiers for the Amazon Web Services accounts to change Amazon Inspector deep inspection status for.</p>
    * @public
    */
   accountIds: MemberAccountEc2DeepInspectionStatus[] | undefined;
@@ -4602,15 +4255,13 @@ export interface BatchUpdateMemberEc2DeepInspectionStatusRequest {
  */
 export interface BatchUpdateMemberEc2DeepInspectionStatusResponse {
   /**
-   * <p>An array of objects that provide details for each of the accounts that Amazon Inspector deep
-   *          inspection status was successfully changed for. </p>
+   * <p>An array of objects that provide details for each of the accounts that Amazon Inspector deep inspection status was successfully changed for. </p>
    * @public
    */
   accountIds?: MemberAccountEc2DeepInspectionStatusState[] | undefined;
 
   /**
-   * <p>An array of objects that provide details for each of the accounts that Amazon Inspector deep
-   *          inspection status could not be successfully changed for. </p>
+   * <p>An array of objects that provide details for each of the accounts that Amazon Inspector deep inspection status could not be successfully changed for. </p>
    * @public
    */
   failedAccountIds?: FailedMemberAccountEc2DeepInspectionStatusState[] | undefined;
@@ -4888,8 +4539,7 @@ export interface CisScan {
   scheduledBy?: string | undefined;
 
   /**
-   * <p> The security level for the CIS scan. Security level refers to the Benchmark levels that
-   *          CIS assigns to a profile. </p>
+   * <p> The security level for the CIS scan. Security level refers to the Benchmark levels that CIS assigns to a profile. </p>
    * @public
    */
   securityLevel?: CisSecurityLevel | undefined;
@@ -5181,8 +4831,7 @@ export interface CisScanResultDetails {
 }
 
 /**
- * <p> The CIS security level filter. Security level refers to the Benchmark levels that CIS
- *          assigns to a profile. </p>
+ * <p> The CIS security level filter. Security level refers to the Benchmark levels that CIS assigns to a profile. </p>
  * @public
  */
 export interface CisSecurityLevelFilter {
@@ -5223,8 +4872,7 @@ export interface CisScanResultDetailsFilterCriteria {
   titleFilters?: CisStringFilter[] | undefined;
 
   /**
-   * <p> The criteria's security level filters. . Security level refers to the Benchmark levels
-   *          that CIS assigns to a profile. </p>
+   * <p> The criteria's security level filters. . Security level refers to the Benchmark levels that CIS assigns to a profile. </p>
    * @public
    */
   securityLevelFilters?: CisSecurityLevelFilter[] | undefined;
@@ -5553,8 +5201,7 @@ export namespace ClusterMetadata {
  */
 export interface ClusterDetails {
   /**
-   * <p>The last timestamp when Amazon Inspector recorded the image in use in the task or pod
-   *          in the cluster.</p>
+   * <p>The last timestamp when Amazon Inspector recorded the image in use in the task or pod in the cluster.</p>
    * @public
    */
   lastInUse: Date | undefined;
@@ -5566,8 +5213,7 @@ export interface ClusterDetails {
   runningUnitCount?: number | undefined;
 
   /**
-   * <p>The number of tasks or pods where an image was stopped on the cluster in the last 24
-   *          hours.</p>
+   * <p>The number of tasks or pods where an image was stopped on the cluster in the last 24 hours.</p>
    * @public
    */
   stoppedUnitCount?: number | undefined;
@@ -5610,8 +5256,7 @@ export interface ClusterInformation {
 }
 
 /**
- * <p>Contains information on where a code vulnerability is located in your Lambda
- *          function.</p>
+ * <p>Contains information on where a code vulnerability is located in your Lambda function.</p>
  * @public
  */
 export interface CodeFilePath {
@@ -5652,8 +5297,7 @@ export interface CodeRepositoryDetails {
   projectName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the code security integration associated with the
-   *          repository.</p>
+   * <p>The Amazon Resource Name (ARN) of the code security integration associated with the repository.</p>
    * @public
    */
   integrationArn?: string | undefined;
@@ -5677,111 +5321,7 @@ export interface ScanStatus {
   statusCode: ScanStatusCode | undefined;
 
   /**
-   * <p>The scan status. Possible return values and descriptions are: </p>
-   *          <p>
-   *             <code>ACCESS_DENIED</code> - Resource access policy restricting Amazon Inspector access. Please
-   *          update the IAM policy.</p>
-   *          <p>
-   *             <code>ACCESS_DENIED_TO_ENCRYPTION_KEY</code> - The KMS key policy doesn't allow Amazon Inspector
-   *          access. Update the key policy.</p>
-   *          <p>
-   *             <code>DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED</code> - Amazon Inspector failed to extract
-   *          the package inventory because the package collection time exceeding the maximum threshold
-   *          of 15 minutes.</p>
-   *          <p>
-   *             <code>DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED</code> - The SSM agent couldn't
-   *          send inventory to Amazon Inspector because the SSM quota for Inventory data collected per instance per
-   *          day has already been reached for this instance.</p>
-   *          <p>
-   *             <code>DEEP_INSPECTION_NO_INVENTORY</code> - The Amazon Inspector plugin hasn't yet been able to
-   *          collect an inventory of packages for this instance. This is usually the result of a pending
-   *          scan, however, if this status persists after 6 hours, use SSM to ensure that
-   *          the required Amazon Inspector associations exist and are running for the instance.</p>
-   *          <p>
-   *             <code>DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED</code> - The instance has
-   *          exceeded the 5000 package limit for Amazon Inspector Deep inspection. To resume Deep inspection for
-   *          this instance you can try to adjust the custom paths associated with the account.</p>
-   *          <p>
-   *             <code>EC2_INSTANCE_STOPPED</code> - This EC2 instance is in a stopped state, therefore,
-   *          Amazon Inspector will pause scanning. The existing findings will continue to exist until the instance
-   *          is terminated. Once the instance is re-started, Inspector will automatically start scanning
-   *          the instance again. Please note that you will not be charged for this instance while it's
-   *          in a stopped state.</p>
-   *          <p>
-   *             <code>EXCLUDED_BY_TAG</code> - This resource was not scanned because it has been
-   *          excluded by a tag.</p>
-   *          <p>
-   *             <code>IMAGE_SIZE_EXCEEDED</code> - Reserved for future use.</p>
-   *          <p>
-   *             <code>INTEGRATION_CONNNECTION_LOST</code> - Amazon Inspector couldn't communicate with the source
-   *          code management platform.</p>
-   *          <p>
-   *             <code>INTERNAL_ERROR</code> - Amazon Inspector has encountered an internal error for this resource.
-   *          Amazon Inspector service will automatically resolve the issue and resume the scanning. No action
-   *          required from the user.</p>
-   *          <p>
-   *             <code>NO_INVENTORY</code> - Amazon Inspector couldn't find software application inventory to scan
-   *          for vulnerabilities. This might be caused due to required Amazon Inspector associations being deleted
-   *          or failing to run on your resource. Please verify the status of
-   *          <code>InspectorInventoryCollection-do-not-delete</code> association in the SSM console
-   *          for the resource. Additionally, you can verify the instance's inventory in the SSM Fleet
-   *          Manager console.</p>
-   *          <p>
-   *             <code>NO_RESOURCES_FOUND</code> - Reserved for future use.</p>
-   *          <p>
-   *             <code>NO_SCAN_CONFIGURATION_ASSOCIATED</code> - The code repository resource doesn't
-   *          have an associated scan configuration.</p>
-   *          <p>
-   *             <code>PENDING_DISABLE</code> - This resource is pending cleanup during disablement. The
-   *          customer will not be billed while a resource is in the pending disable status.</p>
-   *          <p>
-   *             <code>PENDING_INITIAL_SCAN</code> - This resource has been identified for scanning,
-   *          results will be available soon.</p>
-   *          <p>
-   *             <code>RESOURCE_TERMINATED</code> - This resource has been terminated. The findings and
-   *          coverage associated with this resource are in the process of being cleaned up.</p>
-   *          <p>
-   *             <code>SCAN_ELIGIBILITY_EXPIRED</code> - The configured scan duration has lapsed for this
-   *          image.</p>
-   *          <p>
-   *             <code>SCAN_FREQUENCY_MANUAL</code> - This image will not be covered by Amazon Inspector due to the
-   *          repository scan frequency configuration.</p>
-   *          <p>
-   *             <code>SCAN_FREQUENCY_SCAN_ON_PUSH</code> - This image will be scanned one time and will
-   *          not new findings because of the scan frequency configuration.</p>
-   *          <p>
-   *             <code>SCAN_IN_PROGRESS</code> - The resource is currently being scanned.</p>
-   *          <p>
-   *             <code>STALE_INVENTORY</code> - Amazon Inspector wasn't able to collect an updated software
-   *          application inventory in the last 7 days. Please confirm the required Amazon Inspector associations
-   *          still exist and you can still see an updated inventory in the SSM console.</p>
-   *          <p>
-   *             <code>SUCCESSFUL</code> - The scan was successful.</p>
-   *          <p>
-   *             <code>UNMANAGED_EC2_INSTANCE</code> - The EC2 instance is not managed by SSM, please use
-   *          the following SSM automation to remediate the issue: <a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshoot-managed-instance.html">https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshoot-managed-instance.html</a>.
-   *          Once the instance becomes managed by SSM, Inspector will automatically begin scanning this
-   *          instance. </p>
-   *          <p>
-   *             <code>UNSUPPORTED_CODE_ARTIFACTS </code> - The function was not scanned because it has an unsupported code artifacts.</p>
-   *          <p>
-   *             <code>UNSUPPORTED_CONFIG_FILE</code> - Reserved for future use.</p>
-   *          <p>
-   *             <code>UNSUPPORTED_LANGUAGE</code> - The scan was unsuccessful because the repository
-   *          contains files in an unsupported programming language.</p>
-   *          <p>
-   *             <code>UNSUPPORTED_MEDIA_TYPE </code>- The ECR image has an unsupported media
-   *          type.</p>
-   *          <p>
-   *             <code>UNSUPPORTED_OS</code> - Amazon Inspector does not support this OS, architecture, or image
-   *          manifest type at this time. To see a complete list of supported operating systems see:
-   *          <a href=" https://docs.aws.amazon.com/inspector/latest/user/supported.html">https://docs.aws.amazon.com/inspector/latest/user/supported.html</a>.</p>
-   *          <p>
-   *             <code>UNSUPPORTED_RUNTIME</code> - The function was not scanned because it has an
-   *          unsupported runtime. To see a complete list of supported runtimes see: <a href=" https://docs.aws.amazon.com/inspector/latest/user/supported.html">https://docs.aws.amazon.com/inspector/latest/user/supported.html</a>.</p>
-   *          <p>
-   *             <code>IMAGE_ARCHIVED</code> - This image has been archived in Amazon ECR and is no longer available for scanning in Amazon Inspector.
-   *       </p>
+   * <p>The scan status. Possible return values and descriptions are: </p> <p> <code>ACCESS_DENIED</code> - Resource access policy restricting Amazon Inspector access. Please update the IAM policy.</p> <p> <code>ACCESS_DENIED_TO_ENCRYPTION_KEY</code> - The KMS key policy doesn't allow Amazon Inspector access. Update the key policy.</p> <p> <code>DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED</code> - Amazon Inspector failed to extract the package inventory because the package collection time exceeding the maximum threshold of 15 minutes.</p> <p> <code>DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED</code> - The SSM agent couldn't send inventory to Amazon Inspector because the SSM quota for Inventory data collected per instance per day has already been reached for this instance.</p> <p> <code>DEEP_INSPECTION_NO_INVENTORY</code> - The Amazon Inspector plugin hasn't yet been able to collect an inventory of packages for this instance. This is usually the result of a pending scan, however, if this status persists after 6 hours, use SSM to ensure that the required Amazon Inspector associations exist and are running for the instance.</p> <p> <code>DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED</code> - The instance has exceeded the 5000 package limit for Amazon Inspector Deep inspection. To resume Deep inspection for this instance you can try to adjust the custom paths associated with the account.</p> <p> <code>EC2_INSTANCE_STOPPED</code> - This EC2 instance is in a stopped state, therefore, Amazon Inspector will pause scanning. The existing findings will continue to exist until the instance is terminated. Once the instance is re-started, Inspector will automatically start scanning the instance again. Please note that you will not be charged for this instance while it's in a stopped state.</p> <p> <code>EXCLUDED_BY_TAG</code> - This resource was not scanned because it has been excluded by a tag.</p> <p> <code>IMAGE_SIZE_EXCEEDED</code> - Reserved for future use.</p> <p> <code>INTEGRATION_CONNNECTION_LOST</code> - Amazon Inspector couldn't communicate with the source code management platform.</p> <p> <code>INTERNAL_ERROR</code> - Amazon Inspector has encountered an internal error for this resource. Amazon Inspector service will automatically resolve the issue and resume the scanning. No action required from the user.</p> <p> <code>INVALID_ARTIFACT</code> - Amazon Inspector couldn't scan this resource because its artifact is malformed and couldn't be safely extracted.</p> <p> <code>NO_INVENTORY</code> - Amazon Inspector couldn't find software application inventory to scan for vulnerabilities. This might be caused due to required Amazon Inspector associations being deleted or failing to run on your resource. Please verify the status of <code>InspectorInventoryCollection-do-not-delete</code> association in the SSM console for the resource. Additionally, you can verify the instance's inventory in the SSM Fleet Manager console.</p> <p> <code>NO_RESOURCES_FOUND</code> - Reserved for future use.</p> <p> <code>NO_SCAN_CONFIGURATION_ASSOCIATED</code> - The code repository resource doesn't have an associated scan configuration.</p> <p> <code>PENDING_DISABLE</code> - This resource is pending cleanup during disablement. The customer will not be billed while a resource is in the pending disable status.</p> <p> <code>PENDING_INITIAL_SCAN</code> - This resource has been identified for scanning, results will be available soon.</p> <p> <code>RESOURCE_TERMINATED</code> - This resource has been terminated. The findings and coverage associated with this resource are in the process of being cleaned up.</p> <p> <code>SCAN_ELIGIBILITY_EXPIRED</code> - The configured scan duration has lapsed for this image.</p> <p> <code>SCAN_FREQUENCY_MANUAL</code> - This image will not be covered by Amazon Inspector due to the repository scan frequency configuration.</p> <p> <code>SCAN_FREQUENCY_SCAN_ON_PUSH</code> - This image will be scanned one time and will not new findings because of the scan frequency configuration.</p> <p> <code>SCAN_IN_PROGRESS</code> - The resource is currently being scanned.</p> <p> <code>STALE_INVENTORY</code> - Amazon Inspector wasn't able to collect an updated software application inventory in the last 7 days. Please confirm the required Amazon Inspector associations still exist and you can still see an updated inventory in the SSM console.</p> <p> <code>SUCCESSFUL</code> - The scan was successful.</p> <p> <code>UNMANAGED_EC2_INSTANCE</code> - The EC2 instance is not managed by SSM, please use the following SSM automation to remediate the issue: <a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshoot-managed-instance.html">https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshoot-managed-instance.html</a>. Once the instance becomes managed by SSM, Inspector will automatically begin scanning this instance. </p> <p> <code>UNSUPPORTED_CODE_ARTIFACTS </code> - The function was not scanned because it has an unsupported code artifacts.</p> <p> <code>UNSUPPORTED_CONFIG_FILE</code> - Reserved for future use.</p> <p> <code>UNSUPPORTED_LANGUAGE</code> - The scan was unsuccessful because the repository contains files in an unsupported programming language.</p> <p> <code>UNSUPPORTED_MEDIA_TYPE </code>- The ECR image has an unsupported media type.</p> <p> <code>UNSUPPORTED_OS</code> - Amazon Inspector does not support this OS, architecture, or image manifest type at this time. To see a complete list of supported operating systems see: <a href=" https://docs.aws.amazon.com/inspector/latest/user/supported.html">https://docs.aws.amazon.com/inspector/latest/user/supported.html</a>.</p> <p> <code>UNSUPPORTED_RUNTIME</code> - The function was not scanned because it has an unsupported runtime. To see a complete list of supported runtimes see: <a href=" https://docs.aws.amazon.com/inspector/latest/user/supported.html">https://docs.aws.amazon.com/inspector/latest/user/supported.html</a>.</p> <p> <code>IMAGE_ARCHIVED</code> - This image has been archived in Amazon ECR and is no longer available for scanning in Amazon Inspector. </p>
    * @public
    */
   reason: ScanStatusReason | undefined;
@@ -5812,8 +5352,7 @@ export interface CodeRepositoryOnDemandScan {
 }
 
 /**
- * <p>Contains the continuous integration scan configuration settings applied to a specific
- *          project.</p>
+ * <p>Contains the continuous integration scan configuration settings applied to a specific project.</p>
  * @public
  */
 export interface ProjectContinuousIntegrationScanConfiguration {
@@ -5824,8 +5363,7 @@ export interface ProjectContinuousIntegrationScanConfiguration {
   supportedEvent?: ContinuousIntegrationScanEvent | undefined;
 
   /**
-   * <p>The categories of security rules applied during continuous integration scans for the
-   *          project.</p>
+   * <p>The categories of security rules applied during continuous integration scans for the project.</p>
    * @public
    */
   ruleSetCategories?: RuleSetCategory[] | undefined;
@@ -5837,8 +5375,7 @@ export interface ProjectContinuousIntegrationScanConfiguration {
  */
 export interface ProjectPeriodicScanConfiguration {
   /**
-   * <p>The schedule expression for periodic scans, in cron format, applied to the
-   *          project.</p>
+   * <p>The schedule expression for periodic scans, in cron format, applied to the project.</p>
    * @public
    */
   frequencyExpression?: string | undefined;
@@ -5851,8 +5388,7 @@ export interface ProjectPeriodicScanConfiguration {
 }
 
 /**
- * <p>Contains the scan configuration settings applied to a specific project in a code
- *          repository.</p>
+ * <p>Contains the scan configuration settings applied to a specific project in a code repository.</p>
  * @public
  */
 export interface ProjectCodeSecurityScanConfiguration {
@@ -5870,8 +5406,7 @@ export interface ProjectCodeSecurityScanConfiguration {
 }
 
 /**
- * <p>Contains metadata information about a code repository that is being scanned by Amazon
- *          Inspector.</p>
+ * <p>Contains metadata information about a code repository that is being scanned by Amazon Inspector.</p>
  * @public
  */
 export interface CodeRepositoryMetadata {
@@ -5882,8 +5417,7 @@ export interface CodeRepositoryMetadata {
   projectName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the code security integration associated with the
-   *          repository.</p>
+   * <p>The Amazon Resource Name (ARN) of the code security integration associated with the repository.</p>
    * @public
    */
   integrationArn?: string | undefined;
@@ -5968,14 +5502,12 @@ export interface CodeSecurityIntegrationSummary {
 }
 
 /**
- * <p>Configuration settings for continuous integration scans that run automatically when code
- *          changes are made.</p>
+ * <p>Configuration settings for continuous integration scans that run automatically when code changes are made.</p>
  * @public
  */
 export interface ContinuousIntegrationScanConfiguration {
   /**
-   * <p>The repository events that trigger continuous integration scans, such as pull requests
-   *          or commits.</p>
+   * <p>The repository events that trigger continuous integration scans, such as pull requests or commits.</p>
    * @public
    */
   supportedEvents: ContinuousIntegrationScanEvent[] | undefined;
@@ -5987,10 +5519,7 @@ export interface ContinuousIntegrationScanConfiguration {
  */
 export interface PeriodicScanConfiguration {
   /**
-   * <p>The frequency at which periodic scans are performed (such as weekly or monthly).</p>
-   *          <p>If you don't provide the <code>frequencyExpression</code> Amazon Inspector chooses day for the scan
-   *          to run. If you provide the <code>frequencyExpression</code>, the schedule must match the
-   *          specified <code>frequency</code>.</p>
+   * <p>The frequency at which periodic scans are performed (such as weekly or monthly).</p> <p>If you don't provide the <code>frequencyExpression</code> Amazon Inspector chooses day for the scan to run. If you provide the <code>frequencyExpression</code>, the schedule must match the specified <code>frequency</code>.</p>
    * @public
    */
   frequency?: PeriodicScanFrequency | undefined;
@@ -6014,8 +5543,7 @@ export interface CodeSecurityScanConfiguration {
   periodicScanConfiguration?: PeriodicScanConfiguration | undefined;
 
   /**
-   * <p>Configuration settings for continuous integration scans that run automatically when code
-   *          changes are made.</p>
+   * <p>Configuration settings for continuous integration scans that run automatically when code changes are made.</p>
    * @public
    */
   continuousIntegrationScanConfiguration?: ContinuousIntegrationScanConfiguration | undefined;
@@ -6045,9 +5573,7 @@ export interface CodeSecurityScanConfigurationAssociationSummary {
  */
 export interface ScopeSettings {
   /**
-   * <p>The scope of projects to be selected for scanning within the integrated repositories.
-   *          Setting the value to <code>ALL</code> applies the scope settings to all existing and future
-   *          projects imported into Amazon Inspector.</p>
+   * <p>The scope of projects to be selected for scanning within the integrated repositories. Setting the value to <code>ALL</code> applies the scope settings to all existing and future projects imported into Amazon Inspector.</p>
    * @public
    */
   projectSelectionScope?: ProjectSelectionScope | undefined;
@@ -6101,17 +5627,14 @@ export interface CodeSecurityScanConfigurationSummary {
   ruleSetCategories: RuleSetCategory[] | undefined;
 
   /**
-   * <p>The scope settings that define which repositories will be scanned. If the
-   *             <code>ScopeSetting</code> parameter is <code>ALL</code> the scan configuration applies
-   *          to all existing and future projects imported into Amazon Inspector.</p>
+   * <p>The scope settings that define which repositories will be scanned. If the <code>ScopeSetting</code> parameter is <code>ALL</code> the scan configuration applies to all existing and future projects imported into Amazon Inspector.</p>
    * @public
    */
   scopeSettings?: ScopeSettings | undefined;
 }
 
 /**
- * <p>Contains information on the code vulnerability identified in your Lambda
- *          function.</p>
+ * <p>Contains information on the code vulnerability identified in your Lambda function.</p>
  * @public
  */
 export interface CodeVulnerabilityDetails {
@@ -6122,10 +5645,7 @@ export interface CodeVulnerabilityDetails {
   filePath: CodeFilePath | undefined;
 
   /**
-   * <p>The detector tag associated with the vulnerability. Detector tags group related
-   *          vulnerabilities by common themes or tactics. For a list of available tags by programming
-   *          language, see <a href="https://docs.aws.amazon.com/codeguru/detector-library/java/tags/">Java
-   *             tags</a>, or <a href="https://docs.aws.amazon.com/codeguru/detector-library/python/tags/">Python tags</a>. </p>
+   * <p>The detector tag associated with the vulnerability. Detector tags group related vulnerabilities by common themes or tactics. For a list of available tags by programming language, see <a href="https://docs.aws.amazon.com/codeguru/detector-library/java/tags/">Java tags</a>, or <a href="https://docs.aws.amazon.com/codeguru/detector-library/python/tags/">Python tags</a>. </p>
    * @public
    */
   detectorTags?: string[] | undefined;
@@ -6143,30 +5663,25 @@ export interface CodeVulnerabilityDetails {
   ruleId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda layer that the code vulnerability was
-   *          detected in.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda layer that the code vulnerability was detected in.</p>
    * @public
    */
   sourceLambdaLayerArn?: string | undefined;
 
   /**
-   * <p>The ID for the Amazon CodeGuru detector associated with the finding. For more
-   *          information on detectors see <a href="https://docs.aws.amazon.com/codeguru/detector-library">Amazon CodeGuru Detector Library</a>.</p>
+   * <p>The ID for the Amazon CodeGuru detector associated with the finding. For more information on detectors see <a href="https://docs.aws.amazon.com/codeguru/detector-library">Amazon CodeGuru Detector Library</a>.</p>
    * @public
    */
   detectorId: string | undefined;
 
   /**
-   * <p>The name of the detector used to identify the code vulnerability. For more information
-   *          on detectors see <a href="https://docs.aws.amazon.com/codeguru/detector-library">CodeGuru
-   *             Detector Library</a>.</p>
+   * <p>The name of the detector used to identify the code vulnerability. For more information on detectors see <a href="https://docs.aws.amazon.com/codeguru/detector-library">CodeGuru Detector Library</a>.</p>
    * @public
    */
   detectorName: string | undefined;
 
   /**
-   * <p>The Common Weakness Enumeration (CWE) item associated with the detected
-   *          vulnerability.</p>
+   * <p>The Common Weakness Enumeration (CWE) item associated with the detected vulnerability.</p>
    * @public
    */
   cwes: string[] | undefined;
@@ -6611,15 +6126,12 @@ export interface CoverageNumberFilter {
 }
 
 /**
- * <p>A structure that identifies filter criteria for
- *          <code>GetCoverageStatistics</code>.</p>
+ * <p>A structure that identifies filter criteria for <code>GetCoverageStatistics</code>.</p>
  * @public
  */
 export interface CoverageFilterCriteria {
   /**
-   * <p>The scan status code to filter on. Valid values are: <code>ValidationException</code>,
-   *             <code>InternalServerException</code>, <code>ResourceNotFoundException</code>,
-   *             <code>BadRequestException</code>, and <code>ThrottlingException</code>.</p>
+   * <p>The scan status code to filter on. Valid values are: <code>ValidationException</code>, <code>InternalServerException</code>, <code>ResourceNotFoundException</code>, <code>BadRequestException</code>, and <code>ThrottlingException</code>.</p>
    * @public
    */
   scanStatusCode?: CoverageStringFilter[] | undefined;
@@ -6643,10 +6155,7 @@ export interface CoverageFilterCriteria {
   resourceId?: CoverageStringFilter[] | undefined;
 
   /**
-   * <p>An array of Amazon Web Services resource types to return coverage statistics for. The values can be
-   *             <code>AWS_EC2_INSTANCE</code>, <code>AWS_LAMBDA_FUNCTION</code>,
-   *             <code>AWS_ECR_CONTAINER_IMAGE</code>, <code>AWS_ECR_REPOSITORY</code> or
-   *             <code>AWS_ACCOUNT</code>.</p>
+   * <p>An array of Amazon Web Services resource types to return coverage statistics for. The values can be <code>AWS_EC2_INSTANCE</code>, <code>AWS_LAMBDA_FUNCTION</code>, <code>AWS_ECR_CONTAINER_IMAGE</code>, <code>AWS_ECR_REPOSITORY</code> or <code>AWS_ACCOUNT</code>.</p>
    * @public
    */
   resourceType?: CoverageStringFilter[] | undefined;
@@ -6676,36 +6185,37 @@ export interface CoverageFilterCriteria {
   ec2InstanceTags?: CoverageMapFilter[] | undefined;
 
   /**
-   * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by function
-   *          names.</p>
+   * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by function names.</p>
    * @public
    */
   lambdaFunctionName?: CoverageStringFilter[] | undefined;
 
   /**
-   * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by
-   *          tag.</p>
+   * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by tag.</p>
    * @public
    */
   lambdaFunctionTags?: CoverageMapFilter[] | undefined;
 
   /**
-   * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by
-   *          runtime.</p>
+   * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by runtime.</p>
    * @public
    */
   lambdaFunctionRuntime?: CoverageStringFilter[] | undefined;
 
   /**
-   * <p>Filters Amazon Web Services resources based on whether Amazon Inspector has checked them for vulnerabilities
-   *          within the specified time range.</p>
+   * <p>The machine image tags to filter coverage results by.</p>
+   * @public
+   */
+  machineImageTags?: CoverageMapFilter[] | undefined;
+
+  /**
+   * <p>Filters Amazon Web Services resources based on whether Amazon Inspector has checked them for vulnerabilities within the specified time range.</p>
    * @public
    */
   lastScannedAt?: CoverageDateFilter[] | undefined;
 
   /**
-   * <p>The filter to search for Amazon EC2 instance coverage by scan mode. Valid values are
-   *             <code>EC2_SSM_AGENT_BASED</code>, <code>EC2_AGENTLESS</code>, and <code>EC2_INSPECTOR_AGENT_BASED</code>.</p>
+   * <p>The filter to search for Amazon EC2 instance coverage by scan mode. Valid values are <code>EC2_SSM_AGENT_BASED</code>, <code>EC2_AGENTLESS</code>, and <code>EC2_INSPECTOR_AGENT_BASED</code>.</p>
    * @public
    */
   scanMode?: CoverageStringFilter[] | undefined;
@@ -6735,15 +6245,13 @@ export interface CoverageFilterCriteria {
   codeRepositoryProjectName?: CoverageStringFilter[] | undefined;
 
   /**
-   * <p>Filter criteria for code repositories based on provider type (such as GitHub, GitLab,
-   *          etc.).</p>
+   * <p>Filter criteria for code repositories based on provider type (such as GitHub, GitLab, etc.).</p>
    * @public
    */
   codeRepositoryProviderType?: CoverageStringFilter[] | undefined;
 
   /**
-   * <p>Filter criteria for code repositories based on visibility setting (public or
-   *          private).</p>
+   * <p>Filter criteria for code repositories based on visibility setting (public or private).</p>
    * @public
    */
   codeRepositoryProviderTypeVisibility?: CoverageStringFilter[] | undefined;
@@ -6863,8 +6371,7 @@ export interface EcrContainerImageMetadata {
   imagePulledAt?: Date | undefined;
 
   /**
-   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or
-   *             Amazon EKS pod.</p>
+   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or Amazon EKS pod.</p>
    * @public
    */
   lastInUseAt?: Date | undefined;
@@ -6906,8 +6413,7 @@ export interface LambdaFunctionMetadata {
   functionTags?: Record<string, string> | undefined;
 
   /**
-   * <p>The layers for an Amazon Web Services Lambda function. A Lambda function can have up to
-   *          five layers.</p>
+   * <p>The layers for an Amazon Web Services Lambda function. A Lambda function can have up to five layers.</p>
    * @public
    */
   layers?: string[] | undefined;
@@ -6923,6 +6429,24 @@ export interface LambdaFunctionMetadata {
    * @public
    */
   runtime?: Runtime | undefined;
+}
+
+/**
+ * <p>Contains metadata about a machine image associated with a covered resource.</p>
+ * @public
+ */
+export interface MachineImageMetadata {
+  /**
+   * <p>The tags associated with the machine image.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The platform of the machine image.</p>
+   * @public
+   */
+  platform?: MachineImagePlatform | undefined;
 }
 
 /**
@@ -7003,8 +6527,7 @@ export interface ResourceScanMetadata {
   ec2?: Ec2Metadata | undefined;
 
   /**
-   * <p>An object that contains metadata details for an Amazon Web Services Lambda
-   *          function.</p>
+   * <p>An object that contains metadata details for an Amazon Web Services Lambda function.</p>
    * @public
    */
   lambdaFunction?: LambdaFunctionMetadata | undefined;
@@ -7044,6 +6567,12 @@ export interface ResourceScanMetadata {
    * @public
    */
   serverlessFunction?: ServerlessFunctionMetadata | undefined;
+
+  /**
+   * <p>The machine image metadata associated with a covered resource.</p>
+   * @public
+   */
+  machineImage?: MachineImageMetadata | undefined;
 }
 
 /**
@@ -7159,8 +6688,7 @@ export interface CreateCisScanConfigurationRequest {
   scanName: string | undefined;
 
   /**
-   * <p> The security level for the CIS scan configuration. Security level refers to the
-   *          Benchmark levels that CIS assigns to a profile. </p>
+   * <p> The security level for the CIS scan configuration. Security level refers to the Benchmark levels that CIS assigns to a profile. </p>
    * @public
    */
   securityLevel: CisSecurityLevel | undefined;
@@ -7196,8 +6724,7 @@ export interface CreateCisScanConfigurationResponse {
 }
 
 /**
- * <p>Contains details required to create an integration with a self-managed GitLab
- *          instance.</p>
+ * <p>Contains details required to create an integration with a self-managed GitLab instance.</p>
  * @public
  */
 export interface CreateGitLabSelfManagedIntegrationDetail {
@@ -7208,16 +6735,14 @@ export interface CreateGitLabSelfManagedIntegrationDetail {
   instanceUrl: string | undefined;
 
   /**
-   * <p>The personal access token used to authenticate with the self-managed GitLab
-   *          instance.</p>
+   * <p>The personal access token used to authenticate with the self-managed GitLab instance.</p>
    * @public
    */
   accessToken: string | undefined;
 }
 
 /**
- * <p>Contains details required to create a code security integration with a specific
- *          repository provider.</p>
+ * <p>Contains details required to create a code security integration with a specific repository provider.</p>
  * @public
  */
 export type CreateIntegrationDetail =
@@ -7330,12 +6855,7 @@ export interface CreateCodeSecurityScanConfigurationRequest {
   configuration: CodeSecurityScanConfiguration | undefined;
 
   /**
-   * <p>The scope settings that define which repositories will be scanned. Include this
-   *          parameter to create a default scan configuration. Otherwise Amazon Inspector creates a general scan
-   *          configuration. </p>
-   *          <p>A default scan configuration automatically applies to all existing and future projects
-   *          imported into Amazon Inspector. Use the <code>BatchAssociateCodeSecurityScanConfiguration</code>
-   *          operation to associate a general scan configuration with projects.</p>
+   * <p>The scope settings that define which repositories will be scanned. Include this parameter to create a default scan configuration. Otherwise Amazon Inspector creates a general scan configuration. </p> <p>A default scan configuration automatically applies to all existing and future projects imported into Amazon Inspector. Use the <code>BatchAssociateCodeSecurityScanConfiguration</code> operation to associate a general scan configuration with projects.</p>
    * @public
    */
   scopeSettings?: ScopeSettings | undefined;
@@ -7563,8 +7083,7 @@ export interface FilterCriteria {
   lastObservedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>Details on the date and time a finding was last updated at used to filter
-   *          findings.</p>
+   * <p>Details on the date and time a finding was last updated at used to filter findings.</p>
    * @public
    */
   updatedAt?: DateFilter[] | undefined;
@@ -7666,8 +7185,7 @@ export interface FilterCriteria {
   ecrImageLastInUseAt?: DateFilter[] | undefined;
 
   /**
-   * <p>Filter criteria indicating when details for an Amazon ECR image include when an
-   *             Amazon ECR image is in use.</p>
+   * <p>Filter criteria indicating when details for an Amazon ECR image include when an Amazon ECR image is in use.</p>
    * @public
    */
   ecrImageInUseCount?: NumberFilter[] | undefined;
@@ -7727,40 +7245,31 @@ export interface FilterCriteria {
   relatedVulnerabilities?: StringFilter[] | undefined;
 
   /**
-   * <p>Details on whether a fix is available through a version update. This value can be
-   *             <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>. A <code>PARTIAL</code> fix
-   *          means that some, but not all, of the packages identified in the finding have fixes
-   *          available through updated versions.</p>
+   * <p>Details on whether a fix is available through a version update. This value can be <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>. A <code>PARTIAL</code> fix means that some, but not all, of the packages identified in the finding have fixes available through updated versions.</p>
    * @public
    */
   fixAvailable?: StringFilter[] | undefined;
 
   /**
-   * <p>Filters the list of Amazon Web Services Lambda functions by the name of the
-   *          function.</p>
+   * <p>Filters the list of Amazon Web Services Lambda functions by the name of the function.</p>
    * @public
    */
   lambdaFunctionName?: StringFilter[] | undefined;
 
   /**
-   * <p>Filters the list of Amazon Web Services Lambda functions by the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>. A
-   *          Lambda function can have up to five layers.</p>
+   * <p>Filters the list of Amazon Web Services Lambda functions by the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>. A Lambda function can have up to five layers.</p>
    * @public
    */
   lambdaFunctionLayers?: StringFilter[] | undefined;
 
   /**
-   * <p>Filters the list of Amazon Web Services Lambda functions by the runtime environment for
-   *          the Lambda function.</p>
+   * <p>Filters the list of Amazon Web Services Lambda functions by the runtime environment for the Lambda function.</p>
    * @public
    */
   lambdaFunctionRuntime?: StringFilter[] | undefined;
 
   /**
-   * <p>Filters the list of Amazon Web Services Lambda functions by the date and time that a user
-   *          last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601
-   *          format</a>
-   *          </p>
+   * <p>Filters the list of Amazon Web Services Lambda functions by the date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a> </p>
    * @public
    */
   lambdaFunctionLastModifiedAt?: DateFilter[] | undefined;
@@ -7772,31 +7281,25 @@ export interface FilterCriteria {
   lambdaFunctionExecutionRoleArn?: StringFilter[] | undefined;
 
   /**
-   * <p>Filters the list of Amazon Web Services Lambda findings by the availability of
-   *          exploits.</p>
+   * <p>Filters the list of Amazon Web Services Lambda findings by the availability of exploits.</p>
    * @public
    */
   exploitAvailable?: StringFilter[] | undefined;
 
   /**
-   * <p>The name of the detector used to identify a code vulnerability in a Lambda function used
-   *          to filter findings.</p>
+   * <p>The name of the detector used to identify a code vulnerability in a Lambda function used to filter findings.</p>
    * @public
    */
   codeVulnerabilityDetectorName?: StringFilter[] | undefined;
 
   /**
-   * <p>The detector type tag associated with the vulnerability used to filter findings.
-   *          Detector tags group related vulnerabilities by common themes or tactics. For a list of
-   *          available tags by programming language, see <a href="https://docs.aws.amazon.com/codeguru/detector-library/java/tags/">Java tags</a>, or <a href="https://docs.aws.amazon.com/codeguru/detector-library/python/tags/">Python tags</a>.
-   *       </p>
+   * <p>The detector type tag associated with the vulnerability used to filter findings. Detector tags group related vulnerabilities by common themes or tactics. For a list of available tags by programming language, see <a href="https://docs.aws.amazon.com/codeguru/detector-library/java/tags/">Java tags</a>, or <a href="https://docs.aws.amazon.com/codeguru/detector-library/python/tags/">Python tags</a>. </p>
    * @public
    */
   codeVulnerabilityDetectorTags?: StringFilter[] | undefined;
 
   /**
-   * <p>The file path to the file in a Lambda function that contains a code vulnerability used
-   *          to filter findings.</p>
+   * <p>The file path to the file in a Lambda function that contains a code vulnerability used to filter findings.</p>
    * @public
    */
   codeVulnerabilityFilePath?: StringFilter[] | undefined;
@@ -7814,11 +7317,34 @@ export interface FilterCriteria {
   codeRepositoryProjectName?: StringFilter[] | undefined;
 
   /**
-   * <p>Filter criteria for findings based on the repository provider type (such as GitHub,
-   *          GitLab, etc.).</p>
+   * <p>Filter criteria for findings based on the repository provider type (such as GitHub, GitLab, etc.).</p>
    * @public
    */
   codeRepositoryProviderType?: StringFilter[] | undefined;
+
+  /**
+   * <p>The ID of the Amazon Machine Image (AMI) used to filter findings.</p>
+   * @public
+   */
+  machineImageId?: StringFilter[] | undefined;
+
+  /**
+   * <p>The name of the Amazon Machine Image (AMI) used to filter findings.</p>
+   * @public
+   */
+  machineImageName?: StringFilter[] | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the Amazon Machine Image (AMI) used to filter findings.</p>
+   * @public
+   */
+  machineImageOwnerAccountId?: StringFilter[] | undefined;
+
+  /**
+   * <p>The platform of the Amazon Machine Image (AMI) used to filter findings.</p>
+   * @public
+   */
+  machineImagePlatform?: StringFilter[] | undefined;
 
   /**
    * <p>Filter criteria for the cloud provider.</p>
@@ -7958,9 +7484,7 @@ export interface CreateFilterRequest {
   filterCriteria: FilterCriteria | undefined;
 
   /**
-   * <p>The name of the filter. Minimum length of 3. Maximum length of 64. Valid characters
-   *          include alphanumeric characters, dot (.), underscore (_), and dash (-). Spaces are not
-   *          allowed.</p>
+   * <p>The name of the filter. Minimum length of 3. Maximum length of 64. Valid characters include alphanumeric characters, dot (.), underscore (_), and dash (-). Spaces are not allowed.</p>
    * @public
    */
   name: string | undefined;
@@ -8011,6 +7535,12 @@ export interface Destination {
    * @public
    */
   kmsKeyArn: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the expected owner of the Amazon S3 bucket. If the actual bucket owner does not match, the export request fails.</p>
+   * @public
+   */
+  expectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -8244,8 +7774,7 @@ export interface CreateSbomExportResponse {
 }
 
 /**
- * <p>The Common Vulnerability Scoring System (CVSS) version 2 details for the
- *          vulnerability.</p>
+ * <p>The Common Vulnerability Scoring System (CVSS) version 2 details for the vulnerability.</p>
  * @public
  */
 export interface Cvss2 {
@@ -8263,8 +7792,7 @@ export interface Cvss2 {
 }
 
 /**
- * <p>The Common Vulnerability Scoring System (CVSS) version 3 details for the
- *          vulnerability.</p>
+ * <p>The Common Vulnerability Scoring System (CVSS) version 3 details for the vulnerability.</p>
  * @public
  */
 export interface Cvss3 {
@@ -8545,8 +8073,7 @@ export interface DescribeOrganizationConfigurationResponse {
   autoEnable?: AutoEnable | undefined;
 
   /**
-   * <p>Represents whether your organization has reached the maximum Amazon Web Services account limit for
-   *          Amazon Inspector.</p>
+   * <p>Represents whether your organization has reached the maximum Amazon Web Services account limit for Amazon Inspector.</p>
    * @public
    */
   maxAccountLimitReached?: boolean | undefined;
@@ -8574,15 +8101,13 @@ export interface DisableRequest {
  */
 export interface DisableResponse {
   /**
-   * <p>Information on the accounts that have had Amazon Inspector scans successfully disabled. Details are
-   *          provided for each account.</p>
+   * <p>Information on the accounts that have had Amazon Inspector scans successfully disabled. Details are provided for each account.</p>
    * @public
    */
   accounts: Account[] | undefined;
 
   /**
-   * <p>Information on any accounts for which Amazon Inspector scans could not be disabled. Details are
-   *          provided for each account.</p>
+   * <p>Information on any accounts for which Amazon Inspector scans could not be disabled. Details are provided for each account.</p>
    * @public
    */
   failedAccounts?: FailedAccount[] | undefined;
@@ -8735,11 +8260,7 @@ export interface EcrConfiguration {
 }
 
 /**
- * <p>Details about the state of your ECR re-scan duration settings. The ECR re-scan duration
- *          defines how long an ECR image will be actively scanned by Amazon Inspector. When the number of days
- *          since an image was last pushed exceeds the duration configured for image pull date, and the
- *          duration configured for image pull date, the monitoring state of that image becomes
- *             <code>inactive</code> and all associated findings are scheduled for closure.</p>
+ * <p>Details about the state of your ECR re-scan duration settings. The ECR re-scan duration defines how long an ECR image will be actively scanned by Amazon Inspector. When the number of days since an image was last pushed exceeds the duration configured for image pull date, and the duration configured for image pull date, the monitoring state of that image becomes <code>inactive</code> and all associated findings are scheduled for closure.</p>
  * @public
  */
 export interface EcrRescanDurationState {
@@ -8756,8 +8277,7 @@ export interface EcrRescanDurationState {
   status?: EcrRescanDurationStatus | undefined;
 
   /**
-   * <p>A timestamp representing when the last time the ECR scan duration setting was
-   *          changed.</p>
+   * <p>A timestamp representing when the last time the ECR scan duration setting was changed.</p>
    * @public
    */
   updatedAt?: Date | undefined;
@@ -8815,15 +8335,13 @@ export interface EnableRequest {
  */
 export interface EnableResponse {
   /**
-   * <p>Information on the accounts that have had Amazon Inspector scans successfully enabled. Details are
-   *          provided for each account.</p>
+   * <p>Information on the accounts that have had Amazon Inspector scans successfully enabled. Details are provided for each account.</p>
    * @public
    */
   accounts: Account[] | undefined;
 
   /**
-   * <p>Information on any accounts for which Amazon Inspector scans could not be enabled. Details are
-   *          provided for each account.</p>
+   * <p>Information on any accounts for which Amazon Inspector scans could not be enabled. Details are provided for each account.</p>
    * @public
    */
   failedAccounts?: FailedAccount[] | undefined;
@@ -8887,8 +8405,7 @@ export interface EpssDetails {
  */
 export interface ExploitabilityDetails {
   /**
-   * <p>The date and time of the last exploit associated with a finding discovered in your
-   *          environment.</p>
+   * <p>The date and time of the last exploit associated with a finding discovered in your environment.</p>
    * @public
    */
   lastKnownExploitAt?: Date | undefined;
@@ -8990,8 +8507,7 @@ export interface Step {
   componentType: string | undefined;
 
   /**
-   * <p>The component ARN. The ARN can be null and is not displayed in the Amazon Web Services
-   *          console.</p>
+   * <p>The component ARN. The ARN can be null and is not displayed in the Amazon Web Services console.</p>
    * @public
    */
   componentArn?: string | undefined;
@@ -9033,8 +8549,7 @@ export interface PortRange {
  */
 export interface NetworkReachabilityDetails {
   /**
-   * <p>An object that contains details about the open port range associated with a
-   *          finding.</p>
+   * <p>An object that contains details about the open port range associated with a finding.</p>
    * @public
    */
   openPortRange: PortRange | undefined;
@@ -9118,8 +8633,7 @@ export interface VulnerablePackage {
   remediation?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Number (ARN) of the Amazon Web Services Lambda function affected by a
-   *          finding.</p>
+   * <p>The Amazon Resource Number (ARN) of the Amazon Web Services Lambda function affected by a finding.</p>
    * @public
    */
   sourceLambdaLayerArn?: string | undefined;
@@ -9173,8 +8687,7 @@ export interface PackageVulnerabilityDetails {
   vendorSeverity?: string | undefined;
 
   /**
-   * <p>The date and time that this vulnerability was first added to the vendor's
-   *          database.</p>
+   * <p>The date and time that this vulnerability was first added to the vendor's database.</p>
    * @public
    */
   vendorCreatedAt?: Date | undefined;
@@ -9216,8 +8729,7 @@ export interface Recommendation {
  */
 export interface Remediation {
   /**
-   * <p>An object that contains information about the recommended course of action to remediate
-   *          the finding.</p>
+   * <p>An object that contains information about the recommended course of action to remediate the finding.</p>
    * @public
    */
   recommendation?: Recommendation | undefined;
@@ -9287,6 +8799,78 @@ export interface Image {
    * @public
    */
   platform?: string | undefined;
+}
+
+/**
+ * Details about a machine image resource scanned directly by Inspector.
+ * @public
+ */
+export interface MachineImageDetails {
+  /**
+   * The machine image ID (e.g., ami-0abcdef1234567890)
+   * @public
+   */
+  machineImageId: string | undefined;
+
+  /**
+   * Human-readable image name
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * Account ID that owns the image
+   * @public
+   */
+  ownerAccountId?: string | undefined;
+
+  /**
+   * OS platform (Linux/Windows)
+   * @public
+   */
+  platform?: string | undefined;
+
+  /**
+   * CPU architecture (x86_64/arm64)
+   * @public
+   */
+  architecture?: Architecture | undefined;
+
+  /**
+   * When the image was created
+   * @public
+   */
+  creationDate?: Date | undefined;
+
+  /**
+   * Image state (available/pending/deregistered)
+   * @public
+   */
+  state?: string | undefined;
+
+  /**
+   * Whether the image is publicly shared
+   * @public
+   */
+  isPublic?: boolean | undefined;
+
+  /**
+   * Root device type (ebs/instance-store) — AWS-specific
+   * @public
+   */
+  rootDeviceType?: string | undefined;
+
+  /**
+   * Virtualization type (hvm/paravirtual) — AWS-specific
+   * @public
+   */
+  virtualizationType?: string | undefined;
+
+  /**
+   * Source resource the image was created from (nullable)
+   * @public
+   */
+  sourceResourceId?: string | undefined;
 }
 
 /**
@@ -9457,15 +9041,13 @@ export interface ResourceDetails {
   awsEc2Instance?: AwsEc2InstanceDetails | undefined;
 
   /**
-   * <p>An object that contains details about the Amazon ECR container image involved in the
-   *          finding.</p>
+   * <p>An object that contains details about the Amazon ECR container image involved in the finding.</p>
    * @public
    */
   awsEcrContainerImage?: AwsEcrContainerImageDetails | undefined;
 
   /**
-   * <p>A summary of the information about an Amazon Web Services Lambda function affected by a
-   *          finding.</p>
+   * <p>A summary of the information about an Amazon Web Services Lambda function affected by a finding.</p>
    * @public
    */
   awsLambdaFunction?: AwsLambdaFunctionDetails | undefined;
@@ -9475,6 +9057,12 @@ export interface ResourceDetails {
    * @public
    */
   codeRepository?: CodeRepositoryDetails | undefined;
+
+  /**
+   * Details about a machine image resource scanned directly by Inspector.
+   * @public
+   */
+  machineImage?: MachineImageDetails | undefined;
 
   /**
    * <p>An object that contains details about a VM instance involved in the finding.</p>
@@ -9573,9 +9161,7 @@ export interface Finding {
   awsAccountId: string | undefined;
 
   /**
-   * <p>The type of the finding. The <code>type</code> value determines the valid values for
-   *             <code>resource</code> in your request. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-types.html">Finding
-   *             types</a> in the Amazon Inspector user guide.</p>
+   * <p>The type of the finding. The <code>type</code> value determines the valid values for <code>resource</code> in your request. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-types.html">Finding types</a> in the Amazon Inspector user guide.</p>
    * @public
    */
   type: FindingType | undefined;
@@ -9599,9 +9185,7 @@ export interface Finding {
   remediation: Remediation | undefined;
 
   /**
-   * <p>The severity of the finding. <code>UNTRIAGED</code> applies to
-   *             <code>PACKAGE_VULNERABILITY</code> type findings that the vendor has not assigned a
-   *          severity yet. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html">Severity levels for findings</a> in the Amazon Inspector user guide.</p>
+   * <p>The severity of the finding. <code>UNTRIAGED</code> applies to <code>PACKAGE_VULNERABILITY</code> type findings that the vendor has not assigned a severity yet. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html">Severity levels for findings</a> in the Amazon Inspector user guide.</p>
    * @public
    */
   severity: Severity | undefined;
@@ -9613,8 +9197,7 @@ export interface Finding {
   firstObservedAt: Date | undefined;
 
   /**
-   * <p> The date and time the finding was last observed. This timestamp for this field remains
-   *          unchanged until a finding is updated. </p>
+   * <p> The date and time the finding was last observed. This timestamp for this field remains unchanged until a finding is updated. </p>
    * @public
    */
   lastObservedAt: Date | undefined;
@@ -9632,10 +9215,7 @@ export interface Finding {
   status: FindingStatus | undefined;
 
   /**
-   * <p>Contains information on the resources involved in a finding. The <code>resource</code>
-   *          value determines the valid values for <code>type</code> in your request. For more
-   *          information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-types.html">Finding
-   *             types</a> in the Amazon Inspector user guide.</p>
+   * <p>Contains information on the resources involved in a finding. The <code>resource</code> value determines the valid values for <code>type</code> in your request. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-types.html">Finding types</a> in the Amazon Inspector user guide.</p>
    * @public
    */
   resources: Resource[] | undefined;
@@ -9665,10 +9245,7 @@ export interface Finding {
   packageVulnerabilityDetails?: PackageVulnerabilityDetails | undefined;
 
   /**
-   * <p>Details on whether a fix is available through a version update. This value can be
-   *             <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>. A <code>PARTIAL</code> fix
-   *          means that some, but not all, of the packages identified in the finding have fixes
-   *          available through updated versions.</p>
+   * <p>Details on whether a fix is available through a version update. This value can be <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>. A <code>PARTIAL</code> fix means that some, but not all, of the packages identified in the finding have fixes available through updated versions.</p>
    * @public
    */
   fixAvailable?: FixAvailable | undefined;
@@ -9686,8 +9263,7 @@ export interface Finding {
   exploitabilityDetails?: ExploitabilityDetails | undefined;
 
   /**
-   * <p>Details about the code vulnerability identified in a Lambda function used to filter
-   *          findings.</p>
+   * <p>Details about the code vulnerability identified in a Lambda function used to filter findings.</p>
    * @public
    */
   codeVulnerabilityDetails?: CodeVulnerabilityDetails | undefined;
@@ -9716,8 +9292,7 @@ export interface GetCisScanReportRequest {
   targetAccounts?: string[] | undefined;
 
   /**
-   * <p> The format of the report. Valid values are <code>PDF</code> and <code>CSV</code>. If no
-   *          value is specified, the report format defaults to <code>PDF</code>. </p>
+   * <p> The format of the report. Valid values are <code>PDF</code> and <code>CSV</code>. If no value is specified, the report format defaults to <code>PDF</code>. </p>
    * @public
    */
   reportFormat?: CisReportFormat | undefined;
@@ -9781,15 +9356,13 @@ export interface GetCisScanResultDetailsRequest {
   sortOrder?: CisSortOrder | undefined;
 
   /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of
-   *          results.</p>
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of CIS scan result details to be returned in a single page of
-   *          results.</p>
+   * <p>The maximum number of CIS scan result details to be returned in a single page of results.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -9806,8 +9379,7 @@ export interface GetCisScanResultDetailsResponse {
   scanResultDetails?: CisScanResultDetails[] | undefined;
 
   /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of
-   *          results.</p>
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -9830,8 +9402,7 @@ export interface GetClustersForImageRequest {
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from a previous request used to retrieve the next page of
-   *          results.</p>
+   * <p>The pagination token from a previous request used to retrieve the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -9848,8 +9419,7 @@ export interface GetClustersForImageResponse {
   cluster: ClusterInformation[] | undefined;
 
   /**
-   * <p>The pagination token from a previous request used to retrieve the next page of
-   *          results.</p>
+   * <p>The pagination token from a previous request used to retrieve the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -9919,9 +9489,7 @@ export interface GetCodeSecurityIntegrationResponse {
   lastUpdateOn: Date | undefined;
 
   /**
-   * <p>The URL used to authorize the integration with the repository provider. This is only
-   *          returned if reauthorization is required to fix a connection issue. Otherwise, it is
-   *          null.</p>
+   * <p>The URL used to authorize the integration with the repository provider. This is only returned if reauthorization is required to fix a connection issue. Otherwise, it is null.</p>
    * @public
    */
   authorizationUrl?: string | undefined;
@@ -9997,8 +9565,7 @@ export interface GetCodeSecurityScanResponse {
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the last commit that was scanned. This is only returned if the scan
-   *          was successful or skipped.</p>
+   * <p>The identifier of the last commit that was scanned. This is only returned if the scan was successful or skipped.</p>
    * @public
    */
   lastCommitId?: string | undefined;
@@ -10044,9 +9611,7 @@ export interface GetCodeSecurityScanConfigurationResponse {
   level?: ConfigurationLevel | undefined;
 
   /**
-   * <p>The scope settings that define which repositories will be scanned. If the
-   *             <code>ScopeSetting</code> parameter is <code>ALL</code> the scan configuration applies
-   *          to all existing and future projects imported into Amazon Inspector.</p>
+   * <p>The scope settings that define which repositories will be scanned. If the <code>ScopeSetting</code> parameter is <code>ALL</code> the scan configuration applies to all existing and future projects imported into Amazon Inspector.</p>
    * @public
    */
   scopeSettings?: ScopeSettings | undefined;
@@ -10075,10 +9640,7 @@ export interface GetCodeSecurityScanConfigurationResponse {
  */
 export interface GetConfigurationRequest {
   /**
-   * <p>The 12-digit Amazon Web Services account ID of the member account whose scan configuration you want
-   *          to retrieve. When specified, you must be the delegated administrator for this
-   *          member account. If not specified, the operation returns your own
-   *          configuration.</p>
+   * <p>The 12-digit Amazon Web Services account ID of the member account whose scan configuration you want to retrieve. When specified, you must be the delegated administrator for this member account. If not specified, the operation returns your own configuration.</p>
    * @public
    */
   accountId?: string | undefined;
@@ -10089,18 +9651,22 @@ export interface GetConfigurationRequest {
  */
 export interface GetConfigurationResponse {
   /**
-   * <p>Specifies how the ECR automated re-scan duration is currently configured for your
-   *          environment.</p>
+   * <p>Specifies how the ECR automated re-scan duration is currently configured for your environment.</p>
    * @public
    */
   ecrConfiguration?: EcrConfigurationState | undefined;
 
   /**
-   * <p>Specifies how the Amazon EC2 automated scan mode is currently configured for your
-   *          environment.</p>
+   * <p>Specifies how the Amazon EC2 automated scan mode is currently configured for your environment.</p>
    * @public
    */
   ec2Configuration?: Ec2ConfigurationState | undefined;
+
+  /**
+   * <p>The current state of the Amazon Machine Image (AMI) scan configuration for the account.</p>
+   * @public
+   */
+  amiConfiguration?: AmiConfigurationState | undefined;
 }
 
 /**
@@ -10147,8 +9713,7 @@ export interface GetEc2DeepInspectionConfigurationResponse {
   status?: Ec2DeepInspectionStatus | undefined;
 
   /**
-   * <p>An error message explaining why Amazon Inspector deep inspection configurations could not be
-   *          retrieved for your account.</p>
+   * <p>An error message explaining why Amazon Inspector deep inspection configurations could not be retrieved for your account.</p>
    * @public
    */
   errorMessage?: string | undefined;
@@ -10263,8 +9828,7 @@ export interface Member {
   relationshipStatus?: RelationshipStatus | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator for this member
-   *          account.</p>
+   * <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator for this member account.</p>
    * @public
    */
   delegatedAdminAccountId?: string | undefined;
@@ -10285,6 +9849,76 @@ export interface GetMemberResponse {
    * @public
    */
   member?: Member | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOnDemandScanStatusRequest {
+  /**
+   * <p>The ID of the resource whose on-demand scan status is being requested.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the on-demand scan whose status is being requested.</p>
+   * @public
+   */
+  scanId: string | undefined;
+
+  /**
+   * <p>The type of the resource whose on-demand scan status is being requested.</p>
+   * @public
+   */
+  resourceType: OnDemandResourceType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOnDemandScanStatusResponse {
+  /**
+   * <p>The unique identifier of the on-demand scan.</p>
+   * @public
+   */
+  scanId: string | undefined;
+
+  /**
+   * <p>The ID of the resource that was scanned.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource that was scanned.</p>
+   * @public
+   */
+  resourceType: OnDemandResourceType | undefined;
+
+  /**
+   * <p>The current status of the on-demand scan.</p>
+   * @public
+   */
+  scanStatus: OnDemandScanStatus | undefined;
+
+  /**
+   * <p>The reason associated with the current on-demand scan status.</p>
+   * @public
+   */
+  scanStatusReason?: OnDemandScanStatusReason | undefined;
+
+  /**
+   * <p>The date and time, in ISO 8601 format, when the on-demand scan started.</p>
+   * @public
+   */
+  startedAt: Date | undefined;
+
+  /**
+   * <p>The date and time, in ISO 8601 format, when the on-demand scan completed. This field is absent if the scan has not completed.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
 }
 
 /**
@@ -10339,8 +9973,7 @@ export interface GetSbomExportResponse {
   s3Destination?: Destination | undefined;
 
   /**
-   * <p>Contains details about the resource filter criteria used for the software bill of
-   *          materials (SBOM) report.</p>
+   * <p>Contains details about the resource filter criteria used for the software bill of materials (SBOM) report.</p>
    * @public
    */
   filterCriteria?: ResourceFilterCriteria | undefined;
@@ -10357,19 +9990,13 @@ export interface ListAccountPermissionsRequest {
   service?: Service | undefined;
 
   /**
-   * <p>The maximum number of results the response can return. If your request would return more
-   *          than the maximum the response will return a <code>nextToken</code> value, use this value
-   *          when you call the action again to get the remaining results.</p>
+   * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. If your response returns
-   *          more than the <code>maxResults</code> maximum value it will also return a
-   *             <code>nextToken</code> value. For subsequent calls, use the NextToken value returned
-   *          from the previous request to continue listing results after the first page.</p>
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -10381,8 +10008,7 @@ export interface ListAccountPermissionsRequest {
  */
 export interface Permission {
   /**
-   * <p>The services that the permissions allow an account to perform the given operations
-   *          for.</p>
+   * <p>The services that the permissions allow an account to perform the given operations for.</p>
    * @public
    */
   service: Service | undefined;
@@ -10405,10 +10031,7 @@ export interface ListAccountPermissionsResponse {
   permissions: Permission[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the <code>NextToken</code> value returned from the previous request to continue listing results after the first page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -10461,15 +10084,13 @@ export interface ListCisScanConfigurationsRequest {
   sortOrder?: CisSortOrder | undefined;
 
   /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of
-   *          results.</p>
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of CIS scan configurations to be returned in a single page of
-   *          results.</p>
+   * <p>The maximum number of CIS scan configurations to be returned in a single page of results.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -10486,8 +10107,7 @@ export interface ListCisScanConfigurationsResponse {
   scanConfigurations?: CisScanConfiguration[] | undefined;
 
   /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of
-   *          results.</p>
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -10522,15 +10142,13 @@ export interface ListCisScanResultsAggregatedByChecksRequest {
   sortOrder?: CisSortOrder | undefined;
 
   /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of
-   *          results.</p>
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of scan results aggregated by checks to be returned in a single page
-   *          of results.</p>
+   * <p>The maximum number of scan results aggregated by checks to be returned in a single page of results.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -10547,265 +10165,8 @@ export interface ListCisScanResultsAggregatedByChecksResponse {
   checkAggregations?: CisCheckAggregation[] | undefined;
 
   /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of
-   *          results.</p>
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCisScanResultsAggregatedByTargetResourceRequest {
-  /**
-   * <p>The scan ARN.</p>
-   * @public
-   */
-  scanArn: string | undefined;
-
-  /**
-   * <p>The filter criteria.</p>
-   * @public
-   */
-  filterCriteria?: CisScanResultsAggregatedByTargetResourceFilterCriteria | undefined;
-
-  /**
-   * <p>The sort by order.</p>
-   * @public
-   */
-  sortBy?: CisScanResultsAggregatedByTargetResourceSortBy | undefined;
-
-  /**
-   * <p>The sort order.</p>
-   * @public
-   */
-  sortOrder?: CisSortOrder | undefined;
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of
-   *          results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of scan results aggregated by a target resource to be returned in a
-   *          single page of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCisScanResultsAggregatedByTargetResourceResponse {
-  /**
-   * <p>The resource aggregations.</p>
-   * @public
-   */
-  targetResourceAggregations?: CisTargetResourceAggregation[] | undefined;
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of
-   *          results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>A list of CIS scans filter criteria.</p>
- * @public
- */
-export interface ListCisScansFilterCriteria {
-  /**
-   * <p>The list of scan name filters.</p>
-   * @public
-   */
-  scanNameFilters?: CisStringFilter[] | undefined;
-
-  /**
-   * <p>The list of target resource tag filters.</p>
-   * @public
-   */
-  targetResourceTagFilters?: TagFilter[] | undefined;
-
-  /**
-   * <p>The list of target resource ID filters.</p>
-   * @public
-   */
-  targetResourceIdFilters?: CisStringFilter[] | undefined;
-
-  /**
-   * <p>The list of scan status filters.</p>
-   * @public
-   */
-  scanStatusFilters?: CisScanStatusFilter[] | undefined;
-
-  /**
-   * <p>The list of scan at filters.</p>
-   * @public
-   */
-  scanAtFilters?: CisDateFilter[] | undefined;
-
-  /**
-   * <p>The list of scan configuration ARN filters.</p>
-   * @public
-   */
-  scanConfigurationArnFilters?: CisStringFilter[] | undefined;
-
-  /**
-   * <p>The list of scan ARN filters.</p>
-   * @public
-   */
-  scanArnFilters?: CisStringFilter[] | undefined;
-
-  /**
-   * <p>The list of scheduled by filters.</p>
-   * @public
-   */
-  scheduledByFilters?: CisStringFilter[] | undefined;
-
-  /**
-   * <p>The list of failed checks filters.</p>
-   * @public
-   */
-  failedChecksFilters?: CisNumberFilter[] | undefined;
-
-  /**
-   * <p>The list of target account ID filters.</p>
-   * @public
-   */
-  targetAccountIdFilters?: CisStringFilter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCisScansRequest {
-  /**
-   * <p>The CIS scan filter criteria.</p>
-   * @public
-   */
-  filterCriteria?: ListCisScansFilterCriteria | undefined;
-
-  /**
-   * <p>The detail applied to the CIS scan.</p>
-   * @public
-   */
-  detailLevel?: ListCisScansDetailLevel | undefined;
-
-  /**
-   * <p>The CIS scans sort by order.</p>
-   * @public
-   */
-  sortBy?: ListCisScansSortBy | undefined;
-
-  /**
-   * <p>The CIS scans sort order.</p>
-   * @public
-   */
-  sortOrder?: CisSortOrder | undefined;
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of
-   *          results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCisScansResponse {
-  /**
-   * <p>The CIS scans.</p>
-   * @public
-   */
-  scans?: CisScan[] | undefined;
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of
-   *          results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCodeSecurityIntegrationsRequest {
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request. For subsequent calls, use the NextToken
-   *          value returned from the previous request to continue listing results after the first
-   *          page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCodeSecurityIntegrationsResponse {
-  /**
-   * <p>A list of code security integration summaries.</p>
-   * @public
-   */
-  integrations?: CodeSecurityIntegrationSummary[] | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request. For subsequent calls, use the NextToken
-   *          value returned from the previous request to continue listing results after the first
-   *          page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCodeSecurityScanConfigurationAssociationsRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the scan configuration to list associations
-   *          for.</p>
-   * @public
-   */
-  scanConfigurationArn: string | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the response. If your request would return
-   *          more than the maximum the response will return a <code>nextToken</code> value, use this
-   *          value when you call the action again to get the remaining results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
 }

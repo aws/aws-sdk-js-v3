@@ -202,6 +202,11 @@ import {
 } from "./commands/GetFindingsReportStatusCommand";
 import { type GetMemberCommandInput, type GetMemberCommandOutput, GetMemberCommand } from "./commands/GetMemberCommand";
 import {
+  type GetOnDemandScanStatusCommandInput,
+  type GetOnDemandScanStatusCommandOutput,
+  GetOnDemandScanStatusCommand,
+} from "./commands/GetOnDemandScanStatusCommand";
+import {
   type GetSbomExportCommandInput,
   type GetSbomExportCommandOutput,
   GetSbomExportCommand,
@@ -292,6 +297,11 @@ import {
   ListMembersCommand,
 } from "./commands/ListMembersCommand";
 import {
+  type ListOnDemandScansCommandInput,
+  type ListOnDemandScansCommandOutput,
+  ListOnDemandScansCommand,
+} from "./commands/ListOnDemandScansCommand";
+import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
@@ -331,6 +341,11 @@ import {
   type StartCodeSecurityScanCommandOutput,
   StartCodeSecurityScanCommand,
 } from "./commands/StartCodeSecurityScanCommand";
+import {
+  type StartOnDemandScanCommandInput,
+  type StartOnDemandScanCommandOutput,
+  StartOnDemandScanCommand,
+} from "./commands/StartOnDemandScanCommand";
 import {
   type StopCisSessionCommandInput,
   type StopCisSessionCommandOutput,
@@ -423,6 +438,7 @@ import { paginateListFilters } from "./pagination/ListFiltersPaginator";
 import { paginateListFindingAggregations } from "./pagination/ListFindingAggregationsPaginator";
 import { paginateListFindings } from "./pagination/ListFindingsPaginator";
 import { paginateListMembers } from "./pagination/ListMembersPaginator";
+import { paginateListOnDemandScans } from "./pagination/ListOnDemandScansPaginator";
 import { paginateListUsageTotals } from "./pagination/ListUsageTotalsPaginator";
 import { paginateSearchVulnerabilities } from "./pagination/SearchVulnerabilitiesPaginator";
 import { waitUntilConnectorConnected } from "./waiters/waitForConnectorConnected";
@@ -471,6 +487,7 @@ const commands = {
   GetEncryptionKeyCommand,
   GetFindingsReportStatusCommand,
   GetMemberCommand,
+  GetOnDemandScanStatusCommand,
   GetSbomExportCommand,
   ListAccountPermissionsCommand,
   ListCisScanConfigurationsCommand,
@@ -489,6 +506,7 @@ const commands = {
   ListFindingAggregationsCommand,
   ListFindingsCommand,
   ListMembersCommand,
+  ListOnDemandScansCommand,
   ListTagsForResourceCommand,
   ListUsageTotalsCommand,
   ResetEncryptionKeyCommand,
@@ -497,6 +515,7 @@ const commands = {
   SendCisSessionTelemetryCommand,
   StartCisSessionCommand,
   StartCodeSecurityScanCommand,
+  StartOnDemandScanCommand,
   StopCisSessionCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -529,6 +548,7 @@ const paginators = {
   paginateListFindingAggregations,
   paginateListFindings,
   paginateListMembers,
+  paginateListOnDemandScans,
   paginateListUsageTotals,
   paginateSearchVulnerabilities,
 };
@@ -1252,6 +1272,23 @@ export interface Inspector2 {
   ): void;
 
   /**
+   * @see {@link GetOnDemandScanStatusCommand}
+   */
+  getOnDemandScanStatus(
+    args: GetOnDemandScanStatusCommandInput,
+    options?: Inspector2RequestOptions
+  ): Promise<GetOnDemandScanStatusCommandOutput>;
+  getOnDemandScanStatus(
+    args: GetOnDemandScanStatusCommandInput,
+    cb: (err: any, data?: GetOnDemandScanStatusCommandOutput) => void
+  ): void;
+  getOnDemandScanStatus(
+    args: GetOnDemandScanStatusCommandInput,
+    options: Inspector2RequestOptions,
+    cb: (err: any, data?: GetOnDemandScanStatusCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetSbomExportCommand}
    */
   getSbomExport(
@@ -1571,6 +1608,23 @@ export interface Inspector2 {
   ): void;
 
   /**
+   * @see {@link ListOnDemandScansCommand}
+   */
+  listOnDemandScans(
+    args: ListOnDemandScansCommandInput,
+    options?: Inspector2RequestOptions
+  ): Promise<ListOnDemandScansCommandOutput>;
+  listOnDemandScans(
+    args: ListOnDemandScansCommandInput,
+    cb: (err: any, data?: ListOnDemandScansCommandOutput) => void
+  ): void;
+  listOnDemandScans(
+    args: ListOnDemandScansCommandInput,
+    options: Inspector2RequestOptions,
+    cb: (err: any, data?: ListOnDemandScansCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -1705,6 +1759,23 @@ export interface Inspector2 {
     args: StartCodeSecurityScanCommandInput,
     options: Inspector2RequestOptions,
     cb: (err: any, data?: StartCodeSecurityScanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartOnDemandScanCommand}
+   */
+  startOnDemandScan(
+    args: StartOnDemandScanCommandInput,
+    options?: Inspector2RequestOptions
+  ): Promise<StartOnDemandScanCommandOutput>;
+  startOnDemandScan(
+    args: StartOnDemandScanCommandInput,
+    cb: (err: any, data?: StartOnDemandScanCommandOutput) => void
+  ): void;
+  startOnDemandScan(
+    args: StartOnDemandScanCommandInput,
+    options: Inspector2RequestOptions,
+    cb: (err: any, data?: StartOnDemandScanCommandOutput) => void
   ): void;
 
   /**
@@ -2124,6 +2195,17 @@ export interface Inspector2 {
   ): Paginator<ListMembersCommandOutput>;
 
   /**
+   * @see {@link ListOnDemandScansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOnDemandScansCommandOutput}.
+   */
+  paginateListOnDemandScans(
+    args: ListOnDemandScansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOnDemandScansCommandOutput>;
+
+  /**
    * @see {@link ListUsageTotalsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2177,8 +2259,7 @@ export interface Inspector2 {
 }
 
 /**
- * <p>Amazon Inspector is a vulnerability discovery service that automates continuous scanning for
- *          security vulnerabilities within your Amazon EC2, Amazon ECR, and Amazon Web Services Lambda environments.</p>
+ * <p>Amazon Inspector is a vulnerability discovery service that automates continuous scanning for security vulnerabilities within your Amazon EC2, Amazon ECR, and Amazon Web Services Lambda environments.</p>
  * @public
  */
 export class Inspector2 extends Inspector2Client implements Inspector2 {}

@@ -23,10 +23,7 @@ export interface ListAccountPermissionsCommandInput extends ListAccountPermissio
 export interface ListAccountPermissionsCommandOutput extends ListAccountPermissionsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Lists the permissions an account has to configure Amazon Inspector.
- *          If the account is a member account or standalone account with resources managed by an Organizations policy, the operation returns fewer permissions.
- *       </p>
+ * <p> Lists the permissions an account has to configure Amazon Inspector. If the account is a member account or standalone account with resources managed by an Organizations policy, the operation returns fewer permissions. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,9 +58,7 @@ export interface ListAccountPermissionsCommandOutput extends ListAccountPermissi
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
- *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
- *          unsupported Amazon Web Services Region. </p>
+ *  <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
@@ -72,8 +67,7 @@ export interface ListAccountPermissionsCommandOutput extends ListAccountPermissi
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation due to missing required fields or having invalid
- *          inputs.</p>
+ *  <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
  *
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>

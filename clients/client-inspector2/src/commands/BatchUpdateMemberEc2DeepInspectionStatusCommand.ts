@@ -26,9 +26,7 @@ export interface BatchUpdateMemberEc2DeepInspectionStatusCommandInput extends Ba
 export interface BatchUpdateMemberEc2DeepInspectionStatusCommandOutput extends BatchUpdateMemberEc2DeepInspectionStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Activates or deactivates Amazon Inspector deep inspection for the provided member accounts in your
- *          organization. You must be the delegated administrator of an organization in Amazon Inspector to use
- *          this API.</p>
+ * <p>Activates or deactivates Amazon Inspector deep inspection for the provided member accounts in your organization. You must be the delegated administrator of an organization in Amazon Inspector to use this API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,9 +71,7 @@ export interface BatchUpdateMemberEc2DeepInspectionStatusCommandOutput extends B
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
- *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
- *          unsupported Amazon Web Services Region. </p>
+ *  <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
@@ -84,8 +80,7 @@ export interface BatchUpdateMemberEc2DeepInspectionStatusCommandOutput extends B
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation due to missing required fields or having invalid
- *          inputs.</p>
+ *  <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
  *
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>

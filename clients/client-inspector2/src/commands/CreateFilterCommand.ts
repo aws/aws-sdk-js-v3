@@ -23,8 +23,7 @@ export interface CreateFilterCommandInput extends CreateFilterRequest {}
 export interface CreateFilterCommandOutput extends CreateFilterResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a filter resource using specified filter criteria. When the filter action is set
- *          to <code>SUPPRESS</code> this action creates a suppression rule.</p>
+ * <p>Creates a filter resource using specified filter criteria. When the filter action is set to <code>SUPPRESS</code> this action creates a suppression rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -173,6 +172,10 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  *     ],
  *     codeRepositoryProjectName: "<StringFilterList>",
  *     codeRepositoryProviderType: "<StringFilterList>",
+ *     machineImageId: "<StringFilterList>",
+ *     machineImageName: "<StringFilterList>",
+ *     machineImageOwnerAccountId: "<StringFilterList>",
+ *     machineImagePlatform: "<StringFilterList>",
  *     cloudProvider: "<StringFilterList>",
  *     cloudProviderRegion: "<StringFilterList>",
  *     cloudProviderAccountId: "<StringFilterList>",
@@ -219,9 +222,7 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
- *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
- *          unsupported Amazon Web Services Region. </p>
+ *  <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>One or more tags submitted as part of the request is not valid.</p>
@@ -230,15 +231,13 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded your service quota. To perform the requested action, remove some of
- *          the relevant resources, or use Service Quotas to request a service quota increase.</p>
+ *  <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation due to missing required fields or having invalid
- *          inputs.</p>
+ *  <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
  *
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>

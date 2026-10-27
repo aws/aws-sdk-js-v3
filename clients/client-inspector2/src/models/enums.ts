@@ -135,6 +135,19 @@ export type StringComparison = (typeof StringComparison)[keyof typeof StringComp
  * @public
  * @enum
  */
+export const ScanSource = {
+  INSTANCE_SCAN: "INSTANCE_SCAN",
+  MACHINE_IMAGE_SCAN: "MACHINE_IMAGE_SCAN",
+} as const;
+/**
+ * @public
+ */
+export type ScanSource = (typeof ScanSource)[keyof typeof ScanSource];
+
+/**
+ * @public
+ * @enum
+ */
 export const AmiSortBy = {
   AFFECTED_INSTANCES: "AFFECTED_INSTANCES",
   ALL: "ALL",
@@ -386,6 +399,50 @@ export type AggregationType = (typeof AggregationType)[keyof typeof AggregationT
  * @public
  * @enum
  */
+export const AmiScanDuration = {
+  DAYS_14: "DAYS_14",
+  DAYS_180: "DAYS_180",
+  DAYS_30: "DAYS_30",
+  DAYS_60: "DAYS_60",
+  DAYS_7: "DAYS_7",
+  DAYS_90: "DAYS_90",
+} as const;
+/**
+ * @public
+ */
+export type AmiScanDuration = (typeof AmiScanDuration)[keyof typeof AmiScanDuration];
+
+/**
+ * @public
+ * @enum
+ */
+export const AmiScanMode = {
+  SCAN_ALL: "SCAN_ALL",
+  TARGET_SCANNING: "TARGET_SCANNING",
+} as const;
+/**
+ * @public
+ */
+export type AmiScanMode = (typeof AmiScanMode)[keyof typeof AmiScanMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AmiConfigurationStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+} as const;
+/**
+ * @public
+ */
+export type AmiConfigurationStatus = (typeof AmiConfigurationStatus)[keyof typeof AmiConfigurationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const Architecture = {
   ARM64: "ARM64",
   X86_64: "X86_64",
@@ -592,6 +649,7 @@ export const FreeTrialType = {
   ECR: "ECR",
   LAMBDA: "LAMBDA",
   LAMBDA_CODE: "LAMBDA_CODE",
+  MACHINE_IMAGE: "MACHINE_IMAGE",
   SERVERLESS_FUNCTION: "SERVERLESS_FUNCTION",
   VM: "VM",
 } as const;
@@ -950,10 +1008,12 @@ export const ScanStatusReason = {
   DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED: "DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED",
   EC2_INSTANCE_STOPPED: "EC2_INSTANCE_STOPPED",
   EXCLUDED_BY_TAG: "EXCLUDED_BY_TAG",
+  EXTRACTION_COLLECTION_TIME_LIMIT_EXCEEDED: "EXTRACTION_COLLECTION_TIME_LIMIT_EXCEEDED",
   IMAGE_ARCHIVED: "IMAGE_ARCHIVED",
   IMAGE_SIZE_EXCEEDED: "IMAGE_SIZE_EXCEEDED",
   INTEGRATION_CONNECTION_LOST: "INTEGRATION_CONNECTION_LOST",
   INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_ARTIFACT: "INVALID_ARTIFACT",
   NO_INVENTORY: "NO_INVENTORY",
   NO_RESOURCES_FOUND: "NO_RESOURCES_FOUND",
   NO_SCAN_CONFIGURATION_ASSOCIATED: "NO_SCAN_CONFIGURATION_ASSOCIATED",
@@ -968,6 +1028,7 @@ export const ScanStatusReason = {
   SCAN_FREQUENCY_SCAN_ON_PUSH: "SCAN_FREQUENCY_SCAN_ON_PUSH",
   SCAN_IN_PROGRESS: "SCAN_IN_PROGRESS",
   STALE_INVENTORY: "STALE_INVENTORY",
+  STORAGE_LIMIT_EXCEEDED: "STORAGE_LIMIT_EXCEEDED",
   SUCCESSFUL: "SUCCESSFUL",
   UNMANAGED_EC2_INSTANCE: "UNMANAGED_EC2_INSTANCE",
   UNSUPPORTED_CODE_ARTIFACTS: "UNSUPPORTED_CODE_ARTIFACTS",
@@ -1297,6 +1358,7 @@ export const CoverageResourceType = {
   AWS_ECR_REPOSITORY: "AWS_ECR_REPOSITORY",
   AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
   CODE_REPOSITORY: "CODE_REPOSITORY",
+  MACHINE_IMAGE: "MACHINE_IMAGE",
   MICROSOFT_COMPUTE_VIRTUAL_MACHINES: "Microsoft.Compute/virtualMachines",
   MICROSOFT_CONTAINER_REGISTRY_REGISTRIES: "Microsoft.ContainerRegistry/registries",
   MICROSOFT_CONTAINER_REGISTRY_REGISTRY_CONTAINER_IMAGE: "Microsoft.ContainerRegistry/registry/containerImage",
@@ -1336,6 +1398,20 @@ export const EcrScanFrequency = {
  * @public
  */
 export type EcrScanFrequency = (typeof EcrScanFrequency)[keyof typeof EcrScanFrequency];
+
+/**
+ * @public
+ * @enum
+ */
+export const MachineImagePlatform = {
+  LINUX: "LINUX",
+  UNKNOWN: "UNKNOWN",
+  WINDOWS: "WINDOWS",
+} as const;
+/**
+ * @public
+ */
+export type MachineImagePlatform = (typeof MachineImagePlatform)[keyof typeof MachineImagePlatform];
 
 /**
  * @public
@@ -1706,6 +1782,7 @@ export const ResourceType = {
   AWS_ECR_REPOSITORY: "AWS_ECR_REPOSITORY",
   AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
   CODE_REPOSITORY: "CODE_REPOSITORY",
+  MACHINE_IMAGE: "MACHINE_IMAGE",
   MICROSOFT_COMPUTE_VIRTUAL_MACHINES: "Microsoft.Compute/virtualMachines",
   MICROSOFT_CONTAINER_REGISTRY_REGISTRY_CONTAINER_IMAGE: "Microsoft.ContainerRegistry/registry/containerImage",
   MICROSOFT_WEB_SITES: "Microsoft.Web/sites",
@@ -1776,6 +1853,49 @@ export const ReportingErrorCode = {
  * @public
  */
 export type ReportingErrorCode = (typeof ReportingErrorCode)[keyof typeof ReportingErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const OnDemandResourceType = {
+  AMI: "AMI",
+} as const;
+/**
+ * @public
+ */
+export type OnDemandResourceType = (typeof OnDemandResourceType)[keyof typeof OnDemandResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OnDemandScanStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESSFUL: "SUCCESSFUL",
+} as const;
+/**
+ * @public
+ */
+export type OnDemandScanStatus = (typeof OnDemandScanStatus)[keyof typeof OnDemandScanStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const OnDemandScanStatusReason = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  EXTRACTION_COLLECTION_TIME_LIMIT_EXCEEDED: "EXTRACTION_COLLECTION_TIME_LIMIT_EXCEEDED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  RESOURCE_TERMINATED: "RESOURCE_TERMINATED",
+  STORAGE_LIMIT_EXCEEDED: "STORAGE_LIMIT_EXCEEDED",
+  UNSUPPORTED_OS: "UNSUPPORTED_OS",
+} as const;
+/**
+ * @public
+ */
+export type OnDemandScanStatusReason = (typeof OnDemandScanStatusReason)[keyof typeof OnDemandScanStatusReason];
 
 /**
  * @public
@@ -1887,6 +2007,7 @@ export const UsageType = {
   CODE_REPOSITORY_SAST: "CODE_REPOSITORY_SAST",
   CODE_REPOSITORY_SCA: "CODE_REPOSITORY_SCA",
   EC2_AGENTLESS_INSTANCE_HOURS: "EC2_AGENTLESS_INSTANCE_HOURS",
+  EC2_AMI_HOURS: "EC2_AMI_HOURS",
   EC2_INSTANCE_HOURS: "EC2_INSTANCE_HOURS",
   ECR_INITIAL_SCAN: "ECR_INITIAL_SCAN",
   ECR_RESCAN: "ECR_RESCAN",

@@ -13,7 +13,14 @@ import {
   AggregationType,
   AmiAggregation$,
   AmiAggregationResponse$,
+  AmiConfiguration$,
+  AmiConfigurationState$,
+  AmiConfigurationStatus,
+  AmiScanDuration,
+  AmiScanMode,
+  AmiScanModeConfiguration$,
   AmiSortBy,
+  AmiTagFilter$,
   Architecture,
   AssociateConfigurationRequest$,
   AssociateMember$,
@@ -371,6 +378,10 @@ import {
   GetMemberCommand,
   GetMemberRequest$,
   GetMemberResponse$,
+  GetOnDemandScanStatus$,
+  GetOnDemandScanStatusCommand,
+  GetOnDemandScanStatusRequest$,
+  GetOnDemandScanStatusResponse$,
   GetSbomExport$,
   GetSbomExportCommand,
   GetSbomExportRequest$,
@@ -469,6 +480,10 @@ import {
   ListMembersCommand,
   ListMembersRequest$,
   ListMembersResponse$,
+  ListOnDemandScans$,
+  ListOnDemandScansCommand,
+  ListOnDemandScansRequest$,
+  ListOnDemandScansResponse$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -477,6 +492,9 @@ import {
   ListUsageTotalsCommand,
   ListUsageTotalsRequest$,
   ListUsageTotalsResponse$,
+  MachineImageDetails$,
+  MachineImageMetadata$,
+  MachineImagePlatform,
   MapComparison,
   MapFilter$,
   Member$,
@@ -487,6 +505,10 @@ import {
   NetworkProtocol,
   NetworkReachabilityDetails$,
   NumberFilter$,
+  OnDemandResourceType,
+  OnDemandScan$,
+  OnDemandScanStatus,
+  OnDemandScanStatusReason,
   OneTimeSchedule$,
   Operation,
   PackageAggregation$,
@@ -512,6 +534,7 @@ import {
   paginateListFindingAggregations,
   paginateListFindings,
   paginateListMembers,
+  paginateListOnDemandScans,
   paginateListUsageTotals,
   paginateSearchVulnerabilities,
   PeriodicScanConfiguration$,
@@ -558,6 +581,7 @@ import {
   Runtime,
   SbomReportFormat,
   ScanMode,
+  ScanSource,
   ScanStatus$,
   ScanStatusCode,
   ScanStatusReason,
@@ -603,6 +627,10 @@ import {
   StartCodeSecurityScanCommand,
   StartCodeSecurityScanRequest$,
   StartCodeSecurityScanResponse$,
+  StartOnDemandScan$,
+  StartOnDemandScanCommand,
+  StartOnDemandScanRequest$,
+  StartOnDemandScanResponse$,
   State$,
   Status,
   StatusCounts$,
@@ -796,6 +824,8 @@ assert(typeof GetFindingsReportStatusCommand === "function");
 assert(typeof GetFindingsReportStatus$ === "object");
 assert(typeof GetMemberCommand === "function");
 assert(typeof GetMember$ === "object");
+assert(typeof GetOnDemandScanStatusCommand === "function");
+assert(typeof GetOnDemandScanStatus$ === "object");
 assert(typeof GetSbomExportCommand === "function");
 assert(typeof GetSbomExport$ === "object");
 assert(typeof ListAccountPermissionsCommand === "function");
@@ -832,6 +862,8 @@ assert(typeof ListFindingsCommand === "function");
 assert(typeof ListFindings$ === "object");
 assert(typeof ListMembersCommand === "function");
 assert(typeof ListMembers$ === "object");
+assert(typeof ListOnDemandScansCommand === "function");
+assert(typeof ListOnDemandScans$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof ListUsageTotalsCommand === "function");
@@ -848,6 +880,8 @@ assert(typeof StartCisSessionCommand === "function");
 assert(typeof StartCisSession$ === "object");
 assert(typeof StartCodeSecurityScanCommand === "function");
 assert(typeof StartCodeSecurityScan$ === "object");
+assert(typeof StartOnDemandScanCommand === "function");
+assert(typeof StartOnDemandScan$ === "object");
 assert(typeof StopCisSessionCommand === "function");
 assert(typeof StopCisSession$ === "object");
 assert(typeof TagResourceCommand === "function");
@@ -885,6 +919,10 @@ assert(typeof AggregationRequest$ === "object");
 assert(typeof AggregationResponse$ === "object");
 assert(typeof AmiAggregation$ === "object");
 assert(typeof AmiAggregationResponse$ === "object");
+assert(typeof AmiConfiguration$ === "object");
+assert(typeof AmiConfigurationState$ === "object");
+assert(typeof AmiScanModeConfiguration$ === "object");
+assert(typeof AmiTagFilter$ === "object");
 assert(typeof AssociateConfigurationRequest$ === "object");
 assert(typeof AssociateMemberRequest$ === "object");
 assert(typeof AssociateMemberResponse$ === "object");
@@ -1088,6 +1126,8 @@ assert(typeof GetFindingsReportStatusRequest$ === "object");
 assert(typeof GetFindingsReportStatusResponse$ === "object");
 assert(typeof GetMemberRequest$ === "object");
 assert(typeof GetMemberResponse$ === "object");
+assert(typeof GetOnDemandScanStatusRequest$ === "object");
+assert(typeof GetOnDemandScanStatusResponse$ === "object");
 assert(typeof GetSbomExportRequest$ === "object");
 assert(typeof GetSbomExportResponse$ === "object");
 assert(typeof Image$ === "object");
@@ -1136,10 +1176,14 @@ assert(typeof ListFindingsRequest$ === "object");
 assert(typeof ListFindingsResponse$ === "object");
 assert(typeof ListMembersRequest$ === "object");
 assert(typeof ListMembersResponse$ === "object");
+assert(typeof ListOnDemandScansRequest$ === "object");
+assert(typeof ListOnDemandScansResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListUsageTotalsRequest$ === "object");
 assert(typeof ListUsageTotalsResponse$ === "object");
+assert(typeof MachineImageDetails$ === "object");
+assert(typeof MachineImageMetadata$ === "object");
 assert(typeof MapFilter$ === "object");
 assert(typeof Member$ === "object");
 assert(typeof MemberAccountEc2DeepInspectionStatus$ === "object");
@@ -1148,6 +1192,7 @@ assert(typeof MonthlySchedule$ === "object");
 assert(typeof NetworkPath$ === "object");
 assert(typeof NetworkReachabilityDetails$ === "object");
 assert(typeof NumberFilter$ === "object");
+assert(typeof OnDemandScan$ === "object");
 assert(typeof OneTimeSchedule$ === "object");
 assert(typeof PackageAggregation$ === "object");
 assert(typeof PackageAggregationResponse$ === "object");
@@ -1200,6 +1245,8 @@ assert(typeof StartCisSessionRequest$ === "object");
 assert(typeof StartCisSessionResponse$ === "object");
 assert(typeof StartCodeSecurityScanRequest$ === "object");
 assert(typeof StartCodeSecurityScanResponse$ === "object");
+assert(typeof StartOnDemandScanRequest$ === "object");
+assert(typeof StartOnDemandScanResponse$ === "object");
 assert(typeof State$ === "object");
 assert(typeof StatusCounts$ === "object");
 assert(typeof Step$ === "object");
@@ -1261,6 +1308,9 @@ assert(typeof AccountSortBy === "object");
 assert(typeof AggregationFindingType === "object");
 assert(typeof AggregationResourceType === "object");
 assert(typeof AggregationType === "object");
+assert(typeof AmiConfigurationStatus === "object");
+assert(typeof AmiScanDuration === "object");
+assert(typeof AmiScanMode === "object");
 assert(typeof AmiSortBy === "object");
 assert(typeof Architecture === "object");
 assert(typeof AssociationResultStatusCode === "object");
@@ -1339,8 +1389,12 @@ assert(typeof LambdaFunctionSortBy === "object");
 assert(typeof LambdaLayerSortBy === "object");
 assert(typeof ListCisScansDetailLevel === "object");
 assert(typeof ListCisScansSortBy === "object");
+assert(typeof MachineImagePlatform === "object");
 assert(typeof MapComparison === "object");
 assert(typeof NetworkProtocol === "object");
+assert(typeof OnDemandResourceType === "object");
+assert(typeof OnDemandScanStatus === "object");
+assert(typeof OnDemandScanStatusReason === "object");
 assert(typeof Operation === "object");
 assert(typeof PackageManager === "object");
 assert(typeof PackageSortBy === "object");
@@ -1361,6 +1415,7 @@ assert(typeof RuleSetCategory === "object");
 assert(typeof Runtime === "object");
 assert(typeof SbomReportFormat === "object");
 assert(typeof ScanMode === "object");
+assert(typeof ScanSource === "object");
 assert(typeof ScanStatusCode === "object");
 assert(typeof ScanStatusReason === "object");
 assert(typeof ScanType === "object");
@@ -1424,6 +1479,7 @@ assert(typeof paginateListFilters === "function");
 assert(typeof paginateListFindingAggregations === "function");
 assert(typeof paginateListFindings === "function");
 assert(typeof paginateListMembers === "function");
+assert(typeof paginateListOnDemandScans === "function");
 assert(typeof paginateListUsageTotals === "function");
 assert(typeof paginateSearchVulnerabilities === "function");
 console.log(`Inspector2 index test passed.`);

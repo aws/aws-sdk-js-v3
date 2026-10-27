@@ -85,6 +85,13 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *       },
  *     ],
  *     lambdaFunctionRuntime: "<CoverageStringFilterList>",
+ *     machineImageTags: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
  *     lastScannedAt: [ // CoverageDateFilterList
  *       { // CoverageDateFilter
  *         startInclusive: new Date("TIMESTAMP"),
@@ -246,6 +253,12 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * //             "<keys>": "STRING_VALUE",
  * //           },
  * //         },
+ * //         machineImage: { // MachineImageMetadata
+ * //           tags: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           platform: "STRING_VALUE",
+ * //         },
  * //       },
  * //       lastScannedAt: new Date("TIMESTAMP"),
  * //       scanMode: "STRING_VALUE",
@@ -273,8 +286,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation due to missing required fields or having invalid
- *          inputs.</p>
+ *  <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
  *
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
