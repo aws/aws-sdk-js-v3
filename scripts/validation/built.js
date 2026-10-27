@@ -16,6 +16,8 @@ const SKIP = new Set([
   "@aws-sdk/aws-client-api-test",
   "@aws-sdk/aws-client-retry-test",
   "@aws-sdk/aws-middleware-test",
+  // Declares registry dependencies only; its build scripts are no-ops.
+  "@aws-sdk/aws-lambda-provided-sdk-deps",
 ]);
 
 function main() {
