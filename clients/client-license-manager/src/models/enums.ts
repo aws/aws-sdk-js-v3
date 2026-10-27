@@ -44,6 +44,7 @@ export const AllowedOperation = {
   CREATE_TOKEN: "CreateToken",
   EXTEND_CONSUMPTION_LICENSE: "ExtendConsumptionLicense",
   LIST_PURCHASED_LICENSES: "ListPurchasedLicenses",
+  LIST_RECEIVED_LICENSES: "ListReceivedLicenses",
 } as const;
 /**
  * @public
@@ -112,6 +113,19 @@ export const CheckoutType = {
  * @public
  */
 export type CheckoutType = (typeof CheckoutType)[keyof typeof CheckoutType];
+
+/**
+ * @public
+ * @enum
+ */
+export const GrantType = {
+  BUYER_GRANT: "BuyerGrant",
+  DELEGATE_GRANT: "DelegateGrant",
+} as const;
+/**
+ * @public
+ */
+export type GrantType = (typeof GrantType)[keyof typeof GrantType];
 
 /**
  * @public

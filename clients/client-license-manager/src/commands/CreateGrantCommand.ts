@@ -26,6 +26,27 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * <p>Creates a grant for the specified license. A grant shares the use of license
  *          entitlements with a specific Amazon Web Services account, an organization, or an
  *          organizational unit (OU). For more information, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>
+ *          <p>Set the type of grant with the <code>GrantType</code> field:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>BuyerGrant</code> - The default grant type, created by the seller when a
+ *                customer subscribes to a product. The seller creates a license for the subscription
+ *                and a buyer grant for the customer. With a buyer grant, the customer can use,
+ *                consume, and distribute the license, according to the permissions the seller sets in
+ *                the product contract.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DelegateGrant</code> - A delegate grant gives the grantee read-only
+ *                visibility into the licenses and grants that you have distributed to buyers for a
+ *                product. The grantee can monitor that activity on your behalf, and can also listen
+ *                for the related Amazon EventBridge events. A delegate grant conveys no entitlement to
+ *                use the licenses, and its only allowed operation is <code>ListReceivedLicenses</code>.
+ *                You must create the delegate grant, and its license, from the same
+ *                Amazon Web Services account that you used to create those buyer licenses and grants.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,7 +64,7 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *   ],
  *   HomeRegion: "STRING_VALUE", // required
  *   AllowedOperations: [ // AllowedOperationList // required
- *     "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken",
+ *     "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken" || "ListReceivedLicenses",
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
@@ -51,6 +72,11 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   GrantType: "BuyerGrant" || "DelegateGrant",
+ *   Options: { // Options
+ *     ActivationOverrideBehavior: "DISTRIBUTED_GRANTS_ONLY" || "ALL_GRANTS_PERMITTED_BY_ISSUER",
+ *     DesiredStatus: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
+ *   },
  * };
  * const command = new CreateGrantCommand(input);
  * const response = await client.send(command);

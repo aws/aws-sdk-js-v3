@@ -100,8 +100,9 @@ export interface ListReceivedLicensesCommandOutput extends ListReceivedLicensesR
  * //         ReceivedStatus: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "DISABLED" || "WORKFLOW_COMPLETED",
  * //         ReceivedStatusReason: "STRING_VALUE",
  * //         AllowedOperations: [ // AllowedOperationList
- * //           "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken",
+ * //           "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken" || "ListReceivedLicenses",
  * //         ],
+ * //         GrantType: "BuyerGrant" || "DelegateGrant",
  * //       },
  * //     },
  * //   ],

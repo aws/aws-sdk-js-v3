@@ -7,6 +7,7 @@ import type {
   EntitlementDataUnit,
   EntitlementUnit,
   GrantStatus,
+  GrantType,
   InventoryFilterCondition,
   LicenseAssetGroupStatus,
   LicenseConfigurationStatus,
@@ -527,6 +528,64 @@ export interface CheckoutLicenseResponse {
 }
 
 /**
+ * <p>The options you can specify when you create a grant or a new version of a grant, such as
+ *          activation override behavior. For more information, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>
+ * @public
+ */
+export interface Options {
+  /**
+   * <p>An activation option for your grant that determines the behavior of activating a grant.
+   *          Activation options can only be used with granted licenses sourced from the Amazon Web Services Marketplace. Additionally, the operation must activate the grant. For the
+   *             <code>CreateGrantVersion</code> operation, specify <code>ACTIVE</code> for the
+   *             <code>Status</code> parameter. For the <code>CreateGrant</code> operation, specify
+   *             <code>ACTIVE</code> for the <code>DesiredStatus</code> option.</p>
+   *          <ul>
+   *             <li>
+   *                <p>As a license administrator, you can optionally specify an
+   *                   <code>ActivationOverrideBehavior</code> when activating a grant.</p>
+   *             </li>
+   *             <li>
+   *                <p>As a grantor, you can optionally specify an
+   *                   <code>ActivationOverrideBehavior</code> when you activate a grant for a grantee
+   *                account in your organization.</p>
+   *             </li>
+   *             <li>
+   *                <p>As a grantee, if the grantor creating the distributed grant doesn’t specify an
+   *                   <code>ActivationOverrideBehavior</code>, you can optionally specify one when you
+   *                are activating the grant.</p>
+   *             </li>
+   *          </ul>
+   *          <dl>
+   *             <dt>DISTRIBUTED_GRANTS_ONLY</dt>
+   *             <dd>
+   *                <p>Use this value to activate a grant without replacing any member account’s
+   *                   active grants for the same product.</p>
+   *             </dd>
+   *             <dt>ALL_GRANTS_PERMITTED_BY_ISSUER</dt>
+   *             <dd>
+   *                <p>Use this value to activate a grant and disable other active grants in any
+   *                   member accounts for the same product. This action will also replace their
+   *                   previously activated grants with this activated grant.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  ActivationOverrideBehavior?: ActivationOverrideBehavior | undefined;
+
+  /**
+   * <p>The status of the grant after License Manager creates it. The only supported value is
+   *             <code>ACTIVE</code>. Specify <code>ACTIVE</code> to create and activate the grant in one
+   *          request.</p>
+   *          <p>You can specify this option only for the <code>CreateGrant</code> operation, and only
+   *          when the grant principal is an organization or an organizational unit (OU). To change the
+   *          status of an existing grant, use the <code>Status</code> parameter of the
+   *             <code>CreateGrantVersion</code> operation.</p>
+   * @public
+   */
+  DesiredStatus?: GrantStatus | undefined;
+}
+
+/**
  * <p>Details about the tags for a resource. For more information about tagging support in
  *          License Manager, see the <a href="https://docs.aws.amazon.com/license-manager/latest/APIReference/API_TagResource.html">TagResource</a> operation.</p>
  * @public
@@ -607,6 +666,33 @@ export interface CreateGrantRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The type of grant to create. For more information about each type, see the preceding
+   *          description of this operation. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BuyerGrant</code> - The default grant type if you don't specify a value.
+   *                Conveys the entitlement to use the license.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DelegateGrant</code> - Gives the grantee read-only visibility into the
+   *                licenses and grants that you have distributed to buyers, with no entitlement to use
+   *                them.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  GrantType?: GrantType | undefined;
+
+  /**
+   * <p>The options for the grant: the status to set after creation, and how activating the
+   *          grant affects other active grants for the same product.</p>
+   * @public
+   */
+  Options?: Options | undefined;
 }
 
 /**
@@ -630,50 +716,6 @@ export interface CreateGrantResponse {
    * @public
    */
   Version?: string | undefined;
-}
-
-/**
- * <p>The options you can specify when you create a new version of a grant, such as activation
- *          override behavior. For more information, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>
- * @public
- */
-export interface Options {
-  /**
-   * <p>An activation option for your grant that determines the behavior of activating a grant.
-   *          Activation options can only be used with granted licenses sourced from the Amazon Web Services Marketplace. Additionally, the operation must specify the value of <code>ACTIVE</code> for the
-   *             <code>Status</code> parameter.</p>
-   *          <ul>
-   *             <li>
-   *                <p>As a license administrator, you can optionally specify an
-   *                   <code>ActivationOverrideBehavior</code> when activating a grant.</p>
-   *             </li>
-   *             <li>
-   *                <p>As a grantor, you can optionally specify an
-   *                   <code>ActivationOverrideBehavior</code> when you activate a grant for a grantee
-   *                account in your organization.</p>
-   *             </li>
-   *             <li>
-   *                <p>As a grantee, if the grantor creating the distributed grant doesn’t specify an
-   *                   <code>ActivationOverrideBehavior</code>, you can optionally specify one when you
-   *                are activating the grant.</p>
-   *             </li>
-   *          </ul>
-   *          <dl>
-   *             <dt>DISTRIBUTED_GRANTS_ONLY</dt>
-   *             <dd>
-   *                <p>Use this value to activate a grant without replacing any member account’s
-   *                   active grants for the same product.</p>
-   *             </dd>
-   *             <dt>ALL_GRANTS_PERMITTED_BY_ISSUER</dt>
-   *             <dd>
-   *                <p>Use this value to activate a grant and disable other active grants in any
-   *                   member accounts for the same product. This action will also replace their
-   *                   previously activated grants with this activated grant.</p>
-   *             </dd>
-   *          </dl>
-   * @public
-   */
-  ActivationOverrideBehavior?: ActivationOverrideBehavior | undefined;
 }
 
 /**
@@ -2156,6 +2198,23 @@ export interface Grant {
    * @public
    */
   Options?: Options | undefined;
+
+  /**
+   * <p>The type of the grant. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BuyerGrant</code> - Grants the entitlement to use the license.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DelegateGrant</code> - Gives the grantee read-only visibility into the
+   *                licenses and grants distributed to buyers, with no entitlement to use them.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  GrantType?: GrantType | undefined;
 }
 
 /**
@@ -4151,6 +4210,23 @@ export interface ReceivedMetadata {
    * @public
    */
   AllowedOperations?: AllowedOperation[] | undefined;
+
+  /**
+   * <p>The type of the grant through which the license was received. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BuyerGrant</code> - Grants you the entitlement to use the license.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DelegateGrant</code> - Gives you read-only visibility into the licenses and
+   *                grants distributed to buyers, with no entitlement to use them.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  GrantType?: GrantType | undefined;
 }
 
 /**

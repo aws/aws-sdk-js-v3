@@ -50,11 +50,13 @@ export interface GetGrantCommandOutput extends GetGrantResponse, __MetadataBeare
  * //     StatusReason: "STRING_VALUE",
  * //     Version: "STRING_VALUE", // required
  * //     GrantedOperations: [ // AllowedOperationList // required
- * //       "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken",
+ * //       "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken" || "ListReceivedLicenses",
  * //     ],
  * //     Options: { // Options
  * //       ActivationOverrideBehavior: "DISTRIBUTED_GRANTS_ONLY" || "ALL_GRANTS_PERMITTED_BY_ISSUER",
+ * //       DesiredStatus: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
  * //     },
+ * //     GrantType: "BuyerGrant" || "DelegateGrant",
  * //   },
  * // };
  *

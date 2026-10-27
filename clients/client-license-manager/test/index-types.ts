@@ -195,6 +195,7 @@ export type {
   EntitlementDataUnit,
   EntitlementUnit,
   GrantStatus,
+  GrantType,
   InventoryFilterCondition,
   LicenseAssetGroupStatus,
   LicenseConfigurationStatus,

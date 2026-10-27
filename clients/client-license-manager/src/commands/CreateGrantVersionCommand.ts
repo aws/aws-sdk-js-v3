@@ -38,13 +38,14 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  *   GrantArn: "STRING_VALUE", // required
  *   GrantName: "STRING_VALUE",
  *   AllowedOperations: [ // AllowedOperationList
- *     "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken",
+ *     "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken" || "ListReceivedLicenses",
  *   ],
  *   Status: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
  *   StatusReason: "STRING_VALUE",
  *   SourceVersion: "STRING_VALUE",
  *   Options: { // Options
  *     ActivationOverrideBehavior: "DISTRIBUTED_GRANTS_ONLY" || "ALL_GRANTS_PERMITTED_BY_ISSUER",
+ *     DesiredStatus: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
  *   },
  * };
  * const command = new CreateGrantVersionCommand(input);

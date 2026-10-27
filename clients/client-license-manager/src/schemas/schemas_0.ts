@@ -104,6 +104,7 @@ const _DLR = "DeleteLicenseRequest";
 const _DLRe = "DeleteLicenseResponse";
 const _DR = "DatetimeRange";
 const _DRr = "DryRun";
+const _DS = "DesiredStatus";
 const _DSM = "DigitalSignatureMethod";
 const _DT = "DeleteToken";
 const _DTR = "DeleteTokenRequest";
@@ -179,6 +180,7 @@ const _GS = "GrantStatus";
 const _GSS = "GetServiceSettings";
 const _GSSR = "GetServiceSettingsRequest";
 const _GSSRe = "GetServiceSettingsResponse";
+const _GT = "GrantType";
 const _Gr = "Grants";
 const _HI = "HostId";
 const _HR = "HomeRegion";
@@ -699,8 +701,8 @@ export var ConsumptionConfiguration$: StaticStructureSchema = [3, n0, _CC,
 ];
 export var CreateGrantRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
-  [_CT, _GN, _LA, _P, _HR, _AO, _T],
-  [0, 0, 0, 64 | 0, 0, 64 | 0, () => TagList], 6
+  [_CT, _GN, _LA, _P, _HR, _AO, _T, _GT, _O],
+  [0, 0, 0, 64 | 0, 0, 64 | 0, () => TagList, 0, () => Options$], 6
 ];
 export var CreateGrantResponse$: StaticStructureSchema = [3, n0, _CGRr,
   0,
@@ -1014,8 +1016,8 @@ export var GetServiceSettingsResponse$: StaticStructureSchema = [3, n0, _GSSRe,
 ];
 export var Grant$: StaticStructureSchema = [3, n0, _G,
   0,
-  [_GA, _GN, _PA, _LA, _GPA, _HR, _GS, _V, _GO, _SR, _O],
-  [0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, () => Options$], 9
+  [_GA, _GN, _PA, _LA, _GPA, _HR, _GS, _V, _GO, _SR, _O, _GT],
+  [0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, () => Options$, 0], 9
 ];
 export var GrantedLicense$: StaticStructureSchema = [3, n0, _GL,
   0,
@@ -1349,8 +1351,8 @@ export var Metadata$: StaticStructureSchema = [3, n0, _Me,
 ];
 export var Options$: StaticStructureSchema = [3, n0, _O,
   0,
-  [_AOB],
-  [0]
+  [_AOB, _DS],
+  [0, 0]
 ];
 export var OrganizationConfiguration$: StaticStructureSchema = [3, n0, _OC,
   0,
@@ -1384,8 +1386,8 @@ export var ProvisionalConfiguration$: StaticStructureSchema = [3, n0, _PC,
 ];
 export var ReceivedMetadata$: StaticStructureSchema = [3, n0, _RM,
   0,
-  [_RSec, _RSR, _AO],
-  [0, 0, 64 | 0]
+  [_RSec, _RSR, _AO, _GT],
+  [0, 0, 64 | 0, 0]
 ];
 export var RegionStatus$: StaticStructureSchema = [3, n0, _RSeg,
   0,

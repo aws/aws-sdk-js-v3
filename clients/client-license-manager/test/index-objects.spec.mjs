@@ -161,6 +161,7 @@ import {
   Grant$,
   GrantedLicense$,
   GrantStatus,
+  GrantType,
   InstanceRuleStatement$,
   InvalidParameterValueException,
   InvalidParameterValueException$,
@@ -682,6 +683,7 @@ assert(typeof DigitalSignatureMethod === "object");
 assert(typeof EntitlementDataUnit === "object");
 assert(typeof EntitlementUnit === "object");
 assert(typeof GrantStatus === "object");
+assert(typeof GrantType === "object");
 assert(typeof InventoryFilterCondition === "object");
 assert(typeof LicenseAssetGroupStatus === "object");
 assert(typeof LicenseConfigurationStatus === "object");
