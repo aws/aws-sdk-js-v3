@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1157.0...v3.1158.0) (2026-10-27)
+
+
+### Features
+
+* **client-inspector2:** Adding support for Machine Image scan ([44b1f0c](https://github.com/aws/aws-sdk-js-v3/commit/44b1f0cb27fe14e8212aa574cd68478df5041c5b))
+
+
+
+
+
 # [3.1157.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1156.0...v3.1157.0) (2026-10-26)
 
 **Note:** Version bump only for package @aws-sdk/client-inspector2

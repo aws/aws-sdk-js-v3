@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1157.0...v3.1158.0) (2026-10-27)
+
+
+### Features
+
+* **client-license-manager:** AWS License Manager now supports delegate grants for read-only visibility into license distributions. CreateGrant accepts a new GrantType (BuyerGrant or DelegateGrant) and a desired status at distribution time. ([c2b033f](https://github.com/aws/aws-sdk-js-v3/commit/c2b033fed4cd90255c29523b6a6c90872935e6a8))
+
+
+
+
+
 # [3.1157.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1156.0...v3.1157.0) (2026-10-26)
 
 **Note:** Version bump only for package @aws-sdk/client-license-manager

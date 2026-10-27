@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1157.0...v3.1158.0) (2026-10-27)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds the ResetTokenVaultKeyMaterial API, which restores a token vault whose customer managed key was deleted by moving it to an AWS owned key. The reset permanently deletes the stored OAuth 2.0 tokens, users must consent again. Adds on-behalf-of token exchange client authentication override option. ([caa886f](https://github.com/aws/aws-sdk-js-v3/commit/caa886f62a42a5925aac360f75a24cd6da274392))
+
+
+
+
+
 # [3.1157.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1156.0...v3.1157.0) (2026-10-26)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

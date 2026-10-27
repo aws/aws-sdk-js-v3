@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1157.0...v3.1158.0) (2026-10-27)
+
+
+### Bug Fixes
+
+* **client-s3:** isolate special character e2e test keys ([#8382](https://github.com/aws/aws-sdk-js-v3/issues/8382)) ([d9c091f](https://github.com/aws/aws-sdk-js-v3/commit/d9c091fab7ba28ef58ef987f0b4b426cabe54fa2))
+
+
+
+
+
 # [3.1157.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1156.0...v3.1157.0) (2026-10-26)
 
 **Note:** Version bump only for package @aws-sdk/client-s3

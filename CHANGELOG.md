@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1157.0...v3.1158.0) (2026-10-27)
+
+
+### Bug Fixes
+
+* **client-s3:** isolate special character e2e test keys ([#8382](https://github.com/aws/aws-sdk-js-v3/issues/8382)) ([d9c091f](https://github.com/aws/aws-sdk-js-v3/commit/d9c091fab7ba28ef58ef987f0b4b426cabe54fa2))
+* **lib-sqs:** sync version with current monorepo release ([#8384](https://github.com/aws/aws-sdk-js-v3/issues/8384)) ([82c877f](https://github.com/aws/aws-sdk-js-v3/commit/82c877fa55f4a2a382f466164a291f0146377121))
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds the ResetTokenVaultKeyMaterial API, which restores a token vault whose customer managed key was deleted by moving it to an AWS owned key. The reset permanently deletes the stored OAuth 2.0 tokens, users must consent again. Adds on-behalf-of token exchange client authentication override option. ([caa886f](https://github.com/aws/aws-sdk-js-v3/commit/caa886f62a42a5925aac360f75a24cd6da274392))
+* **client-ec2:** EC2 AMIs can now show vulnerability data and be targeted directly for scanning. ([4f53b1c](https://github.com/aws/aws-sdk-js-v3/commit/4f53b1cfed2ce7a6f0f5e4720eba209812ae639b))
+* **client-ecs:** ECS now supports GPU sharing via NVIDIA Multi-Process Service (MPS) on ECS Managed Instances and ECS EC2, allowing multiple ECS tasks to share a single Nvidia GPU for improved utilization. ([82c0bea](https://github.com/aws/aws-sdk-js-v3/commit/82c0bea6c160bf3d73f3402bbcb1c9f9d7de9449))
+* **client-inspector2:** Adding support for Machine Image scan ([44b1f0c](https://github.com/aws/aws-sdk-js-v3/commit/44b1f0cb27fe14e8212aa574cd68478df5041c5b))
+* **client-license-manager:** AWS License Manager now supports delegate grants for read-only visibility into license distributions. CreateGrant accepts a new GrantType (BuyerGrant or DelegateGrant) and a desired status at distribution time. ([c2b033f](https://github.com/aws/aws-sdk-js-v3/commit/c2b033fed4cd90255c29523b6a6c90872935e6a8))
+* **client-lightsail:** Added the attributeUpdates parameter to the Lightsail StartInstance API, which allows customers to update the attributes of a stopped instance when starting it. ([f01e4a5](https://github.com/aws/aws-sdk-js-v3/commit/f01e4a5828884acb65e9d155f3703818b1e0b9bc))
+* **lib-sqs:** add SQSPoller for auto queue polling ([#8339](https://github.com/aws/aws-sdk-js-v3/issues/8339)) ([cb0d4f0](https://github.com/aws/aws-sdk-js-v3/commit/cb0d4f01354faafe835730c27e856a39f0728d9e))
+
+
+
+
+
 # [3.1157.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1156.0...v3.1157.0) (2026-10-26)
 
 
