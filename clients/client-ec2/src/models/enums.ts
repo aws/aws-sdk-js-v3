@@ -6763,6 +6763,22 @@ export type DeviceType = (typeof DeviceType)[keyof typeof DeviceType];
  * @public
  * @enum
  */
+export const SeverityLabel = {
+  critical: "critical",
+  high: "high",
+  informational: "informational",
+  low: "low",
+  medium: "medium",
+} as const;
+/**
+ * @public
+ */
+export type SeverityLabel = (typeof SeverityLabel)[keyof typeof SeverityLabel];
+
+/**
+ * @public
+ * @enum
+ */
 export const ImageState = {
   available: "available",
   deregistered: "deregistered",

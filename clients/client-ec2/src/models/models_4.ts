@@ -95,6 +95,7 @@ import type {
   Scope,
   SecondaryInterfaceStatus,
   SecondaryInterfaceType,
+  SeverityLabel,
   SpotAllocationStrategy,
   SpotInstanceInterruptionBehavior,
   SqlServerLicenseUsage,
@@ -3070,6 +3071,73 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>scan-result.critical-fix-available-since</code> - The earliest date and time, in
+   *           the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), at which Amazon
+   *           Inspector reported a fix as available for a <code>critical</code> severity finding on the
+   *           AMI.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scan-result.finding-scan-date</code> - The date and time, in the ISO 8601
+   *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), of the most recent Amazon
+   *           Inspector scan of the AMI.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scan-result.high-fix-available-since</code> - The earliest date and time, in the
+   *           ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), at which Amazon Inspector
+   *           reported a fix as available for a <code>high</code> severity finding on the AMI.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scan-result.highest-finding-severity-label</code> - The highest severity among
+   *           the AMI's Amazon Inspector findings, whether or not a fix is available. The valid values
+   *           are the following Amazon Inspector severity levels:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>informational</code> - CVSS score of 0.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>low</code> - CVSS score of 0.1 to 3.9.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>medium</code> - CVSS score of 4.0 to 6.9.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>high</code> - CVSS score of 7.0 to 8.9.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>critical</code> - CVSS score of 9.0 to 10.0.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scan-result.informational-fix-available-since</code> - The earliest date and
+   *           time, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), at which
+   *           Amazon Inspector reported a fix as available for an <code>informational</code> severity
+   *           finding on the AMI.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scan-result.low-fix-available-since</code> - The earliest date and time, in the
+   *           ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), at which Amazon Inspector
+   *           reported a fix as available for a <code>low</code> severity finding on the AMI.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scan-result.medium-fix-available-since</code> - The earliest date and time, in
+   *           the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), at which Amazon
+   *           Inspector reported a fix as available for a <code>medium</code> severity finding on the
+   *           AMI.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>source-image-id</code> - The ID of the source AMI from which the AMI was
    *           created.</p>
    *             </li>
@@ -3192,6 +3260,111 @@ export interface InstanceTypeSpecification {
    * @public
    */
   UnsupportedInstanceTypes?: InstanceTypeItem[] | undefined;
+}
+
+/**
+ * <p>The Amazon Inspector scan results for an AMI. This information is present only for AMIs
+ *       that Amazon Inspector has scanned.</p>
+ *          <p>When you share an AMI with other accounts, organizations, or organizational units
+ *       (OUs), or make it public, its scan results are available to the accounts that can use the
+ *       AMI.</p>
+ *          <p>The fix-available dates are specific to the AMI. Each date reflects when a fix became
+ *       available for a finding on that AMI, not when the vendor released the fix. As a result, a date
+ *       can be later than the vendor's release date, and AMIs with the same vulnerability can have
+ *       different dates.</p>
+ * @public
+ */
+export interface ScanResults {
+  /**
+   * <p>The highest severity among the AMI's Amazon Inspector findings, whether or not a fix is
+   *       available.</p>
+   *          <p>The valid values are the following Amazon Inspector severity levels, which correspond to
+   *       CVSS score ranges:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>informational</code> - CVSS score of 0.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>low</code> - CVSS score of 0.1 to 3.9.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>medium</code> - CVSS score of 4.0 to 6.9.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>high</code> - CVSS score of 7.0 to 8.9.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>critical</code> - CVSS score of 9.0 to 10.0.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html#findings-understanding-package-score">Software
+   *         package vulnerability severity</a> in the <i>Amazon Inspector User Guide</i>.</p>
+   *          <p>This value is present only if the AMI has at least one finding.</p>
+   * @public
+   */
+  HighestFindingSeverityLabel?: SeverityLabel | undefined;
+
+  /**
+   * <p>The date and time, in the ISO 8601 format in the UTC time zone
+   *       (YYYY-MM-DDThh:mm:ss.sssZ), of the most recent Amazon Inspector scan of the AMI.</p>
+   * @public
+   */
+  FindingScanDate?: Date | undefined;
+
+  /**
+   * <p>The earliest date and time, in the ISO 8601 format in the UTC time zone
+   *       (YYYY-MM-DDThh:mm:ss.sssZ), at which Amazon Inspector reported a fix as available for an
+   *       <code>informational</code> severity finding on the AMI. This value is present only if the AMI
+   *       has at least one <code>informational</code> severity finding with a fix available. Amazon
+   *       Inspector recomputes this value on each scan.</p>
+   * @public
+   */
+  InformationalFixAvailableSince?: Date | undefined;
+
+  /**
+   * <p>The earliest date and time, in the ISO 8601 format in the UTC time zone
+   *       (YYYY-MM-DDThh:mm:ss.sssZ), at which Amazon Inspector reported a fix as available for a
+   *       <code>low</code> severity finding on the AMI. This value is present only if the AMI has at
+   *       least one <code>low</code> severity finding with a fix available. Amazon Inspector recomputes
+   *       this value on each scan.</p>
+   * @public
+   */
+  LowFixAvailableSince?: Date | undefined;
+
+  /**
+   * <p>The earliest date and time, in the ISO 8601 format in the UTC time zone
+   *       (YYYY-MM-DDThh:mm:ss.sssZ), at which Amazon Inspector reported a fix as available for a
+   *       <code>medium</code> severity finding on the AMI. This value is present only if the AMI has at
+   *       least one <code>medium</code> severity finding with a fix available. Amazon Inspector
+   *       recomputes this value on each scan.</p>
+   * @public
+   */
+  MediumFixAvailableSince?: Date | undefined;
+
+  /**
+   * <p>The earliest date and time, in the ISO 8601 format in the UTC time zone
+   *       (YYYY-MM-DDThh:mm:ss.sssZ), at which Amazon Inspector reported a fix as available for a
+   *       <code>high</code> severity finding on the AMI. This value is present only if the AMI has at
+   *       least one <code>high</code> severity finding with a fix available. Amazon Inspector recomputes
+   *       this value on each scan.</p>
+   * @public
+   */
+  HighFixAvailableSince?: Date | undefined;
+
+  /**
+   * <p>The earliest date and time, in the ISO 8601 format in the UTC time zone
+   *       (YYYY-MM-DDThh:mm:ss.sssZ), at which Amazon Inspector reported a fix as available for a
+   *       <code>critical</code> severity finding on the AMI. This value is present only if the AMI has
+   *       at least one <code>critical</code> severity finding with a fix available. Amazon Inspector
+   *       recomputes this value on each scan.</p>
+   * @public
+   */
+  CriticalFixAvailableSince?: Date | undefined;
 }
 
 /**
@@ -3403,6 +3576,16 @@ export interface Image {
    * @public
    */
   ImageWatermarks?: ImageWatermark[] | undefined;
+
+  /**
+   * <p>The Amazon Inspector scan results for the AMI. This information is present only for AMIs
+   *       that Amazon Inspector has scanned.</p>
+   *          <p>When you share an AMI with other accounts, organizations, or organizational units
+   *       (OUs), or make it public, its scan results are available to the accounts that can use the
+   *       AMI.</p>
+   * @public
+   */
+  ScanResults?: ScanResults | undefined;
 
   /**
    * <p>The instance type specification for the AMI, which defines which instance types are
@@ -14232,67 +14415,4 @@ export interface ReservedInstancesId {
    * @public
    */
   ReservedInstancesId?: string | undefined;
-}
-
-/**
- * <p>Describes a Reserved Instance modification.</p>
- * @public
- */
-export interface ReservedInstancesModification {
-  /**
-   * <p>A unique, case-sensitive key supplied by the client to ensure that the request is
-   *       idempotent. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *       Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The time when the modification request was created.</p>
-   * @public
-   */
-  CreateDate?: Date | undefined;
-
-  /**
-   * <p>The time for the modification to become effective.</p>
-   * @public
-   */
-  EffectiveDate?: Date | undefined;
-
-  /**
-   * <p>Contains target configurations along with their corresponding new Reserved Instance
-   *       IDs.</p>
-   * @public
-   */
-  ModificationResults?: ReservedInstancesModificationResult[] | undefined;
-
-  /**
-   * <p>The IDs of one or more Reserved Instances.</p>
-   * @public
-   */
-  ReservedInstancesIds?: ReservedInstancesId[] | undefined;
-
-  /**
-   * <p>A unique ID for the Reserved Instance modification.</p>
-   * @public
-   */
-  ReservedInstancesModificationId?: string | undefined;
-
-  /**
-   * <p>The status of the Reserved Instances modification request.</p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>The reason for the status.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The time when the modification request was last updated.</p>
-   * @public
-   */
-  UpdateDate?: Date | undefined;
 }

@@ -2115,6 +2115,7 @@ import type {
   GetImageBlockPublicAccessStateCommandInput,
   GetImageBlockPublicAccessStateCommandOutput,
 } from "./commands/GetImageBlockPublicAccessStateCommand";
+import type { GetImageFindingsCommandInput, GetImageFindingsCommandOutput } from "./commands/GetImageFindingsCommand";
 import type {
   GetInstanceMetadataDefaultsCommandInput,
   GetInstanceMetadataDefaultsCommandOutput,
@@ -3551,6 +3552,7 @@ export type ServiceInputTypes =
   | GetHostReservationPurchasePreviewCommandInput
   | GetImageAncestryCommandInput
   | GetImageBlockPublicAccessStateCommandInput
+  | GetImageFindingsCommandInput
   | GetInstanceMetadataDefaultsCommandInput
   | GetInstanceTpmEkPubCommandInput
   | GetInstanceTypesFromInstanceRequirementsCommandInput
@@ -4365,6 +4367,7 @@ export type ServiceOutputTypes =
   | GetHostReservationPurchasePreviewCommandOutput
   | GetImageAncestryCommandOutput
   | GetImageBlockPublicAccessStateCommandOutput
+  | GetImageFindingsCommandOutput
   | GetInstanceMetadataDefaultsCommandOutput
   | GetInstanceTpmEkPubCommandOutput
   | GetInstanceTypesFromInstanceRequirementsCommandOutput

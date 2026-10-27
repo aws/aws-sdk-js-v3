@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetVerifiedAccessGroupPolicyRequest, GetVerifiedAccessGroupPolicyResult } from "../models/models_6";
+import type { GetVerifiedAccessGroupPolicyRequest } from "../models/models_6";
+import type { GetVerifiedAccessGroupPolicyResult } from "../models/models_7";
 import { GetVerifiedAccessGroupPolicy$ } from "../schemas/schemas_0";
 
 /**

@@ -575,6 +575,7 @@ export * from "./GetGroupsForCapacityReservationCommand";
 export * from "./GetHostReservationPurchasePreviewCommand";
 export * from "./GetImageAncestryCommand";
 export * from "./GetImageBlockPublicAccessStateCommand";
+export * from "./GetImageFindingsCommand";
 export * from "./GetInstanceMetadataDefaultsCommand";
 export * from "./GetInstanceTpmEkPubCommand";
 export * from "./GetInstanceTypesFromInstanceRequirementsCommand";

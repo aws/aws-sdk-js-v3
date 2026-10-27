@@ -60,6 +60,7 @@ import type {
   ReservationType,
   RouteServerRouteInstallationStatus,
   RouteServerRouteStatus,
+  SeverityLabel,
   SnapshotBlockPublicAccessState,
   SSEType,
   StatisticType,
@@ -120,6 +121,31 @@ import type {
   TransitGatewayPropagation,
   UnsuccessfulSuppressionResponseObject,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface DisassociateTransitGatewayPolicyTableRequest {
+  /**
+   * <p>The ID of the disassociated policy table.</p>
+   * @public
+   */
+  TransitGatewayPolicyTableId: string | undefined;
+
+  /**
+   * <p>The ID of the transit gateway attachment to disassociate from the policy table.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -2009,6 +2035,120 @@ export interface ImageWatermarkFilterResponse {
 }
 
 /**
+ * <p>The Amazon Inspector scan-result criteria that an AMI must meet to be allowed. The
+ *       criteria can limit the highest finding severity. They can also limit, for each severity, the
+ *       days since Amazon Inspector reported a fix as available.</p>
+ *          <p>The severity limit applies to all findings, whether or not a fix is available. The day
+ *       limits for each severity apply only to findings that have a fix available. A scanned AMI that
+ *       has no fix-available finding of a given severity meets that severity's day limit. AMIs that
+ *       Amazon Inspector has not scanned are not allowed when you specify this condition.</p>
+ * @public
+ */
+export interface ScanResultCondition {
+  /**
+   * <p>The maximum number of days that have elapsed since Amazon Inspector last scanned the AMI.
+   *       For example, a value of <code>7</code> allows AMIs that were scanned within the last 7 days.
+   *       AMIs that Amazon Inspector has not scanned are not allowed.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaxDaysSinceLastFindingScan?: number | undefined;
+
+  /**
+   * <p>The maximum severity that an AMI's Amazon Inspector findings can have for the AMI to be
+   *       allowed. Findings count whether or not a fix is available. For example, a value of
+   *       <code>medium</code> allows AMIs whose highest severity is <code>informational</code>,
+   *       <code>low</code>, or <code>medium</code>.</p>
+   *          <p>The valid values are the following Amazon Inspector severity levels, which correspond to
+   *       CVSS score ranges:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>informational</code> - CVSS score of 0.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>low</code> - CVSS score of 0.1 to 3.9.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>medium</code> - CVSS score of 4.0 to 6.9.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>high</code> - CVSS score of 7.0 to 8.9.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>critical</code> - CVSS score of 9.0 to 10.0.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html#findings-understanding-package-score">Software
+   *         package vulnerability severity</a> in the <i>Amazon Inspector User Guide</i>.</p>
+   *          <p>A scanned AMI that has no findings meets this limit.</p>
+   *          <p>AMIs that Amazon Inspector has not scanned are not allowed when you specify this
+   *       condition.</p>
+   * @public
+   */
+  MaximumSeverityLabel?: SeverityLabel | undefined;
+
+  /**
+   * <p>The maximum number of days since Amazon Inspector reported a fix as available for an
+   *       <code>informational</code> severity finding on the AMI. For example, a value of <code>7</code>
+   *       does not allow an AMI if Amazon Inspector reported such a fix more than 7 days ago.</p>
+   *          <p>A scanned AMI that has no <code>informational</code> severity finding with a fix available meets
+   *       this limit. AMIs that Amazon Inspector has not scanned are not allowed.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaxDaysSinceInformationalFixAvailable?: number | undefined;
+
+  /**
+   * <p>The maximum number of days since Amazon Inspector reported a fix as available for a
+   *       <code>low</code> severity finding on the AMI. For example, a value of <code>7</code> does not
+   *       allow an AMI if Amazon Inspector reported such a fix more than 7 days ago.</p>
+   *          <p>A scanned AMI that has no <code>low</code> severity finding with a fix available meets
+   *       this limit. AMIs that Amazon Inspector has not scanned are not allowed.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaxDaysSinceLowFixAvailable?: number | undefined;
+
+  /**
+   * <p>The maximum number of days since Amazon Inspector reported a fix as available for a
+   *       <code>medium</code> severity finding on the AMI. For example, a value of <code>7</code> does
+   *       not allow an AMI if Amazon Inspector reported such a fix more than 7 days ago.</p>
+   *          <p>A scanned AMI that has no <code>medium</code> severity finding with a fix available meets
+   *       this limit. AMIs that Amazon Inspector has not scanned are not allowed.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaxDaysSinceMediumFixAvailable?: number | undefined;
+
+  /**
+   * <p>The maximum number of days since Amazon Inspector reported a fix as available for a
+   *       <code>high</code> severity finding on the AMI. For example, a value of <code>7</code> does not
+   *       allow an AMI if Amazon Inspector reported such a fix more than 7 days ago.</p>
+   *          <p>A scanned AMI that has no <code>high</code> severity finding with a fix available meets
+   *       this limit. AMIs that Amazon Inspector has not scanned are not allowed.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaxDaysSinceHighFixAvailable?: number | undefined;
+
+  /**
+   * <p>The maximum number of days since Amazon Inspector reported a fix as available for a
+   *       <code>critical</code> severity finding on the AMI. For example, a value of <code>7</code> does
+   *       not allow an AMI if Amazon Inspector reported such a fix more than 7 days ago.</p>
+   *          <p>A scanned AMI that has no <code>critical</code> severity finding with a fix available meets
+   *       this limit. AMIs that Amazon Inspector has not scanned are not allowed.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaxDaysSinceCriticalFixAvailable?: number | undefined;
+}
+
+/**
  * <p>The criteria that are evaluated to determine which AMIs are discoverable and usable in
  *       your account for the specified Amazon Web Services Region.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#how-allowed-amis-works">How Allowed AMIs
@@ -2104,6 +2244,15 @@ export interface ImageCriterion {
    * @public
    */
   ImageWatermarks?: ImageWatermarkFilterResponse[] | undefined;
+
+  /**
+   * <p>The Amazon Inspector scan-result criteria that an AMI must meet to be allowed. The
+   *       criteria can limit the highest finding severity, the number of days since Amazon Inspector
+   *       last scanned the AMI, and the number of days since Amazon Inspector reported a fix as
+   *       available.</p>
+   * @public
+   */
+  ScanResultCondition?: ScanResultCondition | undefined;
 }
 
 /**
@@ -4262,6 +4411,141 @@ export interface GetImageBlockPublicAccessStateResult {
    * @public
    */
   ManagedBy?: ManagedBy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetImageFindingsRequest {
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes an Amazon Inspector vulnerability finding for an AMI.</p>
+ * @public
+ */
+export interface ImageFinding {
+  /**
+   * <p>Specifies whether a fix is available for the finding. This value is <code>true</code> when
+   *       Amazon Inspector reports a full or partial fix for the finding.</p>
+   * @public
+   */
+  FixAvailable?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Inspector score for the finding.</p>
+   * @public
+   */
+  Score?: number | undefined;
+
+  /**
+   * <p>The date and time, in the ISO 8601 format in the UTC time zone
+   *       (YYYY-MM-DDThh:mm:ss.sssZ), when Amazon Inspector first observed the finding.</p>
+   * @public
+   */
+  FirstObservedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time, in the ISO 8601 format in the UTC time zone
+   *       (YYYY-MM-DDThh:mm:ss.sssZ), when Amazon Inspector last updated the finding.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The title of the finding.</p>
+   * @public
+   */
+  Title?: string | undefined;
+
+  /**
+   * <p>The file paths in the AMI that are affected by the finding. Amazon EC2 returns up to 10
+   *       file paths for each finding.</p>
+   * @public
+   */
+  Paths?: string[] | undefined;
+
+  /**
+   * <p>The severity of the finding.</p>
+   *          <p>The valid values are the following Amazon Inspector severity levels, which correspond to
+   *       CVSS score ranges:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>informational</code> - CVSS score of 0.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>low</code> - CVSS score of 0.1 to 3.9.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>medium</code> - CVSS score of 4.0 to 6.9.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>high</code> - CVSS score of 7.0 to 8.9.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>critical</code> - CVSS score of 9.0 to 10.0.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html#findings-understanding-package-score">Software
+   *         package vulnerability severity</a> in the <i>Amazon Inspector User Guide</i>.</p>
+   * @public
+   */
+  SeverityLabel?: SeverityLabel | undefined;
+
+  /**
+   * <p>The ID of the Amazon EBS snapshot of the AMI in which the finding was detected.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetImageFindingsResult {
+  /**
+   * <p>The Amazon Inspector findings for the AMI.</p>
+   * @public
+   */
+  ImageFindings?: ImageFinding[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9098,145 +9382,6 @@ export interface GetVerifiedAccessGroupPolicyRequest {
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVerifiedAccessGroupPolicyResult {
-  /**
-   * <p>The status of the Verified Access policy.</p>
-   * @public
-   */
-  PolicyEnabled?: boolean | undefined;
-
-  /**
-   * <p>The Verified Access policy document.</p>
-   * @public
-   */
-  PolicyDocument?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVpcResourcesBlockingEncryptionEnforcementRequest {
-  /**
-   * <p>The ID of the VPC to check for resources blocking encryption enforcement.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes a resource that is not compliant with VPC encryption requirements.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
- * @public
- */
-export interface VpcEncryptionNonCompliantResource {
-  /**
-   * <p>The ID of the non-compliant resource.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The type of the non-compliant resource.</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p>A description of the non-compliant resource.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Indicates whether the resource can be excluded from encryption enforcement.</p>
-   * @public
-   */
-  IsExcludable?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVpcResourcesBlockingEncryptionEnforcementResult {
-  /**
-   * <p>Information about resources that are blocking encryption enforcement.</p>
-   * @public
-   */
-  NonCompliantResources?: VpcEncryptionNonCompliantResource[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVpnConnectionDeviceSampleConfigurationRequest {
-  /**
-   * <p>The <code>VpnConnectionId</code> specifies the Site-to-Site VPN connection used for the sample
-   *             configuration.</p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>Device identifier provided by the <code>GetVpnConnectionDeviceTypes</code> API.</p>
-   * @public
-   */
-  VpnConnectionDeviceTypeId: string | undefined;
-
-  /**
-   * <p>The IKE version to be used in the sample configuration file for your customer gateway
-   *             device. You can specify one of the following versions: <code>ikev1</code> or
-   *                 <code>ikev2</code>.</p>
-   * @public
-   */
-  InternetKeyExchangeVersion?: string | undefined;
-
-  /**
-   * <p>The type of sample configuration to generate. Valid values are "compatibility" (includes IKEv1) or "recommended" (throws UnsupportedOperationException for IKEv1).</p>
-   * @public
-   */
-  SampleType?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;

@@ -120,6 +120,29 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     </maximumDaysSinceWatermarkCreated>
                 </item>
             </imageWatermarkSet>
+            <scanResultCondition>
+                <maxDaysSinceLastFindingScan>
+                    0
+                </maxDaysSinceLastFindingScan>
+                <maximumSeverityLabel>
+                    __MaximumSeverityLabel__
+                </maximumSeverityLabel>
+                <maxDaysSinceInformationalFixAvailable>
+                    0
+                </maxDaysSinceInformationalFixAvailable>
+                <maxDaysSinceLowFixAvailable>
+                    0
+                </maxDaysSinceLowFixAvailable>
+                <maxDaysSinceMediumFixAvailable>
+                    0
+                </maxDaysSinceMediumFixAvailable>
+                <maxDaysSinceHighFixAvailable>
+                    0
+                </maxDaysSinceHighFixAvailable>
+                <maxDaysSinceCriticalFixAvailable>
+                    0
+                </maxDaysSinceCriticalFixAvailable>
+            </scanResultCondition>
         </item>
         <item>
             <imageProviderSet>
@@ -209,6 +232,29 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     </maximumDaysSinceWatermarkCreated>
                 </item>
             </imageWatermarkSet>
+            <scanResultCondition>
+                <maxDaysSinceLastFindingScan>
+                    0
+                </maxDaysSinceLastFindingScan>
+                <maximumSeverityLabel>
+                    __MaximumSeverityLabel__
+                </maximumSeverityLabel>
+                <maxDaysSinceInformationalFixAvailable>
+                    0
+                </maxDaysSinceInformationalFixAvailable>
+                <maxDaysSinceLowFixAvailable>
+                    0
+                </maxDaysSinceLowFixAvailable>
+                <maxDaysSinceMediumFixAvailable>
+                    0
+                </maxDaysSinceMediumFixAvailable>
+                <maxDaysSinceHighFixAvailable>
+                    0
+                </maxDaysSinceHighFixAvailable>
+                <maxDaysSinceCriticalFixAvailable>
+                    0
+                </maxDaysSinceCriticalFixAvailable>
+            </scanResultCondition>
         </item>
         <item>
             <imageProviderSet>
@@ -298,6 +344,29 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     </maximumDaysSinceWatermarkCreated>
                 </item>
             </imageWatermarkSet>
+            <scanResultCondition>
+                <maxDaysSinceLastFindingScan>
+                    0
+                </maxDaysSinceLastFindingScan>
+                <maximumSeverityLabel>
+                    __MaximumSeverityLabel__
+                </maximumSeverityLabel>
+                <maxDaysSinceInformationalFixAvailable>
+                    0
+                </maxDaysSinceInformationalFixAvailable>
+                <maxDaysSinceLowFixAvailable>
+                    0
+                </maxDaysSinceLowFixAvailable>
+                <maxDaysSinceMediumFixAvailable>
+                    0
+                </maxDaysSinceMediumFixAvailable>
+                <maxDaysSinceHighFixAvailable>
+                    0
+                </maxDaysSinceHighFixAvailable>
+                <maxDaysSinceCriticalFixAvailable>
+                    0
+                </maxDaysSinceCriticalFixAvailable>
+            </scanResultCondition>
         </item>
     </imageCriterionSet>
     <managedBy>
@@ -351,7 +420,16 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           MaximumDaysSinceSourceImageCreated: (number) 0,
           MaximumDaysSinceWatermarkCreated: (number) 0
         }
-      ]
+      ],
+      ScanResultCondition: {
+        MaxDaysSinceLastFindingScan: (number) 0,
+        MaximumSeverityLabel: "__MaximumSeverityLabel__",
+        MaxDaysSinceInformationalFixAvailable: (number) 0,
+        MaxDaysSinceLowFixAvailable: (number) 0,
+        MaxDaysSinceMediumFixAvailable: (number) 0,
+        MaxDaysSinceHighFixAvailable: (number) 0,
+        MaxDaysSinceCriticalFixAvailable: (number) 0
+      }
     },
     {
       ImageProviders: [
@@ -394,7 +472,16 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           MaximumDaysSinceSourceImageCreated: (number) 0,
           MaximumDaysSinceWatermarkCreated: (number) 0
         }
-      ]
+      ],
+      ScanResultCondition: {
+        MaxDaysSinceLastFindingScan: (number) 0,
+        MaximumSeverityLabel: "__MaximumSeverityLabel__",
+        MaxDaysSinceInformationalFixAvailable: (number) 0,
+        MaxDaysSinceLowFixAvailable: (number) 0,
+        MaxDaysSinceMediumFixAvailable: (number) 0,
+        MaxDaysSinceHighFixAvailable: (number) 0,
+        MaxDaysSinceCriticalFixAvailable: (number) 0
+      }
     },
     {
       ImageProviders: [
@@ -437,7 +524,16 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           MaximumDaysSinceSourceImageCreated: (number) 0,
           MaximumDaysSinceWatermarkCreated: (number) 0
         }
-      ]
+      ],
+      ScanResultCondition: {
+        MaxDaysSinceLastFindingScan: (number) 0,
+        MaximumSeverityLabel: "__MaximumSeverityLabel__",
+        MaxDaysSinceInformationalFixAvailable: (number) 0,
+        MaxDaysSinceLowFixAvailable: (number) 0,
+        MaxDaysSinceMediumFixAvailable: (number) 0,
+        MaxDaysSinceHighFixAvailable: (number) 0,
+        MaxDaysSinceCriticalFixAvailable: (number) 0
+      }
     }
   ],
   ManagedBy: "__ManagedBy__",

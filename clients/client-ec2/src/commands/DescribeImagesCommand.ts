@@ -152,6 +152,15 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //           WatermarkCreationTime: new Date("TIMESTAMP"),
  * //         },
  * //       ],
+ * //       ScanResults: { // ScanResults
+ * //         HighestFindingSeverityLabel: "informational" || "low" || "medium" || "high" || "critical",
+ * //         FindingScanDate: new Date("TIMESTAMP"),
+ * //         InformationalFixAvailableSince: new Date("TIMESTAMP"),
+ * //         LowFixAvailableSince: new Date("TIMESTAMP"),
+ * //         MediumFixAvailableSince: new Date("TIMESTAMP"),
+ * //         HighFixAvailableSince: new Date("TIMESTAMP"),
+ * //         CriticalFixAvailableSince: new Date("TIMESTAMP"),
+ * //       },
  * //       InstanceTypeSpecification: { // InstanceTypeSpecification
  * //         SupportedInstanceTypes: [ // SupportedInstanceTypeSet
  * //           { // InstanceTypeItem

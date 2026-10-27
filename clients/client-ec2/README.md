@@ -4265,6 +4265,13 @@ GetImageBlockPublicAccessState
 </details>
 <details>
 <summary>
+GetImageFindings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetImageFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetImageFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetImageFindingsCommandOutput/)
+</details>
+<details>
+<summary>
 GetInstanceMetadataDefaults
 </summary>
 

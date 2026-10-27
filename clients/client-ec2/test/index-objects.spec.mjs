@@ -2715,6 +2715,10 @@ import {
   GetImageBlockPublicAccessStateCommand,
   GetImageBlockPublicAccessStateRequest$,
   GetImageBlockPublicAccessStateResult$,
+  GetImageFindings$,
+  GetImageFindingsCommand,
+  GetImageFindingsRequest$,
+  GetImageFindingsResult$,
   GetInstanceMetadataDefaults$,
   GetInstanceMetadataDefaultsCommand,
   GetInstanceMetadataDefaultsRequest$,
@@ -2983,6 +2987,7 @@ import {
   ImageCriterion$,
   ImageCriterionRequest$,
   ImageDiskContainer$,
+  ImageFinding$,
   ImageMetadata$,
   ImageRecycleBinInfo$,
   ImageReference$,
@@ -3951,6 +3956,7 @@ import {
   paginateGetCapacityManagerMetricDimensions,
   paginateGetCapacityManagerMonitoredTagKeys,
   paginateGetGroupsForCapacityReservation,
+  paginateGetImageFindings,
   paginateGetInstanceTypesFromInstanceRequirements,
   paginateGetIpamAddressHistory,
   paginateGetIpamDiscoveredAccounts,
@@ -4353,6 +4359,9 @@ import {
   RunScheduledInstancesResult$,
   S3ObjectTag$,
   S3Storage$,
+  ScanResultCondition$,
+  ScanResultConditionRequest$,
+  ScanResults$,
   Schedule,
   ScheduledInstance$,
   ScheduledInstanceAvailability$,
@@ -4421,6 +4430,7 @@ import {
   ServiceState,
   ServiceType,
   ServiceTypeDetail$,
+  SeverityLabel,
   ShutdownBehavior,
   SlotDateTimeRangeRequest$,
   SlotStartTimeRangeRequest$,
@@ -6060,6 +6070,8 @@ assert(typeof GetImageAncestryCommand === "function");
 assert(typeof GetImageAncestry$ === "object");
 assert(typeof GetImageBlockPublicAccessStateCommand === "function");
 assert(typeof GetImageBlockPublicAccessState$ === "object");
+assert(typeof GetImageFindingsCommand === "function");
+assert(typeof GetImageFindings$ === "object");
 assert(typeof GetInstanceMetadataDefaultsCommand === "function");
 assert(typeof GetInstanceMetadataDefaults$ === "object");
 assert(typeof GetInstanceTpmEkPubCommand === "function");
@@ -7929,6 +7941,8 @@ assert(typeof GetImageAncestryRequest$ === "object");
 assert(typeof GetImageAncestryResult$ === "object");
 assert(typeof GetImageBlockPublicAccessStateRequest$ === "object");
 assert(typeof GetImageBlockPublicAccessStateResult$ === "object");
+assert(typeof GetImageFindingsRequest$ === "object");
+assert(typeof GetImageFindingsResult$ === "object");
 assert(typeof GetInstanceMetadataDefaultsRequest$ === "object");
 assert(typeof GetInstanceMetadataDefaultsResult$ === "object");
 assert(typeof GetInstanceTpmEkPubRequest$ === "object");
@@ -8073,6 +8087,7 @@ assert(typeof ImageAttribute$ === "object");
 assert(typeof ImageCriterion$ === "object");
 assert(typeof ImageCriterionRequest$ === "object");
 assert(typeof ImageDiskContainer$ === "object");
+assert(typeof ImageFinding$ === "object");
 assert(typeof ImageMetadata$ === "object");
 assert(typeof ImageRecycleBinInfo$ === "object");
 assert(typeof ImageReference$ === "object");
@@ -8774,6 +8789,9 @@ assert(typeof RunScheduledInstancesRequest$ === "object");
 assert(typeof RunScheduledInstancesResult$ === "object");
 assert(typeof S3ObjectTag$ === "object");
 assert(typeof S3Storage$ === "object");
+assert(typeof ScanResultCondition$ === "object");
+assert(typeof ScanResultConditionRequest$ === "object");
+assert(typeof ScanResults$ === "object");
 assert(typeof ScheduledInstance$ === "object");
 assert(typeof ScheduledInstanceAvailability$ === "object");
 assert(typeof ScheduledInstanceRecurrence$ === "object");
@@ -9444,6 +9462,7 @@ assert(typeof ServiceLinkVirtualInterfaceConfigurationState === "object");
 assert(typeof ServiceManaged === "object");
 assert(typeof ServiceState === "object");
 assert(typeof ServiceType === "object");
+assert(typeof SeverityLabel === "object");
 assert(typeof ShutdownBehavior === "object");
 assert(typeof SnapshotAttributeName === "object");
 assert(typeof SnapshotBlockPublicAccessState === "object");
@@ -9786,6 +9805,7 @@ assert(typeof paginateGetCapacityManagerMetricData === "function");
 assert(typeof paginateGetCapacityManagerMetricDimensions === "function");
 assert(typeof paginateGetCapacityManagerMonitoredTagKeys === "function");
 assert(typeof paginateGetGroupsForCapacityReservation === "function");
+assert(typeof paginateGetImageFindings === "function");
 assert(typeof paginateGetInstanceTypesFromInstanceRequirements === "function");
 assert(typeof paginateGetIpamAddressHistory === "function");
 assert(typeof paginateGetIpamDiscoveredAccounts === "function");

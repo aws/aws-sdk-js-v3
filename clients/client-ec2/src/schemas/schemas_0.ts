@@ -679,6 +679,7 @@ const _CETa = "CancelExportTask";
 const _CETo = "ConnectionEndTime";
 const _CEr = "CronExpression";
 const _CF = "ContainerFormat";
+const _CFAS = "CriticalFixAvailableSince";
 const _CFE = "CreateFleetError";
 const _CFES = "CreateFleetErrorsSet";
 const _CFI = "CreateFleetInstance";
@@ -2747,7 +2748,8 @@ const _FA = "FederatedAuthentication";
 const _FAD = "FilterAtDestination";
 const _FAR = "FederatedAuthenticationRequest";
 const _FAS = "FilterAtSource";
-const _FAi = "FirstAddress";
+const _FAi = "FixAvailable";
+const _FAir = "FirstAddress";
 const _FB = "FilterBy";
 const _FBDMR = "FleetBlockDeviceMappingRequest";
 const _FBDMRL = "FleetBlockDeviceMappingRequestList";
@@ -2816,8 +2818,9 @@ const _FLTSR = "FleetLaunchTemplateSpecificationRequest";
 const _FLi = "FilterList";
 const _FLl = "FlowLog";
 const _FM = "FailureMessage";
-const _FOA = "FilterOutArns";
-const _FOAi = "FilterOutArn";
+const _FOA = "FirstObservedAt";
+const _FOAi = "FilterOutArns";
+const _FOAil = "FilterOutArn";
 const _FODC = "FulfilledOnDemandCapacity";
 const _FP = "FromPort";
 const _FPC = "ForwardPathComponents";
@@ -2832,6 +2835,7 @@ const _FRa = "FastRestored";
 const _FS = "FleetState";
 const _FSCR = "FleetSpotCapacityRebalance";
 const _FSCRR = "FleetSpotCapacityRebalanceRequest";
+const _FSD = "FindingScanDate";
 const _FSMS = "FleetSpotMaintenanceStrategies";
 const _FSMSR = "FleetSpotMaintenanceStrategiesRequest";
 const _FSR = "FastSnapshotRestores";
@@ -2950,6 +2954,10 @@ const _GIDRCR = "GetIpamDiscoveredResourceCidrsRequest";
 const _GIDRCRe = "GetIpamDiscoveredResourceCidrsResult";
 const _GIDRR = "GetIpamDiscoveredRoutesRequest";
 const _GIDRRe = "GetIpamDiscoveredRoutesResult";
+const _GIF = "GetImageFindings";
+const _GIFES = "GetImageFindingsEntrySet";
+const _GIFR = "GetImageFindingsRequest";
+const _GIFRe = "GetImageFindingsResult";
 const _GIIRAA = "GetIpamInternetRegistryAssociationAsns";
 const _GIIRAAR = "GetIpamInternetRegistryAssociationAsnsRequest";
 const _GIIRAARe = "GetIpamInternetRegistryAssociationAsnsResult";
@@ -3140,6 +3148,8 @@ const _HCPSROe = "HealthCheckPathSourceResponseObject";
 const _HCPe = "HealthCheckPath";
 const _HCPi = "HiveCompatiblePartitions";
 const _HE = "HttpEndpoint";
+const _HFAS = "HighFixAvailableSince";
+const _HFSL = "HighestFindingSeverityLabel";
 const _HI = "HostIds";
 const _HIL = "HostInstanceList";
 const _HIS = "HostIdSet";
@@ -3303,11 +3313,15 @@ const _IEWTRRS = "InstanceEventWindowTimeRangeRequestSet";
 const _IEWn = "InstanceEventWindows";
 const _IEs = "IsExcludable";
 const _IF = "InstanceFamily";
+const _IFAS = "InformationalFixAvailableSince";
 const _IFCS = "InstanceFamilyCreditSpecification";
 const _IFL = "IdFormatList";
+const _IFPS = "ImageFindingPathSet";
 const _IFR = "IamFleetRole";
 const _IFRn = "IngressFilterRules";
 const _IFd = "IdFormat";
+const _IFm = "ImageFindings";
+const _IFma = "ImageFinding";
 const _IG = "InternetGateway";
 const _IGA = "InternetGatewayAttachment";
 const _IGAL = "InternetGatewayAttachmentList";
@@ -3814,6 +3828,7 @@ const _LEa = "LastError";
 const _LEam = "LambdaExclusion";
 const _LF = "LogFormat";
 const _LFA = "LambdaFunctionArn";
+const _LFAS = "LowFixAvailableSince";
 const _LG = "LocalGateways";
 const _LGA = "LogGroupArn";
 const _LGC = "LogicalGpuCount";
@@ -4078,7 +4093,13 @@ const _MDRSe = "MetricDimensionResultSet";
 const _MDRe = "MetricDimensionResults";
 const _MDRet = "MetricDataResult";
 const _MDSC = "MaximumDaysSinceCreated";
+const _MDSCFA = "MaxDaysSinceCriticalFixAvailable";
 const _MDSD = "MaximumDaysSinceDeprecated";
+const _MDSHFA = "MaxDaysSinceHighFixAvailable";
+const _MDSIFA = "MaxDaysSinceInformationalFixAvailable";
+const _MDSLFA = "MaxDaysSinceLowFixAvailable";
+const _MDSLFS = "MaxDaysSinceLastFindingScan";
+const _MDSMFA = "MaxDaysSinceMediumFixAvailable";
 const _MDSSIC = "MaximumDaysSinceSourceImageCreated";
 const _MDSWC = "MaximumDaysSinceWatermarkCreated";
 const _MDV = "MetaDataValue";
@@ -4096,6 +4117,7 @@ const _MEM = "ManagedExceptionMessage";
 const _MEQC = "MaximumEnaQueueCount";
 const _MEQCPI = "MaximumEnaQueueCountPerInterface";
 const _MF = "ModifyFleet";
+const _MFAS = "MediumFixAvailableSince";
 const _MFIA = "ModifyFpgaImageAttribute";
 const _MFIAR = "ModifyFpgaImageAttributeRequest";
 const _MFIARo = "ModifyFpgaImageAttributeResult";
@@ -4271,6 +4293,7 @@ const _MSIPC = "MacSystemIntegrityProtectionConfiguration";
 const _MSIPCR = "MacSystemIntegrityProtectionConfigurationRequest";
 const _MSIPCa = "MacSystemIntegrityProtectionConfig";
 const _MSIPS = "MacSystemIntegrityProtectionStatus";
+const _MSL = "MaximumSeverityLabel";
 const _MSNI = "MaximumSecondaryNetworkInterfaces";
 const _MSPAPOOODP = "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice";
 const _MST = "ModifySnapshotTier";
@@ -4935,6 +4958,7 @@ const _PVro = "PropagatingVgws";
 const _PZI = "ParentZoneId";
 const _PZN = "ParentZoneName";
 const _Pa = "Path";
+const _Pat = "Paths";
 const _Pe = "Permission";
 const _Per = "Period";
 const _Pl = "Platform";
@@ -5629,6 +5653,7 @@ const _SLVIIS = "ServiceLinkVirtualInterfaceIdSet";
 const _SLVIIe = "ServiceLinkVirtualInterfaceId";
 const _SLVIS = "ServiceLinkVirtualInterfaceSet";
 const _SLVIe = "ServiceLinkVirtualInterface";
+const _SLe = "SeverityLabel";
 const _SLn = "SnapshotList";
 const _SLo = "S3Location";
 const _SLp = "SpreadLevel";
@@ -5700,11 +5725,14 @@ const _SQPDu = "SuccessfulQueuedPurchaseDeletion";
 const _SR = "SuccessfulResults";
 const _SRBI = "SnapshotRecycleBinInfo";
 const _SRBIL = "SnapshotRecycleBinInfoList";
+const _SRC = "ScanResultCondition";
+const _SRCR = "ScanResultConditionRequest";
 const _SRD = "SupportedRegionDetail";
 const _SRDT = "SupportedRootDeviceTypes";
 const _SRO = "StaticRoutesOnly";
 const _SRS = "SupportedRegionSet";
 const _SRT = "SubnetRouteTable";
+const _SRc = "ScanResults";
 const _SRe = "ServiceRegion";
 const _SRer = "ServiceRegions";
 const _SRerv = "ServiceResource";
@@ -6112,6 +6140,7 @@ const _Th = "Throughput";
 const _Ti = "Timeout";
 const _Tie = "Tier";
 const _Tim = "Timestamp";
+const _Tit = "Title";
 const _To = "To";
 const _Ty = "Type";
 const _U = "Unsuccessful";
@@ -6737,6 +6766,7 @@ const _cET = "connectionEstablishedTime";
 const _cETo = "connectionEndTime";
 const _cEr = "cronExpression";
 const _cF = "containerFormat";
+const _cFAS = "criticalFixAvailableSince";
 const _cFS = "currentFleetState";
 const _cG = "carrierGateway";
 const _cGC = "customerGatewayConfiguration";
@@ -7107,7 +7137,8 @@ const _f = "filter";
 const _fA = "federatedAuthentication";
 const _fAD = "filterAtDestination";
 const _fAS = "filterAtSource";
-const _fAi = "firstAddress";
+const _fAi = "fixAvailable";
+const _fAir = "firstAddress";
 const _fC = "fulfilledCapacity";
 const _fCRS = "fleetCapacityReservationSet";
 const _fCS = "findingComponentSet";
@@ -7133,6 +7164,7 @@ const _fLISa = "fastLaunchImageSet";
 const _fLS = "flowLogSet";
 const _fLSl = "flowLogStatus";
 const _fM = "failureMessage";
+const _fOA = "firstObservedAt";
 const _fOAS = "filterOutArnSet";
 const _fODC = "fulfilledOnDemandCapacity";
 const _fP = "fromPort";
@@ -7143,6 +7175,7 @@ const _fQPDS = "failedQueuedPurchaseDeletionSet";
 const _fR = "failureReason";
 const _fRa = "fastRestored";
 const _fS = "fleetSet";
+const _fSD = "findingScanDate";
 const _fSR = "firewallStatelessRule";
 const _fSRS = "fastSnapshotRestoreSet";
 const _fSRSES = "fastSnapshotRestoreStateErrorSet";
@@ -7184,6 +7217,8 @@ const _hBD = "hiddenByDefault";
 const _hCP = "hiveCompatiblePartitions";
 const _hCPS = "healthCheckPathSet";
 const _hE = "httpEndpoint";
+const _hFAS = "highFixAvailableSince";
+const _hFSL = "highestFindingSeverityLabel";
 const _hI = "hostId";
 const _hIS = "hostIdSet";
 const _hM = "hostMaintenance";
@@ -7263,9 +7298,11 @@ const _iEWSn = "instanceEventWindowSet";
 const _iEs = "isEgress";
 const _iEsx = "isExcludable";
 const _iF = "instanceFamily";
+const _iFAS = "informationalFixAvailableSince";
 const _iFCS = "instanceFamilyCreditSpecification";
 const _iFR = "iamFleetRole";
 const _iFRS = "ingressFilterRuleSet";
+const _iFS = "imageFindingSet";
 const _iG = "internetGateway";
 const _iGBM = "internetGatewayBlockMode";
 const _iGEM = "internetGatewayExclusionMode";
@@ -7503,6 +7540,7 @@ const _lET = "lastEvaluatedTime";
 const _lEa = "lastError";
 const _lF = "logFormat";
 const _lFA = "lambdaFunctionArn";
+const _lFAS = "lowFixAvailableSince";
 const _lG = "launchGroup";
 const _lGA = "logGroupArn";
 const _lGC = "logicalGpuCount";
@@ -7599,7 +7637,13 @@ const _mDK = "metaDataKey";
 const _mDRS = "metricDataResultSet";
 const _mDRSe = "metricDimensionResultSet";
 const _mDSC = "maximumDaysSinceCreated";
+const _mDSCFA = "maxDaysSinceCriticalFixAvailable";
 const _mDSD = "maximumDaysSinceDeprecated";
+const _mDSHFA = "maxDaysSinceHighFixAvailable";
+const _mDSIFA = "maxDaysSinceInformationalFixAvailable";
+const _mDSLFA = "maxDaysSinceLowFixAvailable";
+const _mDSLFS = "maxDaysSinceLastFindingScan";
+const _mDSMFA = "maxDaysSinceMediumFixAvailable";
 const _mDSSIC = "maximumDaysSinceSourceImageCreated";
 const _mDSWC = "maximumDaysSinceWatermarkCreated";
 const _mDV = "metaDataValue";
@@ -7611,6 +7655,7 @@ const _mEI = "maximumEfaInterfaces";
 const _mEM = "managedExceptionMessage";
 const _mEQC = "maximumEnaQueueCount";
 const _mEQCPI = "maximumEnaQueueCountPerInterface";
+const _mFAS = "mediumFixAvailableSince";
 const _mFV = "mostFrequentValue";
 const _mG = "multicastGroups";
 const _mGBPVC = "memoryGiBPerVCpu";
@@ -7640,6 +7685,7 @@ const _mRS = "modificationResultSet";
 const _mS = "messageSet";
 const _mSC = "matchSourceCidr";
 const _mSIPC = "macSystemIntegrityProtectionConfig";
+const _mSL = "maximumSeverityLabel";
 const _mSNI = "maximumSecondaryNetworkInterfaces";
 const _mSPAPOOODP = "maxSpotPriceAsPercentageOfOptimalOnDemandPrice";
 const _mSa = "managementState";
@@ -7943,6 +7989,7 @@ const _pSKE = "publicSigningKeyEndpoint";
 const _pSKU = "publicSigningKeyUrl";
 const _pSPN = "publicSsmParameterName";
 const _pSR = "provisioningStatusReason";
+const _pSa = "pathSet";
 const _pSe = "performanceStatus";
 const _pSee = "peeringStatus";
 const _pSer = "permissionState";
@@ -8251,6 +8298,7 @@ const _sLVIA = "serviceLinkVirtualInterfaceArn";
 const _sLVII = "serviceLinkVirtualInterfaceId";
 const _sLVIIS = "serviceLinkVirtualInterfaceIdSet";
 const _sLVIS = "serviceLinkVirtualInterfaceSet";
+const _sLe = "severityLabel";
 const _sLp = "spreadLevel";
 const _sM = "serviceManaged";
 const _sMPPOLP = "spotMaxPricePercentageOverLowestPrice";
@@ -8287,11 +8335,13 @@ const _sPSS = "spotPlacementScoreSet";
 const _sPp = "spotPrice";
 const _sQPDS = "successfulQueuedPurchaseDeletionSet";
 const _sR = "serviceRegion";
+const _sRC = "scanResultCondition";
 const _sRDT = "supportedRootDeviceTypes";
 const _sRO = "staticRoutesOnly";
 const _sRS = "successfulResultSet";
 const _sRSu = "supportedRegionSet";
 const _sRT = "subnetRouteTable";
+const _sRc = "scanResults";
 const _sRe = "serviceResource";
 const _sRo = "sourceResource";
 const _sRt = "stateReason";
@@ -8348,9 +8398,9 @@ const _sVu = "supportedVersions";
 const _sWD = "startWeekDay";
 const _s_ = "s3";
 const _sc = "schedule";
-const _sco = "scope";
-const _scop = "scopes";
-const _scor = "score";
+const _sco = "score";
+const _scop = "scope";
+const _scope = "scopes";
 const _se = "service";
 const _si = "size";
 const _so = "source";
@@ -8515,6 +8565,7 @@ const _ter = "term";
 const _th = "throughput";
 const _ti = "timestamp";
 const _tie = "tier";
+const _tit = "title";
 const _to = "to";
 const _ty = "type";
 const _u = "unsuccessful";
@@ -18008,6 +18059,18 @@ export var GetImageBlockPublicAccessStateResult$: StaticStructureSchema = [3, n0
   , [_xN]: _iBPAS }], [0, { [_eQN]: `ManagedBy`
   , [_xN]: _mB }]]
 ];
+export var GetImageFindingsRequest$: StaticStructureSchema = [3, n0, _GIFR,
+  0,
+  [_IIm, _MR, _NTe, _DR],
+  [0, 1, 0, 2], 1
+];
+export var GetImageFindingsResult$: StaticStructureSchema = [3, n0, _GIFRe,
+  0,
+  [_IFm, _NTe],
+  [[() => GetImageFindingsEntrySet, { [_eQN]: `ImageFindingSet`
+  , [_xN]: _iFS }], [0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }]]
+];
 export var GetInstanceMetadataDefaultsRequest$: StaticStructureSchema = [3, n0, _GIMDR,
   0,
   [_DR],
@@ -18917,7 +18980,7 @@ export var IKEVersionsRequestListValue$: StaticStructureSchema = [3, n0, _IKEVRL
 ];
 export var Image$: StaticStructureSchema = [3, n0, _Ima,
   0,
-  [_PDl, _UO, _BDMl, _De, _ESna, _Hy, _IOA, _N, _RDN, _RDT, _SNS, _SRt, _T, _VTir, _BM, _TSp, _DTe, _ISmd, _SIIo, _DPer, _LLT, _IAm, _SII, _SIRo, _FTE, _PSPN, _IW, _ITSn, _IIm, _IL, _St, _OI, _CDr, _Pu, _PCro, _Arc, _ITm, _KI, _RIa, _Pl],
+  [_PDl, _UO, _BDMl, _De, _ESna, _Hy, _IOA, _N, _RDN, _RDT, _SNS, _SRt, _T, _VTir, _BM, _TSp, _DTe, _ISmd, _SIIo, _DPer, _LLT, _IAm, _SII, _SIRo, _FTE, _PSPN, _IW, _SRc, _ITSn, _IIm, _IL, _St, _OI, _CDr, _Pu, _PCro, _Arc, _ITm, _KI, _RIa, _Pl],
   [[0, { [_eQN]: `PlatformDetails`
   , [_xN]: _pDl }], [0, { [_eQN]: `UsageOperation`
   , [_xN]: _uO }], [() => BlockDeviceMappingList, { [_eQN]: `BlockDeviceMapping`
@@ -18945,7 +19008,8 @@ export var Image$: StaticStructureSchema = [3, n0, _Ima,
   , [_xN]: _sIR }], [2, { [_eQN]: `FreeTierEligible`
   , [_xN]: _fTE }], [0, { [_eQN]: `PublicSsmParameterName`
   , [_xN]: _pSPN }], [() => ImageWatermarkList, { [_eQN]: `ImageWatermarkSet`
-  , [_xN]: _iWS }], [() => InstanceTypeSpecification$, { [_eQN]: `InstanceTypeSpecification`
+  , [_xN]: _iWS }], [() => ScanResults$, { [_eQN]: `ScanResults`
+  , [_xN]: _sRc }], [() => InstanceTypeSpecification$, { [_eQN]: `InstanceTypeSpecification`
   , [_xN]: _iTSn }], [0, { [_eQN]: `ImageId`
   , [_xN]: _iIma }], [0, { [_eQN]: `ImageLocation`
   , [_xN]: _iL }], [0, { [_eQN]: `ImageState`
@@ -18991,24 +19055,38 @@ export var ImageAttribute$: StaticStructureSchema = [3, n0, _IAma,
 ];
 export var ImageCriterion$: StaticStructureSchema = [3, n0, _ICma,
   0,
-  [_IPm, _MPC, _INm, _DTC, _CDC, _IW],
+  [_IPm, _MPC, _INm, _DTC, _CDC, _IW, _SRC],
   [[() => ImageProviderList, { [_eQN]: `ImageProviderSet`
   , [_xN]: _iPSm }], [() => MarketplaceProductCodeList, { [_eQN]: `MarketplaceProductCodeSet`
   , [_xN]: _mPCS }], [() => ImageNameList, { [_eQN]: `ImageNameSet`
   , [_xN]: _iNS }], [() => DeprecationTimeCondition$, { [_eQN]: `DeprecationTimeCondition`
   , [_xN]: _dTC }], [() => CreationDateCondition$, { [_eQN]: `CreationDateCondition`
   , [_xN]: _cDC }], [() => ImageWatermarkFilterResponseList, { [_eQN]: `ImageWatermarkSet`
-  , [_xN]: _iWS }]]
+  , [_xN]: _iWS }], [() => ScanResultCondition$, { [_eQN]: `ScanResultCondition`
+  , [_xN]: _sRC }]]
 ];
 export var ImageCriterionRequest$: StaticStructureSchema = [3, n0, _ICR,
   0,
-  [_IPm, _MPC, _INm, _DTC, _CDC, _IW],
-  [[() => ImageProviderRequestList, { [_xN]: _IPma }], [() => MarketplaceProductCodeRequestList, { [_xN]: _MPCa }], [() => ImageNameCriteriaRequestList, { [_xN]: _INma }], () => DeprecationTimeConditionRequest$, () => CreationDateConditionRequest$, [() => ImageWatermarkFilterRequestList, { [_xN]: _IWm }]]
+  [_IPm, _MPC, _INm, _DTC, _CDC, _IW, _SRC],
+  [[() => ImageProviderRequestList, { [_xN]: _IPma }], [() => MarketplaceProductCodeRequestList, { [_xN]: _MPCa }], [() => ImageNameCriteriaRequestList, { [_xN]: _INma }], () => DeprecationTimeConditionRequest$, () => CreationDateConditionRequest$, [() => ImageWatermarkFilterRequestList, { [_xN]: _IWm }], () => ScanResultConditionRequest$]
 ];
 export var ImageDiskContainer$: StaticStructureSchema = [3, n0, _IDC,
   0,
   [_De, _DN, _Fo, _SIn, _Ur, _UB],
   [0, 0, 0, 0, [() => SensitiveUrl, 0], () => UserBucket$]
+];
+export var ImageFinding$: StaticStructureSchema = [3, n0, _IFma,
+  0,
+  [_FAi, _Scor, _FOA, _UA, _Tit, _Pat, _SLe, _SIn],
+  [[2, { [_eQN]: `FixAvailable`
+  , [_xN]: _fAi }], [1, { [_eQN]: `Score`
+  , [_xN]: _sco }], [4, { [_eQN]: `FirstObservedAt`
+  , [_xN]: _fOA }], [4, { [_eQN]: `UpdatedAt`
+  , [_xN]: _uA }], [0, { [_eQN]: `Title`
+  , [_xN]: _tit }], [() => ImageFindingPathSet, { [_eQN]: `PathSet`
+  , [_xN]: _pSa }], [0, { [_eQN]: `SeverityLabel`
+  , [_xN]: _sLe }], [0, { [_eQN]: `SnapshotId`
+  , [_xN]: _sIn }]]
 ];
 export var ImageMetadata$: StaticStructureSchema = [3, n0, _IMm,
   0,
@@ -22573,7 +22651,7 @@ export var NativeApplicationOidcOptions$: StaticStructureSchema = [3, n0, _NAOO,
   , [_xN]: _tEo }], [0, { [_eQN]: `UserInfoEndpoint`
   , [_xN]: _uIE }], [0, { [_eQN]: `ClientId`
   , [_xN]: _cIli }], [0, { [_eQN]: `Scope`
-  , [_xN]: _sco }]]
+  , [_xN]: _scop }]]
 ];
 export var NetworkAcl$: StaticStructureSchema = [3, n0, _NA,
   0,
@@ -22695,7 +22773,7 @@ export var NetworkInsightsAccessScopeContent$: StaticStructureSchema = [3, n0, _
 ];
 export var NetworkInsightsAnalysis$: StaticStructureSchema = [3, n0, _NIAe,
   0,
-  [_NIAI, _NIAA, _NIPI, _AAdd, _FIAi, _FOA, _SD, _Sta, _SMt, _WM, _NPF, _FPC, _RPC, _Expl, _APHl, _SAu, _T],
+  [_NIAI, _NIAA, _NIPI, _AAdd, _FIAi, _FOAi, _SD, _Sta, _SMt, _WM, _NPF, _FPC, _RPC, _Expl, _APHl, _SAu, _T],
   [[0, { [_eQN]: `NetworkInsightsAnalysisId`
   , [_xN]: _nIAI }], [0, { [_eQN]: `NetworkInsightsAnalysisArn`
   , [_xN]: _nIAA }], [0, { [_eQN]: `NetworkInsightsPathId`
@@ -22903,7 +22981,7 @@ export var OidcOptions$: StaticStructureSchema = [3, n0, _OO,
   , [_xN]: _uIE }], [0, { [_eQN]: `ClientId`
   , [_xN]: _cIli }], [() => ClientSecretType, { [_eQN]: `ClientSecret`
   , [_xN]: _cSl }], [0, { [_eQN]: `Scope`
-  , [_xN]: _sco }]]
+  , [_xN]: _scop }]]
 ];
 export var OnDemandOptions$: StaticStructureSchema = [3, n0, _ODO,
   0,
@@ -23019,7 +23097,7 @@ export var PayerResponsibilityEntry$: StaticStructureSchema = [3, n0, _PRE,
   0,
   [_Sco, _PRT],
   [[0, { [_eQN]: `Scope`
-  , [_xN]: _sco }], [0, { [_eQN]: `PayerResponsibilityType`
+  , [_xN]: _scop }], [0, { [_eQN]: `PayerResponsibilityType`
   , [_xN]: _pRT }]]
 ];
 export var PciId$: StaticStructureSchema = [3, n0, _PIc,
@@ -23408,9 +23486,9 @@ export var PublicIpv4Pool$: StaticStructureSchema = [3, n0, _PIP,
 ];
 export var PublicIpv4PoolRange$: StaticStructureSchema = [3, n0, _PIPR,
   0,
-  [_FAi, _LAa, _ACd, _AACv],
+  [_FAir, _LAa, _ACd, _AACv],
   [[0, { [_eQN]: `FirstAddress`
-  , [_xN]: _fAi }], [0, { [_eQN]: `LastAddress`
+  , [_xN]: _fAir }], [0, { [_eQN]: `LastAddress`
   , [_xN]: _lAa }], [1, { [_eQN]: `AddressCount`
   , [_xN]: _aCd }], [1, { [_eQN]: `AvailableAddressCount`
   , [_xN]: _aAC }]]
@@ -24012,7 +24090,7 @@ export var ReservedInstances$: StaticStructureSchema = [3, n0, _RIese,
   , [_xN]: _oC }], [0, { [_eQN]: `OfferingType`
   , [_xN]: _oTf }], [() => RecurringChargesList, { [_eQN]: `RecurringCharges`
   , [_xN]: _rCec }], [0, { [_eQN]: `Scope`
-  , [_xN]: _sco }], [() => TagList, { [_eQN]: `TagSet`
+  , [_xN]: _scop }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [0, { [_eQN]: `AvailabilityZoneId`
   , [_xN]: _aZI }], [0, { [_eQN]: `ReservedInstancesId`
   , [_xN]: _rII }], [0, { [_eQN]: `InstanceType`
@@ -24035,7 +24113,7 @@ export var ReservedInstancesConfiguration$: StaticStructureSchema = [3, n0, _RIC
   , [_xN]: _iC }], [0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [0, { [_eQN]: `Platform`
   , [_xN]: _pl }], [0, { [_eQN]: `Scope`
-  , [_xN]: _sco }], [0, { [_eQN]: `AvailabilityZoneId`
+  , [_xN]: _scop }], [0, { [_eQN]: `AvailabilityZoneId`
   , [_xN]: _aZI }]]
 ];
 export var ReservedInstancesId$: StaticStructureSchema = [3, n0, _RIIes,
@@ -24091,7 +24169,7 @@ export var ReservedInstancesOffering$: StaticStructureSchema = [3, n0, _RIOe,
   , [_xN]: _oTf }], [() => PricingDetailsList, { [_eQN]: `PricingDetailsSet`
   , [_xN]: _pDS }], [() => RecurringChargesList, { [_eQN]: `RecurringCharges`
   , [_xN]: _rCec }], [0, { [_eQN]: `Scope`
-  , [_xN]: _sco }], [0, { [_eQN]: `AvailabilityZoneId`
+  , [_xN]: _scop }], [0, { [_eQN]: `AvailabilityZoneId`
   , [_xN]: _aZI }], [0, { [_eQN]: `ReservedInstancesOfferingId`
   , [_xN]: _rIOI }], [0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [0, { [_eQN]: `AvailabilityZone`
@@ -24601,6 +24679,35 @@ export var S3Storage$: StaticStructureSchema = [3, n0, _SSto,
   , [_xN]: _pre }], [() => SecureBlob, { [_eQN]: `UploadPolicy`
   , [_xN]: _uPp }], [() => S3StorageUploadPolicySignature, { [_eQN]: `UploadPolicySignature`
   , [_xN]: _uPS }]]
+];
+export var ScanResultCondition$: StaticStructureSchema = [3, n0, _SRC,
+  0,
+  [_MDSLFS, _MSL, _MDSIFA, _MDSLFA, _MDSMFA, _MDSHFA, _MDSCFA],
+  [[1, { [_eQN]: `MaxDaysSinceLastFindingScan`
+  , [_xN]: _mDSLFS }], [0, { [_eQN]: `MaximumSeverityLabel`
+  , [_xN]: _mSL }], [1, { [_eQN]: `MaxDaysSinceInformationalFixAvailable`
+  , [_xN]: _mDSIFA }], [1, { [_eQN]: `MaxDaysSinceLowFixAvailable`
+  , [_xN]: _mDSLFA }], [1, { [_eQN]: `MaxDaysSinceMediumFixAvailable`
+  , [_xN]: _mDSMFA }], [1, { [_eQN]: `MaxDaysSinceHighFixAvailable`
+  , [_xN]: _mDSHFA }], [1, { [_eQN]: `MaxDaysSinceCriticalFixAvailable`
+  , [_xN]: _mDSCFA }]]
+];
+export var ScanResultConditionRequest$: StaticStructureSchema = [3, n0, _SRCR,
+  0,
+  [_MDSLFS, _MSL, _MDSIFA, _MDSLFA, _MDSMFA, _MDSHFA, _MDSCFA],
+  [1, 0, 1, 1, 1, 1, 1]
+];
+export var ScanResults$: StaticStructureSchema = [3, n0, _SRc,
+  0,
+  [_HFSL, _FSD, _IFAS, _LFAS, _MFAS, _HFAS, _CFAS],
+  [[0, { [_eQN]: `HighestFindingSeverityLabel`
+  , [_xN]: _hFSL }], [4, { [_eQN]: `FindingScanDate`
+  , [_xN]: _fSD }], [4, { [_eQN]: `InformationalFixAvailableSince`
+  , [_xN]: _iFAS }], [4, { [_eQN]: `LowFixAvailableSince`
+  , [_xN]: _lFAS }], [4, { [_eQN]: `MediumFixAvailableSince`
+  , [_xN]: _mFAS }], [4, { [_eQN]: `HighFixAvailableSince`
+  , [_xN]: _hFAS }], [4, { [_eQN]: `CriticalFixAvailableSince`
+  , [_xN]: _cFAS }]]
 ];
 export var ScheduledInstance$: StaticStructureSchema = [3, n0, _SIc,
   0,
@@ -25297,7 +25404,7 @@ export var SpotPlacementScore$: StaticStructureSchema = [3, n0, _SPSp,
   [[0, { [_eQN]: `Region`
   , [_xN]: _reg }], [0, { [_eQN]: `AvailabilityZoneId`
   , [_xN]: _aZI }], [1, { [_eQN]: `Score`
-  , [_xN]: _scor }]]
+  , [_xN]: _sco }]]
 ];
 export var SpotPrice$: StaticStructureSchema = [3, n0, _SPp,
   0,
@@ -25369,8 +25476,8 @@ export var StartNetworkInsightsAccessScopeAnalysisResult$: StaticStructureSchema
 ];
 export var StartNetworkInsightsAnalysisRequest$: StaticStructureSchema = [3, n0, _SNIAR,
   0,
-  [_NIPI, _AAdd, _FIAi, _FOA, _DR, _TS, _CT],
-  [0, [() => ValueStringList, { [_xN]: _AAddi }], [() => ArnList, { [_xN]: _FIAil }], [() => ArnList, { [_xN]: _FOAi }], 2, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]], 1
+  [_NIPI, _AAdd, _FIAi, _FOAi, _DR, _TS, _CT],
+  [0, [() => ValueStringList, { [_xN]: _AAddi }], [() => ArnList, { [_xN]: _FIAil }], [() => ArnList, { [_xN]: _FOAil }], 2, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]], 1
 ];
 export var StartNetworkInsightsAnalysisResult$: StaticStructureSchema = [3, n0, _SNIARt,
   0,
@@ -26698,7 +26805,7 @@ export var VerifiedAccessInstanceUserTrustProviderClientConfiguration$: StaticSt
   [_Ty, _Scop, _Is, _AE, _PSKE, _TEo, _UIE, _CIli, _CS, _PEk],
   [[0, { [_eQN]: `Type`
   , [_xN]: _ty }], [0, { [_eQN]: `Scopes`
-  , [_xN]: _scop }], [0, { [_eQN]: `Issuer`
+  , [_xN]: _scope }], [0, { [_eQN]: `Issuer`
   , [_xN]: _is }], [0, { [_eQN]: `AuthorizationEndpoint`
   , [_xN]: _aE }], [0, { [_eQN]: `PublicSigningKeyEndpoint`
   , [_xN]: _pSKE }], [0, { [_eQN]: `TokenEndpoint`
@@ -28090,6 +28197,10 @@ var FpgaImageList: StaticListSchema = [1, n0, _FIL,
   0, [() => FpgaImage$,
     { [_xN]: _it }]
 ];
+var GetImageFindingsEntrySet: StaticListSchema = [1, n0, _GIFES,
+  0, [() => ImageFinding$,
+    { [_xN]: _it }]
+];
 var GpuDeviceInfoList: StaticListSchema = [1, n0, _GDIL,
   0, [() => GpuDeviceInfo$,
     { [_xN]: _it }]
@@ -28192,6 +28303,10 @@ var ImageCriterionRequestList: StaticListSchema = [1, n0, _ICRL,
 ];
 var ImageDiskContainerList: StaticListSchema = [1, n0, _IDCL,
   0, [() => ImageDiskContainer$,
+    { [_xN]: _it }]
+];
+var ImageFindingPathSet: StaticListSchema = [1, n0, _IFPS,
+  0, [0,
     { [_xN]: _it }]
 ];
 var ImageIdList: StaticListSchema = [1, n0, _IIL,
@@ -32106,6 +32221,9 @@ export var GetImageAncestry$: StaticOperationSchema = [9, n0, _GIAe,
 ];
 export var GetImageBlockPublicAccessState$: StaticOperationSchema = [9, n0, _GIBPAS,
   0, () => GetImageBlockPublicAccessStateRequest$, () => GetImageBlockPublicAccessStateResult$
+];
+export var GetImageFindings$: StaticOperationSchema = [9, n0, _GIF,
+  0, () => GetImageFindingsRequest$, () => GetImageFindingsResult$
 ];
 export var GetInstanceMetadataDefaults$: StaticOperationSchema = [9, n0, _GIMD,
   0, () => GetInstanceMetadataDefaultsRequest$, () => GetInstanceMetadataDefaultsResult$

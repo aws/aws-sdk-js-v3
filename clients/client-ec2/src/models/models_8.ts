@@ -24,6 +24,7 @@ import type {
   ResetImageAttributeName,
   RuleAction,
   SecondaryInterfaceType,
+  SeverityLabel,
   ShutdownBehavior,
   SnapshotAttributeName,
   SnapshotState,
@@ -44,6 +45,7 @@ import type {
   PortRange,
   RouteTableAssociationState,
   TagSpecification,
+  TransitGatewayVpcAttachment,
   UnsuccessfulItem,
 } from "./models_0";
 import type {
@@ -69,6 +71,83 @@ import type {
 } from "./models_5";
 import type { CapacityManagerMonitoredTagKey } from "./models_6";
 import type { CapacityReservationSpecification, EnclaveOptionsRequest, InstanceMonitoring } from "./models_7";
+
+/**
+ * @public
+ */
+export interface RejectTransitGatewayVpcAttachmentResult {
+  /**
+   * <p>Information about the attachment.</p>
+   * @public
+   */
+  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectVpcEndpointConnectionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the service.</p>
+   * @public
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * <p>The IDs of the VPC endpoints.</p>
+   * @public
+   */
+  VpcEndpointIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectVpcEndpointConnectionsResult {
+  /**
+   * <p>Information about the endpoints that were not rejected, if applicable.</p>
+   * @public
+   */
+  Unsuccessful?: UnsuccessfulItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectVpcPeeringConnectionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the VPC peering connection.</p>
+   * @public
+   */
+  VpcPeeringConnectionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectVpcPeeringConnectionResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
 
 /**
  * @public
@@ -266,6 +345,120 @@ export interface ImageWatermarkFilterRequest {
 }
 
 /**
+ * <p>The Amazon Inspector scan-result criteria that an AMI must meet to be allowed. The
+ *       criteria can limit the highest finding severity. They can also limit, for each severity, the
+ *       days since Amazon Inspector reported a fix as available.</p>
+ *          <p>The severity limit applies to all findings, whether or not a fix is available. The day
+ *       limits for each severity apply only to findings that have a fix available. A scanned AMI that
+ *       has no fix-available finding of a given severity meets that severity's day limit. AMIs that
+ *       Amazon Inspector has not scanned are not allowed when you specify this condition.</p>
+ * @public
+ */
+export interface ScanResultConditionRequest {
+  /**
+   * <p>The maximum number of days that have elapsed since Amazon Inspector last scanned the AMI.
+   *       For example, a value of <code>7</code> allows AMIs that were scanned within the last 7 days.
+   *       AMIs that Amazon Inspector has not scanned are not allowed.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaxDaysSinceLastFindingScan?: number | undefined;
+
+  /**
+   * <p>The maximum severity that an AMI's Amazon Inspector findings can have for the AMI to be
+   *       allowed. Findings count whether or not a fix is available. For example, a value of
+   *       <code>medium</code> allows AMIs whose highest severity is <code>informational</code>,
+   *       <code>low</code>, or <code>medium</code>.</p>
+   *          <p>The valid values are the following Amazon Inspector severity levels, which correspond to
+   *       CVSS score ranges:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>informational</code> - CVSS score of 0.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>low</code> - CVSS score of 0.1 to 3.9.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>medium</code> - CVSS score of 4.0 to 6.9.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>high</code> - CVSS score of 7.0 to 8.9.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>critical</code> - CVSS score of 9.0 to 10.0.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html#findings-understanding-package-score">Software
+   *         package vulnerability severity</a> in the <i>Amazon Inspector User Guide</i>.</p>
+   *          <p>A scanned AMI that has no findings meets this limit.</p>
+   *          <p>AMIs that Amazon Inspector has not scanned are not allowed when you specify this
+   *       condition.</p>
+   * @public
+   */
+  MaximumSeverityLabel?: SeverityLabel | undefined;
+
+  /**
+   * <p>The maximum number of days since Amazon Inspector reported a fix as available for an
+   *       <code>informational</code> severity finding on the AMI. For example, a value of <code>7</code>
+   *       does not allow an AMI if Amazon Inspector reported such a fix more than 7 days ago.</p>
+   *          <p>A scanned AMI that has no <code>informational</code> severity finding with a fix available meets
+   *       this limit. AMIs that Amazon Inspector has not scanned are not allowed.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaxDaysSinceInformationalFixAvailable?: number | undefined;
+
+  /**
+   * <p>The maximum number of days since Amazon Inspector reported a fix as available for a
+   *       <code>low</code> severity finding on the AMI. For example, a value of <code>7</code> does not
+   *       allow an AMI if Amazon Inspector reported such a fix more than 7 days ago.</p>
+   *          <p>A scanned AMI that has no <code>low</code> severity finding with a fix available meets
+   *       this limit. AMIs that Amazon Inspector has not scanned are not allowed.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaxDaysSinceLowFixAvailable?: number | undefined;
+
+  /**
+   * <p>The maximum number of days since Amazon Inspector reported a fix as available for a
+   *       <code>medium</code> severity finding on the AMI. For example, a value of <code>7</code> does
+   *       not allow an AMI if Amazon Inspector reported such a fix more than 7 days ago.</p>
+   *          <p>A scanned AMI that has no <code>medium</code> severity finding with a fix available meets
+   *       this limit. AMIs that Amazon Inspector has not scanned are not allowed.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaxDaysSinceMediumFixAvailable?: number | undefined;
+
+  /**
+   * <p>The maximum number of days since Amazon Inspector reported a fix as available for a
+   *       <code>high</code> severity finding on the AMI. For example, a value of <code>7</code> does not
+   *       allow an AMI if Amazon Inspector reported such a fix more than 7 days ago.</p>
+   *          <p>A scanned AMI that has no <code>high</code> severity finding with a fix available meets
+   *       this limit. AMIs that Amazon Inspector has not scanned are not allowed.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaxDaysSinceHighFixAvailable?: number | undefined;
+
+  /**
+   * <p>The maximum number of days since Amazon Inspector reported a fix as available for a
+   *       <code>critical</code> severity finding on the AMI. For example, a value of <code>7</code> does
+   *       not allow an AMI if Amazon Inspector reported such a fix more than 7 days ago.</p>
+   *          <p>A scanned AMI that has no <code>critical</code> severity finding with a fix available meets
+   *       this limit. AMIs that Amazon Inspector has not scanned are not allowed.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaxDaysSinceCriticalFixAvailable?: number | undefined;
+}
+
+/**
  * <p>The criteria that are evaluated to determine which AMIs are discoverable and usable in
  *       your account for the specified Amazon Web Services Region.</p>
  *          <p>The <code>ImageCriteria</code> can include up to:</p>
@@ -388,6 +581,15 @@ export interface ImageCriterionRequest {
    * @public
    */
   ImageWatermarks?: ImageWatermarkFilterRequest[] | undefined;
+
+  /**
+   * <p>The Amazon Inspector scan-result criteria that an AMI must meet to be allowed. The
+   *       criteria can limit the highest finding severity, the number of days since Amazon Inspector
+   *       last scanned the AMI, and the number of days since Amazon Inspector reported a fix as
+   *       available.</p>
+   * @public
+   */
+  ScanResultCondition?: ScanResultConditionRequest | undefined;
 }
 
 /**

@@ -156,8 +156,72 @@ import type {
   ProductCode,
   RecurringCharge,
   RegisteredInstance,
-  ReservedInstancesModification,
+  ReservedInstancesId,
+  ReservedInstancesModificationResult,
 } from "./models_4";
+
+/**
+ * <p>Describes a Reserved Instance modification.</p>
+ * @public
+ */
+export interface ReservedInstancesModification {
+  /**
+   * <p>A unique, case-sensitive key supplied by the client to ensure that the request is
+   *       idempotent. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *       Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The time when the modification request was created.</p>
+   * @public
+   */
+  CreateDate?: Date | undefined;
+
+  /**
+   * <p>The time for the modification to become effective.</p>
+   * @public
+   */
+  EffectiveDate?: Date | undefined;
+
+  /**
+   * <p>Contains target configurations along with their corresponding new Reserved Instance
+   *       IDs.</p>
+   * @public
+   */
+  ModificationResults?: ReservedInstancesModificationResult[] | undefined;
+
+  /**
+   * <p>The IDs of one or more Reserved Instances.</p>
+   * @public
+   */
+  ReservedInstancesIds?: ReservedInstancesId[] | undefined;
+
+  /**
+   * <p>A unique ID for the Reserved Instance modification.</p>
+   * @public
+   */
+  ReservedInstancesModificationId?: string | undefined;
+
+  /**
+   * <p>The status of the Reserved Instances modification request.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The reason for the status.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The time when the modification request was last updated.</p>
+   * @public
+   */
+  UpdateDate?: Date | undefined;
+}
 
 /**
  * <p>Contains the output of DescribeReservedInstancesModifications.</p>
@@ -11672,29 +11736,4 @@ export interface DisassociateTransitGatewayMulticastDomainResult {
    * @public
    */
   Associations?: TransitGatewayMulticastDomainAssociations | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTransitGatewayPolicyTableRequest {
-  /**
-   * <p>The ID of the disassociated policy table.</p>
-   * @public
-   */
-  TransitGatewayPolicyTableId: string | undefined;
-
-  /**
-   * <p>The ID of the transit gateway attachment to disassociate from the policy table.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

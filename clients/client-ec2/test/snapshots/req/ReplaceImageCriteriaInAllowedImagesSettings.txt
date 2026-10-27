@@ -2,14 +2,14 @@ POST https://ec2.us-east-1.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 4225
+content-length: 5737
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
 host: ec2.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: f55946a0287212357bb4957d1dd1b7d1d0bdb76877abb53e7a55caf2f926a702
+x-amz-content-sha256: b9704ae0fe17aa482ff97c9f5f0330ee6815138d8c9b7318b6af20738abe40e8
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -38,6 +38,13 @@ ImageCriterion.1.ImageWatermark.3.WatermarkKey=__WatermarkKey__&
 ImageCriterion.1.ImageWatermark.3.SourceImageRegion=__SourceImageRegion__&
 ImageCriterion.1.ImageWatermark.3.MaximumDaysSinceSourceImageCreated=0&
 ImageCriterion.1.ImageWatermark.3.MaximumDaysSinceWatermarkCreated=0&
+ImageCriterion.1.ScanResultCondition.MaxDaysSinceLastFindingScan=0&
+ImageCriterion.1.ScanResultCondition.MaximumSeverityLabel=__MaximumSeverityLabel__&
+ImageCriterion.1.ScanResultCondition.MaxDaysSinceInformationalFixAvailable=0&
+ImageCriterion.1.ScanResultCondition.MaxDaysSinceLowFixAvailable=0&
+ImageCriterion.1.ScanResultCondition.MaxDaysSinceMediumFixAvailable=0&
+ImageCriterion.1.ScanResultCondition.MaxDaysSinceHighFixAvailable=0&
+ImageCriterion.1.ScanResultCondition.MaxDaysSinceCriticalFixAvailable=0&
 ImageCriterion.2.ImageProvider.1=__member__&
 ImageCriterion.2.ImageProvider.2=__member__&
 ImageCriterion.2.ImageProvider.3=__member__&
@@ -61,6 +68,13 @@ ImageCriterion.2.ImageWatermark.3.WatermarkKey=__WatermarkKey__&
 ImageCriterion.2.ImageWatermark.3.SourceImageRegion=__SourceImageRegion__&
 ImageCriterion.2.ImageWatermark.3.MaximumDaysSinceSourceImageCreated=0&
 ImageCriterion.2.ImageWatermark.3.MaximumDaysSinceWatermarkCreated=0&
+ImageCriterion.2.ScanResultCondition.MaxDaysSinceLastFindingScan=0&
+ImageCriterion.2.ScanResultCondition.MaximumSeverityLabel=__MaximumSeverityLabel__&
+ImageCriterion.2.ScanResultCondition.MaxDaysSinceInformationalFixAvailable=0&
+ImageCriterion.2.ScanResultCondition.MaxDaysSinceLowFixAvailable=0&
+ImageCriterion.2.ScanResultCondition.MaxDaysSinceMediumFixAvailable=0&
+ImageCriterion.2.ScanResultCondition.MaxDaysSinceHighFixAvailable=0&
+ImageCriterion.2.ScanResultCondition.MaxDaysSinceCriticalFixAvailable=0&
 ImageCriterion.3.ImageProvider.1=__member__&
 ImageCriterion.3.ImageProvider.2=__member__&
 ImageCriterion.3.ImageProvider.3=__member__&
@@ -84,4 +98,11 @@ ImageCriterion.3.ImageWatermark.3.WatermarkKey=__WatermarkKey__&
 ImageCriterion.3.ImageWatermark.3.SourceImageRegion=__SourceImageRegion__&
 ImageCriterion.3.ImageWatermark.3.MaximumDaysSinceSourceImageCreated=0&
 ImageCriterion.3.ImageWatermark.3.MaximumDaysSinceWatermarkCreated=0&
+ImageCriterion.3.ScanResultCondition.MaxDaysSinceLastFindingScan=0&
+ImageCriterion.3.ScanResultCondition.MaximumSeverityLabel=__MaximumSeverityLabel__&
+ImageCriterion.3.ScanResultCondition.MaxDaysSinceInformationalFixAvailable=0&
+ImageCriterion.3.ScanResultCondition.MaxDaysSinceLowFixAvailable=0&
+ImageCriterion.3.ScanResultCondition.MaxDaysSinceMediumFixAvailable=0&
+ImageCriterion.3.ScanResultCondition.MaxDaysSinceHighFixAvailable=0&
+ImageCriterion.3.ScanResultCondition.MaxDaysSinceCriticalFixAvailable=0&
 DryRun=false

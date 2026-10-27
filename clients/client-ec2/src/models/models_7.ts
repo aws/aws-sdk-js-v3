@@ -218,6 +218,145 @@ import type {
 /**
  * @public
  */
+export interface GetVerifiedAccessGroupPolicyResult {
+  /**
+   * <p>The status of the Verified Access policy.</p>
+   * @public
+   */
+  PolicyEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Verified Access policy document.</p>
+   * @public
+   */
+  PolicyDocument?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpcResourcesBlockingEncryptionEnforcementRequest {
+  /**
+   * <p>The ID of the VPC to check for resources blocking encryption enforcement.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a resource that is not compliant with VPC encryption requirements.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * @public
+ */
+export interface VpcEncryptionNonCompliantResource {
+  /**
+   * <p>The ID of the non-compliant resource.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The type of the non-compliant resource.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>A description of the non-compliant resource.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Indicates whether the resource can be excluded from encryption enforcement.</p>
+   * @public
+   */
+  IsExcludable?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpcResourcesBlockingEncryptionEnforcementResult {
+  /**
+   * <p>Information about resources that are blocking encryption enforcement.</p>
+   * @public
+   */
+  NonCompliantResources?: VpcEncryptionNonCompliantResource[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpnConnectionDeviceSampleConfigurationRequest {
+  /**
+   * <p>The <code>VpnConnectionId</code> specifies the Site-to-Site VPN connection used for the sample
+   *             configuration.</p>
+   * @public
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>Device identifier provided by the <code>GetVpnConnectionDeviceTypes</code> API.</p>
+   * @public
+   */
+  VpnConnectionDeviceTypeId: string | undefined;
+
+  /**
+   * <p>The IKE version to be used in the sample configuration file for your customer gateway
+   *             device. You can specify one of the following versions: <code>ikev1</code> or
+   *                 <code>ikev2</code>.</p>
+   * @public
+   */
+  InternetKeyExchangeVersion?: string | undefined;
+
+  /**
+   * <p>The type of sample configuration to generate. Valid values are "compatibility" (includes IKEv1) or "recommended" (throws UnsupportedOperationException for IKEv1).</p>
+   * @public
+   */
+  SampleType?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetVpnConnectionDeviceSampleConfigurationResult {
   /**
    * <p>Sample configuration file for the specified customer gateway device.</p>
@@ -9845,81 +9984,4 @@ export interface RejectTransitGatewayVpcAttachmentRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectTransitGatewayVpcAttachmentResult {
-  /**
-   * <p>Information about the attachment.</p>
-   * @public
-   */
-  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectVpcEndpointConnectionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the service.</p>
-   * @public
-   */
-  ServiceId: string | undefined;
-
-  /**
-   * <p>The IDs of the VPC endpoints.</p>
-   * @public
-   */
-  VpcEndpointIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectVpcEndpointConnectionsResult {
-  /**
-   * <p>Information about the endpoints that were not rejected, if applicable.</p>
-   * @public
-   */
-  Unsuccessful?: UnsuccessfulItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectVpcPeeringConnectionRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the VPC peering connection.</p>
-   * @public
-   */
-  VpcPeeringConnectionId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectVpcPeeringConnectionResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
 }

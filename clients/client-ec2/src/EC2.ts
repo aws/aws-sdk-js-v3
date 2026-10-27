@@ -2877,6 +2877,11 @@ import {
   GetImageBlockPublicAccessStateCommand,
 } from "./commands/GetImageBlockPublicAccessStateCommand";
 import {
+  type GetImageFindingsCommandInput,
+  type GetImageFindingsCommandOutput,
+  GetImageFindingsCommand,
+} from "./commands/GetImageFindingsCommand";
+import {
   type GetInstanceMetadataDefaultsCommandInput,
   type GetInstanceMetadataDefaultsCommandOutput,
   GetInstanceMetadataDefaultsCommand,
@@ -4238,6 +4243,7 @@ import { paginateGetCapacityManagerMetricData } from "./pagination/GetCapacityMa
 import { paginateGetCapacityManagerMetricDimensions } from "./pagination/GetCapacityManagerMetricDimensionsPaginator";
 import { paginateGetCapacityManagerMonitoredTagKeys } from "./pagination/GetCapacityManagerMonitoredTagKeysPaginator";
 import { paginateGetGroupsForCapacityReservation } from "./pagination/GetGroupsForCapacityReservationPaginator";
+import { paginateGetImageFindings } from "./pagination/GetImageFindingsPaginator";
 import {
   paginateGetInstanceTypesFromInstanceRequirements,
 } from "./pagination/GetInstanceTypesFromInstanceRequirementsPaginator";
@@ -4907,6 +4913,7 @@ const commands = {
   GetHostReservationPurchasePreviewCommand,
   GetImageAncestryCommand,
   GetImageBlockPublicAccessStateCommand,
+  GetImageFindingsCommand,
   GetInstanceMetadataDefaultsCommand,
   GetInstanceTpmEkPubCommand,
   GetInstanceTypesFromInstanceRequirementsCommand,
@@ -5285,6 +5292,7 @@ const paginators = {
   paginateGetCapacityManagerMetricDimensions,
   paginateGetCapacityManagerMonitoredTagKeys,
   paginateGetGroupsForCapacityReservation,
+  paginateGetImageFindings,
   paginateGetInstanceTypesFromInstanceRequirements,
   paginateGetIpamAddressHistory,
   paginateGetIpamDiscoveredAccounts,
@@ -15382,6 +15390,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link GetImageFindingsCommand}
+   */
+  getImageFindings(
+    args: GetImageFindingsCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<GetImageFindingsCommandOutput>;
+  getImageFindings(
+    args: GetImageFindingsCommandInput,
+    cb: (err: any, data?: GetImageFindingsCommandOutput) => void
+  ): void;
+  getImageFindings(
+    args: GetImageFindingsCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: GetImageFindingsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetInstanceMetadataDefaultsCommand}
    */
   getInstanceMetadataDefaults(): Promise<GetInstanceMetadataDefaultsCommandOutput>;
@@ -20936,6 +20961,17 @@ export interface EC2 {
     args: GetGroupsForCapacityReservationCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<GetGroupsForCapacityReservationCommandOutput>;
+
+  /**
+   * @see {@link GetImageFindingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetImageFindingsCommandOutput}.
+   */
+  paginateGetImageFindings(
+    args: GetImageFindingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetImageFindingsCommandOutput>;
 
   /**
    * @see {@link GetInstanceTypesFromInstanceRequirementsCommand}
