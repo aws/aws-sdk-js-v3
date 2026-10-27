@@ -25,7 +25,7 @@ export class S3ExpressIdentityProviderImpl implements S3ExpressIdentityProvider 
   public static REFRESH_WINDOW_MS = 60_000;
 
   public constructor(
-    private createSessionFn: (key: string) => Promise<{ Credentials: Credentials }>,
+    private createSessionFn: (bucket: string) => Promise<{ Credentials: Credentials }>,
     private cache: S3ExpressIdentityCache = new S3ExpressIdentityCache()
   ) {}
 
@@ -33,15 +33,16 @@ export class S3ExpressIdentityProviderImpl implements S3ExpressIdentityProvider 
     awsIdentity: AwsCredentialIdentity,
     identityProperties: { Bucket: string } & Record<string, string>
   ): Promise<S3ExpressIdentity> {
-    const key = identityProperties.Bucket;
+    const bucket = identityProperties.Bucket;
+    const cacheKey = JSON.stringify([awsIdentity.accessKeyId, bucket]);
     const { cache } = this;
 
-    const entry = cache.get(key);
+    const entry = cache.get(cacheKey);
     if (entry) {
       return entry.identity.then((identity) => {
         const isExpired = (identity.expiration?.getTime() ?? 0) < Date.now();
         if (isExpired) {
-          return cache.set(key, new S3ExpressIdentityCacheEntry(this.getIdentity(key))).identity;
+          return cache.set(cacheKey, new S3ExpressIdentityCacheEntry(this.getIdentity(bucket))).identity;
         }
 
         const isExpiringSoon =
@@ -51,8 +52,8 @@ export class S3ExpressIdentityProviderImpl implements S3ExpressIdentityProvider 
           entry.isRefreshing = true;
 
           // Promise not awaited. The cache entry is not replaced until the credential is received.
-          this.getIdentity(key).then((id) => {
-            cache.set(key, new S3ExpressIdentityCacheEntry(Promise.resolve(id)));
+          this.getIdentity(bucket).then((id) => {
+            cache.set(cacheKey, new S3ExpressIdentityCacheEntry(Promise.resolve(id)));
           });
         }
 
@@ -60,14 +61,14 @@ export class S3ExpressIdentityProviderImpl implements S3ExpressIdentityProvider 
       });
     }
 
-    return cache.set(key, new S3ExpressIdentityCacheEntry(this.getIdentity(key))).identity;
+    return cache.set(cacheKey, new S3ExpressIdentityCacheEntry(this.getIdentity(bucket))).identity;
   }
 
-  private async getIdentity(key: string): Promise<S3ExpressIdentity> {
+  private async getIdentity(bucket: string): Promise<S3ExpressIdentity> {
     await this.cache.purgeExpired().catch((error) => {
       console.warn("Error while clearing expired entries in S3ExpressIdentityCache: \n" + error);
     });
-    const session = await this.createSessionFn(key);
+    const session = await this.createSessionFn(bucket);
     if (!session.Credentials?.AccessKeyId || !session.Credentials?.SecretAccessKey) {
       throw new Error("s3#createSession response credential missing AccessKeyId or SecretAccessKey.");
     }
