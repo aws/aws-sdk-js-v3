@@ -8,6 +8,7 @@ import { CloudFormation } from "@aws-sdk/client-cloudformation";
 import { BillingMode, DynamoDB } from "@aws-sdk/client-dynamodb";
 import type { Runtime } from "@aws-sdk/client-lambda";
 import { Lambda } from "@aws-sdk/client-lambda";
+import { ResourceGroupsTaggingAPI } from "@aws-sdk/client-resource-groups-tagging-api";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 /**
@@ -16,19 +17,23 @@ import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
  * trip, the root @smithy symlink surviving unzip, and resolution from a function
  * directory. A layer resolves from /opt/nodejs/node_modules rather than the runtime's
  * own path, so the prefix differs from production but the tree does not.
- *
- * expected running time: payload build (~5m, skipped with a prebuilt one) + AWS ~45s
  */
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = join(__dirname, "..", "..");
 
-/** Test using nodejs26. */
+/** Test using nodejs26 */
 const runtime = (process.env.LAMBDA_NODEJS_RUNTIMES_RUNTIME ?? "nodejs26.x") as Runtime;
 
 const region = process.env.AWS_SMOKE_TEST_REGION ?? "us-west-2";
 const prebuiltPayload = process.env.LAMBDA_NODEJS_RUNTIMES_PAYLOAD;
 const INTEG_TEST_STACK = "SdkReleaseV3IntegTestResourcesStack";
+
+/** Shared resources for easy cleanup */
+const TEST_TAG = { key: "aws-sdk-js-v3-test", value: "lambda-nodejs-runtimes-layer-e2e" };
+const CREATED_AT_TAG_KEY = "aws-sdk-js-v3-created-at";
+const RESOURCE_PREFIX = "js-sdk-lambda-layer-test-";
+const STALE_AFTER_MS = 72 * 60 * 60 * 1000;
 
 describe(
   "AWS SDK for JavaScript v3 provided by Lambda Node.js runtimes",
@@ -39,9 +44,8 @@ describe(
     const dynamodb = new DynamoDB({ region, maxAttempts: 10, credentials: aws?.testCredentials });
     const lambda = new Lambda({ region, maxAttempts: 10, credentials: aws?.testCredentials });
     const cloudformation = new CloudFormation({ region, maxAttempts: 10, credentials: aws?.testCredentials });
+    const tagging = new ResourceGroupsTaggingAPI({ region, maxAttempts: 10, credentials: aws?.testCredentials });
 
-    // Shared by all three resources, so an interrupted run leaves one name to clean up.
-    // 61 chars: a Lambda function name may not exceed 64.
     const randId = crypto.randomUUID();
     const resourceName = `js-sdk-lambda-layer-test-${randId}`;
     const TableName = resourceName;
@@ -49,6 +53,7 @@ describe(
     const LayerName = resourceName;
 
     const start = Date.now();
+    const createdAt = new Date(start).toISOString();
     const mark = () => `LAMBDA-LAYER-E2E: ` + ((Date.now() - start) / 1000).toFixed(3) + "s elapsed.";
 
     let workDir: string;
@@ -69,7 +74,7 @@ describe(
         role?.PhysicalResourceId,
         `no IntegTestLambdaExecutionRole in ${INTEG_TEST_STACK}; deploy tests/e2e/IntegTestResourcesStack.template.json`
       ).toBeDefined();
-      // StackId is an ARN, so the account comes from it rather than an STS call.
+      // Account comes StackId rather than an STS call.
       const account = role!.StackId?.split(":")[4];
       return `arn:aws:iam::${account}:role/${role!.PhysicalResourceId}`;
     };
@@ -141,6 +146,10 @@ describe(
         AttributeDefinitions: [{ AttributeName: "id", AttributeType: "S" }],
         KeySchema: [{ AttributeName: "id", KeyType: "HASH" }],
         BillingMode: BillingMode.PAY_PER_REQUEST,
+        Tags: [
+          { Key: TEST_TAG.key, Value: TEST_TAG.value },
+          { Key: CREATED_AT_TAG_KEY, Value: createdAt },
+        ],
       });
       await dynamodb.waitUntilTableExists({ TableName }, { maxWaitTime: 120 });
       console.log(mark(), `Table ${TableName} is ready`);
@@ -155,6 +164,7 @@ describe(
         Layers: [layerVersionArn!],
         Timeout: 60,
         MemorySize: 1024,
+        Tags: { [TEST_TAG.key]: TEST_TAG.value, [CREATED_AT_TAG_KEY]: createdAt },
       });
       await lambda.waitUntilFunctionActiveV2({ FunctionName }, { maxWaitTime: 300 });
       console.log(mark(), `Function ${FunctionName} is active`);
@@ -174,6 +184,61 @@ describe(
       console.log(mark(), `Invoked: status ${log.invoke.statusCode}, error ${log.invoke.functionError ?? "none"}`);
     }, 900_000);
 
+    /**
+     * Delete leftover resources after 72hrs
+     */
+    const deleteStaleResources = async () => {
+      const cutoff = Date.now() - STALE_AFTER_MS;
+      const stale = (iso?: string) => !!iso && Date.parse(iso) < cutoff;
+      const nameOf = (arn: string) => arn.split(/[:/]/).pop() ?? "";
+      let deleted = 0;
+
+      let token: string | undefined;
+      do {
+        const page = await tagging.getResources({
+          TagFilters: [{ Key: TEST_TAG.key, Values: [TEST_TAG.value] }],
+          ResourcesPerPage: 100,
+          PaginationToken: token,
+        });
+        for (const resource of page.ResourceTagMappingList ?? []) {
+          const arn = resource.ResourceARN ?? "";
+          const name = nameOf(arn);
+          const createdTag = resource.Tags?.find((t) => t.Key === CREATED_AT_TAG_KEY)?.Value;
+          if (!name.startsWith(RESOURCE_PREFIX) || !stale(createdTag)) {
+            continue;
+          }
+          if (arn.includes(":lambda:")) {
+            await lambda.deleteFunction({ FunctionName: arn }).catch(() => {});
+          } else if (arn.includes(":dynamodb:")) {
+            await dynamodb.deleteTable({ TableName: name }).catch(() => {});
+          } else {
+            continue;
+          }
+          deleted += 1;
+        }
+        token = page.PaginationToken || undefined;
+      } while (token);
+
+      // Layer versions go by name prefix and CreatedDate.
+      for (const layer of (await lambda.listLayers({})).Layers ?? []) {
+        if (!layer.LayerName?.startsWith(RESOURCE_PREFIX)) {
+          continue;
+        }
+        const versions = (await lambda.listLayerVersions({ LayerName: layer.LayerName })).LayerVersions ?? [];
+        for (const version of versions) {
+          if (!stale(version.CreatedDate) || version.Version === undefined) {
+            continue;
+          }
+          await lambda
+            .deleteLayerVersion({ LayerName: layer.LayerName, VersionNumber: version.Version })
+            .catch(() => {});
+          deleted += 1;
+        }
+      }
+
+      return deleted;
+    };
+
     afterAll(async () => {
       await lambda.deleteFunction({ FunctionName }).catch(() => {});
       if (layerVersionArn) {
@@ -183,6 +248,15 @@ describe(
       await dynamodb.deleteTable({ TableName }).catch(() => {});
       if (workDir) {
         rmSync(workDir, { recursive: true, force: true });
+      }
+
+      try {
+        const swept = await deleteStaleResources();
+        if (swept) {
+          console.log(mark(), `Swept ${swept} leaked resource(s) older than 72h`);
+        }
+      } catch (error) {
+        console.log(mark(), `Stale-resource sweep skipped: ${(error as Error).message}`);
       }
     }, 300_000);
 
@@ -231,7 +305,7 @@ describe(
     });
 
     it("stays within the direct layer upload limit", () => {
-      // PublishLayerVersion with ZipFile caps the request at 50 MB; past that it needs S3.
+      // PublishLayerVersion with ZipFile caps the request at 50 MB
       expect(log.layerSizeBytes).toBeLessThan(50 * 1024 * 1024);
     });
   }
