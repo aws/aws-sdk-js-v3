@@ -204,8 +204,14 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * //           ],
  * //           resourceRequirements: [ // ResourceRequirements
  * //             { // ResourceRequirement
- * //               value: "STRING_VALUE", // required
+ * //               value: "STRING_VALUE",
  * //               type: "GPU" || "InferenceAccelerator" || "NeuronDevice", // required
+ * //               sharingStrategy: { // SharingStrategy Union: only one key present
+ * //                 nvidiaMps: { // NvidiaMpsAllocation
+ * //                   memory: Number("int"), // required
+ * //                   maxComputePercent: Number("int"),
+ * //                 },
+ * //               },
  * //             },
  * //           ],
  * //           firelensConfiguration: { // FirelensConfiguration

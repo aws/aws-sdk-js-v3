@@ -73,8 +73,14 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *         memoryReservation: Number("int"),
  *         resourceRequirements: [ // ResourceRequirements
  *           { // ResourceRequirement
- *             value: "STRING_VALUE", // required
+ *             value: "STRING_VALUE",
  *             type: "GPU" || "InferenceAccelerator" || "NeuronDevice", // required
+ *             sharingStrategy: { // SharingStrategy Union: only one key present
+ *               nvidiaMps: { // NvidiaMpsAllocation
+ *                 memory: Number("int"), // required
+ *                 maxComputePercent: Number("int"),
+ *               },
+ *             },
  *           },
  *         ],
  *       },
@@ -214,6 +220,12 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * //           neuronDeviceIds: [ // NeuronDeviceIds
  * //             "STRING_VALUE",
  * //           ],
+ * //           gpuSharingStrategy: { // SharingStrategy Union: only one key present
+ * //             nvidiaMps: { // NvidiaMpsAllocation
+ * //               memory: Number("int"), // required
+ * //               maxComputePercent: Number("int"),
+ * //             },
+ * //           },
  * //         },
  * //       ],
  * //       cpu: "STRING_VALUE",
@@ -256,8 +268,14 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * //             memoryReservation: Number("int"),
  * //             resourceRequirements: [ // ResourceRequirements
  * //               { // ResourceRequirement
- * //                 value: "STRING_VALUE", // required
+ * //                 value: "STRING_VALUE",
  * //                 type: "GPU" || "InferenceAccelerator" || "NeuronDevice", // required
+ * //                 sharingStrategy: {//  Union: only one key present
+ * //                   nvidiaMps: {
+ * //                     memory: Number("int"), // required
+ * //                     maxComputePercent: Number("int"),
+ * //                   },
+ * //                 },
  * //               },
  * //             ],
  * //           },

@@ -125,6 +125,15 @@ export interface DescribeContainerInstancesCommandOutput extends DescribeContain
  * //           },
  * //         ],
  * //       },
+ * //       gpuDevices: [ // GpuDevices
+ * //         { // GpuDevice
+ * //           gpuId: "STRING_VALUE",
+ * //           sharingMode: "IDLE" || "NVIDIA_MPS" || "DEDICATED",
+ * //           totalMemoryInMiB: Number("int"),
+ * //           remainingMemoryInMiB: Number("int"),
+ * //           containerCount: Number("int"),
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   failures: [ // Failures

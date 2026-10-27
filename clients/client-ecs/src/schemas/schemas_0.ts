@@ -286,6 +286,8 @@ const _GCLa = "GatewayConnectorList";
 const _GCR = "GatewayConnectionResources";
 const _GCa = "GatewayConnector";
 const _GCat = "GatewayConfiguration";
+const _GD = "GpuDevice";
+const _GDp = "GpuDevices";
 const _GEALC = "GatewayElbAccessLogConfiguration";
 const _GEALD = "GatewayElbAccessLogDestination";
 const _GEALSD = "GatewayElbAccessLogS3Destination";
@@ -435,6 +437,7 @@ const _NC = "NetworkConfiguration";
 const _NI = "NetworkInterface";
 const _NICR = "NetworkInterfaceCountRequest";
 const _NIe = "NetworkInterfaces";
+const _NMA = "NvidiaMpsAllocation";
 const _NNFE = "NamespaceNotFoundException";
 const _NUAE = "NoUpdateAvailableException";
 const _PA = "PutAttributes";
@@ -543,6 +546,7 @@ const _SS = "SensitiveString";
 const _SSD = "StopServiceDeployment";
 const _SSDR = "StopServiceDeploymentRequest";
 const _SSDRt = "StopServiceDeploymentResponse";
+const _SSh = "SharingStrategy";
 const _ST = "StartTask";
 const _STR = "StartTaskRequest";
 const _STRt = "StartTaskResponse";
@@ -719,7 +723,8 @@ const _cB = "circuitBreaker";
 const _cBTIM = "canaryBakeTimeInMinutes";
 const _cBr = "createdBy";
 const _cC = "canaryConfiguration";
-const _cCo = "containerConfigurations";
+const _cCo = "containerCount";
+const _cCon = "containerConfigurations";
 const _cD = "containerDefinitions";
 const _cDC = "computedDesiredCount";
 const _cDu = "currentDeployment";
@@ -877,13 +882,16 @@ const _gC = "gatewayConnectors";
 const _gCA = "gatewayClusterAssociations";
 const _gCa = "gatewayConnections";
 const _gCr = "grpcCode";
+const _gD = "gpuDevices";
 const _gDE = "guardDutyEnabled";
 const _gI = "gpuIds";
+const _gIp = "gpuId";
 const _gR = "gatewayResources";
 const _gRA = "gatewayRouteArn";
 const _gRAa = "gatewayRouteArns";
 const _gRa = "gatewayRoute";
 const _gRat = "gatewayRoutes";
+const _gSS = "gpuSharingStrategy";
 const _ga = "gateways";
 const _gr = "group";
 const _h = "hostname";
@@ -986,6 +994,7 @@ const _mAC = "maxAlbCount";
 const _mAN = "managedAgentName";
 const _mAe = "metricAlarms";
 const _mC = "minCapacity";
+const _mCP = "maxComputePercent";
 const _mCa = "maxCapacity";
 const _mCe = "metricConfigurations";
 const _mD = "managedDraining";
@@ -1023,6 +1032,7 @@ const _nDI = "neuronDeviceIds";
 const _nI = "networkInterfaces";
 const _nIC = "networkInterfaceCount";
 const _nM = "networkMode";
+const _nMv = "nvidiaMps";
 const _nT = "nextToken";
 const _na = "namespace";
 const _nam = "names";
@@ -1085,6 +1095,7 @@ const _rI = "resourceIds";
 const _rIC = "runningInstanceCount";
 const _rIe = "referenceId";
 const _rIu = "runtimeId";
+const _rMIMB = "remainingMemoryInMiB";
 const _rMT = "resourceManagementType";
 const _rO = "readOnly";
 const _rOHT = "resetOnHealthyTask";
@@ -1145,6 +1156,7 @@ const _sIe = "sessionId";
 const _sIn = "snapshotId";
 const _sKP = "s3KeyPrefix";
 const _sL = "softLimit";
+const _sM = "sharingMode";
 const _sMPPOLP = "spotMaxPricePercentageOverLowestPrice";
 const _sMS = "sharedMemorySize";
 const _sN = "serviceName";
@@ -1166,6 +1178,7 @@ const _sSGB = "storageSizeGiB";
 const _sSR = "sourceServiceRevisions";
 const _sSRC = "sourceServiceRevisionCleanup";
 const _sSV = "stringSetValue";
+const _sSh = "sharingStrategy";
 const _sSt = "stabilityStatus";
 const _sT = "startTimeout";
 const _sTc = "scalingTarget";
@@ -1223,6 +1236,7 @@ const _tLR = "testListenerRule";
 const _tLRA = "testListenerRuleArn";
 const _tLRAe = "testListenerRuleArns";
 const _tLSGB = "totalLocalStorageGB";
+const _tMIMB = "totalMemoryInMiB";
 const _tP = "terminationPolicy";
 const _tR = "totalResources";
 const _tRA = "taskRoleArn";
@@ -1637,8 +1651,8 @@ export var ClusterSetting$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var Container$: StaticStructureSchema = [3, n0, _Co,
   0,
-  [_cAo, _tA, _n, _im, _iD, _rIu, _lS, _eC, _r, _nB, _nI, _hS, _mA, _cp, _me, _mR, _gI, _nDI],
-  [0, 0, 0, 0, 0, 0, 0, 1, 0, () => NetworkBindings, () => NetworkInterfaces, 0, () => ManagedAgents, 0, 0, 0, 64 | 0, 64 | 0]
+  [_cAo, _tA, _n, _im, _iD, _rIu, _lS, _eC, _r, _nB, _nI, _hS, _mA, _cp, _me, _mR, _gI, _nDI, _gSS],
+  [0, 0, 0, 0, 0, 0, 0, 1, 0, () => NetworkBindings, () => NetworkInterfaces, 0, () => ManagedAgents, 0, 0, 0, 64 | 0, 64 | 0, () => SharingStrategy$]
 ];
 export var ContainerDefinition$: StaticStructureSchema = [3, n0, _CD,
   0,
@@ -1657,8 +1671,8 @@ export var ContainerImage$: StaticStructureSchema = [3, n0, _CI,
 ];
 export var ContainerInstance$: StaticStructureSchema = [3, n0, _CIo,
   0,
-  [_cIA, _eII, _cPN, _ve, _vI, _rRe, _rReg, _st, _sR, _aC, _rTC, _pTC, _aUS, _at, _rAe, _a, _ta, _hS],
-  [0, 0, 0, 1, () => VersionInfo$, () => Resources, () => Resources, 0, 0, 2, 1, 1, 0, () => Attributes, 4, () => Attachments, () => Tags, () => ContainerInstanceHealthStatus$]
+  [_cIA, _eII, _cPN, _ve, _vI, _rRe, _rReg, _st, _sR, _aC, _rTC, _pTC, _aUS, _at, _rAe, _a, _ta, _hS, _gD],
+  [0, 0, 0, 1, () => VersionInfo$, () => Resources, () => Resources, 0, 0, 2, 1, 1, 0, () => Attributes, 4, () => Attachments, () => Tags, () => ContainerInstanceHealthStatus$, () => GpuDevices]
 ];
 export var ContainerInstanceHealthStatus$: StaticStructureSchema = [3, n0, _CIHS,
   0,
@@ -2485,6 +2499,11 @@ export var GetTaskProtectionResponse$: StaticStructureSchema = [3, n0, _GTPRe,
   [_pTro, _fa],
   [() => ProtectedTasks, () => Failures]
 ];
+export var GpuDevice$: StaticStructureSchema = [3, n0, _GD,
+  0,
+  [_gIp, _sM, _tMIMB, _rMIMB, _cCo],
+  [0, 0, 1, 1, 1]
+];
 export var HealthCheck$: StaticStructureSchema = [3, n0, _HC,
   0,
   [_com, _int, _ti, _ret, _sP],
@@ -2895,6 +2914,11 @@ export var NetworkInterfaceCountRequest$: StaticStructureSchema = [3, n0, _NICR,
   [_mi, _ma],
   [1, 1]
 ];
+export var NvidiaMpsAllocation$: StaticStructureSchema = [3, n0, _NMA,
+  0,
+  [_me, _mCP],
+  [1, 1], 1
+];
 export var PlacementConstraint$: StaticStructureSchema = [3, n0, _PC,
   0,
   [_t, _ex],
@@ -3012,8 +3036,8 @@ export var Resource$: StaticStructureSchema = [3, n0, _R,
 ];
 export var ResourceRequirement$: StaticStructureSchema = [3, n0, _RR,
   0,
-  [_v, _t],
-  [0, 0], 2
+  [_t, _v, _sSh],
+  [0, 0, () => SharingStrategy$], 1
 ];
 export var Rollback$: StaticStructureSchema = [3, n0, _Ro,
   0,
@@ -3072,7 +3096,7 @@ export var ServiceConnectClientAlias$: StaticStructureSchema = [3, n0, _SCCA,
 ];
 export var ServiceConnectConfiguration$: StaticStructureSchema = [3, n0, _SCC,
   0,
-  [_ena, _na, _serv, _lC, _aLCc, _cCo],
+  [_ena, _na, _serv, _lC, _aLCc, _cCon],
   [2, 0, () => ServiceConnectServiceList, () => LogConfiguration$, () => ServiceConnectAccessLogConfiguration$, () => ServiceConnectContainerConfigurations], 1
 ];
 export var ServiceConnectService$: StaticStructureSchema = [3, n0, _SCS,
@@ -3702,6 +3726,9 @@ var GatewayStatusList = 64 | 0;
 var GatewaySummaryList: StaticListSchema = [1, n0, _GSL,
   0, () => GatewaySummary$
 ];
+var GpuDevices: StaticListSchema = [1, n0, _GDp,
+  0, () => GpuDevice$
+];
 var GpuIds = 64 | 0;
 var HostEntryList: StaticListSchema = [1, n0, _HEL,
   0, () => HostEntry$
@@ -3933,6 +3960,11 @@ export var ServiceConnectContainerConfiguration$: StaticUnionSchema = [4, n0, _S
   0,
   [_lL],
   [0]
+];
+export var SharingStrategy$: StaticUnionSchema = [4, n0, _SSh,
+  0,
+  [_nMv],
+  [() => NvidiaMpsAllocation$]
 ];
 export var UpdateGatewayConfiguration$: StaticUnionSchema = [4, n0, _UGC,
   0,

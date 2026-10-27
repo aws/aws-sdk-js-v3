@@ -64,13 +64,66 @@ import type {
   ServiceConnectAccessLogConfiguration,
   ServiceConnectClientAlias,
   ServiceConnectContainerConfiguration,
-  ServiceConnectTlsConfiguration,
+  SharingStrategy,
   Tag,
   TaskDefinition,
   TaskDefinitionPlacementConstraint,
-  TimeoutConfiguration,
   Volume,
 } from "./models_0";
+
+/**
+ * <p>An object that represents the timeout configurations for Service Connect.</p> <note> <p>If <code>idleTimeout</code> is set to a time that is less than <code>perRequestTimeout</code>, the connection will close when the <code>idleTimeout</code> is reached and not the <code>perRequestTimeout</code>.</p> </note>
+ * @public
+ */
+export interface TimeoutConfiguration {
+  /**
+   * <p>The amount of time in seconds a connection will stay active while idle. A value of <code>0</code> can be set to disable <code>idleTimeout</code>.</p> <p>The <code>idleTimeout</code> default for <code>HTTP</code>/<code>HTTP2</code>/<code>GRPC</code> is 5 minutes.</p> <p>The <code>idleTimeout</code> default for <code>TCP</code> is 1 hour.</p>
+   * @public
+   */
+  idleTimeoutSeconds?: number | undefined;
+
+  /**
+   * <p>The amount of time waiting for the upstream to respond with a complete response per request. A value of <code>0</code> can be set to disable <code>perRequestTimeout</code>. <code>perRequestTimeout</code> can only be set if Service Connect <code>appProtocol</code> isn't <code>TCP</code>. Only <code>idleTimeout</code> is allowed for <code>TCP</code> <code>appProtocol</code>.</p>
+   * @public
+   */
+  perRequestTimeoutSeconds?: number | undefined;
+}
+
+/**
+ * <p>The certificate root authority that secures your service.</p>
+ * @public
+ */
+export interface ServiceConnectTlsCertificateAuthority {
+  /**
+   * <p>The ARN of the Amazon Web Services Private Certificate Authority certificate.</p>
+   * @public
+   */
+  awsPcaAuthorityArn?: string | undefined;
+}
+
+/**
+ * <p>The key that encrypts and decrypts your resources for Service Connect TLS.</p>
+ * @public
+ */
+export interface ServiceConnectTlsConfiguration {
+  /**
+   * <p>The signer certificate authority.</p>
+   * @public
+   */
+  issuerCertificateAuthority: ServiceConnectTlsCertificateAuthority | undefined;
+
+  /**
+   * <p>The Amazon Web Services Key Management Service key.</p>
+   * @public
+   */
+  kmsKey?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that's associated with the Service Connect TLS.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+}
 
 /**
  * <p>The Service Connect service object configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -3141,6 +3194,12 @@ export interface Container {
    * @public
    */
   neuronDeviceIds?: string[] | undefined;
+
+  /**
+   * <p>The GPU sharing strategy that the task definition specifies for the container. This field is present only for containers whose resource requirements include <code>sharingStrategy</code>.</p>
+   * @public
+   */
+  gpuSharingStrategy?: SharingStrategy | undefined;
 }
 
 /**

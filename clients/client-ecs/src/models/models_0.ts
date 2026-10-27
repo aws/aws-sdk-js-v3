@@ -59,6 +59,7 @@ import type {
   GatewayElbScheme,
   GatewayRouteStatus,
   GatewayStatus,
+  GpuSharingMode,
   InstanceGeneration,
   InstanceHealthCheckState,
   InstanceHealthCheckType,
@@ -1579,6 +1580,42 @@ export interface Attribute {
 }
 
 /**
+ * <p>The state of a GPU on a container instance, including its sharing mode and the memory that's available for new containers.</p>
+ * @public
+ */
+export interface GpuDevice {
+  /**
+   * <p>The ID of the GPU. This ID matches the GPU IDs in the <code>gpuIds</code> of the containers that Amazon ECS assigned to the GPU.</p>
+   * @public
+   */
+  gpuId?: string | undefined;
+
+  /**
+   * <p>How the GPU is shared between containers.</p> <p>Valid values:</p> <ul> <li> <p> <code>IDLE</code> - No containers are assigned to the GPU, and all of its memory is available.</p> </li> <li> <p> <code>NVIDIA_MPS</code> - One or more containers share the GPU by using NVIDIA Multi-Process Service (MPS).</p> </li> <li> <p> <code>DEDICATED</code> - One container has exclusive use of the GPU.</p> </li> </ul>
+   * @public
+   */
+  sharingMode?: GpuSharingMode | undefined;
+
+  /**
+   * <p>The total amount of GPU memory, in MiB, that the Amazon ECS container agent reported for the GPU. This is the memory that's available to containers, and it can be less than the nominal memory of the GPU.</p>
+   * @public
+   */
+  totalMemoryInMiB?: number | undefined;
+
+  /**
+   * <p>The amount of GPU memory, in MiB, that's available to allocate to new containers that use the <code>nvidiaMps</code> sharing strategy. Amazon ECS calculates this value from the memory that it allocated to containers on the GPU, not from the memory that the containers use.</p>
+   * @public
+   */
+  remainingMemoryInMiB?: number | undefined;
+
+  /**
+   * <p>The number of containers that Amazon ECS assigned to the GPU. This value is <code>0</code> when the sharing mode is <code>IDLE</code> and <code>1</code> when the sharing mode is <code>DEDICATED</code>. Amazon ECS counts the containers that it assigned to the GPU, not the processes that are running on it.</p>
+   * @public
+   */
+  containerCount?: number | undefined;
+}
+
+/**
  * <p>An object representing the result of a container instance health status check.</p>
  * @public
  */
@@ -1810,6 +1847,12 @@ export interface ContainerInstance {
    * @public
    */
   healthStatus?: ContainerInstanceHealthStatus | undefined;
+
+  /**
+   * <p>The state of each GPU on the container instance, including its sharing mode and available memory. This field is present only for container instances that support GPU sharing.</p>
+   * @public
+   */
+  gpuDevices?: GpuDevice[] | undefined;
 }
 
 /**
@@ -4930,21 +4973,84 @@ export interface PortMapping {
 }
 
 /**
+ * <p>The GPU memory and compute limits for a container that shares a GPU by using NVIDIA Multi-Process Service (MPS). Amazon ECS assigns the container a single GPU that has enough memory available. Other containers that use MPS can share the same GPU.</p>
+ * @public
+ */
+export interface NvidiaMpsAllocation {
+  /**
+   * <p>The amount of GPU memory, in MiB, to allocate to the container. Amazon ECS assigns the container a GPU that has at least the specified amount of memory available, and sets the <code>CUDA_MPS_PINNED_DEVICE_MEM_LIMIT</code> environment variable in the container to limit its memory to this amount. The memory must be available on a single GPU. If more than one container in a task uses <code>nvidiaMps</code>, Amazon ECS assigns them the same GPU, which must have enough memory available for all of them.</p>
+   * @public
+   */
+  memory: number | undefined;
+
+  /**
+   * <p>The maximum percentage of the GPU's compute capacity that the container can use. Amazon ECS sets the <code>CUDA_MPS_ACTIVE_THREAD_PERCENTAGE</code> environment variable in the container to this value. This value is a limit, not a reservation.</p> <p>If you don't specify this parameter, Amazon ECS doesn't set <code>CUDA_MPS_ACTIVE_THREAD_PERCENTAGE</code>, and the active thread percentage of the MPS server on the container instance applies. By default, this is 100 percent.</p>
+   * @public
+   */
+  maxComputePercent?: number | undefined;
+}
+
+/**
+ * <p>The strategy that a container uses to share a GPU with other containers. Specify exactly one member.</p>
+ * @public
+ */
+export type SharingStrategy =
+  | SharingStrategy.NvidiaMpsMember
+  | SharingStrategy.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SharingStrategy {
+  /**
+   * <p>Shares a GPU between containers by using NVIDIA Multi-Process Service (MPS). You specify the GPU memory to allocate to the container and, optionally, the maximum percentage of the GPU's compute capacity that the container can use.</p>
+   * @public
+   */
+  export interface NvidiaMpsMember {
+    nvidiaMps: NvidiaMpsAllocation;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    nvidiaMps?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    nvidiaMps: (value: NvidiaMpsAllocation) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>The type and amount of a resource to assign to a container. The supported resource types are GPUs, Neuron devices, and Elastic Inference accelerators. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html">Working with GPUs on Amazon ECS</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with Amazon Elastic Inference on Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i> </p>
  * @public
  */
 export interface ResourceRequirement {
   /**
-   * <p>The value for the specified resource type.</p> <p>When the type is <code>GPU</code>, the value is the number of physical <code>GPUs</code> the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. You can also specify <code>ALL</code> to allocate all available GPUs on the instance to the container.</p> <p>When the type is <code>NeuronDevice</code>, the value must be <code>ALL</code>. This allocates all available Neuron devices on the instance to the container. Only one container in a task can specify <code>NeuronDevice</code> resources. This resource type is only supported on Managed Instances.</p> <p>When the type is <code>InferenceAccelerator</code>, the <code>value</code> matches the <code>deviceName</code> for an <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html">InferenceAccelerator</a> specified in a task definition.</p>
+   * <p>The value for the specified resource type.</p> <p>You must specify this parameter unless the type is <code>GPU</code> and you specify <code>sharingStrategy</code>.</p> <p>When the type is <code>GPU</code>, the value is the number of physical <code>GPUs</code> the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. You can also specify <code>ALL</code> to allocate all available GPUs on the instance to the container.</p> <p>When the type is <code>NeuronDevice</code>, the value must be <code>ALL</code>. This allocates all available Neuron devices on the instance to the container. Only one container in a task can specify <code>NeuronDevice</code> resources. This resource type is only supported on Managed Instances.</p> <p>When the type is <code>InferenceAccelerator</code>, the <code>value</code> matches the <code>deviceName</code> for an <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html">InferenceAccelerator</a> specified in a task definition.</p>
    * @public
    */
-  value: string | undefined;
+  value?: string | undefined;
 
   /**
    * <p>The type of resource to assign to a container. </p>
    * @public
    */
   type: ResourceType | undefined;
+
+  /**
+   * <p>The strategy that the container uses to share a GPU with other containers. Specify a sharing strategy only when the type is <code>GPU</code>. For a GPU resource requirement, specify either <code>value</code> or <code>sharingStrategy</code>, but not both. If you don't specify a sharing strategy, the container has exclusive use of each GPU that Amazon ECS assigns to it. The containers in a task that request GPUs must all use the same option.</p> <p>You can use GPU sharing with tasks that run on Amazon EC2 instances or Amazon ECS Managed Instances. Task definitions that require <code>EXTERNAL</code> compatibility don't support GPU sharing.</p>
+   * @public
+   */
+  sharingStrategy?: SharingStrategy | undefined;
 }
 
 /**
@@ -8720,58 +8826,4 @@ export interface ServiceConnectClientAlias {
    * @public
    */
   testTrafficRules?: ServiceConnectTestTrafficRules | undefined;
-}
-
-/**
- * <p>An object that represents the timeout configurations for Service Connect.</p> <note> <p>If <code>idleTimeout</code> is set to a time that is less than <code>perRequestTimeout</code>, the connection will close when the <code>idleTimeout</code> is reached and not the <code>perRequestTimeout</code>.</p> </note>
- * @public
- */
-export interface TimeoutConfiguration {
-  /**
-   * <p>The amount of time in seconds a connection will stay active while idle. A value of <code>0</code> can be set to disable <code>idleTimeout</code>.</p> <p>The <code>idleTimeout</code> default for <code>HTTP</code>/<code>HTTP2</code>/<code>GRPC</code> is 5 minutes.</p> <p>The <code>idleTimeout</code> default for <code>TCP</code> is 1 hour.</p>
-   * @public
-   */
-  idleTimeoutSeconds?: number | undefined;
-
-  /**
-   * <p>The amount of time waiting for the upstream to respond with a complete response per request. A value of <code>0</code> can be set to disable <code>perRequestTimeout</code>. <code>perRequestTimeout</code> can only be set if Service Connect <code>appProtocol</code> isn't <code>TCP</code>. Only <code>idleTimeout</code> is allowed for <code>TCP</code> <code>appProtocol</code>.</p>
-   * @public
-   */
-  perRequestTimeoutSeconds?: number | undefined;
-}
-
-/**
- * <p>The certificate root authority that secures your service.</p>
- * @public
- */
-export interface ServiceConnectTlsCertificateAuthority {
-  /**
-   * <p>The ARN of the Amazon Web Services Private Certificate Authority certificate.</p>
-   * @public
-   */
-  awsPcaAuthorityArn?: string | undefined;
-}
-
-/**
- * <p>The key that encrypts and decrypts your resources for Service Connect TLS.</p>
- * @public
- */
-export interface ServiceConnectTlsConfiguration {
-  /**
-   * <p>The signer certificate authority.</p>
-   * @public
-   */
-  issuerCertificateAuthority: ServiceConnectTlsCertificateAuthority | undefined;
-
-  /**
-   * <p>The Amazon Web Services Key Management Service key.</p>
-   * @public
-   */
-  kmsKey?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that's associated with the Service Connect TLS.</p>
-   * @public
-   */
-  roleArn?: string | undefined;
 }

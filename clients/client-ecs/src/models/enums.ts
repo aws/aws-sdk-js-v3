@@ -384,6 +384,29 @@ export type TargetType = (typeof TargetType)[keyof typeof TargetType];
  * @public
  * @enum
  */
+export const GpuSharingMode = {
+  /**
+   * <p>One container has exclusive use of the GPU. Amazon ECS assigns GPUs this way to containers that specify <code>value</code> instead of <code>sharingStrategy</code> for the <code>GPU</code> resource type.</p>
+   */
+  DEDICATED: "DEDICATED",
+  /**
+   * <p>No containers are assigned to the GPU, and all of its memory is available.</p>
+   */
+  IDLE: "IDLE",
+  /**
+   * <p>One or more containers share the GPU by using NVIDIA Multi-Process Service (MPS). While the GPU is in this mode, Amazon ECS assigns it only to containers that use the <code>nvidiaMps</code> sharing strategy.</p>
+   */
+  NVIDIA_MPS: "NVIDIA_MPS",
+} as const;
+/**
+ * @public
+ */
+export type GpuSharingMode = (typeof GpuSharingMode)[keyof typeof GpuSharingMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const InstanceHealthCheckState = {
   IMPAIRED: "IMPAIRED",
   INITIALIZING: "INITIALIZING",

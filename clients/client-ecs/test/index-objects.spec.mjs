@@ -374,6 +374,8 @@ import {
   GetTaskProtectionCommand,
   GetTaskProtectionRequest$,
   GetTaskProtectionResponse$,
+  GpuDevice$,
+  GpuSharingMode,
   HealthCheck$,
   HealthStatus,
   HostEntry$,
@@ -516,6 +518,7 @@ import {
   NetworkMode,
   NoUpdateAvailableException,
   NoUpdateAvailableException$,
+  NvidiaMpsAllocation$,
   OSFamily,
   paginateListAccountSettings,
   paginateListAttributes,
@@ -644,6 +647,7 @@ import {
   Setting$,
   SettingName,
   SettingType,
+  SharingStrategy$,
   SortOrder,
   StabilityStatus,
   StartTask$,
@@ -1176,6 +1180,7 @@ assert(typeof GatewaySummary$ === "object");
 assert(typeof GatewayTestTrafficHeader$ === "object");
 assert(typeof GetTaskProtectionRequest$ === "object");
 assert(typeof GetTaskProtectionResponse$ === "object");
+assert(typeof GpuDevice$ === "object");
 assert(typeof HealthCheck$ === "object");
 assert(typeof HostEntry$ === "object");
 assert(typeof HostSharedAlbConfiguration$ === "object");
@@ -1258,6 +1263,7 @@ assert(typeof NetworkBinding$ === "object");
 assert(typeof NetworkConfiguration$ === "object");
 assert(typeof NetworkInterface$ === "object");
 assert(typeof NetworkInterfaceCountRequest$ === "object");
+assert(typeof NvidiaMpsAllocation$ === "object");
 assert(typeof PlacementConstraint$ === "object");
 assert(typeof PlacementStrategy$ === "object");
 assert(typeof PlatformDevice$ === "object");
@@ -1318,6 +1324,7 @@ assert(typeof ServiceRevisionVpcLatticeConfiguration$ === "object");
 assert(typeof ServiceVolumeConfiguration$ === "object");
 assert(typeof Session$ === "object");
 assert(typeof Setting$ === "object");
+assert(typeof SharingStrategy$ === "object");
 assert(typeof StartTaskRequest$ === "object");
 assert(typeof StartTaskResponse$ === "object");
 assert(typeof StopServiceDeploymentRequest$ === "object");
@@ -1448,6 +1455,7 @@ assert(typeof GatewayElbIpAddressType === "object");
 assert(typeof GatewayElbScheme === "object");
 assert(typeof GatewayRouteStatus === "object");
 assert(typeof GatewayStatus === "object");
+assert(typeof GpuSharingMode === "object");
 assert(typeof HealthStatus === "object");
 assert(typeof InstanceGeneration === "object");
 assert(typeof InstanceHealthCheckState === "object");
