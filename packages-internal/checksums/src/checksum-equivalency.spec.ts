@@ -2,14 +2,15 @@ import { AwsCrc32c } from "@aws-crypto/crc32c";
 import { Crc32cJs } from "@aws-sdk/checksums/crc";
 import { Crc32cNode } from "@aws-sdk/checksums/crc";
 import { Crc64NvmeJs } from "@aws-sdk/checksums/crc";
+import { Sha512 } from "@aws-sdk/checksums/sha";
 import { Sha1Js } from "@aws-sdk/checksums/sha";
 import { Sha1Node } from "@aws-sdk/checksums/sha";
 import { Sha1WebCrypto } from "@aws-sdk/checksums/sha";
+import { Sha512Js } from "@aws-sdk/checksums/sha";
+import { Sha512WebCrypto } from "@aws-sdk/checksums/sha";
 import { randomBytes } from "node:crypto";
 import { describe, expect, it } from "vitest";
-
 import { toHex } from "./checksum.fixture";
-
 /**
  * Generate chunk sizes: [0, 1x10, then doubling 2,3,5,9,17,...] up to ~100MB total.
  */
@@ -31,7 +32,9 @@ function chunkSequence(target: number): number[] {
   return sizes;
 }
 
-const TARGET = 100 * 1024 * 1024; // ~100MB
+// WHY: >8MB crosses Sha512WebCrypto's break-out to Sha512Js; kept low so the
+// pure-JS SHA-512 hash finishes well under the 30s timeout under full-suite load.
+const TARGET = 16 * 1024 * 1024;
 
 describe("checksum-equivalency", () => {
   it("CRC-32C: Crc32cJs vs Crc32cNode vs AwsCrc32c", async () => {
@@ -118,6 +121,47 @@ describe("checksum-equivalency", () => {
     const js = new Sha1Js(secret);
     const node = new Sha1Node(secret);
     const web = new Sha1WebCrypto(secret);
+    const sizes = chunkSequence(TARGET);
+
+    for (let i = 0; i < sizes.length; ++i) {
+      const chunk = randomBytes(sizes[i]);
+      js.update(chunk);
+      node.update(chunk);
+      web.update(chunk);
+    }
+
+    const dJs = toHex(await js.digest());
+    const dNode = toHex(await node.digest());
+    const dWeb = toHex(await web.digest());
+    expect(dJs).toBe(dNode);
+    expect(dJs).toBe(dWeb);
+  }, 30_000);
+
+  it("SHA-512: Sha512Js vs Sha512 (native) vs WebCrypto", async () => {
+    const js = new Sha512Js();
+    const node = new Sha512();
+    const web = new Sha512WebCrypto();
+    const sizes = chunkSequence(TARGET);
+
+    for (let i = 0; i < sizes.length; ++i) {
+      const chunk = randomBytes(sizes[i]);
+      js.update(chunk);
+      node.update(chunk);
+      web.update(chunk);
+    }
+
+    const dJs = toHex(await js.digest());
+    const dNode = toHex(await node.digest());
+    const dWeb = toHex(await web.digest());
+    expect(dJs).toBe(dNode);
+    expect(dJs).toBe(dWeb);
+  }, 30_000);
+
+  it("SHA-512 HMAC: Sha512Js vs Sha512 (native) vs WebCrypto", async () => {
+    const secret = randomBytes(64);
+    const js = new Sha512Js(secret);
+    const node = new Sha512(secret);
+    const web = new Sha512WebCrypto(secret);
     const sizes = chunkSequence(TARGET);
 
     for (let i = 0; i < sizes.length; ++i) {

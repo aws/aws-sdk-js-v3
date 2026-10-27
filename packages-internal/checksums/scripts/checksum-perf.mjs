@@ -12,7 +12,18 @@ const { Crc32, Crc32Js, Crc32Node, Crc32cJs, Crc32cNode, Crc64NvmeJs, Crc64Nvme 
 try {
   require("@aws-sdk/crc64-nvme-crt");
 } catch {}
-const { Sha1Js, Sha1Node, Sha1WebCrypto, Sha256, Sha256Js, Sha256Node } = require("@aws-sdk/checksums/sha");
+const {
+  Sha1Js,
+  Sha1Node,
+  Sha1WebCrypto,
+  Sha256,
+  Sha256Js,
+  Sha256Node,
+  Sha512,
+  Sha512Js,
+  Sha512WebCrypto,
+} = require("@aws-sdk/checksums/sha");
+const { Xxh64, Xxh3_64, Xxh3_128 } = require("@aws-sdk/checksums/xxh");
 const { AwsCrc32 } = require("@aws-crypto/crc32");
 const { AwsCrc32c } = require("@aws-crypto/crc32c");
 const { Sha256: AwsSha256 } = require("@aws-crypto/sha256-js");
@@ -175,12 +186,47 @@ const sections = [
     ],
   },
   {
+    title: "SHA-512 (hash)",
+    note: WEBCRYPTO_NOTE,
+    headers: ["Size", "Sha512Js (JS)", "Sha512 (node:crypto)", "Sha512WebCrypto"],
+    impls: [
+      { name: "Sha512Js", Impl: Sha512Js },
+      { name: "Sha512", Impl: Sha512 },
+      { name: "Sha512WebCrypto", Impl: Sha512WebCrypto },
+    ],
+  },
+  {
+    title: "SHA-512 (HMAC)",
+    note: WEBCRYPTO_NOTE,
+    headers: ["Size", "Sha512Js (JS)", "Sha512 (node:crypto)", "Sha512WebCrypto"],
+    impls: [
+      { name: "Sha512Js", Impl: Sha512Js, ctorArgs: [generateData(32)] },
+      { name: "Sha512", Impl: Sha512, ctorArgs: [generateData(32)] },
+      { name: "Sha512WebCrypto", Impl: Sha512WebCrypto, ctorArgs: [generateData(32)] },
+    ],
+  },
+  {
     title: "MD5",
     headers: ["Size", "Md5Js (JS)", "Md5Node (node:crypto)"],
     impls: [
       { name: "Md5Js", Impl: Md5Js },
       { name: "Md5Node", Impl: Md5Node },
     ],
+  },
+  {
+    title: "XXH64",
+    headers: ["Size", "Xxh64 (JS)"],
+    impls: [{ name: "Xxh64", Impl: Xxh64 }],
+  },
+  {
+    title: "XXH3_64",
+    headers: ["Size", "Xxh3_64 (JS)"],
+    impls: [{ name: "Xxh3_64", Impl: Xxh3_64 }],
+  },
+  {
+    title: "XXH3_128",
+    headers: ["Size", "Xxh3_128 (JS)"],
+    impls: [{ name: "Xxh3_128", Impl: Xxh3_128 }],
   },
 ];
 

@@ -77,7 +77,18 @@
     "Sha1WebCrypto": "function",
     "Sha256": "function",
     "Sha256Js": "function",
-    "Sha256Node": "function"
+    "Sha256Node": "function",
+    "Sha512": "function",
+    "Sha512Js": "function",
+    "Sha512WebCrypto": "function"
+  },
+  "@aws-sdk/checksums/xxh": {
+    "Xxh3_128": "function",
+    "Xxh3_128Js": "function",
+    "Xxh3_64": "function",
+    "Xxh3_64Js": "function",
+    "Xxh64": "function",
+    "Xxh64Js": "function"
   },
   "@aws-sdk/chunked-stream-reader-node": {
     "streamReader": "function"

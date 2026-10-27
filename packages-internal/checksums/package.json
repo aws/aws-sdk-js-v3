@@ -22,6 +22,8 @@
     "./md5.js",
     "./sha.d.ts",
     "./sha.js",
+    "./xxh.d.ts",
+    "./xxh.js",
     "dist-*/**"
   ],
   "sideEffects": false,
@@ -91,6 +93,13 @@
       "node": "./dist-cjs/submodules/md5/index.js",
       "import": "./dist-es/submodules/md5/index.js",
       "require": "./dist-cjs/submodules/md5/index.js"
+    },
+    "./xxh": {
+      "types": "./dist-types/submodules/xxh/index.d.ts",
+      "module": "./dist-es/submodules/xxh/index.js",
+      "node": "./dist-cjs/submodules/xxh/index.js",
+      "import": "./dist-es/submodules/xxh/index.js",
+      "require": "./dist-cjs/submodules/xxh/index.js"
     }
   },
   "scripts": {
@@ -124,7 +133,8 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "premove": "4.0.0",
-    "typescript": "~7.0.2"
+    "typescript": "~7.0.2",
+    "xxhashjs": "0.2.2"
   },
   "engines": {
     "node": ">=20.0.0"
