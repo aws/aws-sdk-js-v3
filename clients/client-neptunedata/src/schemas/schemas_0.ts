@@ -2,10 +2,14 @@ const _ADE = "AccessDeniedException";
 const _AE = "Accept-Encoding";
 const _BLINFE = "BulkLoadIdNotFoundException";
 const _BRE = "BadRequestException";
+const _CBME = "CancelledByMaintenanceException";
 const _CBUE = "CancelledByUserException";
 const _CGQ = "CancelGremlinQuery";
 const _CGQI = "CancelGremlinQueryInput";
 const _CGQO = "CancelGremlinQueryOutput";
+const _CIR = "CancelIndexRebuild";
+const _CIRI = "CancelIndexRebuildInput";
+const _CIRO = "CancelIndexRebuildOutput";
 const _CLJ = "CancelLoaderJob";
 const _CLJI = "CancelLoaderJobInput";
 const _CLJO = "CancelLoaderJobOutput";
@@ -29,6 +33,7 @@ const _COCQI = "CancelOpenCypherQueryInput";
 const _COCQO = "CancelOpenCypherQueryOutput";
 const _CTE = "ClientTimeoutException";
 const _CVE = "ConstraintViolationException";
+const _DI = "DictionariesInfo";
 const _DMLE = "DeleteMLEndpoint";
 const _DMLEI = "DeleteMLEndpointInput";
 const _DMLEO = "DeleteMLEndpointOutput";
@@ -65,6 +70,9 @@ const _GESO = "GetEngineStatusOutput";
 const _GGQS = "GetGremlinQueryStatus";
 const _GGQSI = "GetGremlinQueryStatusInput";
 const _GGQSO = "GetGremlinQueryStatusOutput";
+const _GIRS = "GetIndexRebuildStatus";
+const _GIRSI = "GetIndexRebuildStatusInput";
+const _GIRSO = "GetIndexRebuildStatusOutput";
 const _GLJS = "GetLoaderJobStatus";
 const _GLJSI = "GetLoaderJobStatusInput";
 const _GLJSO = "GetLoaderJobStatusOutput";
@@ -87,6 +95,7 @@ const _GPS = "GetPropertygraphStatistics";
 const _GPSI = "GetPropertygraphStreamInput";
 const _GPSIe = "GetPropertygraphSummaryInput";
 const _GPSO = "GetPropertygraphStatisticsOutput";
+const _GPSO_ = "GPSO";
 const _GPSOe = "GetPropertygraphStreamOutput";
 const _GPSOet = "GetPropertygraphSummaryOutput";
 const _GPSe = "GetPropertygraphStream";
@@ -97,6 +106,8 @@ const _GQSA = "GremlinQueryStatusAttributes";
 const _GRDFGS = "GetRDFGraphSummary";
 const _GRDFGSI = "GetRDFGraphSummaryInput";
 const _GRDFGSO = "GetRDFGraphSummaryOutput";
+const _GSI = "GetStorageInfo";
+const _GSO = "GetStorageOutput";
 const _GSS = "GetSparqlStatistics";
 const _GSSI = "GetSparqlStreamInput";
 const _GSSO = "GetSparqlStatisticsOutput";
@@ -111,6 +122,8 @@ const _LGQ = "ListGremlinQueries";
 const _LGQI = "ListGremlinQueriesInput";
 const _LGQO = "ListGremlinQueriesOutput";
 const _LIR = "LoaderIdResult";
+const _LIRO = "ListIndexRebuildsOutput";
+const _LIRi = "ListIndexRebuilds";
 const _LLJ = "ListLoaderJobs";
 const _LLJI = "ListLoaderJobsInput";
 const _LLJO = "ListLoaderJobsOutput";
@@ -149,29 +162,41 @@ const _MSSO = "ManageSparqlStatisticsOutput";
 const _NS = "NodeStructure";
 const _NSo = "NodeStructures";
 const _OCQ = "OpenCypherQueries";
+const _OSGP = "OSGP";
 const _PD = "PropertygraphData";
 const _PE = "ParsingException";
 const _PFE = "PreconditionsFailedException";
+const _PG = "PG";
+const _POGS = "POGS";
 const _PR = "PropertygraphRecord";
 const _PRL = "PropertygraphRecordsList";
 const _PS = "PropertygraphSummary";
 const _PSVM = "PropertygraphSummaryValueMap";
+const _PZSOG = "PZSOG";
 const _QES = "QueryEvalStats";
+const _QI = "QuadsInfo";
+const _QII = "QuadsIndexesInfo";
 const _QLE = "QueryLimitException";
 const _QLEE = "QueryLimitExceededException";
 const _QLV = "QueryLanguageVersion";
 const _QTLE = "QueryTooLargeException";
 const _RAT = "ReportAsText";
+const _RDF = "RDF";
 const _RDFGS = "RDFGraphSummary";
 const _RDFGSVM = "RDFGraphSummaryValueMap";
+const _RNFE = "ResourceNotFoundException";
 const _ROVE = "ReadOnlyViolationException";
 const _RSIM = "RefreshStatisticsIdMap";
 const _S = "Statistics";
 const _SD = "SparqlData";
 const _SE = "S3Exception";
+const _SIR = "StartIndexRebuild";
+const _SIRI = "StartIndexRebuildInput";
+const _SIRO = "StartIndexRebuildOutput";
 const _SLJ = "StartLoaderJob";
 const _SLJI = "StartLoaderJobInput";
 const _SLJO = "StartLoaderJobOutput";
+const _SM = "StorageMetrics";
 const _SMLDPJ = "StartMLDataProcessingJob";
 const _SMLDPJI = "StartMLDataProcessingJobInput";
 const _SMLDPJO = "StartMLDataProcessingJobOutput";
@@ -182,6 +207,7 @@ const _SMLMTJO = "StartMLModelTrainingJobOutput";
 const _SMLMTJOt = "StartMLModelTransformJobOutput";
 const _SMLMTJt = "StartMLModelTransformJob";
 const _SNAE = "StatisticsNotAvailableException";
+const _SPOG = "SPOG";
 const _SR = "SparqlRecord";
 const _SRL = "SparqlRecordsList";
 const _SRNFE = "StreamRecordsNotFoundException";
@@ -192,7 +218,9 @@ const _SSub = "SubjectStructures";
 const _TE = "ThrottlingException";
 const _TLEE = "TimeLimitExceededException";
 const _TMRE = "TooManyRequestsException";
+const _ULM = "UndoLogsMetrics";
 const _UOE = "UnsupportedOperationException";
+const _VE = "ValidationException";
 const _a = "arn";
 const _aC = "autoCompute";
 const _aQC = "acceptedQueryCount";
@@ -200,6 +228,7 @@ const _ac = "active";
 const _acc = "accept";
 const _act = "action";
 const _at = "attributes";
+const _b = "blobs";
 const _bPIT = "baseProcessingInstanceType";
 const _bPIVSIGB = "baseProcessingInstanceVolumeSizeInGB";
 const _bPJ = "baseProcessingJob";
@@ -212,11 +241,13 @@ const _cN = "commitNum";
 const _cT = "commitTimestamp";
 const _cTIM = "creationTimeInMillis";
 const _cTIMo = "commitTimestampInMillis";
+const _cTl = "clientToken";
 const _ca = "cancelled";
 const _ch = "chop";
 const _cl = "clean";
 const _cla = "classes";
 const _co = "code";
+const _con = "concurrency";
 const _cou = "count";
 const _d = "details";
 const _dEV = "dbEngineVersion";
@@ -224,11 +255,14 @@ const _dM = "detailedMessage";
 const _dOEL = "distinctOutgoingEdgeLabels";
 const _dPJI = "dataProcessingJobId";
 const _dQE = "dfeQueryEngine";
+const _dS = "dfeStatistics";
 const _da = "data";
 const _dat = "date";
 const _de = "dependencies";
+const _di = "dictionaries";
 const _e = "error";
 const _eC = "endpointConfig";
+const _eET = "estimatedEndTime";
 const _eI = "eventId";
 const _eL = "edgeLabels";
 const _eM = "explainMode";
@@ -237,6 +271,7 @@ const _eOL = "edgeOnlyLoad";
 const _eP = "edgeProperties";
 const _ePP = "errorsPerPage";
 const _eS = "edgeStructures";
+const _eT = "endTime";
 const _el = "elapsed";
 const _en = "endpoint";
 const _enc = "encoding";
@@ -266,6 +301,7 @@ const _iT = "instanceType";
 const _iTt = "iteratorType";
 const _iW = "includeWaiting";
 const _id = "ids";
+const _in = "internals";
 const _jN = "jsonName";
 const _k = "key";
 const _l = "limit";
@@ -273,6 +309,7 @@ const _lEI = "lastEventId";
 const _lI = "loadId";
 const _lIo = "loadIds";
 const _lM = "labMode";
+const _lS = "listSize";
 const _lSCT = "lastStatisticsComputationTime";
 const _lTT = "lastTrxTimestamp";
 const _lTTIM = "lastTrxTimestampInMillis";
@@ -323,6 +360,7 @@ const _pIVSIGB = "processingInstanceVolumeSizeInGB";
 const _pJ = "processingJob";
 const _pMTJI = "previousModelTrainingJobId";
 const _pO = "profile.indexOps";
+const _pP = "progressPercentage";
 const _pTOIS = "processingTimeOutInSeconds";
 const _pa = "parameters";
 const _pag = "page";
@@ -336,11 +374,14 @@ const _qES = "queryEvalStats";
 const _qI = "queryId";
 const _qR = "queueRequest";
 const _qS = "queryString";
-const _qu = "queries";
+const _qu = "quads";
+const _que = "queries";
 const _r = "results";
 const _rBTC = "rollingBackTrxCount";
 const _rBTEST = "rollingBackTrxEarliestStartTime";
 const _rI = "requestId";
+const _rIe = "rebuildId";
+const _rIeb = "rebuildIds";
 const _rMTJ = "remoteModelTransformJob";
 const _rQC = "runningQueryCount";
 const _re = "result";
@@ -353,12 +394,15 @@ const _sC = "statusCode";
 const _sCi = "signatureCount";
 const _sGI = "securityGroupIds";
 const _sI = "statisticsId";
+const _sIB = "sizeInBytes";
 const _sIRA = "sagemakerIamRoleArn";
 const _sIi = "signatureInfo";
 const _sOEKMSK = "s3OutputEncryptionKMSKey";
 const _sS = "subjectStructures";
 const _sSDP = "sourceS3DirectoryPath";
 const _sT = "startTime";
+const _sc = "scope";
+const _sch = "schema";
 const _se = "server";
 const _ser = "serializer";
 const _set = "settings";
@@ -367,6 +411,7 @@ const _so = "source";
 const _sp = "sparql";
 const _st = "status";
 const _stm = "stmt";
+const _str = "streams";
 const _su = "subqueries";
 const _sub = "subnets";
 const _t = "text/plain";
@@ -379,17 +424,21 @@ const _tJN = "trainingJobName";
 const _tMSL = "trainModelS3Location";
 const _tNPV = "totalNodePropertyValues";
 const _tR = "totalRecords";
+const _tSBU = "totalStorageBytesUsed";
 const _tTOIS = "trainingTimeOutInSeconds";
-const _to = "token";
+const _to = "total";
 const _to_ = "to";
+const _tok = "token";
 const _ty = "type";
 const _u = "update";
+const _uL = "undoLogs";
 const _uPEI = "userProvidedEdgeIds";
 const _uSCP = "updateSingleCardinalityProperties";
 const _v = "value";
 const _vEKMSK = "volumeEncryptionKMSKey";
 const _ve = "version";
 const _w = "waited";
+const _wBS = "writeBufferSize";
 const n0 = "com.amazonaws.neptunedata";
 
 // smithy-typescript generated code
@@ -407,6 +456,7 @@ import {
   AccessDeniedException,
   BadRequestException,
   BulkLoadIdNotFoundException,
+  CancelledByMaintenanceException,
   CancelledByUserException,
   ClientTimeoutException,
   ConcurrentModificationException,
@@ -430,6 +480,7 @@ import {
   QueryLimitException,
   QueryTooLargeException,
   ReadOnlyViolationException,
+  ResourceNotFoundException,
   S3Exception,
   ServerShutdownException,
   StatisticsNotAvailableException,
@@ -438,6 +489,7 @@ import {
   TimeLimitExceededException,
   TooManyRequestsException,
   UnsupportedOperationException,
+  ValidationException,
 } from "../models/errors";
 import { NeptunedataServiceException } from "../models/NeptunedataServiceException";
 
@@ -464,6 +516,12 @@ export var BulkLoadIdNotFoundException$: StaticErrorSchema = [-3, n0, _BLINFE,
   [0, 0, 0], 3
 ];
 n0_registry.registerError(BulkLoadIdNotFoundException$, BulkLoadIdNotFoundException);
+export var CancelledByMaintenanceException$: StaticErrorSchema = [-3, n0, _CBME,
+  { [_e]: _se, [_hE]: 500 },
+  [_dM, _rI, _co],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(CancelledByMaintenanceException$, CancelledByMaintenanceException);
 export var CancelledByUserException$: StaticErrorSchema = [-3, n0, _CBUE,
   { [_e]: _se, [_hE]: 500 },
   [_dM, _rI, _co],
@@ -602,6 +660,12 @@ export var ReadOnlyViolationException$: StaticErrorSchema = [-3, n0, _ROVE,
   [0, 0, 0], 3
 ];
 n0_registry.registerError(ReadOnlyViolationException$, ReadOnlyViolationException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_dM, _rI, _co],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3Exception$: StaticErrorSchema = [-3, n0, _SE,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
@@ -650,6 +714,12 @@ export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
   [0, 0, 0], 3
 ];
 n0_registry.registerError(UnsupportedOperationException$, UnsupportedOperationException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_dM, _rI, _co],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ValidationException$, ValidationException);
 /**
  * TypeRegistry instances containing modeled errors.
  * @internal
@@ -669,6 +739,16 @@ export var CancelGremlinQueryOutput$: StaticStructureSchema = [3, n0, _CGQO,
   0,
   [_st],
   [0]
+];
+export var CancelIndexRebuildInput$: StaticStructureSchema = [3, n0, _CIRI,
+  0,
+  [_rIe],
+  [[0, 1]], 1
+];
+export var CancelIndexRebuildOutput$: StaticStructureSchema = [3, n0, _CIRO,
+  0,
+  [_st, _con, _wBS],
+  [0, 1, 0], 3
 ];
 export var CancelLoaderJobInput$: StaticStructureSchema = [3, n0, _CLJI,
   0,
@@ -765,6 +845,11 @@ export var DeleteStatisticsValueMap$: StaticStructureSchema = [3, n0, _DSVM,
   [_ac, _sI],
   [2, 0]
 ];
+export var DictionariesInfo$: StaticStructureSchema = [3, n0, _DI,
+  0,
+  [_to, _b],
+  [() => StorageMetrics$, () => StorageMetrics$]
+];
 export var EdgeStructure$: StaticStructureSchema = [3, n0, _ES,
   0,
   [_cou, _eP],
@@ -772,7 +857,7 @@ export var EdgeStructure$: StaticStructureSchema = [3, n0, _ES,
 ];
 export var ExecuteFastResetInput$: StaticStructureSchema = [3, n0, _EFRI,
   0,
-  [_act, _to],
+  [_act, _tok],
   [0, 0], 1
 ];
 export var ExecuteFastResetOutput$: StaticStructureSchema = [3, n0, _EFRO,
@@ -832,7 +917,7 @@ export var ExecuteOpenCypherQueryOutput$: StaticStructureSchema = [3, n0, _EOCQO
 ];
 export var FastResetToken$: StaticStructureSchema = [3, n0, _FRT,
   0,
-  [_to],
+  [_tok],
   [0]
 ];
 export var GetEngineStatusOutput$: StaticStructureSchema = [3, n0, _GESO,
@@ -849,6 +934,16 @@ export var GetGremlinQueryStatusOutput$: StaticStructureSchema = [3, n0, _GGQSO,
   0,
   [_qI, _qS, _qES],
   [0, 0, () => QueryEvalStats$]
+];
+export var GetIndexRebuildStatusInput$: StaticStructureSchema = [3, n0, _GIRSI,
+  0,
+  [_rIe],
+  [[0, 1]], 1
+];
+export var GetIndexRebuildStatusOutput$: StaticStructureSchema = [3, n0, _GIRSO,
+  0,
+  [_st, _sc, _con, _wBS, _sT, _pP, _eET, _eT, _fR],
+  [0, 0, 1, 0, 5, 1, 5, 5, 0], 6
 ];
 export var GetLoaderJobStatusInput$: StaticStructureSchema = [3, n0, _GLJSI,
   0,
@@ -960,6 +1055,11 @@ export var GetSparqlStreamOutput$: StaticStructureSchema = [3, n0, _GSSOe,
   [_lEI, _lTTIM, _fo, _rec, _tR],
   [128 | 0, [1, { [_jN]: _lTT }], 0, [() => SparqlRecordsList, 0], 1], 5
 ];
+export var GetStorageOutput$: StaticStructureSchema = [3, n0, _GSO,
+  0,
+  [_tSBU, _qu, _di, _uL, _str, _dS, _sch, _in],
+  [1, () => QuadsIndexesInfo$, () => DictionariesInfo$, () => UndoLogsMetrics$, () => StorageMetrics$, () => StorageMetrics$, () => StorageMetrics$, () => StorageMetrics$]
+];
 export var GremlinQueryStatus$: StaticStructureSchema = [3, n0, _GQS,
   0,
   [_qI, _qS, _qES],
@@ -977,8 +1077,13 @@ export var ListGremlinQueriesInput$: StaticStructureSchema = [3, n0, _LGQI,
 ];
 export var ListGremlinQueriesOutput$: StaticStructureSchema = [3, n0, _LGQO,
   0,
-  [_aQC, _rQC, _qu],
+  [_aQC, _rQC, _que],
   [1, 1, () => GremlinQueries]
+];
+export var ListIndexRebuildsOutput$: StaticStructureSchema = [3, n0, _LIRO,
+  0,
+  [_rIeb],
+  [64 | 0], 1
 ];
 export var ListLoaderJobsInput$: StaticStructureSchema = [3, n0, _LLJI,
   0,
@@ -1037,7 +1142,7 @@ export var ListOpenCypherQueriesInput$: StaticStructureSchema = [3, n0, _LOCQI,
 ];
 export var ListOpenCypherQueriesOutput$: StaticStructureSchema = [3, n0, _LOCQO,
   0,
-  [_aQC, _rQC, _qu],
+  [_aQC, _rQC, _que],
   [1, 1, () => OpenCypherQueries]
 ];
 export var LoaderIdResult$: StaticStructureSchema = [3, n0, _LIR,
@@ -1100,6 +1205,16 @@ export var PropertygraphSummaryValueMap$: StaticStructureSchema = [3, n0, _PSVM,
   [_ve, _lSCT, _gS],
   [0, 5, () => PropertygraphSummary$]
 ];
+export var QuadsIndexesInfo$: StaticStructureSchema = [3, n0, _QII,
+  0,
+  [_RDF, _PG],
+  [() => QuadsInfo$, () => QuadsInfo$]
+];
+export var QuadsInfo$: StaticStructureSchema = [3, n0, _QI,
+  0,
+  [_SPOG, _POGS, _GPSO_, _OSGP, _PZSOG],
+  [() => StorageMetrics$, () => StorageMetrics$, () => StorageMetrics$, () => StorageMetrics$, () => StorageMetrics$]
+];
 export var QueryEvalStats$: StaticStructureSchema = [3, n0, _QES,
   0,
   [_w, _el, _ca, _su],
@@ -1134,6 +1249,16 @@ export var SparqlRecord$: StaticStructureSchema = [3, n0, _SR,
   0,
   [_cTIMo, _eI, _da, _op_, _iLO],
   [[1, { [_jN]: _cT }], 128 | 0, () => SparqlData$, 0, 2], 4
+];
+export var StartIndexRebuildInput$: StaticStructureSchema = [3, n0, _SIRI,
+  0,
+  [_sc, _con, _wBS, _cTl],
+  [[0, { [_hQ]: _sc }], [1, { [_hQ]: _con }], [0, { [_hQ]: _wBS }], [0, 4]]
+];
+export var StartIndexRebuildOutput$: StaticStructureSchema = [3, n0, _SIRO,
+  0,
+  [_st, _rIe, _sc, _con, _wBS],
+  [0, 0, 0, 1, 0], 5
 ];
 export var StartLoaderJobInput$: StaticStructureSchema = [3, n0, _SLJI,
   0,
@@ -1185,10 +1310,20 @@ export var StatisticsSummary$: StaticStructureSchema = [3, n0, _SS,
   [_sCi, _iC, _pCr],
   [1, 1, 1]
 ];
+export var StorageMetrics$: StaticStructureSchema = [3, n0, _SM,
+  0,
+  [_sIB, _cou],
+  [1, 1], 2
+];
 export var SubjectStructure$: StaticStructureSchema = [3, n0, _SSu,
   0,
   [_cou, _pre],
   [1, 64 | 0]
+];
+export var UndoLogsMetrics$: StaticStructureSchema = [3, n0, _ULM,
+  0,
+  [_sIB, _lS],
+  [1, 1], 2
 ];
 var __Unit = "unit" as const;
 var Classes = 64 | 0;
@@ -1223,6 +1358,7 @@ var PropertygraphRecordsList: StaticListSchema = [1, n0, _PRL,
   0, [() => PropertygraphRecord$,
     0]
 ];
+var RebuildIdList = 64 | 0;
 var SparqlRecordsList: StaticListSchema = [1, n0, _SRL,
   0, [() => SparqlRecord$,
     0]
@@ -1236,6 +1372,9 @@ var LongValuedMap = 128 | 1;
 var StringValuedMap = 128 | 0;
 export var CancelGremlinQuery$: StaticOperationSchema = [9, n0, _CGQ,
   { [_h]: ["DELETE", "/gremlin/status/{queryId}", 200] }, () => CancelGremlinQueryInput$, () => CancelGremlinQueryOutput$
+];
+export var CancelIndexRebuild$: StaticOperationSchema = [9, n0, _CIR,
+  { [_h]: ["POST", "/storage/indexes/rebuilds/{rebuildId}/cancel", 200] }, () => CancelIndexRebuildInput$, () => CancelIndexRebuildOutput$
 ];
 export var CancelLoaderJob$: StaticOperationSchema = [9, n0, _CLJ,
   { [_h]: ["DELETE", "/loader/{loadId}", 200] }, () => CancelLoaderJobInput$, () => CancelLoaderJobOutput$
@@ -1288,6 +1427,9 @@ export var GetEngineStatus$: StaticOperationSchema = [9, n0, _GES,
 export var GetGremlinQueryStatus$: StaticOperationSchema = [9, n0, _GGQS,
   { [_h]: ["GET", "/gremlin/status/{queryId}", 200] }, () => GetGremlinQueryStatusInput$, () => GetGremlinQueryStatusOutput$
 ];
+export var GetIndexRebuildStatus$: StaticOperationSchema = [9, n0, _GIRS,
+  { [_h]: ["GET", "/storage/indexes/rebuilds/{rebuildId}", 200] }, () => GetIndexRebuildStatusInput$, () => GetIndexRebuildStatusOutput$
+];
 export var GetLoaderJobStatus$: StaticOperationSchema = [9, n0, _GLJS,
   { [_h]: ["GET", "/loader/{loadId}", 200] }, () => GetLoaderJobStatusInput$, () => GetLoaderJobStatusOutput$
 ];
@@ -1324,8 +1466,14 @@ export var GetSparqlStatistics$: StaticOperationSchema = [9, n0, _GSS,
 export var GetSparqlStream$: StaticOperationSchema = [9, n0, _GSSe,
   { [_h]: ["GET", "/sparql/stream", 200] }, () => GetSparqlStreamInput$, () => GetSparqlStreamOutput$
 ];
+export var GetStorageInfo$: StaticOperationSchema = [9, n0, _GSI,
+  { [_h]: ["GET", "/storage/info", 200] }, () => __Unit, () => GetStorageOutput$
+];
 export var ListGremlinQueries$: StaticOperationSchema = [9, n0, _LGQ,
   { [_h]: ["GET", "/gremlin/status", 200] }, () => ListGremlinQueriesInput$, () => ListGremlinQueriesOutput$
+];
+export var ListIndexRebuilds$: StaticOperationSchema = [9, n0, _LIRi,
+  { [_h]: ["GET", "/storage/indexes/rebuilds", 200] }, () => __Unit, () => ListIndexRebuildsOutput$
 ];
 export var ListLoaderJobs$: StaticOperationSchema = [9, n0, _LLJ,
   { [_h]: ["GET", "/loader", 200] }, () => ListLoaderJobsInput$, () => ListLoaderJobsOutput$
@@ -1350,6 +1498,9 @@ export var ManagePropertygraphStatistics$: StaticOperationSchema = [9, n0, _MPS,
 ];
 export var ManageSparqlStatistics$: StaticOperationSchema = [9, n0, _MSS,
   { [_h]: ["POST", "/sparql/statistics", 200] }, () => ManageSparqlStatisticsInput$, () => ManageSparqlStatisticsOutput$
+];
+export var StartIndexRebuild$: StaticOperationSchema = [9, n0, _SIR,
+  { [_h]: ["POST", "/storage/indexes/rebuilds", 200] }, () => StartIndexRebuildInput$, () => StartIndexRebuildOutput$
 ];
 export var StartLoaderJob$: StaticOperationSchema = [9, n0, _SLJ,
   { [_h]: ["POST", "/loader", 200] }, () => StartLoaderJobInput$, () => StartLoaderJobOutput$

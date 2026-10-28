@@ -58,6 +58,10 @@ import type {
   CancelGremlinQueryCommandInput,
   CancelGremlinQueryCommandOutput,
 } from "./commands/CancelGremlinQueryCommand";
+import type {
+  CancelIndexRebuildCommandInput,
+  CancelIndexRebuildCommandOutput,
+} from "./commands/CancelIndexRebuildCommand";
 import type { CancelLoaderJobCommandInput, CancelLoaderJobCommandOutput } from "./commands/CancelLoaderJobCommand";
 import type {
   CancelMLDataProcessingJobCommandInput,
@@ -112,6 +116,10 @@ import type {
   GetGremlinQueryStatusCommandOutput,
 } from "./commands/GetGremlinQueryStatusCommand";
 import type {
+  GetIndexRebuildStatusCommandInput,
+  GetIndexRebuildStatusCommandOutput,
+} from "./commands/GetIndexRebuildStatusCommand";
+import type {
   GetLoaderJobStatusCommandInput,
   GetLoaderJobStatusCommandOutput,
 } from "./commands/GetLoaderJobStatusCommand";
@@ -153,10 +161,15 @@ import type {
   GetSparqlStatisticsCommandOutput,
 } from "./commands/GetSparqlStatisticsCommand";
 import type { GetSparqlStreamCommandInput, GetSparqlStreamCommandOutput } from "./commands/GetSparqlStreamCommand";
+import type { GetStorageInfoCommandInput, GetStorageInfoCommandOutput } from "./commands/GetStorageInfoCommand";
 import type {
   ListGremlinQueriesCommandInput,
   ListGremlinQueriesCommandOutput,
 } from "./commands/ListGremlinQueriesCommand";
+import type {
+  ListIndexRebuildsCommandInput,
+  ListIndexRebuildsCommandOutput,
+} from "./commands/ListIndexRebuildsCommand";
 import type { ListLoaderJobsCommandInput, ListLoaderJobsCommandOutput } from "./commands/ListLoaderJobsCommand";
 import type {
   ListMLDataProcessingJobsCommandInput,
@@ -183,6 +196,10 @@ import type {
   ManageSparqlStatisticsCommandInput,
   ManageSparqlStatisticsCommandOutput,
 } from "./commands/ManageSparqlStatisticsCommand";
+import type {
+  StartIndexRebuildCommandInput,
+  StartIndexRebuildCommandOutput,
+} from "./commands/StartIndexRebuildCommand";
 import type { StartLoaderJobCommandInput, StartLoaderJobCommandOutput } from "./commands/StartLoaderJobCommand";
 import type {
   StartMLDataProcessingJobCommandInput,
@@ -212,6 +229,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CancelGremlinQueryCommandInput
+  | CancelIndexRebuildCommandInput
   | CancelLoaderJobCommandInput
   | CancelMLDataProcessingJobCommandInput
   | CancelMLModelTrainingJobCommandInput
@@ -229,6 +247,7 @@ export type ServiceInputTypes =
   | ExecuteOpenCypherQueryCommandInput
   | GetEngineStatusCommandInput
   | GetGremlinQueryStatusCommandInput
+  | GetIndexRebuildStatusCommandInput
   | GetLoaderJobStatusCommandInput
   | GetMLDataProcessingJobCommandInput
   | GetMLEndpointCommandInput
@@ -241,7 +260,9 @@ export type ServiceInputTypes =
   | GetRDFGraphSummaryCommandInput
   | GetSparqlStatisticsCommandInput
   | GetSparqlStreamCommandInput
+  | GetStorageInfoCommandInput
   | ListGremlinQueriesCommandInput
+  | ListIndexRebuildsCommandInput
   | ListLoaderJobsCommandInput
   | ListMLDataProcessingJobsCommandInput
   | ListMLEndpointsCommandInput
@@ -250,6 +271,7 @@ export type ServiceInputTypes =
   | ListOpenCypherQueriesCommandInput
   | ManagePropertygraphStatisticsCommandInput
   | ManageSparqlStatisticsCommandInput
+  | StartIndexRebuildCommandInput
   | StartLoaderJobCommandInput
   | StartMLDataProcessingJobCommandInput
   | StartMLModelTrainingJobCommandInput
@@ -260,6 +282,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CancelGremlinQueryCommandOutput
+  | CancelIndexRebuildCommandOutput
   | CancelLoaderJobCommandOutput
   | CancelMLDataProcessingJobCommandOutput
   | CancelMLModelTrainingJobCommandOutput
@@ -277,6 +300,7 @@ export type ServiceOutputTypes =
   | ExecuteOpenCypherQueryCommandOutput
   | GetEngineStatusCommandOutput
   | GetGremlinQueryStatusCommandOutput
+  | GetIndexRebuildStatusCommandOutput
   | GetLoaderJobStatusCommandOutput
   | GetMLDataProcessingJobCommandOutput
   | GetMLEndpointCommandOutput
@@ -289,7 +313,9 @@ export type ServiceOutputTypes =
   | GetRDFGraphSummaryCommandOutput
   | GetSparqlStatisticsCommandOutput
   | GetSparqlStreamCommandOutput
+  | GetStorageInfoCommandOutput
   | ListGremlinQueriesCommandOutput
+  | ListIndexRebuildsCommandOutput
   | ListLoaderJobsCommandOutput
   | ListMLDataProcessingJobsCommandOutput
   | ListMLEndpointsCommandOutput
@@ -298,6 +324,7 @@ export type ServiceOutputTypes =
   | ListOpenCypherQueriesCommandOutput
   | ManagePropertygraphStatisticsCommandOutput
   | ManageSparqlStatisticsCommandOutput
+  | StartIndexRebuildCommandOutput
   | StartLoaderJobCommandOutput
   | StartMLDataProcessingJobCommandOutput
   | StartMLModelTrainingJobCommandOutput

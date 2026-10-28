@@ -625,13 +625,13 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
- * <p>Raised when a specified bulk-load job ID cannot be found.</p>
+ * <p>Raised when a request is cancelled because the storage layer entered maintenance mode. This typically happens during a customer-initiated operation such as an index rebuild. It should be treated like <code>ConcurrentModificationException</code>.</p>
  * @public
  */
-export class BulkLoadIdNotFoundException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.neptunedata#BulkLoadIdNotFoundException";
-  readonly name = "BulkLoadIdNotFoundException" as const;
-  readonly $fault = "client" as const;
+export class CancelledByMaintenanceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#CancelledByMaintenanceException";
+  readonly name = "CancelledByMaintenanceException" as const;
+  readonly $fault = "server" as const;
   $retryable = {};
   /**
    * <p>A detailed message describing the problem.</p>
@@ -640,7 +640,7 @@ export class BulkLoadIdNotFoundException extends __BaseException {
   detailedMessage: string | undefined;
 
   /**
-   * <p>The bulk-load job ID that could not be found.</p>
+   * <p>The ID of the request in question.</p>
    * @public
    */
   requestId: string | undefined;
@@ -653,13 +653,54 @@ export class BulkLoadIdNotFoundException extends __BaseException {
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<BulkLoadIdNotFoundException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<CancelledByMaintenanceException, __BaseException>) {
     super({
-      name: "BulkLoadIdNotFoundException",
-      $fault: "client",
+      name: "CancelledByMaintenanceException",
+      $fault: "server",
       ...opts,
     });
-    Object.setPrototypeOf(this, BulkLoadIdNotFoundException.prototype);
+    Object.setPrototypeOf(this, CancelledByMaintenanceException.prototype);
+    this.detailedMessage = opts.detailedMessage;
+    this.requestId = opts.requestId;
+    this.code = opts.code;
+  }
+}
+
+/**
+ * <p>Raised when a user cancelled a request.</p>
+ * @public
+ */
+export class CancelledByUserException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#CancelledByUserException";
+  readonly name = "CancelledByUserException" as const;
+  readonly $fault = "server" as const;
+  /**
+   * <p>A detailed message describing the problem.</p>
+   * @public
+   */
+  detailedMessage: string | undefined;
+
+  /**
+   * <p>The ID of the request in question.</p>
+   * @public
+   */
+  requestId: string | undefined;
+
+  /**
+   * <p>The HTTP status code returned with the exception.</p>
+   * @public
+   */
+  code: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CancelledByUserException, __BaseException>) {
+    super({
+      name: "CancelledByUserException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CancelledByUserException.prototype);
     this.detailedMessage = opts.detailedMessage;
     this.requestId = opts.requestId;
     this.code = opts.code;
@@ -701,6 +742,212 @@ export class InternalFailureException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalFailureException.prototype);
+    this.detailedMessage = opts.detailedMessage;
+    this.requestId = opts.requestId;
+    this.code = opts.code;
+  }
+}
+
+/**
+ * <p>Raised when the HTTP method used by a request is not supported by the endpoint being used.</p>
+ * @public
+ */
+export class MethodNotAllowedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#MethodNotAllowedException";
+  readonly name = "MethodNotAllowedException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A detailed message describing the problem.</p>
+   * @public
+   */
+  detailedMessage: string | undefined;
+
+  /**
+   * <p>The ID of the request in question.</p>
+   * @public
+   */
+  requestId: string | undefined;
+
+  /**
+   * <p>The HTTP status code returned with the exception.</p>
+   * @public
+   */
+  code: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MethodNotAllowedException, __BaseException>) {
+    super({
+      name: "MethodNotAllowedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MethodNotAllowedException.prototype);
+    this.detailedMessage = opts.detailedMessage;
+    this.requestId = opts.requestId;
+    this.code = opts.code;
+  }
+}
+
+/**
+ * <p>Raised when a request attempts to write to a read-only resource.</p>
+ * @public
+ */
+export class ReadOnlyViolationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#ReadOnlyViolationException";
+  readonly name = "ReadOnlyViolationException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A detailed message describing the problem.</p>
+   * @public
+   */
+  detailedMessage: string | undefined;
+
+  /**
+   * <p>The ID of the request in which the parameter is missing.</p>
+   * @public
+   */
+  requestId: string | undefined;
+
+  /**
+   * <p>The HTTP status code returned with the exception.</p>
+   * @public
+   */
+  code: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReadOnlyViolationException, __BaseException>) {
+    super({
+      name: "ReadOnlyViolationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReadOnlyViolationException.prototype);
+    this.detailedMessage = opts.detailedMessage;
+    this.requestId = opts.requestId;
+    this.code = opts.code;
+  }
+}
+
+/**
+ * <p>Raised when the server shuts down while processing a request.</p>
+ * @public
+ */
+export class ServerShutdownException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#ServerShutdownException";
+  readonly name = "ServerShutdownException" as const;
+  readonly $fault = "server" as const;
+  /**
+   * <p>A detailed message describing the problem.</p>
+   * @public
+   */
+  detailedMessage: string | undefined;
+
+  /**
+   * <p>The ID of the request in question.</p>
+   * @public
+   */
+  requestId: string | undefined;
+
+  /**
+   * <p>The HTTP status code returned with the exception.</p>
+   * @public
+   */
+  code: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServerShutdownException, __BaseException>) {
+    super({
+      name: "ServerShutdownException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServerShutdownException.prototype);
+    this.detailedMessage = opts.detailedMessage;
+    this.requestId = opts.requestId;
+    this.code = opts.code;
+  }
+}
+
+/**
+ * <p>Raised when a parameter value is not valid or is malformed.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#ValidationException";
+  readonly name = "ValidationException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A detailed message describing the problem.</p>
+   * @public
+   */
+  detailedMessage: string | undefined;
+
+  /**
+   * <p>The ID of the request in question.</p>
+   * @public
+   */
+  requestId: string | undefined;
+
+  /**
+   * <p>The HTTP status code returned with the exception.</p>
+   * @public
+   */
+  code: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.detailedMessage = opts.detailedMessage;
+    this.requestId = opts.requestId;
+    this.code = opts.code;
+  }
+}
+
+/**
+ * <p>Raised when a specified bulk-load job ID cannot be found.</p>
+ * @public
+ */
+export class BulkLoadIdNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#BulkLoadIdNotFoundException";
+  readonly name = "BulkLoadIdNotFoundException" as const;
+  readonly $fault = "client" as const;
+  $retryable = {};
+  /**
+   * <p>A detailed message describing the problem.</p>
+   * @public
+   */
+  detailedMessage: string | undefined;
+
+  /**
+   * <p>The bulk-load job ID that could not be found.</p>
+   * @public
+   */
+  requestId: string | undefined;
+
+  /**
+   * <p>The HTTP status code returned with the exception.</p>
+   * @public
+   */
+  code: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BulkLoadIdNotFoundException, __BaseException>) {
+    super({
+      name: "BulkLoadIdNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BulkLoadIdNotFoundException.prototype);
     this.detailedMessage = opts.detailedMessage;
     this.requestId = opts.requestId;
     this.code = opts.code;
@@ -831,47 +1078,6 @@ export class InvalidNumericDataException extends __BaseException {
 }
 
 /**
- * <p>Raised when a request attempts to write to a read-only resource.</p>
- * @public
- */
-export class ReadOnlyViolationException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.neptunedata#ReadOnlyViolationException";
-  readonly name = "ReadOnlyViolationException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>A detailed message describing the problem.</p>
-   * @public
-   */
-  detailedMessage: string | undefined;
-
-  /**
-   * <p>The ID of the request in which the parameter is missing.</p>
-   * @public
-   */
-  requestId: string | undefined;
-
-  /**
-   * <p>The HTTP status code returned with the exception.</p>
-   * @public
-   */
-  code: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReadOnlyViolationException, __BaseException>) {
-    super({
-      name: "ReadOnlyViolationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReadOnlyViolationException.prototype);
-    this.detailedMessage = opts.detailedMessage;
-    this.requestId = opts.requestId;
-    this.code = opts.code;
-  }
-}
-
-/**
  * <p>Raised when statistics needed to satisfy a request are not available.</p>
  * @public
  */
@@ -906,129 +1112,6 @@ export class StatisticsNotAvailableException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, StatisticsNotAvailableException.prototype);
-    this.detailedMessage = opts.detailedMessage;
-    this.requestId = opts.requestId;
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>Raised when the HTTP method used by a request is not supported by the endpoint being used.</p>
- * @public
- */
-export class MethodNotAllowedException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.neptunedata#MethodNotAllowedException";
-  readonly name = "MethodNotAllowedException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>A detailed message describing the problem.</p>
-   * @public
-   */
-  detailedMessage: string | undefined;
-
-  /**
-   * <p>The ID of the request in question.</p>
-   * @public
-   */
-  requestId: string | undefined;
-
-  /**
-   * <p>The HTTP status code returned with the exception.</p>
-   * @public
-   */
-  code: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MethodNotAllowedException, __BaseException>) {
-    super({
-      name: "MethodNotAllowedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MethodNotAllowedException.prototype);
-    this.detailedMessage = opts.detailedMessage;
-    this.requestId = opts.requestId;
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>Raised when the server shuts down while processing a request.</p>
- * @public
- */
-export class ServerShutdownException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.neptunedata#ServerShutdownException";
-  readonly name = "ServerShutdownException" as const;
-  readonly $fault = "server" as const;
-  /**
-   * <p>A detailed message describing the problem.</p>
-   * @public
-   */
-  detailedMessage: string | undefined;
-
-  /**
-   * <p>The ID of the request in question.</p>
-   * @public
-   */
-  requestId: string | undefined;
-
-  /**
-   * <p>The HTTP status code returned with the exception.</p>
-   * @public
-   */
-  code: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServerShutdownException, __BaseException>) {
-    super({
-      name: "ServerShutdownException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServerShutdownException.prototype);
-    this.detailedMessage = opts.detailedMessage;
-    this.requestId = opts.requestId;
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>Raised when a user cancelled a request.</p>
- * @public
- */
-export class CancelledByUserException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.neptunedata#CancelledByUserException";
-  readonly name = "CancelledByUserException" as const;
-  readonly $fault = "server" as const;
-  /**
-   * <p>A detailed message describing the problem.</p>
-   * @public
-   */
-  detailedMessage: string | undefined;
-
-  /**
-   * <p>The ID of the request in question.</p>
-   * @public
-   */
-  requestId: string | undefined;
-
-  /**
-   * <p>The HTTP status code returned with the exception.</p>
-   * @public
-   */
-  code: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CancelledByUserException, __BaseException>) {
-    super({
-      name: "CancelledByUserException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CancelledByUserException.prototype);
     this.detailedMessage = opts.detailedMessage;
     this.requestId = opts.requestId;
     this.code = opts.code;
@@ -1360,6 +1443,47 @@ export class ThrottlingException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.detailedMessage = opts.detailedMessage;
+    this.requestId = opts.requestId;
+    this.code = opts.code;
+  }
+}
+
+/**
+ * <p>Raised when the specified resource could not be found. The resource might have been deleted or the identifier might be incorrect.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#ResourceNotFoundException";
+  readonly name = "ResourceNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A detailed message describing the problem.</p>
+   * @public
+   */
+  detailedMessage: string | undefined;
+
+  /**
+   * <p>The ID of the request in question.</p>
+   * @public
+   */
+  requestId: string | undefined;
+
+  /**
+   * <p>The HTTP status code returned with the exception.</p>
+   * @public
+   */
+  code: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.detailedMessage = opts.detailedMessage;
     this.requestId = opts.requestId;
     this.code = opts.code;

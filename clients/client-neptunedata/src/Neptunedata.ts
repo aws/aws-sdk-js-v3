@@ -8,6 +8,11 @@ import {
   CancelGremlinQueryCommand,
 } from "./commands/CancelGremlinQueryCommand";
 import {
+  type CancelIndexRebuildCommandInput,
+  type CancelIndexRebuildCommandOutput,
+  CancelIndexRebuildCommand,
+} from "./commands/CancelIndexRebuildCommand";
+import {
   type CancelLoaderJobCommandInput,
   type CancelLoaderJobCommandOutput,
   CancelLoaderJobCommand,
@@ -93,6 +98,11 @@ import {
   GetGremlinQueryStatusCommand,
 } from "./commands/GetGremlinQueryStatusCommand";
 import {
+  type GetIndexRebuildStatusCommandInput,
+  type GetIndexRebuildStatusCommandOutput,
+  GetIndexRebuildStatusCommand,
+} from "./commands/GetIndexRebuildStatusCommand";
+import {
   type GetLoaderJobStatusCommandInput,
   type GetLoaderJobStatusCommandOutput,
   GetLoaderJobStatusCommand,
@@ -153,10 +163,20 @@ import {
   GetSparqlStreamCommand,
 } from "./commands/GetSparqlStreamCommand";
 import {
+  type GetStorageInfoCommandInput,
+  type GetStorageInfoCommandOutput,
+  GetStorageInfoCommand,
+} from "./commands/GetStorageInfoCommand";
+import {
   type ListGremlinQueriesCommandInput,
   type ListGremlinQueriesCommandOutput,
   ListGremlinQueriesCommand,
 } from "./commands/ListGremlinQueriesCommand";
+import {
+  type ListIndexRebuildsCommandInput,
+  type ListIndexRebuildsCommandOutput,
+  ListIndexRebuildsCommand,
+} from "./commands/ListIndexRebuildsCommand";
 import {
   type ListLoaderJobsCommandInput,
   type ListLoaderJobsCommandOutput,
@@ -198,6 +218,11 @@ import {
   ManageSparqlStatisticsCommand,
 } from "./commands/ManageSparqlStatisticsCommand";
 import {
+  type StartIndexRebuildCommandInput,
+  type StartIndexRebuildCommandOutput,
+  StartIndexRebuildCommand,
+} from "./commands/StartIndexRebuildCommand";
+import {
   type StartLoaderJobCommandInput,
   type StartLoaderJobCommandOutput,
   StartLoaderJobCommand,
@@ -221,6 +246,7 @@ import { NeptunedataClient } from "./NeptunedataClient";
 
 const commands = {
   CancelGremlinQueryCommand,
+  CancelIndexRebuildCommand,
   CancelLoaderJobCommand,
   CancelMLDataProcessingJobCommand,
   CancelMLModelTrainingJobCommand,
@@ -238,6 +264,7 @@ const commands = {
   ExecuteOpenCypherQueryCommand,
   GetEngineStatusCommand,
   GetGremlinQueryStatusCommand,
+  GetIndexRebuildStatusCommand,
   GetLoaderJobStatusCommand,
   GetMLDataProcessingJobCommand,
   GetMLEndpointCommand,
@@ -250,7 +277,9 @@ const commands = {
   GetRDFGraphSummaryCommand,
   GetSparqlStatisticsCommand,
   GetSparqlStreamCommand,
+  GetStorageInfoCommand,
   ListGremlinQueriesCommand,
+  ListIndexRebuildsCommand,
   ListLoaderJobsCommand,
   ListMLDataProcessingJobsCommand,
   ListMLEndpointsCommand,
@@ -259,6 +288,7 @@ const commands = {
   ListOpenCypherQueriesCommand,
   ManagePropertygraphStatisticsCommand,
   ManageSparqlStatisticsCommand,
+  StartIndexRebuildCommand,
   StartLoaderJobCommand,
   StartMLDataProcessingJobCommand,
   StartMLModelTrainingJobCommand,
@@ -288,6 +318,23 @@ export interface Neptunedata {
     args: CancelGremlinQueryCommandInput,
     options: NeptunedataRequestOptions,
     cb: (err: any, data?: CancelGremlinQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelIndexRebuildCommand}
+   */
+  cancelIndexRebuild(
+    args: CancelIndexRebuildCommandInput,
+    options?: NeptunedataRequestOptions
+  ): Promise<CancelIndexRebuildCommandOutput>;
+  cancelIndexRebuild(
+    args: CancelIndexRebuildCommandInput,
+    cb: (err: any, data?: CancelIndexRebuildCommandOutput) => void
+  ): void;
+  cancelIndexRebuild(
+    args: CancelIndexRebuildCommandInput,
+    options: NeptunedataRequestOptions,
+    cb: (err: any, data?: CancelIndexRebuildCommandOutput) => void
   ): void;
 
   /**
@@ -584,6 +631,23 @@ export interface Neptunedata {
   ): void;
 
   /**
+   * @see {@link GetIndexRebuildStatusCommand}
+   */
+  getIndexRebuildStatus(
+    args: GetIndexRebuildStatusCommandInput,
+    options?: NeptunedataRequestOptions
+  ): Promise<GetIndexRebuildStatusCommandOutput>;
+  getIndexRebuildStatus(
+    args: GetIndexRebuildStatusCommandInput,
+    cb: (err: any, data?: GetIndexRebuildStatusCommandOutput) => void
+  ): void;
+  getIndexRebuildStatus(
+    args: GetIndexRebuildStatusCommandInput,
+    options: NeptunedataRequestOptions,
+    cb: (err: any, data?: GetIndexRebuildStatusCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetLoaderJobStatusCommand}
    */
   getLoaderJobStatus(
@@ -794,6 +858,24 @@ export interface Neptunedata {
   ): void;
 
   /**
+   * @see {@link GetStorageInfoCommand}
+   */
+  getStorageInfo(): Promise<GetStorageInfoCommandOutput>;
+  getStorageInfo(
+    args: GetStorageInfoCommandInput,
+    options?: NeptunedataRequestOptions
+  ): Promise<GetStorageInfoCommandOutput>;
+  getStorageInfo(
+    args: GetStorageInfoCommandInput,
+    cb: (err: any, data?: GetStorageInfoCommandOutput) => void
+  ): void;
+  getStorageInfo(
+    args: GetStorageInfoCommandInput,
+    options: NeptunedataRequestOptions,
+    cb: (err: any, data?: GetStorageInfoCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListGremlinQueriesCommand}
    */
   listGremlinQueries(): Promise<ListGremlinQueriesCommandOutput>;
@@ -809,6 +891,24 @@ export interface Neptunedata {
     args: ListGremlinQueriesCommandInput,
     options: NeptunedataRequestOptions,
     cb: (err: any, data?: ListGremlinQueriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIndexRebuildsCommand}
+   */
+  listIndexRebuilds(): Promise<ListIndexRebuildsCommandOutput>;
+  listIndexRebuilds(
+    args: ListIndexRebuildsCommandInput,
+    options?: NeptunedataRequestOptions
+  ): Promise<ListIndexRebuildsCommandOutput>;
+  listIndexRebuilds(
+    args: ListIndexRebuildsCommandInput,
+    cb: (err: any, data?: ListIndexRebuildsCommandOutput) => void
+  ): void;
+  listIndexRebuilds(
+    args: ListIndexRebuildsCommandInput,
+    options: NeptunedataRequestOptions,
+    cb: (err: any, data?: ListIndexRebuildsCommandOutput) => void
   ): void;
 
   /**
@@ -953,6 +1053,24 @@ export interface Neptunedata {
     args: ManageSparqlStatisticsCommandInput,
     options: NeptunedataRequestOptions,
     cb: (err: any, data?: ManageSparqlStatisticsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartIndexRebuildCommand}
+   */
+  startIndexRebuild(): Promise<StartIndexRebuildCommandOutput>;
+  startIndexRebuild(
+    args: StartIndexRebuildCommandInput,
+    options?: NeptunedataRequestOptions
+  ): Promise<StartIndexRebuildCommandOutput>;
+  startIndexRebuild(
+    args: StartIndexRebuildCommandInput,
+    cb: (err: any, data?: StartIndexRebuildCommandOutput) => void
+  ): void;
+  startIndexRebuild(
+    args: StartIndexRebuildCommandInput,
+    options: NeptunedataRequestOptions,
+    cb: (err: any, data?: StartIndexRebuildCommandOutput) => void
   ): void;
 
   /**

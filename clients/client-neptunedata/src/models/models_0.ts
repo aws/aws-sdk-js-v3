@@ -10,8 +10,11 @@ import type {
   Mode,
   OpenCypherExplainMode,
   Parallelism,
+  RebuildStatus,
   S3BucketRegion,
+  Scope,
   StatisticsAutoGenerationMode,
+  WriteBufferSize,
 } from "./enums";
 
 /**
@@ -34,6 +37,40 @@ export interface CancelGremlinQueryOutput {
    * @public
    */
   status?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelIndexRebuildInput {
+  /**
+   * <p>The unique identifier of the index rebuild job to cancel.</p>
+   * @public
+   */
+  rebuildId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelIndexRebuildOutput {
+  /**
+   * <p>The status of the cancellation request.</p>
+   * @public
+   */
+  status: RebuildStatus | undefined;
+
+  /**
+   * <p>The concurrency of the rebuild being cancelled, echoed from the original <code>StartIndexRebuild</code> request.</p>
+   * @public
+   */
+  concurrency: number | undefined;
+
+  /**
+   * <p>The <code>WriteBufferSize</code> of the rebuild being cancelled, echoed from the original <code>StartIndexRebuild</code> request.</p>
+   * @public
+   */
+  writeBufferSize: WriteBufferSize | undefined;
 }
 
 /**
@@ -777,6 +814,76 @@ export interface GetGremlinQueryStatusOutput {
    * @public
    */
   queryEvalStats?: QueryEvalStats | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIndexRebuildStatusInput {
+  /**
+   * <p>The unique identifier of the index rebuild job returned by the StartIndexRebuild operation.</p>
+   * @public
+   */
+  rebuildId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIndexRebuildStatusOutput {
+  /**
+   * <p>The current status of the rebuild operation. See <code>RebuildStatus</code> for possible values: <code>PREPARING</code>, <code>REBUILDING</code>, <code>COMPLETED</code>, <code>FAILED</code>, <code>CANCELLING</code> or <code>CANCELLED</code>.</p>
+   * @public
+   */
+  status: RebuildStatus | undefined;
+
+  /**
+   * <p>The scope of the rebuild operation. See <code>Scope</code> for possible values: <code>ALL</code>, <code>QUADS</code>, or <code>DICTIONARIES</code>.</p>
+   * @public
+   */
+  scope: Scope | undefined;
+
+  /**
+   * <p>The concurrency in effect for this rebuild, as echoed from the original <code>StartIndexRebuild</code> request.</p>
+   * @public
+   */
+  concurrency: number | undefined;
+
+  /**
+   * <p>The <code>WriteBufferSize</code> in effect for this rebuild, as echoed from the original <code>StartIndexRebuild</code> request.</p>
+   * @public
+   */
+  writeBufferSize: WriteBufferSize | undefined;
+
+  /**
+   * <p>The ISO-8601 timestamp indicating when the index rebuild operation started.</p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The percentage of the index rebuild operation that has been completed, expressed as an integer from 0 to 100.</p>
+   * @public
+   */
+  progressPercentage: number | undefined;
+
+  /**
+   * <p>The estimated ISO-8601 timestamp for when the index rebuild operation will complete. The estimate may change as the operation progresses.</p>
+   * @public
+   */
+  estimatedEndTime?: Date | undefined;
+
+  /**
+   * <p>The ISO-8601 timestamp indicating when the index rebuild operation completed. This field is only present when the operation has completed (status is <code>COMPLETED</code>, <code>FAILED</code>, or <code>CANCELLED</code>).</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>The reason for the failure, if the rebuild operation failed. This field is only populated when the status is <code>FAILED</code>.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
 }
 
 /**
@@ -1790,6 +1897,167 @@ export interface GetSparqlStreamOutput {
 }
 
 /**
+ * <p>Contains storage size and entry count metrics.</p>
+ * @public
+ */
+export interface StorageMetrics {
+  /**
+   * <p>Storage size in bytes.</p>
+   * @public
+   */
+  sizeInBytes: number | undefined;
+
+  /**
+   * <p>The number of entries.</p>
+   * @public
+   */
+  count: number | undefined;
+}
+
+/**
+ * <p>Contains dictionary storage metrics for the Neptune database, including total dictionary size and entry count, and the size and count for blob (large value) entries.</p>
+ * @public
+ */
+export interface DictionariesInfo {
+  /**
+   * <p>The total size and entry count across all dictionary entries.</p>
+   * @public
+   */
+  total?: StorageMetrics | undefined;
+
+  /**
+   * <p>The size and entry count for the blob (large value) dictionary entries.</p>
+   * @public
+   */
+  blobs?: StorageMetrics | undefined;
+}
+
+/**
+ * <p>Contains storage information about quad indexes.</p>
+ * @public
+ */
+export interface QuadsInfo {
+  /**
+   * <p>Size and count information for the SPOG quad index.</p>
+   * @public
+   */
+  SPOG?: StorageMetrics | undefined;
+
+  /**
+   * <p>Size and count information for the POGS quad index.</p>
+   * @public
+   */
+  POGS?: StorageMetrics | undefined;
+
+  /**
+   * <p>Size and count information for the GPSO quad index.</p>
+   * @public
+   */
+  GPSO?: StorageMetrics | undefined;
+
+  /**
+   * <p>Size and count information for the OSGP quad index. This index is optional. For details on how to enable it and evaluate the benefits and costs, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/feature-overview-data-model.html">Neptune Data Model</a>.</p>
+   * @public
+   */
+  OSGP?: StorageMetrics | undefined;
+
+  /**
+   * <p>Size and count information for the PZSOG quad index.</p>
+   * @public
+   */
+  PZSOG?: StorageMetrics | undefined;
+}
+
+/**
+ * <p>Contains storage information about quad indexes for both RDF and Property Graph data models.</p>
+ * @public
+ */
+export interface QuadsIndexesInfo {
+  /**
+   * <p>Contains quad index information for the RDF (SPARQL) data model.</p>
+   * @public
+   */
+  RDF?: QuadsInfo | undefined;
+
+  /**
+   * <p>Contains quad index information for the Property Graph (Gremlin/openCypher) data model.</p>
+   * @public
+   */
+  PG?: QuadsInfo | undefined;
+}
+
+/**
+ * <p>Contains storage metrics for the Neptune undo logs, including the total size in bytes and the number of entries in the undo log list.</p>
+ * @public
+ */
+export interface UndoLogsMetrics {
+  /**
+   * <p>The total size of the undo logs in bytes.</p>
+   * @public
+   */
+  sizeInBytes: number | undefined;
+
+  /**
+   * <p>The number of entries in the undo log list.</p>
+   * @public
+   */
+  listSize: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetStorageOutput {
+  /**
+   * <p>The approximate total amount of storage used by the Neptune database instance, in bytes.</p>
+   * @public
+   */
+  totalStorageBytesUsed?: number | undefined;
+
+  /**
+   * <p>Contains information about the quad indexes, including counts and sizes for both RDF (SPARQL) and Property Graph (Gremlin/openCypher) data.</p>
+   * @public
+   */
+  quads?: QuadsIndexesInfo | undefined;
+
+  /**
+   * <p>Contains information about the dictionaries, including total dictionary storage and the portion used by blob entries. For additional details on the storage of the Neptune dictionary, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/feature-overview-storage.html#feature-overview-storage-billing">Neptune Storage Billing</a>.</p>
+   * @public
+   */
+  dictionaries?: DictionariesInfo | undefined;
+
+  /**
+   * <p>Contains information about the undo logs. The <code>sizeInBytes</code> field represents the total size of the undo logs in bytes, and the <code>listSize</code> field represents the number of entries in the undo log list.</p>
+   * @public
+   */
+  undoLogs?: UndoLogsMetrics | undefined;
+
+  /**
+   * <p>Contains storage metrics for the Neptune change-log streams, including size in bytes and entry count.</p>
+   * @public
+   */
+  streams?: StorageMetrics | undefined;
+
+  /**
+   * <p>Contains storage metrics for the Neptune DFE engine statistics, including size in bytes and entry count.</p>
+   * @public
+   */
+  dfeStatistics?: StorageMetrics | undefined;
+
+  /**
+   * <p>Contains storage metrics for the Neptune schema, including size in bytes and entry count.</p>
+   * @public
+   */
+  schema?: StorageMetrics | undefined;
+
+  /**
+   * <p>Contains storage metrics for Neptune system metadata, including size in bytes and entry count.</p>
+   * @public
+   */
+  internals?: StorageMetrics | undefined;
+}
+
+/**
  * @public
  */
 export interface ListGremlinQueriesInput {
@@ -1845,6 +2113,17 @@ export interface ListGremlinQueriesOutput {
    * @public
    */
   queries?: GremlinQueryStatus[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIndexRebuildsOutput {
+  /**
+   * <p>A list of unique identifiers for index rebuild operations. Use each ID with the GetIndexRebuildStatus operation to retrieve detailed status information.</p>
+   * @public
+   */
+  rebuildIds: string[] | undefined;
 }
 
 /**
@@ -2105,6 +2384,70 @@ export interface ManageSparqlStatisticsOutput {
    * @public
    */
   payload?: RefreshStatisticsIdMap | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartIndexRebuildInput {
+  /**
+   * <p>Specifies the scope of the rebuild operation. Possible values are:</p> <ul> <li> <p> <code>ALL</code> - Rebuild all (quads and dictionaries). This is the default if not specified.</p> </li> <li> <p> <code>QUADS</code> - Rebuild only the quad indexes. </p> </li> <li> <p> <code>DICTIONARIES</code> - Rebuild only the dictionaries.</p> </li> </ul>
+   * @public
+   */
+  scope?: Scope | undefined;
+
+  /**
+   * <p>The number of concurrent indexes to rebuild in parallel. If not specified, defaults to <code>1</code>.</p> <p>Valid values are between <code>1</code> and the number of vCPUs available on the writer instance. If the value exceeds the available vCPUs, it is capped at the maximum instead of returning an <code>InvalidParameterException</code>. The effective (capped) value is returned in the response.</p> <p>Higher concurrency can shorten the overall rebuild, but also increases CPU and I/O load during the operation.</p>
+   * @public
+   */
+  concurrency?: number | undefined;
+
+  /**
+   * <p>Controls the buffer size used for tracking concurrent write operations during the index rebuild. If your database has high write traffic during the rebuild, a larger buffer prevents the operation from failing due to buffer overflow. Possible values are:</p> <ul> <li> <p> <code>LOW</code> - Suitable for databases with light to moderate write activity. This is the default.</p> </li> <li> <p> <code>MEDIUM</code> - Recommended for databases with sustained write traffic or bulk loading.</p> </li> <li> <p> <code>HIGH</code> - Use when rebuilding indexes during heavy write workloads or continuous bulk data ingestion.</p> </li> </ul> <p>If your rebuild fails and you are actively writing data to the database, retry with a higher <code>writeBufferSize</code> value. For bulk load operations, consider using <code>HIGH</code>.</p>
+   * @public
+   */
+  writeBufferSize?: WriteBufferSize | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, the SDK automatically generates one.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartIndexRebuildOutput {
+  /**
+   * <p>The current status of the rebuild operation. See <code>RebuildStatus</code> for possible values.</p>
+   * @public
+   */
+  status: RebuildStatus | undefined;
+
+  /**
+   * <p>The unique identifier for the index rebuild job. Use this ID with the GetIndexRebuildStatus operation to check the progress of the rebuild.</p>
+   * @public
+   */
+  rebuildId: string | undefined;
+
+  /**
+   * <p>The scope of the rebuild operation that was requested. See <code>Scope</code> for possible values: <code>ALL</code>, <code>QUADS</code>, or <code>DICTIONARIES</code>.</p>
+   * @public
+   */
+  scope: Scope | undefined;
+
+  /**
+   * <p>The effective concurrency used for this rebuild. This is the value supplied in the request, capped at the number of vCPUs on the writer instance.</p>
+   * @public
+   */
+  concurrency: number | undefined;
+
+  /**
+   * <p>The <code>WriteBufferSize</code> applied to this rebuild. See the <code>WriteBufferSize</code> enum for possible values.</p>
+   * @public
+   */
+  writeBufferSize: WriteBufferSize | undefined;
 }
 
 /**

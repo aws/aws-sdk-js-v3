@@ -64,6 +64,9 @@ export interface ExecuteGremlinProfileQueryCommandOutput extends ExecuteGremlinP
  * @throws {@link BadRequestException} (client fault)
  *  <p>Raised when a request is submitted that cannot be processed.</p>
  *
+ * @throws {@link CancelledByMaintenanceException} (server fault)
+ *  <p>Raised when a request is cancelled because the storage layer entered maintenance mode. This typically happens during a customer-initiated operation such as an index rebuild. It should be treated like <code>ConcurrentModificationException</code>.</p>
+ *
  * @throws {@link CancelledByUserException} (server fault)
  *  <p>Raised when a user cancelled a request.</p>
  *

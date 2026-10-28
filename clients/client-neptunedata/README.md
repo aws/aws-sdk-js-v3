@@ -22,16 +22,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `NeptunedataClient` and
-the commands you need, for example `ListLoaderJobsCommand`:
+the commands you need, for example `ListIndexRebuildsCommand`:
 
 ```js
 // ES5 example
-const { NeptunedataClient, ListLoaderJobsCommand } = require("@aws-sdk/client-neptunedata");
+const { NeptunedataClient, ListIndexRebuildsCommand } = require("@aws-sdk/client-neptunedata");
 ```
 
 ```ts
 // ES6+ example
-import { NeptunedataClient, ListLoaderJobsCommand } from "@aws-sdk/client-neptunedata";
+import { NeptunedataClient, ListIndexRebuildsCommand } from "@aws-sdk/client-neptunedata";
 ```
 
 ### Usage
@@ -48,7 +48,7 @@ To send a request:
 const client = new NeptunedataClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListLoaderJobsCommand(params);
+const command = new ListIndexRebuildsCommand(params);
 ```
 
 #### Async/await
@@ -104,7 +104,7 @@ const client = new Neptunedata({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listLoaderJobs(params);
+  const data = await client.listIndexRebuilds(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -112,7 +112,7 @@ try {
 
 // Promises.
 client
-  .listLoaderJobs(params)
+  .listIndexRebuilds(params)
   .then((data) => {
     // process data.
   })
@@ -121,7 +121,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listLoaderJobs(params, (err, data) => {
+client.listIndexRebuilds(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -185,6 +185,13 @@ CancelGremlinQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/CancelGremlinQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CancelGremlinQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CancelGremlinQueryCommandOutput/)
+</details>
+<details>
+<summary>
+CancelIndexRebuild
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/CancelIndexRebuildCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CancelIndexRebuildCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CancelIndexRebuildCommandOutput/)
 </details>
 <details>
 <summary>
@@ -307,6 +314,13 @@ GetGremlinQueryStatus
 </details>
 <details>
 <summary>
+GetIndexRebuildStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/GetIndexRebuildStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetIndexRebuildStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetIndexRebuildStatusCommandOutput/)
+</details>
+<details>
+<summary>
 GetLoaderJobStatus
 </summary>
 
@@ -391,10 +405,24 @@ GetSparqlStream
 </details>
 <details>
 <summary>
+GetStorageInfo
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/GetStorageInfoCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetStorageInfoCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetStorageInfoCommandOutput/)
+</details>
+<details>
+<summary>
 ListGremlinQueries
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ListGremlinQueriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListGremlinQueriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListGremlinQueriesCommandOutput/)
+</details>
+<details>
+<summary>
+ListIndexRebuilds
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ListIndexRebuildsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListIndexRebuildsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListIndexRebuildsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -451,6 +479,13 @@ ManageSparqlStatistics
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ManageSparqlStatisticsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ManageSparqlStatisticsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ManageSparqlStatisticsCommandOutput/)
+</details>
+<details>
+<summary>
+StartIndexRebuild
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/StartIndexRebuildCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/StartIndexRebuildCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/StartIndexRebuildCommandOutput/)
 </details>
 <details>
 <summary>

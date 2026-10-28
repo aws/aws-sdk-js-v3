@@ -16,6 +16,64 @@ export type Action = (typeof Action)[keyof typeof Action];
  * @public
  * @enum
  */
+export const RebuildStatus = {
+  /**
+   * <p>The rebuild operation was cancelled by the user.</p>
+   */
+  CANCELLED: "CANCELLED",
+  /**
+   * <p>The rebuild operation was cancelled by the user and is in cancelling phase.</p>
+   */
+  CANCELLING: "CANCELLING",
+  /**
+   * <p>The rebuild operation has completed successfully.</p>
+   */
+  COMPLETED: "COMPLETED",
+  /**
+   * <p>The rebuild operation has failed (completely or partially).</p>
+   */
+  FAILED: "FAILED",
+  /**
+   * <p>The rebuild operation is being prepared.</p>
+   */
+  PREPARING: "PREPARING",
+  /**
+   * <p>The rebuild operation is actively rebuilding indexes.</p>
+   */
+  REBUILDING: "REBUILDING",
+} as const;
+/**
+ * @public
+ */
+export type RebuildStatus = (typeof RebuildStatus)[keyof typeof RebuildStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const WriteBufferSize = {
+  /**
+   * <p>Use when rebuilding indexes during heavy write workloads or continuous bulk data ingestion.</p>
+   */
+  HIGH: "HIGH",
+  /**
+   * <p>Suitable for databases with light to moderate write activity. This is the default.</p>
+   */
+  LOW: "LOW",
+  /**
+   * <p>Recommended for databases with sustained write traffic or bulk loading.</p>
+   */
+  MEDIUM: "MEDIUM",
+} as const;
+/**
+ * @public
+ */
+export type WriteBufferSize = (typeof WriteBufferSize)[keyof typeof WriteBufferSize];
+
+/**
+ * @public
+ * @enum
+ */
 export const OpenCypherExplainMode = {
   DETAILS: "details",
   DYNAMIC: "dynamic",
@@ -25,6 +83,29 @@ export const OpenCypherExplainMode = {
  * @public
  */
 export type OpenCypherExplainMode = (typeof OpenCypherExplainMode)[keyof typeof OpenCypherExplainMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Scope = {
+  /**
+   * <p>Rebuild all (quads and dictionaries). This is the default option.</p>
+   */
+  ALL: "ALL",
+  /**
+   * <p>Rebuild only the dictionaries.</p>
+   */
+  DICTIONARIES: "DICTIONARIES",
+  /**
+   * <p>Rebuild only the quad indexes.</p>
+   */
+  QUADS: "QUADS",
+} as const;
+/**
+ * @public
+ */
+export type Scope = (typeof Scope)[keyof typeof Scope];
 
 /**
  * @public

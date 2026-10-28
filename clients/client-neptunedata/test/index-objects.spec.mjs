@@ -10,6 +10,12 @@ import {
   CancelGremlinQueryCommand,
   CancelGremlinQueryInput$,
   CancelGremlinQueryOutput$,
+  CancelIndexRebuild$,
+  CancelIndexRebuildCommand,
+  CancelIndexRebuildInput$,
+  CancelIndexRebuildOutput$,
+  CancelledByMaintenanceException,
+  CancelledByMaintenanceException$,
   CancelledByUserException,
   CancelledByUserException$,
   CancelLoaderJob$,
@@ -55,6 +61,7 @@ import {
   DeleteSparqlStatisticsCommand,
   DeleteSparqlStatisticsOutput$,
   DeleteStatisticsValueMap$,
+  DictionariesInfo$,
   EdgeStructure$,
   Encoding,
   ExecuteFastReset$,
@@ -94,6 +101,10 @@ import {
   GetGremlinQueryStatusCommand,
   GetGremlinQueryStatusInput$,
   GetGremlinQueryStatusOutput$,
+  GetIndexRebuildStatus$,
+  GetIndexRebuildStatusCommand,
+  GetIndexRebuildStatusInput$,
+  GetIndexRebuildStatusOutput$,
   GetLoaderJobStatus$,
   GetLoaderJobStatusCommand,
   GetLoaderJobStatusInput$,
@@ -140,6 +151,9 @@ import {
   GetSparqlStreamCommand,
   GetSparqlStreamInput$,
   GetSparqlStreamOutput$,
+  GetStorageInfo$,
+  GetStorageInfoCommand,
+  GetStorageOutput$,
   GraphSummaryType,
   GremlinQueryStatus$,
   GremlinQueryStatusAttributes$,
@@ -158,6 +172,9 @@ import {
   ListGremlinQueriesCommand,
   ListGremlinQueriesInput$,
   ListGremlinQueriesOutput$,
+  ListIndexRebuilds$,
+  ListIndexRebuildsCommand,
+  ListIndexRebuildsOutput$,
   ListLoaderJobs$,
   ListLoaderJobsCommand,
   ListLoaderJobsInput$,
@@ -220,6 +237,8 @@ import {
   PropertygraphRecord$,
   PropertygraphSummary$,
   PropertygraphSummaryValueMap$,
+  QuadsIndexesInfo$,
+  QuadsInfo$,
   QueryEvalStats$,
   QueryLanguageVersion$,
   QueryLimitExceededException,
@@ -232,14 +251,22 @@ import {
   RDFGraphSummaryValueMap$,
   ReadOnlyViolationException,
   ReadOnlyViolationException$,
+  RebuildStatus,
   RefreshStatisticsIdMap$,
+  ResourceNotFoundException,
+  ResourceNotFoundException$,
   S3BucketRegion,
   S3Exception,
   S3Exception$,
+  Scope,
   ServerShutdownException,
   ServerShutdownException$,
   SparqlData$,
   SparqlRecord$,
+  StartIndexRebuild$,
+  StartIndexRebuildCommand,
+  StartIndexRebuildInput$,
+  StartIndexRebuildOutput$,
   StartLoaderJob$,
   StartLoaderJobCommand,
   StartLoaderJobInput$,
@@ -261,6 +288,7 @@ import {
   StatisticsNotAvailableException,
   StatisticsNotAvailableException$,
   StatisticsSummary$,
+  StorageMetrics$,
   StreamRecordsNotFoundException,
   StreamRecordsNotFoundException$,
   SubjectStructure$,
@@ -270,8 +298,12 @@ import {
   TimeLimitExceededException$,
   TooManyRequestsException,
   TooManyRequestsException$,
+  UndoLogsMetrics$,
   UnsupportedOperationException,
   UnsupportedOperationException$,
+  ValidationException,
+  ValidationException$,
+  WriteBufferSize,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -280,6 +312,8 @@ assert(typeof Neptunedata === "function");
 // commands
 assert(typeof CancelGremlinQueryCommand === "function");
 assert(typeof CancelGremlinQuery$ === "object");
+assert(typeof CancelIndexRebuildCommand === "function");
+assert(typeof CancelIndexRebuild$ === "object");
 assert(typeof CancelLoaderJobCommand === "function");
 assert(typeof CancelLoaderJob$ === "object");
 assert(typeof CancelMLDataProcessingJobCommand === "function");
@@ -314,6 +348,8 @@ assert(typeof GetEngineStatusCommand === "function");
 assert(typeof GetEngineStatus$ === "object");
 assert(typeof GetGremlinQueryStatusCommand === "function");
 assert(typeof GetGremlinQueryStatus$ === "object");
+assert(typeof GetIndexRebuildStatusCommand === "function");
+assert(typeof GetIndexRebuildStatus$ === "object");
 assert(typeof GetLoaderJobStatusCommand === "function");
 assert(typeof GetLoaderJobStatus$ === "object");
 assert(typeof GetMLDataProcessingJobCommand === "function");
@@ -338,8 +374,12 @@ assert(typeof GetSparqlStatisticsCommand === "function");
 assert(typeof GetSparqlStatistics$ === "object");
 assert(typeof GetSparqlStreamCommand === "function");
 assert(typeof GetSparqlStream$ === "object");
+assert(typeof GetStorageInfoCommand === "function");
+assert(typeof GetStorageInfo$ === "object");
 assert(typeof ListGremlinQueriesCommand === "function");
 assert(typeof ListGremlinQueries$ === "object");
+assert(typeof ListIndexRebuildsCommand === "function");
+assert(typeof ListIndexRebuilds$ === "object");
 assert(typeof ListLoaderJobsCommand === "function");
 assert(typeof ListLoaderJobs$ === "object");
 assert(typeof ListMLDataProcessingJobsCommand === "function");
@@ -356,6 +396,8 @@ assert(typeof ManagePropertygraphStatisticsCommand === "function");
 assert(typeof ManagePropertygraphStatistics$ === "object");
 assert(typeof ManageSparqlStatisticsCommand === "function");
 assert(typeof ManageSparqlStatistics$ === "object");
+assert(typeof StartIndexRebuildCommand === "function");
+assert(typeof StartIndexRebuild$ === "object");
 assert(typeof StartLoaderJobCommand === "function");
 assert(typeof StartLoaderJob$ === "object");
 assert(typeof StartMLDataProcessingJobCommand === "function");
@@ -367,6 +409,8 @@ assert(typeof StartMLModelTransformJob$ === "object");
 // structural schemas
 assert(typeof CancelGremlinQueryInput$ === "object");
 assert(typeof CancelGremlinQueryOutput$ === "object");
+assert(typeof CancelIndexRebuildInput$ === "object");
+assert(typeof CancelIndexRebuildOutput$ === "object");
 assert(typeof CancelLoaderJobInput$ === "object");
 assert(typeof CancelLoaderJobOutput$ === "object");
 assert(typeof CancelMLDataProcessingJobInput$ === "object");
@@ -386,6 +430,7 @@ assert(typeof DeleteMLEndpointOutput$ === "object");
 assert(typeof DeletePropertygraphStatisticsOutput$ === "object");
 assert(typeof DeleteSparqlStatisticsOutput$ === "object");
 assert(typeof DeleteStatisticsValueMap$ === "object");
+assert(typeof DictionariesInfo$ === "object");
 assert(typeof EdgeStructure$ === "object");
 assert(typeof ExecuteFastResetInput$ === "object");
 assert(typeof ExecuteFastResetOutput$ === "object");
@@ -403,6 +448,8 @@ assert(typeof FastResetToken$ === "object");
 assert(typeof GetEngineStatusOutput$ === "object");
 assert(typeof GetGremlinQueryStatusInput$ === "object");
 assert(typeof GetGremlinQueryStatusOutput$ === "object");
+assert(typeof GetIndexRebuildStatusInput$ === "object");
+assert(typeof GetIndexRebuildStatusOutput$ === "object");
 assert(typeof GetLoaderJobStatusInput$ === "object");
 assert(typeof GetLoaderJobStatusOutput$ === "object");
 assert(typeof GetMLDataProcessingJobInput$ === "object");
@@ -425,10 +472,12 @@ assert(typeof GetRDFGraphSummaryOutput$ === "object");
 assert(typeof GetSparqlStatisticsOutput$ === "object");
 assert(typeof GetSparqlStreamInput$ === "object");
 assert(typeof GetSparqlStreamOutput$ === "object");
+assert(typeof GetStorageOutput$ === "object");
 assert(typeof GremlinQueryStatus$ === "object");
 assert(typeof GremlinQueryStatusAttributes$ === "object");
 assert(typeof ListGremlinQueriesInput$ === "object");
 assert(typeof ListGremlinQueriesOutput$ === "object");
+assert(typeof ListIndexRebuildsOutput$ === "object");
 assert(typeof ListLoaderJobsInput$ === "object");
 assert(typeof ListLoaderJobsOutput$ === "object");
 assert(typeof ListMLDataProcessingJobsInput$ === "object");
@@ -453,6 +502,8 @@ assert(typeof PropertygraphData$ === "object");
 assert(typeof PropertygraphRecord$ === "object");
 assert(typeof PropertygraphSummary$ === "object");
 assert(typeof PropertygraphSummaryValueMap$ === "object");
+assert(typeof QuadsIndexesInfo$ === "object");
+assert(typeof QuadsInfo$ === "object");
 assert(typeof QueryEvalStats$ === "object");
 assert(typeof QueryLanguageVersion$ === "object");
 assert(typeof RDFGraphSummary$ === "object");
@@ -460,6 +511,8 @@ assert(typeof RDFGraphSummaryValueMap$ === "object");
 assert(typeof RefreshStatisticsIdMap$ === "object");
 assert(typeof SparqlData$ === "object");
 assert(typeof SparqlRecord$ === "object");
+assert(typeof StartIndexRebuildInput$ === "object");
+assert(typeof StartIndexRebuildOutput$ === "object");
 assert(typeof StartLoaderJobInput$ === "object");
 assert(typeof StartLoaderJobOutput$ === "object");
 assert(typeof StartMLDataProcessingJobInput$ === "object");
@@ -470,7 +523,9 @@ assert(typeof StartMLModelTransformJobInput$ === "object");
 assert(typeof StartMLModelTransformJobOutput$ === "object");
 assert(typeof Statistics$ === "object");
 assert(typeof StatisticsSummary$ === "object");
+assert(typeof StorageMetrics$ === "object");
 assert(typeof SubjectStructure$ === "object");
+assert(typeof UndoLogsMetrics$ === "object");
 // enums
 assert(typeof Action === "object");
 assert(typeof Encoding === "object");
@@ -480,8 +535,11 @@ assert(typeof IteratorType === "object");
 assert(typeof Mode === "object");
 assert(typeof OpenCypherExplainMode === "object");
 assert(typeof Parallelism === "object");
+assert(typeof RebuildStatus === "object");
 assert(typeof S3BucketRegion === "object");
+assert(typeof Scope === "object");
 assert(typeof StatisticsAutoGenerationMode === "object");
+assert(typeof WriteBufferSize === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof NeptunedataServiceException);
 assert(typeof AccessDeniedException$ === "object");
@@ -489,6 +547,8 @@ assert(BadRequestException.prototype instanceof NeptunedataServiceException);
 assert(typeof BadRequestException$ === "object");
 assert(BulkLoadIdNotFoundException.prototype instanceof NeptunedataServiceException);
 assert(typeof BulkLoadIdNotFoundException$ === "object");
+assert(CancelledByMaintenanceException.prototype instanceof NeptunedataServiceException);
+assert(typeof CancelledByMaintenanceException$ === "object");
 assert(CancelledByUserException.prototype instanceof NeptunedataServiceException);
 assert(typeof CancelledByUserException$ === "object");
 assert(ClientTimeoutException.prototype instanceof NeptunedataServiceException);
@@ -535,6 +595,8 @@ assert(QueryTooLargeException.prototype instanceof NeptunedataServiceException);
 assert(typeof QueryTooLargeException$ === "object");
 assert(ReadOnlyViolationException.prototype instanceof NeptunedataServiceException);
 assert(typeof ReadOnlyViolationException$ === "object");
+assert(ResourceNotFoundException.prototype instanceof NeptunedataServiceException);
+assert(typeof ResourceNotFoundException$ === "object");
 assert(S3Exception.prototype instanceof NeptunedataServiceException);
 assert(typeof S3Exception$ === "object");
 assert(ServerShutdownException.prototype instanceof NeptunedataServiceException);
@@ -551,5 +613,7 @@ assert(TooManyRequestsException.prototype instanceof NeptunedataServiceException
 assert(typeof TooManyRequestsException$ === "object");
 assert(UnsupportedOperationException.prototype instanceof NeptunedataServiceException);
 assert(typeof UnsupportedOperationException$ === "object");
+assert(ValidationException.prototype instanceof NeptunedataServiceException);
+assert(typeof ValidationException$ === "object");
 assert(NeptunedataServiceException.prototype instanceof Error);
 console.log(`Neptunedata index test passed.`);
