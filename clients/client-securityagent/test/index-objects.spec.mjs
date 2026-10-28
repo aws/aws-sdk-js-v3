@@ -130,6 +130,7 @@ import {
   Category$,
   CiCdConfiguration$,
   CleanUpStrategy,
+  ClientCertificate$,
   CloudWatchLog$,
   CodeLocation$,
   CodeRemediationStrategy,
@@ -884,6 +885,7 @@ assert(typeof BitbucketResourceCapabilities$ === "object");
 assert(typeof CaCertificateSource$ === "object");
 assert(typeof Category$ === "object");
 assert(typeof CiCdConfiguration$ === "object");
+assert(typeof ClientCertificate$ === "object");
 assert(typeof CloudWatchLog$ === "object");
 assert(typeof CodeLocation$ === "object");
 assert(typeof CodeRemediationTask$ === "object");

@@ -120,11 +120,13 @@ const _CASI = "CreateAgentSpaceInput";
 const _CASO = "CreateAgentSpaceOutput";
 const _CC = "CertificateChain";
 const _CCC = "CiCdConfiguration";
+const _CCL = "ClientCertificateList";
 const _CCP = "CaCertificatePem";
 const _CCR = "CreateCodeReview";
 const _CCRI = "CreateCodeReviewInput";
 const _CCRO = "CreateCodeReviewOutput";
 const _CCS = "CaCertificateSource";
+const _CCl = "ClientCertificate";
 const _CDM = "ConfluenceDocumentMetadata";
 const _CDR = "ConfluenceDocumentResource";
 const _CE = "ConflictException";
@@ -544,7 +546,8 @@ const _br = "branch";
 const _c = "client";
 const _cA = "createdAt";
 const _cB = "createdBy";
-const _cC = "cicdConfiguration";
+const _cC = "clientCertificates";
+const _cCi = "cicdConfiguration";
 const _cD = "createDocument";
 const _cDL = "codeDiffLink";
 const _cDo = "confluenceDocument";
@@ -719,6 +722,7 @@ const _o = "organization";
 const _oFI = "originalFindingId";
 const _oN = "organizationName";
 const _op = "operation";
+const _or = "origins";
 const _ov = "overview";
 const _ow = "owner";
 const _p = "project";
@@ -781,6 +785,7 @@ const _ro = "role";
 const _ru = "rules";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.securityagent";
 const _sA = "secretArns";
+const _sAe = "secretArn";
 const _sAu = "subnetArns";
 const _sB = "s3Buckets";
 const _sC = "serviceCode";
@@ -1033,8 +1038,8 @@ export var ArtifactSummary$: StaticStructureSchema = [3, n0, _ASr,
 ];
 export var Assets$: StaticStructureSchema = [3, n0, _As,
   0,
-  [_en, _ac, _doc, _sCo, _iR, _tCC],
-  [() => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => IntegratedRepositoryList, [() => TrustedCaCertificateList, 0]]
+  [_en, _ac, _doc, _sCo, _iR, _tCC, _cC],
+  [() => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => IntegratedRepositoryList, [() => TrustedCaCertificateList, 0], () => ClientCertificateList]
 ];
 export var Authentication$: StaticStructureSchema = [3, n0, _Au,
   0,
@@ -1361,6 +1366,11 @@ export var CiCdConfiguration$: StaticStructureSchema = [3, n0, _CCC,
   [_ena],
   [2]
 ];
+export var ClientCertificate$: StaticStructureSchema = [3, n0, _CCl,
+  0,
+  [_n, _sAe, _or],
+  [0, 0, 64 | 0], 3
+];
 export var CloudWatchLog$: StaticStructureSchema = [3, n0, _CWL,
   0,
   [_lGo, _lS],
@@ -1488,12 +1498,12 @@ export var CreateMembershipResponse$: StaticStructureSchema = [3, n0, _CMRr,
 ];
 export var CreatePentestInput$: StaticStructureSchema = [3, n0, _CPI,
   0,
-  [_ti, _aSI, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS, _mTH, _rD, _rF, _cC, _tS],
+  [_ti, _aSI, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS, _mTH, _rD, _rF, _cCi, _tS],
   [0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0, 1, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$, () => TestScope$], 2
 ];
 export var CreatePentestOutput$: StaticStructureSchema = [3, n0, _CPO,
   0,
-  [_pIen, _ti, _cA, _uA, _as, _eRT, _sRe, _lCo, _aSI, _rD, _rF, _cC, _tS],
+  [_pIen, _ti, _cA, _uA, _as, _eRT, _sRe, _lCo, _aSI, _rD, _rF, _cCi, _tS],
   [0, 0, 5, 5, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, 0, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$, () => TestScope$]
 ];
 export var CreatePrivateConnectionInput$: StaticStructureSchema = [3, n0, _CPCI,
@@ -2128,13 +2138,13 @@ export var NetworkTrafficRule$: StaticStructureSchema = [3, n0, _NTR,
 ];
 export var Pentest$: StaticStructureSchema = [3, n0, _P,
   0,
-  [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _cUS, _dMS, _mTH, _rD, _rF, _cC, _tS, _cA, _uA],
+  [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _cUS, _dMS, _mTH, _rD, _rF, _cCi, _tS, _cA, _uA],
   [0, 0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 0, 64 | 0, 1, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$, () => TestScope$, 5, 5], 4
 ];
 export var PentestJob$: StaticStructureSchema = [3, n0, _PJ,
   0,
-  [_pJI, _pIen, _ti, _ov, _sta, _en, _ac, _doc, _sCo, _eP, _aD, _eRT, _ste, _eC, _sRe, _lCo, _vC, _nTC, _eI, _iR, _tCC, _cRSo, _cUS, _dMS, _mTH, _jT, _sFI, _rD, _rU, _sRc, _sCc, _cC, _tS, _cA, _uA],
-  [0, 0, 0, 0, 0, () => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => EndpointList, () => EndpointList, 64 | 0, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, () => ErrorInformation$, () => IntegratedRepositoryList, [() => TrustedCaCertificateList, 0], 0, 0, 64 | 0, 1, 0, 64 | 0, () => ReportDestination$, 0, () => ScopeResult$, () => ScopeChangeList, () => CiCdConfiguration$, () => TestScope$, 5, 5]
+  [_pJI, _pIen, _ti, _ov, _sta, _en, _ac, _doc, _sCo, _eP, _aD, _eRT, _ste, _eC, _sRe, _lCo, _vC, _nTC, _eI, _iR, _tCC, _cC, _cRSo, _cUS, _dMS, _mTH, _jT, _sFI, _rD, _rU, _sRc, _sCc, _cCi, _tS, _cA, _uA],
+  [0, 0, 0, 0, 0, () => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => EndpointList, () => EndpointList, 64 | 0, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, () => ErrorInformation$, () => IntegratedRepositoryList, [() => TrustedCaCertificateList, 0], () => ClientCertificateList, 0, 0, 64 | 0, 1, 0, 64 | 0, () => ReportDestination$, 0, () => ScopeResult$, () => ScopeChangeList, () => CiCdConfiguration$, () => TestScope$, 5, 5]
 ];
 export var PentestJobSummary$: StaticStructureSchema = [3, n0, _PJS,
   0,
@@ -2448,12 +2458,12 @@ export var UpdateIntegrationOutput$: StaticStructureSchema = [3, n0, _UIO,
 ];
 export var UpdatePentestInput$: StaticStructureSchema = [3, n0, _UPI,
   0,
-  [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS, _mTH, _rD, _rF, _cC, _tS],
+  [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS, _mTH, _rD, _rF, _cCi, _tS],
   [0, 0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0, 1, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$, () => TestScope$], 2
 ];
 export var UpdatePentestOutput$: StaticStructureSchema = [3, n0, _UPO,
   0,
-  [_pIen, _ti, _cA, _uA, _as, _eRT, _sRe, _lCo, _aSI, _rD, _rF, _cC, _tS],
+  [_pIen, _ti, _cA, _uA, _as, _eRT, _sRe, _lCo, _aSI, _rD, _rF, _cCi, _tS],
   [0, 0, 5, 5, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, 0, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$, () => TestScope$]
 ];
 export var UpdatePrivateConnectionCertificateInput$: StaticStructureSchema = [3, n0, _UPCCI,
@@ -2603,6 +2613,10 @@ var BatchSecurityRequirementErrors: StaticListSchema = [1, n0, _BSREa,
 var CategoryList: StaticListSchema = [1, n0, _CLa,
   0, () => Category$
 ];
+var ClientCertificateList: StaticListSchema = [1, n0, _CCL,
+  0, () => ClientCertificate$
+];
+var ClientCertificateOriginList = 64 | 0;
 var CodeLocationList: StaticListSchema = [1, n0, _CLL,
   0, () => CodeLocation$
 ];

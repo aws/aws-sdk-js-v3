@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { StartThreatModelJobInput, StartThreatModelJobOutput } from "../models/models_0";
+import type { StartThreatModelJobInput } from "../models/models_0";
+import type { StartThreatModelJobOutput } from "../models/models_1";
 import { StartThreatModelJob$ } from "../schemas/schemas_0";
 
 /**

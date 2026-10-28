@@ -89,6 +89,15 @@ export interface UpdateThreatModelCommandOutput extends UpdateThreatModelOutput,
  *         },
  *       },
  *     ],
+ *     clientCertificates: [ // ClientCertificateList
+ *       { // ClientCertificate
+ *         name: "STRING_VALUE", // required
+ *         secretArn: "STRING_VALUE", // required
+ *         origins: [ // ClientCertificateOriginList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
  *   },
  *   scopeDocs: [
  *     {
@@ -169,6 +178,15 @@ export interface UpdateThreatModelCommandOutput extends UpdateThreatModelOutput,
  * //           artifactId: "STRING_VALUE",
  * //           s3Location: "STRING_VALUE",
  * //         },
+ * //       },
+ * //     ],
+ * //     clientCertificates: [ // ClientCertificateList
+ * //       { // ClientCertificate
+ * //         name: "STRING_VALUE", // required
+ * //         secretArn: "STRING_VALUE", // required
+ * //         origins: [ // ClientCertificateOriginList // required
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     ],
  * //   },

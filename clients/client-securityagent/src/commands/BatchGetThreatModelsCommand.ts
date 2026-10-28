@@ -99,6 +99,15 @@ export interface BatchGetThreatModelsCommandOutput extends BatchGetThreatModelsO
  * //             },
  * //           },
  * //         ],
+ * //         clientCertificates: [ // ClientCertificateList
+ * //           { // ClientCertificate
+ * //             name: "STRING_VALUE", // required
+ * //             secretArn: "STRING_VALUE", // required
+ * //             origins: [ // ClientCertificateOriginList // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
  * //       },
  * //       scopeDocs: [
  * //         {

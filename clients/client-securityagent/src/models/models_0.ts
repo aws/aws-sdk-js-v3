@@ -961,6 +961,30 @@ export interface ArtifactSummary {
 }
 
 /**
+ * <p>A client certificate for mutual TLS (mTLS) authentication to target hosts.</p>
+ * @public
+ */
+export interface ClientCertificate {
+  /**
+   * <p>A customer-chosen name for this client certificate, used in error messages and console display.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ARN of the Secrets Manager secret containing the certificate and private key.</p>
+   * @public
+   */
+  secretArn: string | undefined;
+
+  /**
+   * <p>The origins (scheme://host[:port]) this certificate applies to. Paths are not supported. Each hostname can have at most one client certificate.</p>
+   * @public
+   */
+  origins: string[] | undefined;
+}
+
+/**
  * <p>A reference to a document in a third-party provider, such as a Confluence page linked via an integration.</p>
  * @public
  */
@@ -1171,6 +1195,12 @@ export interface Assets {
    * @public
    */
   trustedCaCertificates?: TrustedCaCertificate[] | undefined;
+
+  /**
+   * <p>The client certificates for mutual TLS (mTLS) authentication to target hosts. Each certificate is stored in Secrets Manager and scoped to specific target origins.</p>
+   * @public
+   */
+  clientCertificates?: ClientCertificate[] | undefined;
 }
 
 /**
@@ -3271,6 +3301,12 @@ export interface PentestJob {
    * @public
    */
   trustedCaCertificates?: TrustedCaCertificate[] | undefined;
+
+  /**
+   * <p>The client certificates for mutual TLS (mTLS) authentication to target hosts during the pentest job.</p>
+   * @public
+   */
+  clientCertificates?: ClientCertificate[] | undefined;
 
   /**
    * <p>The code remediation strategy for the pentest job.</p>
@@ -9935,52 +9971,4 @@ export interface StartThreatModelJobInput {
    * @public
    */
   threatModelId: string | undefined;
-}
-
-/**
- * <p>Output for the StartThreatModelJob operation.</p>
- * @public
- */
-export interface StartThreatModelJobOutput {
-  /**
-   * <p>The title of the threat model job.</p>
-   * @public
-   */
-  title?: string | undefined;
-
-  /**
-   * <p>The current status of the threat model job.</p>
-   * @public
-   */
-  status?: JobStatus | undefined;
-
-  /**
-   * <p>The date and time the threat model job was created, in UTC format.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The date and time the threat model job was last updated, in UTC format.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The unique identifier of the threat model.</p>
-   * @public
-   */
-  threatModelId?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the started threat model job.</p>
-   * @public
-   */
-  threatModelJobId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the agent space.</p>
-   * @public
-   */
-  agentSpaceId?: string | undefined;
 }

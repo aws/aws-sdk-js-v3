@@ -418,6 +418,7 @@ export type {
   CaCertificateSource,
   Category,
   CiCdConfiguration,
+  ClientCertificate,
   CloudWatchLog,
   CodeLocation,
   CodeRemediationTask,

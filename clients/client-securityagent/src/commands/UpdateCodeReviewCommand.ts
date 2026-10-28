@@ -88,6 +88,15 @@ export interface UpdateCodeReviewCommandOutput extends UpdateCodeReviewOutput, _
  *         },
  *       },
  *     ],
+ *     clientCertificates: [ // ClientCertificateList
+ *       { // ClientCertificate
+ *         name: "STRING_VALUE", // required
+ *         secretArn: "STRING_VALUE", // required
+ *         origins: [ // ClientCertificateOriginList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
  *   },
  *   serviceRole: "STRING_VALUE",
  *   logConfig: { // CloudWatchLog
@@ -183,6 +192,15 @@ export interface UpdateCodeReviewCommandOutput extends UpdateCodeReviewOutput, _
  * //           artifactId: "STRING_VALUE",
  * //           s3Location: "STRING_VALUE",
  * //         },
+ * //       },
+ * //     ],
+ * //     clientCertificates: [ // ClientCertificateList
+ * //       { // ClientCertificate
+ * //         name: "STRING_VALUE", // required
+ * //         secretArn: "STRING_VALUE", // required
+ * //         origins: [ // ClientCertificateOriginList // required
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     ],
  * //   },

@@ -3,6 +3,7 @@ import type {
   CodeRemediationStrategy,
   DomainVerificationMethod,
   FindingStatus,
+  JobStatus,
   RiskLevel,
   RiskType,
   SkillType,
@@ -28,6 +29,54 @@ import type {
   VerificationDetails,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Output for the StartThreatModelJob operation.</p>
+ * @public
+ */
+export interface StartThreatModelJobOutput {
+  /**
+   * <p>The title of the threat model job.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The current status of the threat model job.</p>
+   * @public
+   */
+  status?: JobStatus | undefined;
+
+  /**
+   * <p>The date and time the threat model job was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the threat model job was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model.</p>
+   * @public
+   */
+  threatModelId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the started threat model job.</p>
+   * @public
+   */
+  threatModelJobId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId?: string | undefined;
+}
 
 /**
  * <p>Input for stopping the execution of a code review job.</p>

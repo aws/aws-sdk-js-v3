@@ -98,6 +98,15 @@ export interface BatchGetCodeReviewsCommandOutput extends BatchGetCodeReviewsOut
  * //             },
  * //           },
  * //         ],
+ * //         clientCertificates: [ // ClientCertificateList
+ * //           { // ClientCertificate
+ * //             name: "STRING_VALUE", // required
+ * //             secretArn: "STRING_VALUE", // required
+ * //             origins: [ // ClientCertificateOriginList // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
  * //       },
  * //       serviceRole: "STRING_VALUE",
  * //       logConfig: { // CloudWatchLog
