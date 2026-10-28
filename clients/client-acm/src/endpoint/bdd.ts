@@ -11,8 +11,8 @@ const _data={
     ["isSet",[{ref:"Endpoint"}]],
     ["aws.partition",[{ref:"Region"}],a],
     [b,[{ref:"ServiceType"},"ACM-ACME"]],
-    [b,[d,"aws"]],
     [c,[{ref:"UseFIPS"},true]],
+    [b,[d,"aws"]],
     [c,[{ref:"UseDualStack"},true]],
     [b,[d,"aws-us-gov"]]
   ],
@@ -21,7 +21,7 @@ const _data={
     ["{Endpoint}",e],
     [-1,"FIPS endpoints are not available for ACME operations"],
     ["https://acm-acme.{Region}.{PartitionResult#dualStackDnsSuffix}",e],
-    [-1,"ACME operations are only available in commercial AWS partitions"],
+    [-1,"ACME operations are only available in the aws and aws-us-gov partitions"],
     ["https://acm-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",e],
     ["https://acm.{Region}.amazonaws.com",e],
     ["https://acm-fips.{Region}.{PartitionResult#dnsSuffix}",e],
@@ -38,12 +38,15 @@ const nodes = new Int32Array([
   0, r + 1, 3,
   1, 4, r + 10,
   2, 9, 5,
-  4, 7, 6,
+  3, 7, 6,
   5, r + 8, r + 9,
   5, r + 5, 8,
   6, r + 6, r + 7,
-  3, 10, r + 4,
-  4, r + 2, r + 3,
+  3, 12, 10,
+  4, r + 3, 11,
+  6, r + 3, r + 4,
+  4, r + 2, 13,
+  6, r + 2, r + 4,
 ]);
 export const bdd = BinaryDecisionDiagram.from(
   nodes, root, _data.conditions, _data.results
