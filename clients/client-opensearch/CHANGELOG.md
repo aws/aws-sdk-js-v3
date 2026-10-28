@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1158.0...v3.1159.0) (2026-10-28)
+
+
+### Features
+
+* **client-opensearch:** This release adds APIs to simplify setting up a replication relationship between OpenSearch clusters. The APIs include new Switchover and Failover actions for planned switchovers and unplanned failovers to ensure high availability for OpenSearch in the event of disaster in a single region. ([59cc8c0](https://github.com/aws/aws-sdk-js-v3/commit/59cc8c0d8381b8b83c585abd6ca2e0144bd61706))
+
+
+
+
+
 # [3.1158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1157.0...v3.1158.0) (2026-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearch

@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1158.0...v3.1159.0) (2026-10-28)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** scope S3 Express cache by identity ([#8387](https://github.com/aws/aws-sdk-js-v3/issues/8387)) ([7485eaa](https://github.com/aws/aws-sdk-js-v3/commit/7485eaac2110d6e61159de1a2d23a70f266d0fea))
+
+
+### Features
+
+* **client-acm:** AWS Certificate Manager now supports the Automatic Certificate Management Environment (ACME) protocol in the AWS GovCloud (US-East) and AWS GovCloud (US-West) Regions. ([5b43833](https://github.com/aws/aws-sdk-js-v3/commit/5b43833f9df1c70418e8ee46bfe485b2857f0c4f))
+* **client-artifact:** Update support mode for Assurance Assistance ([18fff2c](https://github.com/aws/aws-sdk-js-v3/commit/18fff2c6aa705f2d07cada09509c6adff395713f))
+* **client-connect:** Amazon Connect APIs - CreateTaskTemplate and UpdateTaskTemplate accept a new ContactHooks parameter called WrapUpFlowId to identify the flow module that runs when an agent attempts to disconnect from a task created with the template. Use this to verify an agent's work or update external case repos. ([86f4437](https://github.com/aws/aws-sdk-js-v3/commit/86f44373abbd49cef1d970edc514e1edc6edb9b2))
+* **client-connectparticipant:** Amazon Connect Participant Service now supports the optional UrlContentDisposition parameter on GetAttachment, which returns a pre-signed URL that renders a chat attachment inline in the browser instead of forcing a download. ([264a9ef](https://github.com/aws/aws-sdk-js-v3/commit/264a9efcb8d95a486d5af552203c133e5c421ee7))
+* **client-ec2:** Amazon EC2 Capacity Manager adds supportability checks and capacity fulfillment metrics. Use GetCapacityManagerSupportabilityScores to score how well instance types and Availability Zones can support a capacity request, and GetCapacityManagerMetricData to retrieve fulfillment metrics. ([2ab4457](https://github.com/aws/aws-sdk-js-v3/commit/2ab44578e3f5129552a3641256a8fbf04915ac36))
+* **client-ivs:** InsertAdBreak now allows setting a customized adBreakId on a request and also adds a new field targetStartAt for a delayed ad insertion ([c0656dd](https://github.com/aws/aws-sdk-js-v3/commit/c0656dd64535328db010e67c8380fcde7a7d46a1))
+* **client-kafkaconnect:** Amazon MSK Connect now supports updating a connector's custom plugin and worker configuration via the UpdateConnector API. MSK Connect checks connector and task health after the update and rolls back on failure. Each call returns an operation ARN to track with DescribeConnectorOperation. ([c9a2aa5](https://github.com/aws/aws-sdk-js-v3/commit/c9a2aa5a1585ae72004ae43995f1ec4c97aebb4a))
+* **client-medialive:** AWS Elemental MediaLive now supports SMPTE 2022-7 seamless protection switching for multicast inputs on MediaLive Anywhere. Support for MulticastSettings sources to add a redundant copy of the stream received on a second network interface. ([d44798e](https://github.com/aws/aws-sdk-js-v3/commit/d44798e55f1def7812786944012e0714aa95b724))
+* **client-neptunedata:** Get Storage API analyzes storage usage to identify database bloat and your storage footprint. Index Rebuild API triggers on-demand index reconstruction to eliminate bloat and restore query performance. ([278cca9](https://github.com/aws/aws-sdk-js-v3/commit/278cca93ed5332d8d8adf4d3fe44d236db77cd7d))
+* **client-opensearch:** This release adds APIs to simplify setting up a replication relationship between OpenSearch clusters. The APIs include new Switchover and Failover actions for planned switchovers and unplanned failovers to ensure high availability for OpenSearch in the event of disaster in a single region. ([59cc8c0](https://github.com/aws/aws-sdk-js-v3/commit/59cc8c0d8381b8b83c585abd6ca2e0144bd61706))
+* **client-securityagent:** Adds support for attaching client certificates for mutual TLS (mTLS) authentication to penetration test target endpoints via the new ClientCertificates field on Assets, enabling pentesting of endpoints that require client certificate authentication. ([fe78388](https://github.com/aws/aws-sdk-js-v3/commit/fe783883a4c0c4723c72999810d56602509c7dff))
+
+
+
+
+
 # [3.1158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1157.0...v3.1158.0) (2026-10-27)
 
 

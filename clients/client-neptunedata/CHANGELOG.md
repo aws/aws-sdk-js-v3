@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1158.0...v3.1159.0) (2026-10-28)
+
+
+### Features
+
+* **client-neptunedata:** Get Storage API analyzes storage usage to identify database bloat and your storage footprint. Index Rebuild API triggers on-demand index reconstruction to eliminate bloat and restore query performance. ([278cca9](https://github.com/aws/aws-sdk-js-v3/commit/278cca93ed5332d8d8adf4d3fe44d236db77cd7d))
+
+
+
+
+
 # [3.1158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1157.0...v3.1158.0) (2026-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-neptunedata

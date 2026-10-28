@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/nested-clients",
-  "version": "3.997.51",
+  "version": "3.997.52",
   "description": "Nested clients for AWS SDK packages.",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/nested-clients",
   "license": "Apache-2.0",
@@ -100,8 +100,8 @@
     "test:watch": "yarn g:vitest watch"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.978.6",
-    "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.49",
+    "@aws-sdk/core": "workspace:^3.978.7",
+    "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.50",
     "@aws-sdk/types": "workspace:^3.975.0",
     "@smithy/core": "^3.37.0",
     "@smithy/fetch-http-handler": "^5.8.0",

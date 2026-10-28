@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1158.0...v3.1159.0) (2026-10-28)
+
+
+### Features
+
+* **client-medialive:** AWS Elemental MediaLive now supports SMPTE 2022-7 seamless protection switching for multicast inputs on MediaLive Anywhere. Support for MulticastSettings sources to add a redundant copy of the stream received on a second network interface. ([d44798e](https://github.com/aws/aws-sdk-js-v3/commit/d44798e55f1def7812786944012e0714aa95b724))
+
+
+
+
+
 # [3.1158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1157.0...v3.1158.0) (2026-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive

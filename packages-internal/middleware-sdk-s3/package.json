@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-s3",
-  "version": "3.972.82",
+  "version": "3.972.83",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-sdk-s3",
   "license": "Apache-2.0",
   "author": {
@@ -94,8 +94,8 @@
     "test:types": "tsc -p tsconfig.test.json"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.978.6",
-    "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.49",
+    "@aws-sdk/core": "workspace:^3.978.7",
+    "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.50",
     "@aws-sdk/types": "workspace:^3.975.0",
     "@smithy/core": "^3.37.0",
     "@smithy/types": "^4.19.0",

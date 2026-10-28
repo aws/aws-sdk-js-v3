@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1158.0...v3.1159.0) (2026-10-28)
+
+
+### Features
+
+* **client-ec2:** Amazon EC2 Capacity Manager adds supportability checks and capacity fulfillment metrics. Use GetCapacityManagerSupportabilityScores to score how well instance types and Availability Zones can support a capacity request, and GetCapacityManagerMetricData to retrieve fulfillment metrics. ([2ab4457](https://github.com/aws/aws-sdk-js-v3/commit/2ab44578e3f5129552a3641256a8fbf04915ac36))
+
+
+
+
+
 # [3.1158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1157.0...v3.1158.0) (2026-10-27)
 
 

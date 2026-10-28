@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1158.0...v3.1159.0) (2026-10-28)
+
+
+### Features
+
+* **client-securityagent:** Adds support for attaching client certificates for mutual TLS (mTLS) authentication to penetration test target endpoints via the new ClientCertificates field on Assets, enabling pentesting of endpoints that require client certificate authentication. ([fe78388](https://github.com/aws/aws-sdk-js-v3/commit/fe783883a4c0c4723c72999810d56602509c7dff))
+
+
+
+
+
 # [3.1158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1157.0...v3.1158.0) (2026-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-securityagent

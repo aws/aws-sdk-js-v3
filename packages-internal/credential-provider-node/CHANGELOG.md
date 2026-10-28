@@ -92,6 +92,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.90 (2026-10-28)
+### Chores
+* **credential-provider-node:** update dependencies.
+
+
+
 # 3.972.89 (2026-10-26)
 ### Chores
 * **codegen:** sync for service default socket timeout and RPC v2 JSON ([#8378](https://github.com/aws/aws-sdk-js-v3/issues/8378)) ([f9d9119](https://github.com/aws/aws-sdk-js-v3/commit/f9d9119f02ea9ed0e0c2ab486b308cac15139651))

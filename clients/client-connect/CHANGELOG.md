@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1158.0...v3.1159.0) (2026-10-28)
+
+
+### Features
+
+* **client-connect:** Amazon Connect APIs - CreateTaskTemplate and UpdateTaskTemplate accept a new ContactHooks parameter called WrapUpFlowId to identify the flow module that runs when an agent attempts to disconnect from a task created with the template. Use this to verify an agent's work or update external case repos. ([86f4437](https://github.com/aws/aws-sdk-js-v3/commit/86f44373abbd49cef1d970edc514e1edc6edb9b2))
+
+
+
+
+
 # [3.1158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1157.0...v3.1158.0) (2026-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

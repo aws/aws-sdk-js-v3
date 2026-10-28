@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1158.0...v3.1159.0) (2026-10-28)
+
+
+### Features
+
+* **client-acm:** AWS Certificate Manager now supports the Automatic Certificate Management Environment (ACME) protocol in the AWS GovCloud (US-East) and AWS GovCloud (US-West) Regions. ([5b43833](https://github.com/aws/aws-sdk-js-v3/commit/5b43833f9df1c70418e8ee46bfe485b2857f0c4f))
+
+
+
+
+
 # [3.1158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1157.0...v3.1158.0) (2026-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-acm
