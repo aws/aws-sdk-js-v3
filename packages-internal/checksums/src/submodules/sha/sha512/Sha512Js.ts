@@ -52,21 +52,14 @@ export class Sha512Js implements Checksum {
   private bufferLength = 0;
   private bytesHashed = 0;
   private finished = false;
-  private readonly inner?: Sha512Js;
-  private readonly outer?: Sha512Js;
+  private readonly key?: Uint8Array;
+  private inner?: Sha512Js;
+  private outer?: Sha512Js;
 
   public constructor(secret?: SourceData) {
-    if (secret) {
-      const key = Sha512Js.normalizeKey(secret);
-      this.inner = new Sha512Js();
-      this.outer = new Sha512Js();
-      const pad = new Uint8Array(BLOCK * 2);
-      for (let i = 0; i < BLOCK; ++i) {
-        pad[i] = 0x36 ^ key[i];
-        pad[i + BLOCK] = 0x5c ^ key[i];
-      }
-      this.inner.update(pad.subarray(0, BLOCK));
-      this.outer.update(pad.subarray(BLOCK));
+    if (secret !== undefined) {
+      this.key = Sha512Js.normalizeKey(secret);
+      this.initHmac();
     }
   }
 
@@ -115,6 +108,23 @@ export class Sha512Js implements Checksum {
     this.buffer = new Uint8Array(BLOCK);
     this.bufferLength = 0;
     this.bytesHashed = 0;
+    this.finished = false;
+    if (this.key) {
+      this.initHmac();
+    }
+  }
+
+  private initHmac(): void {
+    const key = this.key!;
+    this.inner = new Sha512Js();
+    this.outer = new Sha512Js();
+    const pad = new Uint8Array(BLOCK * 2);
+    for (let i = 0; i < BLOCK; ++i) {
+      pad[i] = 0x36 ^ key[i];
+      pad[i + BLOCK] = 0x5c ^ key[i];
+    }
+    this.inner.update(pad.subarray(0, BLOCK));
+    this.outer.update(pad.subarray(BLOCK));
   }
 
   private digestSync(): Uint8Array {

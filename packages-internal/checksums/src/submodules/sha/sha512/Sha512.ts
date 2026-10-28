@@ -52,7 +52,7 @@ export class Sha512 extends Sha512Js {
       return super.digest();
     }
     let buf: Buffer;
-    if (this.nativeSecret) {
+    if (this.nativeSecret !== undefined) {
       this.nativeFinished = true;
       buf = (this.native as ReturnType<typeof createHmac>).digest();
     } else {
@@ -72,7 +72,7 @@ export class Sha512 extends Sha512Js {
   }
 
   private createNative() {
-    return this.nativeSecret ? createHmac("sha512", toBuffer(this.nativeSecret)) : createHash("sha512");
+    return this.nativeSecret !== undefined ? createHmac("sha512", toBuffer(this.nativeSecret)) : createHash("sha512");
   }
 }
 

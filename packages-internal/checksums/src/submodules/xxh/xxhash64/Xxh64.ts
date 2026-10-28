@@ -157,6 +157,7 @@ export class Xxh64 implements Checksum {
   public reset(): void {
     const { mem } = this;
     this.byteCount = 0;
+    this.bufferIndex = 0;
     mem.copy(SEED, ACC0).add(ACC0, P.hi(P1_2), P.lo(P1_2));
     mem.copy(SEED, ACC1).add(ACC1, P.hi(P2), P.lo(P2));
     mem.copy(SEED, ACC2);

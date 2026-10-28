@@ -1,4 +1,4 @@
-import { Sha512, Sha512Js } from "@aws-sdk/checksums/sha";
+import { Sha512, Sha512Js, Sha512WebCrypto } from "@aws-sdk/checksums/sha";
 import { createHash, createHmac } from "node:crypto";
 import { describe, expect, it } from "vitest";
 
@@ -32,6 +32,7 @@ const VECTORS: Array<{ description: string; input: Uint8Array; expected: string 
 const IMPLS: Array<{ name: string; Ctor: new (secret?: any) => any; hmac: boolean }> = [
   { name: "Sha512", Ctor: Sha512 as any, hmac: true },
   { name: "Sha512Js", Ctor: Sha512Js, hmac: true },
+  { name: "Sha512WebCrypto", Ctor: Sha512WebCrypto, hmac: true },
 ];
 
 describe.each(IMPLS)("$name", ({ Ctor, hmac }) => {
@@ -96,6 +97,28 @@ describe.each(IMPLS)("$name", ({ Ctor, hmac }) => {
       const h = new Ctor(key);
       h.update(msg);
       const expected = createHmac("sha512", Buffer.from(key)).update(msg).digest("hex");
+      expect(toHex(await h.digest())).toBe(expected);
+    });
+
+    it.each([
+      ["empty string", ""],
+      ["empty Uint8Array", new Uint8Array(0)],
+    ])("HMAC-SHA-512 with %s key matches node:crypto", async (_, key) => {
+      const msg = utf8("abc");
+      const h = new Ctor(key);
+      h.update(msg);
+      const expected = createHmac("sha512", Buffer.alloc(0)).update(msg).digest("hex");
+      expect(toHex(await h.digest())).toBe(expected);
+    });
+
+    it("HMAC instance is reusable after reset", async () => {
+      const key = utf8("key");
+      const h = new Ctor(key);
+      h.update(utf8("first"));
+      await h.digest();
+      h.reset();
+      h.update(utf8("second"));
+      const expected = createHmac("sha512", Buffer.from(key)).update("second").digest("hex");
       expect(toHex(await h.digest())).toBe(expected);
     });
   }

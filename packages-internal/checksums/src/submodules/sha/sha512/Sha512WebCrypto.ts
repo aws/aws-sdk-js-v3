@@ -14,6 +14,8 @@ const subtle: SubtleCrypto | undefined =
  */
 const MAX_PENDING_BYTES = 8 * 1024 * 1024;
 
+const BLOCK_SIZE = 128;
+
 /**
  * SHA-512 using the Web Crypto API (crypto.subtle) when available,
  * falling back to the pure JS implementation.
@@ -31,8 +33,10 @@ export class Sha512WebCrypto implements Checksum {
   private finished = false;
 
   public constructor(secret?: SourceData) {
-    if (secret) {
-      this.secret = toUint8Array(secret);
+    if (secret !== undefined) {
+      const key = toUint8Array(secret);
+      // WHY: WebCrypto rejects zero-length HMAC keys; HMAC zero-pads keys to the block size, so a zero block is equivalent.
+      this.secret = key.byteLength === 0 ? new Uint8Array(BLOCK_SIZE) : key;
     }
     if (!subtle) {
       this.fallback = new Sha512Js(secret);

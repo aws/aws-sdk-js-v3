@@ -80,6 +80,17 @@ describe("Xxh64", () => {
     }
   });
 
+  it("should discard buffered bytes on reset", async () => {
+    for (const len of [1, 7, 31, 33, 45]) {
+      const c = new Xxh64();
+      c.update(Buffer.alloc(len, 0x62));
+      c.reset();
+      const buf = Buffer.from("abc");
+      c.update(buf);
+      expect(Buffer.from(await c.digest()).toString("hex")).toBe(ref(buf));
+    }
+  });
+
   it("should match reference for all lengths 0-200", async () => {
     for (let len = 0; len <= 200; len++) {
       const buf = Buffer.alloc(len, len & 0xff);
