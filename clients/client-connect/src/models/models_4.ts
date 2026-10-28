@@ -86,6 +86,7 @@ import type {
   QueueInfo,
   RecordingInfo,
   TaskTemplateConstraints,
+  TaskTemplateContactHooks,
   TaskTemplateDefaults,
   TaskTemplateField,
   TaskTemplateInfoV2,
@@ -140,12 +141,36 @@ import type {
   TaskAttachment,
   TemplatedMessageConfig,
   TestCaseSearchFilter,
+  UpdateParticipantRoleConfigChannelInfo,
   UserHierarchyGroupSearchFilter,
   UserSearchFilter,
   ViewSearchFilter,
   WorkspaceAssociationSearchFilter,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface UpdateParticipantRoleConfigRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Connect Customer. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The Connect Customer channel you want to configure.</p>
+   * @public
+   */
+  ChannelConfiguration: UpdateParticipantRoleConfigChannelInfo | undefined;
+}
 
 /**
  * @public
@@ -812,6 +837,12 @@ export interface UpdateTaskTemplateRequest {
   SelfAssignFlowId?: string | undefined;
 
   /**
+   * <p>The event hooks that are set on tasks created by using this template.</p>
+   * @public
+   */
+  ContactHooks?: TaskTemplateContactHooks | undefined;
+
+  /**
    * <p>Constraints that are applicable to the fields listed.
    * Although this parameter is marked as optional in the API model, the service requires it when calling <code>CreateTaskTemplate</code> or <code>UpdateTaskTemplate</code>.
    * The <code>RequiredFields</code> array must contain at least one element, and the field of type <code>NAME</code> must be included in <code>RequiredFields</code>.</p>
@@ -887,6 +918,12 @@ export interface UpdateTaskTemplateResponse {
    * @public
    */
   SelfAssignFlowId?: string | undefined;
+
+  /**
+   * <p>The event hooks that are set on tasks created by using this template.</p>
+   * @public
+   */
+  ContactHooks?: TaskTemplateContactHooks | undefined;
 
   /**
    * <p>Constraints that are applicable to the fields listed.

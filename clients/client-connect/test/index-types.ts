@@ -2558,6 +2558,7 @@ export type {
   TaskActionDefinition,
   TaskAttachment,
   TaskTemplateConstraints,
+  TaskTemplateContactHooks,
   TaskTemplateDefaultFieldValue,
   TaskTemplateDefaults,
   TaskTemplateField,

@@ -129,6 +129,25 @@ import type {
   View,
   VoiceEnhancementConfig,
 } from "./models_1";
+import type { ViewSummary } from "./models_2";
+
+/**
+ * @public
+ */
+export interface ListViewsResponse {
+  /**
+   * <p>A list of view summaries.</p>
+   * @public
+   */
+  ViewsSummaryList?: ViewSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -7754,27 +7773,4 @@ export namespace UpdateParticipantRoleConfigChannelInfo {
     Chat: (value: ChatParticipantRoleConfig) => T;
     _: (name: string, value: any) => T;
   }
-}
-
-/**
- * @public
- */
-export interface UpdateParticipantRoleConfigRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Connect Customer. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The Connect Customer channel you want to configure.</p>
-   * @public
-   */
-  ChannelConfiguration: UpdateParticipantRoleConfigChannelInfo | undefined;
 }

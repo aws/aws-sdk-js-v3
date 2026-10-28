@@ -98,6 +98,7 @@ import type {
   LexBot,
   LexV2Bot,
   OverrideTimeSlice,
+  PrimaryValue,
   PrimaryValueResponse,
   QueueReference,
   SecurityProfileItem,
@@ -106,7 +107,6 @@ import type {
 import type {
   Attribute,
   DataTableAttribute,
-  DataTableEvaluatedValue,
   EvaluationContactParticipant,
   EvaluationScore,
   ExtensionConfiguration,
@@ -115,9 +115,58 @@ import type {
   HoursOfOperationsIdentifier,
   Notification,
   TaskTemplateConstraints,
+  TaskTemplateContactHooks,
   TaskTemplateDefaults,
   TaskTemplateField,
 } from "./models_1";
+
+/**
+ * <p>A data table evaluated value.</p>
+ * @public
+ */
+export interface DataTableEvaluatedValue {
+  /**
+   * <p>The value's record ID.</p>
+   * @public
+   */
+  RecordId: string | undefined;
+
+  /**
+   * <p>The value's primary values.</p>
+   * @public
+   */
+  PrimaryValues: PrimaryValue[] | undefined;
+
+  /**
+   * <p>The value's attribute name.</p>
+   * @public
+   */
+  AttributeName: string | undefined;
+
+  /**
+   * <p>The value's value type.</p>
+   * @public
+   */
+  ValueType: DataTableAttributeValueType | undefined;
+
+  /**
+   * <p>The value's found.</p>
+   * @public
+   */
+  Found: boolean | undefined;
+
+  /**
+   * <p>The value's error.</p>
+   * @public
+   */
+  Error: boolean | undefined;
+
+  /**
+   * <p>The value's evaluated value.</p>
+   * @public
+   */
+  EvaluatedValue: string | undefined;
+}
 
 /**
  * @public
@@ -4445,6 +4494,12 @@ export interface GetTaskTemplateResponse {
    * @public
    */
   SelfAssignFlowId?: string | undefined;
+
+  /**
+   * <p>The event hooks that are set on tasks created by using this template.</p>
+   * @public
+   */
+  ContactHooks?: TaskTemplateContactHooks | undefined;
 
   /**
    * <p>Constraints that are applicable to the fields listed.
@@ -11537,22 +11592,4 @@ export interface ViewSummary {
    * @public
    */
   Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListViewsResponse {
-  /**
-   * <p>A list of view summaries.</p>
-   * @public
-   */
-  ViewsSummaryList?: ViewSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

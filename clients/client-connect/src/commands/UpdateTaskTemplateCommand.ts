@@ -40,6 +40,9 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  *   Description: "STRING_VALUE",
  *   ContactFlowId: "STRING_VALUE",
  *   SelfAssignFlowId: "STRING_VALUE",
+ *   ContactHooks: { // TaskTemplateContactHooks
+ *     WrapUpFlowId: "STRING_VALUE",
+ *   },
  *   Constraints: { // TaskTemplateConstraints
  *     RequiredFields: [ // RequiredTaskTemplateFields
  *       { // RequiredFieldInfo
@@ -97,6 +100,9 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  * //   Description: "STRING_VALUE",
  * //   ContactFlowId: "STRING_VALUE",
  * //   SelfAssignFlowId: "STRING_VALUE",
+ * //   ContactHooks: { // TaskTemplateContactHooks
+ * //     WrapUpFlowId: "STRING_VALUE",
+ * //   },
  * //   Constraints: { // TaskTemplateConstraints
  * //     RequiredFields: [ // RequiredTaskTemplateFields
  * //       { // RequiredFieldInfo

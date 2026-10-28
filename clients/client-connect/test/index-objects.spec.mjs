@@ -2131,6 +2131,7 @@ import {
   TaskActionDefinition$,
   TaskAttachment$,
   TaskTemplateConstraints$,
+  TaskTemplateContactHooks$,
   TaskTemplateDefaultFieldValue$,
   TaskTemplateDefaults$,
   TaskTemplateField$,
@@ -4453,6 +4454,7 @@ assert(typeof TagSet$ === "object");
 assert(typeof TaskActionDefinition$ === "object");
 assert(typeof TaskAttachment$ === "object");
 assert(typeof TaskTemplateConstraints$ === "object");
+assert(typeof TaskTemplateContactHooks$ === "object");
 assert(typeof TaskTemplateDefaultFieldValue$ === "object");
 assert(typeof TaskTemplateDefaults$ === "object");
 assert(typeof TaskTemplateField$ === "object");

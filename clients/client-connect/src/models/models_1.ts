@@ -138,6 +138,19 @@ export interface TaskTemplateConstraints {
 }
 
 /**
+ * <p>The event hooks that are set on tasks created by using this template.</p>
+ * @public
+ */
+export interface TaskTemplateContactHooks {
+  /**
+   * <p>The identifier of the flow module that runs when an agent attempts to disconnect from a task created by referencing this template.
+   * If no agent ever connects to the task, the flow module runs when the task is terminated.</p>
+   * @public
+   */
+  WrapUpFlowId?: string | undefined;
+}
+
+/**
  * <p>Describes a default field and its corresponding value.</p>
  * @public
  */
@@ -231,6 +244,12 @@ export interface CreateTaskTemplateRequest {
    * @public
    */
   SelfAssignFlowId?: string | undefined;
+
+  /**
+   * <p>The event hooks that are set on tasks created by using this template.</p>
+   * @public
+   */
+  ContactHooks?: TaskTemplateContactHooks | undefined;
 
   /**
    * <p>Constraints that are applicable to the fields listed.
@@ -8183,52 +8202,4 @@ export interface EvaluateDataTableValuesRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * <p>A data table evaluated value.</p>
- * @public
- */
-export interface DataTableEvaluatedValue {
-  /**
-   * <p>The value's record ID.</p>
-   * @public
-   */
-  RecordId: string | undefined;
-
-  /**
-   * <p>The value's primary values.</p>
-   * @public
-   */
-  PrimaryValues: PrimaryValue[] | undefined;
-
-  /**
-   * <p>The value's attribute name.</p>
-   * @public
-   */
-  AttributeName: string | undefined;
-
-  /**
-   * <p>The value's value type.</p>
-   * @public
-   */
-  ValueType: DataTableAttributeValueType | undefined;
-
-  /**
-   * <p>The value's found.</p>
-   * @public
-   */
-  Found: boolean | undefined;
-
-  /**
-   * <p>The value's error.</p>
-   * @public
-   */
-  Error: boolean | undefined;
-
-  /**
-   * <p>The value's evaluated value.</p>
-   * @public
-   */
-  EvaluatedValue: string | undefined;
 }

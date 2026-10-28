@@ -458,6 +458,7 @@ const _CFVSL = "ContactFlowVersionSummaryList";
 const _CFo = "ContactFlow";
 const _CFon = "ContactFields";
 const _CFont = "ContactFlows";
+const _CH = "ContactHooks";
 const _CHOO = "CreateHoursOfOperation";
 const _CHOOL = "ChildHoursOfOperationsList";
 const _CHOOO = "CreateHoursOfOperationOverride";
@@ -2692,6 +2693,7 @@ const _TSa = "TagSet";
 const _TSr = "TranscriptSegment";
 const _TT = "TranscriptType";
 const _TTC = "TaskTemplateConstraints";
+const _TTCH = "TaskTemplateContactHooks";
 const _TTD = "TaskTemplateDefaults";
 const _TTDFV = "TaskTemplateDefaultFieldValue";
 const _TTDFVL = "TaskTemplateDefaultFieldValueList";
@@ -3049,6 +3051,7 @@ const _WTI = "WorkspaceThemeImages";
 const _WTP = "WorkspaceThemePalette";
 const _WTT = "WorkspaceThemeTypography";
 const _WTo = "WorkspaceTheme";
+const _WUFI = "WrapUpFlowId";
 const _We = "Weight";
 const _Web = "Websocket";
 const _Wo = "Workspaces";
@@ -4548,8 +4551,8 @@ export var CreateSecurityProfileResponse$: StaticStructureSchema = [3, n0, _CSPR
 ];
 export var CreateTaskTemplateRequest$: StaticStructureSchema = [3, n0, _CTTR,
   0,
-  [_II, _N, _Fie, _D, _CFI, _SAFI, _Cons, _Def, _St, _CT],
-  [[0, 1], 0, () => TaskTemplateFields, 0, 0, 0, () => TaskTemplateConstraints$, () => TaskTemplateDefaults$, 0, [0, 4]], 3
+  [_II, _N, _Fie, _D, _CFI, _SAFI, _CH, _Cons, _Def, _St, _CT],
+  [[0, 1], 0, () => TaskTemplateFields, 0, 0, 0, () => TaskTemplateContactHooks$, () => TaskTemplateConstraints$, () => TaskTemplateDefaults$, 0, [0, 4]], 3
 ];
 export var CreateTaskTemplateResponse$: StaticStructureSchema = [3, n0, _CTTRr,
   0,
@@ -6318,8 +6321,8 @@ export var GetTaskTemplateRequest$: StaticStructureSchema = [3, n0, _GTTR,
 ];
 export var GetTaskTemplateResponse$: StaticStructureSchema = [3, n0, _GTTRe,
   0,
-  [_I, _A, _N, _II, _D, _CFI, _SAFI, _Cons, _Def, _Fie, _St, _LMT, _CTre, _Ta],
-  [0, 0, 0, 0, 0, 0, 0, () => TaskTemplateConstraints$, () => TaskTemplateDefaults$, () => TaskTemplateFields, 0, 4, 4, 128 | 0], 3
+  [_I, _A, _N, _II, _D, _CFI, _SAFI, _CH, _Cons, _Def, _Fie, _St, _LMT, _CTre, _Ta],
+  [0, 0, 0, 0, 0, 0, 0, () => TaskTemplateContactHooks$, () => TaskTemplateConstraints$, () => TaskTemplateDefaults$, () => TaskTemplateFields, 0, 4, 4, 128 | 0], 3
 ];
 export var GetTestCaseExecutionSummaryRequest$: StaticStructureSchema = [3, n0, _GTCESR,
   0,
@@ -8961,6 +8964,11 @@ export var TaskTemplateConstraints$: StaticStructureSchema = [3, n0, _TTC,
   [_RFe, _ROF, _IF],
   [() => RequiredTaskTemplateFields, () => ReadOnlyTaskTemplateFields, () => InvisibleTaskTemplateFields]
 ];
+export var TaskTemplateContactHooks$: StaticStructureSchema = [3, n0, _TTCH,
+  0,
+  [_WUFI],
+  [0]
+];
 export var TaskTemplateDefaultFieldValue$: StaticStructureSchema = [3, n0, _TTDFV,
   0,
   [_I, _DVe],
@@ -9518,13 +9526,13 @@ export var UpdateSecurityProfileRequest$: StaticStructureSchema = [3, n0, _USPR,
 ];
 export var UpdateTaskTemplateRequest$: StaticStructureSchema = [3, n0, _UTTR,
   0,
-  [_TTIa, _II, _N, _D, _CFI, _SAFI, _Cons, _Def, _St, _Fie],
-  [[0, 1], [0, 1], 0, 0, 0, 0, () => TaskTemplateConstraints$, () => TaskTemplateDefaults$, 0, () => TaskTemplateFields], 2
+  [_TTIa, _II, _N, _D, _CFI, _SAFI, _CH, _Cons, _Def, _St, _Fie],
+  [[0, 1], [0, 1], 0, 0, 0, 0, () => TaskTemplateContactHooks$, () => TaskTemplateConstraints$, () => TaskTemplateDefaults$, 0, () => TaskTemplateFields], 2
 ];
 export var UpdateTaskTemplateResponse$: StaticStructureSchema = [3, n0, _UTTRp,
   0,
-  [_II, _I, _A, _N, _D, _CFI, _SAFI, _Cons, _Def, _Fie, _St, _LMT, _CTre],
-  [0, 0, 0, 0, 0, 0, 0, () => TaskTemplateConstraints$, () => TaskTemplateDefaults$, () => TaskTemplateFields, 0, 4, 4]
+  [_II, _I, _A, _N, _D, _CFI, _SAFI, _CH, _Cons, _Def, _Fie, _St, _LMT, _CTre],
+  [0, 0, 0, 0, 0, 0, 0, () => TaskTemplateContactHooks$, () => TaskTemplateConstraints$, () => TaskTemplateDefaults$, () => TaskTemplateFields, 0, 4, 4]
 ];
 export var UpdateTestCaseRequest$: StaticStructureSchema = [3, n0, _UTCR,
   0,
