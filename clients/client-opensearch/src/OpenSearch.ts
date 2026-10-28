@@ -22,6 +22,11 @@ import {
   type AddDirectQueryDataSourceCommandOutput,
   AddDirectQueryDataSourceCommand,
 } from "./commands/AddDirectQueryDataSourceCommand";
+import {
+  type AddReplicationPeerCommandInput,
+  type AddReplicationPeerCommandOutput,
+  AddReplicationPeerCommand,
+} from "./commands/AddReplicationPeerCommand";
 import { type AddTagsCommandInput, type AddTagsCommandOutput, AddTagsCommand } from "./commands/AddTagsCommand";
 import {
   type AssociatePackageCommandInput,
@@ -53,6 +58,11 @@ import {
   type CancelServiceSoftwareUpdateCommandOutput,
   CancelServiceSoftwareUpdateCommand,
 } from "./commands/CancelServiceSoftwareUpdateCommand";
+import {
+  type CompareDomainConfigurationCommandInput,
+  type CompareDomainConfigurationCommandOutput,
+  CompareDomainConfigurationCommand,
+} from "./commands/CompareDomainConfigurationCommand";
 import {
   type CreateApplicationCommandInput,
   type CreateApplicationCommandOutput,
@@ -169,6 +179,11 @@ import {
   DescribeDomainNodesCommand,
 } from "./commands/DescribeDomainNodesCommand";
 import {
+  type DescribeDomainReplicationCommandInput,
+  type DescribeDomainReplicationCommandOutput,
+  DescribeDomainReplicationCommand,
+} from "./commands/DescribeDomainReplicationCommand";
+import {
   type DescribeDomainsCommandInput,
   type DescribeDomainsCommandOutput,
   DescribeDomainsCommand,
@@ -233,6 +248,11 @@ import {
   type DissociatePackagesCommandOutput,
   DissociatePackagesCommand,
 } from "./commands/DissociatePackagesCommand";
+import {
+  type FailoverReplicationCommandInput,
+  type FailoverReplicationCommandOutput,
+  FailoverReplicationCommand,
+} from "./commands/FailoverReplicationCommand";
 import {
   type GetApplicationCommandInput,
   type GetApplicationCommandOutput,
@@ -396,6 +416,11 @@ import {
   RejectInboundConnectionCommand,
 } from "./commands/RejectInboundConnectionCommand";
 import {
+  type RemoveReplicationPeerCommandInput,
+  type RemoveReplicationPeerCommandOutput,
+  RemoveReplicationPeerCommand,
+} from "./commands/RemoveReplicationPeerCommand";
+import {
   type RemoveTagsCommandInput,
   type RemoveTagsCommandOutput,
   RemoveTagsCommand,
@@ -425,6 +450,11 @@ import {
   type StartServiceSoftwareUpdateCommandOutput,
   StartServiceSoftwareUpdateCommand,
 } from "./commands/StartServiceSoftwareUpdateCommand";
+import {
+  type SwitchoverReplicationCommandInput,
+  type SwitchoverReplicationCommandOutput,
+  SwitchoverReplicationCommand,
+} from "./commands/SwitchoverReplicationCommand";
 import {
   type UpdateApplicationCommandInput,
   type UpdateApplicationCommandOutput,
@@ -496,6 +526,7 @@ const commands = {
   AcceptInboundConnectionCommand,
   AddDataSourceCommand,
   AddDirectQueryDataSourceCommand,
+  AddReplicationPeerCommand,
   AddTagsCommand,
   AssociatePackageCommand,
   AssociatePackagesCommand,
@@ -503,6 +534,7 @@ const commands = {
   AuthorizeVpcEndpointAccessCommand,
   CancelDomainConfigChangeCommand,
   CancelServiceSoftwareUpdateCommand,
+  CompareDomainConfigurationCommand,
   CreateApplicationCommand,
   CreateDomainCommand,
   CreateIndexCommand,
@@ -526,6 +558,7 @@ const commands = {
   DescribeDomainConfigCommand,
   DescribeDomainHealthCommand,
   DescribeDomainNodesCommand,
+  DescribeDomainReplicationCommand,
   DescribeDomainsCommand,
   DescribeDryRunProgressCommand,
   DescribeInboundConnectionsCommand,
@@ -539,6 +572,7 @@ const commands = {
   DetachDataSourceCommand,
   DissociatePackageCommand,
   DissociatePackagesCommand,
+  FailoverReplicationCommand,
   GetApplicationCommand,
   GetCapabilityCommand,
   GetCompatibleVersionsCommand,
@@ -573,12 +607,14 @@ const commands = {
   PutDefaultApplicationSettingCommand,
   RegisterCapabilityCommand,
   RejectInboundConnectionCommand,
+  RemoveReplicationPeerCommand,
   RemoveTagsCommand,
   RevokeVpcEndpointAccessCommand,
   RollbackServiceSoftwareUpdateCommand,
   StartDomainMaintenanceCommand,
   StartMigrationCommand,
   StartServiceSoftwareUpdateCommand,
+  SwitchoverReplicationCommand,
   UpdateApplicationCommand,
   UpdateDataSourceCommand,
   UpdateDirectQueryDataSourceCommand,
@@ -665,6 +701,23 @@ export interface OpenSearch {
     args: AddDirectQueryDataSourceCommandInput,
     options: OpenSearchRequestOptions,
     cb: (err: any, data?: AddDirectQueryDataSourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AddReplicationPeerCommand}
+   */
+  addReplicationPeer(
+    args: AddReplicationPeerCommandInput,
+    options?: OpenSearchRequestOptions
+  ): Promise<AddReplicationPeerCommandOutput>;
+  addReplicationPeer(
+    args: AddReplicationPeerCommandInput,
+    cb: (err: any, data?: AddReplicationPeerCommandOutput) => void
+  ): void;
+  addReplicationPeer(
+    args: AddReplicationPeerCommandInput,
+    options: OpenSearchRequestOptions,
+    cb: (err: any, data?: AddReplicationPeerCommandOutput) => void
   ): void;
 
   /**
@@ -784,6 +837,23 @@ export interface OpenSearch {
     args: CancelServiceSoftwareUpdateCommandInput,
     options: OpenSearchRequestOptions,
     cb: (err: any, data?: CancelServiceSoftwareUpdateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CompareDomainConfigurationCommand}
+   */
+  compareDomainConfiguration(
+    args: CompareDomainConfigurationCommandInput,
+    options?: OpenSearchRequestOptions
+  ): Promise<CompareDomainConfigurationCommandOutput>;
+  compareDomainConfiguration(
+    args: CompareDomainConfigurationCommandInput,
+    cb: (err: any, data?: CompareDomainConfigurationCommandOutput) => void
+  ): void;
+  compareDomainConfiguration(
+    args: CompareDomainConfigurationCommandInput,
+    options: OpenSearchRequestOptions,
+    cb: (err: any, data?: CompareDomainConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -1178,6 +1248,23 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link DescribeDomainReplicationCommand}
+   */
+  describeDomainReplication(
+    args: DescribeDomainReplicationCommandInput,
+    options?: OpenSearchRequestOptions
+  ): Promise<DescribeDomainReplicationCommandOutput>;
+  describeDomainReplication(
+    args: DescribeDomainReplicationCommandInput,
+    cb: (err: any, data?: DescribeDomainReplicationCommandOutput) => void
+  ): void;
+  describeDomainReplication(
+    args: DescribeDomainReplicationCommandInput,
+    options: OpenSearchRequestOptions,
+    cb: (err: any, data?: DescribeDomainReplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeDomainsCommand}
    */
   describeDomains(
@@ -1401,6 +1488,23 @@ export interface OpenSearch {
     args: DissociatePackagesCommandInput,
     options: OpenSearchRequestOptions,
     cb: (err: any, data?: DissociatePackagesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link FailoverReplicationCommand}
+   */
+  failoverReplication(
+    args: FailoverReplicationCommandInput,
+    options?: OpenSearchRequestOptions
+  ): Promise<FailoverReplicationCommandOutput>;
+  failoverReplication(
+    args: FailoverReplicationCommandInput,
+    cb: (err: any, data?: FailoverReplicationCommandOutput) => void
+  ): void;
+  failoverReplication(
+    args: FailoverReplicationCommandInput,
+    options: OpenSearchRequestOptions,
+    cb: (err: any, data?: FailoverReplicationCommandOutput) => void
   ): void;
 
   /**
@@ -1989,6 +2093,23 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link RemoveReplicationPeerCommand}
+   */
+  removeReplicationPeer(
+    args: RemoveReplicationPeerCommandInput,
+    options?: OpenSearchRequestOptions
+  ): Promise<RemoveReplicationPeerCommandOutput>;
+  removeReplicationPeer(
+    args: RemoveReplicationPeerCommandInput,
+    cb: (err: any, data?: RemoveReplicationPeerCommandOutput) => void
+  ): void;
+  removeReplicationPeer(
+    args: RemoveReplicationPeerCommandInput,
+    options: OpenSearchRequestOptions,
+    cb: (err: any, data?: RemoveReplicationPeerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RemoveTagsCommand}
    */
   removeTags(
@@ -2088,6 +2209,23 @@ export interface OpenSearch {
     args: StartServiceSoftwareUpdateCommandInput,
     options: OpenSearchRequestOptions,
     cb: (err: any, data?: StartServiceSoftwareUpdateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SwitchoverReplicationCommand}
+   */
+  switchoverReplication(
+    args: SwitchoverReplicationCommandInput,
+    options?: OpenSearchRequestOptions
+  ): Promise<SwitchoverReplicationCommandOutput>;
+  switchoverReplication(
+    args: SwitchoverReplicationCommandInput,
+    cb: (err: any, data?: SwitchoverReplicationCommandOutput) => void
+  ): void;
+  switchoverReplication(
+    args: SwitchoverReplicationCommandInput,
+    options: OpenSearchRequestOptions,
+    cb: (err: any, data?: SwitchoverReplicationCommandOutput) => void
   ): void;
 
   /**

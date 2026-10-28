@@ -18,6 +18,10 @@ import {
   AddDirectQueryDataSourceRequest$,
   AddDirectQueryDataSourceResponse$,
   AdditionalLimit$,
+  AddReplicationPeer$,
+  AddReplicationPeerCommand,
+  AddReplicationPeerRequest$,
+  AddReplicationPeerResponse$,
   AddTags$,
   AddTagsCommand,
   AddTagsRequest$,
@@ -84,6 +88,7 @@ import {
   CapabilityFailure$,
   CapabilityFailureReason,
   CapabilityStatus,
+  CategoryDiffResult$,
   ChangeProgressDetails$,
   ChangeProgressStage$,
   ChangeProgressStatusDetails$,
@@ -93,6 +98,10 @@ import {
   CognitoOptions$,
   CognitoOptionsStatus$,
   ColdStorageOptions$,
+  CompareDomainConfiguration$,
+  CompareDomainConfigurationCommand,
+  CompareDomainConfigurationRequest$,
+  CompareDomainConfigurationResponse$,
   CompatibleVersionsMap$,
   ConfigChangeStatus,
   ConflictException,
@@ -201,6 +210,10 @@ import {
   DescribeDomainNodesCommand,
   DescribeDomainNodesRequest$,
   DescribeDomainNodesResponse$,
+  DescribeDomainReplication$,
+  DescribeDomainReplicationCommand,
+  DescribeDomainReplicationRequest$,
+  DescribeDomainReplicationResponse$,
   DescribeDomainRequest$,
   DescribeDomainResponse$,
   DescribeDomains$,
@@ -249,6 +262,9 @@ import {
   DetachDataSourceCommand,
   DetachDataSourceRequest$,
   DetachDataSourceResponse$,
+  DiffFieldPolicy,
+  DiffItems$,
+  DiffStatus,
   DirectQueryDataSource$,
   DirectQueryDataSourceType$,
   DisabledOperationException,
@@ -261,6 +277,8 @@ import {
   DissociatePackagesCommand,
   DissociatePackagesRequest$,
   DissociatePackagesResponse$,
+  DivergentField$,
+  DivergentItem$,
   DomainConfig$,
   DomainEndpointOptions$,
   DomainEndpointOptionsStatus$,
@@ -290,6 +308,10 @@ import {
   EnvironmentInfo$,
   ErrorDetails$,
   ExportOptions$,
+  FailoverReplication$,
+  FailoverReplicationCommand,
+  FailoverReplicationRequest$,
+  FailoverReplicationResponse$,
   Filter$,
   GetApplication$,
   GetApplicationCommand,
@@ -540,9 +562,16 @@ import {
   RejectInboundConnectionCommand,
   RejectInboundConnectionRequest$,
   RejectInboundConnectionResponse$,
+  RemoveReplicationPeer$,
+  RemoveReplicationPeerCommand,
+  RemoveReplicationPeerRequest$,
+  RemoveReplicationPeerResponse$,
   RemoveTags$,
   RemoveTagsCommand,
   RemoveTagsRequest$,
+  ReplicationPeer$,
+  ReplicationRole,
+  ReplicationStatus,
   RequirementLevel,
   ReservedInstance$,
   ReservedInstanceOffering$,
@@ -602,6 +631,10 @@ import {
   StorageType$,
   StorageTypeLimit$,
   SubjectKeyIdCOption,
+  SwitchoverReplication$,
+  SwitchoverReplicationCommand,
+  SwitchoverReplicationRequest$,
+  SwitchoverReplicationResponse$,
   Tag$,
   ThrottlingException,
   ThrottlingException$,
@@ -682,6 +715,8 @@ assert(typeof AddDataSourceCommand === "function");
 assert(typeof AddDataSource$ === "object");
 assert(typeof AddDirectQueryDataSourceCommand === "function");
 assert(typeof AddDirectQueryDataSource$ === "object");
+assert(typeof AddReplicationPeerCommand === "function");
+assert(typeof AddReplicationPeer$ === "object");
 assert(typeof AddTagsCommand === "function");
 assert(typeof AddTags$ === "object");
 assert(typeof AssociatePackageCommand === "function");
@@ -696,6 +731,8 @@ assert(typeof CancelDomainConfigChangeCommand === "function");
 assert(typeof CancelDomainConfigChange$ === "object");
 assert(typeof CancelServiceSoftwareUpdateCommand === "function");
 assert(typeof CancelServiceSoftwareUpdate$ === "object");
+assert(typeof CompareDomainConfigurationCommand === "function");
+assert(typeof CompareDomainConfiguration$ === "object");
 assert(typeof CreateApplicationCommand === "function");
 assert(typeof CreateApplication$ === "object");
 assert(typeof CreateDomainCommand === "function");
@@ -742,6 +779,8 @@ assert(typeof DescribeDomainHealthCommand === "function");
 assert(typeof DescribeDomainHealth$ === "object");
 assert(typeof DescribeDomainNodesCommand === "function");
 assert(typeof DescribeDomainNodes$ === "object");
+assert(typeof DescribeDomainReplicationCommand === "function");
+assert(typeof DescribeDomainReplication$ === "object");
 assert(typeof DescribeDomainsCommand === "function");
 assert(typeof DescribeDomains$ === "object");
 assert(typeof DescribeDryRunProgressCommand === "function");
@@ -768,6 +807,8 @@ assert(typeof DissociatePackageCommand === "function");
 assert(typeof DissociatePackage$ === "object");
 assert(typeof DissociatePackagesCommand === "function");
 assert(typeof DissociatePackages$ === "object");
+assert(typeof FailoverReplicationCommand === "function");
+assert(typeof FailoverReplication$ === "object");
 assert(typeof GetApplicationCommand === "function");
 assert(typeof GetApplication$ === "object");
 assert(typeof GetCapabilityCommand === "function");
@@ -836,6 +877,8 @@ assert(typeof RegisterCapabilityCommand === "function");
 assert(typeof RegisterCapability$ === "object");
 assert(typeof RejectInboundConnectionCommand === "function");
 assert(typeof RejectInboundConnection$ === "object");
+assert(typeof RemoveReplicationPeerCommand === "function");
+assert(typeof RemoveReplicationPeer$ === "object");
 assert(typeof RemoveTagsCommand === "function");
 assert(typeof RemoveTags$ === "object");
 assert(typeof RevokeVpcEndpointAccessCommand === "function");
@@ -848,6 +891,8 @@ assert(typeof StartMigrationCommand === "function");
 assert(typeof StartMigration$ === "object");
 assert(typeof StartServiceSoftwareUpdateCommand === "function");
 assert(typeof StartServiceSoftwareUpdate$ === "object");
+assert(typeof SwitchoverReplicationCommand === "function");
+assert(typeof SwitchoverReplication$ === "object");
 assert(typeof UpdateApplicationCommand === "function");
 assert(typeof UpdateApplication$ === "object");
 assert(typeof UpdateDataSourceCommand === "function");
@@ -877,6 +922,8 @@ assert(typeof AddDataSourceResponse$ === "object");
 assert(typeof AddDirectQueryDataSourceRequest$ === "object");
 assert(typeof AddDirectQueryDataSourceResponse$ === "object");
 assert(typeof AdditionalLimit$ === "object");
+assert(typeof AddReplicationPeerRequest$ === "object");
+assert(typeof AddReplicationPeerResponse$ === "object");
 assert(typeof AddTagsRequest$ === "object");
 assert(typeof AdvancedOptionsStatus$ === "object");
 assert(typeof AdvancedSecurityOptions$ === "object");
@@ -919,6 +966,7 @@ assert(typeof CapabilityBaseRequestConfig$ === "object");
 assert(typeof CapabilityBaseResponseConfig$ === "object");
 assert(typeof CapabilityExtendedResponseConfig$ === "object");
 assert(typeof CapabilityFailure$ === "object");
+assert(typeof CategoryDiffResult$ === "object");
 assert(typeof ChangeProgressDetails$ === "object");
 assert(typeof ChangeProgressStage$ === "object");
 assert(typeof ChangeProgressStatusDetails$ === "object");
@@ -928,6 +976,8 @@ assert(typeof ClusterConfigStatus$ === "object");
 assert(typeof CognitoOptions$ === "object");
 assert(typeof CognitoOptionsStatus$ === "object");
 assert(typeof ColdStorageOptions$ === "object");
+assert(typeof CompareDomainConfigurationRequest$ === "object");
+assert(typeof CompareDomainConfigurationResponse$ === "object");
 assert(typeof CompatibleVersionsMap$ === "object");
 assert(typeof ConnectionProperties$ === "object");
 assert(typeof CreateApplicationRequest$ === "object");
@@ -980,6 +1030,8 @@ assert(typeof DescribeDomainHealthRequest$ === "object");
 assert(typeof DescribeDomainHealthResponse$ === "object");
 assert(typeof DescribeDomainNodesRequest$ === "object");
 assert(typeof DescribeDomainNodesResponse$ === "object");
+assert(typeof DescribeDomainReplicationRequest$ === "object");
+assert(typeof DescribeDomainReplicationResponse$ === "object");
 assert(typeof DescribeDomainRequest$ === "object");
 assert(typeof DescribeDomainResponse$ === "object");
 assert(typeof DescribeDomainsRequest$ === "object");
@@ -1005,12 +1057,15 @@ assert(typeof DescribeVpcEndpointsRequest$ === "object");
 assert(typeof DescribeVpcEndpointsResponse$ === "object");
 assert(typeof DetachDataSourceRequest$ === "object");
 assert(typeof DetachDataSourceResponse$ === "object");
+assert(typeof DiffItems$ === "object");
 assert(typeof DirectQueryDataSource$ === "object");
 assert(typeof DirectQueryDataSourceType$ === "object");
 assert(typeof DissociatePackageRequest$ === "object");
 assert(typeof DissociatePackageResponse$ === "object");
 assert(typeof DissociatePackagesRequest$ === "object");
 assert(typeof DissociatePackagesResponse$ === "object");
+assert(typeof DivergentField$ === "object");
+assert(typeof DivergentItem$ === "object");
 assert(typeof DomainConfig$ === "object");
 assert(typeof DomainEndpointOptions$ === "object");
 assert(typeof DomainEndpointOptionsStatus$ === "object");
@@ -1031,6 +1086,8 @@ assert(typeof EngineModeStatus$ === "object");
 assert(typeof EnvironmentInfo$ === "object");
 assert(typeof ErrorDetails$ === "object");
 assert(typeof ExportOptions$ === "object");
+assert(typeof FailoverReplicationRequest$ === "object");
+assert(typeof FailoverReplicationResponse$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof GetApplicationRequest$ === "object");
 assert(typeof GetApplicationResponse$ === "object");
@@ -1154,7 +1211,10 @@ assert(typeof RegisterCapabilityRequest$ === "object");
 assert(typeof RegisterCapabilityResponse$ === "object");
 assert(typeof RejectInboundConnectionRequest$ === "object");
 assert(typeof RejectInboundConnectionResponse$ === "object");
+assert(typeof RemoveReplicationPeerRequest$ === "object");
+assert(typeof RemoveReplicationPeerResponse$ === "object");
 assert(typeof RemoveTagsRequest$ === "object");
+assert(typeof ReplicationPeer$ === "object");
 assert(typeof ReservedInstance$ === "object");
 assert(typeof ReservedInstanceOffering$ === "object");
 assert(typeof RevokeVpcEndpointAccessRequest$ === "object");
@@ -1186,6 +1246,8 @@ assert(typeof StartServiceSoftwareUpdateRequest$ === "object");
 assert(typeof StartServiceSoftwareUpdateResponse$ === "object");
 assert(typeof StorageType$ === "object");
 assert(typeof StorageTypeLimit$ === "object");
+assert(typeof SwitchoverReplicationRequest$ === "object");
+assert(typeof SwitchoverReplicationResponse$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof UpdateApplicationRequest$ === "object");
 assert(typeof UpdateApplicationResponse$ === "object");
@@ -1240,6 +1302,8 @@ assert(typeof DataSourceStatus === "object");
 assert(typeof DeploymentStatus === "object");
 assert(typeof DeploymentStrategy === "object");
 assert(typeof DescribePackagesFilterName === "object");
+assert(typeof DiffFieldPolicy === "object");
+assert(typeof DiffStatus === "object");
 assert(typeof DomainHealth === "object");
 assert(typeof DomainPackageStatus === "object");
 assert(typeof DomainProcessingStatusType === "object");
@@ -1282,6 +1346,8 @@ assert(typeof PackageType === "object");
 assert(typeof PauseState === "object");
 assert(typeof PrincipalType === "object");
 assert(typeof PropertyValueType === "object");
+assert(typeof ReplicationRole === "object");
+assert(typeof ReplicationStatus === "object");
 assert(typeof RequirementLevel === "object");
 assert(typeof ReservedInstancePaymentOption === "object");
 assert(typeof RolesKeyIdCOption === "object");

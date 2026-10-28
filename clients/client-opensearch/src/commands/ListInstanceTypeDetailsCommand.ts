@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListInstanceTypeDetailsRequest, ListInstanceTypeDetailsResponse } from "../models/models_0";
+import type { ListInstanceTypeDetailsRequest } from "../models/models_0";
+import type { ListInstanceTypeDetailsResponse } from "../models/models_1";
 import { ListInstanceTypeDetails$ } from "../schemas/schemas_0";
 
 /**

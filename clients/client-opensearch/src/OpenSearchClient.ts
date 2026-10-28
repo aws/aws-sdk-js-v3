@@ -63,6 +63,10 @@ import type {
   AddDirectQueryDataSourceCommandInput,
   AddDirectQueryDataSourceCommandOutput,
 } from "./commands/AddDirectQueryDataSourceCommand";
+import type {
+  AddReplicationPeerCommandInput,
+  AddReplicationPeerCommandOutput,
+} from "./commands/AddReplicationPeerCommand";
 import type { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import type { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "./commands/AssociatePackageCommand";
 import type {
@@ -82,6 +86,10 @@ import type {
   CancelServiceSoftwareUpdateCommandInput,
   CancelServiceSoftwareUpdateCommandOutput,
 } from "./commands/CancelServiceSoftwareUpdateCommand";
+import type {
+  CompareDomainConfigurationCommandInput,
+  CompareDomainConfigurationCommandOutput,
+} from "./commands/CompareDomainConfigurationCommand";
 import type {
   CreateApplicationCommandInput,
   CreateApplicationCommandOutput,
@@ -150,6 +158,10 @@ import type {
   DescribeDomainNodesCommandInput,
   DescribeDomainNodesCommandOutput,
 } from "./commands/DescribeDomainNodesCommand";
+import type {
+  DescribeDomainReplicationCommandInput,
+  DescribeDomainReplicationCommandOutput,
+} from "./commands/DescribeDomainReplicationCommand";
 import type { DescribeDomainsCommandInput, DescribeDomainsCommandOutput } from "./commands/DescribeDomainsCommand";
 import type {
   DescribeDryRunProgressCommandInput,
@@ -193,6 +205,10 @@ import type {
   DissociatePackagesCommandInput,
   DissociatePackagesCommandOutput,
 } from "./commands/DissociatePackagesCommand";
+import type {
+  FailoverReplicationCommandInput,
+  FailoverReplicationCommandOutput,
+} from "./commands/FailoverReplicationCommand";
 import type { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
 import type { GetCapabilityCommandInput, GetCapabilityCommandOutput } from "./commands/GetCapabilityCommand";
 import type {
@@ -284,6 +300,10 @@ import type {
   RejectInboundConnectionCommandInput,
   RejectInboundConnectionCommandOutput,
 } from "./commands/RejectInboundConnectionCommand";
+import type {
+  RemoveReplicationPeerCommandInput,
+  RemoveReplicationPeerCommandOutput,
+} from "./commands/RemoveReplicationPeerCommand";
 import type { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import type {
   RevokeVpcEndpointAccessCommandInput,
@@ -302,6 +322,10 @@ import type {
   StartServiceSoftwareUpdateCommandInput,
   StartServiceSoftwareUpdateCommandOutput,
 } from "./commands/StartServiceSoftwareUpdateCommand";
+import type {
+  SwitchoverReplicationCommandInput,
+  SwitchoverReplicationCommandOutput,
+} from "./commands/SwitchoverReplicationCommand";
 import type {
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
@@ -348,6 +372,7 @@ export type ServiceInputTypes =
   | AcceptInboundConnectionCommandInput
   | AddDataSourceCommandInput
   | AddDirectQueryDataSourceCommandInput
+  | AddReplicationPeerCommandInput
   | AddTagsCommandInput
   | AssociatePackageCommandInput
   | AssociatePackagesCommandInput
@@ -355,6 +380,7 @@ export type ServiceInputTypes =
   | AuthorizeVpcEndpointAccessCommandInput
   | CancelDomainConfigChangeCommandInput
   | CancelServiceSoftwareUpdateCommandInput
+  | CompareDomainConfigurationCommandInput
   | CreateApplicationCommandInput
   | CreateDomainCommandInput
   | CreateIndexCommandInput
@@ -378,6 +404,7 @@ export type ServiceInputTypes =
   | DescribeDomainConfigCommandInput
   | DescribeDomainHealthCommandInput
   | DescribeDomainNodesCommandInput
+  | DescribeDomainReplicationCommandInput
   | DescribeDomainsCommandInput
   | DescribeDryRunProgressCommandInput
   | DescribeInboundConnectionsCommandInput
@@ -391,6 +418,7 @@ export type ServiceInputTypes =
   | DetachDataSourceCommandInput
   | DissociatePackageCommandInput
   | DissociatePackagesCommandInput
+  | FailoverReplicationCommandInput
   | GetApplicationCommandInput
   | GetCapabilityCommandInput
   | GetCompatibleVersionsCommandInput
@@ -425,12 +453,14 @@ export type ServiceInputTypes =
   | PutDefaultApplicationSettingCommandInput
   | RegisterCapabilityCommandInput
   | RejectInboundConnectionCommandInput
+  | RemoveReplicationPeerCommandInput
   | RemoveTagsCommandInput
   | RevokeVpcEndpointAccessCommandInput
   | RollbackServiceSoftwareUpdateCommandInput
   | StartDomainMaintenanceCommandInput
   | StartMigrationCommandInput
   | StartServiceSoftwareUpdateCommandInput
+  | SwitchoverReplicationCommandInput
   | UpdateApplicationCommandInput
   | UpdateDataSourceCommandInput
   | UpdateDirectQueryDataSourceCommandInput
@@ -449,6 +479,7 @@ export type ServiceOutputTypes =
   | AcceptInboundConnectionCommandOutput
   | AddDataSourceCommandOutput
   | AddDirectQueryDataSourceCommandOutput
+  | AddReplicationPeerCommandOutput
   | AddTagsCommandOutput
   | AssociatePackageCommandOutput
   | AssociatePackagesCommandOutput
@@ -456,6 +487,7 @@ export type ServiceOutputTypes =
   | AuthorizeVpcEndpointAccessCommandOutput
   | CancelDomainConfigChangeCommandOutput
   | CancelServiceSoftwareUpdateCommandOutput
+  | CompareDomainConfigurationCommandOutput
   | CreateApplicationCommandOutput
   | CreateDomainCommandOutput
   | CreateIndexCommandOutput
@@ -479,6 +511,7 @@ export type ServiceOutputTypes =
   | DescribeDomainConfigCommandOutput
   | DescribeDomainHealthCommandOutput
   | DescribeDomainNodesCommandOutput
+  | DescribeDomainReplicationCommandOutput
   | DescribeDomainsCommandOutput
   | DescribeDryRunProgressCommandOutput
   | DescribeInboundConnectionsCommandOutput
@@ -492,6 +525,7 @@ export type ServiceOutputTypes =
   | DetachDataSourceCommandOutput
   | DissociatePackageCommandOutput
   | DissociatePackagesCommandOutput
+  | FailoverReplicationCommandOutput
   | GetApplicationCommandOutput
   | GetCapabilityCommandOutput
   | GetCompatibleVersionsCommandOutput
@@ -526,12 +560,14 @@ export type ServiceOutputTypes =
   | PutDefaultApplicationSettingCommandOutput
   | RegisterCapabilityCommandOutput
   | RejectInboundConnectionCommandOutput
+  | RemoveReplicationPeerCommandOutput
   | RemoveTagsCommandOutput
   | RevokeVpcEndpointAccessCommandOutput
   | RollbackServiceSoftwareUpdateCommandOutput
   | StartDomainMaintenanceCommandOutput
   | StartMigrationCommandOutput
   | StartServiceSoftwareUpdateCommandOutput
+  | SwitchoverReplicationCommandOutput
   | UpdateApplicationCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateDirectQueryDataSourceCommandOutput

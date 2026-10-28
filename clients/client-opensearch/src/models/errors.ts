@@ -172,6 +172,27 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * <p>An exception for creating a resource that already exists.</p>
+ * @public
+ */
+export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.opensearch#ResourceAlreadyExistsException";
+  readonly name = "ResourceAlreadyExistsException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+  }
+}
+
+/**
  * <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
  * @public
  */
@@ -210,27 +231,6 @@ export class InvalidTypeException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidTypeException.prototype);
-  }
-}
-
-/**
- * <p>An exception for creating a resource that already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.opensearch#ResourceAlreadyExistsException";
-  readonly name = "ResourceAlreadyExistsException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
   }
 }
 

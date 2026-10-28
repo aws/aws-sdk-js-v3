@@ -6,6 +6,7 @@ const _AC = "AppConfig";
 const _ACp = "AppConfigs";
 const _ACs = "AssociationConfiguration";
 const _ADE = "AccessDeniedException";
+const _ADL = "AllowDataLoss";
 const _ADNC = "AvailableDataNodeCount";
 const _ADQDS = "AddDirectQueryDataSource";
 const _ADQDSR = "AddDirectQueryDataSourceRequest";
@@ -46,6 +47,9 @@ const _APc = "AccessPolicies";
 const _APs = "AssociatePackage";
 const _APss = "AssociatePackages";
 const _ARN = "ARN";
+const _ARP = "AddReplicationPeer";
+const _ARPR = "AddReplicationPeerRequest";
+const _ARPRd = "AddReplicationPeerResponse";
 const _AS = "ApplicationSummary";
 const _ASE = "AdvancedSecurityEnabled";
 const _ASO = "AdvancedSecurityOptions";
@@ -108,12 +112,17 @@ const _CCSl = "ClusterConfigStatus";
 const _CCSr = "CrossClusterSearch";
 const _CCu = "CurrencyCode";
 const _CD = "CreationDate";
+const _CDC = "CompareDomainConfiguration";
 const _CDCC = "CancelDomainConfigChange";
+const _CDCCM = "CompareDomainConfigurationCategoryMap";
 const _CDCCR = "CancelDomainConfigChangeRequest";
 const _CDCCRa = "CancelDomainConfigChangeResponse";
+const _CDCR = "CompareDomainConfigurationRequest";
+const _CDCRo = "CompareDomainConfigurationResponse";
 const _CDNC = "ConfiguredDataNodeCount";
-const _CDR = "CreateDomainRequest";
-const _CDRr = "CreateDomainResponse";
+const _CDR = "CategoryDiffResult";
+const _CDRr = "CreateDomainRequest";
+const _CDRre = "CreateDomainResponse";
 const _CDr = "CreateDomain";
 const _CE = "ConflictException";
 const _CECA = "CustomEndpointCertificateArn";
@@ -169,7 +178,8 @@ const _CVu = "CurrentVersion";
 const _CWDQDS = "CloudWatchDirectQueryDataSource";
 const _CWL = "CloudWatchLog";
 const _CWLLGA = "CloudWatchLogsLogGroupArn";
-const _Ca = "Cancellable";
+const _Ca = "Categories";
+const _Can = "Cancellable";
 const _Co = "Connections";
 const _Cod = "Code";
 const _Cou = "Count";
@@ -205,11 +215,14 @@ const _DDR = "DeleteDomainRequest";
 const _DDRP = "DescribeDryRunProgress";
 const _DDRPR = "DescribeDryRunProgressRequest";
 const _DDRPRe = "DescribeDryRunProgressResponse";
+const _DDRR = "DescribeDomainReplicationRequest";
+const _DDRRe = "DescribeDomainReplicationResponse";
 const _DDRe = "DeleteDomainResponse";
 const _DDRes = "DescribeDomainRequest";
 const _DDResc = "DescribeDomainResponse";
 const _DDRescr = "DescribeDomainsRequest";
 const _DDRescri = "DescribeDomainsResponse";
+const _DDRescrib = "DescribeDomainReplication";
 const _DDS = "DeleteDataSource";
 const _DDSA = "DescribeDataSourceAttachment";
 const _DDSAR = "DescribeDataSourceAttachmentRequest";
@@ -224,8 +237,10 @@ const _DDes = "DescribeDomains";
 const _DEO = "DomainEndpointOptions";
 const _DEOS = "DomainEndpointOptionsStatus";
 const _DEVHZI = "DomainEndpointV2HostedZoneId";
+const _DF = "DivergentField";
 const _DFE = "DependencyFailureException";
-const _DI = "DomainInfo";
+const _DFL = "DivergentFieldList";
+const _DI = "DiffItems";
 const _DIC = "DomainInformationContainer";
 const _DICR = "DeleteInboundConnectionRequest";
 const _DICRe = "DeleteInboundConnectionResponse";
@@ -236,14 +251,17 @@ const _DICes = "DescribeInboundConnections";
 const _DID = "DescribeInsightDetails";
 const _DIDR = "DescribeInsightDetailsRequest";
 const _DIDRe = "DescribeInsightDetailsResponse";
-const _DIL = "DomainInfoList";
+const _DIL = "DivergentItemList";
+const _DILo = "DomainInfoList";
 const _DIR = "DeleteIndexRequest";
 const _DIRe = "DeleteIndexResponse";
 const _DITL = "DescribeInstanceTypeLimits";
 const _DITLR = "DescribeInstanceTypeLimitsRequest";
 const _DITLRe = "DescribeInstanceTypeLimitsResponse";
 const _DIe = "DeleteIndex";
-const _DIo = "DomainId";
+const _DIi = "DivergentItem";
+const _DIo = "DomainInfo";
+const _DIom = "DomainId";
 const _DM = "DedicatedMaster";
 const _DMC = "DedicatedMasterCount";
 const _DMD = "DomainMaintenanceDetails";
@@ -326,6 +344,7 @@ const _DVEResc = "DescribeVpcEndpointsResponse";
 const _DVEe = "DescribeVpcEndpoints";
 const _Da = "Date";
 const _De = "Deleted";
+const _Di = "Diverged";
 const _Du = "Duration";
 const _E = "Enabled";
 const _EAPIA = "EnabledAPIAccess";
@@ -359,6 +378,9 @@ const _Ent = "Entity";
 const _F = "Filters";
 const _FL = "FilterList";
 const _FP = "FixedPrice";
+const _FR = "FailoverReplication";
+const _FRR = "FailoverReplicationRequest";
+const _FRRa = "FailoverReplicationResponse";
 const _FT = "FeedbackText";
 const _Fi = "Fields";
 const _Fil = "Filter";
@@ -400,7 +422,7 @@ const _GUS = "GetUpgradeStatus";
 const _GUSR = "GetUpgradeStatusRequest";
 const _GUSRe = "GetUpgradeStatusResponse";
 const _H = "Hours";
-const _I = "Iops";
+const _I = "Items";
 const _IAMFO = "IAMFederationOptions";
 const _IAMFOI = "IAMFederationOptionsInput";
 const _IAMFOO = "IAMFederationOptionsOutput";
@@ -436,8 +458,9 @@ const _IPATS = "IPAddressTypeStatus";
 const _IPI = "IdentityPoolId";
 const _IPTE = "InvalidPaginationTokenException";
 const _IR = "InstanceRole";
-const _IS = "IndexSchema";
+const _IS = "InSync";
 const _ISI = "IdentityStoreId";
+const _ISn = "IndexSchema";
 const _IT = "InstanceType";
 const _ITD = "InstanceTypeDetails";
 const _ITDL = "InstanceTypeDetailsList";
@@ -448,6 +471,7 @@ const _Id = "Idp";
 const _Id_ = "Id";
 const _In = "Insight";
 const _Ins = "Insights";
+const _Io = "Iops";
 const _Is = "Issues";
 const _JU = "JwksUrl";
 const _JWTO = "JWTOptions";
@@ -582,6 +606,7 @@ const _PAC = "PackageAssociationConfiguration";
 const _PC = "PackageConfiguration";
 const _PCO = "PerformCheckOnly";
 const _PD = "PendingDeletion";
+const _PDA = "PeerDomainArn";
 const _PDAS = "PutDefaultApplicationSetting";
 const _PDASR = "PutDefaultApplicationSettingRequest";
 const _PDASRu = "PutDefaultApplicationSettingResponse";
@@ -603,6 +628,7 @@ const _PP = "PendingProperties";
 const _PPIDL = "PrerequisitePackageIDList";
 const _PPl = "PluginProperties";
 const _PPr = "ProgressPercent";
+const _PR = "PeerRole";
 const _PRIO = "PurchaseReservedInstanceOffering";
 const _PRIOR = "PurchaseReservedInstanceOfferingRequest";
 const _PRIORu = "PurchaseReservedInstanceOfferingResponse";
@@ -616,6 +642,9 @@ const _PVH = "PackageVersionHistory";
 const _PVHL = "PackageVersionHistoryList";
 const _PVO = "PackageVendingOptions";
 const _PVe = "PendingValue";
+const _Pa = "Path";
+const _Pe = "Peers";
+const _Po = "Policy";
 const _Pr = "Principal";
 const _Pri = "Priority";
 const _Pro = "Processing";
@@ -650,7 +679,12 @@ const _RN = "ReservationName";
 const _RNFE = "ResourceNotFoundException";
 const _ROD = "RollbackOnDisable";
 const _RP = "ReferencePath";
+const _RPL = "ReplicationPeerList";
+const _RPe = "ReplicationPeer";
 const _RRFCU = "RequiresRestartForConfigurationUpdate";
+const _RRP = "RemoveReplicationPeer";
+const _RRPR = "RemoveReplicationPeerRequest";
+const _RRPRe = "RemoveReplicationPeerResponse";
 const _RSSO = "RollbackServiceSoftwareOptions";
 const _RSSU = "RollbackServiceSoftwareUpdate";
 const _RSSUR = "RollbackServiceSoftwareUpdateRequest";
@@ -660,6 +694,7 @@ const _RTR = "RemoveTagsRequest";
 const _RVEA = "RevokeVpcEndpointAccess";
 const _RVEAR = "RevokeVpcEndpointAccessRequest";
 const _RVEARe = "RevokeVpcEndpointAccessResponse";
+const _Ro = "Role";
 const _S = "Status";
 const _SA = "StartAt";
 const _SAL = "ScheduledActionsList";
@@ -675,6 +710,7 @@ const _SB = "ScheduledBy";
 const _SBAZC = "StandByAvailabilityZoneCount";
 const _SBN = "S3BucketName";
 const _SC = "StatusCode";
+const _SDA = "SourceDomainArn";
 const _SDM = "StartDomainMaintenance";
 const _SDMR = "StartDomainMaintenanceRequest";
 const _SDMRt = "StartDomainMaintenanceResponse";
@@ -697,9 +733,13 @@ const _SOI = "SavedObjectIdentifier";
 const _SOIL = "SavedObjectIdentifierList";
 const _SOS = "SnapshotOptionsStatus";
 const _SOn = "SnapshotOptions";
-const _SOo = "SortOrder";
+const _SOo = "SourceOnly";
+const _SOor = "SortOrder";
 const _SQEE = "ServiceQuotaExceededException";
 const _SR = "SupportedRegions";
+const _SRR = "SwitchoverReplicationRequest";
+const _SRRw = "SwitchoverReplicationResponse";
+const _SRw = "SwitchoverReplication";
 const _SS = "SlotSuggestions";
 const _SSO = "ServiceSoftwareOptions";
 const _SSSU = "StartServiceSoftwareUpdate";
@@ -726,22 +766,27 @@ const _SV = "SourceVersion";
 const _SVA = "ServerlessVectorAcceleration";
 const _SVE = "S3VectorsEngine";
 const _SVT = "StorageVolumeType";
+const _SVo = "SourceValue";
 const _Se = "Service";
 const _Sev = "Severity";
 const _St = "State";
-const _T = "Throughput";
+const _T = "Truncated";
+const _TDA = "TargetDomainArn";
 const _TE = "ThrottlingException";
 const _TK = "TagKeys";
 const _TL = "TagList";
 const _TLSSP = "TLSSecurityPolicy";
 const _TNOS = "TotalNumberOfStages";
+const _TO = "TargetOnly";
 const _TR = "TimeRange";
 const _TS = "TotalShards";
 const _TUAS = "TotalUnAssignedShards";
 const _TV = "TargetVersions";
-const _TVa = "TargetVersion";
+const _TVa = "TargetValue";
+const _TVar = "TargetVersion";
 const _Ta = "Tag";
-const _Th = "Thumbs";
+const _Th = "Throughput";
+const _Thu = "Thumbs";
 const _To = "To";
 const _Ty = "Type";
 const _U = "Username";
@@ -1093,6 +1138,16 @@ export var AdditionalLimit$: StaticStructureSchema = [3, n0, _AL,
   [_LN, _LV],
   [0, 64 | 0]
 ];
+export var AddReplicationPeerRequest$: StaticStructureSchema = [3, n0, _ARPR,
+  0,
+  [_DN, _PDA, _DR],
+  [[0, 1], 0, 2], 2
+];
+export var AddReplicationPeerResponse$: StaticStructureSchema = [3, n0, _ARPRd,
+  0,
+  [_DA, _S],
+  [0, 0]
+];
 export var AddTagsRequest$: StaticStructureSchema = [3, n0, _ATR,
   0,
   [_ARN, _TL],
@@ -1288,6 +1343,11 @@ export var CapabilityFailure$: StaticStructureSchema = [3, n0, _CF,
   [_r, _d],
   [0, 0]
 ];
+export var CategoryDiffResult$: StaticStructureSchema = [3, n0, _CDR,
+  0,
+  [_S, _IS, _SOo, _TO, _Di, _I, _T],
+  [0, 1, 1, 1, 1, () => DiffItems$, 2]
+];
 export var ChangeProgressDetails$: StaticStructureSchema = [3, n0, _CPD,
   0,
   [_CIh, _M, _CCS, _IB, _ST, _LUT],
@@ -1333,6 +1393,16 @@ export var ColdStorageOptions$: StaticStructureSchema = [3, n0, _CSO,
   [_E],
   [2], 1
 ];
+export var CompareDomainConfigurationRequest$: StaticStructureSchema = [3, n0, _CDCR,
+  0,
+  [_SDA, _TDA, _Ca],
+  [0, 0, 64 | 0], 3
+];
+export var CompareDomainConfigurationResponse$: StaticStructureSchema = [3, n0, _CDCRo,
+  0,
+  [_SDA, _TDA, _Ca],
+  [0, 0, () => CompareDomainConfigurationCategoryMap]
+];
 export var CompatibleVersionsMap$: StaticStructureSchema = [3, n0, _CVM,
   0,
   [_SV, _TV],
@@ -1353,19 +1423,19 @@ export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
   [_i, _n, _a, _dS, _iICO, _aC, _tL, _cA, _kKA],
   [0, 0, 0, () => DataSources, () => IamIdentityCenterOptions$, () => AppConfigs, () => TagList, 4, 0]
 ];
-export var CreateDomainRequest$: StaticStructureSchema = [3, n0, _CDR,
+export var CreateDomainRequest$: StaticStructureSchema = [3, n0, _CDRr,
   0,
   [_DN, _EV, _CC, _EBSO, _APc, _IPAT, _SOn, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _DEO, _ASO, _ICO, _TL, _ATO, _OPWO, _SUO, _AIMLO, _DSO, _ASPO, _UC, _EMn],
   [0, 0, () => ClusterConfig$, () => EBSOptions$, 0, 0, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => DomainEndpointOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => IdentityCenterOptionsInput$, () => TagList, () => AutoTuneOptionsInput$, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, () => AIMLOptionsInput$, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseRequestOptions$, 0, 0], 1
 ];
-export var CreateDomainResponse$: StaticStructureSchema = [3, n0, _CDRr,
+export var CreateDomainResponse$: StaticStructureSchema = [3, n0, _CDRre,
   0,
   [_DSo],
   [() => DomainStatus$]
 ];
 export var CreateIndexRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
-  [_DN, _IN, _IS],
+  [_DN, _IN, _ISn],
   [[0, 1], 0, 15], 3
 ];
 export var CreateIndexResponse$: StaticStructureSchema = [3, n0, _CIRr,
@@ -1588,6 +1658,16 @@ export var DescribeDomainNodesResponse$: StaticStructureSchema = [3, n0, _DDNRe,
   [_DNSL],
   [() => DomainNodesStatusList]
 ];
+export var DescribeDomainReplicationRequest$: StaticStructureSchema = [3, n0, _DDRR,
+  0,
+  [_DN],
+  [[0, 1]], 1
+];
+export var DescribeDomainReplicationResponse$: StaticStructureSchema = [3, n0, _DDRRe,
+  0,
+  [_DA, _Ro, _Pe],
+  [0, 0, () => ReplicationPeerList]
+];
 export var DescribeDomainRequest$: StaticStructureSchema = [3, n0, _DDRes,
   0,
   [_DN],
@@ -1713,6 +1793,11 @@ export var DetachDataSourceResponse$: StaticStructureSchema = [3, n0, _DDSReta,
   [_i, _a, _dSA],
   [0, 0, 0]
 ];
+export var DiffItems$: StaticStructureSchema = [3, n0, _DI,
+  0,
+  [_SOo, _TO, _Di],
+  [64 | 0, 64 | 0, () => DivergentItemList]
+];
 export var DirectQueryDataSource$: StaticStructureSchema = [3, n0, _DQDS,
   0,
   [_DSN, _DST, _D, _OSA, _DSA, _TL],
@@ -1738,6 +1823,16 @@ export var DissociatePackagesResponse$: StaticStructureSchema = [3, n0, _DPRisso
   [_DPDL],
   [() => DomainPackageDetailsList]
 ];
+export var DivergentField$: StaticStructureSchema = [3, n0, _DF,
+  0,
+  [_Pa, _SVo, _TVa, _Po],
+  [0, 0, 0, 0]
+];
+export var DivergentItem$: StaticStructureSchema = [3, n0, _DIi,
+  0,
+  [_N, _Fi],
+  [0, () => DivergentFieldList]
+];
 export var DomainConfig$: StaticStructureSchema = [3, n0, _DC,
   0,
   [_EV, _CC, _EBSO, _APc, _IPAT, _SOn, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _DEO, _ASO, _ICO, _ATO, _CPD, _OPWO, _SUO, _MP, _AIMLO, _DSO, _ASPO, _UC, _EMn],
@@ -1753,7 +1848,7 @@ export var DomainEndpointOptionsStatus$: StaticStructureSchema = [3, n0, _DEOS,
   [_O, _S],
   [() => DomainEndpointOptions$, () => OptionStatus$], 2
 ];
-export var DomainInfo$: StaticStructureSchema = [3, n0, _DI,
+export var DomainInfo$: StaticStructureSchema = [3, n0, _DIo,
   0,
   [_DN, _ETn],
   [0, 0]
@@ -1780,7 +1875,7 @@ export var DomainPackageDetails$: StaticStructureSchema = [3, n0, _DPD,
 ];
 export var DomainStatus$: StaticStructureSchema = [3, n0, _DSo,
   0,
-  [_DIo, _DN, _ARN, _CC, _Cr, _De, _En, _EVn, _End, _DEVHZI, _Pro, _UP, _EV, _EBSO, _APc, _IPAT, _SOn, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _SSO, _DEO, _ASO, _ICO, _ATO, _CPD, _OPWO, _SUO, _DPSo, _MP, _AIMLO, _DSO, _ASPO, _UC, _EMn],
+  [_DIom, _DN, _ARN, _CC, _Cr, _De, _En, _EVn, _End, _DEVHZI, _Pro, _UP, _EV, _EBSO, _APc, _IPAT, _SOn, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _SSO, _DEO, _ASO, _ICO, _ATO, _CPD, _OPWO, _SUO, _DPSo, _MP, _AIMLO, _DSO, _ASPO, _UC, _EMn],
   [0, 0, 0, () => ClusterConfig$, 2, 2, 0, 0, 128 | 0, 0, 2, 2, 0, () => EBSOptions$, 0, 0, () => SnapshotOptions$, () => VPCDerivedInfo$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => ServiceSoftwareOptions$, () => DomainEndpointOptions$, () => AdvancedSecurityOptions$, () => IdentityCenterOptions$, () => AutoTuneOptionsOutput$, () => ChangeProgressDetails$, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, 0, () => ModifyingPropertiesList, () => AIMLOptionsOutput$, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseOptions$, 0, 0], 4
 ];
 export var DryRunProgressStatus$: StaticStructureSchema = [3, n0, _DRPS,
@@ -1800,7 +1895,7 @@ export var Duration$: StaticStructureSchema = [3, n0, _Du,
 ];
 export var EBSOptions$: StaticStructureSchema = [3, n0, _EBSO,
   0,
-  [_EBSE, _VT, _VS, _I, _T],
+  [_EBSE, _VT, _VS, _Io, _Th],
   [2, 0, 1, 1, 1]
 ];
 export var EBSOptionsStatus$: StaticStructureSchema = [3, n0, _EBSOS,
@@ -1837,6 +1932,16 @@ export var ExportOptions$: StaticStructureSchema = [3, n0, _EO,
   0,
   [_t, _o, _iRD],
   [64 | 0, () => SavedObjectIdentifierList, 2]
+];
+export var FailoverReplicationRequest$: StaticStructureSchema = [3, n0, _FRR,
+  0,
+  [_DN, _PDA, _ADL],
+  [[0, 1], 0, 2], 3
+];
+export var FailoverReplicationResponse$: StaticStructureSchema = [3, n0, _FRRa,
+  0,
+  [_DA, _S],
+  [0, 0]
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _Fil,
   0,
@@ -1920,7 +2025,7 @@ export var GetIndexRequest$: StaticStructureSchema = [3, n0, _GIR,
 ];
 export var GetIndexResponse$: StaticStructureSchema = [3, n0, _GIRe,
   0,
-  [_IS],
+  [_ISn],
   [15], 1
 ];
 export var GetMigrationRequest$: StaticStructureSchema = [3, n0, _GMR,
@@ -2025,7 +2130,7 @@ export var InsightFeedbackEntity$: StaticStructureSchema = [3, n0, _IFE,
 ];
 export var InsightFeedbackRequest$: StaticStructureSchema = [3, n0, _IFR,
   0,
-  [_Ent, _II, _Th, _FT],
+  [_Ent, _II, _Thu, _FT],
   [() => InsightFeedbackEntity$, 0, 0, 0], 3
 ];
 export var InsightFeedbackResponse$: StaticStructureSchema = [3, n0, _IFRn,
@@ -2155,7 +2260,7 @@ export var ListDomainsForPackageResponse$: StaticStructureSchema = [3, n0, _LDFP
 ];
 export var ListInsightsRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
-  [_Ent, _TR, _SOo, _MR, _NT],
+  [_Ent, _TR, _SOor, _MR, _NT],
   [() => InsightEntity$, () => InsightTimeRange$, 0, 1, 0], 1
 ];
 export var ListInsightsResponse$: StaticStructureSchema = [3, n0, _LIRi,
@@ -2453,10 +2558,25 @@ export var RejectInboundConnectionResponse$: StaticStructureSchema = [3, n0, _RI
   [_C],
   [() => InboundConnection$]
 ];
+export var RemoveReplicationPeerRequest$: StaticStructureSchema = [3, n0, _RRPR,
+  0,
+  [_DN, _PDA],
+  [[0, 1], 0], 2
+];
+export var RemoveReplicationPeerResponse$: StaticStructureSchema = [3, n0, _RRPRe,
+  0,
+  [_DA, _S],
+  [0, 0]
+];
 export var RemoveTagsRequest$: StaticStructureSchema = [3, n0, _RTR,
   0,
   [_ARN, _TK],
   [0, 64 | 0], 2
+];
+export var ReplicationPeer$: StaticStructureSchema = [3, n0, _RPe,
+  0,
+  [_PDA, _PR, _S, _SM],
+  [0, 0, 0, 0]
 ];
 export var ReservedInstance$: StaticStructureSchema = [3, n0, _RIe,
   0,
@@ -2525,7 +2645,7 @@ export var SavedObjectIdentifier$: StaticStructureSchema = [3, n0, _SOI,
 ];
 export var ScheduledAction$: StaticStructureSchema = [3, n0, _SAch,
   0,
-  [_Id_, _Ty, _Sev, _STc, _D, _SB, _S, _Ma, _Ca],
+  [_Id_, _Ty, _Sev, _STc, _D, _SB, _S, _Ma, _Can],
   [0, 0, 0, 1, 0, 0, 0, 2, 2], 4
 ];
 export var ScheduledAutoTuneDetails$: StaticStructureSchema = [3, n0, _SATD,
@@ -2550,7 +2670,7 @@ export var ServiceOptions$: StaticStructureSchema = [3, n0, _SO,
 ];
 export var ServiceSoftwareOptions$: StaticStructureSchema = [3, n0, _SSO,
   0,
-  [_CVu, _NV, _UAp, _Ca, _USp, _D, _AUD, _OD],
+  [_CVu, _NV, _UAp, _Can, _USp, _D, _AUD, _OD],
   [0, 0, 2, 2, 0, 0, 4, 2]
 ];
 export var SnapshotOptions$: StaticStructureSchema = [3, n0, _SOn,
@@ -2613,6 +2733,16 @@ export var StorageTypeLimit$: StaticStructureSchema = [3, n0, _STLt,
   [_LN, _LV],
   [0, 64 | 0]
 ];
+export var SwitchoverReplicationRequest$: StaticStructureSchema = [3, n0, _SRR,
+  0,
+  [_DN, _PDA],
+  [[0, 1], 0], 2
+];
+export var SwitchoverReplicationResponse$: StaticStructureSchema = [3, n0, _SRRw,
+  0,
+  [_DA, _S],
+  [0, 0]
+];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
@@ -2660,7 +2790,7 @@ export var UpdateDomainConfigResponse$: StaticStructureSchema = [3, n0, _UDCRp,
 ];
 export var UpdateIndexRequest$: StaticStructureSchema = [3, n0, _UIR,
   0,
-  [_DN, _IN, _IS],
+  [_DN, _IN, _ISn],
   [[0, 1], [0, 1], 15], 3
 ];
 export var UpdateIndexResponse$: StaticStructureSchema = [3, n0, _UIRp,
@@ -2710,12 +2840,12 @@ export var UpdateVpcEndpointResponse$: StaticStructureSchema = [3, n0, _UVERp,
 ];
 export var UpgradeDomainRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
-  [_DN, _TVa, _PCO, _AO],
+  [_DN, _TVar, _PCO, _AO],
   [0, 0, 2, 128 | 0], 2
 ];
 export var UpgradeDomainResponse$: StaticStructureSchema = [3, n0, _UDRp,
   0,
-  [_UI, _DN, _TVa, _PCO, _AO, _CPD],
+  [_UI, _DN, _TVar, _PCO, _AO, _CPD],
   [0, 0, 0, 2, 128 | 0, () => ChangeProgressDetails$]
 ];
 export var UpgradeHistory$: StaticStructureSchema = [3, n0, _UHp,
@@ -2838,11 +2968,18 @@ var DescribePackagesFilterList: StaticListSchema = [1, n0, _DPFL,
   0, () => DescribePackagesFilter$
 ];
 var DescribePackagesFilterValues = 64 | 0;
+var DiffItemNameList = 64 | 0;
 var DirectQueryDataSourceList: StaticListSchema = [1, n0, _DQDSL,
   0, () => DirectQueryDataSource$
 ];
 var DirectQueryOpenSearchARNList = 64 | 0;
-var DomainInfoList: StaticListSchema = [1, n0, _DIL,
+var DivergentFieldList: StaticListSchema = [1, n0, _DFL,
+  0, () => DivergentField$
+];
+var DivergentItemList: StaticListSchema = [1, n0, _DIL,
+  0, () => DivergentItem$
+];
+var DomainInfoList: StaticListSchema = [1, n0, _DILo,
   0, () => DomainInfo$
 ];
 var DomainMaintenanceList: StaticListSchema = [1, n0, _DML,
@@ -2880,6 +3017,7 @@ var InstanceTypeDetailsList: StaticListSchema = [1, n0, _ITDL,
 ];
 var Issues = 64 | 0;
 var LimitValueList = 64 | 0;
+var MetadataCategoryList = 64 | 0;
 var MigrationSummaryList: StaticListSchema = [1, n0, _MSL,
   0, () => MigrationSummary$
 ];
@@ -2908,6 +3046,9 @@ var RecurringChargeList: StaticListSchema = [1, n0, _RCL,
     { [_xN]: _RC }]
 ];
 var RegionsList = 64 | 0;
+var ReplicationPeerList: StaticListSchema = [1, n0, _RPL,
+  0, () => ReplicationPeer$
+];
 var ReservedInstanceList: StaticListSchema = [1, n0, _RIL,
   0, [() => ReservedInstance$,
     0]
@@ -2955,6 +3096,9 @@ var VpcEndpointSummaryList: StaticListSchema = [1, n0, _VESL,
   0, () => VpcEndpointSummary$
 ];
 var AdvancedOptions = 128 | 0;
+var CompareDomainConfigurationCategoryMap: StaticMapSchema = [2, n0, _CDCCM,
+  0, 0, () => CategoryDiffResult$
+];
 var EndpointsMap = 128 | 0;
 var LimitsByRole: StaticMapSchema = [2, n0, _LBR,
   0, 0, () => Limits$
@@ -2996,6 +3140,9 @@ export var AddDataSource$: StaticOperationSchema = [9, n0, _ADS,
 export var AddDirectQueryDataSource$: StaticOperationSchema = [9, n0, _ADQDS,
   { [_h]: ["POST", "/2021-01-01/opensearch/directQueryDataSource", 200] }, () => AddDirectQueryDataSourceRequest$, () => AddDirectQueryDataSourceResponse$
 ];
+export var AddReplicationPeer$: StaticOperationSchema = [9, n0, _ARP,
+  { [_h]: ["POST", "/2021-01-01/opensearch/domain/{DomainName}/replication/addPeer", 200] }, () => AddReplicationPeerRequest$, () => AddReplicationPeerResponse$
+];
 export var AddTags$: StaticOperationSchema = [9, n0, _ATd,
   { [_h]: ["POST", "/2021-01-01/tags", 200] }, () => AddTagsRequest$, () => __Unit
 ];
@@ -3016,6 +3163,9 @@ export var CancelDomainConfigChange$: StaticOperationSchema = [9, n0, _CDCC,
 ];
 export var CancelServiceSoftwareUpdate$: StaticOperationSchema = [9, n0, _CSSU,
   { [_h]: ["POST", "/2021-01-01/opensearch/serviceSoftwareUpdate/cancel", 200] }, () => CancelServiceSoftwareUpdateRequest$, () => CancelServiceSoftwareUpdateResponse$
+];
+export var CompareDomainConfiguration$: StaticOperationSchema = [9, n0, _CDC,
+  { [_h]: ["POST", "/2021-01-01/opensearch/compareDomainConfiguration", 200] }, () => CompareDomainConfigurationRequest$, () => CompareDomainConfigurationResponse$
 ];
 export var CreateApplication$: StaticOperationSchema = [9, n0, _CAre,
   { [_h]: ["POST", "/2021-01-01/opensearch/application", 200] }, () => CreateApplicationRequest$, () => CreateApplicationResponse$
@@ -3086,6 +3236,9 @@ export var DescribeDomainHealth$: StaticOperationSchema = [9, n0, _DDH,
 export var DescribeDomainNodes$: StaticOperationSchema = [9, n0, _DDN,
   { [_h]: ["GET", "/2021-01-01/opensearch/domain/{DomainName}/nodes", 200] }, () => DescribeDomainNodesRequest$, () => DescribeDomainNodesResponse$
 ];
+export var DescribeDomainReplication$: StaticOperationSchema = [9, n0, _DDRescrib,
+  { [_h]: ["GET", "/2021-01-01/opensearch/domain/{DomainName}/replication", 200] }, () => DescribeDomainReplicationRequest$, () => DescribeDomainReplicationResponse$
+];
 export var DescribeDomains$: StaticOperationSchema = [9, n0, _DDes,
   { [_h]: ["POST", "/2021-01-01/opensearch/domain-info", 200] }, () => DescribeDomainsRequest$, () => DescribeDomainsResponse$
 ];
@@ -3124,6 +3277,9 @@ export var DissociatePackage$: StaticOperationSchema = [9, n0, _DPi,
 ];
 export var DissociatePackages$: StaticOperationSchema = [9, n0, _DPis,
   { [_h]: ["POST", "/2021-01-01/packages/dissociateMultiple", 200] }, () => DissociatePackagesRequest$, () => DissociatePackagesResponse$
+];
+export var FailoverReplication$: StaticOperationSchema = [9, n0, _FR,
+  { [_h]: ["POST", "/2021-01-01/opensearch/domain/{DomainName}/replication/failover", 200] }, () => FailoverReplicationRequest$, () => FailoverReplicationResponse$
 ];
 export var GetApplication$: StaticOperationSchema = [9, n0, _GA,
   { [_h]: ["GET", "/2021-01-01/opensearch/application/{id}", 200] }, () => GetApplicationRequest$, () => GetApplicationResponse$
@@ -3227,6 +3383,9 @@ export var RegisterCapability$: StaticOperationSchema = [9, n0, _RCeg,
 export var RejectInboundConnection$: StaticOperationSchema = [9, n0, _RIC,
   { [_h]: ["PUT", "/2021-01-01/opensearch/cc/inboundConnection/{ConnectionId}/reject", 200] }, () => RejectInboundConnectionRequest$, () => RejectInboundConnectionResponse$
 ];
+export var RemoveReplicationPeer$: StaticOperationSchema = [9, n0, _RRP,
+  { [_h]: ["POST", "/2021-01-01/opensearch/domain/{DomainName}/replication/removePeer", 200] }, () => RemoveReplicationPeerRequest$, () => RemoveReplicationPeerResponse$
+];
 export var RemoveTags$: StaticOperationSchema = [9, n0, _RT,
   { [_h]: ["POST", "/2021-01-01/tags-removal", 200] }, () => RemoveTagsRequest$, () => __Unit
 ];
@@ -3244,6 +3403,9 @@ export var StartMigration$: StaticOperationSchema = [9, n0, _SMt,
 ];
 export var StartServiceSoftwareUpdate$: StaticOperationSchema = [9, n0, _SSSU,
   { [_h]: ["POST", "/2021-01-01/opensearch/serviceSoftwareUpdate/start", 200] }, () => StartServiceSoftwareUpdateRequest$, () => StartServiceSoftwareUpdateResponse$
+];
+export var SwitchoverReplication$: StaticOperationSchema = [9, n0, _SRw,
+  { [_h]: ["POST", "/2021-01-01/opensearch/domain/{DomainName}/replication/switchover", 200] }, () => SwitchoverReplicationRequest$, () => SwitchoverReplicationResponse$
 ];
 export var UpdateApplication$: StaticOperationSchema = [9, n0, _UApd,
   { [_h]: ["PUT", "/2021-01-01/opensearch/application/{id}", 200] }, () => UpdateApplicationRequest$, () => UpdateApplicationResponse$

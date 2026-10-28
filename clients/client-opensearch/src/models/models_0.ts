@@ -2,9 +2,6 @@
 import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
-  ActionSeverity,
-  ActionStatus,
-  ActionType,
   AppConfigType,
   ApplicationStatus,
   AutoTuneDesiredState,
@@ -20,6 +17,8 @@ import type {
   DeploymentStatus,
   DeploymentStrategy,
   DescribePackagesFilterName,
+  DiffFieldPolicy,
+  DiffStatus,
   DomainHealth,
   DomainPackageStatus,
   DomainProcessingStatusType,
@@ -60,13 +59,14 @@ import type {
   PauseState,
   PrincipalType,
   PropertyValueType,
+  ReplicationRole,
+  ReplicationStatus,
   RequirementLevel,
   ReservedInstancePaymentOption,
   RolesKeyIdCOption,
   RollbackOnDisable,
   ScheduledAutoTuneActionType,
   ScheduledAutoTuneSeverityType,
-  ScheduledBy,
   SkipUnavailableStatus,
   SubjectKeyIdCOption,
   TimeUnit,
@@ -613,6 +613,50 @@ export interface AdditionalLimit {
    * @public
    */
   LimitValues?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AddReplicationPeerRequest {
+  /**
+   * <p>The name of an OpenSearch Service domain. Domain names are unique across the domains
+   *             owned by an account within an Amazon Web Services Region.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain to replicate to. The peer must be in a
+   *   different Region from the domain you are calling, and in the same AWS account.</p>
+   * @public
+   */
+  PeerDomainArn: string | undefined;
+
+  /**
+   * <p>When <code>true</code>, validates the request and reports whether replication could be
+   *   established, without changing either domain.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AddReplicationPeerResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain that is now replicating to the peer.</p>
+   * @public
+   */
+  DomainArn?: string | undefined;
+
+  /**
+   * <p>The state of the replication relationship. This is <code>PENDING_SETUP</code> immediately
+   *   after the request is accepted.</p>
+   * @public
+   */
+  Status?: ReplicationStatus | undefined;
 }
 
 /**
@@ -1758,6 +1802,232 @@ export interface CancelServiceSoftwareUpdateResponse {
    * @public
    */
   ServiceSoftwareOptions?: ServiceSoftwareOptions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CompareDomainConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain to compare from.</p>
+   * @public
+   */
+  SourceDomainArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain to compare against.</p>
+   * @public
+   */
+  TargetDomainArn: string | undefined;
+
+  /**
+   * <p>The metadata categories to compare. At least one is required, and only the categories you
+   *   name are read and returned.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aliases</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>alerting_monitors</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cluster_settings</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>component_templates</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ingest_pipelines</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ism_policies</code> — index state management policies</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>security_action_groups</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>security_internal_users</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>security_role_mappings</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>security_roles</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>templates</code> — index templates</p>
+   *             </li>
+   *          </ul>
+   *          <p>The set of categories grows over time, so this list is not fixed. A category the service does
+   *   not recognise is rejected with the supported categories named in the error message.</p>
+   * @public
+   */
+  Categories: string[] | undefined;
+}
+
+/**
+ * <p>A single field that differs between the source and target copies of an item.</p>
+ * @public
+ */
+export interface DivergentField {
+  /**
+   * <p>The location of the field within the item.</p>
+   * @public
+   */
+  Path?: string | undefined;
+
+  /**
+   * <p>The field's value on the source domain.</p>
+   * @public
+   */
+  SourceValue?: string | undefined;
+
+  /**
+   * <p>The field's value on the target domain.</p>
+   * @public
+   */
+  TargetValue?: string | undefined;
+
+  /**
+   * <p>How the comparison treats this field.</p>
+   * @public
+   */
+  Policy?: DiffFieldPolicy | undefined;
+}
+
+/**
+ * <p>An item that exists on both domains but whose contents differ.</p>
+ * @public
+ */
+export interface DivergentItem {
+  /**
+   * <p>The name of the item.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The fields of the item that differ.</p>
+   * @public
+   */
+  Fields?: DivergentField[] | undefined;
+}
+
+/**
+ * <p>The items that differ within one metadata category.</p>
+ * @public
+ */
+export interface DiffItems {
+  /**
+   * <p>The names of items that exist only on the source domain.</p>
+   * @public
+   */
+  SourceOnly?: string[] | undefined;
+
+  /**
+   * <p>The names of items that exist only on the target domain.</p>
+   * @public
+   */
+  TargetOnly?: string[] | undefined;
+
+  /**
+   * <p>The items that exist on both domains but differ, with the diverging fields.</p>
+   * @public
+   */
+  Diverged?: DivergentItem[] | undefined;
+}
+
+/**
+ * <p>The result of comparing one metadata category between two domains.</p>
+ * @public
+ */
+export interface CategoryDiffResult {
+  /**
+   * <p>Whether the category was compared successfully. <code>compared</code> means the result is
+   *   complete; <code>error</code> means the category could not be read.</p>
+   * @public
+   */
+  Status?: DiffStatus | undefined;
+
+  /**
+   * <p>The number of items that are identical on both domains.</p>
+   * @public
+   */
+  InSync?: number | undefined;
+
+  /**
+   * <p>The number of items that exist only on the source domain.</p>
+   * @public
+   */
+  SourceOnly?: number | undefined;
+
+  /**
+   * <p>The number of items that exist only on the target domain.</p>
+   * @public
+   */
+  TargetOnly?: number | undefined;
+
+  /**
+   * <p>The number of items that exist on both domains but differ.</p>
+   * @public
+   */
+  Diverged?: number | undefined;
+
+  /**
+   * <p>The names of the items that differ, and for diverging items, the fields that differ.</p>
+   * @public
+   */
+  Items?: DiffItems | undefined;
+
+  /**
+   * <p>Whether <code>Items</code> omits some differences because the category contained more than
+   *   the response can carry. The counts remain complete when this is <code>true</code>.</p>
+   * @public
+   */
+  Truncated?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CompareDomainConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain that was compared from.</p>
+   * @public
+   */
+  SourceDomainArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain that was compared against.</p>
+   * @public
+   */
+  TargetDomainArn?: string | undefined;
+
+  /**
+   * <p>The comparison result for each category you requested, keyed by category name.</p>
+   * @public
+   */
+  Categories?: Record<string, CategoryDiffResult> | undefined;
 }
 
 /**
@@ -5585,6 +5855,113 @@ export interface DescribeDomainNodesResponse {
 }
 
 /**
+ * @public
+ */
+export interface DescribeDomainReplicationRequest {
+  /**
+   * <p>The name of an OpenSearch Service domain. Domain names are unique across the domains
+   *             owned by an account within an Amazon Web Services Region.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+}
+
+/**
+ * <p>A domain that another domain replicates with, and the state of that relationship.</p>
+ * @public
+ */
+export interface ReplicationPeer {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the peer domain.</p>
+   * @public
+   */
+  PeerDomainArn?: string | undefined;
+
+  /**
+   * <p>The peer's role in the relationship, either <code>PRIMARY</code> or
+   *   <code>SECONDARY</code>.</p>
+   * @public
+   */
+  PeerRole?: ReplicationRole | undefined;
+
+  /**
+   * <p>The state of the relationship:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_SETUP</code> - replication is being established.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> - replication is running.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SWITCHING_OVER</code> - a planned promotion is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILING_OVER</code> - an unplanned promotion is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_REMOVAL</code> - replication is being stopped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DETACHED</code> - the relationship has ended.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EJECTED</code> - a failover promoted the other domain. The former primary
+   *    keeps the data it had when it was ejected and stays read-only until you remove the peer, or
+   *    discard that data and pair again.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - setup or teardown could not complete. You can still remove
+   *    the relationship.</p>
+   *             </li>
+   *          </ul>
+   *          <p>A relationship that is removed successfully no longer appears in <code>Peers</code>.</p>
+   * @public
+   */
+  Status?: ReplicationStatus | undefined;
+
+  /**
+   * <p>An explanation of why the relationship is in its current state, when more detail is
+   *   available.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDomainReplicationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain described.</p>
+   * @public
+   */
+  DomainArn?: string | undefined;
+
+  /**
+   * <p>The domain's role in the arrangement, either <code>PRIMARY</code> or
+   *   <code>SECONDARY</code>. Absent when the domain is not replicating.</p>
+   * @public
+   */
+  Role?: ReplicationRole | undefined;
+
+  /**
+   * <p>The domains that this domain replicates with. Each entry carries the state of that one
+   *   relationship. Empty when the domain is not replicating.</p>
+   * @public
+   */
+  Peers?: ReplicationPeer[] | undefined;
+}
+
+/**
  * <p>Container for the parameters to the <code>DescribeDomains</code> operation.</p>
  * @public
  */
@@ -6625,6 +7002,50 @@ export interface DissociatePackagesResponse {
    * @public
    */
   DomainPackageDetailsList?: DomainPackageDetails[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface FailoverReplicationRequest {
+  /**
+   * <p>The name of an OpenSearch Service domain. Domain names are unique across the domains
+   *             owned by an account within an Amazon Web Services Region.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the relationship's current primary. The request is
+   *   rejected if this domain is no longer the peer of the domain you are calling.</p>
+   * @public
+   */
+  PeerDomainArn: string | undefined;
+
+  /**
+   * <p>Acknowledges that writes which had not yet replicated are lost. You must set this to
+   *   <code>true</code>; the request is rejected otherwise.</p>
+   * @public
+   */
+  AllowDataLoss: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface FailoverReplicationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain being promoted.</p>
+   * @public
+   */
+  DomainArn?: string | undefined;
+
+  /**
+   * <p>The state of the replication relationship. This is <code>FAILING_OVER</code> while the
+   *   promotion is in progress.</p>
+   * @public
+   */
+  Status?: ReplicationStatus | undefined;
 }
 
 /**
@@ -8281,359 +8702,4 @@ export interface InstanceTypeDetails {
    * @public
    */
   AvailabilityZones?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInstanceTypeDetailsResponse {
-  /**
-   * <p>Lists all supported instance types and features for the given OpenSearch or
-   *             Elasticsearch version.</p>
-   * @public
-   */
-  InstanceTypeDetails?: InstanceTypeDetails[] | undefined;
-
-  /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMigrationsRequest {
-  /**
-   * <p>The unique identifier of the OpenSearch application to list migrations for.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>Filters the results by migration status. Valid values are <code>PENDING</code>, <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, and <code>FAILED</code>.</p>
-   * @public
-   */
-  status?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The pagination token from a previous call to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>A summary of a migration job, including its status and progress.</p>
- * @public
- */
-export interface MigrationSummary {
-  /**
-   * <p>The unique identifier of the migration job.</p>
-   * @public
-   */
-  migrationId?: string | undefined;
-
-  /**
-   * <p>The current status of the migration job.</p>
-   * @public
-   */
-  status?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the OpenSearch application associated with the migration.</p>
-   * @public
-   */
-  applicationId?: string | undefined;
-
-  /**
-   * <p>The source configuration for the migration.</p>
-   * @public
-   */
-  source?: MigrationSource | undefined;
-
-  /**
-   * <p>The number of saved objects exported from the source data source.</p>
-   * @public
-   */
-  exportedCount?: number | undefined;
-
-  /**
-   * <p>The number of saved objects successfully imported into the target workspace.</p>
-   * @public
-   */
-  importedCount?: number | undefined;
-
-  /**
-   * <p>Error details if the migration failed or completed with errors.</p>
-   * @public
-   */
-  error?: MigrationError | undefined;
-
-  /**
-   * <p>The date and time when the migration job was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The date and time when the migration job was last updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMigrationsResponse {
-  /**
-   * <p>A list of migration job summaries for the specified application.</p>
-   * @public
-   */
-  migrations?: MigrationSummary[] | undefined;
-
-  /**
-   * <p>The pagination token to use in a subsequent call to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Container for the request parameters to the <code>ListPackagesForDomain</code>
- *             operation.</p>
- * @public
- */
-export interface ListPackagesForDomainRequest {
-  /**
-   * <p>The name of the domain for which you want to list associated packages.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can
-   *             use <code>nextToken</code> to get the next page of results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If your initial <code>ListPackagesForDomain</code> operation returns a
-   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
-   *             subsequent <code>ListPackagesForDomain</code> operations, which returns results in the
-   *             next page.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Container for the response parameters to the <code>ListPackagesForDomain</code>
- *             operation.</p>
- * @public
- */
-export interface ListPackagesForDomainResponse {
-  /**
-   * <p>List of all packages associated with a domain.</p>
-   * @public
-   */
-  DomainPackageDetailsList?: DomainPackageDetails[] | undefined;
-
-  /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListScheduledActionsRequest {
-  /**
-   * <p>The name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can
-   *             use <code>nextToken</code> to get the next page of results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If your initial <code>ListScheduledActions</code> operation returns a
-   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
-   *             subsequent <code>ListScheduledActions</code> operations, which returns results in the
-   *             next page.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Information about a scheduled configuration change for an OpenSearch Service domain.
- *             This actions can be a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service
- *                 software update</a> or a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green Auto-Tune enhancement</a>.</p>
- * @public
- */
-export interface ScheduledAction {
-  /**
-   * <p>The unique identifier of the scheduled action.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The type of action that will be taken on the domain.</p>
-   * @public
-   */
-  Type: ActionType | undefined;
-
-  /**
-   * <p>The severity of the action.</p>
-   * @public
-   */
-  Severity: ActionSeverity | undefined;
-
-  /**
-   * <p>The time when the change is scheduled to happen.</p>
-   * @public
-   */
-  ScheduledTime: number | undefined;
-
-  /**
-   * <p>A description of the action to be taken.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Whether the action was scheduled manually (<code>CUSTOMER</code>, or by OpenSearch
-   *             Service automatically (<code>SYSTEM</code>).</p>
-   * @public
-   */
-  ScheduledBy?: ScheduledBy | undefined;
-
-  /**
-   * <p>The current status of the scheduled action.</p>
-   * @public
-   */
-  Status?: ActionStatus | undefined;
-
-  /**
-   * <p>Whether the action is required or optional.</p>
-   * @public
-   */
-  Mandatory?: boolean | undefined;
-
-  /**
-   * <p>Whether or not the scheduled action is cancellable.</p>
-   * @public
-   */
-  Cancellable?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ListScheduledActionsResponse {
-  /**
-   * <p>A list of actions that are scheduled for the domain.</p>
-   * @public
-   */
-  ScheduledActions?: ScheduledAction[] | undefined;
-
-  /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Container for the parameters to the <code>ListTags</code> operation.</p>
- * @public
- */
-export interface ListTagsRequest {
-  /**
-   * <p>Amazon Resource Name (ARN) for the domain, data source, or application to view tags
-   *             for.</p>
-   * @public
-   */
-  ARN: string | undefined;
-}
-
-/**
- * <p>The results of a <code>ListTags</code> operation.</p>
- * @public
- */
-export interface ListTagsResponse {
-  /**
-   * <p>List of resource tags associated with the specified domain, data source, or
-   *             application.</p>
-   * @public
-   */
-  TagList?: Tag[] | undefined;
-}
-
-/**
- * <p>Container for the request parameters to the <code>ListVersions</code>
- *             operation.</p>
- * @public
- */
-export interface ListVersionsRequest {
-  /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can
-   *             use <code>nextToken</code> to get the next page of results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If your initial <code>ListVersions</code> operation returns a <code>nextToken</code>,
-   *             you can include the returned <code>nextToken</code> in subsequent
-   *                 <code>ListVersions</code> operations, which returns results in the next page.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Container for the parameters for response received from the <code>ListVersions</code>
- *             operation.</p>
- * @public
- */
-export interface ListVersionsResponse {
-  /**
-   * <p>A list of all versions of OpenSearch and Elasticsearch that Amazon OpenSearch Service
-   *             supports.</p>
-   * @public
-   */
-  Versions?: string[] | undefined;
-
-  /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

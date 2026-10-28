@@ -95,6 +95,25 @@ export type ActionType = (typeof ActionType)[keyof typeof ActionType];
  * @public
  * @enum
  */
+export const ReplicationStatus = {
+  ACTIVE: "ACTIVE",
+  DETACHED: "DETACHED",
+  EJECTED: "EJECTED",
+  FAILED: "FAILED",
+  FAILING_OVER: "FAILING_OVER",
+  PENDING_REMOVAL: "PENDING_REMOVAL",
+  PENDING_SETUP: "PENDING_SETUP",
+  SWITCHING_OVER: "SWITCHING_OVER",
+} as const;
+/**
+ * @public
+ */
+export type ReplicationStatus = (typeof ReplicationStatus)[keyof typeof ReplicationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const NaturalLanguageQueryGenerationDesiredState = {
   Disabled: "DISABLED",
   Enabled: "ENABLED",
@@ -209,6 +228,31 @@ export const DeploymentStatus = {
  * @public
  */
 export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DiffFieldPolicy = {
+  REDACTED: "redacted",
+} as const;
+/**
+ * @public
+ */
+export type DiffFieldPolicy = (typeof DiffFieldPolicy)[keyof typeof DiffFieldPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const DiffStatus = {
+  COMPARED: "compared",
+  ERROR: "error",
+} as const;
+/**
+ * @public
+ */
+export type DiffStatus = (typeof DiffStatus)[keyof typeof DiffStatus];
 
 /**
  * @public
@@ -912,6 +956,19 @@ export const NodeType = {
  * @public
  */
 export type NodeType = (typeof NodeType)[keyof typeof NodeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationRole = {
+  PRIMARY: "PRIMARY",
+  SECONDARY: "SECONDARY",
+} as const;
+/**
+ * @public
+ */
+export type ReplicationRole = (typeof ReplicationRole)[keyof typeof ReplicationRole];
 
 /**
  * @public
