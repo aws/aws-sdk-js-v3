@@ -125,7 +125,9 @@ const mergeManifest = async (fromContent = {}, toContent = {}, parentKey = "root
 
 const copyToClients = async (sourceDir, destinationDir, solo) => {
   for (const modelName of readdirSync(sourceDir)) {
-    if (modelName === "source") continue;
+    if (modelName === "source") {
+      continue;
+    }
 
     const artifactPath = join(sourceDir, modelName, "typescript-codegen");
     const packageManifestPath = join(artifactPath, "package.json");
@@ -237,7 +239,9 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
         // Skip writing typedoc.json
         // ToDo: Remove if typedoc.json is config driven or removed in smithy-typescript.
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
-        if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
+        if (lstatSync(packageSubPath).isDirectory()) {
+          removeSync(destSubPath);
+        }
         copySync(packageSubPath, destSubPath, {
           overwrite: true,
         });
@@ -248,7 +252,9 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
 
 const copyServerTests = async (sourceDir, destinationDir) => {
   for (const modelName of readdirSync(sourceDir)) {
-    if (modelName === "source") continue;
+    if (modelName === "source") {
+      continue;
+    }
 
     const artifactPath = join(sourceDir, modelName, "typescript-ssdk-codegen");
     const packageManifestPath = join(artifactPath, "package.json");
@@ -294,7 +300,9 @@ const copyServerTests = async (sourceDir, destinationDir) => {
         // Skip writing typedoc.json
         // ToDo: Remove if typedoc.json is config driven or removed in smithy-typescript.
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
-        if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
+        if (lstatSync(packageSubPath).isDirectory()) {
+          removeSync(destSubPath);
+        }
         copySync(packageSubPath, destSubPath, {
           overwrite: true,
         });

@@ -26,7 +26,9 @@ const RESOURCE_PREFIX = "jsv3-e2e-global";
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const getSubdomainFromUrl = (url: string | undefined): string | undefined => {
-  if (!url) return undefined;
+  if (!url) {
+    return undefined;
+  }
   try {
     const parsedUrl = new URL(url);
     const hostnameParts = parsedUrl.hostname.split(".");

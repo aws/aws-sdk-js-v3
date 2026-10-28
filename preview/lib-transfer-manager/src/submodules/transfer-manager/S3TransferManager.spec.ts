@@ -1753,7 +1753,9 @@ describe("S3TransferManager Unit Tests", () => {
         const mockClient = {
           send: vi.fn().mockImplementation(() => {
             callCount++;
-            if (callCount === 1) return Promise.reject(new Error("S3 error"));
+            if (callCount === 1) {
+              return Promise.reject(new Error("S3 error"));
+            }
             return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
           }),
           config: { maxAttempts: () => 3 },

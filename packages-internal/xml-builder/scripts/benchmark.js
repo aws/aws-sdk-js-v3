@@ -53,11 +53,15 @@ function bench(name, xml, iterations = 100) {
   }
 
   const t0 = performance.now();
-  for (let i = 0; i < iterations; i++) parseXML(xml);
+  for (let i = 0; i < iterations; i++) {
+    parseXML(xml);
+  }
   const internalMs = performance.now() - t0;
 
   const t1 = performance.now();
-  for (let i = 0; i < iterations; i++) fxpParser.parse(xml, true);
+  for (let i = 0; i < iterations; i++) {
+    fxpParser.parse(xml, true);
+  }
   const fxpMs = performance.now() - t1;
 
   const ratio = (fxpMs / internalMs).toFixed(2);

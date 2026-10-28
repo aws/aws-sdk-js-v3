@@ -220,11 +220,15 @@ describe("dynamic-client e2e — DynamoDB CRUD lifecycle", () => {
       const tables: string[] = listResult.TableNames ?? [];
 
       for (const name of tables) {
-        if (!name.startsWith("dynamic-client-e2e-")) continue;
+        if (!name.startsWith("dynamic-client-e2e-")) {
+          continue;
+        }
         try {
           const desc = await ddb.describeTable({ TableName: name });
           const arn = desc.Table?.TableArn;
-          if (!arn) continue;
+          if (!arn) {
+            continue;
+          }
           const tags = await ddb.listTagsOfResource({ ResourceArn: arn });
           const hasTag = (tags.Tags ?? []).some((t: any) => t.Key === TEST_TAG_KEY && t.Value === TEST_TAG_VALUE);
           if (hasTag) {
@@ -242,7 +246,9 @@ describe("dynamic-client e2e — DynamoDB CRUD lifecycle", () => {
   async function waitForTableActive() {
     for (let i = 0; i < 30; i++) {
       const desc = await ddb.describeTable({ TableName });
-      if (desc.Table?.TableStatus === "ACTIVE") return desc;
+      if (desc.Table?.TableStatus === "ACTIVE") {
+        return desc;
+      }
       await new Promise((r) => setTimeout(r, 2000));
     }
     throw new Error(`Table ${TableName} did not become ACTIVE`);
@@ -351,7 +357,9 @@ describe("dynamic-client e2e — S3 CRUD lifecycle", () => {
 
       for (const b of buckets) {
         const name = b.Name;
-        if (!name || !name.startsWith("dyn-e2e-")) continue;
+        if (!name || !name.startsWith("dyn-e2e-")) {
+          continue;
+        }
         try {
           // Empty the bucket first (delete all objects).
           const objects = await s3.listObjectsV2({ Bucket: name });

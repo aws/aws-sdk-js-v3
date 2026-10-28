@@ -21,7 +21,9 @@ export const validate = (str: any): boolean =>
  */
 export const parse = (arn: string): ARN => {
   const segments = arn.split(":");
-  if (segments.length < 6 || segments[0] !== "arn") throw new Error("Malformed ARN");
+  if (segments.length < 6 || segments[0] !== "arn") {
+    throw new Error("Malformed ARN");
+  }
   const [
     ,
     //Skip "arn" literal

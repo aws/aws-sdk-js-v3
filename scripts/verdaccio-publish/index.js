@@ -61,5 +61,7 @@ spawn("npx", args, {
 
   // Kill the background verdaccio server
   verdaccio.kill();
-  if (code !== 0) throw Error(`Exit code: ${code}`);
+  if (code !== 0) {
+    throw Error(`Exit code: ${code}`);
+  }
 });

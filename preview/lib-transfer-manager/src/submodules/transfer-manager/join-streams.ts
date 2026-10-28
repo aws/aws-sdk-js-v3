@@ -117,7 +117,9 @@ export async function* iterateStreams(
 export async function destroyStreams(promises: Promise<StreamingBlobPayloadOutputTypes>[]): Promise<void> {
   await Promise.all(
     promises.map(async (streamPromise) => {
-      if (!streamPromise) return;
+      if (!streamPromise) {
+        return;
+      }
       return streamPromise
         .then((stream) => {
           if (stream instanceof Readable) {

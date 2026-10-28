@@ -18,9 +18,13 @@ export const NODE_AUTH_SCHEME_PREFERENCE_OPTIONS: LoadedConfigSelectors<string[]
   environmentVariableSelector: (env: NodeJS.ProcessEnv, options?: EnvOptions) => {
     if (options?.signingName) {
       const bearerTokenKey = getBearerTokenEnvKey(options.signingName);
-      if (bearerTokenKey in env) return ["httpBearerAuth"];
+      if (bearerTokenKey in env) {
+        return ["httpBearerAuth"];
+      }
     }
-    if (!(NODE_AUTH_SCHEME_PREFERENCE_ENV_KEY in env)) return undefined;
+    if (!(NODE_AUTH_SCHEME_PREFERENCE_ENV_KEY in env)) {
+      return undefined;
+    }
     return getArrayForCommaSeparatedString(env[NODE_AUTH_SCHEME_PREFERENCE_ENV_KEY] as string);
   },
 
@@ -30,7 +34,9 @@ export const NODE_AUTH_SCHEME_PREFERENCE_OPTIONS: LoadedConfigSelectors<string[]
    * @returns Array of auth scheme strings if preference is set, undefined otherwise
    */
   configFileSelector: (profile) => {
-    if (!(NODE_AUTH_SCHEME_PREFERENCE_CONFIG_KEY in profile)) return undefined;
+    if (!(NODE_AUTH_SCHEME_PREFERENCE_CONFIG_KEY in profile)) {
+      return undefined;
+    }
     return getArrayForCommaSeparatedString(profile[NODE_AUTH_SCHEME_PREFERENCE_CONFIG_KEY] as string);
   },
 

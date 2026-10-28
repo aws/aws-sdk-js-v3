@@ -157,30 +157,38 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
   };
 
   public constructor(config: PollerConfig) {
-    if (!config.queueUrl) throw new PollerError("queueUrl is required");
+    if (!config.queueUrl) {
+      throw new PollerError("queueUrl is required");
+    }
     this._client = config.client ?? new SQSClient(config.clientConfig ?? {});
 
     const batchSize = config.receiveBatchSize ?? DEFAULTS.receiveBatchSize;
-    if (batchSize < 1 || batchSize > 10 || !Number.isInteger(batchSize))
+    if (batchSize < 1 || batchSize > 10 || !Number.isInteger(batchSize)) {
       throw new PollerError("receiveBatchSize must be an integer between 1 and 10");
+    }
 
     const deleteBatchSize = config.deleteBatchSize ?? DEFAULTS.deleteBatchSize;
-    if (deleteBatchSize < 1 || deleteBatchSize > 10 || !Number.isInteger(deleteBatchSize))
+    if (deleteBatchSize < 1 || deleteBatchSize > 10 || !Number.isInteger(deleteBatchSize)) {
       throw new PollerError("deleteBatchSize must be an integer between 1 and 10");
+    }
 
     const receiveWaitTimeMs = config.receiveWaitTimeMs ?? DEFAULTS.receiveWaitTimeMs;
-    if (receiveWaitTimeMs < 0 || receiveWaitTimeMs > 20_000)
+    if (receiveWaitTimeMs < 0 || receiveWaitTimeMs > 20_000) {
       throw new PollerError("receiveWaitTimeMs must be between 0 and 20000");
+    }
 
     const maxConcurrency = config.maxConcurrency ?? DEFAULTS.maxConcurrency;
-    if (!Number.isInteger(maxConcurrency) || maxConcurrency < 1)
+    if (!Number.isInteger(maxConcurrency) || maxConcurrency < 1) {
       throw new PollerError("maxConcurrency must be a positive integer");
+    }
 
     if (config.extendTimeout) {
-      if (config.visibilityTimeoutMs == null)
+      if (config.visibilityTimeoutMs == null) {
         throw new PollerError("visibilityTimeoutMs is required when extendTimeout is true");
-      if ((config.extendTimeoutAdvanceMs ?? DEFAULTS.extendTimeoutAdvanceMs) >= config.visibilityTimeoutMs)
+      }
+      if ((config.extendTimeoutAdvanceMs ?? DEFAULTS.extendTimeoutAdvanceMs) >= config.visibilityTimeoutMs) {
         throw new PollerError("extendTimeoutAdvanceMs must be less than visibilityTimeoutMs");
+      }
     }
 
     this._config = {
@@ -264,7 +272,9 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
     }
     const arr = this._listeners[event];
     const idx = arr.indexOf(listener);
-    if (idx !== -1) arr.splice(idx, 1);
+    if (idx !== -1) {
+      arr.splice(idx, 1);
+    }
     return this;
   }
 
@@ -288,7 +298,9 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
    */
   public async stop(graceful = true): Promise<PollerStats> {
     const run = this._run;
-    if (!run) return { ...this._stats };
+    if (!run) {
+      return { ...this._stats };
+    }
     run.stopping = true;
     run.ac.abort();
     if (!graceful) {
@@ -298,8 +310,12 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
     if (run.iterator) {
       // A paused consumer gets until shutdownTimeoutMs to advance; after that it's treated as abandoned.
       const outcome = run.graceful ? await this._waitFor(run.done, run) : "hard";
-      if (outcome === "timeout") this._emitShutdownTimeout("the async iterator was not advanced");
-      if (outcome !== "done") await run.iterator.return(undefined);
+      if (outcome === "timeout") {
+        this._emitShutdownTimeout("the async iterator was not advanced");
+      }
+      if (outcome !== "done") {
+        await run.iterator.return(undefined);
+      }
     }
     await run.done;
     return { ...this._stats };
@@ -328,30 +344,44 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
       while (!run.stopping && !this._isAborted(run)) {
         let batch: Message[] = [];
         try {
-          if (!(await this._runBeforeRequest(run))) break;
+          if (!(await this._runBeforeRequest(run))) {
+            break;
+          }
           const messages = await this._receiveMessages(run);
           run.consecutiveErrors = 0;
           if (messages.length === 0) {
-            if (await this._handleEmpty(run)) break;
+            if (await this._handleEmpty(run)) {
+              break;
+            }
             continue;
           }
           this._recordReceived(messages.length);
           // Heartbeat the whole batch, so later messages stay hidden while earlier ones are processed.
           batch = messages.map((raw) => this._wrapMessage(raw, run));
-          for (const msg of batch) this._startHeartbeat(msg, run);
+          for (const msg of batch) {
+            this._startHeartbeat(msg, run);
+          }
         } catch (err) {
-          if (this._isAborted(run)) break;
+          if (this._isAborted(run)) {
+            break;
+          }
           await this._handlePollError(err, run);
           continue;
         }
         // Outside the try above, so a consumer's iterator.throw() propagates rather than counting as a poll error.
         for (const msg of batch) {
-          if (run.stopping || this._isAborted(run)) break;
+          if (run.stopping || this._isAborted(run)) {
+            break;
+          }
           yield msg;
           void this._stopHeartbeat(msg.receiptHandle, run);
-          if (this._config.deleteMessages && !msg.handled) msg.enqueueDelete();
+          if (this._config.deleteMessages && !msg.handled) {
+            msg.enqueueDelete();
+          }
         }
-        if (this._config.activePollIntervalMs > 0) await this._delay(this._config.activePollIntervalMs, run);
+        if (this._config.activePollIntervalMs > 0) {
+          await this._delay(this._config.activePollIntervalMs, run);
+        }
       }
     } finally {
       await this._teardown(run);
@@ -361,13 +391,19 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
   // --- Run lifecycle ---
 
   private _assertCanStart(activeMessage: string): void {
-    if (this._run && !this._run.stopping) throw new PollerError(activeMessage);
-    if (this._externalSignal?.aborted) throw new PollerError("abortSignal is already aborted");
+    if (this._run && !this._run.stopping) {
+      throw new PollerError(activeMessage);
+    }
+    if (this._externalSignal?.aborted) {
+      throw new PollerError("abortSignal is already aborted");
+    }
   }
 
   /** A run started while the previous one is still shutting down waits for it to finish. */
   private async _beginRun(run: Run): Promise<void> {
-    if (run.previous) await run.previous;
+    if (run.previous) {
+      await run.previous;
+    }
     this._stats.pollingStartedAt = new Date();
     this._stats.pollingStoppedAt = null;
   }
@@ -383,7 +419,9 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
     run.finished = true;
     this._stats.pollingStoppedAt = new Date();
     // Cleared before `stopped` fires, so a listener can call stop() or start() without re-entering this run.
-    if (this._run === run) this._run = null;
+    if (this._run === run) {
+      this._run = null;
+    }
     run.resolveDone();
     this._emit("stopped", { ...this._stats });
   }
@@ -411,7 +449,9 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
   }
 
   private async _waitForDrain(run: Run): Promise<void> {
-    if (run.inFlight === 0) return;
+    if (run.inFlight === 0) {
+      return;
+    }
     const drained = new Promise<void>((resolve) => run.drainResolvers.push(resolve));
     if ((await this._waitFor(drained, run)) === "timeout") {
       this._emitShutdownTimeout(`${run.inFlight} message(s) were still in flight`);
@@ -435,16 +475,24 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
     await this._beginRun(run);
     while (!run.stopping && !this._isAborted(run)) {
       try {
-        while (!run.stopping && run.inFlight >= this._config.maxConcurrency) await this._delay(50, run);
-        if (run.stopping || this._isAborted(run)) break;
-        if (!(await this._runBeforeRequest(run))) break;
+        while (!run.stopping && run.inFlight >= this._config.maxConcurrency) {
+          await this._delay(50, run);
+        }
+        if (run.stopping || this._isAborted(run)) {
+          break;
+        }
+        if (!(await this._runBeforeRequest(run))) {
+          break;
+        }
         const messages = await this._receiveMessages(
           run,
           Math.min(this._config.receiveBatchSize, this._config.maxConcurrency - run.inFlight)
         );
         run.consecutiveErrors = 0;
         if (messages.length === 0) {
-          if (await this._handleEmpty(run)) break;
+          if (await this._handleEmpty(run)) {
+            break;
+          }
           continue;
         }
         this._recordReceived(messages.length);
@@ -454,18 +502,26 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
           void this._processMessage(msg, run).finally(() => {
             run.inFlight--;
             if (run.inFlight === 0) {
-              for (const resolve of run.drainResolvers) resolve();
+              for (const resolve of run.drainResolvers) {
+                resolve();
+              }
               run.drainResolvers = [];
             }
           });
         }
-        if (this._config.activePollIntervalMs > 0) await this._delay(this._config.activePollIntervalMs, run);
+        if (this._config.activePollIntervalMs > 0) {
+          await this._delay(this._config.activePollIntervalMs, run);
+        }
       } catch (err) {
-        if (this._isAborted(run)) break;
+        if (this._isAborted(run)) {
+          break;
+        }
         await this._handlePollError(err, run);
       }
     }
-    if (run.graceful) await this._waitForDrain(run);
+    if (run.graceful) {
+      await this._waitForDrain(run);
+    }
     await this._teardown(run);
   }
 
@@ -473,8 +529,12 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
     this._startHeartbeat(msg, run);
     try {
       const hasListeners = this._listeners.message.length > 0;
-      if (hasListeners) await this._emitAsync("message", msg);
-      if (this._config.deleteMessages && !msg.handled && hasListeners) msg.enqueueDelete();
+      if (hasListeners) {
+        await this._emitAsync("message", msg);
+      }
+      if (this._config.deleteMessages && !msg.handled && hasListeners) {
+        msg.enqueueDelete();
+      }
     } catch (err) {
       this._stats.errorCount++;
       this._emit("error", toError(err));
@@ -487,7 +547,9 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
 
   /** Returns false if `beforeRequest` threw or rejected, which stops the run. */
   private async _runBeforeRequest(run: Run): Promise<boolean> {
-    if (!this._config.beforeRequest) return true;
+    if (!this._config.beforeRequest) {
+      return true;
+    }
     try {
       await this._config.beforeRequest(this.getStats());
       return true;
@@ -507,7 +569,9 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
       return true;
     }
     const delayMs = this._effectiveIdlePollInterval();
-    if (delayMs > 0) await this._delay(delayMs, run);
+    if (delayMs > 0) {
+      await this._delay(delayMs, run);
+    }
     return false;
   }
 
@@ -562,7 +626,9 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
       clearTimeout(this._deleteTimer);
       this._deleteTimer = null;
     }
-    if (this._deleteBatch.length === 0) return;
+    if (this._deleteBatch.length === 0) {
+      return;
+    }
     const batch = this._deleteBatch.splice(0, this._config.deleteBatchSize);
     const idMap = new Map<string, string>();
     const entries = batch.map((m, i) => {
@@ -591,27 +657,37 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
       this._stats.errorCount++;
       this._emit("error", err instanceof Error ? err : new PollerError(String(err)));
     }
-    if (this._deleteBatch.length > 0) await this._flushDeleteBatch();
+    if (this._deleteBatch.length > 0) {
+      await this._flushDeleteBatch();
+    }
   }
 
   private _trackFlush(p: Promise<void>): void {
     this._pendingFlushes.push(p);
     p.finally(() => {
       const i = this._pendingFlushes.indexOf(p);
-      if (i !== -1) this._pendingFlushes.splice(i, 1);
+      if (i !== -1) {
+        this._pendingFlushes.splice(i, 1);
+      }
     });
   }
 
   private async _awaitPendingFlushes(): Promise<void> {
-    while (this._pendingFlushes.length > 0) await Promise.all([...this._pendingFlushes]);
+    while (this._pendingFlushes.length > 0) {
+      await Promise.all([...this._pendingFlushes]);
+    }
   }
 
   // --- Heartbeat ---
 
   private _startHeartbeat(msg: Message, run: Run): void {
-    if (!this._config.extendTimeout || this._config.visibilityTimeoutMs == null) return;
+    if (!this._config.extendTimeout || this._config.visibilityTimeoutMs == null) {
+      return;
+    }
     const intervalMs = this._config.visibilityTimeoutMs - this._config.extendTimeoutAdvanceMs;
-    if (intervalMs <= 0) return;
+    if (intervalMs <= 0) {
+      return;
+    }
     run.receiptHandles.add(msg.receiptHandle);
     const startTime = Date.now();
     const scheduleNext = () => {
@@ -644,7 +720,9 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
         } finally {
           this._heartbeatsInFlight.delete(msg.receiptHandle);
         }
-        if (this._heartbeatTimers.has(msg.receiptHandle)) scheduleNext();
+        if (this._heartbeatTimers.has(msg.receiptHandle)) {
+          scheduleNext();
+        }
       }, intervalMs);
       this._heartbeatTimers.set(msg.receiptHandle, timer);
     };
@@ -709,7 +787,9 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
   }
 
   private _checkIdleTimeout(): boolean {
-    if (this._config.idleTimeoutMs == null) return false;
+    if (this._config.idleTimeoutMs == null) {
+      return false;
+    }
     // Take the later of the two so a restart doesn't inherit the previous run's last message.
     const started = this._stats.pollingStartedAt?.getTime() ?? 0;
     const lastMessage = this._stats.lastMessageReceivedAt?.getTime() ?? 0;
@@ -718,7 +798,9 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
   }
 
   private _effectiveIdlePollInterval(): number {
-    if (this._config.idlePollIntervalMs > 0) return this._config.idlePollIntervalMs;
+    if (this._config.idlePollIntervalMs > 0) {
+      return this._config.idlePollIntervalMs;
+    }
     return this._config.receiveWaitTimeMs === 0 ? MIN_POLL_INTERVAL_MS : 0;
   }
 
@@ -760,6 +842,8 @@ export class SQSPoller implements AsyncIterable<PollerMessage> {
     event: K,
     ...args: Parameters<SQSPollerEvents[K]>
   ): Promise<void> {
-    for (const fn of this._listeners[event]) await (fn as (...a: unknown[]) => unknown)(...args);
+    for (const fn of this._listeners[event]) {
+      await (fn as (...a: unknown[]) => unknown)(...args);
+    }
   }
 }

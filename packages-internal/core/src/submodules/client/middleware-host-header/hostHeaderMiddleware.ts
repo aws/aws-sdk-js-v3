@@ -36,7 +36,9 @@ export const hostHeaderMiddleware =
   <Input extends object, Output extends object>(options: HostHeaderResolvedConfig): BuildMiddleware<Input, Output> =>
   (next) =>
   async (args) => {
-    if (!HttpRequest.isInstance(args.request)) return next(args);
+    if (!HttpRequest.isInstance(args.request)) {
+      return next(args);
+    }
     const { request } = args;
     const { handlerProtocol = "" } = options.requestHandler.metadata || {};
     //For H2 request, remove 'host' header and use ':authority' header instead
@@ -47,7 +49,9 @@ export const hostHeaderMiddleware =
       //non-H2 request and 'host' header is not set, set the 'host' header to request's hostname.
     } else if (!request.headers["host"]) {
       let host = request.hostname;
-      if (request.port != null) host += `:${request.port}`;
+      if (request.port != null) {
+        host += `:${request.port}`;
+      }
       request.headers["host"] = host;
     }
     return next(args);

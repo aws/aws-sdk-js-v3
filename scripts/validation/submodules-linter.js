@@ -16,7 +16,9 @@ const submodulePackages = process.argv.includes("--all")
         path.join(__dirname, "..", "..", base, pkg)
       );
       const dir = candidates.find((candidate) => fs.existsSync(path.join(candidate, "package.json"))) ?? null;
-      if (!dir) return false;
+      if (!dir) {
+        return false;
+      }
       return (
         fs.existsSync(path.join(dir, "src", "submodules")) &&
         "exports" in JSON.parse(fs.readFileSync(path.join(dir, "package.json"), "utf-8"))
@@ -217,7 +219,9 @@ export * from "./dist-types/submodules/${submodule}/index";
     if (submodulePackage !== "nested-clients") {
       for (const submodule of submodules) {
         const submodulePath = path.join(root, "src", "submodules", submodule);
-        if (!fs.existsSync(submodulePath) || !fs.lstatSync(submodulePath).isDirectory()) continue;
+        if (!fs.existsSync(submodulePath) || !fs.lstatSync(submodulePath).isDirectory()) {
+          continue;
+        }
 
         let hasBrowserVariant = false;
         let hasNativeVariant = false;
@@ -227,8 +231,12 @@ export * from "./dist-types/submodules/${submodule}/index";
             if (entry.isDirectory()) {
               scanDir(path.join(dir, entry.name));
             } else if (!entry.name.includes(".spec.") && !entry.name.includes(".integ.")) {
-              if (entry.name.endsWith(".browser.ts")) hasBrowserVariant = true;
-              if (entry.name.endsWith(".native.ts")) hasNativeVariant = true;
+              if (entry.name.endsWith(".browser.ts")) {
+                hasBrowserVariant = true;
+              }
+              if (entry.name.endsWith(".native.ts")) {
+                hasNativeVariant = true;
+              }
             }
           }
         };

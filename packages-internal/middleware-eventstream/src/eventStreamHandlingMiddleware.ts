@@ -8,7 +8,9 @@ export const eventStreamHandlingMiddleware =
   (next, context) =>
   async (args) => {
     const { request } = args;
-    if (!HttpRequest.isInstance(request)) return next(args);
+    if (!HttpRequest.isInstance(request)) {
+      return next(args);
+    }
     return options.eventStreamPayloadHandler.handle(next, args, context);
   };
 

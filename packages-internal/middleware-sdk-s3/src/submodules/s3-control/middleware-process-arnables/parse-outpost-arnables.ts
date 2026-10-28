@@ -35,7 +35,9 @@ export const parseOutpostArnablesMiddleaware =
 
     const parameter: "Name" | "Bucket" | undefined =
       input.Name && validateArn(input.Name) ? "Name" : input.Bucket && validateArn(input.Bucket) ? "Bucket" : undefined;
-    if (!parameter) return next(args);
+    if (!parameter) {
+      return next(args);
+    }
 
     const clientRegion = await options.region();
     const useArnRegion = await options.useArnRegion();
@@ -85,7 +87,9 @@ export const parseOutpostArnablesMiddleaware =
       input.AccountId = arn.accountId;
     }
 
-    if (useArnRegion) context[CONTEXT_ARN_REGION] = arn.region;
+    if (useArnRegion) {
+      context[CONTEXT_ARN_REGION] = arn.region;
+    }
 
     return next(args);
   };

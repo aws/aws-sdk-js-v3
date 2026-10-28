@@ -27,14 +27,24 @@ const concurrency = (() => {
 })();
 
 const all = args.includes("--all");
-if (all) args.splice(args.indexOf("--all"), 1);
+if (all) {
+  args.splice(args.indexOf("--all"), 1);
+}
 
 function getAllPackages() {
   const packages = [];
-  for (const pkg of listFolders(path.join(root, "packages"))) packages.push(pkg);
-  for (const pkg of listFolders(path.join(root, "packages-internal"))) packages.push(pkg);
-  for (const lib of listFolders(path.join(root, "lib"))) packages.push(`lib-${lib.replace(/^lib-/, "")}`);
-  for (const pkg of listFolders(path.join(root, "clients"))) packages.push(pkg);
+  for (const pkg of listFolders(path.join(root, "packages"))) {
+    packages.push(pkg);
+  }
+  for (const pkg of listFolders(path.join(root, "packages-internal"))) {
+    packages.push(pkg);
+  }
+  for (const lib of listFolders(path.join(root, "lib"))) {
+    packages.push(`lib-${lib.replace(/^lib-/, "")}`);
+  }
+  for (const pkg of listFolders(path.join(root, "clients"))) {
+    packages.push(pkg);
+  }
   return packages;
 }
 
@@ -47,7 +57,9 @@ function resolvePackageDir(pkg) {
     path.join(root, "lib", `lib-${pkg}`),
   ];
   for (const dir of candidates) {
-    if (fs.existsSync(dir)) return dir;
+    if (fs.existsSync(dir)) {
+      return dir;
+    }
   }
   return null;
 }
@@ -57,7 +69,9 @@ function resolvePackageDir(pkg) {
  */
 function stripComments(code) {
   const { comments } = parseSync("file.js", code);
-  if (!comments.length) return code;
+  if (!comments.length) {
+    return code;
+  }
   let result = "";
   let last = 0;
   for (const { start, end } of comments) {

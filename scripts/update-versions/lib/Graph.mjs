@@ -21,7 +21,9 @@ export class Graph {
     const list = [..._list].sort((a, b) => {
       const aIsClient = a.location.startsWith("clients/") ? 1 : 0;
       const bIsClient = b.location.startsWith("clients/") ? 1 : 0;
-      if (aIsClient !== bIsClient) return aIsClient - bIsClient;
+      if (aIsClient !== bIsClient) {
+        return aIsClient - bIsClient;
+      }
       return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
     });
 

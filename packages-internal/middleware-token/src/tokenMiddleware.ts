@@ -32,7 +32,9 @@ export const tokenMiddleware =
   ): FinalizeRequestMiddleware<Input, Output> =>
   (next: FinalizeHandler<Input, Output>, context: HandlerExecutionContext): FinalizeHandler<Input, Output> =>
   async (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>> => {
-    if (!HttpRequest.isInstance(args.request) || context.currentAuthConfig) return next(args);
+    if (!HttpRequest.isInstance(args.request) || context.currentAuthConfig) {
+      return next(args);
+    }
 
     const token = options.token && (await options.token());
     if (token?.token) {

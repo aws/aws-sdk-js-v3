@@ -782,7 +782,9 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
       const remainingPartTasks: Promise<void>[] = [];
 
       for (let part = 2; part <= partsCount; part++) {
-        if (failed || abortController.signal.aborted) break;
+        if (failed || abortController.signal.aborted) {
+          break;
+        }
         this.checkAborted(transferOptions);
 
         await semaphore.acquire();
@@ -1064,7 +1066,9 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
       let rangeIndex = 1;
 
       for (let offset = rangeSize; offset < totalContentLength; offset += rangeSize) {
-        if (failed || abortController.signal.aborted) break;
+        if (failed || abortController.signal.aborted) {
+          break;
+        }
         this.checkAborted(transferOptions);
 
         await semaphore.acquire();
@@ -1341,13 +1345,17 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
       recursive: request.recursive ?? false,
       followSymbolicLinks: request.followSymbolicLinks ?? false,
     })) {
-      if (terminated || abortController.signal.aborted) break;
+      if (terminated || abortController.signal.aborted) {
+        break;
+      }
       this.checkAborted(transferOptions);
 
       if (request.filter) {
         const include =
           request.filter instanceof RegExp ? matchesFilterRegExp(request.filter, filePath) : request.filter(filePath);
-        if (!include) continue;
+        if (!include) {
+          continue;
+        }
       }
 
       const fileStat = await stat(filePath);
@@ -1551,7 +1559,9 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
       let continuationToken: string | undefined;
 
       do {
-        if (terminated || abortController.signal.aborted) break;
+        if (terminated || abortController.signal.aborted) {
+          break;
+        }
         this.checkAborted(transferOptions);
 
         const listRequest: ListObjectsV2CommandInput = {
@@ -1569,7 +1579,9 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
         continuationToken = listResponse.IsTruncated ? listResponse.NextContinuationToken : undefined;
 
         for (const object of listResponse.Contents ?? []) {
-          if (terminated || abortController.signal.aborted) break;
+          if (terminated || abortController.signal.aborted) {
+            break;
+          }
           this.checkAborted(transferOptions);
 
           // Skip folder placeholder objects (key ends with "/" and zero bytes).
@@ -1897,7 +1909,9 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
       const response = await this.send(new GetObjectCommand(getObjectRequest), transferOptions);
 
       this.dispatchTransferInitiatedEvent(request, 0);
-      if (response.Body) streams.push(Promise.resolve(response.Body));
+      if (response.Body) {
+        streams.push(Promise.resolve(response.Body));
+      }
       requests.push(getObjectRequest);
 
       this.processResponseMetadata(response, metadata, 0);
@@ -2133,12 +2147,16 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     };
     const dispatchPromise = (async () => {
       for (let partNumber = 2; partNumber <= partsCount; partNumber++) {
-        if (abortController.signal.aborted || queue.hasError()) break;
+        if (abortController.signal.aborted || queue.hasError()) {
+          break;
+        }
         this.checkAborted(transferOptions);
 
         // Wait for a slot — blocks if all slots are in use (backpressure)
         await waitForSlot();
-        if (abortController.signal.aborted || queue.hasError()) break;
+        if (abortController.signal.aborted || queue.hasError()) {
+          break;
+        }
 
         inFlight++;
         const rangeIndex = partNumber - 2;
@@ -2207,7 +2225,9 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     let reading = false;
     const transferStream = new Readable({
       read() {
-        if (reading) return;
+        if (reading) {
+          return;
+        }
         reading = true;
         queue
           .dequeue()
@@ -2287,7 +2307,9 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
       const response = await this.send(new GetObjectCommand(getObjectRequest), transferOptions);
 
       this.dispatchTransferInitiatedEvent(request, 0);
-      if (response.Body) streams.push(Promise.resolve(response.Body));
+      if (response.Body) {
+        streams.push(Promise.resolve(response.Body));
+      }
       requests.push(getObjectRequest);
 
       this.processResponseMetadata(response, metadata, 0);
@@ -2352,12 +2374,16 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     // Concurrency limiter provides backpressure — waitForSlot blocks when all slots are in use.
     const dispatchPromise = (async () => {
       for (let rangeIndex = 0; rangeIndex < totalParts; rangeIndex++) {
-        if (abortController.signal.aborted || queue.hasError()) break;
+        if (abortController.signal.aborted || queue.hasError()) {
+          break;
+        }
         this.checkAborted(transferOptions);
 
         // Wait for a slot — blocks if all slots are in use (backpressure)
         await waitForSlot();
-        if (abortController.signal.aborted || queue.hasError()) break;
+        if (abortController.signal.aborted || queue.hasError()) {
+          break;
+        }
 
         inFlight++;
         const start = rangeIndex * partSize;
@@ -2427,7 +2453,9 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     let reading = false;
     const transferStream = new Readable({
       read() {
-        if (reading) return;
+        if (reading) {
+          return;
+        }
         reading = true;
         queue
           .dequeue()
@@ -2703,7 +2731,9 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     promises: Promise<T>[];
     onStreamConsumed: (index: number) => void;
   } {
-    if (tasks.length === 0) return { promises: [], onStreamConsumed: () => {} };
+    if (tasks.length === 0) {
+      return { promises: [], onStreamConsumed: () => {} };
+    }
 
     const resolvers: Array<{
       resolve: (value: T) => void;
@@ -2742,7 +2772,9 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     }
 
     const onStreamConsumed = (_index: number): void => {
-      if (failed || nextToLaunch >= tasks.length) return;
+      if (failed || nextToLaunch >= tasks.length) {
+        return;
+      }
       launchTask(nextToLaunch++);
     };
 
@@ -2759,7 +2791,9 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     }
 
     const match = contentRange.match(/bytes (\d+)-(\d+)\/(\d+)/);
-    if (!match) throw new Error(`Invalid ContentRange format: ${contentRange}`);
+    if (!match) {
+      throw new Error(`Invalid ContentRange format: ${contentRange}`);
+    }
 
     const start = Number.parseInt(match[1]);
     const end = Number.parseInt(match[2]);
@@ -2787,14 +2821,18 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     }
 
     const match = responseRange.match(/bytes (\d+)-(\d+)\/(\d+)/);
-    if (!match) throw new Error(`Invalid ContentRange format: ${responseRange}`);
+    if (!match) {
+      throw new Error(`Invalid ContentRange format: ${responseRange}`);
+    }
 
     const start = Number.parseInt(match[1]);
     const end = Number.parseInt(match[2]);
     const total = Number.parseInt(match[3]) - 1;
 
     const rangeMatch = requestRange.match(/bytes=(\d+)-(\d+)/);
-    if (!rangeMatch) throw new Error(`Invalid Range format: ${requestRange}`);
+    if (!rangeMatch) {
+      throw new Error(`Invalid Range format: ${requestRange}`);
+    }
 
     const expectedStart = Number.parseInt(rangeMatch[1]);
     const expectedEnd = Number.parseInt(rangeMatch[2]);
@@ -3043,7 +3081,9 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
       const uploadPart = async (): Promise<void> => {
         while (true) {
           const partNumber = nextPartNumber++;
-          if (partNumber > expectedPartsCount) return;
+          if (partNumber > expectedPartsCount) {
+            return;
+          }
 
           if (uploadAbortSignal.aborted) {
             throw Object.assign(new Error("Upload aborted due to part failure."), { name: "AbortError" });
@@ -3059,11 +3099,21 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
             PartNumber: partNumber,
             ETag: partResponse.ETag,
           };
-          if (partResponse.ChecksumCRC32) completedPart.ChecksumCRC32 = partResponse.ChecksumCRC32;
-          if (partResponse.ChecksumCRC32C) completedPart.ChecksumCRC32C = partResponse.ChecksumCRC32C;
-          if (partResponse.ChecksumCRC64NVME) completedPart.ChecksumCRC64NVME = partResponse.ChecksumCRC64NVME;
-          if (partResponse.ChecksumSHA1) completedPart.ChecksumSHA1 = partResponse.ChecksumSHA1;
-          if (partResponse.ChecksumSHA256) completedPart.ChecksumSHA256 = partResponse.ChecksumSHA256;
+          if (partResponse.ChecksumCRC32) {
+            completedPart.ChecksumCRC32 = partResponse.ChecksumCRC32;
+          }
+          if (partResponse.ChecksumCRC32C) {
+            completedPart.ChecksumCRC32C = partResponse.ChecksumCRC32C;
+          }
+          if (partResponse.ChecksumCRC64NVME) {
+            completedPart.ChecksumCRC64NVME = partResponse.ChecksumCRC64NVME;
+          }
+          if (partResponse.ChecksumSHA1) {
+            completedPart.ChecksumSHA1 = partResponse.ChecksumSHA1;
+          }
+          if (partResponse.ChecksumSHA256) {
+            completedPart.ChecksumSHA256 = partResponse.ChecksumSHA256;
+          }
 
           completedParts.push(completedPart);
           bytesUploaded += length;
@@ -3111,9 +3161,15 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
 
       if (hasFullObjectChecksum) {
         completeRequest.ChecksumType = "FULL_OBJECT";
-        if (request.ChecksumCRC32) completeRequest.ChecksumCRC32 = request.ChecksumCRC32;
-        if (request.ChecksumCRC32C) completeRequest.ChecksumCRC32C = request.ChecksumCRC32C;
-        if (request.ChecksumCRC64NVME) completeRequest.ChecksumCRC64NVME = request.ChecksumCRC64NVME;
+        if (request.ChecksumCRC32) {
+          completeRequest.ChecksumCRC32 = request.ChecksumCRC32;
+        }
+        if (request.ChecksumCRC32C) {
+          completeRequest.ChecksumCRC32C = request.ChecksumCRC32C;
+        }
+        if (request.ChecksumCRC64NVME) {
+          completeRequest.ChecksumCRC64NVME = request.ChecksumCRC64NVME;
+        }
       }
 
       try {
@@ -3224,11 +3280,21 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
             PartNumber: dataPart.partNumber,
             ETag: partResponse.ETag,
           };
-          if (partResponse.ChecksumCRC32) completedPart.ChecksumCRC32 = partResponse.ChecksumCRC32;
-          if (partResponse.ChecksumCRC32C) completedPart.ChecksumCRC32C = partResponse.ChecksumCRC32C;
-          if (partResponse.ChecksumCRC64NVME) completedPart.ChecksumCRC64NVME = partResponse.ChecksumCRC64NVME;
-          if (partResponse.ChecksumSHA1) completedPart.ChecksumSHA1 = partResponse.ChecksumSHA1;
-          if (partResponse.ChecksumSHA256) completedPart.ChecksumSHA256 = partResponse.ChecksumSHA256;
+          if (partResponse.ChecksumCRC32) {
+            completedPart.ChecksumCRC32 = partResponse.ChecksumCRC32;
+          }
+          if (partResponse.ChecksumCRC32C) {
+            completedPart.ChecksumCRC32C = partResponse.ChecksumCRC32C;
+          }
+          if (partResponse.ChecksumCRC64NVME) {
+            completedPart.ChecksumCRC64NVME = partResponse.ChecksumCRC64NVME;
+          }
+          if (partResponse.ChecksumSHA1) {
+            completedPart.ChecksumSHA1 = partResponse.ChecksumSHA1;
+          }
+          if (partResponse.ChecksumSHA256) {
+            completedPart.ChecksumSHA256 = partResponse.ChecksumSHA256;
+          }
 
           completedParts.push(completedPart);
 
@@ -3278,9 +3344,15 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
 
       if (hasFullObjectChecksum) {
         completeRequest.ChecksumType = "FULL_OBJECT";
-        if (request.ChecksumCRC32) completeRequest.ChecksumCRC32 = request.ChecksumCRC32;
-        if (request.ChecksumCRC32C) completeRequest.ChecksumCRC32C = request.ChecksumCRC32C;
-        if (request.ChecksumCRC64NVME) completeRequest.ChecksumCRC64NVME = request.ChecksumCRC64NVME;
+        if (request.ChecksumCRC32) {
+          completeRequest.ChecksumCRC32 = request.ChecksumCRC32;
+        }
+        if (request.ChecksumCRC32C) {
+          completeRequest.ChecksumCRC32C = request.ChecksumCRC32C;
+        }
+        if (request.ChecksumCRC64NVME) {
+          completeRequest.ChecksumCRC64NVME = request.ChecksumCRC64NVME;
+        }
       }
 
       try {
@@ -3322,7 +3394,9 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
       const fullPath = join((entry as any).parentPath ?? (entry as any).path ?? source, entry.name);
 
       if (entry.isSymbolicLink()) {
-        if (!options.followSymbolicLinks) continue;
+        if (!options.followSymbolicLinks) {
+          continue;
+        }
         const realPath = await realpath(fullPath);
         const linkStat = await stat(realPath);
         if (linkStat.isDirectory()) {
@@ -3333,7 +3407,9 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
           yield* this.traverseDirectory(realPath, options);
           continue;
         }
-        if (!linkStat.isFile()) continue;
+        if (!linkStat.isFile()) {
+          continue;
+        }
       } else if (!entry.isFile()) {
         continue;
       }
@@ -3352,7 +3428,9 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     if (sep !== "/") {
       relativePath = relativePath.split(sep).join("/");
     }
-    if (!s3Prefix) return relativePath;
+    if (!s3Prefix) {
+      return relativePath;
+    }
     const normalizedPrefix = s3Prefix.endsWith("/") ? s3Prefix : s3Prefix + "/";
     return normalizedPrefix + relativePath;
   }
@@ -3416,7 +3494,9 @@ function matchesFilterRegExp(filter: RegExp, value: string): boolean {
  * @internal
  */
 function parseContentRangeStart(contentRange: string | undefined): number | undefined {
-  if (!contentRange) return undefined;
+  if (!contentRange) {
+    return undefined;
+  }
   const match = contentRange.match(/^bytes\s+(\d+)-/);
   return match ? Number(match[1]) : undefined;
 }

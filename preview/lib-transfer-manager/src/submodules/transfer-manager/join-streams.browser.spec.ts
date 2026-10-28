@@ -174,7 +174,9 @@ describe(joinStreams.name, () => {
     try {
       while (true) {
         const { done } = await reader.read();
-        if (done) break;
+        if (done) {
+          break;
+        }
       }
     } catch (e) {
       // expected
@@ -328,7 +330,9 @@ describe(joinStreams.name, () => {
     const chunks: string[] = [];
     while (true) {
       const { done, value } = await reader.read();
-      if (done) break;
+      if (done) {
+        break;
+      }
       chunks.push(new TextDecoder().decode(value));
     }
 
@@ -366,7 +370,9 @@ describe(joinStreams.name, () => {
     const chunks: string[] = [];
     while (true) {
       const { done, value } = await reader.read();
-      if (done) break;
+      if (done) {
+        break;
+      }
       chunks.push(new TextDecoder().decode(value));
     }
 

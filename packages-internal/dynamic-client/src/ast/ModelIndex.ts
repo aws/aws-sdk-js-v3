@@ -89,7 +89,9 @@ export class ModelIndex {
     }
     const result: string[] = [];
     for (const traitId in traits) {
-      if (!hasOwn(traits, traitId)) continue;
+      if (!hasOwn(traits, traitId)) {
+        continue;
+      }
       const def = this.shapes[traitId];
       if (def?.traits && "smithy.api#protocolDefinition" in def.traits) {
         result.push(traitId);

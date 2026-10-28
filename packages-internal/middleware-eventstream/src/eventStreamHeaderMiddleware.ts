@@ -2,7 +2,9 @@ import { HttpRequest } from "@smithy/core/protocols";
 import type { BuildHandlerOptions, BuildMiddleware } from "@smithy/types";
 export const eventStreamHeaderMiddleware: BuildMiddleware<any, any> = (next) => async (args) => {
   const { request } = args;
-  if (!HttpRequest.isInstance(request)) return next(args);
+  if (!HttpRequest.isInstance(request)) {
+    return next(args);
+  }
   request.headers = {
     ...request.headers,
     "content-type": "application/vnd.amazon.eventstream",

@@ -19,7 +19,9 @@ const outDir = path.join(packageDir, "dist-es");
  */
 function stripComments(code) {
   const { comments } = parseSync("file.js", code);
-  if (!comments.length) return code;
+  if (!comments.length) {
+    return code;
+  }
   let result = "";
   let last = 0;
   for (const { start, end } of comments) {

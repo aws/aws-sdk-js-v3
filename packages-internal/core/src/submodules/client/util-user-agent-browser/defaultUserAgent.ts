@@ -73,18 +73,36 @@ export const createDefaultUserAgentProvider =
  */
 export const fallback = {
   os(ua: string): string | undefined {
-    if (/iPhone|iPad|iPod/.test(ua)) return "iOS";
-    if (/Macintosh|Mac OS X/.test(ua)) return "macOS";
-    if (/Windows NT/.test(ua)) return "Windows";
-    if (/Android/.test(ua)) return "Android";
-    if (/Linux/.test(ua)) return "Linux";
+    if (/iPhone|iPad|iPod/.test(ua)) {
+      return "iOS";
+    }
+    if (/Macintosh|Mac OS X/.test(ua)) {
+      return "macOS";
+    }
+    if (/Windows NT/.test(ua)) {
+      return "Windows";
+    }
+    if (/Android/.test(ua)) {
+      return "Android";
+    }
+    if (/Linux/.test(ua)) {
+      return "Linux";
+    }
     return undefined;
   },
   browser(ua: string): string | undefined {
-    if (/EdgiOS|EdgA|Edg\//.test(ua)) return "Microsoft Edge";
-    if (/Firefox\//.test(ua)) return "Firefox";
-    if (/Chrome\//.test(ua)) return "Chrome";
-    if (/Safari\//.test(ua)) return "Safari";
+    if (/EdgiOS|EdgA|Edg\//.test(ua)) {
+      return "Microsoft Edge";
+    }
+    if (/Firefox\//.test(ua)) {
+      return "Firefox";
+    }
+    if (/Chrome\//.test(ua)) {
+      return "Chrome";
+    }
+    if (/Safari\//.test(ua)) {
+      return "Safari";
+    }
     return undefined;
   },
 };

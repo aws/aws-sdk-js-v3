@@ -53,7 +53,9 @@ for (const packageRoot of packageDirs) {
 
     if (packageJson.exports) {
       for (const [exportPath, exportConfig] of Object.entries(packageJson.exports)) {
-        if (exportPath === "." || exportPath === "./package.json") continue;
+        if (exportPath === "." || exportPath === "./package.json") {
+          continue;
+        }
         const subCjsPath = path.join(packageRoot, exportConfig.require || exportConfig.node);
         const subDtsPath = path.join(packageRoot, exportConfig.types || "");
         if (fs.existsSync(subCjsPath) && fs.existsSync(subDtsPath)) {
@@ -86,10 +88,14 @@ for (const folder of ["packages", "packages-internal"]) {
   const folderPath = path.join(root, folder);
   for (const pkg of fs.readdirSync(folderPath)) {
     const pkgDir = path.join(folderPath, pkg);
-    if (!fs.existsSync(path.join(pkgDir, "src", "submodules"))) continue;
+    if (!fs.existsSync(path.join(pkgDir, "src", "submodules"))) {
+      continue;
+    }
     try {
       const pkgJson = require(path.join(pkgDir, "package.json"));
-      if (!pkgJson.exports) continue;
+      if (!pkgJson.exports) {
+        continue;
+      }
     } catch {
       continue;
     }
@@ -122,10 +128,14 @@ const checker = program.getTypeChecker();
 function getTypeExports(dtsPath) {
   const typeExports = new Map();
   const sourceFile = program.getSourceFile(dtsPath);
-  if (!sourceFile) return typeExports;
+  if (!sourceFile) {
+    return typeExports;
+  }
 
   const moduleSymbol = checker.getSymbolAtLocation(sourceFile);
-  if (!moduleSymbol) return typeExports;
+  if (!moduleSymbol) {
+    return typeExports;
+  }
 
   const exports = checker.getExportsOfModule(moduleSymbol);
   for (const sym of exports) {
@@ -144,13 +154,21 @@ function getTypeExports(dtsPath) {
         kind = "type(interface)";
       } else if (flags & ts.SymbolFlags.TypeAlias) {
         const type = checker.getDeclaredTypeOfSymbol(resolved);
-        if (type.isUnion()) kind = "type(union)";
-        else if (type.isIntersection()) kind = "type(intersection)";
-        else if (type.flags & ts.TypeFlags.String) kind = "type(string)";
-        else if (type.flags & ts.TypeFlags.Number) kind = "type(number)";
-        else if (type.flags & ts.TypeFlags.Boolean) kind = "type(boolean)";
-        else if (type.flags & ts.TypeFlags.Object) kind = "type(object)";
-        else kind = "type(alias)";
+        if (type.isUnion()) {
+          kind = "type(union)";
+        } else if (type.isIntersection()) {
+          kind = "type(intersection)";
+        } else if (type.flags & ts.TypeFlags.String) {
+          kind = "type(string)";
+        } else if (type.flags & ts.TypeFlags.Number) {
+          kind = "type(number)";
+        } else if (type.flags & ts.TypeFlags.Boolean) {
+          kind = "type(boolean)";
+        } else if (type.flags & ts.TypeFlags.Object) {
+          kind = "type(object)";
+        } else {
+          kind = "type(alias)";
+        }
       } else {
         kind = "type(?)";
       }
@@ -225,7 +243,9 @@ const coreSubmodulesDir = path.join(coreDir, "src", "submodules");
 function createVariantProgram(variant) {
   const variantDtsPaths = [];
   for (const dir of fs.readdirSync(coreSubmodulesDir, { withFileTypes: true })) {
-    if (!dir.isDirectory()) continue;
+    if (!dir.isDirectory()) {
+      continue;
+    }
     const variantDts = path.join(coreDir, "dist-types", "submodules", dir.name, `index.${variant}.d.ts`);
     const nodeDts = path.join(coreDir, "dist-types", "submodules", dir.name, "index.d.ts");
     variantDtsPaths.push(fs.existsSync(variantDts) ? variantDts : nodeDts);
@@ -247,10 +267,14 @@ const variantPrograms = {
 };
 
 for (const dir of fs.readdirSync(coreSubmodulesDir, { withFileTypes: true })) {
-  if (!dir.isDirectory()) continue;
+  if (!dir.isDirectory()) {
+    continue;
+  }
   const sub = dir.name;
   const nodeIndex = path.join(coreDir, "dist-cjs", "submodules", sub, "index.js");
-  if (!fs.existsSync(nodeIndex)) continue;
+  if (!fs.existsSync(nodeIndex)) {
+    continue;
+  }
 
   const nodeModule = require(nodeIndex);
   const snapshotName = `@aws-sdk/core/${sub}`;
@@ -258,7 +282,9 @@ for (const dir of fs.readdirSync(coreSubmodulesDir, { withFileTypes: true })) {
 
   for (const variant of ["browser", "native"]) {
     const variantIndex = path.join(coreDir, "dist-cjs", "submodules", sub, `index.${variant}.js`);
-    if (!fs.existsSync(variantIndex)) continue;
+    if (!fs.existsSync(variantIndex)) {
+      continue;
+    }
 
     const variantModule = require(variantIndex);
 

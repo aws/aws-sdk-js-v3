@@ -55,7 +55,9 @@ class DynamoDBJsonShapeSerializer2 extends JsonShapeSerializer2 {
 
     for (const key in av) {
       const val = av[key];
-      if (val == null) continue;
+      if (val == null) {
+        continue;
+      }
 
       if (!first) {
         this.writeAscii(",");
@@ -82,7 +84,9 @@ class DynamoDBJsonShapeSerializer2 extends JsonShapeSerializer2 {
           {
             const arr = val as Array<Uint8Array | string>;
             for (let i = 0; i < arr.length; i++) {
-              if (i > 0) this.writeAscii(",");
+              if (i > 0) {
+                this.writeAscii(",");
+              }
               const item = arr[i];
               if (item instanceof Uint8Array) {
                 this.writeBase64(item);
@@ -100,7 +104,9 @@ class DynamoDBJsonShapeSerializer2 extends JsonShapeSerializer2 {
           {
             const arr = val as Array<AttributeValueInput>;
             for (let i = 0; i < arr.length; i++) {
-              if (i > 0) this.writeAscii(",");
+              if (i > 0) {
+                this.writeAscii(",");
+              }
               if (arr[i] != null) {
                 this.writeAttributeValue(arr[i]);
               } else {
@@ -118,8 +124,12 @@ class DynamoDBJsonShapeSerializer2 extends JsonShapeSerializer2 {
             const map = val as Record<string, AttributeValueInput>;
             let mapFirst = true;
             for (const k in map) {
-              if (map[k] == null) continue;
-              if (!mapFirst) this.writeAscii(",");
+              if (map[k] == null) {
+                continue;
+              }
+              if (!mapFirst) {
+                this.writeAscii(",");
+              }
               mapFirst = false;
               this.writeJsonString(k);
               this.writeAscii(":");
@@ -136,7 +146,9 @@ class DynamoDBJsonShapeSerializer2 extends JsonShapeSerializer2 {
           {
             const arr = val as string[];
             for (let i = 0; i < arr.length; i++) {
-              if (i > 0) this.writeAscii(",");
+              if (i > 0) {
+                this.writeAscii(",");
+              }
               this.writeJsonString(arr[i]);
             }
           }

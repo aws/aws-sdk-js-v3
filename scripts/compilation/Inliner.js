@@ -25,11 +25,21 @@ module.exports = class Inliner {
     this.isPreview = fs.existsSync(path.join(root, "preview", pkg));
     this.isPrivate = fs.existsSync(path.join(root, "private", pkg));
     this.subfolder = (() => {
-      if (this.isInternalPackage) return "packages-internal";
-      if (this.isPackage) return "packages";
-      if (this.isLib) return "lib";
-      if (this.isPreview) return "preview";
-      if (this.isPrivate) return "private";
+      if (this.isInternalPackage) {
+        return "packages-internal";
+      }
+      if (this.isPackage) {
+        return "packages";
+      }
+      if (this.isLib) {
+        return "lib";
+      }
+      if (this.isPreview) {
+        return "preview";
+      }
+      if (this.isPrivate) {
+        return "private";
+      }
       return "clients";
     })();
     this.hasSubmodules =

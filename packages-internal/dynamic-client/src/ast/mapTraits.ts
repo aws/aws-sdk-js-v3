@@ -56,7 +56,9 @@ export function mapTraits(traits: AstTraits | undefined): SchemaTraitsObject | 0
   let result: SchemaTraitsObject | undefined;
 
   for (const traitId in traits) {
-    if (!hasOwn(traits, traitId)) continue;
+    if (!hasOwn(traits, traitId)) {
+      continue;
+    }
     const unitKey = UNIT_TRAITS[traitId];
     if (unitKey !== undefined) {
       (result ??= {})[unitKey] = 1 as never;

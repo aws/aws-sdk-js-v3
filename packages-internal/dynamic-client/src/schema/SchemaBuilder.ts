@@ -501,7 +501,9 @@ export function exportKeyed<T>(byShapeId: Record<string, T>): Record<string, T> 
   const seen = new Set<string>();
   const out: Record<string, T> = {};
   for (const shapeId in byShapeId) {
-    if (!Object.prototype.hasOwnProperty.call(byShapeId, shapeId)) continue;
+    if (!Object.prototype.hasOwnProperty.call(byShapeId, shapeId)) {
+      continue;
+    }
     const { namespace, name } = parseShapeId(shapeId);
     let symbol = name + "$";
     if (seen.has(symbol)) {

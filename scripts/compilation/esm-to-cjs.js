@@ -381,10 +381,14 @@ module.exports = { transpile };
   const out = transpile(source);
 
   const must = (s) => {
-    if (!out.includes(s)) throw new Error(`esm-to-cjs self-test: missing ${JSON.stringify(s)}\nin:\n${out}`);
+    if (!out.includes(s)) {
+      throw new Error(`esm-to-cjs self-test: missing ${JSON.stringify(s)}\nin:\n${out}`);
+    }
   };
   const mustNot = (s) => {
-    if (out.includes(s)) throw new Error(`esm-to-cjs self-test: unexpected ${JSON.stringify(s)}\nin:\n${out}`);
+    if (out.includes(s)) {
+      throw new Error(`esm-to-cjs self-test: unexpected ${JSON.stringify(s)}\nin:\n${out}`);
+    }
   };
 
   must(`const { A, B } = require("named");`);

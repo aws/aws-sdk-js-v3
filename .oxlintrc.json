@@ -22,6 +22,7 @@
     "unicorn/no-useless-spread": "off",
     "unicorn/no-useless-fallback-in-spread": "off",
     "unicorn/prefer-node-protocol": "error",
+    "curly": ["error", "all"],
     "no-restricted-imports": [
       "error",
       {
@@ -153,6 +154,12 @@
     ]
   },
   "overrides": [
+    {
+      "files": ["clients/**", "private/**"],
+      "rules": {
+        "curly": "off"
+      }
+    },
     {
       "files": ["clients/*/src/**/*.ts"],
       "rules": {

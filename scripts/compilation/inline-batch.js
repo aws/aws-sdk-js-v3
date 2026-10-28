@@ -25,14 +25,24 @@ const concurrency = (() => {
 })();
 
 const all = args.includes("--all");
-if (all) args.splice(args.indexOf("--all"), 1);
+if (all) {
+  args.splice(args.indexOf("--all"), 1);
+}
 
 function getAllPackages() {
   const packages = [];
-  for (const pkg of listFolders(path.join(root, "packages"))) packages.push(pkg);
-  for (const pkg of listFolders(path.join(root, "packages-internal"))) packages.push(pkg);
-  for (const lib of ["dynamodb", "storage"]) packages.push(`lib-${lib}`);
-  for (const pkg of listFolders(path.join(root, "clients"))) packages.push(pkg);
+  for (const pkg of listFolders(path.join(root, "packages"))) {
+    packages.push(pkg);
+  }
+  for (const pkg of listFolders(path.join(root, "packages-internal"))) {
+    packages.push(pkg);
+  }
+  for (const lib of ["dynamodb", "storage"]) {
+    packages.push(`lib-${lib}`);
+  }
+  for (const pkg of listFolders(path.join(root, "clients"))) {
+    packages.push(pkg);
+  }
   return packages;
 }
 

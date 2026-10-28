@@ -51,14 +51,22 @@ async function bench(Impl, data, iterations, ...ctorArgs) {
 }
 
 function formatSize(bytes) {
-  if (bytes >= 1024 * 1024) return `${bytes / (1024 * 1024)}MB`;
-  if (bytes >= 1024) return `${bytes / 1024}KB`;
+  if (bytes >= 1024 * 1024) {
+    return `${bytes / (1024 * 1024)}MB`;
+  }
+  if (bytes >= 1024) {
+    return `${bytes / 1024}KB`;
+  }
   return `${bytes}B`;
 }
 
 function formatThroughput(bytesPerSec) {
-  if (bytesPerSec >= 1024 * 1024 * 1024) return `${(bytesPerSec / (1024 * 1024 * 1024)).toFixed(2)} GB/s`;
-  if (bytesPerSec >= 1024 * 1024) return `${(bytesPerSec / (1024 * 1024)).toFixed(1)} MB/s`;
+  if (bytesPerSec >= 1024 * 1024 * 1024) {
+    return `${(bytesPerSec / (1024 * 1024 * 1024)).toFixed(2)} GB/s`;
+  }
+  if (bytesPerSec >= 1024 * 1024) {
+    return `${(bytesPerSec / (1024 * 1024)).toFixed(1)} MB/s`;
+  }
   return `${(bytesPerSec / 1024).toFixed(1)} KB/s`;
 }
 

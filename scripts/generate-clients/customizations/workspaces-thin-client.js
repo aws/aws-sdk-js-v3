@@ -10,7 +10,7 @@ const indexTs = path.join(root, "clients", "client-workspaces-thin-client", "src
  */
 module.exports = function () {
   const indexContents = fs.readFileSync(indexTs, "utf-8");
-  if (!indexContents.includes(`backwards compatible aliases`))
+  if (!indexContents.includes(`backwards compatible aliases`)) {
     fs.writeFileSync(
       indexTs,
       indexContents +
@@ -30,4 +30,5 @@ export const WorkSpacesThin = WorkSpacesThinClient;
 export type { WorkSpacesThinClientPaginationConfiguration as WorkSpacesThinPaginationConfiguration } from "./pagination/Interfaces";
 `
     );
+  }
 };

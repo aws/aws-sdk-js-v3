@@ -23,7 +23,9 @@ export const redirectFromPostIdMiddleware =
   (next, context) =>
   async (args) => {
     const { input, request } = args;
-    if (!HttpRequest.isInstance(request)) return next(args);
+    if (!HttpRequest.isInstance(request)) {
+      return next(args);
+    }
     if (input.OutpostId) {
       const { isCustomEndpoint } = config;
       const useFipsEndpoint = await config.useFipsEndpoint();
