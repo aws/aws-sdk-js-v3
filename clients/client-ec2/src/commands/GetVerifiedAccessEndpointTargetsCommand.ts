@@ -2,10 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type {
-  GetVerifiedAccessEndpointTargetsRequest,
-  GetVerifiedAccessEndpointTargetsResult,
-} from "../models/models_6";
+import type { GetVerifiedAccessEndpointTargetsRequest } from "../models/models_6";
+import type { GetVerifiedAccessEndpointTargetsResult } from "../models/models_7";
 import { GetVerifiedAccessEndpointTargets$ } from "../schemas/schemas_0";
 
 /**

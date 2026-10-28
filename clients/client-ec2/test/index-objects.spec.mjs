@@ -382,6 +382,7 @@ import {
   CapacityManagerMonitoredTagKey$,
   CapacityManagerMonitoredTagKeyStatus,
   CapacityManagerStatus,
+  CapacityManagerSupportabilityScore$,
   CapacityManagerTagDimension$,
   CapacityReservation$,
   CapacityReservationAdjustmentDetails$,
@@ -415,6 +416,7 @@ import {
   CapacityReservationTopology$,
   CapacityReservationType,
   CapacityTenancy,
+  CapacityUnit,
   CarrierGateway$,
   CarrierGatewayState,
   CertificateAuthentication$,
@@ -2655,6 +2657,10 @@ import {
   GetCapacityManagerMonitoredTagKeysCommand,
   GetCapacityManagerMonitoredTagKeysRequest$,
   GetCapacityManagerMonitoredTagKeysResult$,
+  GetCapacityManagerSupportabilityScores$,
+  GetCapacityManagerSupportabilityScoresCommand,
+  GetCapacityManagerSupportabilityScoresRequest$,
+  GetCapacityManagerSupportabilityScoresResult$,
   GetCapacityReservationUsage$,
   GetCapacityReservationUsageCommand,
   GetCapacityReservationUsageRequest$,
@@ -4523,6 +4529,8 @@ import {
   SuccessfulQueuedPurchaseDeletion$,
   SuccessfulSuppressionResponseObject$,
   SummaryStatus,
+  SupportabilityMarketType,
+  SupportabilityScore,
   SupportedAdditionalProcessorFeature,
   SupportedRegionDetail$,
   Tag$,
@@ -6040,6 +6048,8 @@ assert(typeof GetCapacityManagerMetricDimensionsCommand === "function");
 assert(typeof GetCapacityManagerMetricDimensions$ === "object");
 assert(typeof GetCapacityManagerMonitoredTagKeysCommand === "function");
 assert(typeof GetCapacityManagerMonitoredTagKeys$ === "object");
+assert(typeof GetCapacityManagerSupportabilityScoresCommand === "function");
+assert(typeof GetCapacityManagerSupportabilityScores$ === "object");
 assert(typeof GetCapacityReservationUsageCommand === "function");
 assert(typeof GetCapacityReservationUsage$ === "object");
 assert(typeof GetClientVpnEndpointAuthorizationPolicyCommand === "function");
@@ -6739,6 +6749,7 @@ assert(typeof CapacityManagerCondition$ === "object");
 assert(typeof CapacityManagerDataExportResponse$ === "object");
 assert(typeof CapacityManagerDimension$ === "object");
 assert(typeof CapacityManagerMonitoredTagKey$ === "object");
+assert(typeof CapacityManagerSupportabilityScore$ === "object");
 assert(typeof CapacityManagerTagDimension$ === "object");
 assert(typeof CapacityReservation$ === "object");
 assert(typeof CapacityReservationAdjustmentDetails$ === "object");
@@ -7911,6 +7922,8 @@ assert(typeof GetCapacityManagerMetricDimensionsRequest$ === "object");
 assert(typeof GetCapacityManagerMetricDimensionsResult$ === "object");
 assert(typeof GetCapacityManagerMonitoredTagKeysRequest$ === "object");
 assert(typeof GetCapacityManagerMonitoredTagKeysResult$ === "object");
+assert(typeof GetCapacityManagerSupportabilityScoresRequest$ === "object");
+assert(typeof GetCapacityManagerSupportabilityScoresResult$ === "object");
 assert(typeof GetCapacityReservationUsageRequest$ === "object");
 assert(typeof GetCapacityReservationUsageResult$ === "object");
 assert(typeof GetClientVpnEndpointAuthorizationPolicyRequest$ === "object");
@@ -9157,6 +9170,7 @@ assert(typeof CapacityReservationState === "object");
 assert(typeof CapacityReservationTenancy === "object");
 assert(typeof CapacityReservationType === "object");
 assert(typeof CapacityTenancy === "object");
+assert(typeof CapacityUnit === "object");
 assert(typeof CarrierGatewayState === "object");
 assert(typeof ChronologicalOrder === "object");
 assert(typeof ClientCertificateRevocationListStatusCode === "object");
@@ -9487,6 +9501,8 @@ assert(typeof SubnetCidrBlockStateCode === "object");
 assert(typeof SubnetCidrReservationType === "object");
 assert(typeof SubnetState === "object");
 assert(typeof SummaryStatus === "object");
+assert(typeof SupportabilityMarketType === "object");
+assert(typeof SupportabilityScore === "object");
 assert(typeof SupportedAdditionalProcessorFeature === "object");
 assert(typeof TaggableResourceType === "object");
 assert(typeof TargetCapacityUnitType === "object");

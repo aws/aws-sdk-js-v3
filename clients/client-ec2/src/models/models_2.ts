@@ -110,7 +110,6 @@ import type {
 } from "./enums";
 import type {
   ApplicationStatusCheckResponseObject,
-  CarrierGateway,
   IpamRoutingPolicyRegistrationDelta,
   Ipv4PrefixSpecification,
   OperatorResponse,
@@ -129,6 +128,7 @@ import type {
 } from "./models_0";
 import type {
   AttachmentEnaSrdUdpSpecification,
+  CarrierGateway,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipCidr,

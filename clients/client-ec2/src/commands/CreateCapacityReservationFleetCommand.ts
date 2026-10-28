@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { CreateCapacityReservationFleetRequest, CreateCapacityReservationFleetResult } from "../models/models_0";
+import type { CreateCapacityReservationFleetRequest, CreateCapacityReservationFleetResult } from "../models/models_1";
 import { CreateCapacityReservationFleet$ } from "../schemas/schemas_0";
 
 /**
@@ -48,6 +48,87 @@ export interface CreateCapacityReservationFleetCommandOutput extends CreateCapac
  *       Priority: Number("int"),
  *     },
  *   ],
+ *   InstanceRequirements: { // InstanceRequirementsRequest
+ *     VCpuCount: { // VCpuCountRangeRequest
+ *       Min: Number("int"), // required
+ *       Max: Number("int"),
+ *     },
+ *     MemoryMiB: { // MemoryMiBRequest
+ *       Min: Number("int"), // required
+ *       Max: Number("int"),
+ *     },
+ *     CpuManufacturers: [ // CpuManufacturerSet
+ *       "intel" || "amd" || "amazon-web-services" || "apple",
+ *     ],
+ *     MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
+ *       Min: Number("double"),
+ *       Max: Number("double"),
+ *     },
+ *     ExcludedInstanceTypes: [ // ExcludedInstanceTypeSet
+ *       "STRING_VALUE",
+ *     ],
+ *     InstanceGenerations: [ // InstanceGenerationSet
+ *       "current" || "previous",
+ *     ],
+ *     SpotMaxPricePercentageOverLowestPrice: Number("int"),
+ *     OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
+ *     BareMetal: "included" || "required" || "excluded",
+ *     BurstablePerformance: "included" || "required" || "excluded",
+ *     RequireHibernateSupport: true || false,
+ *     NetworkInterfaceCount: { // NetworkInterfaceCountRequest
+ *       Min: Number("int"),
+ *       Max: Number("int"),
+ *     },
+ *     LocalStorage: "included" || "required" || "excluded",
+ *     LocalStorageTypes: [ // LocalStorageTypeSet
+ *       "hdd" || "ssd",
+ *     ],
+ *     TotalLocalStorageGB: { // TotalLocalStorageGBRequest
+ *       Min: Number("double"),
+ *       Max: Number("double"),
+ *     },
+ *     BaselineEbsBandwidthMbps: { // BaselineEbsBandwidthMbpsRequest
+ *       Min: Number("int"),
+ *       Max: Number("int"),
+ *     },
+ *     AcceleratorTypes: [ // AcceleratorTypeSet
+ *       "gpu" || "fpga" || "inference" || "media",
+ *     ],
+ *     AcceleratorCount: { // AcceleratorCountRequest
+ *       Min: Number("int"),
+ *       Max: Number("int"),
+ *     },
+ *     AcceleratorManufacturers: [ // AcceleratorManufacturerSet
+ *       "amazon-web-services" || "amd" || "nvidia" || "xilinx" || "habana",
+ *     ],
+ *     AcceleratorNames: [ // AcceleratorNameSet
+ *       "a100" || "inferentia" || "k520" || "k80" || "m60" || "radeon-pro-v520" || "t4" || "vu9p" || "v100" || "a10g" || "h100" || "t4g" || "l40s" || "l4" || "gaudi-hl-205" || "inferentia2" || "trainium" || "trainium2" || "u30",
+ *     ],
+ *     AcceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
+ *       Min: Number("int"),
+ *       Max: Number("int"),
+ *     },
+ *     NetworkBandwidthGbps: { // NetworkBandwidthGbpsRequest
+ *       Min: Number("double"),
+ *       Max: Number("double"),
+ *     },
+ *     AllowedInstanceTypes: [ // AllowedInstanceTypeSet
+ *       "STRING_VALUE",
+ *     ],
+ *     MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
+ *     BaselinePerformanceFactors: { // BaselinePerformanceFactorsRequest
+ *       Cpu: { // CpuPerformanceFactorRequest
+ *         References: [ // PerformanceFactorReferenceSetRequest
+ *           { // PerformanceFactorReferenceRequest
+ *             InstanceFamily: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     RequireEncryptionInTransit: true || false,
+ *   },
+ *   AvailabilityZone: "STRING_VALUE",
+ *   AvailabilityZoneId: "STRING_VALUE",
  *   Tenancy: "default",
  *   TotalTargetCapacity: Number("int"), // required
  *   EndDate: new Date("TIMESTAMP"),

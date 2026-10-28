@@ -62,9 +62,7 @@ import type {
   CapacityReservation,
   CapacityReservationCancellationQuote,
   CapacityReservationModificationQuote,
-  CarrierGateway,
   ClientVpnAuthorizationRuleStatus,
-  FleetCapacityReservation,
   Tag,
   TransitGatewayClientVpnAttachment,
   TransitGatewayPeeringAttachment,
@@ -74,6 +72,7 @@ import type {
   VerifiedAccessTrustProvider,
 } from "./models_0";
 import type {
+  CarrierGateway,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipPool,
@@ -81,6 +80,8 @@ import type {
   DhcpOptions,
   EgressOnlyInternetGateway,
   ExportTask,
+  FleetCapacityReservation,
+  InstanceRequirementsRequest,
   LaunchTemplate,
   LocalGatewayRoute,
   LocalGatewayRouteTable,
@@ -5630,6 +5631,24 @@ export interface CapacityReservationFleet {
    * @public
    */
   InstanceTypeSpecifications?: FleetCapacityReservation[] | undefined;
+
+  /**
+   * <p>Reserved for internal use.</p>
+   * @public
+   */
+  InstanceRequirements?: InstanceRequirementsRequest | undefined;
+
+  /**
+   * <p>Reserved for internal use.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>Reserved for internal use.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The tags assigned to the Capacity Reservation Fleet.</p>

@@ -2802,6 +2802,11 @@ import {
   GetCapacityManagerMonitoredTagKeysCommand,
 } from "./commands/GetCapacityManagerMonitoredTagKeysCommand";
 import {
+  type GetCapacityManagerSupportabilityScoresCommandInput,
+  type GetCapacityManagerSupportabilityScoresCommandOutput,
+  GetCapacityManagerSupportabilityScoresCommand,
+} from "./commands/GetCapacityManagerSupportabilityScoresCommand";
+import {
   type GetCapacityReservationUsageCommandInput,
   type GetCapacityReservationUsageCommandOutput,
   GetCapacityReservationUsageCommand,
@@ -4898,6 +4903,7 @@ const commands = {
   GetCapacityManagerMetricDataCommand,
   GetCapacityManagerMetricDimensionsCommand,
   GetCapacityManagerMonitoredTagKeysCommand,
+  GetCapacityManagerSupportabilityScoresCommand,
   GetCapacityReservationUsageCommand,
   GetClientVpnEndpointAuthorizationPolicyCommand,
   GetCoipPoolUsageCommand,
@@ -15128,6 +15134,23 @@ export interface EC2 {
     args: GetCapacityManagerMonitoredTagKeysCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: GetCapacityManagerMonitoredTagKeysCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCapacityManagerSupportabilityScoresCommand}
+   */
+  getCapacityManagerSupportabilityScores(
+    args: GetCapacityManagerSupportabilityScoresCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<GetCapacityManagerSupportabilityScoresCommandOutput>;
+  getCapacityManagerSupportabilityScores(
+    args: GetCapacityManagerSupportabilityScoresCommandInput,
+    cb: (err: any, data?: GetCapacityManagerSupportabilityScoresCommandOutput) => void
+  ): void;
+  getCapacityManagerSupportabilityScores(
+    args: GetCapacityManagerSupportabilityScoresCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: GetCapacityManagerSupportabilityScoresCommandOutput) => void
   ): void;
 
   /**

@@ -2065,6 +2065,10 @@ import type {
   GetCapacityManagerMonitoredTagKeysCommandOutput,
 } from "./commands/GetCapacityManagerMonitoredTagKeysCommand";
 import type {
+  GetCapacityManagerSupportabilityScoresCommandInput,
+  GetCapacityManagerSupportabilityScoresCommandOutput,
+} from "./commands/GetCapacityManagerSupportabilityScoresCommand";
+import type {
   GetCapacityReservationUsageCommandInput,
   GetCapacityReservationUsageCommandOutput,
 } from "./commands/GetCapacityReservationUsageCommand";
@@ -3537,6 +3541,7 @@ export type ServiceInputTypes =
   | GetCapacityManagerMetricDataCommandInput
   | GetCapacityManagerMetricDimensionsCommandInput
   | GetCapacityManagerMonitoredTagKeysCommandInput
+  | GetCapacityManagerSupportabilityScoresCommandInput
   | GetCapacityReservationUsageCommandInput
   | GetClientVpnEndpointAuthorizationPolicyCommandInput
   | GetCoipPoolUsageCommandInput
@@ -4352,6 +4357,7 @@ export type ServiceOutputTypes =
   | GetCapacityManagerMetricDataCommandOutput
   | GetCapacityManagerMetricDimensionsCommandOutput
   | GetCapacityManagerMonitoredTagKeysCommandOutput
+  | GetCapacityManagerSupportabilityScoresCommandOutput
   | GetCapacityReservationUsageCommandOutput
   | GetClientVpnEndpointAuthorizationPolicyCommandOutput
   | GetCoipPoolUsageCommandOutput

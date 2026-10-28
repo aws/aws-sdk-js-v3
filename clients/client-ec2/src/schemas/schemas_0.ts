@@ -334,6 +334,7 @@ const _ASTE = "AnalysisStartTimeEnd";
 const _ASc = "ActivityStatus";
 const _ASd = "AdjustmentStatus";
 const _ASdd = "AddressSet";
+const _ASg = "AggregateScore";
 const _ASl = "AllocationStrategy";
 const _ASn = "AnalysisStatus";
 const _ASp = "ApplicationStatuses";
@@ -542,8 +543,12 @@ const _CASCRr = "CreateApplicationStatusCheckResult";
 const _CAU = "CoipAddressUsage";
 const _CAUS = "CoipAddressUsageSet";
 const _CAUo = "CoipAddressUsages";
+const _CAZI = "CapacityAvailabilityZoneIds";
+const _CAZIL = "CapacityAvailabilityZoneIdList";
+const _CAZIa = "CapacityAvailabilityZoneId";
 const _CAa = "CapacityAllocation";
 const _CAap = "CapacityAllocations";
+const _CAapa = "CapacityAmount";
 const _CAe = "CertificateArn";
 const _CAer = "CertificateAuthentication";
 const _CAo = "ComponentAccount";
@@ -853,6 +858,9 @@ const _CMS = "CapacityManagerStatus";
 const _CMSIPMT = "CreateMacSystemIntegrityProtectionModificationTask";
 const _CMSIPMTR = "CreateMacSystemIntegrityProtectionModificationTaskRequest";
 const _CMSIPMTRr = "CreateMacSystemIntegrityProtectionModificationTaskResult";
+const _CMSS = "CapacityManagerSupportabilityScore";
+const _CMSSS = "CapacityManagerSupportabilityScoreSet";
+const _CMSSa = "CapacityManagerSupportabilityScores";
 const _CMSp = "CpuManufacturerSet";
 const _CMTD = "CapacityManagerTagDimension";
 const _CMTDS = "CapacityManagerTagDimensionSet";
@@ -1141,6 +1149,7 @@ const _CTr = "CreationTime";
 const _CTre = "CreateTime";
 const _CTrea = "CreationTimestamp";
 const _CTreat = "CreateTags";
+const _CU = "CapacityUnit";
 const _CUT = "CheckUpdateTime";
 const _CV = "CurrentVersion";
 const _CVA = "ClientVpnAuthentication";
@@ -2888,6 +2897,9 @@ const _GCMMDe = "GetCapacityManagerMetricDimensions";
 const _GCMMTK = "GetCapacityManagerMonitoredTagKeys";
 const _GCMMTKR = "GetCapacityManagerMonitoredTagKeysRequest";
 const _GCMMTKRe = "GetCapacityManagerMonitoredTagKeysResult";
+const _GCMSS = "GetCapacityManagerSupportabilityScores";
+const _GCMSSR = "GetCapacityManagerSupportabilityScoresRequest";
+const _GCMSSRe = "GetCapacityManagerSupportabilityScoresResult";
 const _GCO = "GetConsoleOutput";
 const _GCOR = "GetConsoleOutputRequest";
 const _GCORe = "GetConsoleOutputResult";
@@ -3574,7 +3586,7 @@ const _IPpvr = "Ipv4Prefixes";
 const _IPpvre = "Ipv4Prefix";
 const _IPs = "IsPublic";
 const _IPsr = "IsPrimary";
-const _IR = "ImageReferences";
+const _IR = "InstanceRequirements";
 const _IRBI = "ImageRecycleBinInfo";
 const _IRBIL = "ImageRecycleBinInfoList";
 const _IRC = "IpamResourceCidrs";
@@ -3618,8 +3630,8 @@ const _IRTL = "IpamResourceTagList";
 const _IRTp = "IpamResourceTag";
 const _IRWM = "InstanceRequirementsWithMetadata";
 const _IRWMR = "InstanceRequirementsWithMetadataRequest";
-const _IRm = "ImageReference";
-const _IRn = "InstanceRequirements";
+const _IRm = "ImageReferences";
+const _IRma = "ImageReference";
 const _IRp = "IpamRegion";
 const _IRpa = "IpRanges";
 const _IRpan = "IpRange";
@@ -5616,6 +5628,7 @@ const _SISL = "SnapshotIdStringList";
 const _SISLu = "SubnetIdStringList";
 const _SISp = "SpotInstanceStatus";
 const _SIT = "SupportedInstanceTypes";
+const _SITL = "SupportabilityInstanceTypeList";
 const _SITR = "StoreImageTaskResults";
 const _SITRS = "StoreImageTaskResultSet";
 const _SITRSu = "SupportedInstanceTypeRequestSet";
@@ -5825,9 +5838,9 @@ const _SVu = "SupportedVersions";
 const _SWD = "StartWeekDay";
 const _S_ = "S3";
 const _Sc = "Schedule";
-const _Sco = "Scope";
-const _Scop = "Scopes";
-const _Scor = "Score";
+const _Sco = "Score";
+const _Scop = "Scope";
+const _Scope = "Scopes";
 const _Se = "Service";
 const _Set = "Settings";
 const _Si = "Signature";
@@ -6617,6 +6630,7 @@ const _aSct = "actionsSet";
 const _aSd = "adjustmentStatus";
 const _aSdd = "addressSet";
 const _aSddr = "addressesSet";
+const _aSg = "aggregateScore";
 const _aSl = "allocationStrategy";
 const _aSn = "analysisStatus";
 const _aSp = "applicationStatus";
@@ -6802,6 +6816,7 @@ const _cMDES = "capacityManagerDataExportSet";
 const _cMKE = "customerManagedKeyEnabled";
 const _cMP = "capacityManagerProvided";
 const _cMS = "capacityManagerStatus";
+const _cMSSS = "capacityManagerSupportabilityScoreSet";
 const _cMSp = "cpuManufacturerSet";
 const _cMTKS = "capacityManagerTagKeySet";
 const _cN = "commonName";
@@ -10278,6 +10293,14 @@ export var CapacityManagerMonitoredTagKey$: StaticStructureSchema = [3, n0, _CMM
   , [_xN]: _cMP }], [4, { [_eQN]: `EarliestDatapointTimestamp`
   , [_xN]: _eDT }]]
 ];
+export var CapacityManagerSupportabilityScore$: StaticStructureSchema = [3, n0, _CMSS,
+  0,
+  [_IT, _AZI, _Sco],
+  [[0, { [_eQN]: `InstanceType`
+  , [_xN]: _iT }], [0, { [_eQN]: `AvailabilityZoneId`
+  , [_xN]: _aZI }], [0, { [_eQN]: `Score`
+  , [_xN]: _sco }]]
+];
 export var CapacityManagerTagDimension$: StaticStructureSchema = [3, n0, _CMTD,
   0,
   [_K, _V],
@@ -10378,7 +10401,7 @@ export var CapacityReservationConfiguration$: StaticStructureSchema = [3, n0, _C
 ];
 export var CapacityReservationFleet$: StaticStructureSchema = [3, n0, _CRF,
   0,
-  [_CRFIa, _CRFA, _St, _TTC, _TFC, _Te, _ED, _CTre, _IMC, _ASl, _ITS, _T],
+  [_CRFIa, _CRFA, _St, _TTC, _TFC, _Te, _ED, _CTre, _IMC, _ASl, _ITS, _IR, _AZ, _AZI, _T],
   [[0, { [_eQN]: `CapacityReservationFleetId`
   , [_xN]: _cRFI }], [0, { [_eQN]: `CapacityReservationFleetArn`
   , [_xN]: _cRFA }], [0, { [_eQN]: `State`
@@ -10390,7 +10413,10 @@ export var CapacityReservationFleet$: StaticStructureSchema = [3, n0, _CRF,
   , [_xN]: _cTre }], [0, { [_eQN]: `InstanceMatchCriteria`
   , [_xN]: _iMC }], [0, { [_eQN]: `AllocationStrategy`
   , [_xN]: _aSl }], [() => FleetCapacityReservationSet, { [_eQN]: `InstanceTypeSpecificationSet`
-  , [_xN]: _iTSS }], [() => TagList, { [_eQN]: `TagSet`
+  , [_xN]: _iTSS }], [() => InstanceRequirementsRequest$, { [_eQN]: `InstanceRequirements`
+  , [_xN]: _iR }], [0, { [_eQN]: `AvailabilityZone`
+  , [_xN]: _aZ }], [0, { [_eQN]: `AvailabilityZoneId`
+  , [_xN]: _aZI }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }]]
 ];
 export var CapacityReservationFleetCancellationState$: StaticStructureSchema = [3, n0, _CRFCS,
@@ -10982,8 +11008,8 @@ export var CreateCapacityReservationDateChangeQuoteResult$: StaticStructureSchem
 ];
 export var CreateCapacityReservationFleetRequest$: StaticStructureSchema = [3, n0, _CCRFRr,
   0,
-  [_TTC, _ASl, _CT, _ITS, _Te, _ED, _IMC, _TS, _DR],
-  [1, 0, [0, 4], [() => ReservationFleetInstanceSpecificationList, { [_xN]: _ITSn }], 0, 4, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 1
+  [_TTC, _ASl, _CT, _ITS, _IR, _AZ, _AZI, _Te, _ED, _IMC, _TS, _DR],
+  [1, 0, [0, 4], [() => ReservationFleetInstanceSpecificationList, { [_xN]: _ITSn }], [() => InstanceRequirementsRequest$, 0], 0, 0, 0, 4, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 1
 ];
 export var CreateCapacityReservationFleetResult$: StaticStructureSchema = [3, n0, _CCRFRre,
   0,
@@ -12134,7 +12160,7 @@ export var CreateVerifiedAccessInstanceResult$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateVerifiedAccessNativeApplicationOidcOptions$: StaticStructureSchema = [3, n0, _CVANAOO,
   0,
-  [_PSKE, _Is, _AE, _TEo, _UIE, _CIli, _CS, _Sco],
+  [_PSKE, _Is, _AE, _TEo, _UIE, _CIli, _CS, _Scop],
   [0, 0, 0, 0, 0, 0, [() => ClientSecretType, 0], 0]
 ];
 export var CreateVerifiedAccessTrustProviderDeviceOptions$: StaticStructureSchema = [3, n0, _CVATPDO,
@@ -12144,7 +12170,7 @@ export var CreateVerifiedAccessTrustProviderDeviceOptions$: StaticStructureSchem
 ];
 export var CreateVerifiedAccessTrustProviderOidcOptions$: StaticStructureSchema = [3, n0, _CVATPOO,
   0,
-  [_Is, _AE, _TEo, _UIE, _CIli, _CS, _Sco],
+  [_Is, _AE, _TEo, _UIE, _CIli, _CS, _Scop],
   [0, 0, 0, 0, 0, [() => ClientSecretType, 0], 0]
 ];
 export var CreateVerifiedAccessTrustProviderRequest$: StaticStructureSchema = [3, n0, _CVATPR,
@@ -14299,7 +14325,7 @@ export var DescribeImageReferencesRequest$: StaticStructureSchema = [3, n0, _DIR
 ];
 export var DescribeImageReferencesResult$: StaticStructureSchema = [3, n0, _DIRRe,
   0,
-  [_NTe, _IR],
+  [_NTe, _IRm],
   [[0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }], [() => ImageReferenceList, { [_eQN]: `ImageReferenceSet`
   , [_xN]: _iRS }]]
@@ -17609,7 +17635,7 @@ export var FleetLaunchTemplateConfigRequest$: StaticStructureSchema = [3, n0, _F
 ];
 export var FleetLaunchTemplateOverrides$: StaticStructureSchema = [3, n0, _FLTO,
   0,
-  [_IT, _MPax, _SIu, _AZ, _WCe, _Prio, _Pla, _IRn, _IIm, _BDMl, _AZI],
+  [_IT, _MPax, _SIu, _AZ, _WCe, _Prio, _Pla, _IR, _IIm, _BDMl, _AZI],
   [[0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [0, { [_eQN]: `MaxPrice`
   , [_xN]: _mP }], [0, { [_eQN]: `SubnetId`
@@ -17625,7 +17651,7 @@ export var FleetLaunchTemplateOverrides$: StaticStructureSchema = [3, n0, _FLTO,
 ];
 export var FleetLaunchTemplateOverridesRequest$: StaticStructureSchema = [3, n0, _FLTOR,
   0,
-  [_IT, _MPax, _SIu, _AZ, _WCe, _Prio, _Pla, _KN, _BDMl, _IIP, _MO, _IRn, _IIm, _AZI],
+  [_IT, _MPax, _SIu, _AZ, _WCe, _Prio, _Pla, _KN, _BDMl, _IIP, _MO, _IR, _IIm, _AZI],
   [0, 0, 0, 0, 1, 1, [() => Placement$, 0], 0, [() => FleetBlockDeviceMappingRequestList, { [_xN]: _BDM }], () => FleetIamInstanceProfileSpecificationRequest$, () => FleetInstanceMetadataOptionsRequest$, [() => InstanceRequirementsRequest$, 0], 0, 0]
 ];
 export var FleetLaunchTemplateSpecification$: StaticStructureSchema = [3, n0, _FLTS,
@@ -17857,6 +17883,18 @@ export var GetCapacityManagerMonitoredTagKeysResult$: StaticStructureSchema = [3
   [[() => CapacityManagerMonitoredTagKeyList, { [_eQN]: `CapacityManagerTagKeySet`
   , [_xN]: _cMTKS }], [0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }]]
+];
+export var GetCapacityManagerSupportabilityScoresRequest$: StaticStructureSchema = [3, n0, _GCMSSR,
+  0,
+  [_MTa, _CAapa, _CU, _CAZI, _ITnst, _IRWM, _DR],
+  [0, 1, 0, [() => CapacityAvailabilityZoneIdList, { [_xN]: _CAZIa }], [() => SupportabilityInstanceTypeList, { [_xN]: _IT }], [() => InstanceRequirementsWithMetadataRequest$, 0], 2], 4
+];
+export var GetCapacityManagerSupportabilityScoresResult$: StaticStructureSchema = [3, n0, _GCMSSRe,
+  0,
+  [_ASg, _CMSSa],
+  [[0, { [_eQN]: `AggregateScore`
+  , [_xN]: _aSg }], [() => CapacityManagerSupportabilityScoreSet, { [_eQN]: `CapacityManagerSupportabilityScoreSet`
+  , [_xN]: _cMSSS }]]
 ];
 export var GetCapacityReservationUsageRequest$: StaticStructureSchema = [3, n0, _GCRUR,
   0,
@@ -18098,7 +18136,7 @@ export var GetInstanceTpmEkPubResult$: StaticStructureSchema = [3, n0, _GITEPRe,
 ];
 export var GetInstanceTypesFromInstanceRequirementsRequest$: StaticStructureSchema = [3, n0, _GITFIRR,
   0,
-  [_ATr, _VTi, _IRn, _DR, _MR, _NTe, _Con],
+  [_ATr, _VTi, _IR, _DR, _MR, _NTe, _Con],
   [[() => ArchitectureTypeSet, { [_xN]: _ATrc }], [() => VirtualizationTypeSet, { [_xN]: _VTir }], [() => InstanceRequirementsRequest$, 0], 2, 1, 0, 0], 3
 ];
 export var GetInstanceTypesFromInstanceRequirementsResult$: StaticStructureSchema = [3, n0, _GITFIRRe,
@@ -19077,7 +19115,7 @@ export var ImageDiskContainer$: StaticStructureSchema = [3, n0, _IDC,
 ];
 export var ImageFinding$: StaticStructureSchema = [3, n0, _IFma,
   0,
-  [_FAi, _Scor, _FOA, _UA, _Tit, _Pat, _SLe, _SIn],
+  [_FAi, _Sco, _FOA, _UA, _Tit, _Pat, _SLe, _SIn],
   [[2, { [_eQN]: `FixAvailable`
   , [_xN]: _fAi }], [1, { [_eQN]: `Score`
   , [_xN]: _sco }], [4, { [_eQN]: `FirstObservedAt`
@@ -19113,7 +19151,7 @@ export var ImageRecycleBinInfo$: StaticStructureSchema = [3, n0, _IRBI,
   , [_xN]: _rBET }], [4, { [_eQN]: `RecycleBinExitTime`
   , [_xN]: _rBETe }]]
 ];
-export var ImageReference$: StaticStructureSchema = [3, n0, _IRm,
+export var ImageReference$: StaticStructureSchema = [3, n0, _IRma,
   0,
   [_IIm, _RTe, _Ar],
   [[0, { [_eQN]: `ImageId`
@@ -19821,7 +19859,7 @@ export var InstancePrivateIpAddress$: StaticStructureSchema = [3, n0, _IPIA,
   , [_xN]: _pDNr }], [0, { [_eQN]: `PrivateIpAddress`
   , [_xN]: _pIAr }]]
 ];
-export var InstanceRequirements$: StaticStructureSchema = [3, n0, _IRn,
+export var InstanceRequirements$: StaticStructureSchema = [3, n0, _IR,
   0,
   [_VCC, _MMB, _CM, _MGBPVC, _EITxc, _IGns, _SMPPOLP, _ODMPPOLP, _BMa, _BP, _RHS, _NIC, _LSo, _LST, _TLSGB, _BEBM, _ATc, _AC, _AMc, _ANcc, _ATMMB, _NBGe, _AIT, _MSPAPOOODP, _BPF, _REIT],
   [[() => VCpuCountRange$, { [_eQN]: `VCpuCount`
@@ -19859,7 +19897,7 @@ export var InstanceRequirementsRequest$: StaticStructureSchema = [3, n0, _IRR,
 ];
 export var InstanceRequirementsWithMetadataRequest$: StaticStructureSchema = [3, n0, _IRWMR,
   0,
-  [_ATr, _VTi, _IRn],
+  [_ATr, _VTi, _IR],
   [[() => ArchitectureTypeSet, { [_xN]: _ATrc }], [() => VirtualizationTypeSet, { [_xN]: _VTir }], [() => InstanceRequirementsRequest$, 0]]
 ];
 export var InstanceSecondaryInterface$: StaticStructureSchema = [3, n0, _ISIn,
@@ -21053,7 +21091,7 @@ export var LaunchTemplateNetworkPerformanceOptionsRequest$: StaticStructureSchem
 ];
 export var LaunchTemplateOverrides$: StaticStructureSchema = [3, n0, _LTO,
   0,
-  [_IT, _SPp, _SIu, _AZ, _WCe, _Prio, _IRn, _AZI],
+  [_IT, _SPp, _SIu, _AZ, _WCe, _Prio, _IR, _AZI],
   [[0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [0, { [_eQN]: `SpotPrice`
   , [_xN]: _sPp }], [0, { [_eQN]: `SubnetId`
@@ -22309,7 +22347,7 @@ export var ModifyVerifiedAccessInstanceResult$: StaticStructureSchema = [3, n0, 
 ];
 export var ModifyVerifiedAccessNativeApplicationOidcOptions$: StaticStructureSchema = [3, n0, _MVANAOO,
   0,
-  [_PSKE, _Is, _AE, _TEo, _UIE, _CIli, _CS, _Sco],
+  [_PSKE, _Is, _AE, _TEo, _UIE, _CIli, _CS, _Scop],
   [0, 0, 0, 0, 0, 0, [() => ClientSecretType, 0], 0]
 ];
 export var ModifyVerifiedAccessTrustProviderDeviceOptions$: StaticStructureSchema = [3, n0, _MVATPDO,
@@ -22319,7 +22357,7 @@ export var ModifyVerifiedAccessTrustProviderDeviceOptions$: StaticStructureSchem
 ];
 export var ModifyVerifiedAccessTrustProviderOidcOptions$: StaticStructureSchema = [3, n0, _MVATPOO,
   0,
-  [_Is, _AE, _TEo, _UIE, _CIli, _CS, _Sco],
+  [_Is, _AE, _TEo, _UIE, _CIli, _CS, _Scop],
   [0, 0, 0, 0, 0, [() => ClientSecretType, 0], 0]
 ];
 export var ModifyVerifiedAccessTrustProviderRequest$: StaticStructureSchema = [3, n0, _MVATPR,
@@ -22402,7 +22440,7 @@ export var ModifyVpcEndpointConnectionNotificationResult$: StaticStructureSchema
 ];
 export var ModifyVpcEndpointPayerResponsibilityRequest$: StaticStructureSchema = [3, n0, _MVEPRR,
   0,
-  [_VEIp, _PRa, _Sco, _DR, _SIe],
+  [_VEIp, _PRa, _Scop, _DR, _SIe],
   [0, 0, 0, 2, 0], 3
 ];
 export var ModifyVpcEndpointPayerResponsibilityResult$: StaticStructureSchema = [3, n0, _MVEPRRo,
@@ -22643,7 +22681,7 @@ export var NatGatewayAttachedAppliance$: StaticStructureSchema = [3, n0, _NGAA,
 ];
 export var NativeApplicationOidcOptions$: StaticStructureSchema = [3, n0, _NAOO,
   0,
-  [_PSKE, _Is, _AE, _TEo, _UIE, _CIli, _Sco],
+  [_PSKE, _Is, _AE, _TEo, _UIE, _CIli, _Scop],
   [[0, { [_eQN]: `PublicSigningKeyEndpoint`
   , [_xN]: _pSKE }], [0, { [_eQN]: `Issuer`
   , [_xN]: _is }], [0, { [_eQN]: `AuthorizationEndpoint`
@@ -22973,7 +23011,7 @@ export var NitroTpmInfo$: StaticStructureSchema = [3, n0, _NTI,
 ];
 export var OidcOptions$: StaticStructureSchema = [3, n0, _OO,
   0,
-  [_Is, _AE, _TEo, _UIE, _CIli, _CS, _Sco],
+  [_Is, _AE, _TEo, _UIE, _CIli, _CS, _Scop],
   [[0, { [_eQN]: `Issuer`
   , [_xN]: _is }], [0, { [_eQN]: `AuthorizationEndpoint`
   , [_xN]: _aE }], [0, { [_eQN]: `TokenEndpoint`
@@ -23095,7 +23133,7 @@ export var PathStatementRequest$: StaticStructureSchema = [3, n0, _PSRa,
 ];
 export var PayerResponsibilityEntry$: StaticStructureSchema = [3, n0, _PRE,
   0,
-  [_Sco, _PRT],
+  [_Scop, _PRT],
   [[0, { [_eQN]: `Scope`
   , [_xN]: _scop }], [0, { [_eQN]: `PayerResponsibilityType`
   , [_xN]: _pRT }]]
@@ -23965,7 +24003,7 @@ export var RequestIpamResourceTag$: StaticStructureSchema = [3, n0, _RIRT,
 ];
 export var RequestLaunchTemplateData$: StaticStructureSchema = [3, n0, _RLTD,
   0,
-  [_KI, _EO, _IIP, _BDMl, _NIet, _IIm, _IT, _KN, _Mon, _Pla, _RDI, _DAT, _IISB, _UDs, _TS, _EGSlas, _EIAl, _SGIe, _SGe, _IMOns, _CSr, _CO, _CRSa, _LSi, _HO, _MO, _EOn, _IRn, _PDNO, _MOa, _DASi, _Op, _NPO, _SIec],
+  [_KI, _EO, _IIP, _BDMl, _NIet, _IIm, _IT, _KN, _Mon, _Pla, _RDI, _DAT, _IISB, _UDs, _TS, _EGSlas, _EIAl, _SGIe, _SGe, _IMOns, _CSr, _CO, _CRSa, _LSi, _HO, _MO, _EOn, _IR, _PDNO, _MOa, _DASi, _Op, _NPO, _SIec],
   [0, 2, () => LaunchTemplateIamInstanceProfileSpecificationRequest$, [() => LaunchTemplateBlockDeviceMappingRequestList, { [_xN]: _BDM }], [() => LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList, { [_xN]: _NIe }], 0, 0, 0, () => LaunchTemplatesMonitoringRequest$, () => LaunchTemplatePlacementRequest$, 0, 2, 0, [() => SensitiveUserData, 0], [() => LaunchTemplateTagSpecificationRequestList, { [_xN]: _TSa }], [() => ElasticGpuSpecificationList, { [_xN]: _EGSla }], [() => LaunchTemplateElasticInferenceAcceleratorList, { [_xN]: _EIA }], [() => SecurityGroupIdStringList, { [_xN]: _SGI }], [() => SecurityGroupStringList, { [_xN]: _SGec }], () => LaunchTemplateInstanceMarketOptionsRequest$, () => CreditSpecificationRequest$, () => LaunchTemplateCpuOptionsRequest$, () => LaunchTemplateCapacityReservationSpecificationRequest$, [() => LaunchTemplateLicenseSpecificationListRequest, { [_xN]: _LSic }], () => LaunchTemplateHibernationOptionsRequest$, () => LaunchTemplateInstanceMetadataOptionsRequest$, () => LaunchTemplateEnclaveOptionsRequest$, [() => InstanceRequirementsRequest$, 0], () => LaunchTemplatePrivateDnsNameOptionsRequest$, () => LaunchTemplateInstanceMaintenanceOptionsRequest$, 2, () => OperatorRequest$, () => LaunchTemplateNetworkPerformanceOptionsRequest$, [() => LaunchTemplateInstanceSecondaryInterfaceSpecificationRequestList, { [_xN]: _SIeco }]]
 ];
 export var RequestSpotFleetRequest$: StaticStructureSchema = [3, n0, _RSFR,
@@ -24083,7 +24121,7 @@ export var ReservedInstanceReservationValue$: StaticStructureSchema = [3, n0, _R
 ];
 export var ReservedInstances$: StaticStructureSchema = [3, n0, _RIese,
   0,
-  [_CC, _ITns, _OC, _OTf, _RCecu, _Sco, _T, _AZI, _RIIes, _IT, _AZ, _Star, _End, _Du, _UPs, _FPix, _IC, _PDr, _St],
+  [_CC, _ITns, _OC, _OTf, _RCecu, _Scop, _T, _AZI, _RIIes, _IT, _AZ, _Star, _End, _Du, _UPs, _FPix, _IC, _PDr, _St],
   [[0, { [_eQN]: `CurrencyCode`
   , [_xN]: _cC }], [0, { [_eQN]: `InstanceTenancy`
   , [_xN]: _iTns }], [0, { [_eQN]: `OfferingClass`
@@ -24107,7 +24145,7 @@ export var ReservedInstances$: StaticStructureSchema = [3, n0, _RIese,
 ];
 export var ReservedInstancesConfiguration$: StaticStructureSchema = [3, n0, _RIC,
   0,
-  [_AZ, _IC, _IT, _Pl, _Sco, _AZI],
+  [_AZ, _IC, _IT, _Pl, _Scop, _AZI],
   [[0, { [_eQN]: `AvailabilityZone`
   , [_xN]: _aZ }], [1, { [_eQN]: `InstanceCount`
   , [_xN]: _iC }], [0, { [_eQN]: `InstanceType`
@@ -24160,7 +24198,7 @@ export var ReservedInstancesModificationResult$: StaticStructureSchema = [3, n0,
 ];
 export var ReservedInstancesOffering$: StaticStructureSchema = [3, n0, _RIOe,
   0,
-  [_CC, _ITns, _Mar, _OC, _OTf, _PDric, _RCecu, _Sco, _AZI, _RIOIe, _IT, _AZ, _Du, _UPs, _FPix, _PDr],
+  [_CC, _ITns, _Mar, _OC, _OTf, _PDric, _RCecu, _Scop, _AZI, _RIOIe, _IT, _AZ, _Du, _UPs, _FPix, _PDr],
   [[0, { [_eQN]: `CurrencyCode`
   , [_xN]: _cC }], [0, { [_eQN]: `InstanceTenancy`
   , [_xN]: _iTns }], [2, { [_eQN]: `Marketplace`
@@ -24271,7 +24309,7 @@ export var ResponseError$: StaticStructureSchema = [3, n0, _REe,
 ];
 export var ResponseLaunchTemplateData$: StaticStructureSchema = [3, n0, _RLTDe,
   0,
-  [_KI, _EO, _IIP, _BDMl, _NIet, _IIm, _IT, _KN, _Mon, _Pla, _RDI, _DAT, _IISB, _UDs, _TS, _EGSlas, _EIAl, _SGIe, _SGe, _IMOns, _CSr, _CO, _CRSa, _LSi, _HO, _MO, _EOn, _IRn, _PDNO, _MOa, _DASi, _Op, _NPO, _SIec],
+  [_KI, _EO, _IIP, _BDMl, _NIet, _IIm, _IT, _KN, _Mon, _Pla, _RDI, _DAT, _IISB, _UDs, _TS, _EGSlas, _EIAl, _SGIe, _SGe, _IMOns, _CSr, _CO, _CRSa, _LSi, _HO, _MO, _EOn, _IR, _PDNO, _MOa, _DASi, _Op, _NPO, _SIec],
   [[0, { [_eQN]: `KernelId`
   , [_xN]: _kI }], [2, { [_eQN]: `EbsOptimized`
   , [_xN]: _eO }], [() => LaunchTemplateIamInstanceProfileSpecification$, { [_eQN]: `IamInstanceProfile`
@@ -25244,7 +25282,7 @@ export var SpotDatafeedSubscription$: StaticStructureSchema = [3, n0, _SDS,
 ];
 export var SpotFleetLaunchSpecification$: StaticStructureSchema = [3, n0, _SFLS,
   0,
-  [_ATddre, _BDMl, _EO, _IIP, _IIm, _IT, _KI, _KN, _Mon, _NIet, _Pla, _RIa, _SPp, _SIu, _UDs, _WCe, _TS, _IRn, _SGe],
+  [_ATddre, _BDMl, _EO, _IIP, _IIm, _IT, _KI, _KN, _Mon, _NIet, _Pla, _RIa, _SPp, _SIu, _UDs, _WCe, _TS, _IR, _SGe],
   [[0, { [_eQN]: `AddressingType`
   , [_xN]: _aTddr }], [() => BlockDeviceMappingList, { [_eQN]: `BlockDeviceMapping`
   , [_xN]: _bDM }], [2, { [_eQN]: `EbsOptimized`
@@ -25400,7 +25438,7 @@ export var SpotPlacement$: StaticStructureSchema = [3, n0, _SPpo,
 ];
 export var SpotPlacementScore$: StaticStructureSchema = [3, n0, _SPSp,
   0,
-  [_Regi, _AZI, _Scor],
+  [_Regi, _AZI, _Sco],
   [[0, { [_eQN]: `Region`
   , [_xN]: _reg }], [0, { [_eQN]: `AvailabilityZoneId`
   , [_xN]: _aZI }], [1, { [_eQN]: `Score`
@@ -26802,7 +26840,7 @@ export var VerifiedAccessInstanceOpenVpnClientConfigurationRoute$: StaticStructu
 ];
 export var VerifiedAccessInstanceUserTrustProviderClientConfiguration$: StaticStructureSchema = [3, n0, _VAIUTPCC,
   0,
-  [_Ty, _Scop, _Is, _AE, _PSKE, _TEo, _UIE, _CIli, _CS, _PEk],
+  [_Ty, _Scope, _Is, _AE, _PSKE, _TEo, _UIE, _CIli, _CS, _PEk],
   [[0, { [_eQN]: `Type`
   , [_xN]: _ty }], [0, { [_eQN]: `Scopes`
   , [_xN]: _scope }], [0, { [_eQN]: `Issuer`
@@ -27685,6 +27723,10 @@ var CapacityAllocations: StaticListSchema = [1, n0, _CAap,
   0, [() => CapacityAllocation$,
     { [_xN]: _it }]
 ];
+var CapacityAvailabilityZoneIdList: StaticListSchema = [1, n0, _CAZIL,
+  0, [0,
+    { [_xN]: _it }]
+];
 var CapacityBlockExtensionOfferingSet: StaticListSchema = [1, n0, _CBEOS,
   0, [() => CapacityBlockExtensionOffering$,
     { [_xN]: _it }]
@@ -27723,6 +27765,10 @@ var CapacityManagerDataExportResponseSet: StaticListSchema = [1, n0, _CMDERS,
 ];
 var CapacityManagerMonitoredTagKeyList: StaticListSchema = [1, n0, _CMMTKL,
   0, [() => CapacityManagerMonitoredTagKey$,
+    { [_xN]: _it }]
+];
+var CapacityManagerSupportabilityScoreSet: StaticListSchema = [1, n0, _CMSSS,
+  0, [() => CapacityManagerSupportabilityScore$,
     { [_xN]: _it }]
 ];
 var CapacityManagerTagDimensionSet: StaticListSchema = [1, n0, _CMTDS,
@@ -29913,6 +29959,10 @@ var SuccessfulQueuedPurchaseDeletionSet: StaticListSchema = [1, n0, _SQPDS,
 ];
 var SuccessfulSuppressionResponseSet: StaticListSchema = [1, n0, _SSRS,
   0, [() => SuccessfulSuppressionResponseObject$,
+    { [_xN]: _it }]
+];
+var SupportabilityInstanceTypeList: StaticListSchema = [1, n0, _SITL,
+  0, [0,
     { [_xN]: _it }]
 ];
 var SupportedAdditionalProcessorFeatureList: StaticListSchema = [1, n0, _SAPFL,
@@ -32176,6 +32226,9 @@ export var GetCapacityManagerMetricDimensions$: StaticOperationSchema = [9, n0, 
 ];
 export var GetCapacityManagerMonitoredTagKeys$: StaticOperationSchema = [9, n0, _GCMMTK,
   0, () => GetCapacityManagerMonitoredTagKeysRequest$, () => GetCapacityManagerMonitoredTagKeysResult$
+];
+export var GetCapacityManagerSupportabilityScores$: StaticOperationSchema = [9, n0, _GCMSS,
+  0, () => GetCapacityManagerSupportabilityScoresRequest$, () => GetCapacityManagerSupportabilityScoresResult$
 ];
 export var GetCapacityReservationUsage$: StaticOperationSchema = [9, n0, _GCRU,
   0, () => GetCapacityReservationUsageRequest$, () => GetCapacityReservationUsageResult$

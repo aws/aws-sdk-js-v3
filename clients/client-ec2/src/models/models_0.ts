@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import type {
-  _InstanceType,
   AccountVpcEncryptionControlMode,
   AccountVpcEncryptionControlState,
   AddressTransferStatus,
@@ -28,7 +27,6 @@ import type {
   CapacityReservationState,
   CapacityReservationTenancy,
   CapacityReservationType,
-  CarrierGatewayState,
   ClientVpnAuthorizationRuleStatusCode,
   CurrencyCodeValues,
   DeviceTrustProviderType,
@@ -36,8 +34,6 @@ import type {
   DomainType,
   DynamicRoutingValue,
   EndDateType,
-  FleetCapacityReservationTenancy,
-  FleetInstanceMatchCriteria,
   HostMaintenance,
   HostRecovery,
   IamInstanceProfileAssociationState,
@@ -10374,387 +10370,177 @@ export interface CreateCapacityReservationDateChangeQuoteResult {
 }
 
 /**
- * <p>Information about an instance type to use in a Capacity Reservation Fleet.</p>
+ * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
+ *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
-export interface ReservationFleetInstanceSpecification {
+export interface BaselineEbsBandwidthMbpsRequest {
   /**
-   * <p>The instance type for which the Capacity Reservation Fleet reserves capacity.</p>
+   * <p>The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit
+   *          this parameter.</p>
    * @public
    */
-  InstanceType?: _InstanceType | undefined;
+  Min?: number | undefined;
 
   /**
-   * <p>The type of operating system for which the Capacity Reservation Fleet reserves
-   * 			capacity.</p>
+   * <p>The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit
+   *          this parameter.</p>
    * @public
    */
-  InstancePlatform?: CapacityReservationInstancePlatform | undefined;
-
-  /**
-   * <p>The number of capacity units provided by the specified instance type. This value,
-   * 			together with the total target capacity that you specify for the Fleet determine the
-   * 			number of instances for which the Fleet reserves capacity. Both values are based on
-   * 			units that make sense for your workload. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
-   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  Weight?: number | undefined;
-
-  /**
-   * <p>The Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A
-   * 			Capacity Reservation Fleet can't span Availability Zones. All instance type
-   * 			specifications that you specify for the Fleet must use the same Availability
-   * 			Zone.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone in which the Capacity Reservation Fleet reserves the
-   * 			capacity. A Capacity Reservation Fleet can't span Availability Zones. All instance type
-   * 			specifications that you specify for the Fleet must use the same Availability
-   * 			Zone.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>Indicates whether the Capacity Reservation Fleet supports EBS-optimized instances
-   * 			types. This optimization provides dedicated throughput to Amazon EBS and an
-   * 			optimized configuration stack to provide optimal I/O performance. This optimization
-   * 			isn't available with all instance types. Additional usage charges apply when using
-   * 			EBS-optimized instance types.</p>
-   * @public
-   */
-  EbsOptimized?: boolean | undefined;
-
-  /**
-   * <p>The priority to assign to the instance type. This value is used to determine which of
-   * 			the instance types specified for the Fleet should be prioritized for use. A lower value
-   * 			indicates a high priority. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">Instance type
-   * 				priority</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  Priority?: number | undefined;
+  Max?: number | undefined;
 }
 
 /**
+ * <p>Specify an instance family to use as the baseline reference for CPU performance. All
+ *          instance types that match your specified attributes will be compared against the CPU
+ *          performance of the referenced instance family, regardless of CPU manufacturer or
+ *          architecture.</p>
+ *          <note>
+ *             <p>Currently, only one instance family can be specified in the list.</p>
+ *          </note>
  * @public
  */
-export interface CreateCapacityReservationFleetRequest {
+export interface PerformanceFactorReferenceRequest {
   /**
-   * <p>The strategy used by the Capacity Reservation Fleet to determine which of the
-   * 			specified instance types to use. Currently, only the <code>prioritized</code> allocation
-   * 			strategy is supported. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy"> Allocation
-   * 				strategy</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>Valid values: <code>prioritized</code>
-   *          </p>
-   * @public
-   */
-  AllocationStrategy?: string | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Information about the instance types for which to reserve the capacity.</p>
-   * @public
-   */
-  InstanceTypeSpecifications?: ReservationFleetInstanceSpecification[] | undefined;
-
-  /**
-   * <p>Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in
-   * 			the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the
-   * 			following tenancy settings:</p>
+   * <p>The instance family to use as a baseline reference.</p>
+   *          <note>
+   *             <p>Ensure that you specify the correct value for the instance family. The instance
+   *             family is everything before the period (<code>.</code>) in the instance type name. For
+   *             example, in the instance type <code>c6i.large</code>, the instance family is
+   *             <code>c6i</code>, not <code>c6</code>. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html">Amazon EC2
+   *                instance type naming conventions</a> in <i>Amazon EC2 Instance
+   *                   Types</i>.</p>
+   *          </note>
+   *          <p>The following instance families are <i>not supported</i> for performance
+   *          protection:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>default</code> - The Capacity Reservation Fleet is created on hardware
-   * 					that is shared with other Amazon Web Services accounts.</p>
+   *                   <code>c1</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>dedicated</code> - The Capacity Reservations are created on single-tenant
-   * 					hardware that is dedicated to a single Amazon Web Services account.</p>
+   *                   <code>g3</code> | <code>g3s</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hpc7g</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>m1</code> | <code>m2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mac1</code> | <code>mac2</code> | <code>mac2-m1ultra</code> |
+   *                <code>mac2-m2</code> | <code>mac2-m2pro</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>p3dn</code> | <code>p4d</code> | <code>p5</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>t1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>u-12tb1</code> | <code>u-18tb1</code> | <code>u-24tb1</code> |
+   *                <code>u-3tb1</code> | <code>u-6tb1</code> | <code>u-9tb1</code> |
+   *                <code>u7i-12tb</code> | <code>u7in-16tb</code> | <code>u7in-24tb</code> |
+   *                <code>u7in-32tb</code>
+   *                </p>
    *             </li>
    *          </ul>
+   *          <p>If you enable performance protection by specifying a supported instance family, the
+   *          returned instance types will exclude the above unsupported instance families.</p>
+   *          <p>If you specify an unsupported instance family as a value for baseline performance, the
+   *          API returns an empty response for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements">GetInstanceTypesFromInstanceRequirements</a> and an exception for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet">RequestSpotFleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyFleet">ModifyFleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifySpotFleetRequest">ModifySpotFleetRequest</a>.</p>
    * @public
    */
-  Tenancy?: FleetCapacityReservationTenancy | undefined;
-
-  /**
-   * <p>The total number of capacity units to be reserved by the Capacity Reservation Fleet.
-   * 			This value, together with the instance type weights that you assign to each instance
-   * 			type used by the Fleet determine the number of instances for which the Fleet reserves
-   * 			capacity. Both values are based on units that make sense for your workload. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
-   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  TotalTargetCapacity: number | undefined;
-
-  /**
-   * <p>The date and time at which the Capacity Reservation Fleet expires. When the Capacity
-   * 			Reservation Fleet expires, its state changes to <code>expired</code> and all of the
-   * 			Capacity Reservations in the Fleet expire.</p>
-   *          <p>The Capacity Reservation Fleet expires within an hour after the specified time. For
-   * 			example, if you specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity
-   * 			Reservation Fleet is guaranteed to expire between <code>13:30:55</code> and
-   * 				<code>14:30:55</code> on <code>5/31/2019</code>. </p>
-   * @public
-   */
-  EndDate?: Date | undefined;
-
-  /**
-   * <p>Indicates the type of instance launches that the Capacity Reservation Fleet accepts.
-   * 			All Capacity Reservations in the Fleet inherit this instance matching criteria.</p>
-   *          <p>Currently, Capacity Reservation Fleets support <code>open</code> instance matching
-   * 			criteria only. This means that instances that have matching attributes (instance type,
-   * 			platform, and Availability Zone) run in the Capacity Reservations automatically.
-   * 			Instances do not need to explicitly target a Capacity Reservation Fleet to use its
-   * 			reserved capacity.</p>
-   * @public
-   */
-  InstanceMatchCriteria?: FleetInstanceMatchCriteria | undefined;
-
-  /**
-   * <p>The tags to assign to the Capacity Reservation Fleet. The tags are automatically
-   * 			assigned to the Capacity Reservations in the Fleet.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
+  InstanceFamily?: string | undefined;
 }
 
 /**
- * <p>Information about a Capacity Reservation in a Capacity Reservation Fleet.</p>
+ * <p>The CPU performance to consider, using an instance family as the baseline reference.</p>
  * @public
  */
-export interface FleetCapacityReservation {
+export interface CpuPerformanceFactorRequest {
   /**
-   * <p>The ID of the Capacity Reservation.</p>
+   * <p>Specify an instance family to use as the baseline reference for CPU performance. All
+   *          instance types that match your specified attributes will be compared against the CPU
+   *          performance of the referenced instance family, regardless of CPU manufacturer or
+   *          architecture differences.</p>
+   *          <note>
+   *             <p>Currently, only one instance family can be specified in the list.</p>
+   *          </note>
    * @public
    */
-  CapacityReservationId?: string | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone in which the Capacity Reservation reserves
-   * 			capacity.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>The instance type for which the Capacity Reservation reserves capacity.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The type of operating system for which the Capacity Reservation reserves
-   * 			capacity.</p>
-   * @public
-   */
-  InstancePlatform?: CapacityReservationInstancePlatform | undefined;
-
-  /**
-   * <p>The Availability Zone in which the Capacity Reservation reserves capacity.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The total number of instances for which the Capacity Reservation reserves
-   * 			capacity.</p>
-   * @public
-   */
-  TotalInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of capacity units fulfilled by the Capacity Reservation. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
-   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  FulfilledCapacity?: number | undefined;
-
-  /**
-   * <p>Indicates whether the Capacity Reservation reserves capacity for EBS-optimized
-   * 			instance types.</p>
-   * @public
-   */
-  EbsOptimized?: boolean | undefined;
-
-  /**
-   * <p>The date and time at which the Capacity Reservation was created.</p>
-   * @public
-   */
-  CreateDate?: Date | undefined;
-
-  /**
-   * <p>The weight of the instance type in the Capacity Reservation Fleet. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-weight">Instance type
-   * 				weight</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  Weight?: number | undefined;
-
-  /**
-   * <p>The priority of the instance type in the Capacity Reservation Fleet. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">Instance type
-   * 				priority</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  Priority?: number | undefined;
+  References?: PerformanceFactorReferenceRequest[] | undefined;
 }
 
 /**
+ * <p>The baseline performance to consider, using an instance family as a baseline reference.
+ *          The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this
+ *          baseline to guide instance type selection, but there is no guarantee that the selected
+ *          instance types will always exceed the baseline for every application.</p>
+ *          <p>Currently, this parameter only supports CPU performance as a baseline performance
+ *          factor. For example, specifying <code>c6i</code> would use the CPU performance of the
+ *          <code>c6i</code> family as the baseline reference.</p>
  * @public
  */
-export interface CreateCapacityReservationFleetResult {
+export interface BaselinePerformanceFactorsRequest {
   /**
-   * <p>The ID of the Capacity Reservation Fleet.</p>
+   * <p>The CPU performance to consider, using an instance family as the baseline reference.</p>
    * @public
    */
-  CapacityReservationFleetId?: string | undefined;
-
-  /**
-   * <p>The status of the Capacity Reservation Fleet.</p>
-   * @public
-   */
-  State?: CapacityReservationFleetState | undefined;
-
-  /**
-   * <p>The total number of capacity units for which the Capacity Reservation Fleet reserves
-   * 			capacity.</p>
-   * @public
-   */
-  TotalTargetCapacity?: number | undefined;
-
-  /**
-   * <p>The requested capacity units that have been successfully reserved.</p>
-   * @public
-   */
-  TotalFulfilledCapacity?: number | undefined;
-
-  /**
-   * <p>The instance matching criteria for the Capacity Reservation Fleet.</p>
-   * @public
-   */
-  InstanceMatchCriteria?: FleetInstanceMatchCriteria | undefined;
-
-  /**
-   * <p>The allocation strategy used by the Capacity Reservation Fleet.</p>
-   * @public
-   */
-  AllocationStrategy?: string | undefined;
-
-  /**
-   * <p>The date and time at which the Capacity Reservation Fleet was created.</p>
-   * @public
-   */
-  CreateTime?: Date | undefined;
-
-  /**
-   * <p>The date and time at which the Capacity Reservation Fleet expires.</p>
-   * @public
-   */
-  EndDate?: Date | undefined;
-
-  /**
-   * <p>Indicates the tenancy of Capacity Reservation Fleet.</p>
-   * @public
-   */
-  Tenancy?: FleetCapacityReservationTenancy | undefined;
-
-  /**
-   * <p>Information about the individual Capacity Reservations in the Capacity Reservation
-   * 			Fleet.</p>
-   * @public
-   */
-  FleetCapacityReservations?: FleetCapacityReservation[] | undefined;
-
-  /**
-   * <p>The tags assigned to the Capacity Reservation Fleet.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
+  Cpu?: CpuPerformanceFactorRequest | undefined;
 }
 
 /**
+ * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
  * @public
  */
-export interface CreateCarrierGatewayRequest {
+export interface MemoryGiBPerVCpuRequest {
   /**
-   * <p>The ID of the VPC to associate with the carrier gateway.</p>
+   * <p>The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this
+   *          parameter.</p>
    * @public
    */
-  VpcId: string | undefined;
+  Min?: number | undefined;
 
   /**
-   * <p>The tags to associate with the carrier gateway.</p>
+   * <p>The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this
+   *          parameter.</p>
    * @public
    */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure
-   *                 idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
+  Max?: number | undefined;
 }
 
 /**
- * <p>Describes a carrier gateway.</p>
+ * <p>The minimum and maximum amount of memory, in MiB.</p>
  * @public
  */
-export interface CarrierGateway {
+export interface MemoryMiBRequest {
   /**
-   * <p>The ID of the carrier gateway.</p>
+   * <p>The minimum amount of memory, in MiB. To specify no minimum limit, specify
+   *          <code>0</code>.</p>
    * @public
    */
-  CarrierGatewayId?: string | undefined;
+  Min: number | undefined;
 
   /**
-   * <p>The ID of the VPC associated with the carrier gateway.</p>
+   * <p>The maximum amount of memory, in MiB. To specify no maximum limit, omit this
+   *          parameter.</p>
    * @public
    */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The state of the carrier gateway.</p>
-   * @public
-   */
-  State?: CarrierGatewayState | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID of the owner of the carrier gateway.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The tags assigned to the carrier gateway.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
+  Max?: number | undefined;
 }

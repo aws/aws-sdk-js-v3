@@ -560,6 +560,7 @@ export * from "./GetCapacityManagerAttributesCommand";
 export * from "./GetCapacityManagerMetricDataCommand";
 export * from "./GetCapacityManagerMetricDimensionsCommand";
 export * from "./GetCapacityManagerMonitoredTagKeysCommand";
+export * from "./GetCapacityManagerSupportabilityScoresCommand";
 export * from "./GetCapacityReservationUsageCommand";
 export * from "./GetClientVpnEndpointAuthorizationPolicyCommand";
 export * from "./GetCoipPoolUsageCommand";

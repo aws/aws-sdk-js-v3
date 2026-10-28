@@ -45,6 +45,7 @@ import type {
   PortRange,
   RouteTableAssociationState,
   TagSpecification,
+  TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
 } from "./models_0";
@@ -71,6 +72,55 @@ import type {
 } from "./models_5";
 import type { CapacityManagerMonitoredTagKey } from "./models_6";
 import type { CapacityReservationSpecification, EnclaveOptionsRequest, InstanceMonitoring } from "./models_7";
+
+/**
+ * @public
+ */
+export interface RejectTransitGatewayPeeringAttachmentRequest {
+  /**
+   * <p>The ID of the transit gateway peering attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectTransitGatewayPeeringAttachmentResult {
+  /**
+   * <p>The transit gateway peering attachment.</p>
+   * @public
+   */
+  TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectTransitGatewayVpcAttachmentRequest {
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public

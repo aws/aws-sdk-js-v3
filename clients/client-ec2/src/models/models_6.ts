@@ -7,6 +7,7 @@ import type {
   CapacityManagerStatus,
   CapacityReservationState,
   CapacityTenancy,
+  CapacityUnit,
   ChronologicalOrder,
   ClientCertificateRevocationListStatusCode,
   ClientVpnAuthorizationPolicyShadowMode,
@@ -64,6 +65,8 @@ import type {
   SnapshotBlockPublicAccessState,
   SSEType,
   StatisticType,
+  SupportabilityMarketType,
+  SupportabilityScore,
   TargetCapacityUnitType,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentNatGatewaySupportState,
@@ -3270,6 +3273,159 @@ export interface GetCapacityManagerMonitoredTagKeysResult {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * <p>The architecture type, virtualization type, and other attributes for the instance types.
+ *          When you specify instance attributes, Amazon EC2 will identify instance types with those
+ *          attributes.</p>
+ *          <p>If you specify <code>InstanceRequirementsWithMetadataRequest</code>, you can't specify
+ *          <code>InstanceTypes</code>.</p>
+ * @public
+ */
+export interface InstanceRequirementsWithMetadataRequest {
+  /**
+   * <p>The architecture type.</p>
+   * @public
+   */
+  ArchitectureTypes?: ArchitectureType[] | undefined;
+
+  /**
+   * <p>The virtualization type.</p>
+   * @public
+   */
+  VirtualizationTypes?: VirtualizationType[] | undefined;
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with those attributes.</p>
+   * @public
+   */
+  InstanceRequirements?: InstanceRequirementsRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityManagerSupportabilityScoresRequest {
+  /**
+   * <p>
+   * The capacity market to score.
+   * </p>
+   * @public
+   */
+  MarketType: SupportabilityMarketType | undefined;
+
+  /**
+   * <p>
+   * The amount of capacity that you need, in the unit that you specify for <code>CapacityUnit</code>. Each score is relative to this amount.
+   * </p>
+   * @public
+   */
+  CapacityAmount: number | undefined;
+
+  /**
+   * <p>
+   * The unit for <code>CapacityAmount</code>.
+   * </p>
+   * @public
+   */
+  CapacityUnit: CapacityUnit | undefined;
+
+  /**
+   * <p>
+   * The IDs of the Availability Zones to score, such as <code>use1-az1</code>. You can specify Availability Zones in different Regions.
+   * You can specify up to 10 Availability Zones.
+   * </p>
+   * @public
+   */
+  CapacityAvailabilityZoneIds: string[] | undefined;
+
+  /**
+   * <p>
+   * The instance types to score. You can specify up to 50 instance types.
+   * </p>
+   *          <p>
+   * Specify either <code>InstanceTypes</code> or <code>InstanceRequirementsWithMetadata</code>, but not both.
+   * </p>
+   * @public
+   */
+  InstanceTypes?: string[] | undefined;
+
+  /**
+   * <p>
+   * The attributes that the instance types must have, such as vCPU and memory ranges. Capacity Manager resolves the attributes into matching instance types and scores each one.
+   * </p>
+   *          <p>
+   * Specify either <code>InstanceTypes</code> or <code>InstanceRequirementsWithMetadata</code>, but not both.
+   * </p>
+   * @public
+   */
+  InstanceRequirementsWithMetadata?: InstanceRequirementsWithMetadataRequest | undefined;
+
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
+   * If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>
+ * The supportability score for a single instance type and Availability Zone combination.
+ * </p>
+ * @public
+ */
+export interface CapacityManagerSupportabilityScore {
+  /**
+   * <p>
+   * The instance type.
+   * </p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>
+   * The ID of the Availability Zone.
+   * </p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>
+   * How well the combination can support the requested capacity right now. <code>high</code> means that the combination holds several times the requested amount.
+   * <code>medium</code> means that it can cover the request with little to spare. <code>low</code> means that it holds less than the requested amount.
+   * </p>
+   * @public
+   */
+  Score?: SupportabilityScore | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityManagerSupportabilityScoresResult {
+  /**
+   * <p>
+   * The score for all instance type and Availability Zone combinations in the request together.
+   * A <code>high</code> aggregate score with lower individual scores means that no single combination can support the full request, but the combinations together can.
+   * </p>
+   * @public
+   */
+  AggregateScore?: SupportabilityScore | undefined;
+
+  /**
+   * <p>
+   * The score for each instance type and Availability Zone combination in the request.
+   * </p>
+   * @public
+   */
+  CapacityManagerSupportabilityScores?: CapacityManagerSupportabilityScore[] | undefined;
 }
 
 /**
@@ -8222,35 +8378,6 @@ export interface GetSnapshotBlockPublicAccessStateResult {
 }
 
 /**
- * <p>The architecture type, virtualization type, and other attributes for the instance types.
- *          When you specify instance attributes, Amazon EC2 will identify instance types with those
- *          attributes.</p>
- *          <p>If you specify <code>InstanceRequirementsWithMetadataRequest</code>, you can't specify
- *          <code>InstanceTypes</code>.</p>
- * @public
- */
-export interface InstanceRequirementsWithMetadataRequest {
-  /**
-   * <p>The architecture type.</p>
-   * @public
-   */
-  ArchitectureTypes?: ArchitectureType[] | undefined;
-
-  /**
-   * <p>The virtualization type.</p>
-   * @public
-   */
-  VirtualizationTypes?: VirtualizationType[] | undefined;
-
-  /**
-   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
-   *          identify instance types with those attributes.</p>
-   * @public
-   */
-  InstanceRequirements?: InstanceRequirementsRequest | undefined;
-}
-
-/**
  * @public
  */
 export interface GetSpotPlacementScoresRequest {
@@ -9317,66 +9444,6 @@ export interface GetVerifiedAccessEndpointTargetsRequest {
    * @public
    */
   NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes the targets for the specified Verified Access endpoint.</p>
- * @public
- */
-export interface VerifiedAccessEndpointTarget {
-  /**
-   * <p>The ID of the Verified Access endpoint.</p>
-   * @public
-   */
-  VerifiedAccessEndpointId?: string | undefined;
-
-  /**
-   * <p>The IP address of the target.</p>
-   * @public
-   */
-  VerifiedAccessEndpointTargetIpAddress?: string | undefined;
-
-  /**
-   * <p>The DNS name of the target.</p>
-   * @public
-   */
-  VerifiedAccessEndpointTargetDns?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVerifiedAccessEndpointTargetsResult {
-  /**
-   * <p>The Verified Access targets.</p>
-   * @public
-   */
-  VerifiedAccessEndpointTargets?: VerifiedAccessEndpointTarget[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVerifiedAccessGroupPolicyRequest {
-  /**
-   * <p>The ID of the Verified Access group.</p>
-   * @public
-   */
-  VerifiedAccessGroupId: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,

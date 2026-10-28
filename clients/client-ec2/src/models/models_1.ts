@@ -14,7 +14,10 @@ import type {
   BlockPublicAccessMode,
   BootModeOverrideValues,
   BurstablePerformance,
+  CapacityReservationFleetState,
+  CapacityReservationInstancePlatform,
   CapacityReservationPreference,
+  CarrierGatewayState,
   ClientVpnAuthenticationType,
   ClientVpnDeviceTrustProviderType,
   ClientVpnEndpointStatusCode,
@@ -29,9 +32,11 @@ import type {
   EndpointIpAddressType,
   ExportEnvironment,
   ExportTaskState,
+  FleetCapacityReservationTenancy,
   FleetCapacityReservationUsageStrategy,
   FleetExcessCapacityTerminationPolicy,
   FleetHttpTokensState,
+  FleetInstanceMatchCriteria,
   FleetInstanceMetadataEndpointState,
   FleetOnDemandAllocationStrategy,
   FleetReplacementStrategy,
@@ -133,9 +138,12 @@ import type {
   AccessScopePathRequest,
   AddIpamOperatingRegion,
   AddPrefixListEntry,
-  CarrierGateway,
+  BaselineEbsBandwidthMbpsRequest,
+  BaselinePerformanceFactorsRequest,
   InstanceEventWindow,
   IpamRoutingPolicyRegistrationDelta,
+  MemoryGiBPerVCpuRequest,
+  MemoryMiBRequest,
   NatGatewayAddress,
   OperatorResponse,
   PortRange,
@@ -146,6 +154,972 @@ import type {
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
 } from "./models_0";
+
+/**
+ * <p>The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).</p>
+ *          <note>
+ *             <p>Setting the minimum bandwidth does not guarantee that your instance will achieve the
+ *             minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum
+ *             bandwidth, but the actual bandwidth of your instance might go below the specified minimum
+ *             at times. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth">Available instance bandwidth</a> in the
+ *             <i>Amazon EC2 User Guide</i>.</p>
+ *          </note>
+ * @public
+ */
+export interface NetworkBandwidthGbpsRequest {
+  /**
+   * <p>The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this
+   *          parameter.</p>
+   * @public
+   */
+  Min?: number | undefined;
+
+  /**
+   * <p>The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this
+   *          parameter.</p>
+   * @public
+   */
+  Max?: number | undefined;
+}
+
+/**
+ * <p>The minimum and maximum number of network interfaces.</p>
+ * @public
+ */
+export interface NetworkInterfaceCountRequest {
+  /**
+   * <p>The minimum number of network interfaces. To specify no minimum limit, omit this
+   *          parameter.</p>
+   * @public
+   */
+  Min?: number | undefined;
+
+  /**
+   * <p>The maximum number of network interfaces. To specify no maximum limit, omit this
+   *          parameter.</p>
+   * @public
+   */
+  Max?: number | undefined;
+}
+
+/**
+ * <p>The minimum and maximum amount of total local storage, in GB.</p>
+ * @public
+ */
+export interface TotalLocalStorageGBRequest {
+  /**
+   * <p>The minimum amount of total local storage, in GB. To specify no minimum limit, omit this
+   *          parameter.</p>
+   * @public
+   */
+  Min?: number | undefined;
+
+  /**
+   * <p>The maximum amount of total local storage, in GB. To specify no maximum limit, omit this
+   *          parameter.</p>
+   * @public
+   */
+  Max?: number | undefined;
+}
+
+/**
+ * <p>The minimum and maximum number of vCPUs.</p>
+ * @public
+ */
+export interface VCpuCountRangeRequest {
+  /**
+   * <p>The minimum number of vCPUs. To specify no minimum limit, specify <code>0</code>.</p>
+   * @public
+   */
+  Min: number | undefined;
+
+  /**
+   * <p>The maximum number of vCPUs. To specify no maximum limit, omit this parameter.</p>
+   * @public
+   */
+  Max?: number | undefined;
+}
+
+/**
+ * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+ *          identify instance types with these attributes.</p>
+ *          <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes
+ *          are optional. Any unspecified optional attribute is set to its default.</p>
+ *          <p>When you specify multiple attributes, you get instance types that satisfy all of the
+ *          specified attributes. If you specify multiple values for an attribute, you get instance
+ *          types that satisfy any of the specified values.</p>
+ *          <p>To limit the list of instance types from which Amazon EC2 can identify matching instance types,
+ *          you can use one of the following parameters, but not both in the same request:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>AllowedInstanceTypes</code> - The instance types to include in the list. All
+ *                other instance types are ignored, even if they match your specified attributes.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ExcludedInstanceTypes</code> - The instance types to exclude from the list,
+ *                even if they match your specified attributes.</p>
+ *             </li>
+ *          </ul>
+ *          <note>
+ *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
+ *             <code>InstanceType</code>.</p>
+ *             <p>Attribute-based instance type selection is only supported when using Auto Scaling
+ *             groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in
+ *             the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html">launch instance
+ *                wizard</a>, or with the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> API or
+ *                <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html">AWS::EC2::Instance</a> Amazon Web Services CloudFormation resource, you can't specify
+ *                <code>InstanceRequirements</code>.</p>
+ *          </note>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Specify attributes for instance type selection for EC2 Fleet or Spot Fleet</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
+ *             placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface InstanceRequirementsRequest {
+  /**
+   * <p>The minimum and maximum number of vCPUs.</p>
+   * @public
+   */
+  VCpuCount: VCpuCountRangeRequest | undefined;
+
+  /**
+   * <p>The minimum and maximum amount of memory, in MiB.</p>
+   * @public
+   */
+  MemoryMiB: MemoryMiBRequest | undefined;
+
+  /**
+   * <p>The CPU manufacturers to include.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with Intel CPUs, specify <code>intel</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with AMD CPUs, specify <code>amd</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services CPUs, specify <code>amazon-web-services</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Apple CPUs, specify <code>apple</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Don't confuse the CPU manufacturer with the CPU architecture. Instances will
+   *          be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you
+   *          specify in your launch template.</p>
+   *          </note>
+   *          <p>Default: Any manufacturer</p>
+   * @public
+   */
+  CpuManufacturers?: CpuManufacturer[] | undefined;
+
+  /**
+   * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   * @public
+   */
+  MemoryGiBPerVCpu?: MemoryGiBPerVCpuRequest | undefined;
+
+  /**
+   * <p>The instance types to exclude.</p>
+   *          <p>You can use strings with one or more wild cards, represented by
+   *          an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The
+   *          following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,
+   *             <code>r*</code>, <code>*3*</code>.</p>
+   *          <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance
+   *       family, which includes all C5a and C5n instance types. If you specify
+   *       <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n
+   *       instance types.</p>
+   *          <note>
+   *             <p>If you specify <code>ExcludedInstanceTypes</code>, you can't specify <code>AllowedInstanceTypes</code>.</p>
+   *          </note>
+   *          <p>Default: No excluded instance types</p>
+   * @public
+   */
+  ExcludedInstanceTypes?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether current or previous generation instance types are included. The
+   *       current generation instance types are recommended for use. Current generation instance types are
+   *       typically the latest two to three generations in each instance family. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
+   *       <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For current generation instance types, specify <code>current</code>.</p>
+   *          <p>For previous generation instance types, specify <code>previous</code>.</p>
+   *          <p>Default: Current and previous generation instance types</p>
+   * @public
+   */
+  InstanceGenerations?: InstanceGeneration[] | undefined;
+
+  /**
+   * <p>[Price protection] The price protection threshold for Spot Instances, as a percentage higher than
+   *          an identified Spot price. The identified Spot price is the Spot price of the lowest priced
+   *          current generation C, M, or R instance type with your specified attributes. If no current
+   *          generation C, M, or R instance type matches your attributes, then the identified Spot price
+   *          is from the lowest priced current generation instance types, and failing that, from the
+   *          lowest priced previous generation instance types that match your attributes. When Amazon EC2
+   *          selects instance types with your attributes, it will exclude instance types whose Spot
+   *          price exceeds your specified threshold.</p>
+   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
+   *          <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
+   *          <code>memory-mib</code>, the price protection threshold is applied based on the
+   *          per-vCPU or per-memory price instead of the per-instance price.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
+   *          <note>
+   *             <p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or
+   *                <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you
+   *             don't specify either, Amazon EC2 will automatically apply optimal price protection to
+   *             consistently select from a wide range of instance types. To indicate no price protection
+   *             threshold for Spot Instances, meaning you want to consider all instance types that match your
+   *             attributes, include one of these parameters and specify a high value, such as
+   *                <code>999999</code>.</p>
+   *          </note>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   * @public
+   */
+  SpotMaxPricePercentageOverLowestPrice?: number | undefined;
+
+  /**
+   * <p>[Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than
+   *          an identified On-Demand price. The identified On-Demand price is the price of the lowest
+   *          priced current generation C, M, or R instance type with your specified attributes. When
+   *          Amazon EC2 selects instance types with your attributes, it will exclude instance types whose
+   *          price exceeds your specified threshold.</p>
+   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
+   *          <p>To indicate no price protection threshold, specify a high value, such as
+   *             <code>999999</code>.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
+   *          <note>
+   *             <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
+   *          <code>memory-mib</code>, the price protection threshold is applied based on the
+   *          per-vCPU or per-memory price instead of the per-instance price.</p>
+   *          </note>
+   *          <p>Default: <code>20</code>
+   *          </p>
+   * @public
+   */
+  OnDemandMaxPricePercentageOverLowestPrice?: number | undefined;
+
+  /**
+   * <p>Indicates whether bare metal instance types must be included, excluded, or required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include bare metal instance types, specify <code>included</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To require only bare metal instance types, specify <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To exclude bare metal instance types, specify <code>excluded</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>excluded</code>
+   *          </p>
+   * @public
+   */
+  BareMetal?: BareMetal | undefined;
+
+  /**
+   * <p>Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance instances</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include burstable performance instance types, specify <code>included</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To require only burstable performance instance types, specify <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To exclude burstable performance instance types, specify <code>excluded</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>excluded</code>
+   *          </p>
+   * @public
+   */
+  BurstablePerformance?: BurstablePerformance | undefined;
+
+  /**
+   * <p>Indicates whether instance types must support hibernation for On-Demand Instances.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  RequireHibernateSupport?: boolean | undefined;
+
+  /**
+   * <p>The minimum and maximum number of network interfaces.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   * @public
+   */
+  NetworkInterfaceCount?: NetworkInterfaceCountRequest | undefined;
+
+  /**
+   * <p>Indicates whether instance types with instance store volumes are included, excluded, or required. For more information,
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon
+   *          EC2 instance store</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include instance types with instance store volumes, specify
+   *                   <code>included</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To require only instance types with instance store volumes, specify
+   *                   <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To exclude instance types with instance store volumes, specify
+   *                   <code>excluded</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>included</code>
+   *          </p>
+   * @public
+   */
+  LocalStorage?: LocalStorage | undefined;
+
+  /**
+   * <p>The type of local storage that is required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with solid state drive (SSD) storage, specify
+   *                <code>ssd</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>hdd</code> and <code>ssd</code>
+   *          </p>
+   * @public
+   */
+  LocalStorageTypes?: LocalStorageType[] | undefined;
+
+  /**
+   * <p>The minimum and maximum amount of total local storage, in GB.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   * @public
+   */
+  TotalLocalStorageGB?: TotalLocalStorageGBRequest | undefined;
+
+  /**
+   * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
+   *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   * @public
+   */
+  BaselineEbsBandwidthMbps?: BaselineEbsBandwidthMbpsRequest | undefined;
+
+  /**
+   * <p>The accelerator types that must be on the instance type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with FPGA accelerators, specify <code>fpga</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with GPU accelerators, specify <code>gpu</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Inference accelerators, specify <code>inference</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Media accelerators, specify <code>media</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Any accelerator type</p>
+   * @public
+   */
+  AcceleratorTypes?: AcceleratorType[] | undefined;
+
+  /**
+   * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on
+   *          an instance.</p>
+   *          <p>To exclude accelerator-enabled instance types, set <code>Max</code> to <code>0</code>.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   * @public
+   */
+  AcceleratorCount?: AcceleratorCountRequest | undefined;
+
+  /**
+   * <p>Indicates whether instance types must have accelerators by specific manufacturers.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with AMD devices, specify <code>amd</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Habana devices, specify <code>habana</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Xilinx devices, specify <code>xilinx</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Any manufacturer</p>
+   * @public
+   */
+  AcceleratorManufacturers?: AcceleratorManufacturer[] | undefined;
+
+  /**
+   * <p>The accelerators that must be on the instance type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with NVIDIA A10G GPUs, specify <code>a10g</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA H100 GPUs, specify <code>h100</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services Inferentia chips, specify <code>inferentia</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services Inferentia2 chips, specify <code>inferentia2</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Habana Gaudi HL-205 GPUs, specify <code>gaudi-hl-205</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA L4 GPUs, specify <code>l4</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA L40S GPUs, specify <code>l40s</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services Trainium chips, specify <code>trainium</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services Trainium2 chips, specify <code>trainium2</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA T4G GPUs, specify <code>t4g</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Xilinx U30 cards, specify <code>u30</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Any accelerator</p>
+   * @public
+   */
+  AcceleratorNames?: AcceleratorName[] | undefined;
+
+  /**
+   * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   * @public
+   */
+  AcceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiBRequest | undefined;
+
+  /**
+   * <p>The minimum and maximum amount of baseline network bandwidth, in gigabits per second
+   *           (Gbps). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html">Amazon EC2 instance network bandwidth</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   * @public
+   */
+  NetworkBandwidthGbps?: NetworkBandwidthGbpsRequest | undefined;
+
+  /**
+   * <p>The instance types to apply your specified attributes against. All other instance types
+   *          are ignored, even if they match your specified attributes.</p>
+   *          <p>You can use strings with one or more wild cards, represented by
+   *          an asterisk (<code>*</code>), to allow an instance type, size, or generation. The
+   *          following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,
+   *          <code>r*</code>, <code>*3*</code>.</p>
+   *          <p>For example, if you specify <code>c5*</code>,Amazon EC2 will allow the entire C5 instance
+   *          family, which includes all C5a and C5n instance types. If you specify
+   *          <code>m5a.*</code>, Amazon EC2 will allow all the M5a instance types, but not the M5n
+   *          instance types.</p>
+   *          <note>
+   *             <p>If you specify <code>AllowedInstanceTypes</code>, you can't specify <code>ExcludedInstanceTypes</code>.</p>
+   *          </note>
+   *          <p>Default: All instance types</p>
+   * @public
+   */
+  AllowedInstanceTypes?: string[] | undefined;
+
+  /**
+   * <p>[Price protection] The price protection threshold for Spot Instances, as a percentage of an
+   *          identified On-Demand price. The identified On-Demand price is the price of the lowest
+   *          priced current generation C, M, or R instance type with your specified attributes. If no
+   *          current generation C, M, or R instance type matches your attributes, then the identified
+   *          price is from the lowest priced current generation instance types, and failing that, from
+   *          the lowest priced previous generation instance types that match your attributes. When Amazon EC2
+   *          selects instance types with your attributes, it will exclude instance types whose price
+   *          exceeds your specified threshold.</p>
+   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
+   *          <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
+   *          <code>memory-mib</code>, the price protection threshold is based on the per vCPU or per
+   *          memory price instead of the per instance price.</p>
+   *          <note>
+   *             <p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or
+   *                <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you
+   *             don't specify either, Amazon EC2 will automatically apply optimal price protection to
+   *             consistently select from a wide range of instance types. To indicate no price protection
+   *             threshold for Spot Instances, meaning you want to consider all instance types that match your
+   *             attributes, include one of these parameters and specify a high value, such as
+   *                <code>999999</code>.</p>
+   *          </note>
+   * @public
+   */
+  MaxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number | undefined;
+
+  /**
+   * <p>The baseline performance to consider, using an instance family as a baseline reference.
+   *          The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this
+   *          baseline to guide instance type selection, but there is no guarantee that the selected
+   *          instance types will always exceed the baseline for every application. Currently, this
+   *          parameter only supports CPU performance as a baseline performance factor. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection">Performance protection</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  BaselinePerformanceFactors?: BaselinePerformanceFactorsRequest | undefined;
+
+  /**
+   * <p>Specifies whether instance types must support encrypting in-transit traffic between
+   *          instances. For more information, including the supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit">Encryption in
+   *             transit</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  RequireEncryptionInTransit?: boolean | undefined;
+}
+
+/**
+ * <p>Information about an instance type to use in a Capacity Reservation Fleet.</p>
+ * @public
+ */
+export interface ReservationFleetInstanceSpecification {
+  /**
+   * <p>The instance type for which the Capacity Reservation Fleet reserves capacity.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The type of operating system for which the Capacity Reservation Fleet reserves
+   * 			capacity.</p>
+   * @public
+   */
+  InstancePlatform?: CapacityReservationInstancePlatform | undefined;
+
+  /**
+   * <p>The number of capacity units provided by the specified instance type. This value,
+   * 			together with the total target capacity that you specify for the Fleet determine the
+   * 			number of instances for which the Fleet reserves capacity. Both values are based on
+   * 			units that make sense for your workload. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
+   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  Weight?: number | undefined;
+
+  /**
+   * <p>The Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A
+   * 			Capacity Reservation Fleet can't span Availability Zones. All instance type
+   * 			specifications that you specify for the Fleet must use the same Availability
+   * 			Zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone in which the Capacity Reservation Fleet reserves the
+   * 			capacity. A Capacity Reservation Fleet can't span Availability Zones. All instance type
+   * 			specifications that you specify for the Fleet must use the same Availability
+   * 			Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>Indicates whether the Capacity Reservation Fleet supports EBS-optimized instances
+   * 			types. This optimization provides dedicated throughput to Amazon EBS and an
+   * 			optimized configuration stack to provide optimal I/O performance. This optimization
+   * 			isn't available with all instance types. Additional usage charges apply when using
+   * 			EBS-optimized instance types.</p>
+   * @public
+   */
+  EbsOptimized?: boolean | undefined;
+
+  /**
+   * <p>The priority to assign to the instance type. This value is used to determine which of
+   * 			the instance types specified for the Fleet should be prioritized for use. A lower value
+   * 			indicates a high priority. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">Instance type
+   * 				priority</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  Priority?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCapacityReservationFleetRequest {
+  /**
+   * <p>The strategy used by the Capacity Reservation Fleet to determine which of the
+   * 			specified instance types to use. Currently, only the <code>prioritized</code> allocation
+   * 			strategy is supported. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy"> Allocation
+   * 				strategy</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Valid values: <code>prioritized</code>
+   *          </p>
+   * @public
+   */
+  AllocationStrategy?: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Information about the instance types for which to reserve the capacity.</p>
+   * @public
+   */
+  InstanceTypeSpecifications?: ReservationFleetInstanceSpecification[] | undefined;
+
+  /**
+   * <p>Reserved for internal use.</p>
+   * @public
+   */
+  InstanceRequirements?: InstanceRequirementsRequest | undefined;
+
+  /**
+   * <p>Reserved for internal use.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>Reserved for internal use.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in
+   * 			the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the
+   * 			following tenancy settings:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default</code> - The Capacity Reservation Fleet is created on hardware
+   * 					that is shared with other Amazon Web Services accounts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dedicated</code> - The Capacity Reservations are created on single-tenant
+   * 					hardware that is dedicated to a single Amazon Web Services account.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Tenancy?: FleetCapacityReservationTenancy | undefined;
+
+  /**
+   * <p>The total number of capacity units to be reserved by the Capacity Reservation Fleet.
+   * 			This value, together with the instance type weights that you assign to each instance
+   * 			type used by the Fleet determine the number of instances for which the Fleet reserves
+   * 			capacity. Both values are based on units that make sense for your workload. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
+   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  TotalTargetCapacity: number | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation Fleet expires. When the Capacity
+   * 			Reservation Fleet expires, its state changes to <code>expired</code> and all of the
+   * 			Capacity Reservations in the Fleet expire.</p>
+   *          <p>The Capacity Reservation Fleet expires within an hour after the specified time. For
+   * 			example, if you specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity
+   * 			Reservation Fleet is guaranteed to expire between <code>13:30:55</code> and
+   * 				<code>14:30:55</code> on <code>5/31/2019</code>. </p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>Indicates the type of instance launches that the Capacity Reservation Fleet accepts.
+   * 			All Capacity Reservations in the Fleet inherit this instance matching criteria.</p>
+   *          <p>Currently, Capacity Reservation Fleets support <code>open</code> instance matching
+   * 			criteria only. This means that instances that have matching attributes (instance type,
+   * 			platform, and Availability Zone) run in the Capacity Reservations automatically.
+   * 			Instances do not need to explicitly target a Capacity Reservation Fleet to use its
+   * 			reserved capacity.</p>
+   * @public
+   */
+  InstanceMatchCriteria?: FleetInstanceMatchCriteria | undefined;
+
+  /**
+   * <p>The tags to assign to the Capacity Reservation Fleet. The tags are automatically
+   * 			assigned to the Capacity Reservations in the Fleet.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Information about a Capacity Reservation in a Capacity Reservation Fleet.</p>
+ * @public
+ */
+export interface FleetCapacityReservation {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone in which the Capacity Reservation reserves
+   * 			capacity.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The instance type for which the Capacity Reservation reserves capacity.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The type of operating system for which the Capacity Reservation reserves
+   * 			capacity.</p>
+   * @public
+   */
+  InstancePlatform?: CapacityReservationInstancePlatform | undefined;
+
+  /**
+   * <p>The Availability Zone in which the Capacity Reservation reserves capacity.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The total number of instances for which the Capacity Reservation reserves
+   * 			capacity.</p>
+   * @public
+   */
+  TotalInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of capacity units fulfilled by the Capacity Reservation. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
+   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  FulfilledCapacity?: number | undefined;
+
+  /**
+   * <p>Indicates whether the Capacity Reservation reserves capacity for EBS-optimized
+   * 			instance types.</p>
+   * @public
+   */
+  EbsOptimized?: boolean | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation was created.</p>
+   * @public
+   */
+  CreateDate?: Date | undefined;
+
+  /**
+   * <p>The weight of the instance type in the Capacity Reservation Fleet. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-weight">Instance type
+   * 				weight</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  Weight?: number | undefined;
+
+  /**
+   * <p>The priority of the instance type in the Capacity Reservation Fleet. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">Instance type
+   * 				priority</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  Priority?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCapacityReservationFleetResult {
+  /**
+   * <p>The ID of the Capacity Reservation Fleet.</p>
+   * @public
+   */
+  CapacityReservationFleetId?: string | undefined;
+
+  /**
+   * <p>The status of the Capacity Reservation Fleet.</p>
+   * @public
+   */
+  State?: CapacityReservationFleetState | undefined;
+
+  /**
+   * <p>The total number of capacity units for which the Capacity Reservation Fleet reserves
+   * 			capacity.</p>
+   * @public
+   */
+  TotalTargetCapacity?: number | undefined;
+
+  /**
+   * <p>The requested capacity units that have been successfully reserved.</p>
+   * @public
+   */
+  TotalFulfilledCapacity?: number | undefined;
+
+  /**
+   * <p>The instance matching criteria for the Capacity Reservation Fleet.</p>
+   * @public
+   */
+  InstanceMatchCriteria?: FleetInstanceMatchCriteria | undefined;
+
+  /**
+   * <p>The allocation strategy used by the Capacity Reservation Fleet.</p>
+   * @public
+   */
+  AllocationStrategy?: string | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation Fleet was created.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation Fleet expires.</p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>Indicates the tenancy of Capacity Reservation Fleet.</p>
+   * @public
+   */
+  Tenancy?: FleetCapacityReservationTenancy | undefined;
+
+  /**
+   * <p>Information about the individual Capacity Reservations in the Capacity Reservation
+   * 			Fleet.</p>
+   * @public
+   */
+  FleetCapacityReservations?: FleetCapacityReservation[] | undefined;
+
+  /**
+   * <p>The tags assigned to the Capacity Reservation Fleet.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCarrierGatewayRequest {
+  /**
+   * <p>The ID of the VPC to associate with the carrier gateway.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The tags to associate with the carrier gateway.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure
+   *                 idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * <p>Describes a carrier gateway.</p>
+ * @public
+ */
+export interface CarrierGateway {
+  /**
+   * <p>The ID of the carrier gateway.</p>
+   * @public
+   */
+  CarrierGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC associated with the carrier gateway.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The state of the carrier gateway.</p>
+   * @public
+   */
+  State?: CarrierGatewayState | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the carrier gateway.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The tags assigned to the carrier gateway.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
 
 /**
  * @public
@@ -2247,744 +3221,6 @@ export interface FleetIamInstanceProfileSpecificationRequest {
    * @public
    */
   Name?: string | undefined;
-}
-
-/**
- * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
- *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
- *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
- * @public
- */
-export interface BaselineEbsBandwidthMbpsRequest {
-  /**
-   * <p>The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit
-   *          this parameter.</p>
-   * @public
-   */
-  Min?: number | undefined;
-
-  /**
-   * <p>The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit
-   *          this parameter.</p>
-   * @public
-   */
-  Max?: number | undefined;
-}
-
-/**
- * <p>Specify an instance family to use as the baseline reference for CPU performance. All
- *          instance types that match your specified attributes will be compared against the CPU
- *          performance of the referenced instance family, regardless of CPU manufacturer or
- *          architecture.</p>
- *          <note>
- *             <p>Currently, only one instance family can be specified in the list.</p>
- *          </note>
- * @public
- */
-export interface PerformanceFactorReferenceRequest {
-  /**
-   * <p>The instance family to use as a baseline reference.</p>
-   *          <note>
-   *             <p>Ensure that you specify the correct value for the instance family. The instance
-   *             family is everything before the period (<code>.</code>) in the instance type name. For
-   *             example, in the instance type <code>c6i.large</code>, the instance family is
-   *             <code>c6i</code>, not <code>c6</code>. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html">Amazon EC2
-   *                instance type naming conventions</a> in <i>Amazon EC2 Instance
-   *                   Types</i>.</p>
-   *          </note>
-   *          <p>The following instance families are <i>not supported</i> for performance
-   *          protection:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>c1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>g3</code> | <code>g3s</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>hpc7g</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>m1</code> | <code>m2</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>mac1</code> | <code>mac2</code> | <code>mac2-m1ultra</code> |
-   *                <code>mac2-m2</code> | <code>mac2-m2pro</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>p3dn</code> | <code>p4d</code> | <code>p5</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>t1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>u-12tb1</code> | <code>u-18tb1</code> | <code>u-24tb1</code> |
-   *                <code>u-3tb1</code> | <code>u-6tb1</code> | <code>u-9tb1</code> |
-   *                <code>u7i-12tb</code> | <code>u7in-16tb</code> | <code>u7in-24tb</code> |
-   *                <code>u7in-32tb</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>If you enable performance protection by specifying a supported instance family, the
-   *          returned instance types will exclude the above unsupported instance families.</p>
-   *          <p>If you specify an unsupported instance family as a value for baseline performance, the
-   *          API returns an empty response for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements">GetInstanceTypesFromInstanceRequirements</a> and an exception for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet">RequestSpotFleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyFleet">ModifyFleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifySpotFleetRequest">ModifySpotFleetRequest</a>.</p>
-   * @public
-   */
-  InstanceFamily?: string | undefined;
-}
-
-/**
- * <p>The CPU performance to consider, using an instance family as the baseline reference.</p>
- * @public
- */
-export interface CpuPerformanceFactorRequest {
-  /**
-   * <p>Specify an instance family to use as the baseline reference for CPU performance. All
-   *          instance types that match your specified attributes will be compared against the CPU
-   *          performance of the referenced instance family, regardless of CPU manufacturer or
-   *          architecture differences.</p>
-   *          <note>
-   *             <p>Currently, only one instance family can be specified in the list.</p>
-   *          </note>
-   * @public
-   */
-  References?: PerformanceFactorReferenceRequest[] | undefined;
-}
-
-/**
- * <p>The baseline performance to consider, using an instance family as a baseline reference.
- *          The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this
- *          baseline to guide instance type selection, but there is no guarantee that the selected
- *          instance types will always exceed the baseline for every application.</p>
- *          <p>Currently, this parameter only supports CPU performance as a baseline performance
- *          factor. For example, specifying <code>c6i</code> would use the CPU performance of the
- *          <code>c6i</code> family as the baseline reference.</p>
- * @public
- */
-export interface BaselinePerformanceFactorsRequest {
-  /**
-   * <p>The CPU performance to consider, using an instance family as the baseline reference.</p>
-   * @public
-   */
-  Cpu?: CpuPerformanceFactorRequest | undefined;
-}
-
-/**
- * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
- * @public
- */
-export interface MemoryGiBPerVCpuRequest {
-  /**
-   * <p>The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this
-   *          parameter.</p>
-   * @public
-   */
-  Min?: number | undefined;
-
-  /**
-   * <p>The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this
-   *          parameter.</p>
-   * @public
-   */
-  Max?: number | undefined;
-}
-
-/**
- * <p>The minimum and maximum amount of memory, in MiB.</p>
- * @public
- */
-export interface MemoryMiBRequest {
-  /**
-   * <p>The minimum amount of memory, in MiB. To specify no minimum limit, specify
-   *          <code>0</code>.</p>
-   * @public
-   */
-  Min: number | undefined;
-
-  /**
-   * <p>The maximum amount of memory, in MiB. To specify no maximum limit, omit this
-   *          parameter.</p>
-   * @public
-   */
-  Max?: number | undefined;
-}
-
-/**
- * <p>The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).</p>
- *          <note>
- *             <p>Setting the minimum bandwidth does not guarantee that your instance will achieve the
- *             minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum
- *             bandwidth, but the actual bandwidth of your instance might go below the specified minimum
- *             at times. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth">Available instance bandwidth</a> in the
- *             <i>Amazon EC2 User Guide</i>.</p>
- *          </note>
- * @public
- */
-export interface NetworkBandwidthGbpsRequest {
-  /**
-   * <p>The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this
-   *          parameter.</p>
-   * @public
-   */
-  Min?: number | undefined;
-
-  /**
-   * <p>The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this
-   *          parameter.</p>
-   * @public
-   */
-  Max?: number | undefined;
-}
-
-/**
- * <p>The minimum and maximum number of network interfaces.</p>
- * @public
- */
-export interface NetworkInterfaceCountRequest {
-  /**
-   * <p>The minimum number of network interfaces. To specify no minimum limit, omit this
-   *          parameter.</p>
-   * @public
-   */
-  Min?: number | undefined;
-
-  /**
-   * <p>The maximum number of network interfaces. To specify no maximum limit, omit this
-   *          parameter.</p>
-   * @public
-   */
-  Max?: number | undefined;
-}
-
-/**
- * <p>The minimum and maximum amount of total local storage, in GB.</p>
- * @public
- */
-export interface TotalLocalStorageGBRequest {
-  /**
-   * <p>The minimum amount of total local storage, in GB. To specify no minimum limit, omit this
-   *          parameter.</p>
-   * @public
-   */
-  Min?: number | undefined;
-
-  /**
-   * <p>The maximum amount of total local storage, in GB. To specify no maximum limit, omit this
-   *          parameter.</p>
-   * @public
-   */
-  Max?: number | undefined;
-}
-
-/**
- * <p>The minimum and maximum number of vCPUs.</p>
- * @public
- */
-export interface VCpuCountRangeRequest {
-  /**
-   * <p>The minimum number of vCPUs. To specify no minimum limit, specify <code>0</code>.</p>
-   * @public
-   */
-  Min: number | undefined;
-
-  /**
-   * <p>The maximum number of vCPUs. To specify no maximum limit, omit this parameter.</p>
-   * @public
-   */
-  Max?: number | undefined;
-}
-
-/**
- * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
- *          identify instance types with these attributes.</p>
- *          <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes
- *          are optional. Any unspecified optional attribute is set to its default.</p>
- *          <p>When you specify multiple attributes, you get instance types that satisfy all of the
- *          specified attributes. If you specify multiple values for an attribute, you get instance
- *          types that satisfy any of the specified values.</p>
- *          <p>To limit the list of instance types from which Amazon EC2 can identify matching instance types,
- *          you can use one of the following parameters, but not both in the same request:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>AllowedInstanceTypes</code> - The instance types to include in the list. All
- *                other instance types are ignored, even if they match your specified attributes.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ExcludedInstanceTypes</code> - The instance types to exclude from the list,
- *                even if they match your specified attributes.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
- *             <code>InstanceType</code>.</p>
- *             <p>Attribute-based instance type selection is only supported when using Auto Scaling
- *             groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in
- *             the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html">launch instance
- *                wizard</a>, or with the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> API or
- *                <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html">AWS::EC2::Instance</a> Amazon Web Services CloudFormation resource, you can't specify
- *                <code>InstanceRequirements</code>.</p>
- *          </note>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Specify attributes for instance type selection for EC2 Fleet or Spot Fleet</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
- *             placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
- * @public
- */
-export interface InstanceRequirementsRequest {
-  /**
-   * <p>The minimum and maximum number of vCPUs.</p>
-   * @public
-   */
-  VCpuCount: VCpuCountRangeRequest | undefined;
-
-  /**
-   * <p>The minimum and maximum amount of memory, in MiB.</p>
-   * @public
-   */
-  MemoryMiB: MemoryMiBRequest | undefined;
-
-  /**
-   * <p>The CPU manufacturers to include.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For instance types with Intel CPUs, specify <code>intel</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with AMD CPUs, specify <code>amd</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Amazon Web Services CPUs, specify <code>amazon-web-services</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Apple CPUs, specify <code>apple</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>Don't confuse the CPU manufacturer with the CPU architecture. Instances will
-   *          be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you
-   *          specify in your launch template.</p>
-   *          </note>
-   *          <p>Default: Any manufacturer</p>
-   * @public
-   */
-  CpuManufacturers?: CpuManufacturer[] | undefined;
-
-  /**
-   * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
-   *          <p>Default: No minimum or maximum limits</p>
-   * @public
-   */
-  MemoryGiBPerVCpu?: MemoryGiBPerVCpuRequest | undefined;
-
-  /**
-   * <p>The instance types to exclude.</p>
-   *          <p>You can use strings with one or more wild cards, represented by
-   *          an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The
-   *          following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,
-   *             <code>r*</code>, <code>*3*</code>.</p>
-   *          <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance
-   *       family, which includes all C5a and C5n instance types. If you specify
-   *       <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n
-   *       instance types.</p>
-   *          <note>
-   *             <p>If you specify <code>ExcludedInstanceTypes</code>, you can't specify <code>AllowedInstanceTypes</code>.</p>
-   *          </note>
-   *          <p>Default: No excluded instance types</p>
-   * @public
-   */
-  ExcludedInstanceTypes?: string[] | undefined;
-
-  /**
-   * <p>Indicates whether current or previous generation instance types are included. The
-   *       current generation instance types are recommended for use. Current generation instance types are
-   *       typically the latest two to three generations in each instance family. For more
-   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
-   *       <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>For current generation instance types, specify <code>current</code>.</p>
-   *          <p>For previous generation instance types, specify <code>previous</code>.</p>
-   *          <p>Default: Current and previous generation instance types</p>
-   * @public
-   */
-  InstanceGenerations?: InstanceGeneration[] | undefined;
-
-  /**
-   * <p>[Price protection] The price protection threshold for Spot Instances, as a percentage higher than
-   *          an identified Spot price. The identified Spot price is the Spot price of the lowest priced
-   *          current generation C, M, or R instance type with your specified attributes. If no current
-   *          generation C, M, or R instance type matches your attributes, then the identified Spot price
-   *          is from the lowest priced current generation instance types, and failing that, from the
-   *          lowest priced previous generation instance types that match your attributes. When Amazon EC2
-   *          selects instance types with your attributes, it will exclude instance types whose Spot
-   *          price exceeds your specified threshold.</p>
-   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
-   *          <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
-   *          <code>memory-mib</code>, the price protection threshold is applied based on the
-   *          per-vCPU or per-memory price instead of the per-instance price.</p>
-   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
-   *          <note>
-   *             <p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or
-   *                <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you
-   *             don't specify either, Amazon EC2 will automatically apply optimal price protection to
-   *             consistently select from a wide range of instance types. To indicate no price protection
-   *             threshold for Spot Instances, meaning you want to consider all instance types that match your
-   *             attributes, include one of these parameters and specify a high value, such as
-   *                <code>999999</code>.</p>
-   *          </note>
-   *          <p>Default: <code>100</code>
-   *          </p>
-   * @public
-   */
-  SpotMaxPricePercentageOverLowestPrice?: number | undefined;
-
-  /**
-   * <p>[Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than
-   *          an identified On-Demand price. The identified On-Demand price is the price of the lowest
-   *          priced current generation C, M, or R instance type with your specified attributes. When
-   *          Amazon EC2 selects instance types with your attributes, it will exclude instance types whose
-   *          price exceeds your specified threshold.</p>
-   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
-   *          <p>To indicate no price protection threshold, specify a high value, such as
-   *             <code>999999</code>.</p>
-   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
-   *          <note>
-   *             <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
-   *          <code>memory-mib</code>, the price protection threshold is applied based on the
-   *          per-vCPU or per-memory price instead of the per-instance price.</p>
-   *          </note>
-   *          <p>Default: <code>20</code>
-   *          </p>
-   * @public
-   */
-  OnDemandMaxPricePercentageOverLowestPrice?: number | undefined;
-
-  /**
-   * <p>Indicates whether bare metal instance types must be included, excluded, or required.</p>
-   *          <ul>
-   *             <li>
-   *                <p>To include bare metal instance types, specify <code>included</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To require only bare metal instance types, specify <code>required</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To exclude bare metal instance types, specify <code>excluded</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>excluded</code>
-   *          </p>
-   * @public
-   */
-  BareMetal?: BareMetal | undefined;
-
-  /**
-   * <p>Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see
-   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance instances</a>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>To include burstable performance instance types, specify <code>included</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To require only burstable performance instance types, specify <code>required</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To exclude burstable performance instance types, specify <code>excluded</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>excluded</code>
-   *          </p>
-   * @public
-   */
-  BurstablePerformance?: BurstablePerformance | undefined;
-
-  /**
-   * <p>Indicates whether instance types must support hibernation for On-Demand Instances.</p>
-   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  RequireHibernateSupport?: boolean | undefined;
-
-  /**
-   * <p>The minimum and maximum number of network interfaces.</p>
-   *          <p>Default: No minimum or maximum limits</p>
-   * @public
-   */
-  NetworkInterfaceCount?: NetworkInterfaceCountRequest | undefined;
-
-  /**
-   * <p>Indicates whether instance types with instance store volumes are included, excluded, or required. For more information,
-   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon
-   *          EC2 instance store</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>To include instance types with instance store volumes, specify
-   *                   <code>included</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To require only instance types with instance store volumes, specify
-   *                   <code>required</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To exclude instance types with instance store volumes, specify
-   *                   <code>excluded</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>included</code>
-   *          </p>
-   * @public
-   */
-  LocalStorage?: LocalStorage | undefined;
-
-  /**
-   * <p>The type of local storage that is required.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with solid state drive (SSD) storage, specify
-   *                <code>ssd</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>hdd</code> and <code>ssd</code>
-   *          </p>
-   * @public
-   */
-  LocalStorageTypes?: LocalStorageType[] | undefined;
-
-  /**
-   * <p>The minimum and maximum amount of total local storage, in GB.</p>
-   *          <p>Default: No minimum or maximum limits</p>
-   * @public
-   */
-  TotalLocalStorageGB?: TotalLocalStorageGBRequest | undefined;
-
-  /**
-   * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
-   *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>Default: No minimum or maximum limits</p>
-   * @public
-   */
-  BaselineEbsBandwidthMbps?: BaselineEbsBandwidthMbpsRequest | undefined;
-
-  /**
-   * <p>The accelerator types that must be on the instance type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For instance types with FPGA accelerators, specify <code>fpga</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with GPU accelerators, specify <code>gpu</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Inference accelerators, specify <code>inference</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Media accelerators, specify <code>media</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: Any accelerator type</p>
-   * @public
-   */
-  AcceleratorTypes?: AcceleratorType[] | undefined;
-
-  /**
-   * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on
-   *          an instance.</p>
-   *          <p>To exclude accelerator-enabled instance types, set <code>Max</code> to <code>0</code>.</p>
-   *          <p>Default: No minimum or maximum limits</p>
-   * @public
-   */
-  AcceleratorCount?: AcceleratorCountRequest | undefined;
-
-  /**
-   * <p>Indicates whether instance types must have accelerators by specific manufacturers.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with AMD devices, specify <code>amd</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Habana devices, specify <code>habana</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Xilinx devices, specify <code>xilinx</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: Any manufacturer</p>
-   * @public
-   */
-  AcceleratorManufacturers?: AcceleratorManufacturer[] | undefined;
-
-  /**
-   * <p>The accelerators that must be on the instance type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For instance types with NVIDIA A10G GPUs, specify <code>a10g</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA H100 GPUs, specify <code>h100</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Amazon Web Services Inferentia chips, specify <code>inferentia</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Amazon Web Services Inferentia2 chips, specify <code>inferentia2</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Habana Gaudi HL-205 GPUs, specify <code>gaudi-hl-205</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA L4 GPUs, specify <code>l4</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA L40S GPUs, specify <code>l40s</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Amazon Web Services Trainium chips, specify <code>trainium</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Amazon Web Services Trainium2 chips, specify <code>trainium2</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA T4G GPUs, specify <code>t4g</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Xilinx U30 cards, specify <code>u30</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: Any accelerator</p>
-   * @public
-   */
-  AcceleratorNames?: AcceleratorName[] | undefined;
-
-  /**
-   * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
-   *          <p>Default: No minimum or maximum limits</p>
-   * @public
-   */
-  AcceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiBRequest | undefined;
-
-  /**
-   * <p>The minimum and maximum amount of baseline network bandwidth, in gigabits per second
-   *           (Gbps). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html">Amazon EC2 instance network bandwidth</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>Default: No minimum or maximum limits</p>
-   * @public
-   */
-  NetworkBandwidthGbps?: NetworkBandwidthGbpsRequest | undefined;
-
-  /**
-   * <p>The instance types to apply your specified attributes against. All other instance types
-   *          are ignored, even if they match your specified attributes.</p>
-   *          <p>You can use strings with one or more wild cards, represented by
-   *          an asterisk (<code>*</code>), to allow an instance type, size, or generation. The
-   *          following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,
-   *          <code>r*</code>, <code>*3*</code>.</p>
-   *          <p>For example, if you specify <code>c5*</code>,Amazon EC2 will allow the entire C5 instance
-   *          family, which includes all C5a and C5n instance types. If you specify
-   *          <code>m5a.*</code>, Amazon EC2 will allow all the M5a instance types, but not the M5n
-   *          instance types.</p>
-   *          <note>
-   *             <p>If you specify <code>AllowedInstanceTypes</code>, you can't specify <code>ExcludedInstanceTypes</code>.</p>
-   *          </note>
-   *          <p>Default: All instance types</p>
-   * @public
-   */
-  AllowedInstanceTypes?: string[] | undefined;
-
-  /**
-   * <p>[Price protection] The price protection threshold for Spot Instances, as a percentage of an
-   *          identified On-Demand price. The identified On-Demand price is the price of the lowest
-   *          priced current generation C, M, or R instance type with your specified attributes. If no
-   *          current generation C, M, or R instance type matches your attributes, then the identified
-   *          price is from the lowest priced current generation instance types, and failing that, from
-   *          the lowest priced previous generation instance types that match your attributes. When Amazon EC2
-   *          selects instance types with your attributes, it will exclude instance types whose price
-   *          exceeds your specified threshold.</p>
-   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
-   *          <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
-   *          <code>memory-mib</code>, the price protection threshold is based on the per vCPU or per
-   *          memory price instead of the per instance price.</p>
-   *          <note>
-   *             <p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or
-   *                <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you
-   *             don't specify either, Amazon EC2 will automatically apply optimal price protection to
-   *             consistently select from a wide range of instance types. To indicate no price protection
-   *             threshold for Spot Instances, meaning you want to consider all instance types that match your
-   *             attributes, include one of these parameters and specify a high value, such as
-   *                <code>999999</code>.</p>
-   *          </note>
-   * @public
-   */
-  MaxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number | undefined;
-
-  /**
-   * <p>The baseline performance to consider, using an instance family as a baseline reference.
-   *          The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this
-   *          baseline to guide instance type selection, but there is no guarantee that the selected
-   *          instance types will always exceed the baseline for every application. Currently, this
-   *          parameter only supports CPU performance as a baseline performance factor. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection">Performance protection</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  BaselinePerformanceFactors?: BaselinePerformanceFactorsRequest | undefined;
-
-  /**
-   * <p>Specifies whether instance types must support encrypting in-transit traffic between
-   *          instances. For more information, including the supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit">Encryption in
-   *             transit</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  RequireEncryptionInTransit?: boolean | undefined;
 }
 
 /**

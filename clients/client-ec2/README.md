@@ -4160,6 +4160,13 @@ GetCapacityManagerMonitoredTagKeys
 </details>
 <details>
 <summary>
+GetCapacityManagerSupportabilityScores
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetCapacityManagerSupportabilityScoresCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetCapacityManagerSupportabilityScoresCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetCapacityManagerSupportabilityScoresCommandOutput/)
+</details>
+<details>
+<summary>
 GetCapacityReservationUsage
 </summary>
 

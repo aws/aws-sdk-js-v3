@@ -113,7 +113,6 @@ import type {
   TagSpecification,
   TransitGatewayClientVpnAttachment,
   TransitGatewayMulticastDomainAssociations,
-  TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
   VerifiedAccessInstance,
@@ -214,6 +213,66 @@ import type {
   Purchase,
   TransitGatewayNatRule,
 } from "./models_6";
+
+/**
+ * <p>Describes the targets for the specified Verified Access endpoint.</p>
+ * @public
+ */
+export interface VerifiedAccessEndpointTarget {
+  /**
+   * <p>The ID of the Verified Access endpoint.</p>
+   * @public
+   */
+  VerifiedAccessEndpointId?: string | undefined;
+
+  /**
+   * <p>The IP address of the target.</p>
+   * @public
+   */
+  VerifiedAccessEndpointTargetIpAddress?: string | undefined;
+
+  /**
+   * <p>The DNS name of the target.</p>
+   * @public
+   */
+  VerifiedAccessEndpointTargetDns?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVerifiedAccessEndpointTargetsResult {
+  /**
+   * <p>The Verified Access targets.</p>
+   * @public
+   */
+  VerifiedAccessEndpointTargets?: VerifiedAccessEndpointTarget[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVerifiedAccessGroupPolicyRequest {
+  /**
+   * <p>The ID of the Verified Access group.</p>
+   * @public
+   */
+  VerifiedAccessGroupId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -9935,53 +9994,4 @@ export interface RejectTransitGatewayMulticastDomainAssociationsResult {
    * @public
    */
   Associations?: TransitGatewayMulticastDomainAssociations | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectTransitGatewayPeeringAttachmentRequest {
-  /**
-   * <p>The ID of the transit gateway peering attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectTransitGatewayPeeringAttachmentResult {
-  /**
-   * <p>The transit gateway peering attachment.</p>
-   * @public
-   */
-  TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectTransitGatewayVpcAttachmentRequest {
-  /**
-   * <p>The ID of the attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

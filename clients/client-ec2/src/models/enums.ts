@@ -1642,6 +1642,89 @@ export type FleetInstanceMatchCriteria = (typeof FleetInstanceMatchCriteria)[key
  * @public
  * @enum
  */
+export const BareMetal = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+  REQUIRED: "required",
+} as const;
+/**
+ * @public
+ */
+export type BareMetal = (typeof BareMetal)[keyof typeof BareMetal];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurstablePerformance = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+  REQUIRED: "required",
+} as const;
+/**
+ * @public
+ */
+export type BurstablePerformance = (typeof BurstablePerformance)[keyof typeof BurstablePerformance];
+
+/**
+ * @public
+ * @enum
+ */
+export const CpuManufacturer = {
+  AMAZON_WEB_SERVICES: "amazon-web-services",
+  AMD: "amd",
+  APPLE: "apple",
+  INTEL: "intel",
+} as const;
+/**
+ * @public
+ */
+export type CpuManufacturer = (typeof CpuManufacturer)[keyof typeof CpuManufacturer];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceGeneration = {
+  CURRENT: "current",
+  PREVIOUS: "previous",
+} as const;
+/**
+ * @public
+ */
+export type InstanceGeneration = (typeof InstanceGeneration)[keyof typeof InstanceGeneration];
+
+/**
+ * @public
+ * @enum
+ */
+export const LocalStorage = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+  REQUIRED: "required",
+} as const;
+/**
+ * @public
+ */
+export type LocalStorage = (typeof LocalStorage)[keyof typeof LocalStorage];
+
+/**
+ * @public
+ * @enum
+ */
+export const LocalStorageType = {
+  HDD: "hdd",
+  SSD: "ssd",
+} as const;
+/**
+ * @public
+ */
+export type LocalStorageType = (typeof LocalStorageType)[keyof typeof LocalStorageType];
+
+/**
+ * @public
+ * @enum
+ */
 export const _InstanceType = {
   a1_2xlarge: "a1.2xlarge",
   a1_4xlarge: "a1.4xlarge",
@@ -3401,89 +3484,6 @@ export const FleetExcessCapacityTerminationPolicy = {
  */
 export type FleetExcessCapacityTerminationPolicy =
   (typeof FleetExcessCapacityTerminationPolicy)[keyof typeof FleetExcessCapacityTerminationPolicy];
-
-/**
- * @public
- * @enum
- */
-export const BareMetal = {
-  EXCLUDED: "excluded",
-  INCLUDED: "included",
-  REQUIRED: "required",
-} as const;
-/**
- * @public
- */
-export type BareMetal = (typeof BareMetal)[keyof typeof BareMetal];
-
-/**
- * @public
- * @enum
- */
-export const BurstablePerformance = {
-  EXCLUDED: "excluded",
-  INCLUDED: "included",
-  REQUIRED: "required",
-} as const;
-/**
- * @public
- */
-export type BurstablePerformance = (typeof BurstablePerformance)[keyof typeof BurstablePerformance];
-
-/**
- * @public
- * @enum
- */
-export const CpuManufacturer = {
-  AMAZON_WEB_SERVICES: "amazon-web-services",
-  AMD: "amd",
-  APPLE: "apple",
-  INTEL: "intel",
-} as const;
-/**
- * @public
- */
-export type CpuManufacturer = (typeof CpuManufacturer)[keyof typeof CpuManufacturer];
-
-/**
- * @public
- * @enum
- */
-export const InstanceGeneration = {
-  CURRENT: "current",
-  PREVIOUS: "previous",
-} as const;
-/**
- * @public
- */
-export type InstanceGeneration = (typeof InstanceGeneration)[keyof typeof InstanceGeneration];
-
-/**
- * @public
- * @enum
- */
-export const LocalStorage = {
-  EXCLUDED: "excluded",
-  INCLUDED: "included",
-  REQUIRED: "required",
-} as const;
-/**
- * @public
- */
-export type LocalStorage = (typeof LocalStorage)[keyof typeof LocalStorage];
-
-/**
- * @public
- * @enum
- */
-export const LocalStorageType = {
-  HDD: "hdd",
-  SSD: "ssd",
-} as const;
-/**
- * @public
- */
-export type LocalStorageType = (typeof LocalStorageType)[keyof typeof LocalStorageType];
 
 /**
  * @public
@@ -8042,6 +8042,11 @@ export type GroupBy = (typeof GroupBy)[keyof typeof GroupBy];
  * @enum
  */
 export const Metric = {
+  AVG_INST_AZ_COUNT_PER_REQUESTED_VCPU: "avg-inst-az-count-per-requested-vcpu",
+  CAPACITY_REQUEST_FULFILLMENT_RATE: "capacity-request-fulfillment-rate",
+  CAPACITY_TOTAL_FULFILLED_VCPU: "capacity-total-fulfilled-vcpu",
+  CAPACITY_TOTAL_REQUESTED_VCPU: "capacity-total-requested-vcpu",
+  INST_AZ_FULFILLMENT_RATE: "inst-az-fulfillment-rate",
   RESERVATION_AVG_COMMITTED_SIZE_INST: "reservation-avg-committed-size-inst",
   RESERVATION_AVG_COMMITTED_SIZE_VCPU: "reservation-avg-committed-size-vcpu",
   RESERVATION_AVG_FUTURE_SIZE_INST: "reservation-avg-future-size-inst",
@@ -8076,7 +8081,12 @@ export const Metric = {
   RESERVED_TOTAL_ESTIMATED_COST: "reserved-total-estimated-cost",
   RESERVED_TOTAL_USAGE_HRS_INST: "reserved-total-usage-hrs-inst",
   RESERVED_TOTAL_USAGE_HRS_VCPU: "reserved-total-usage-hrs-vcpu",
+  SPOT_AVG_INST_AZ_COUNT_PER_REQUESTED_VCPU: "spot-avg-inst-az-count-per-requested-vcpu",
   SPOT_AVG_RUN_TIME_BEFORE_INTERRUPTION_INST: "spot-avg-run-time-before-interruption-inst",
+  SPOT_CAPACITY_REQUEST_FULFILLMENT_RATE: "spot-capacity-request-fulfillment-rate",
+  SPOT_CAPACITY_TOTAL_FULFILLED_VCPU: "spot-capacity-total-fulfilled-vcpu",
+  SPOT_CAPACITY_TOTAL_REQUESTED_VCPU: "spot-capacity-total-requested-vcpu",
+  SPOT_INST_AZ_FULFILLMENT_RATE: "spot-inst-az-fulfillment-rate",
   SPOT_INTERRUPTION_RATE_INST: "spot-interruption-rate-inst",
   SPOT_INTERRUPTION_RATE_VCPU: "spot-interruption-rate-vcpu",
   SPOT_MAX_RUN_TIME_BEFORE_INTERRUPTION_INST: "spot-max-run-time-before-interruption-inst",
@@ -8151,6 +8161,46 @@ export const CapacityManagerMonitoredTagKeyStatus = {
  */
 export type CapacityManagerMonitoredTagKeyStatus =
   (typeof CapacityManagerMonitoredTagKeyStatus)[keyof typeof CapacityManagerMonitoredTagKeyStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityUnit = {
+  INSTANCES: "instances",
+  VCPUS: "vcpus",
+} as const;
+/**
+ * @public
+ */
+export type CapacityUnit = (typeof CapacityUnit)[keyof typeof CapacityUnit];
+
+/**
+ * @public
+ * @enum
+ */
+export const SupportabilityMarketType = {
+  ON_DEMAND: "on-demand",
+  SPOT: "spot",
+} as const;
+/**
+ * @public
+ */
+export type SupportabilityMarketType = (typeof SupportabilityMarketType)[keyof typeof SupportabilityMarketType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SupportabilityScore = {
+  HIGH: "high",
+  LOW: "low",
+  MEDIUM: "medium",
+} as const;
+/**
+ * @public
+ */
+export type SupportabilityScore = (typeof SupportabilityScore)[keyof typeof SupportabilityScore];
 
 /**
  * @public

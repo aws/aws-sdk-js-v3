@@ -1,0 +1,101 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetCapacityManagerSupportabilityScoresResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetCapacityManagerSupportabilityScoresResult xmlns="https://placeholder.amazonaws.com">
+    <aggregateScore>
+        __AggregateScore__
+    </aggregateScore>
+    <capacityManagerSupportabilityScoreSet>
+        <item>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <score>
+                __Score__
+            </score>
+        </item>
+        <item>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <score>
+                __Score__
+            </score>
+        </item>
+        <item>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <score>
+                __Score__
+            </score>
+        </item>
+    </capacityManagerSupportabilityScoreSet>
+</GetCapacityManagerSupportabilityScoresResult>
+
+
+--- [output object] ---
+{
+  AggregateScore: "__AggregateScore__",
+  CapacityManagerSupportabilityScores: [
+    {
+      InstanceType: "__InstanceType__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      Score: "__Score__"
+    },
+    {
+      InstanceType: "__InstanceType__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      Score: "__Score__"
+    },
+    {
+      InstanceType: "__InstanceType__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      Score: "__Score__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
