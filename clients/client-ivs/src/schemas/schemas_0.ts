@@ -318,6 +318,7 @@ const _tE = "truncatedEvents";
 const _tF = "targetFramerate";
 const _tIS = "targetIntervalSeconds";
 const _tK = "tagKeys";
+const _tSA = "targetStartAt";
 const _tr = "track";
 const _ty = "type";
 const _v = "video";
@@ -741,13 +742,13 @@ export var IngestConfigurations$: StaticStructureSchema = [3, n0, _ICn,
 ];
 export var InsertAdBreakRequest$: StaticStructureSchema = [3, n0, _IABR,
   0,
-  [_cA, _dS],
-  [0, 1], 2
+  [_cA, _dS, _aBI, _tSA],
+  [0, 1, 0, 5], 2
 ];
 export var InsertAdBreakResponse$: StaticStructureSchema = [3, n0, _IABRn,
   0,
-  [_aBI],
-  [0]
+  [_aBI, _tSA],
+  [0, 5]
 ];
 export var ListAdConfigurationsRequest$: StaticStructureSchema = [3, n0, _LACR,
   0,

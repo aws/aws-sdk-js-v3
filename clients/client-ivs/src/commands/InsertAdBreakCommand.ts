@@ -35,11 +35,14 @@ export interface InsertAdBreakCommandOutput extends InsertAdBreakResponse, __Met
  * const input = { // InsertAdBreakRequest
  *   channelArn: "STRING_VALUE", // required
  *   durationSeconds: Number("int"), // required
+ *   adBreakId: "STRING_VALUE",
+ *   targetStartAt: new Date("TIMESTAMP"),
  * };
  * const command = new InsertAdBreakCommand(input);
  * const response = await client.send(command);
  * // { // InsertAdBreakResponse
  * //   adBreakId: "STRING_VALUE",
+ * //   targetStartAt: new Date("TIMESTAMP"),
  * // };
  *
  * ```

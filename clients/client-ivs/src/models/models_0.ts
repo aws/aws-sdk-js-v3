@@ -732,19 +732,19 @@ export interface CreateFailoverSlateConfigurationRequest {
   name?: string | undefined;
 
   /**
-   * <p>Number of seconds of ingest interruption before the failover slate activates. Minimum: <code>3</code>. Maximum: <code>5</code>. Default: <code>3</code>.</p>
+   * <p>Number of seconds of ingest interruption before the failover slate activates. Default: <code>3</code>.</p>
    * @public
    */
   activationThresholdSeconds?: number | undefined;
 
   /**
-   * <p>Minimum number of seconds that the failover slate displays after activation. Minimum: <code>3</code>. Maximum: <code>10</code>. Default: <code>3</code>.</p>
+   * <p>Minimum number of seconds that the failover slate displays after activation. Default: <code>3</code>.</p>
    * @public
    */
   minSlateDisplaySeconds?: number | undefined;
 
   /**
-   * <p>Maximum number of seconds that the failover slate displays. Minimum: <code>60</code>. Maximum: <code>180</code>. Default: <code>60</code>.</p>
+   * <p>Maximum number of seconds that the failover slate displays. Default: <code>60</code>.</p>
    * @public
    */
   maxSlateDisplaySeconds?: number | undefined;
@@ -774,19 +774,19 @@ export interface FailoverSlateConfiguration {
   name?: string | undefined;
 
   /**
-   * <p>Number of seconds of ingest interruption before the failover slate activates. Minimum: <code>3</code>. Maximum: <code>5</code>. Default: <code>3</code>.</p>
+   * <p>Number of seconds of ingest interruption before the failover slate activates. Default: <code>3</code>.</p>
    * @public
    */
   activationThresholdSeconds?: number | undefined;
 
   /**
-   * <p>Minimum number of seconds that the failover slate displays after activation. Minimum: <code>3</code>. Maximum: <code>10</code>. Default: <code>3</code>.</p>
+   * <p>Minimum number of seconds that the failover slate displays after activation. Default: <code>3</code>.</p>
    * @public
    */
   minSlateDisplaySeconds?: number | undefined;
 
   /**
-   * <p>Maximum number of seconds that the failover slate displays. Minimum: <code>60</code>. Maximum: <code>180</code>. Default: <code>60</code>.</p>
+   * <p>Maximum number of seconds that the failover slate displays. Default: <code>60</code>.</p>
    * @public
    */
   maxSlateDisplaySeconds?: number | undefined;
@@ -1756,6 +1756,18 @@ export interface InsertAdBreakRequest {
    * @public
    */
   durationSeconds: number | undefined;
+
+  /**
+   * <p>Caller-specified unique identifier for the ad break to insert into the playlist.</p>
+   * @public
+   */
+  adBreakId?: string | undefined;
+
+  /**
+   * <p>Target time at which the ad break starts.</p>
+   * @public
+   */
+  targetStartAt?: Date | undefined;
 }
 
 /**
@@ -1767,6 +1779,12 @@ export interface InsertAdBreakResponse {
    * @public
    */
   adBreakId?: string | undefined;
+
+  /**
+   * <p>Target start time for the inserted ad break.</p>
+   * @public
+   */
+  targetStartAt?: Date | undefined;
 }
 
 /**
@@ -1980,19 +1998,19 @@ export interface FailoverSlateConfigurationSummary {
   name?: string | undefined;
 
   /**
-   * <p>Number of seconds of ingest interruption before the failover slate activates. Minimum: <code>3</code>. Maximum: <code>5</code>. Default: <code>3</code>.</p>
+   * <p>Number of seconds of ingest interruption before the failover slate activates. Default: <code>3</code>.</p>
    * @public
    */
   activationThresholdSeconds?: number | undefined;
 
   /**
-   * <p>Minimum number of seconds that the failover slate displays after activation. Minimum: <code>3</code>. Maximum: <code>10</code>. Default: <code>3</code>.</p>
+   * <p>Minimum number of seconds that the failover slate displays after activation. Default: <code>3</code>.</p>
    * @public
    */
   minSlateDisplaySeconds?: number | undefined;
 
   /**
-   * <p>Maximum number of seconds that the failover slate displays. Minimum: <code>60</code>. Maximum: <code>180</code>. Default: <code>60</code>.</p>
+   * <p>Maximum number of seconds that the failover slate displays. Default: <code>60</code>.</p>
    * @public
    */
   maxSlateDisplaySeconds?: number | undefined;
@@ -2737,19 +2755,19 @@ export interface UpdateFailoverSlateConfigurationRequest {
   name?: string | undefined;
 
   /**
-   * <p>Number of seconds of ingest interruption before the failover slate activates. Minimum: <code>3</code>. Maximum: <code>5</code>. Default: <code>3</code>.</p>
+   * <p>Number of seconds of ingest interruption before the failover slate activates. Default: <code>3</code>.</p>
    * @public
    */
   activationThresholdSeconds?: number | undefined;
 
   /**
-   * <p>Minimum number of seconds that the failover slate displays after activation. Minimum: <code>3</code>. Maximum: <code>10</code>. Default: <code>3</code>.</p>
+   * <p>Minimum number of seconds that the failover slate displays after activation. Default: <code>3</code>.</p>
    * @public
    */
   minSlateDisplaySeconds?: number | undefined;
 
   /**
-   * <p>Maximum number of seconds that the failover slate displays. Minimum: <code>60</code>. Maximum: <code>180</code>. Default: <code>60</code>.</p>
+   * <p>Maximum number of seconds that the failover slate displays. Default: <code>60</code>.</p>
    * @public
    */
   maxSlateDisplaySeconds?: number | undefined;
