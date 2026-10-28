@@ -4050,6 +4050,18 @@ export interface MulticastSource {
    * @public
    */
   Url: string | undefined;
+
+  /**
+   * This represents the ip address of the device sending the secondary multicast stream.
+   * @public
+   */
+  SecondarySourceIp?: string | undefined;
+
+  /**
+   * This represents the customer's secondary source URL where the redundant multicast stream (SMPTE 2022-7) is pulled from.
+   * @public
+   */
+  SecondaryUrl?: string | undefined;
 }
 
 /**
@@ -5079,6 +5091,18 @@ export interface MulticastSourceCreateRequest {
    * @public
    */
   Url: string | undefined;
+
+  /**
+   * This represents the ip address of the device sending the secondary multicast stream.
+   * @public
+   */
+  SecondarySourceIp?: string | undefined;
+
+  /**
+   * This represents the customer's secondary source URL where the redundant multicast stream (SMPTE 2022-7) is pulled from.
+   * @public
+   */
+  SecondaryUrl?: string | undefined;
 }
 
 /**
@@ -5097,6 +5121,18 @@ export interface MulticastSourceUpdateRequest {
    * @public
    */
   Url: string | undefined;
+
+  /**
+   * This represents the ip address of the device sending the secondary multicast stream.
+   * @public
+   */
+  SecondarySourceIp?: string | undefined;
+
+  /**
+   * This represents the customer's secondary source URL where the redundant multicast stream (SMPTE 2022-7) is pulled from.
+   * @public
+   */
+  SecondaryUrl?: string | undefined;
 }
 
 /**

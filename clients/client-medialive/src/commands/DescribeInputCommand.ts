@@ -121,6 +121,8 @@ export interface DescribeInputCommandOutput extends DescribeInputResponse, __Met
  * //       { // MulticastSource
  * //         SourceIp: "STRING_VALUE",
  * //         Url: "STRING_VALUE", // required
+ * //         SecondarySourceIp: "STRING_VALUE",
+ * //         SecondaryUrl: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },

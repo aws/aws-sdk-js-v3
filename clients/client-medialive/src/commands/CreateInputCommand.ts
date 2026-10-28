@@ -109,6 +109,8 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  *       { // MulticastSourceCreateRequest
  *         SourceIp: "STRING_VALUE",
  *         Url: "STRING_VALUE", // required
+ *         SecondarySourceIp: "STRING_VALUE",
+ *         SecondaryUrl: "STRING_VALUE",
  *       },
  *     ],
  *   },
@@ -236,6 +238,8 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * //         { // MulticastSource
  * //           SourceIp: "STRING_VALUE",
  * //           Url: "STRING_VALUE", // required
+ * //           SecondarySourceIp: "STRING_VALUE",
+ * //           SecondaryUrl: "STRING_VALUE",
  * //         },
  * //       ],
  * //     },

@@ -96,6 +96,8 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  *       { // MulticastSourceUpdateRequest
  *         SourceIp: "STRING_VALUE",
  *         Url: "STRING_VALUE", // required
+ *         SecondarySourceIp: "STRING_VALUE",
+ *         SecondaryUrl: "STRING_VALUE",
  *       },
  *     ],
  *   },
@@ -217,6 +219,8 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * //         { // MulticastSource
  * //           SourceIp: "STRING_VALUE",
  * //           Url: "STRING_VALUE", // required
+ * //           SecondarySourceIp: "STRING_VALUE",
+ * //           SecondaryUrl: "STRING_VALUE",
  * //         },
  * //       ],
  * //     },

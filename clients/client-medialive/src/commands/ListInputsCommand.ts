@@ -124,6 +124,8 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * //           { // MulticastSource
  * //             SourceIp: "STRING_VALUE",
  * //             Url: "STRING_VALUE", // required
+ * //             SecondarySourceIp: "STRING_VALUE",
+ * //             SecondaryUrl: "STRING_VALUE",
  * //           },
  * //         ],
  * //       },

@@ -1285,6 +1285,7 @@ const _SSI = "Scte35SpliceInsert";
 const _SSIS = "Scte35SpliceInsertSettings";
 const _SSISAS = "Scte35SpliceInsertScheduleActionSettings";
 const _SSId = "SdiSourceId";
+const _SSIe = "SecondarySourceIp";
 const _SSM = "SdiSourceMappings";
 const _SSMUR = "SdiSourceMappingUpdateRequest";
 const _SSMURd = "SdiSourceMappingsUpdateRequest";
@@ -1324,7 +1325,8 @@ const _SUSM = "StartUpdateSignalMap";
 const _SUSMR = "StartUpdateSignalMapRequest";
 const _SUSMRt = "StartUpdateSignalMapResponse";
 const _SUT = "SegmentationUpidType";
-const _SUe = "SegmentationUpid";
+const _SUe = "SecondaryUrl";
+const _SUeg = "SegmentationUpid";
 const _SV = "ServerValidation";
 const _SXO = "ShadowXOffset";
 const _SYO = "ShadowYOffset";
@@ -2410,6 +2412,7 @@ const _sS = "selectorSettings";
 const _sSE = "subSegmentsExpected";
 const _sSI = "scte35SpliceInsert";
 const _sSIS = "scte35SpliceInsertSettings";
+const _sSIe = "secondarySourceIp";
 const _sSM = "sdiSourceMappings";
 const _sSN = "subSegmentNum";
 const _sSS = "scte35SegmentationScope";
@@ -2440,7 +2443,8 @@ const _sTu = "surroundTrim";
 const _sTy = "syncThreshold";
 const _sU = "sdpUrl";
 const _sUT = "segmentationUpidType";
-const _sUe = "segmentationUpid";
+const _sUe = "secondaryUrl";
+const _sUeg = "segmentationUpid";
 const _sV = "serverValidation";
 const _sXO = "shadowXOffset";
 const _sYO = "shadowYOffset";
@@ -4623,18 +4627,18 @@ export var MulticastSettingsUpdateRequest$: StaticStructureSchema = [3, n0, _MSU
 ];
 export var MulticastSource$: StaticStructureSchema = [3, n0, _MSult,
   0,
-  [_Ur, _SI],
-  [[0, { [_jN]: _ur }], [0, { [_jN]: _sI }]], 1
+  [_Ur, _SI, _SSIe, _SUe],
+  [[0, { [_jN]: _ur }], [0, { [_jN]: _sI }], [0, { [_jN]: _sSIe }], [0, { [_jN]: _sUe }]], 1
 ];
 export var MulticastSourceCreateRequest$: StaticStructureSchema = [3, n0, _MSCRu,
   0,
-  [_Ur, _SI],
-  [[0, { [_jN]: _ur }], [0, { [_jN]: _sI }]], 1
+  [_Ur, _SI, _SSIe, _SUe],
+  [[0, { [_jN]: _ur }], [0, { [_jN]: _sI }], [0, { [_jN]: _sSIe }], [0, { [_jN]: _sUe }]], 1
 ];
 export var MulticastSourceUpdateRequest$: StaticStructureSchema = [3, n0, _MSURu,
   0,
-  [_Ur, _SI],
-  [[0, { [_jN]: _ur }], [0, { [_jN]: _sI }]], 1
+  [_Ur, _SI, _SSIe, _SUe],
+  [[0, { [_jN]: _ur }], [0, { [_jN]: _sI }], [0, { [_jN]: _sSIe }], [0, { [_jN]: _sUe }]], 1
 ];
 export var Multiplex$: StaticStructureSchema = [3, n0, _Mu,
   0,
@@ -5048,8 +5052,8 @@ export var Scte35ReturnToNetworkScheduleActionSettings$: StaticStructureSchema =
 ];
 export var Scte35SegmentationDescriptor$: StaticStructureSchema = [3, n0, _SSD,
   0,
-  [_SCI, _SEIe, _DRel, _SNeg, _SDeg, _STI, _SUe, _SUT, _SE, _SSN, _SSE],
-  [[0, { [_jN]: _sCI }], [1, { [_jN]: _sEIe }], [() => Scte35DeliveryRestrictions$, { [_jN]: _dRel }], [1, { [_jN]: _sNeg }], [1, { [_jN]: _sDeg }], [1, { [_jN]: _sTI }], [0, { [_jN]: _sUe }], [1, { [_jN]: _sUT }], [1, { [_jN]: _sE }], [1, { [_jN]: _sSN }], [1, { [_jN]: _sSE }]], 2
+  [_SCI, _SEIe, _DRel, _SNeg, _SDeg, _STI, _SUeg, _SUT, _SE, _SSN, _SSE],
+  [[0, { [_jN]: _sCI }], [1, { [_jN]: _sEIe }], [() => Scte35DeliveryRestrictions$, { [_jN]: _dRel }], [1, { [_jN]: _sNeg }], [1, { [_jN]: _sDeg }], [1, { [_jN]: _sTI }], [0, { [_jN]: _sUeg }], [1, { [_jN]: _sUT }], [1, { [_jN]: _sE }], [1, { [_jN]: _sSN }], [1, { [_jN]: _sSE }]], 2
 ];
 export var Scte35SpliceInsert$: StaticStructureSchema = [3, n0, _SSI,
   0,
