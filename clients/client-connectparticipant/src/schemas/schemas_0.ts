@@ -107,6 +107,7 @@ const _TE = "ThrottlingException";
 const _Te = "Template";
 const _Tr = "Transcript";
 const _U = "Url";
+const _UCD = "UrlContentDisposition";
 const _UE = "UrlExpiry";
 const _UEIS = "UrlExpiryInSeconds";
 const _UM = "UploadMetadata";
@@ -289,8 +290,8 @@ export var DisconnectParticipantResponse$: StaticStructureSchema = [3, n0, _DPRi
 ];
 export var GetAttachmentRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
-  [_AIt, _CTo, _UEIS],
-  [0, [0, { [_hH]: _XAB }], 1], 2
+  [_AIt, _CTo, _UEIS, _UCD],
+  [0, [0, { [_hH]: _XAB }], 1, 0], 2
 ];
 export var GetAttachmentResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
@@ -427,7 +428,7 @@ var ViewActions: StaticListSchema = [1, n0, _VAi,
   0, [() => ViewAction,
     0]
 ];
-var UploadMetadataSignedHeaders = 128 | 0;
+var UrlMetadataSignedHeaders = 128 | 0;
 export var CancelParticipantAuthentication$: StaticOperationSchema = [9, n0, _CPA,
   { [_h]: ["POST", "/participant/cancel-authentication", 200] }, () => CancelParticipantAuthenticationRequest$, () => CancelParticipantAuthenticationResponse$
 ];

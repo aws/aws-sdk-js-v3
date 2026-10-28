@@ -49,6 +49,19 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
  * @public
  * @enum
  */
+export const ContentDisposition = {
+  ATTACHMENT: "ATTACHMENT",
+  INLINE: "INLINE",
+} as const;
+/**
+ * @public
+ */
+export type ContentDisposition = (typeof ContentDisposition)[keyof typeof ContentDisposition];
+
+/**
+ * @public
+ * @enum
+ */
 export const ScanDirection = {
   BACKWARD: "BACKWARD",
   FORWARD: "FORWARD",

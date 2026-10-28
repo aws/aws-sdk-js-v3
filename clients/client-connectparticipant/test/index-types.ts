@@ -38,6 +38,7 @@ export type {
   ArtifactStatus,
   ChatItemType,
   ConnectionType,
+  ContentDisposition,
   MeetingFeatureStatus,
   MessageProcessingStatus,
   ParticipantRole,

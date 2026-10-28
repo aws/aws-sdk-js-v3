@@ -55,7 +55,7 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
  * //   UploadMetadata: { // UploadMetadata
  * //     Url: "STRING_VALUE",
  * //     UrlExpiry: "STRING_VALUE",
- * //     HeadersToInclude: { // UploadMetadataSignedHeaders
+ * //     HeadersToInclude: { // UrlMetadataSignedHeaders
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //   },

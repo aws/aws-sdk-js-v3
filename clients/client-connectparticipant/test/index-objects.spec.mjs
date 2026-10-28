@@ -21,6 +21,7 @@ import {
   ConnectParticipant,
   ConnectParticipantClient,
   ConnectParticipantServiceException,
+  ContentDisposition,
   CreateParticipantConnection$,
   CreateParticipantConnectionCommand,
   CreateParticipantConnectionRequest$,
@@ -159,6 +160,7 @@ assert(typeof Websocket$ === "object");
 assert(typeof ArtifactStatus === "object");
 assert(typeof ChatItemType === "object");
 assert(typeof ConnectionType === "object");
+assert(typeof ContentDisposition === "object");
 assert(typeof MeetingFeatureStatus === "object");
 assert(typeof MessageProcessingStatus === "object");
 assert(typeof ParticipantRole === "object");

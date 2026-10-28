@@ -55,6 +55,7 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
  *   AttachmentId: "STRING_VALUE", // required
  *   ConnectionToken: "STRING_VALUE", // required
  *   UrlExpiryInSeconds: Number("int"),
+ *   UrlContentDisposition: "INLINE" || "ATTACHMENT",
  * };
  * const command = new GetAttachmentCommand(input);
  * const response = await client.send(command);
