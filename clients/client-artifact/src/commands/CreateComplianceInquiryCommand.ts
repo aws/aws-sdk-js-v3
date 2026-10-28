@@ -44,7 +44,7 @@ export interface CreateComplianceInquiryCommandOutput extends CreateComplianceIn
  *     },
  *   },
  *   clientToken: "STRING_VALUE",
- *   supportMode: "AI_ONLY" || "FULL_SUPPORT",
+ *   supportMode: "AI_ONLY",
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },

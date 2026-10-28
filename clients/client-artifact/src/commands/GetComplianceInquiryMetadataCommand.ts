@@ -47,7 +47,7 @@ export interface GetComplianceInquiryMetadataCommandOutput extends GetCompliance
  * //     inputSource: "TEXT" || "FILE", // required
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     updatedAt: new Date("TIMESTAMP"),
- * //     supportMode: "AI_ONLY" || "FULL_SUPPORT",
+ * //     supportMode: "AI_ONLY",
  * //   },
  * //   tags: { // TagsMap
  * //     "<keys>": "STRING_VALUE",

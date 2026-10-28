@@ -361,7 +361,7 @@ export interface InquiryDetail {
   updatedAt?: Date | undefined;
 
   /**
-   * <p>Support mode for this inquiry. AI_ONLY provides AI-generated responses. FULL_SUPPORT includes human expert review.</p>
+   * <p>Support mode for this inquiry. AI_ONLY provides AI-generated responses.</p>
    * @public
    */
   supportMode?: InquirySupportMode | undefined;

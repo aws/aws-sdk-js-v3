@@ -70,7 +70,6 @@ export type AgreementType = (typeof AgreementType)[keyof typeof AgreementType];
  */
 export const InquirySupportMode = {
   AI_ONLY: "AI_ONLY",
-  FULL_SUPPORT: "FULL_SUPPORT",
 } as const;
 /**
  * @public
