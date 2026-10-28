@@ -58,7 +58,9 @@ export class Message implements PollerMessage {
 
   /** Queue this message for batch deletion. */
   public enqueueDelete(): void {
-    if (this._handled) return;
+    if (this._handled) {
+      return;
+    }
     this._handled = true;
     this._callbacks.enqueueDelete(this);
   }

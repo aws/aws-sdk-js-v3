@@ -9,13 +9,21 @@ describe("localStorage", () => {
   let localStorage: any = undefined;
 
   beforeEach(() => {
-    if (typeof self === "object") indexedDB = self.indexedDB;
-    if (typeof window === "object") localStorage = window.localStorage;
+    if (typeof self === "object") {
+      indexedDB = self.indexedDB;
+    }
+    if (typeof window === "object") {
+      localStorage = window.localStorage;
+    }
   });
 
   afterEach(() => {
-    if (typeof self === "object") defineProperty(self, "indexedDB", indexedDB);
-    if (typeof window === "object") defineProperty(window, "localStorage", localStorage);
+    if (typeof self === "object") {
+      defineProperty(self, "indexedDB", indexedDB);
+    }
+    if (typeof window === "object") {
+      defineProperty(window, "localStorage", localStorage);
+    }
   });
 
   it("should return an in-memory storage implementation when indexDB or localStorage is not available", () => {

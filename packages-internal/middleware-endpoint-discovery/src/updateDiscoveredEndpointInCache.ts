@@ -23,7 +23,9 @@ export const updateDiscoveredEndpointInCache = async (
       // Endpoint operation already in-flight.
       // Add request to request queue only if discovered endpoint is required.
       if (options.isDiscoveredEndpointRequired) {
-        if (!requestQueue[cacheKey]) requestQueue[cacheKey] = [];
+        if (!requestQueue[cacheKey]) {
+          requestQueue[cacheKey] = [];
+        }
         requestQueue[cacheKey].push({ resolve, reject });
       } else {
         resolve();

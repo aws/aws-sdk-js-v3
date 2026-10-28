@@ -26,7 +26,9 @@ export const awsAuthMiddleware =
   ): FinalizeRequestMiddleware<Input, Output> =>
   (next: FinalizeHandler<Input, Output>, context: HandlerExecutionContext): FinalizeHandler<Input, Output> =>
     async function (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>> {
-      if (!HttpRequest.isInstance(args.request)) return next(args);
+      if (!HttpRequest.isInstance(args.request)) {
+        return next(args);
+      }
 
       // TODO(identityandauth): call authScheme resolver
       let authScheme: AuthScheme | undefined;

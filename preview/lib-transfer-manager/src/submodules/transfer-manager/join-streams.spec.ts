@@ -156,7 +156,9 @@ describe(joinStreams.name, () => {
     try {
       while (true) {
         const { done, value } = await it.next();
-        if (done) break;
+        if (done) {
+          break;
+        }
         observedChunks.push(value.toString("utf-8"));
       }
     } catch (e) {
@@ -187,7 +189,9 @@ describe(joinStreams.name, () => {
     try {
       while (true) {
         const { done, value } = await it.next();
-        if (done) break;
+        if (done) {
+          break;
+        }
         observedChunks.push(value.toString("utf-8"));
       }
     } catch (e) {

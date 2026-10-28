@@ -26,8 +26,12 @@ import { Worker } from "node:worker_threads";
  */
 function buildDownloadError(msg: HttpWorkerDownloadErrorMessage): Error {
   const error = new Error(msg.error) as Error & Record<string, unknown>;
-  if (msg.name) error.name = msg.name;
-  if (msg.code) error.code = msg.code;
+  if (msg.name) {
+    error.name = msg.name;
+  }
+  if (msg.code) {
+    error.code = msg.code;
+  }
   return error;
 }
 
@@ -495,8 +499,12 @@ export class WorkerHttpHandler {
   }
 
   private ensureInitialized(): Promise<void> {
-    if (this.initialized) return Promise.resolve();
-    if (this.initPromise) return this.initPromise;
+    if (this.initialized) {
+      return Promise.resolve();
+    }
+    if (this.initPromise) {
+      return this.initPromise;
+    }
 
     this.initPromise = new Promise<void>((resolve, reject) => {
       const { workerPath, workerOptions } = this.resolveWorkerConfig();

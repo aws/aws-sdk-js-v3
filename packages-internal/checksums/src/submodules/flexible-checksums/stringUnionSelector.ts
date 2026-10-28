@@ -16,7 +16,9 @@ export const stringUnionSelector = <U extends object, K extends keyof U>(
   union: U,
   type: SelectorType
 ): U[K] | undefined => {
-  if (!(key in obj)) return undefined;
+  if (!(key in obj)) {
+    return undefined;
+  }
 
   const value = obj[key]!.toUpperCase();
   if (!Object.values(union).includes(value)) {

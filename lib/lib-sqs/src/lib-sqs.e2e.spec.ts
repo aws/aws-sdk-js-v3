@@ -103,7 +103,9 @@ describe(
       poller.on("error", () => {});
       poller.on("message", async (msg) => {
         receiveCounts.push(msg.attributes.ApproximateReceiveCount!);
-        if (receiveCounts.length === 1) throw new Error("handler failed");
+        if (receiveCounts.length === 1) {
+          throw new Error("handler failed");
+        }
       });
       const stopped = untilStopped(poller);
       poller.start();
@@ -121,7 +123,9 @@ describe(
       const poller = createPoller(queueUrl, { idleTimeoutMs: 3_000 });
       let deliveries = 0;
       poller.on("message", async (msg) => {
-        if (++deliveries === 1) await msg.release();
+        if (++deliveries === 1) {
+          await msg.release();
+        }
       });
       const stopped = untilStopped(poller);
       poller.start();

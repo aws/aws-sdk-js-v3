@@ -26,8 +26,12 @@ describe("join-streams tests", () => {
 
     while (true) {
       const { done, value } = await reader.read();
-      if (done) break;
-      if (value) chunks.push(value);
+      if (done) {
+        break;
+      }
+      if (value) {
+        chunks.push(value);
+      }
     }
 
     return chunks;

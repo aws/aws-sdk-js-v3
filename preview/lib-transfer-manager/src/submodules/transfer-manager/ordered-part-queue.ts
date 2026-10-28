@@ -53,7 +53,9 @@ export class OrderedPartQueue {
    * Otherwise stores it until its turn.
    */
   public enqueue(rangeIndex: number, buffer: ArrayBuffer, byteLength: number): void {
-    if (this.error) return;
+    if (this.error) {
+      return;
+    }
 
     if (rangeIndex === this.nextExpected && this.waitingConsumer) {
       // Consumer is already waiting for this exact part — deliver immediately

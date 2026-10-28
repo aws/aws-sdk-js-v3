@@ -244,8 +244,12 @@ export const validateCustomEndpoint = (options: {
   accelerateEndpoint?: boolean;
 }) => {
   if (options.isCustomEndpoint) {
-    if (options.dualstackEndpoint) throw new Error("Dualstack endpoint is not supported with custom endpoint");
-    if (options.accelerateEndpoint) throw new Error("Accelerate endpoint is not supported with custom endpoint");
+    if (options.dualstackEndpoint) {
+      throw new Error("Dualstack endpoint is not supported with custom endpoint");
+    }
+    if (options.accelerateEndpoint) {
+      throw new Error("Accelerate endpoint is not supported with custom endpoint");
+    }
   }
 };
 
@@ -298,7 +302,9 @@ export const validateNoDualstack = (dualstackEndpoint?: boolean) => {};
  * @deprecated unused as of EndpointsV2.
  */
 export const validateNoFIPS = (useFipsEndpoint?: boolean) => {
-  if (useFipsEndpoint) throw new Error(`FIPS region is not supported with Outpost.`);
+  if (useFipsEndpoint) {
+    throw new Error(`FIPS region is not supported with Outpost.`);
+  }
 };
 
 /**

@@ -47,8 +47,9 @@ function mockClient(responses: Array<{ Messages?: ReturnType<typeof makeSQSMessa
       if (cmd.constructor.name === "ReceiveMessageCommand") {
         return Promise.resolve(responses[Math.min(idx++, responses.length - 1)]);
       }
-      if (cmd.constructor.name === "DeleteMessageBatchCommand")
+      if (cmd.constructor.name === "DeleteMessageBatchCommand") {
         return Promise.resolve({ Successful: [{ Id: "0" }], Failed: [] });
+      }
       return Promise.resolve({});
     }),
   } as unknown as NonNullable<PollerConfig["client"]>;
@@ -329,7 +330,9 @@ describe("SQSPoller", () => {
         idleTimeoutMs: 50,
       });
       const got: string[] = [];
-      for await (const m of p) got.push(m.body!);
+      for await (const m of p) {
+        got.push(m.body!);
+      }
       expect(got).toEqual(["a", "b"]);
     });
   });
@@ -375,7 +378,9 @@ describe("SQSPoller", () => {
         receiveWaitTimeMs: 0,
         beforeRequest: () => {
           n++;
-          if (n >= 2) throw new Error("stop");
+          if (n >= 2) {
+            throw new Error("stop");
+          }
         },
       });
       const errs: Error[] = [];
@@ -396,8 +401,9 @@ describe("SQSPoller", () => {
           rc++;
           return rc === 1 ? Promise.resolve({ Messages: [msg] }) : Promise.resolve({ Messages: [] });
         }
-        if (c.constructor.name === "DeleteMessageBatchCommand")
+        if (c.constructor.name === "DeleteMessageBatchCommand") {
           return Promise.resolve({ Successful: [], Failed: [{ Id: "0", Code: "X", Message: "boom" }] });
+        }
         return Promise.resolve({});
       });
       const p = new SQSPoller({
@@ -424,8 +430,9 @@ describe("SQSPoller", () => {
           rc++;
           return rc === 1 ? Promise.resolve({ Messages: [m1, m2] }) : Promise.resolve({ Messages: [] });
         }
-        if (c.constructor.name === "DeleteMessageBatchCommand")
+        if (c.constructor.name === "DeleteMessageBatchCommand") {
           return Promise.resolve({ Successful: [{ Id: "0" }], Failed: [{ Id: "1", Code: "X", Message: "boom" }] });
+        }
         return Promise.resolve({});
       });
       const p = new SQSPoller({
@@ -662,7 +669,9 @@ describe("SQSPoller", () => {
     it("break does not auto-delete the current message", async () => {
       const c = mockClient([{ Messages: [makeSQSMessage()] }]);
       const p = poller({ client: c, deleteWaitMs: 5 });
-      for await (const _ of p) break;
+      for await (const _ of p) {
+        break;
+      }
       expect(sent(c, "DeleteMessageBatchCommand")).toBe(0);
     });
 
@@ -807,8 +816,9 @@ describe("SQSPoller", () => {
             });
           });
         }
-        if (name === "DeleteMessageBatchCommand")
+        if (name === "DeleteMessageBatchCommand") {
           return Promise.resolve({ Successful: cmd.input.Entries.map((e: any) => ({ Id: e.Id })), Failed: [] });
+        }
         return sleep(visibilityDelayMs).then(() => ({}));
       });
       return { client: { send } as unknown as NonNullable<PollerConfig["client"]>, stats };
@@ -1088,7 +1098,9 @@ describe("SQSPoller", () => {
       });
       p.on("message", async () => {});
       p.start();
-      for (let i = 0; i < 100 && p.getStats().receivedMessageCount < 50; i++) await sleep(20);
+      for (let i = 0; i < 100 && p.getStats().receivedMessageCount < 50; i++) {
+        await sleep(20);
+      }
       await sleep(20);
       expect(p.getStats().receivedMessageCount).toBe(50);
       expect((p as any)._run.receiptHandles.size).toBe(0);
@@ -1182,7 +1194,9 @@ describe("SQSPoller", () => {
               });
             });
           }
-          if (name === "ChangeMessageVisibilityCommand") return sleep(80).then(() => ({}));
+          if (name === "ChangeMessageVisibilityCommand") {
+            return sleep(80).then(() => ({}));
+          }
           return Promise.resolve({ Successful: cmd.input.Entries.map((e: any) => ({ Id: e.Id })), Failed: [] });
         });
         const p = new SQSPoller({
@@ -1201,8 +1215,12 @@ describe("SQSPoller", () => {
         // Finishes while the first extension (sent at ~20ms) is still in flight.
         p.on("message", async (m) => {
           await sleep(30);
-          if (finish === "handler throws") throw new Error("boom");
-          if (finish === "keep()") m.keep();
+          if (finish === "handler throws") {
+            throw new Error("boom");
+          }
+          if (finish === "keep()") {
+            m.keep();
+          }
         });
         p.start();
         await sleep(35);

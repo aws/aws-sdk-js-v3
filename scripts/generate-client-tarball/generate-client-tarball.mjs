@@ -66,7 +66,9 @@ const nodeModulesDir = join(tmpDir, "node_modules");
 const copied = new Set();
 
 function copyDep(name) {
-  if (copied.has(name)) return;
+  if (copied.has(name)) {
+    return;
+  }
   copied.add(name);
 
   const src = join(rootNodeModules, name);

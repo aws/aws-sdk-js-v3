@@ -101,7 +101,9 @@ async function* getDataReadableStream(data: ReadableStream): AsyncGenerator<Uint
   try {
     while (true) {
       const { done, value } = await reader.read();
-      if (done) return;
+      if (done) {
+        return;
+      }
       if (Buffer.isBuffer(value) || value instanceof Uint8Array) {
         yield value;
       } else {

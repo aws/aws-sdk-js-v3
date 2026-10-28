@@ -56,7 +56,9 @@ export function crossRegionPresignedUrlMiddleware(options: PreviouslyResolved): 
         input.hasOwnProperty(sourceKeyId)
       )[0];
       // Source id is optional.
-      if (!sourceIdKey) return next(args);
+      if (!sourceIdKey) {
+        return next(args);
+      }
 
       const command = sourceIdToCommandKeyMap[sourceIdKey];
       if (!input.PreSignedUrl && isARN(input[sourceIdKey]) && region !== getEndpointFromARN(input[sourceIdKey])) {
@@ -122,7 +124,9 @@ export const getCrossRegionPresignedUrlPlugin = (config: PreviouslyResolved): Pl
 });
 
 function isARN(id: string | undefined): boolean {
-  if (!id) return false;
+  if (!id) {
+    return false;
+  }
   return regARN.test(id);
 }
 

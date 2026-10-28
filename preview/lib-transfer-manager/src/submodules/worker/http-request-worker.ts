@@ -37,7 +37,9 @@ const MAX_ERROR_BODY_BYTES = 16 * 1024;
  * @internal
  */
 const readErrorBodyBytes = async (body: any): Promise<Uint8Array | undefined> => {
-  if (!body) return undefined;
+  if (!body) {
+    return undefined;
+  }
   try {
     const chunks: Buffer[] = [];
     let total = 0;
@@ -45,7 +47,9 @@ const readErrorBodyBytes = async (body: any): Promise<Uint8Array | undefined> =>
       const buf = typeof chunk === "string" ? Buffer.from(chunk) : Buffer.from(chunk);
       chunks.push(buf);
       total += buf.length;
-      if (total >= MAX_ERROR_BODY_BYTES) break;
+      if (total >= MAX_ERROR_BODY_BYTES) {
+        break;
+      }
     }
     return concatBytes(chunks);
   } catch {
@@ -453,12 +457,18 @@ async function finalizeChecksumToBase64(checksum: Checksum): Promise<string> {
  * @returns The START and END values, or undefined if absent or unparseable.
  */
 function parseContentRange(contentRange: string | undefined): { start: number; end: number } | undefined {
-  if (!contentRange) return undefined;
+  if (!contentRange) {
+    return undefined;
+  }
   const match = contentRange.match(/^bytes\s+(\d+)-(\d+)\//);
-  if (!match) return undefined;
+  if (!match) {
+    return undefined;
+  }
   const start = Number(match[1]);
   const end = Number(match[2]);
-  if (end < start) return undefined;
+  if (end < start) {
+    return undefined;
+  }
   return { start, end };
 }
 
@@ -521,7 +531,9 @@ if (parentPort) {
     let read = 0;
     while (read < length) {
       const n = readSync(fd, buffer, read, length - read, offset + read);
-      if (n === 0) break;
+      if (n === 0) {
+        break;
+      }
       read += n;
     }
     return buffer;

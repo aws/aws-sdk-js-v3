@@ -19,7 +19,9 @@ describe("S3TransferManager browser e2e", () => {
 
   function data(bytes: number): Uint8Array {
     const buf = new Uint8Array(bytes);
-    if (bytes === 0) return buf;
+    if (bytes === 0) {
+      return buf;
+    }
     const seedLen = Math.min(PATTERN.length, bytes);
     buf.set(PATTERN.subarray(0, seedLen));
     let filled = seedLen;

@@ -37,11 +37,15 @@ function validate(packageDir) {
 
   for (const distDir of ["dist-es", "dist-cjs"]) {
     const dir = path.join(packageDir, distDir);
-    if (!fs.existsSync(dir)) continue;
+    if (!fs.existsSync(dir)) {
+      continue;
+    }
 
     walkDir(dir, (filePath) => {
       const fileName = path.basename(filePath);
-      if (!fileName.endsWith(".js")) return;
+      if (!fileName.endsWith(".js")) {
+        return;
+      }
 
       // Count dots (excluding the final .js extension).
       const withoutExt = fileName.slice(0, -3);
@@ -61,9 +65,13 @@ let totalErrors = 0;
 
 for (const { dir } of packages) {
   const pkgJsonPath = path.join(dir, "package.json");
-  if (!fs.existsSync(pkgJsonPath)) continue;
+  if (!fs.existsSync(pkgJsonPath)) {
+    continue;
+  }
   const pkgName = JSON.parse(fs.readFileSync(pkgJsonPath, "utf-8")).name;
-  if (IGNORED_PACKAGES.has(pkgName)) continue;
+  if (IGNORED_PACKAGES.has(pkgName)) {
+    continue;
+  }
   const errors = validate(dir);
   if (errors.length) {
     for (const file of errors) {

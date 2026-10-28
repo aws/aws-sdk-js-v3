@@ -90,21 +90,29 @@ export function createDynamicClient(
     [serviceName]: AggregatedClass,
   };
   for (const commandName in commands) {
-    if (!hasOwn(commands, commandName)) continue;
+    if (!hasOwn(commands, commandName)) {
+      continue;
+    }
     exports[commandName] = commands[commandName];
   }
   for (const schemaSymbol in built.schemas) {
-    if (!hasOwn(built.schemas, schemaSymbol)) continue;
+    if (!hasOwn(built.schemas, schemaSymbol)) {
+      continue;
+    }
     exports[schemaSymbol] = built.schemas[schemaSymbol];
   }
   for (const operationSymbol in built.operations) {
-    if (!hasOwn(built.operations, operationSymbol)) continue;
+    if (!hasOwn(built.operations, operationSymbol)) {
+      continue;
+    }
     exports[operationSymbol] = built.operations[operationSymbol];
   }
   // Export synthesized error classes (base + one per modeled error), keyed by
   // class name, mirroring a code-generated client's error class exports.
   for (const errorClassName in built.errorClasses) {
-    if (!hasOwn(built.errorClasses, errorClassName)) continue;
+    if (!hasOwn(built.errorClasses, errorClassName)) {
+      continue;
+    }
     exports[errorClassName] = built.errorClasses[errorClassName];
   }
 
