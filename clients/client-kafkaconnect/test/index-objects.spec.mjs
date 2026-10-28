@@ -42,6 +42,7 @@ import {
   CustomPluginRevisionSummary$,
   CustomPluginState,
   CustomPluginSummary$,
+  CustomPluginUpdate$,
   DeleteConnector$,
   DeleteConnectorCommand,
   DeleteConnectorRequest$,
@@ -122,6 +123,7 @@ import {
   PauseConnectorResponse$,
   Plugin$,
   PluginDescription$,
+  PluginUpdate$,
   ProvisionedCapacity$,
   ProvisionedCapacityDescription$,
   ProvisionedCapacityUpdate$,
@@ -170,6 +172,7 @@ import {
   WorkerConfigurationRevisionSummary$,
   WorkerConfigurationState,
   WorkerConfigurationSummary$,
+  WorkerConfigurationUpdate$,
   WorkerLogDelivery$,
   WorkerLogDeliveryDescription$,
   WorkerSetting$,
@@ -248,6 +251,7 @@ assert(typeof CustomPluginLocation$ === "object");
 assert(typeof CustomPluginLocationDescription$ === "object");
 assert(typeof CustomPluginRevisionSummary$ === "object");
 assert(typeof CustomPluginSummary$ === "object");
+assert(typeof CustomPluginUpdate$ === "object");
 assert(typeof DeleteConnectorRequest$ === "object");
 assert(typeof DeleteConnectorResponse$ === "object");
 assert(typeof DeleteCustomPluginRequest$ === "object");
@@ -286,6 +290,7 @@ assert(typeof PauseConnectorRequest$ === "object");
 assert(typeof PauseConnectorResponse$ === "object");
 assert(typeof Plugin$ === "object");
 assert(typeof PluginDescription$ === "object");
+assert(typeof PluginUpdate$ === "object");
 assert(typeof ProvisionedCapacity$ === "object");
 assert(typeof ProvisionedCapacityDescription$ === "object");
 assert(typeof ProvisionedCapacityUpdate$ === "object");
@@ -317,6 +322,7 @@ assert(typeof WorkerConfigurationDescription$ === "object");
 assert(typeof WorkerConfigurationRevisionDescription$ === "object");
 assert(typeof WorkerConfigurationRevisionSummary$ === "object");
 assert(typeof WorkerConfigurationSummary$ === "object");
+assert(typeof WorkerConfigurationUpdate$ === "object");
 assert(typeof WorkerLogDelivery$ === "object");
 assert(typeof WorkerLogDeliveryDescription$ === "object");
 assert(typeof WorkerSetting$ === "object");

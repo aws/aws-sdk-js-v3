@@ -656,6 +656,36 @@ export interface Plugin {
 }
 
 /**
+ * <p>Details about a custom plugin to use when you update a connector via <code>UpdateConnector</code>.</p>
+ * @public
+ */
+export interface CustomPluginUpdate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom plugin.</p>
+   * @public
+   */
+  customPluginArn: string | undefined;
+
+  /**
+   * <p>The revision of the custom plugin.</p>
+   * @public
+   */
+  revision: number | undefined;
+}
+
+/**
+ * <p>A custom plugin to use when you update a connector via <code>UpdateConnector</code>.</p>
+ * @public
+ */
+export interface PluginUpdate {
+  /**
+   * <p>The custom plugin to use for the connector.</p>
+   * @public
+   */
+  customPlugin: CustomPluginUpdate | undefined;
+}
+
+/**
  * <p>The summary of a worker configuration revision.</p>
  * @public
  */
@@ -1636,10 +1666,28 @@ export interface DescribeConnectorOperationRequest {
  */
 export interface WorkerSetting {
   /**
-   * <p>A description of the connector's capacity.</p>
+   * <p>Specifies the compute capacity settings of the connector.</p>
    * @public
    */
   capacity?: CapacityDescription | undefined;
+
+  /**
+   * <p>Specifies which plugins the connector uses.</p>
+   * @public
+   */
+  plugins?: PluginDescription[] | undefined;
+
+  /**
+   * <p>Specifies which worker configuration the connector uses.</p>
+   * @public
+   */
+  workerConfiguration?: WorkerConfigurationDescription | undefined;
+
+  /**
+   * <p>Specifies whether the connector uses the default worker configuration instead of a custom worker configuration.</p>
+   * @public
+   */
+  useDefaultWorkerConfiguration?: boolean | undefined;
 }
 
 /**
@@ -2176,6 +2224,24 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
+ * <p>The worker configuration to use when you update a connector via <code>UpdateConnector</code>.</p>
+ * @public
+ */
+export interface WorkerConfigurationUpdate {
+  /**
+   * <p>The revision of the worker configuration.</p>
+   * @public
+   */
+  revision: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the worker configuration.</p>
+   * @public
+   */
+  workerConfigurationArn: string | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateConnectorRequest {
@@ -2208,6 +2274,24 @@ export interface UpdateConnectorRequest {
    * @public
    */
   currentVersion: string | undefined;
+
+  /**
+   * <important> <p>Amazon MSK Connect does not currently support specifying multiple plugins as a list. To use more than one plugin for your connector, you can create a single custom plugin using a ZIP file that bundles multiple plugins together.</p> </important> <p>Specifies which plugin to use for the connector. You must specify a single-element list containing one <code>customPlugin</code> object. If you don't specify this parameter, the connector keeps its current plugin.</p>
+   * @public
+   */
+  plugins?: PluginUpdate[] | undefined;
+
+  /**
+   * <p>The worker configuration to use with the connector. Specify the Amazon Resource Name (ARN) and the revision of the worker configuration. You can't specify both <code>workerConfiguration</code> and <code>useDefaultWorkerConfiguration</code> in the same request. If you specify neither parameter, the connector keeps its current worker configuration.</p>
+   * @public
+   */
+  workerConfiguration?: WorkerConfigurationUpdate | undefined;
+
+  /**
+   * <p>Specifies whether to switch the connector to the default worker configuration that Amazon MSK Connect provides. If <code>true</code>, the connector stops using its custom worker configuration and uses the default worker configuration instead. If <code>false</code> or not specified, the connector keeps its current worker configuration. You can't specify both <code>useDefaultWorkerConfiguration</code> and <code>workerConfiguration</code> in the same request.</p>
+   * @public
+   */
+  useDefaultWorkerConfiguration?: boolean | undefined;
 }
 
 /**

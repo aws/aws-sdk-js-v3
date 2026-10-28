@@ -24,6 +24,7 @@ const _CPL = "CustomPluginLocation";
 const _CPLD = "CustomPluginLocationDescription";
 const _CPRS = "CustomPluginRevisionSummary";
 const _CPS = "CustomPluginSummary";
+const _CPU = "CustomPluginUpdate";
 const _CS = "ConnectorSummary";
 const _CU = "CapacityUpdate";
 const _CWC = "CreateWorkerConfiguration";
@@ -88,6 +89,7 @@ const _PCRa = "PauseConnectorResponse";
 const _PCU = "ProvisionedCapacityUpdate";
 const _PCa = "PauseConnector";
 const _PD = "PluginDescription";
+const _PU = "PluginUpdate";
 const _RC = "RestartConnector";
 const _RCR = "RestartConnectorRequest";
 const _RCRe = "RestartConnectorResponse";
@@ -124,6 +126,7 @@ const _WCD = "WorkerConfigurationDescription";
 const _WCRD = "WorkerConfigurationRevisionDescription";
 const _WCRS = "WorkerConfigurationRevisionSummary";
 const _WCS = "WorkerConfigurationSummary";
+const _WCU = "WorkerConfigurationUpdate";
 const _WLD = "WorkerLogDelivery";
 const _WLDD = "WorkerLogDeliveryDescription";
 const _WS = "WorkerSetting";
@@ -184,6 +187,7 @@ const _lOCPS = "__listOfCustomPluginSummary";
 const _lOCS = "__listOfConnectorSummary";
 const _lOP = "__listOfPlugin";
 const _lOPD = "__listOfPluginDescription";
+const _lOPU = "__listOfPluginUpdate";
 const _lOWCS = "__listOfWorkerConfigurationSummary";
 const _lR = "latestRevision";
 const _m = "message";
@@ -225,6 +229,7 @@ const _t = "tags";
 const _tCC = "targetConnectorConfiguration";
 const _tK = "tagKeys";
 const _tWS = "targetWorkerSetting";
+const _uDWC = "useDefaultWorkerConfiguration";
 const _v = "vpc";
 const _wC = "workerConfiguration";
 const _wCA = "workerConfigurationArn";
@@ -450,6 +455,11 @@ export var CustomPluginSummary$: StaticStructureSchema = [3, n0, _CPS,
   [_cT, _cPA, _cPS, _d, _lR, _n],
   [5, 0, 0, 0, () => CustomPluginRevisionSummary$, 0]
 ];
+export var CustomPluginUpdate$: StaticStructureSchema = [3, n0, _CPU,
+  0,
+  [_cPA, _r],
+  [0, 1], 2
+];
 export var DeleteConnectorRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_cA, _cV],
@@ -640,6 +650,11 @@ export var PluginDescription$: StaticStructureSchema = [3, n0, _PD,
   [_cPu],
   [() => CustomPluginDescription$]
 ];
+export var PluginUpdate$: StaticStructureSchema = [3, n0, _PU,
+  0,
+  [_cPu],
+  [() => CustomPluginUpdate$], 1
+];
 export var ProvisionedCapacity$: StaticStructureSchema = [3, n0, _PC,
   0,
   [_mC, _wCor],
@@ -752,8 +767,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateConnectorRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_cA, _cV, _ca, _cC, _sHV],
-  [[0, 1], [0, { [_hQ]: _cV }], () => CapacityUpdate$, [() => ConnectorConfigurationUpdate, 0], 2], 2
+  [_cA, _cV, _ca, _cC, _sHV, _p, _wC, _uDWC],
+  [[0, 1], [0, { [_hQ]: _cV }], () => CapacityUpdate$, [() => ConnectorConfigurationUpdate, 0], 2, () => __listOfPluginUpdate, () => WorkerConfigurationUpdate$, 2], 2
 ];
 export var UpdateConnectorResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -795,6 +810,11 @@ export var WorkerConfigurationSummary$: StaticStructureSchema = [3, n0, _WCS,
   [_cT, _d, _lR, _n, _wCA, _wCS],
   [5, 0, () => WorkerConfigurationRevisionSummary$, 0, 0, 0]
 ];
+export var WorkerConfigurationUpdate$: StaticStructureSchema = [3, n0, _WCU,
+  0,
+  [_r, _wCA],
+  [1, 0], 2
+];
 export var WorkerLogDelivery$: StaticStructureSchema = [3, n0, _WLD,
   0,
   [_cWL, _f, _s_],
@@ -807,8 +827,8 @@ export var WorkerLogDeliveryDescription$: StaticStructureSchema = [3, n0, _WLDD,
 ];
 export var WorkerSetting$: StaticStructureSchema = [3, n0, _WS,
   0,
-  [_ca],
-  [() => CapacityDescription$]
+  [_ca, _p, _wC, _uDWC],
+  [() => CapacityDescription$, () => __listOfPluginDescription, () => WorkerConfigurationDescription$, 2]
 ];
 var __listOf__string = 64 | 0;
 var __listOfConnectorOperationStep: StaticListSchema = [1, n0, _lOCOS,
@@ -828,6 +848,9 @@ var __listOfPlugin: StaticListSchema = [1, n0, _lOP,
 ];
 var __listOfPluginDescription: StaticListSchema = [1, n0, _lOPD,
   0, () => PluginDescription$
+];
+var __listOfPluginUpdate: StaticListSchema = [1, n0, _lOPU,
+  0, () => PluginUpdate$
 ];
 var __listOfWorkerConfigurationSummary: StaticListSchema = [1, n0, _lOWCS,
   0, () => WorkerConfigurationSummary$

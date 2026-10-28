@@ -23,7 +23,7 @@ export interface UpdateConnectorCommandInput extends UpdateConnectorRequest {}
 export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified connector. For request body, specify only one parameter: either <code>capacity</code> or <code>connectorConfiguration</code>.</p>
+ * <p>Updates the specified connector. In the request body, you can update either the connector's worker setting or its connector configuration, but not both in the same request. To update the worker setting, specify one or more of <code>capacity</code>, <code>plugins</code>, <code>workerConfiguration</code>, or <code>useDefaultWorkerConfiguration</code>. To update the connector configuration, specify only <code>connectorConfiguration</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +57,19 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *   skipHealthValidation: true || false,
  *   connectorArn: "STRING_VALUE", // required
  *   currentVersion: "STRING_VALUE", // required
+ *   plugins: [ // __listOfPluginUpdate
+ *     { // PluginUpdate
+ *       customPlugin: { // CustomPluginUpdate
+ *         customPluginArn: "STRING_VALUE", // required
+ *         revision: Number("long"), // required
+ *       },
+ *     },
+ *   ],
+ *   workerConfiguration: { // WorkerConfigurationUpdate
+ *     revision: Number("long"), // required
+ *     workerConfigurationArn: "STRING_VALUE", // required
+ *   },
+ *   useDefaultWorkerConfiguration: true || false,
  * };
  * const command = new UpdateConnectorCommand(input);
  * const response = await client.send(command);

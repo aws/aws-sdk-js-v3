@@ -67,6 +67,19 @@ export interface DescribeConnectorOperationCommandOutput extends DescribeConnect
  * //         workerCount: Number("int"),
  * //       },
  * //     },
+ * //     plugins: [ // __listOfPluginDescription
+ * //       { // PluginDescription
+ * //         customPlugin: { // CustomPluginDescription
+ * //           customPluginArn: "STRING_VALUE",
+ * //           revision: Number("long"),
+ * //         },
+ * //       },
+ * //     ],
+ * //     workerConfiguration: { // WorkerConfigurationDescription
+ * //       revision: Number("long"),
+ * //       workerConfigurationArn: "STRING_VALUE",
+ * //     },
+ * //     useDefaultWorkerConfiguration: true || false,
  * //   },
  * //   originConnectorConfiguration: { // ConnectorConfiguration
  * //     "<keys>": "STRING_VALUE",
@@ -90,6 +103,19 @@ export interface DescribeConnectorOperationCommandOutput extends DescribeConnect
  * //         workerCount: Number("int"),
  * //       },
  * //     },
+ * //     plugins: [
+ * //       {
+ * //         customPlugin: {
+ * //           customPluginArn: "STRING_VALUE",
+ * //           revision: Number("long"),
+ * //         },
+ * //       },
+ * //     ],
+ * //     workerConfiguration: {
+ * //       revision: Number("long"),
+ * //       workerConfigurationArn: "STRING_VALUE",
+ * //     },
+ * //     useDefaultWorkerConfiguration: true || false,
  * //   },
  * //   targetConnectorConfiguration: {
  * //     "<keys>": "STRING_VALUE",
