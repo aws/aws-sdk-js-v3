@@ -1,0 +1,21 @@
+Run: 20261014-165431-b7d1b7
+
+  Engine:     js-tm  node v20.20.2
+  Instance:   m8ib.48xlarge (us-west-2b)
+  Workload:   smilkuri-new-tm-benchmarks/{bench/1TiB.run1, bench/1TiB.run2, bench/1TiB.run3, bench/1TiB.run4, bench/1TiB.run5} (download, disk, 5 obj parallel)
+  Mode:       O_DIRECT (TM_O_DIRECT=1)  concurrency=512  partSize=8MiB  uvpool=192  cores=192
+  Dest:       /data/bench
+
+  Iter      Steady St.            Peak       Effective    Duration    Peak Mem     Avg CPU
+     1    132.95 Gbps     504.80 Gbps    122.96 Gbps    357.69s    59.6 GiB    5565%
+
+  Throughput:
+    Median steady state: 132.95 Gbps
+    Median peak:         504.80 Gbps
+    Median effective:    122.96 Gbps  [bytes/duration]
+    Cold iteration 1:    122.96 Gbps effective, 357.69s
+
+  Disk I/O:
+    Write:  15.37 GB/s (mean)
+
+  Results: /home/ec2-user/results/20261014-165431-b7d1b7
