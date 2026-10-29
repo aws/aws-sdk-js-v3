@@ -1195,6 +1195,9 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *         DefaultSizeInspectionLimit: "KB_16" || "KB_32" || "KB_48" || "KB_64", // required
  *       },
  *     },
+ *     ChallengeJavascriptSdkInjection: { // ChallengeJavascriptSdkInjection
+ *       "<keys>": {},
+ *     },
  *   },
  *   OnSourceDDoSProtectionConfig: { // OnSourceDDoSProtectionConfig
  *     ALBLowReputationMode: "ACTIVE_UNDER_DDOS" || "ALWAYS_ON", // required

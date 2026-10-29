@@ -252,6 +252,7 @@ export type {
   CaptchaResponse,
   ChallengeAction,
   ChallengeConfig,
+  ChallengeJavascriptSdkInjectionConfig,
   ChallengeResponse,
   CheckCapacityRequest,
   CheckCapacityResponse,

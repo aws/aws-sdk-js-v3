@@ -1400,6 +1400,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //           DefaultSizeInspectionLimit: "KB_16" || "KB_32" || "KB_48" || "KB_64", // required
  * //         },
  * //       },
+ * //       ChallengeJavascriptSdkInjection: { // ChallengeJavascriptSdkInjection
+ * //         "<keys>": {},
+ * //       },
  * //     },
  * //     RetrofittedByFirewallManager: true || false,
  * //     OnSourceDDoSProtectionConfig: { // OnSourceDDoSProtectionConfig

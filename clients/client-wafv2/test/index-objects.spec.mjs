@@ -31,6 +31,7 @@ import {
   CaptchaResponse$,
   ChallengeAction$,
   ChallengeConfig$,
+  ChallengeJavascriptSdkInjectionConfig$,
   ChallengeResponse$,
   CheckCapacity$,
   CheckCapacityCommand,
@@ -630,6 +631,7 @@ assert(typeof CaptchaConfig$ === "object");
 assert(typeof CaptchaResponse$ === "object");
 assert(typeof ChallengeAction$ === "object");
 assert(typeof ChallengeConfig$ === "object");
+assert(typeof ChallengeJavascriptSdkInjectionConfig$ === "object");
 assert(typeof ChallengeResponse$ === "object");
 assert(typeof CheckCapacityRequest$ === "object");
 assert(typeof CheckCapacityResponse$ === "object");

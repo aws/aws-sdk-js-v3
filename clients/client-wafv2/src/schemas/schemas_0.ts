@@ -66,6 +66,8 @@ const _CIP = "ClientIP";
 const _CIPS = "CreateIPSet";
 const _CIPSR = "CreateIPSetRequest";
 const _CIPSRr = "CreateIPSetResponse";
+const _CJSI = "ChallengeJavascriptSdkInjection";
+const _CJSIC = "ChallengeJavascriptSdkInjectionConfig";
 const _CK = "CustomKeys";
 const _CL = "ConsumedLabels";
 const _CM = "CurrencyMode";
@@ -874,8 +876,8 @@ export var AssociateWebACLResponse$: StaticStructureSchema = [3, n0, _AWACLRs,
 ];
 export var AssociationConfig$: StaticStructureSchema = [3, n0, _ACs,
   0,
-  [_RB],
-  [() => RequestBody]
+  [_RB, _CJSI],
+  [() => RequestBody, () => ChallengeJavascriptSdkInjection]
 ];
 export var AWSManagedRulesACFPRuleSet$: StaticStructureSchema = [3, n0, _AWSMRACFPRS,
   0,
@@ -941,6 +943,11 @@ export var ChallengeConfig$: StaticStructureSchema = [3, n0, _CCh,
   0,
   [_ITP],
   [() => ImmunityTimeProperty$]
+];
+export var ChallengeJavascriptSdkInjectionConfig$: StaticStructureSchema = [3, n0, _CJSIC,
+  0,
+  [],
+  []
 ];
 export var ChallengeResponse$: StaticStructureSchema = [3, n0, _CRh,
   0,
@@ -2328,6 +2335,9 @@ var TextTransformations: StaticListSchema = [1, n0, _TT,
 var TokenDomains = 64 | 0;
 var WebACLSummaries: StaticListSchema = [1, n0, _WACLSe,
   0, () => WebACLSummary$
+];
+var ChallengeJavascriptSdkInjection: StaticMapSchema = [2, n0, _CJSI,
+  0, 0, () => ChallengeJavascriptSdkInjectionConfig$
 ];
 var CustomResponseBodies: StaticMapSchema = [2, n0, _CRB,
   0, 0, () => CustomResponseBody$

@@ -1393,6 +1393,9 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //           DefaultSizeInspectionLimit: "KB_16" || "KB_32" || "KB_48" || "KB_64", // required
  * //         },
  * //       },
+ * //       ChallengeJavascriptSdkInjection: { // ChallengeJavascriptSdkInjection
+ * //         "<keys>": {},
+ * //       },
  * //     },
  * //     RetrofittedByFirewallManager: true || false,
  * //     OnSourceDDoSProtectionConfig: { // OnSourceDDoSProtectionConfig
