@@ -430,6 +430,12 @@ export interface ListTagsForResourceOutput {
  */
 export interface ProtectedJobS3OutputConfigurationInput {
   /**
+   * <p>The file format of the protected job results. If you don't specify a format, results are written as CSV.</p>
+   * @public
+   */
+  resultFormat?: ResultFormat | undefined;
+
+  /**
    * <p> The S3 bucket for job output.</p>
    * @public
    */

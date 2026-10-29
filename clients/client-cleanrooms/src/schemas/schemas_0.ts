@@ -2673,8 +2673,8 @@ export var ProtectedJobS3Output$: StaticStructureSchema = [3, n0, _PJSO,
 ];
 export var ProtectedJobS3OutputConfigurationInput$: StaticStructureSchema = [3, n0, _PJSOCI,
   0,
-  [_bu, _kP],
-  [0, 0], 1
+  [_bu, _rF, _kP],
+  [0, 0, 0], 1
 ];
 export var ProtectedJobS3OutputConfigurationOutput$: StaticStructureSchema = [3, n0, _PJSOCO,
   0,

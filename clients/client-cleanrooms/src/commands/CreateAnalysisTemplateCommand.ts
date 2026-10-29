@@ -36,7 +36,7 @@ export interface CreateAnalysisTemplateCommandOutput extends CreateAnalysisTempl
  *   description: "STRING_VALUE",
  *   membershipIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
- *   format: "SQL" || "PYSPARK_1_0", // required
+ *   format: "SQL" || "PYSPARK_1_0" || "PYSPARK_2_0", // required
  *   source: { // AnalysisSource Union: only one key present
  *     text: "STRING_VALUE",
  *     artifacts: { // AnalysisTemplateArtifacts
@@ -110,7 +110,7 @@ export interface CreateAnalysisTemplateCommandOutput extends CreateAnalysisTempl
  * //         "STRING_VALUE",
  * //       ],
  * //     },
- * //     format: "SQL" || "PYSPARK_1_0", // required
+ * //     format: "SQL" || "PYSPARK_1_0" || "PYSPARK_2_0", // required
  * //     source: { // AnalysisSource Union: only one key present
  * //       text: "STRING_VALUE",
  * //       artifacts: { // AnalysisTemplateArtifacts

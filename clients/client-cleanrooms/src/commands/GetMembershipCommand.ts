@@ -73,6 +73,7 @@ export interface GetMembershipCommandOutput extends GetMembershipOutput, __Metad
  * //     defaultJobResultConfiguration: { // MembershipProtectedJobResultConfiguration
  * //       outputConfiguration: { // MembershipProtectedJobOutputConfiguration Union: only one key present
  * //         s3: { // ProtectedJobS3OutputConfigurationInput
+ * //           resultFormat: "CSV" || "PARQUET",
  * //           bucket: "STRING_VALUE", // required
  * //           keyPrefix: "STRING_VALUE",
  * //         },

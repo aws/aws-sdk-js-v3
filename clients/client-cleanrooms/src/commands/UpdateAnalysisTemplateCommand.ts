@@ -56,7 +56,7 @@ export interface UpdateAnalysisTemplateCommandOutput extends UpdateAnalysisTempl
  * //         "STRING_VALUE",
  * //       ],
  * //     },
- * //     format: "SQL" || "PYSPARK_1_0", // required
+ * //     format: "SQL" || "PYSPARK_1_0" || "PYSPARK_2_0", // required
  * //     source: { // AnalysisSource Union: only one key present
  * //       text: "STRING_VALUE",
  * //       artifacts: { // AnalysisTemplateArtifacts

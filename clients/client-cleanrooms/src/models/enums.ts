@@ -158,6 +158,7 @@ export type SupportedS3Region = (typeof SupportedS3Region)[keyof typeof Supporte
  */
 export const AnalysisFormat = {
   PYSPARK_1_0: "PYSPARK_1_0",
+  PYSPARK_2_0: "PYSPARK_2_0",
   SQL: "SQL",
 } as const;
 /**

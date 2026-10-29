@@ -50,6 +50,7 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipOutput, _
  *   defaultJobResultConfiguration: { // MembershipProtectedJobResultConfiguration
  *     outputConfiguration: { // MembershipProtectedJobOutputConfiguration Union: only one key present
  *       s3: { // ProtectedJobS3OutputConfigurationInput
+ *         resultFormat: "CSV" || "PARQUET",
  *         bucket: "STRING_VALUE", // required
  *         keyPrefix: "STRING_VALUE",
  *       },
@@ -114,6 +115,7 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipOutput, _
  * //     defaultJobResultConfiguration: { // MembershipProtectedJobResultConfiguration
  * //       outputConfiguration: { // MembershipProtectedJobOutputConfiguration Union: only one key present
  * //         s3: { // ProtectedJobS3OutputConfigurationInput
+ * //           resultFormat: "CSV" || "PARQUET",
  * //           bucket: "STRING_VALUE", // required
  * //           keyPrefix: "STRING_VALUE",
  * //         },
