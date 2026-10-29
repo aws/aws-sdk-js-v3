@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DeletePaymentManagerRequest } from "../models/models_1";
-import type { DeletePaymentManagerResponse } from "../models/models_2";
+import type { DeletePaymentManagerRequest, DeletePaymentManagerResponse } from "../models/models_2";
 import { DeletePaymentManager$ } from "../schemas/schemas_0";
 
 /**

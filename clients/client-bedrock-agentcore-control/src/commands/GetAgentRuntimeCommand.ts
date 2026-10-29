@@ -88,6 +88,8 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //   },
  * //   protocolConfiguration: { // ProtocolConfiguration
  * //     serverProtocol: "MCP" || "HTTP" || "A2A" || "AGUI", // required
+ * //     port: Number("int"),
+ * //     path: "STRING_VALUE",
  * //   },
  * //   environmentVariables: { // EnvironmentVariablesMap
  * //     "<keys>": "STRING_VALUE",
@@ -208,6 +210,15 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //     capacityProviderArn: "STRING_VALUE", // required
  * //   },
  * //   platformVersion: "STRING_VALUE",
+ * //   allowedPorts: [ // AllowedPorts
+ * //     { // AllowedPort Union: only one key present
+ * //       port: Number("int"),
+ * //       portRange: { // PortRange
+ * //         from: Number("int"), // required
+ * //         to: Number("int"), // required
+ * //       },
+ * //     },
+ * //   ],
  * // };
  *
  * ```

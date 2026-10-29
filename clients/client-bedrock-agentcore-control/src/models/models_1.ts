@@ -36,7 +36,6 @@ import type {
   OverrideType,
   PassthroughProtocolType,
   PaymentCredentialProviderVendorType,
-  PaymentManagerStatus,
   PaymentsAuthorizerType,
   RecordExpiryAction,
   RestApiMethod,
@@ -62,8 +61,91 @@ import type {
   SecretReference,
   SystemManagedBlock,
   Unit,
-  WorkloadIdentityDetails,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetGatewayRuleRequest {
+  /**
+   * <p>The identifier of the gateway containing the rule.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the rule to retrieve.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+}
+
+/**
+ * Create response excludes updatedAt (redundant on create).
+ * Get/Update responses include it via their own output structures.
+ * @public
+ */
+export interface GetGatewayRuleResponse {
+  /**
+   * <p>The unique identifier of the gateway rule.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway that the rule belongs to.</p>
+   * @public
+   */
+  gatewayArn: string | undefined;
+
+  /**
+   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.</p>
+   * @public
+   */
+  priority: number | undefined;
+
+  /**
+   * <p>The conditions that must be met for the rule to apply.</p>
+   * @public
+   */
+  conditions?: Condition[] | undefined;
+
+  /**
+   * <p>The actions to take when the rule conditions are met.</p>
+   * @public
+   */
+  actions: Action[] | undefined;
+
+  /**
+   * <p>The description of the gateway rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp when the rule was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The current status of the rule.</p>
+   * @public
+   */
+  status: GatewayRuleStatus | undefined;
+
+  /**
+   * <p>System-managed metadata for rules created by automated processes.</p>
+   * @public
+   */
+  system?: SystemManagedBlock | undefined;
+
+  /**
+   * <p>The timestamp when the rule was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
 
 /**
  * @public
@@ -9912,92 +9994,4 @@ export interface CreatePaymentManagerRequest {
    * @public
    */
   kmsKeyArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePaymentManagerResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the created payment manager.</p>
-   * @public
-   */
-  paymentManagerArn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the created payment manager.</p>
-   * @public
-   */
-  paymentManagerId: string | undefined;
-
-  /**
-   * <p>The name of the created payment manager.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of authorizer for the created payment manager.</p>
-   * @public
-   */
-  authorizerType: PaymentsAuthorizerType | undefined;
-
-  /**
-   * <p>Represents inbound authorization configuration options used to authenticate incoming requests. </p>
-   * @public
-   */
-  authorizerConfiguration?: AuthorizerConfiguration | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the created payment manager.</p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>The information about the workload identity.</p>
-   * @public
-   */
-  workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
-
-  /**
-   * <p>The timestamp when the payment manager was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The current status of the payment manager. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
-   * @public
-   */
-  status: PaymentManagerStatus | undefined;
-
-  /**
-   * <p>The tags associated with the created payment manager.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.</p>
-   * @public
-   */
-  kmsKeyArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePaymentManagerRequest {
-  /**
-   * <p>The unique identifier of the payment manager to delete.</p>
-   * @public
-   */
-  paymentManagerId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
 }

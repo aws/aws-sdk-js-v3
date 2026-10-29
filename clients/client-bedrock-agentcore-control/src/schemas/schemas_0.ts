@@ -21,6 +21,8 @@ const _AKCP = "ApiKeyCredentialProviders";
 const _AKCPI = "ApiKeyCredentialProviderItem";
 const _AOPCI = "AtlassianOauth2ProviderConfigInput";
 const _AOPCO = "AtlassianOauth2ProviderConfigOutput";
+const _AP = "AllowedPorts";
+const _APl = "AllowedPort";
 const _AR = "AgentRuntime";
 const _ARA = "AgentRuntimeArtifact";
 const _ARE = "AgentRuntimeEndpoint";
@@ -820,6 +822,7 @@ const _PMSa = "PaymentManagerSummaries";
 const _PP = "ProviderPrefix";
 const _PPCI = "PaymentProviderConfigurationInput";
 const _PPCO = "PaymentProviderConfigurationOutput";
+const _PR = "PortRange";
 const _PRP = "PutResourcePolicy";
 const _PRPR = "PutResourcePolicyRequest";
 const _PRPRu = "PutResourcePolicyResponse";
@@ -1129,7 +1132,7 @@ const _aMRF = "additionalModelRequestFields";
 const _aMS = "addMemoryStrategies";
 const _aO = "anyOf";
 const _aOPC = "atlassianOauth2ProviderConfig";
-const _aP = "additionalParams";
+const _aP = "allowedPorts";
 const _aPA = "accessPointArn";
 const _aPC = "additionalPayloadClaims";
 const _aPK = "authorizationPrivateKey";
@@ -1137,6 +1140,7 @@ const _aPKA = "authorizationPrivateKeyArn";
 const _aPKC = "authorizationPrivateKeyConfig";
 const _aPKJK = "authorizationPrivateKeyJsonKey";
 const _aPKS = "authorizationPrivateKeySource";
+const _aPd = "additionalParams";
 const _aQP = "allowedQueryParameters";
 const _aR = "agentRuntimes";
 const _aRA = "agentRuntimeArn";
@@ -1373,6 +1377,7 @@ const _fi = "findings";
 const _fie = "field";
 const _fil = "filter";
 const _filt = "filters";
+const _fr = "from";
 const _g = "git";
 const _gA = "gatewayArn";
 const _gI = "gatewayIdentifier";
@@ -1587,6 +1592,7 @@ const _pN = "productName";
 const _pO = "parameterOverrides";
 const _pP = "providerPath";
 const _pPr = "providerPrefix";
+const _pR = "portRange";
 const _pRH = "passRequestHeaders";
 const _pRM = "preserveRecentMessages";
 const _pS = "profileSummaries";
@@ -1603,6 +1609,7 @@ const _pas = "passthrough";
 const _pe = "period";
 const _po = "policy";
 const _pol = "policies";
+const _por = "port";
 const _pr = "priority";
 const _pre = "prefix";
 const _pro = "provider";
@@ -1783,6 +1790,7 @@ const _tex = "text";
 const _th = "throughput";
 const _ti = "timeout";
 const _to = "tools";
+const _to_ = "to";
 const _tok = "tokens";
 const _tr = "truncation";
 const _u = "url";
@@ -2308,8 +2316,8 @@ export var CreateAgentRuntimeEndpointResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _CARR,
   0,
-  [_aRN, _aRAg, _rA, _nC, _cT, _d, _aCu, _rHC, _pC, _lC, _eV, _fC, _cPC, _ta, _pVl],
-  [0, () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [0, 4], [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, [() => EnvironmentVariablesMap, 0], () => FilesystemConfigurations, () => CapacityProviderConfiguration$, 128 | 0, 0], 3
+  [_aRN, _aRAg, _rA, _nC, _cT, _d, _aCu, _rHC, _pC, _lC, _eV, _fC, _cPC, _ta, _pVl, _aP],
+  [0, () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [0, 4], [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, [() => EnvironmentVariablesMap, 0], () => FilesystemConfigurations, () => CapacityProviderConfiguration$, 128 | 0, 0, () => AllowedPorts], 3
 ];
 export var CreateAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _CARRr,
   0,
@@ -3123,8 +3131,8 @@ export var GetAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _GARR,
 ];
 export var GetAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _GARRe,
   0,
-  [_aRA, _aRN, _aRI, _aRV, _cA, _lUA, _rA, _st, _lC, _nC, _fR, _d, _wID, _aRAg, _pC, _eV, _aCu, _rHC, _mC, _fC, _cPC, _pVl],
-  [0, 0, 0, 0, 5, 5, 0, 0, () => LifecycleConfiguration$, () => NetworkConfiguration$, 0, [() => Description, 0], () => WorkloadIdentityDetails$, () => AgentRuntimeArtifact$, () => ProtocolConfiguration$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => RuntimeMetadataConfiguration$, () => FilesystemConfigurations, () => CapacityProviderConfiguration$, 0], 9
+  [_aRA, _aRN, _aRI, _aRV, _cA, _lUA, _rA, _st, _lC, _nC, _fR, _d, _wID, _aRAg, _pC, _eV, _aCu, _rHC, _mC, _fC, _cPC, _pVl, _aP],
+  [0, 0, 0, 0, 5, 5, 0, 0, () => LifecycleConfiguration$, () => NetworkConfiguration$, 0, [() => Description, 0], () => WorkloadIdentityDetails$, () => AgentRuntimeArtifact$, () => ProtocolConfiguration$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => RuntimeMetadataConfiguration$, () => FilesystemConfigurations, () => CapacityProviderConfiguration$, 0, () => AllowedPorts], 9
 ];
 export var GetApiKeyCredentialProviderRequest$: StaticStructureSchema = [3, n0, _GAKCPR,
   0,
@@ -3528,7 +3536,7 @@ export var HarnessAgentCoreRuntimeEnvironmentRequest$: StaticStructureSchema = [
 ];
 export var HarnessBedrockModelConfig$: StaticStructureSchema = [3, n0, _HBMC,
   0,
-  [_mI, _mT, _te, _tP, _aF, _aP],
+  [_mI, _mT, _te, _tP, _aF, _aPd],
   [0, 1, 1, 1, 0, 15], 1
 ];
 export var HarnessBeforeInvocationHook$: StaticStructureSchema = [3, n0, _HBIH,
@@ -3553,7 +3561,7 @@ export var HarnessEndpoint$: StaticStructureSchema = [3, n0, _HE,
 ];
 export var HarnessGeminiModelConfig$: StaticStructureSchema = [3, n0, _HGMC,
   0,
-  [_mI, _aKA, _mT, _te, _tP, _tK, _aP],
+  [_mI, _aKA, _mT, _te, _tP, _tK, _aPd],
   [0, 0, 1, 1, 1, 1, 15], 2
 ];
 export var HarnessHookEventBridgeTarget$: StaticStructureSchema = [3, n0, _HHEBT,
@@ -3578,7 +3586,7 @@ export var HarnessInlineFunctionConfig$: StaticStructureSchema = [3, n0, _HIFC,
 ];
 export var HarnessLiteLlmModelConfig$: StaticStructureSchema = [3, n0, _HLLMC,
   0,
-  [_mI, _aKA, _aB, _mT, _te, _tP, _aP],
+  [_mI, _aKA, _aB, _mT, _te, _tP, _aPd],
   [0, 0, [() => HarnessLiteLlmApiBase, 0], 1, 1, 1, 15], 1
 ];
 export var HarnessManagedMemoryConfiguration$: StaticStructureSchema = [3, n0, _HMMC,
@@ -3588,7 +3596,7 @@ export var HarnessManagedMemoryConfiguration$: StaticStructureSchema = [3, n0, _
 ];
 export var HarnessOpenAiModelConfig$: StaticStructureSchema = [3, n0, _HOAMC,
   0,
-  [_mI, _aKA, _aB, _mT, _te, _tP, _aF, _aP],
+  [_mI, _aKA, _aB, _mT, _te, _tP, _aF, _aPd],
   [0, 0, [() => HarnessOpenAiApiBase, 0], 1, 1, 1, 0, 15], 2
 ];
 export var HarnessRemoteMcpConfig$: StaticStructureSchema = [3, n0, _HRMC,
@@ -4506,6 +4514,11 @@ export var PolicySummary$: StaticStructureSchema = [3, n0, _PSo,
   [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _eM],
   [0, 0, 0, 5, 5, 0, 0, 0], 7
 ];
+export var PortRange$: StaticStructureSchema = [3, n0, _PR,
+  0,
+  [_fr, _to_],
+  [1, 1], 2
+];
 export var PrivateEndpointOverride$: StaticStructureSchema = [3, n0, _PEO,
   0,
   [_do, _pE],
@@ -4518,8 +4531,8 @@ export var PrivateKeyJwtConfig$: StaticStructureSchema = [3, n0, _PKJC,
 ];
 export var ProtocolConfiguration$: StaticStructureSchema = [3, n0, _PCr,
   0,
-  [_sPe],
-  [0], 1
+  [_sPe, _por, _p],
+  [0, 1, 0], 1
 ];
 export var ProviderPrefix$: StaticStructureSchema = [3, n0, _PP,
   0,
@@ -4968,8 +4981,8 @@ export var UpdateAgentRuntimeEndpointResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _UARR,
   0,
-  [_aRI, _aRAg, _rA, _nC, _d, _aCu, _rHC, _pC, _lC, _mC, _eV, _fC, _cPC, _pVl, _cT],
-  [[0, 1], () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, () => RuntimeMetadataConfiguration$, [() => EnvironmentVariablesMap, 0], () => FilesystemConfigurations, () => CapacityProviderConfiguration$, 0, [0, 4]], 3
+  [_aRI, _aRAg, _rA, _nC, _d, _aCu, _rHC, _pC, _lC, _mC, _eV, _fC, _cPC, _pVl, _aP, _cT],
+  [[0, 1], () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, () => RuntimeMetadataConfiguration$, [() => EnvironmentVariablesMap, 0], () => FilesystemConfigurations, () => CapacityProviderConfiguration$, 0, () => AllowedPorts, [0, 4]], 3
 ];
 export var UpdateAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _UARRp,
   0,
@@ -5424,6 +5437,9 @@ var AgentRuntimeVersionSummaryList: StaticListSchema = [1, n0, _ARVSL,
 ];
 var AllowedAudienceList = 64 | 0;
 var AllowedClientsList = 64 | 0;
+var AllowedPorts: StaticListSchema = [1, n0, _AP,
+  0, () => AllowedPort$
+];
 var AllowedQueryParameters = 64 | 0;
 var AllowedRequestHeaders = 64 | 0;
 var AllowedResponseHeaders = 64 | 0;
@@ -5830,6 +5846,11 @@ export var AgentRuntimeArtifact$: StaticUnionSchema = [4, n0, _ARA,
   0,
   [_cCon, _cCod],
   [() => ContainerConfiguration$, () => CodeConfiguration$]
+];
+export var AllowedPort$: StaticUnionSchema = [4, n0, _APl,
+  0,
+  [_por, _pR],
+  [1, () => PortRange$]
 ];
 export var ApiSchemaConfiguration$: StaticUnionSchema = [4, n0, _ASC,
   0,

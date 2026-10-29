@@ -158,6 +158,8 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *   },
  *   protocolConfiguration: { // ProtocolConfiguration
  *     serverProtocol: "MCP" || "HTTP" || "A2A" || "AGUI", // required
+ *     port: Number("int"),
+ *     path: "STRING_VALUE",
  *   },
  *   lifecycleConfiguration: { // LifecycleConfiguration
  *     idleRuntimeSessionTimeout: Number("int"),
@@ -192,6 +194,15 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *     capacityProviderArn: "STRING_VALUE", // required
  *   },
  *   platformVersion: "STRING_VALUE",
+ *   allowedPorts: [ // AllowedPorts
+ *     { // AllowedPort Union: only one key present
+ *       port: Number("int"),
+ *       portRange: { // PortRange
+ *         from: Number("int"), // required
+ *         to: Number("int"), // required
+ *       },
+ *     },
+ *   ],
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateAgentRuntimeCommand(input);

@@ -53,6 +53,94 @@ import type {
 /**
  * @public
  */
+export interface CreatePaymentManagerResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created payment manager.</p>
+   * @public
+   */
+  paymentManagerArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the created payment manager.</p>
+   * @public
+   */
+  paymentManagerId: string | undefined;
+
+  /**
+   * <p>The name of the created payment manager.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of authorizer for the created payment manager.</p>
+   * @public
+   */
+  authorizerType: PaymentsAuthorizerType | undefined;
+
+  /**
+   * <p>Represents inbound authorization configuration options used to authenticate incoming requests. </p>
+   * @public
+   */
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the created payment manager.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The information about the workload identity.</p>
+   * @public
+   */
+  workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
+
+  /**
+   * <p>The timestamp when the payment manager was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The current status of the payment manager. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * @public
+   */
+  status: PaymentManagerStatus | undefined;
+
+  /**
+   * <p>The tags associated with the created payment manager.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePaymentManagerRequest {
+  /**
+   * <p>The unique identifier of the payment manager to delete.</p>
+   * @public
+   */
+  paymentManagerId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeletePaymentManagerResponse {
   /**
    * <p>The current status of the payment manager, set to <code>DELETING</code> when deletion is initiated. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>

@@ -1222,6 +1222,77 @@ export namespace AgentRuntimeArtifact {
 }
 
 /**
+ * <p>An inclusive range of ports. The value of <code>from</code> must be less than or equal to the value of <code>to</code>.</p>
+ * @public
+ */
+export interface PortRange {
+  /**
+   * <p>The first port in the inclusive range.</p>
+   * @public
+   */
+  from: number | undefined;
+
+  /**
+   * <p>The last port in the inclusive range.</p>
+   * @public
+   */
+  to: number | undefined;
+}
+
+/**
+ * <p>A port or port range that is reachable through the runtime's session URL. Specify exactly one of <code>port</code> or <code>portRange</code>.</p>
+ * @public
+ */
+export type AllowedPort =
+  | AllowedPort.PortMember
+  | AllowedPort.PortRangeMember
+  | AllowedPort.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AllowedPort {
+  /**
+   * <p>A single port that is reachable through the runtime's session URL.</p>
+   * @public
+   */
+  export interface PortMember {
+    port: number;
+    portRange?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An inclusive range of ports that are reachable through the runtime's session URL.</p>
+   * @public
+   */
+  export interface PortRangeMember {
+    port?: never;
+    portRange: PortRange;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    port?: never;
+    portRange?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    port: (value: number) => T;
+    portRange: (value: PortRange) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>A hosting environment whose workloads are allowed to invoke the target. At launch, the only supported hosting environment is AgentCore Gateway.</p>
  * @public
  */
@@ -1832,6 +1903,18 @@ export interface ProtocolConfiguration {
    * @public
    */
   serverProtocol: ServerProtocol | undefined;
+
+  /**
+   * <p>The port on which the agent server listens. The port must be between <code>8000</code> and <code>12000</code>, excluding the reserved port <code>8443</code>. When this field is omitted, the default is <code>8080</code> for <code>HTTP</code> and <code>AGUI</code>, <code>8000</code> for <code>MCP</code>, and <code>9000</code> for <code>A2A</code>.</p>
+   * @public
+   */
+  port?: number | undefined;
+
+  /**
+   * <p>The path on which the agent server accepts requests. The path must begin with <code>/</code>. When this field is omitted, the default is <code>/invocations</code> for <code>HTTP</code> and <code>AGUI</code>, <code>/mcp</code> for <code>MCP</code>, and <code>/</code> for <code>A2A</code>.</p>
+   * @public
+   */
+  path?: string | undefined;
 }
 
 /**
@@ -1926,7 +2009,7 @@ export interface CreateAgentRuntimeRequest {
   requestHeaderConfiguration?: RequestHeaderConfiguration | undefined;
 
   /**
-   * <p>The protocol configuration for an agent runtime. This structure defines how the agent runtime communicates with clients.</p>
+   * <p>The protocol configuration for the AgentCore Runtime, including the protocol, port, and path on which the agent server is available.</p>
    * @public
    */
   protocolConfiguration?: ProtocolConfiguration | undefined;
@@ -1966,6 +2049,12 @@ export interface CreateAgentRuntimeRequest {
    * @public
    */
   platformVersion?: string | undefined;
+
+  /**
+   * <p>The additional ports on the AgentCore Runtime that are reachable through the runtime's session URL. Specify one to five non-overlapping entries, each containing either a single port or an inclusive port range. Ports must be between <code>8000</code> and <code>12000</code>, excluding the reserved port <code>8443</code>.</p>
+   * @public
+   */
+  allowedPorts?: AllowedPort[] | undefined;
 }
 
 /**
@@ -2185,7 +2274,7 @@ export interface GetAgentRuntimeResponse {
   agentRuntimeArtifact?: AgentRuntimeArtifact | undefined;
 
   /**
-   * <p>The protocol configuration for an agent runtime. This structure defines how the agent runtime communicates with clients.</p>
+   * <p>The protocol configuration for the AgentCore Runtime, including the protocol, port, and path on which the agent server is available.</p>
    * @public
    */
   protocolConfiguration?: ProtocolConfiguration | undefined;
@@ -2231,6 +2320,12 @@ export interface GetAgentRuntimeResponse {
    * @public
    */
   platformVersion?: string | undefined;
+
+  /**
+   * <p>The additional ports on the AgentCore Runtime that are reachable through the runtime's session URL.</p>
+   * @public
+   */
+  allowedPorts?: AllowedPort[] | undefined;
 }
 
 /**
@@ -2402,7 +2497,7 @@ export interface UpdateAgentRuntimeRequest {
   requestHeaderConfiguration?: RequestHeaderConfiguration | undefined;
 
   /**
-   * <p>The protocol configuration for an agent runtime. This structure defines how the agent runtime communicates with clients.</p>
+   * <p>The updated protocol configuration for the AgentCore Runtime, including the protocol, port, and path on which the agent server is available.</p>
    * @public
    */
   protocolConfiguration?: ProtocolConfiguration | undefined;
@@ -2442,6 +2537,12 @@ export interface UpdateAgentRuntimeRequest {
    * @public
    */
   platformVersion?: string | undefined;
+
+  /**
+   * <p>The updated additional ports on the AgentCore Runtime that are reachable through the runtime's session URL. Specify one to five non-overlapping entries, each containing either a single port or an inclusive port range. Ports must be between <code>8000</code> and <code>12000</code>, excluding the reserved port <code>8443</code>.</p>
+   * @public
+   */
+  allowedPorts?: AllowedPort[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
@@ -9498,90 +9599,6 @@ export interface DeleteGatewayRuleResponse {
    * @public
    */
   status: GatewayRuleStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface GetGatewayRuleRequest {
-  /**
-   * <p>The identifier of the gateway containing the rule.</p>
-   * @public
-   */
-  gatewayIdentifier: string | undefined;
-
-  /**
-   * <p>The unique identifier of the rule to retrieve.</p>
-   * @public
-   */
-  ruleId: string | undefined;
-}
-
-/**
- * Create response excludes updatedAt (redundant on create).
- * Get/Update responses include it via their own output structures.
- * @public
- */
-export interface GetGatewayRuleResponse {
-  /**
-   * <p>The unique identifier of the gateway rule.</p>
-   * @public
-   */
-  ruleId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway that the rule belongs to.</p>
-   * @public
-   */
-  gatewayArn: string | undefined;
-
-  /**
-   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.</p>
-   * @public
-   */
-  priority: number | undefined;
-
-  /**
-   * <p>The conditions that must be met for the rule to apply.</p>
-   * @public
-   */
-  conditions?: Condition[] | undefined;
-
-  /**
-   * <p>The actions to take when the rule conditions are met.</p>
-   * @public
-   */
-  actions: Action[] | undefined;
-
-  /**
-   * <p>The description of the gateway rule.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp when the rule was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The current status of the rule.</p>
-   * @public
-   */
-  status: GatewayRuleStatus | undefined;
-
-  /**
-   * <p>System-managed metadata for rules created by automated processes.</p>
-   * @public
-   */
-  system?: SystemManagedBlock | undefined;
-
-  /**
-   * <p>The timestamp when the rule was last updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
 }
 
 /**

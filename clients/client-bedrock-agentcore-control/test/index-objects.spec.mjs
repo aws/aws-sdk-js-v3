@@ -17,6 +17,7 @@ import {
   AgentRuntimeStatus,
   AgentRuntimeVersionSummary$,
   AgentSkillsDescriptor$,
+  AllowedPort$,
   AllowedWorkloadConfiguration$,
   ApiGatewayTargetConfiguration$,
   ApiGatewayToolConfiguration$,
@@ -980,6 +981,7 @@ import {
   PolicyStatus,
   PolicySummary$,
   PolicyValidationMode,
+  PortRange$,
   PrincipalMatchOperator,
   PrivateEndpoint$,
   PrivateEndpointOverride$,
@@ -1668,6 +1670,7 @@ assert(typeof AgentRuntimeArtifact$ === "object");
 assert(typeof AgentRuntimeEndpoint$ === "object");
 assert(typeof AgentRuntimeVersionSummary$ === "object");
 assert(typeof AgentSkillsDescriptor$ === "object");
+assert(typeof AllowedPort$ === "object");
 assert(typeof AllowedWorkloadConfiguration$ === "object");
 assert(typeof ApiGatewayTargetConfiguration$ === "object");
 assert(typeof ApiGatewayToolConfiguration$ === "object");
@@ -2225,6 +2228,7 @@ assert(typeof PolicyGenerationDetails$ === "object");
 assert(typeof PolicyGenerationSummary$ === "object");
 assert(typeof PolicyStatement$ === "object");
 assert(typeof PolicySummary$ === "object");
+assert(typeof PortRange$ === "object");
 assert(typeof PrivateEndpoint$ === "object");
 assert(typeof PrivateEndpointOverride$ === "object");
 assert(typeof PrivateKeyJwtConfig$ === "object");

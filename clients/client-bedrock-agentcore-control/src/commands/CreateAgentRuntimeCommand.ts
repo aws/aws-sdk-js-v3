@@ -159,6 +159,8 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  *   },
  *   protocolConfiguration: { // ProtocolConfiguration
  *     serverProtocol: "MCP" || "HTTP" || "A2A" || "AGUI", // required
+ *     port: Number("int"),
+ *     path: "STRING_VALUE",
  *   },
  *   lifecycleConfiguration: { // LifecycleConfiguration
  *     idleRuntimeSessionTimeout: Number("int"),
@@ -191,6 +193,15 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  *   },
  *   tags: "<TagsMap>",
  *   platformVersion: "STRING_VALUE",
+ *   allowedPorts: [ // AllowedPorts
+ *     { // AllowedPort Union: only one key present
+ *       port: Number("int"),
+ *       portRange: { // PortRange
+ *         from: Number("int"), // required
+ *         to: Number("int"), // required
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new CreateAgentRuntimeCommand(input);
  * const response = await client.send(command);
