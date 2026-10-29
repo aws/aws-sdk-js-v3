@@ -16,6 +16,7 @@ import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.protocol.traits.Rpcv2CborTrait;
+import software.amazon.smithy.protocol.traits.Rpcv2JsonTrait;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
@@ -33,6 +34,7 @@ public class AddProtocols implements TypeScriptIntegration {
             AwsJson1_0Trait.ID,
             AwsJson1_1Trait.ID,
             RestJson1Trait.ID,
+            Rpcv2JsonTrait.ID,
             Rpcv2CborTrait.ID,
             RestXmlTrait.ID,
             AwsQueryTrait.ID,
@@ -75,6 +77,7 @@ public class AddProtocols implements TypeScriptIntegration {
             new AwsJsonRpc1_0(),
             new AwsJsonRpc1_1(),
             new AwsRestJson1(),
+            new AwsSmithyRpcV2Json(),
             new AwsSmithyRpcV2Cbor(),
             new AwsRestXml(),
             new AwsQuery(),
