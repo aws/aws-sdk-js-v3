@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1159.0...v3.1160.0) (2026-10-29)
+
+
+### Features
+
+* **client-wafv2:** AWS WAF customers using Targeted Bot Control, ATP, or ACFP managed rule groups can now enable automatic Challenge JavaScript SDK injection. When enabled, Amazon CloudFront injects the script tag into HTML responses on your behalf, removing the need for manual integration. ([d406535](https://github.com/aws/aws-sdk-js-v3/commit/d4065359b0a088e9faff28eae5317092970478e5))
+
+
+
+
+
 # [3.1159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1158.0...v3.1159.0) (2026-10-28)
 
 **Note:** Version bump only for package @aws-sdk/client-wafv2

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-mq",
-  "version": "3.1159.0",
+  "version": "3.1160.0",
   "description": "AWS SDK for JavaScript Mq Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-mq",
   "license": "Apache-2.0",
@@ -46,8 +46,8 @@
     "test:index": "tsc -p tsconfig.test.json && node ./test/index-objects.spec.mjs"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.978.7",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.90",
+    "@aws-sdk/core": "workspace:^3.979.0",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.91",
     "@aws-sdk/types": "workspace:^3.975.0",
     "@smithy/core": "^3.37.0",
     "@smithy/fetch-http-handler": "^5.8.0",

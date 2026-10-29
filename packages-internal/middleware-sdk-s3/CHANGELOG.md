@@ -86,6 +86,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.84 (2026-10-29)
+### Chores
+* **middleware-sdk-s3:** update dependencies.
+
+
+
 # 3.972.83 (2026-10-28)
 ### Bug Fixes
 * **middleware-sdk-s3:** scope S3 Express cache by identity ([#8387](https://github.com/aws/aws-sdk-js-v3/issues/8387)) ([7485eaa](https://github.com/aws/aws-sdk-js-v3/commit/7485eaac2110d6e61159de1a2d23a70f266d0fea))

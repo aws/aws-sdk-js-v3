@@ -81,6 +81,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.79 (2026-10-29)
+### Chores
+* **credential-provider-process:** update dependencies.
+
+
+
 # 3.972.78 (2026-10-28)
 ### Chores
 * **credential-provider-process:** update dependencies.

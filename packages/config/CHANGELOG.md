@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1159.0...v3.1160.0) (2026-10-29)
+
+
+### Features
+
+* **codegen:** add Smithy RPCv2 JSON protocol ([#8386](https://github.com/aws/aws-sdk-js-v3/issues/8386)) ([ee519d0](https://github.com/aws/aws-sdk-js-v3/commit/ee519d0224f58085db4fe4b0c5458fd6ee514525)), closes [smithy-typescript#2295](https://github.com/smithy-typescript/issues/2295)
+
+
+
+
+
 # [3.1159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1158.0...v3.1159.0) (2026-10-28)
 
 **Note:** Version bump only for package @aws-sdk/config

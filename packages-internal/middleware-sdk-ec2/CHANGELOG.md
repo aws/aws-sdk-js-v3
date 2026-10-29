@@ -69,6 +69,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.67 (2026-10-29)
+### Chores
+* **middleware-sdk-ec2:** update dependencies.
+
+
+
 # 3.972.66 (2026-10-28)
 ### Chores
 * **middleware-sdk-ec2:** update dependencies.

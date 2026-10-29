@@ -38,6 +38,13 @@
 
 
 
+
+# 3.1002.0 (2026-10-29)
+### Features
+* **checksums:** add xxHash and SHA-512 checksum algorithms ([#8383](https://github.com/aws/aws-sdk-js-v3/issues/8383)) ([3aa504f](https://github.com/aws/aws-sdk-js-v3/commit/3aa504f3d94963a3f728e424089dc1197a5e8c84))
+
+
+
 # 3.1001.7 (2026-10-28)
 ### Chores
 * readability, require braces for control flow ([#8389](https://github.com/aws/aws-sdk-js-v3/issues/8389)) ([2a16014](https://github.com/aws/aws-sdk-js-v3/commit/2a160140cbf5822f1a33bf93145d288ecf734597))

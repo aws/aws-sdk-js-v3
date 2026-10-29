@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1159.0...v3.1160.0) (2026-10-29)
+
+
+### Features
+
+* **checksums:** add xxHash and SHA-512 checksum algorithms ([#8383](https://github.com/aws/aws-sdk-js-v3/issues/8383)) ([3aa504f](https://github.com/aws/aws-sdk-js-v3/commit/3aa504f3d94963a3f728e424089dc1197a5e8c84))
+* **client-bedrock-agentcore-control:** Adds Session Endpoint Feature on AgentCore Runtime ([07ecbbc](https://github.com/aws/aws-sdk-js-v3/commit/07ecbbc39fb302bb7140222f53e3fda110f5c20d))
+* **client-bedrock-agentcore:** Adds AgentCore Runtime session endpoint support, including sessionEndpointUrl on the InvokeAgentRuntime response ([dac2f97](https://github.com/aws/aws-sdk-js-v3/commit/dac2f9772ef7f1e244b8aa08fb3a9fbf36631ff6))
+* **client-cleanrooms:** Adds support for the PySpark 2.0 analysis template format and for choosing the file format (CSV or Parquet) of protected job results written to Amazon S3, including in a membership's default job result configuration. ([8cb4c7e](https://github.com/aws/aws-sdk-js-v3/commit/8cb4c7eb64dea83d2a76f1d69c48e46f1d4958c8))
+* **client-imagebuilder:** This release adds support for on-demand AMI scanning with Amazon Inspector. ([a1a1c3e](https://github.com/aws/aws-sdk-js-v3/commit/a1a1c3eaf6506ae6e3063ebeb4172d7124b42d1d))
+* **client-lightsail:** This release adds support for instance health status checks and system status checks. ([5bf15ec](https://github.com/aws/aws-sdk-js-v3/commit/5bf15ec1c9ebdbc390a6cbb4e24e5d70207c6f74))
+* **client-wafv2:** AWS WAF customers using Targeted Bot Control, ATP, or ACFP managed rule groups can now enable automatic Challenge JavaScript SDK injection. When enabled, Amazon CloudFront injects the script tag into HTML responses on your behalf, removing the need for manual integration. ([d406535](https://github.com/aws/aws-sdk-js-v3/commit/d4065359b0a088e9faff28eae5317092970478e5))
+* **codegen:** add Smithy RPCv2 JSON protocol ([#8386](https://github.com/aws/aws-sdk-js-v3/issues/8386)) ([ee519d0](https://github.com/aws/aws-sdk-js-v3/commit/ee519d0224f58085db4fe4b0c5458fd6ee514525)), closes [smithy-typescript#2295](https://github.com/smithy-typescript/issues/2295)
+
+
+
+
+
 # [3.1159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1158.0...v3.1159.0) (2026-10-28)
 
 

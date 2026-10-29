@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1159.0...v3.1160.0) (2026-10-29)
+
+
+### Features
+
+* **client-cleanrooms:** Adds support for the PySpark 2.0 analysis template format and for choosing the file format (CSV or Parquet) of protected job results written to Amazon S3, including in a membership's default job result configuration. ([8cb4c7e](https://github.com/aws/aws-sdk-js-v3/commit/8cb4c7eb64dea83d2a76f1d69c48e46f1d4958c8))
+
+
+
+
+
 # [3.1159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1158.0...v3.1159.0) (2026-10-28)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanrooms

@@ -87,6 +87,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.85 (2026-10-29)
+### Chores
+* **credential-provider-web-identity:** update dependencies.
+
+
+
 # 3.972.84 (2026-10-28)
 ### Chores
 * **credential-provider-web-identity:** update dependencies.

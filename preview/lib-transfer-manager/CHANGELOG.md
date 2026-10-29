@@ -15,6 +15,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 0.2.3 (2026-10-29)
+### Chores
+* **lib-transfer-manager:** update dependencies.
+
+
+
 # 0.2.2 (2026-10-28)
 ### Chores
 * readability, require braces for control flow ([#8389](https://github.com/aws/aws-sdk-js-v3/issues/8389)) ([2a16014](https://github.com/aws/aws-sdk-js-v3/commit/2a160140cbf5822f1a33bf93145d288ecf734597))

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1159.0...v3.1160.0) (2026-10-29)
+
+
+### Features
+
+* **client-imagebuilder:** This release adds support for on-demand AMI scanning with Amazon Inspector. ([a1a1c3e](https://github.com/aws/aws-sdk-js-v3/commit/a1a1c3eaf6506ae6e3063ebeb4172d7124b42d1d))
+
+
+
+
+
 # [3.1159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1158.0...v3.1159.0) (2026-10-28)
 
 **Note:** Version bump only for package @aws-sdk/client-imagebuilder

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1159.0...v3.1160.0) (2026-10-29)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Adds AgentCore Runtime session endpoint support, including sessionEndpointUrl on the InvokeAgentRuntime response ([dac2f97](https://github.com/aws/aws-sdk-js-v3/commit/dac2f9772ef7f1e244b8aa08fb3a9fbf36631ff6))
+
+
+
+
+
 # [3.1159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1158.0...v3.1159.0) (2026-10-28)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore

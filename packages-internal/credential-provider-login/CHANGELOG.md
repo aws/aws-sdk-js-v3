@@ -88,6 +88,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.86 (2026-10-29)
+### Chores
+* **credential-provider-login:** update dependencies.
+
+
+
 # 3.972.85 (2026-10-28)
 ### Chores
 * **credential-provider-login:** update dependencies.

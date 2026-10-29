@@ -84,6 +84,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.979.0 (2026-10-29)
+### Features
+* **codegen:** add Smithy RPCv2 JSON protocol ([#8386](https://github.com/aws/aws-sdk-js-v3/issues/8386)) ([ee519d0](https://github.com/aws/aws-sdk-js-v3/commit/ee519d0224f58085db4fe4b0c5458fd6ee514525))
+
+
+
 # 3.978.7 (2026-10-28)
 ### Chores
 * readability, require braces for control flow ([#8389](https://github.com/aws/aws-sdk-js-v3/issues/8389)) ([2a16014](https://github.com/aws/aws-sdk-js-v3/commit/2a160140cbf5822f1a33bf93145d288ecf734597))
