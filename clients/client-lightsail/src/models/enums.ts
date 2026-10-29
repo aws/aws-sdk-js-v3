@@ -1034,6 +1034,51 @@ export type ExportSnapshotRecordSourceType =
  * @public
  * @enum
  */
+export const InstanceHealthStatusDetailName = {
+  REACHABILITY: "reachability",
+} as const;
+/**
+ * @public
+ */
+export type InstanceHealthStatusDetailName =
+  (typeof InstanceHealthStatusDetailName)[keyof typeof InstanceHealthStatusDetailName];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceHealthStatusDetailValue = {
+  FAILED: "failed",
+  INITIALIZING: "initializing",
+  INSUFFICIENT_DATA: "insufficient-data",
+  PASSED: "passed",
+} as const;
+/**
+ * @public
+ */
+export type InstanceHealthStatusDetailValue =
+  (typeof InstanceHealthStatusDetailValue)[keyof typeof InstanceHealthStatusDetailValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceHealthStatusValue = {
+  IMPAIRED: "impaired",
+  INITIALIZING: "initializing",
+  INSUFFICIENT_DATA: "insufficient-data",
+  NOT_APPLICABLE: "not-applicable",
+  OK: "ok",
+} as const;
+/**
+ * @public
+ */
+export type InstanceHealthStatusValue = (typeof InstanceHealthStatusValue)[keyof typeof InstanceHealthStatusValue];
+
+/**
+ * @public
+ * @enum
+ */
 export const HttpEndpoint = {
   disabled: "disabled",
   enabled: "enabled",

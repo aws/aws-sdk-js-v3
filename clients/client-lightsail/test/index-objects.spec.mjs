@@ -621,6 +621,11 @@ import {
   InstanceHardware$,
   InstanceHealthReason,
   InstanceHealthState,
+  InstanceHealthStatus$,
+  InstanceHealthStatusDetail$,
+  InstanceHealthStatusDetailName,
+  InstanceHealthStatusDetailValue,
+  InstanceHealthStatusValue,
   InstanceHealthSummary$,
   InstanceMetadataOptions$,
   InstanceMetadataState,
@@ -1536,6 +1541,8 @@ assert(typeof InstanceAccessDetails$ === "object");
 assert(typeof InstanceAttributeUpdates$ === "object");
 assert(typeof InstanceEntry$ === "object");
 assert(typeof InstanceHardware$ === "object");
+assert(typeof InstanceHealthStatus$ === "object");
+assert(typeof InstanceHealthStatusDetail$ === "object");
 assert(typeof InstanceHealthSummary$ === "object");
 assert(typeof InstanceMetadataOptions$ === "object");
 assert(typeof InstanceNetworking$ === "object");
@@ -1709,6 +1716,9 @@ assert(typeof HttpTokens === "object");
 assert(typeof InstanceAccessProtocol === "object");
 assert(typeof InstanceHealthReason === "object");
 assert(typeof InstanceHealthState === "object");
+assert(typeof InstanceHealthStatusDetailName === "object");
+assert(typeof InstanceHealthStatusDetailValue === "object");
+assert(typeof InstanceHealthStatusValue === "object");
 assert(typeof InstanceMetadataState === "object");
 assert(typeof InstanceMetricName === "object");
 assert(typeof InstancePlatform === "object");

@@ -36,6 +36,9 @@ import type {
   HttpProtocolIpv6,
   HttpTokens,
   InstanceAccessProtocol,
+  InstanceHealthStatusDetailName,
+  InstanceHealthStatusDetailValue,
+  InstanceHealthStatusValue,
   InstanceMetadataState,
   InstanceMetricName,
   InstancePlatform,
@@ -9435,6 +9438,16 @@ export interface GetInstanceRequest {
    * @public
    */
   instanceName: string | undefined;
+
+  /**
+   * <p>Specifies whether to include the instance health status checks in the response of your
+   *       request.</p>
+   *          <p>When set to <code>true</code>, the response includes the <code>instanceStatus</code> and
+   *         <code>systemStatus</code> of the instance. When omitted or set to <code>false</code>, the
+   *       response doesn't include them.</p>
+   * @public
+   */
+  includeHealthStatus?: boolean | undefined;
 }
 
 /**
@@ -9459,6 +9472,96 @@ export interface InstanceHardware {
    * @public
    */
   ramSizeInGb?: number | undefined;
+}
+
+/**
+ * <p>Describes the instance status.</p>
+ * @public
+ */
+export interface InstanceHealthStatusDetail {
+  /**
+   * <p>The type of instance status. The only possible value is
+   *       <code>reachability</code>.</p>
+   * @public
+   */
+  name?: InstanceHealthStatusDetailName | undefined;
+
+  /**
+   * <p>The status.</p>
+   *          <p>The following values are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>passed</code> - The check passed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed</code> - The check failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>initializing</code> - The check is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>insufficient-data</code> - There isn't enough data yet to determine the
+   *           result.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  status?: InstanceHealthStatusDetailValue | undefined;
+
+  /**
+   * <p>The time when a status check failed. For an instance that was launched and impaired,
+   *       this is the time when the instance was launched.</p>
+   * @public
+   */
+  impairedSince?: Date | undefined;
+}
+
+/**
+ * <p>Describes the status of an Amazon Lightsail instance.</p>
+ * @public
+ */
+export interface InstanceHealthStatus {
+  /**
+   * <p>The status.</p>
+   *          <p>The following values are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ok</code> - All checks are passing. The instance is reachable.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>impaired</code> - One or more checks have failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>initializing</code> - The instance was recently started, and the checks are in
+   *           progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>insufficient-data</code> - There isn't enough data yet to determine the
+   *           result.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>not-applicable</code> - The check doesn't apply because the instance isn't
+   *           running.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  status?: InstanceHealthStatusValue | undefined;
+
+  /**
+   * <p>The system instance health or instance health.</p>
+   * @public
+   */
+  details?: InstanceHealthStatusDetail[] | undefined;
 }
 
 /**
@@ -9887,6 +9990,24 @@ export interface Instance {
    * @public
    */
   metadataOptions?: InstanceMetadataOptions | undefined;
+
+  /**
+   * <p>Reports impaired functionality that stems from issues internal to the instance, such as
+   *       impaired reachability.</p>
+   *          <p>This value is returned only when you set <code>includeHealthStatus</code> to
+   *         <code>true</code> in your request.</p>
+   * @public
+   */
+  instanceStatus?: InstanceHealthStatus | undefined;
+
+  /**
+   * <p>Reports impaired functionality that stems from issues related to the systems that
+   *       support an instance, such as hardware failures and network connectivity problems.</p>
+   *          <p>This value is returned only when you set <code>includeHealthStatus</code> to
+   *         <code>true</code> in your request.</p>
+   * @public
+   */
+  systemStatus?: InstanceHealthStatus | undefined;
 }
 
 /**
@@ -10636,6 +10757,16 @@ export interface GetInstancesRequest {
    * @public
    */
   pageToken?: string | undefined;
+
+  /**
+   * <p>Specifies whether to include the instance health status checks of each instance in the
+   *       response of your request.</p>
+   *          <p>When set to <code>true</code>, the response includes the <code>instanceStatus</code> and
+   *         <code>systemStatus</code> of each instance. When omitted or set to <code>false</code>, the
+   *       response doesn't include them.</p>
+   * @public
+   */
+  includeHealthStatus?: boolean | undefined;
 }
 
 /**
@@ -10793,39 +10924,4 @@ export interface GetInstanceSnapshotResult {
    * @public
    */
   instanceSnapshot?: InstanceSnapshot | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstanceSnapshotsRequest {
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>To get a page token, perform an initial <code>GetInstanceSnapshots</code> request. If your
-   *       results are paginated, the response will return a next page token that you can specify as the
-   *       page token in a subsequent request.</p>
-   * @public
-   */
-  pageToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstanceSnapshotsResult {
-  /**
-   * <p>An array of key-value pairs containing information about the results of your get instance
-   *       snapshots request.</p>
-   * @public
-   */
-  instanceSnapshots?: InstanceSnapshot[] | undefined;
-
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>A next page token is not returned if there are no more results to display.</p>
-   *          <p>To get the next page of results, perform another <code>GetInstanceSnapshots</code> request
-   *       and specify the next page token using the <code>pageToken</code> parameter.</p>
-   * @public
-   */
-  nextPageToken?: string | undefined;
 }

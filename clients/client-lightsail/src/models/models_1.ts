@@ -52,6 +52,7 @@ import type {
   DistributionCustomErrorResponse,
   DomainEntry,
   InputOrigin,
+  InstanceSnapshot,
   InstanceState,
   KeyPair,
   MetricDatapoint,
@@ -62,6 +63,41 @@ import type {
   Tag,
   WafRule,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetInstanceSnapshotsRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetInstanceSnapshots</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
+   * @public
+   */
+  pageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceSnapshotsResult {
+  /**
+   * <p>An array of key-value pairs containing information about the results of your get instance
+   *       snapshots request.</p>
+   * @public
+   */
+  instanceSnapshots?: InstanceSnapshot[] | undefined;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetInstanceSnapshots</code> request
+   *       and specify the next page token using the <code>pageToken</code> parameter.</p>
+   * @public
+   */
+  nextPageToken?: string | undefined;
+}
 
 /**
  * @public

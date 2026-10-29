@@ -490,8 +490,11 @@ const _IAU = "InstanceAttributeUpdates";
 const _IE = "InstanceEntry";
 const _IEL = "InstanceEntryList";
 const _IH = "InstanceHardware";
-const _IHS = "InstanceHealthSummary";
+const _IHS = "InstanceHealthStatus";
+const _IHSD = "InstanceHealthStatusDetail";
+const _IHSDL = "InstanceHealthStatusDetailList";
 const _IHSL = "InstanceHealthSummaryList";
+const _IHSn = "InstanceHealthSummary";
 const _IIE = "InvalidInputException";
 const _IKP = "ImportKeyPair";
 const _IKPR = "ImportKeyPairRequest";
@@ -840,6 +843,7 @@ const _de = "description";
 const _dep = "deployment";
 const _depl = "deployments";
 const _des = "destination";
+const _det = "details";
 const _di = "digest";
 const _dis = "distribution";
 const _disk = "disk";
@@ -944,7 +948,8 @@ const _iEs = "isEncrypted";
 const _iFAS = "isFromAutoSnapshot";
 const _iH = "instanceHealth";
 const _iHR = "instanceHealthReason";
-const _iHS = "instanceHealthSummary";
+const _iHS = "includeHealthStatus";
+const _iHSn = "instanceHealthSummary";
 const _iI = "includeInactive";
 const _iL = "inspectionLevel";
 const _iM = "isModifiable";
@@ -960,8 +965,10 @@ const _iSD = "isSystemDisk";
 const _iSI = "instanceSnapshotInfo";
 const _iSIs = "isStaticIp";
 const _iSN = "instanceSnapshotName";
+const _iSm = "impairedSince";
 const _iSn = "instanceSnapshot";
 const _iSns = "instanceSnapshots";
+const _iSnst = "instanceStatus";
 const _iT = "instanceType";
 const _iTs = "isTerminal";
 const _iURC = "inUseResourceCount";
@@ -1165,6 +1172,7 @@ const _sPMIG = "storagePerMonthInGb";
 const _sR = "sourceRegion";
 const _sRDN = "sourceRelationalDatabaseName";
 const _sRN = "sourceResourceName";
+const _sS = "systemStatus";
 const _sSN = "sourceSnapshotName";
 const _sT = "startTime";
 const _sTOD = "snapshotTimeOfDay";
@@ -2553,8 +2561,8 @@ export var GetInstancePortStatesResult$: StaticStructureSchema = [3, n0, _GIPSRe
 ];
 export var GetInstanceRequest$: StaticStructureSchema = [3, n0, _GIR,
   0,
-  [_iN],
-  [0], 1
+  [_iN, _iHS],
+  [0, 2], 1
 ];
 export var GetInstanceResult$: StaticStructureSchema = [3, n0, _GIRe,
   0,
@@ -2583,8 +2591,8 @@ export var GetInstanceSnapshotsResult$: StaticStructureSchema = [3, n0, _GISRetn
 ];
 export var GetInstancesRequest$: StaticStructureSchema = [3, n0, _GIRet,
   0,
-  [_pT],
-  [0]
+  [_pT, _iHS],
+  [0, 2]
 ];
 export var GetInstancesResult$: StaticStructureSchema = [3, n0, _GIRetn,
   0,
@@ -2898,8 +2906,8 @@ export var InputOrigin$: StaticStructureSchema = [3, n0, _IO,
 ];
 export var Instance$: StaticStructureSchema = [3, n0, _I,
   0,
-  [_n, _a, _sC, _cA, _l, _rT, _ta, _bI, _bNl, _bIu, _aOd, _iSIs, _pIA, _pIAu, _iAp, _iAT, _h, _ne, _stat, _us, _sKN, _mO],
-  [0, 0, 0, 4, () => ResourceLocation$, 0, () => TagList, 0, 0, 0, () => AddOnList, 2, 0, 0, 64 | 0, 0, () => InstanceHardware$, () => InstanceNetworking$, () => InstanceState$, 0, 0, () => InstanceMetadataOptions$]
+  [_n, _a, _sC, _cA, _l, _rT, _ta, _bI, _bNl, _bIu, _aOd, _iSIs, _pIA, _pIAu, _iAp, _iAT, _h, _ne, _stat, _us, _sKN, _mO, _iSnst, _sS],
+  [0, 0, 0, 4, () => ResourceLocation$, 0, () => TagList, 0, 0, 0, () => AddOnList, 2, 0, 0, 64 | 0, 0, () => InstanceHardware$, () => InstanceNetworking$, () => InstanceState$, 0, 0, () => InstanceMetadataOptions$, () => InstanceHealthStatus$, () => InstanceHealthStatus$]
 ];
 export var InstanceAccessDetails$: StaticStructureSchema = [3, n0, _IAD,
   0,
@@ -2921,7 +2929,17 @@ export var InstanceHardware$: StaticStructureSchema = [3, n0, _IH,
   [_cC, _disks, _rSIG],
   [1, () => DiskList, 1]
 ];
-export var InstanceHealthSummary$: StaticStructureSchema = [3, n0, _IHS,
+export var InstanceHealthStatus$: StaticStructureSchema = [3, n0, _IHS,
+  0,
+  [_st, _det],
+  [0, () => InstanceHealthStatusDetailList]
+];
+export var InstanceHealthStatusDetail$: StaticStructureSchema = [3, n0, _IHSD,
+  0,
+  [_n, _st, _iSm],
+  [0, 0, 4]
+];
+export var InstanceHealthSummary$: StaticStructureSchema = [3, n0, _IHSn,
   0,
   [_iN, _iH, _iHR],
   [0, 0, 0]
@@ -2983,7 +3001,7 @@ export var LightsailDistribution$: StaticStructureSchema = [3, n0, _LD,
 ];
 export var LoadBalancer$: StaticStructureSchema = [3, n0, _LB,
   0,
-  [_n, _a, _sC, _cA, _l, _rT, _ta, _dNn, _stat, _pro, _pPu, _hCP, _iP, _iHS, _tCS, _cOo, _iAT, _hRE, _tPN],
+  [_n, _a, _sC, _cA, _l, _rT, _ta, _dNn, _stat, _pro, _pPu, _hCP, _iP, _iHSn, _tCS, _cOo, _iAT, _hRE, _tPN],
   [0, 0, 0, 4, () => ResourceLocation$, 0, () => TagList, 0, 0, 0, 64 | 1, 0, 1, () => InstanceHealthSummaryList, () => LoadBalancerTlsCertificateSummaryList, 128 | 0, 0, 2, 0]
 ];
 export var LoadBalancerTlsCertificate$: StaticStructureSchema = [3, n0, _LBTC,
@@ -3708,6 +3726,9 @@ var HostKeysList: StaticListSchema = [1, n0, _HKL,
 ];
 var InstanceEntryList: StaticListSchema = [1, n0, _IEL,
   0, () => InstanceEntry$
+];
+var InstanceHealthStatusDetailList: StaticListSchema = [1, n0, _IHSDL,
+  0, () => InstanceHealthStatusDetail$
 ];
 var InstanceHealthSummaryList: StaticListSchema = [1, n0, _IHSL,
   0, () => InstanceHealthSummary$

@@ -35,6 +35,7 @@ export interface GetInstancesCommandOutput extends GetInstancesResult, __Metadat
  * const client = new LightsailClient(config);
  * const input = { // GetInstancesRequest
  *   pageToken: "STRING_VALUE",
+ *   includeHealthStatus: true || false,
  * };
  * const command = new GetInstancesCommand(input);
  * const response = await client.send(command);
@@ -156,6 +157,26 @@ export interface GetInstancesCommandOutput extends GetInstancesResult, __Metadat
  * //         httpEndpoint: "disabled" || "enabled",
  * //         httpPutResponseHopLimit: Number("int"),
  * //         httpProtocolIpv6: "disabled" || "enabled",
+ * //       },
+ * //       instanceStatus: { // InstanceHealthStatus
+ * //         status: "ok" || "impaired" || "initializing" || "insufficient-data" || "not-applicable",
+ * //         details: [ // InstanceHealthStatusDetailList
+ * //           { // InstanceHealthStatusDetail
+ * //             name: "reachability",
+ * //             status: "passed" || "failed" || "insufficient-data" || "initializing",
+ * //             impairedSince: new Date("TIMESTAMP"),
+ * //           },
+ * //         ],
+ * //       },
+ * //       systemStatus: {
+ * //         status: "ok" || "impaired" || "initializing" || "insufficient-data" || "not-applicable",
+ * //         details: [
+ * //           {
+ * //             name: "reachability",
+ * //             status: "passed" || "failed" || "insufficient-data" || "initializing",
+ * //             impairedSince: new Date("TIMESTAMP"),
+ * //           },
+ * //         ],
  * //       },
  * //     },
  * //   ],
