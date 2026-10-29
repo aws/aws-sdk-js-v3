@@ -2,6 +2,7 @@ import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { constructStack } from "@smithy/core/client";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
+import { PutCommand } from "./commands/PutCommand";
 import { DynamoDBDocumentClient } from "./DynamoDBDocumentClient";
 
 /**
@@ -244,5 +245,30 @@ describe("DynamoDBDocumentClient - serializerMiddleware compatibility check", ()
       const userAgentStr = JSON.stringify(userAgent);
       expect(userAgentStr).not.toContain("0.0.0-stale");
     });
+  });
+});
+
+describe("DynamoDBDocumentClient Set validation", () => {
+  it("rejects a mixed Set before sending a request", async () => {
+    const handle = vi.fn();
+    const client = createModernClient({ requestHandler: { handle } });
+    const docClient = DynamoDBDocumentClient.from(client);
+
+    await expect(
+      docClient.send(new PutCommand({ TableName: "TestTable", Item: { pk: "x", v: new Set([1, "two"]) } }))
+    ).rejects.toThrow(`Sets must contain only one type of data.`);
+    expect(handle).not.toHaveBeenCalled();
+  });
+
+  it("sends a number Set containing numeric text", async () => {
+    const handle = vi.fn().mockResolvedValue({
+      response: { statusCode: 200, headers: {}, body: new TextEncoder().encode("{}") },
+    });
+    const client = createModernClient({ requestHandler: { handle } });
+    const docClient = DynamoDBDocumentClient.from(client);
+
+    await docClient.send(new PutCommand({ TableName: "TestTable", Item: { pk: "x", v: new Set([1, "2"]) } }));
+
+    expect(handle).toHaveBeenCalledOnce();
   });
 });

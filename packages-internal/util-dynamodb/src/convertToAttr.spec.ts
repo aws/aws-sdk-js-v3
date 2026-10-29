@@ -265,10 +265,60 @@ describe("convertToAttr", () => {
       expect(convertToAttr(set)).toEqual({ BS: Array.from(set) });
     });
 
+    it("preserves supported binary types without changing their values", () => {
+      const bytes = new Uint8Array([1]);
+      const buffer = new ArrayBuffer(2);
+      const result = convertToAttr(new Set([bytes, buffer]));
+
+      expect(result).toEqual({ BS: [bytes, buffer] });
+      expect((result as { BS: Uint8Array[] }).BS[0]).toBe(bytes);
+      expect((result as { BS: Uint8Array[] }).BS[1]).toBe(buffer);
+    });
+
+    it("keeps existing string-to-binary conversion in a binary-first Set", () => {
+      const bytes = new Uint8Array([1]);
+
+      expect(convertToAttr(new Set<any>([bytes, "x"]))).toEqual({ BS: [bytes, "x"] });
+    });
+
     it("string set", () => {
       const set = new Set(["one", "two", "three"]);
       expect(convertToAttr(set)).toEqual({ SS: Array.from(set) });
     });
+
+    it("keeps numeric text in number-first Sets", () => {
+      expect(convertToAttr(new Set([1, "2", "+42", ".5", "1E-3"]))).toEqual({
+        NS: ["1", "2", "+42", ".5", "1E-3"],
+      });
+      expect(convertToAttr(new Set([1n, "2"]))).toEqual({ NS: ["1", "2"] });
+      expect(convertToAttr(new Set([NumberValue.from("1"), "2"]))).toEqual({ NS: ["1", "2"] });
+    });
+
+    it("converts values to strings in a string set without sorting them", () => {
+      expect(convertToAttr(new Set(["2", "qwdq"]))).toEqual({ SS: ["2", "qwdq"] });
+      expect(convertToAttr(new Set(["two", 3]))).toEqual({ SS: ["two", "3"] });
+      expect(convertToAttr(new Set(["1", 2, 12]))).toEqual({ SS: ["1", "2", "12"] });
+    });
+
+    it("rejects non-numeric members in number-first Sets", () => {
+      for (const set of [
+        new Set([1, "two"]),
+        new Set([1n, "two"]),
+        new Set([NumberValue.from("1"), "two"]),
+      ]) {
+        expect(() => convertToAttr(set)).toThrowError(`Sets must contain only one type of data.`);
+      }
+    });
+
+    it("rejects non-binary members in a binary set", () => {
+      for (const set of [
+        new Set<any>([new Uint8Array([1]), 2]),
+        new Set<any>([new Uint8Array([1]), null]),
+      ]) {
+        expect(() => convertToAttr(set)).toThrowError(`Sets must contain only one type of data.`);
+      }
+    });
+
 
     describe("set with undefined", () => {
       describe("throws error", () => {
