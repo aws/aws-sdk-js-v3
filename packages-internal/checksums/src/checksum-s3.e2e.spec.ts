@@ -10,10 +10,10 @@ import { beforeAll, describe, expect, test as it } from "vitest";
 // property), which lands the constructor in runtimeConfig.checksumAlgorithms[id] where the
 // middleware's default branch resolves it by the S3 model's ChecksumAlgorithm value.
 const NEW_ALGORITHMS: Record<string, ChecksumConstructor> = {
-  [ChecksumAlgorithm.SHA512]: Sha512 as unknown as ChecksumConstructor,
-  [ChecksumAlgorithm.XXHASH64]: Xxh64 as unknown as ChecksumConstructor,
-  [ChecksumAlgorithm.XXHASH3]: Xxh3_64 as unknown as ChecksumConstructor,
-  [ChecksumAlgorithm.XXHASH128]: Xxh3_128 as unknown as ChecksumConstructor,
+  [ChecksumAlgorithm.SHA512]: Sha512,
+  [ChecksumAlgorithm.XXHASH64]: Xxh64,
+  [ChecksumAlgorithm.XXHASH3]: Xxh3_64,
+  [ChecksumAlgorithm.XXHASH128]: Xxh3_128,
 };
 
 function registerChecksumsExtension() {
