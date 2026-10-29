@@ -279,8 +279,7 @@ export type SigninClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
 export interface SigninClientResolvedConfig extends SigninClientResolvedConfigType {}
 
 /**
- * AWS Sign-In manages authentication for AWS services. This service provides
- * secure authentication flows for accessing AWS resources from the console and developer tools.
+ * AWS Sign-In manages authentication for AWS services. It implements OAuth 2.0, providing secure token exchange and refresh capabilities.
  * @public
  */
 export class SigninClient extends __Client<

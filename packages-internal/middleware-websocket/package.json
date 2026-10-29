@@ -42,9 +42,9 @@
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.979.0",
     "@aws-sdk/types": "workspace:^3.975.0",
-    "@smithy/core": "^3.37.0",
+    "@smithy/core": "^3.38.0",
     "@smithy/fetch-http-handler": "^5.8.0",
-    "@smithy/signature-v4": "^5.7.4",
+    "@smithy/signature-v4": "^5.7.5",
     "@smithy/types": "^4.19.0",
     "tslib": "^2.6.2"
   },

@@ -61,9 +61,9 @@
     "@aws-sdk/middleware-sdk-transcribe-streaming": "workspace:^3.972.37",
     "@aws-sdk/middleware-websocket": "workspace:^3.972.61",
     "@aws-sdk/types": "workspace:^3.975.0",
-    "@smithy/core": "^3.37.0",
+    "@smithy/core": "^3.38.0",
     "@smithy/fetch-http-handler": "^5.8.0",
-    "@smithy/node-http-handler": "^4.13.0",
+    "@smithy/node-http-handler": "^4.14.0",
     "@smithy/types": "^4.19.0",
     "tslib": "^2.6.2"
   },
