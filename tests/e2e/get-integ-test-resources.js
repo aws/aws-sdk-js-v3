@@ -36,6 +36,13 @@ exports.getIntegTestResources = async () => {
     (resource) => resource.ResourceType === "AWS::S3::MultiRegionAccessPoint"
   )[0].PhysicalResourceId;
 
+  // Execution role for the function the Lambda layer e2e test creates.
+  const lambdaExecutionRoleName = stackResources.filter(
+    (resource) =>
+      resource.ResourceType === "AWS::IAM::Role" &&
+      resource.LogicalResourceId.indexOf("IntegTestLambdaExecutionRole") === 0
+  )[0].PhysicalResourceId;
+
   const sts = new STSClient({ region });
   const { Account: AccountId } = await sts.send(new GetCallerIdentityCommand({}));
   const s3Control = new S3ControlClient({ region });
@@ -63,5 +70,6 @@ exports.getIntegTestResources = async () => {
     AWS_SMOKE_TEST_IDENTITY_POOL_ID: identityPoolId,
     AWS_SMOKE_TEST_BUCKET: bucketName,
     AWS_SMOKE_TEST_MRAP_ARN: mrapArn,
+    AWS_SMOKE_TEST_LAMBDA_EXECUTION_ROLE_ARN: `arn:aws:iam::${AccountId}:role/${lambdaExecutionRoleName}`,
   };
 };
