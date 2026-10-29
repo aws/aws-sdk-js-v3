@@ -1,13 +1,9 @@
 /**
  * Computes an updated system clock offset from a server Date header.
  *
- * When `timeRequestSent` is provided, uses the midpoint formula:
- *   elapsed        = timeResponseReceived - timeRequestSent
- *   midpoint       = (timeRequestSent + timeResponseReceived) / 2
- *   candidateSkew  = serverTime - midpoint
- *
- * When `timeRequestSent` is absent (legacy callers), falls back to:
- *   candidateSkew  = serverTime - timeResponseReceived
+ * The candidate skew is the difference between the server time and the client
+ * time when the response is received:
+ *   candidateSkew = serverTime - timeResponseReceived
  *
  * The candidate is discarded if:
  *   - An Age header is present
@@ -42,10 +38,5 @@ export const getUpdatedSystemClockOffset = (
     return currentSystemClockOffset;
   }
 
-  const candidateSkew =
-    timeRequestSent !== undefined
-      ? serverTime - (timeRequestSent + timeResponseReceived) / 2
-      : serverTime - timeResponseReceived;
-
-  return candidateSkew;
+  return serverTime - timeResponseReceived;
 };

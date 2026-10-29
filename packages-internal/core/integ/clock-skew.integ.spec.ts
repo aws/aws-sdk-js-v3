@@ -169,7 +169,7 @@ describe("Clock Skew Integration Tests", () => {
         {
           sendMs: new Date("2026-01-01T00:00:00Z").getTime(),
           receiveMs: new Date("2026-01-01T00:00:02Z").getTime(),
-          response: stsSuccessResponse("Thu, 01 Jan 2026 00:00:01 GMT"),
+          response: stsSuccessResponse("Thu, 01 Jan 2026 00:00:02 GMT"),
           expectedSigningTime: toSigV4Date("2026-01-01T00:00:00Z"),
         },
       ],
@@ -190,13 +190,13 @@ describe("Clock Skew Integration Tests", () => {
         {
           sendMs: new Date("2026-01-01T00:00:00Z").getTime(),
           receiveMs: new Date("2026-01-01T00:00:02Z").getTime(),
-          response: stsErrorResponse("Thu, 01 Jan 2026 00:05:01 GMT", "RequestTimeTooSkewed"),
+          response: stsErrorResponse("Thu, 01 Jan 2026 00:05:02 GMT", "RequestTimeTooSkewed"),
           expectedSigningTime: toSigV4Date("2026-01-01T00:00:00Z"),
         },
         {
           sendMs: new Date("2026-01-01T00:00:02Z").getTime(),
           receiveMs: new Date("2026-01-01T00:00:04Z").getTime(),
-          response: stsSuccessResponse("Thu, 01 Jan 2026 00:05:03 GMT"),
+          response: stsSuccessResponse("Thu, 01 Jan 2026 00:05:04 GMT"),
           expectedSigningTime: toSigV4Date("2026-01-01T00:05:02Z"),
         },
       ],
@@ -215,7 +215,7 @@ describe("Clock Skew Integration Tests", () => {
         {
           sendMs: new Date("2026-01-01T00:01:00Z").getTime(),
           receiveMs: new Date("2026-01-01T00:01:02Z").getTime(),
-          response: stsSuccessResponse("Thu, 01 Jan 2026 00:06:01 GMT"),
+          response: stsSuccessResponse("Thu, 01 Jan 2026 00:06:02 GMT"),
           expectedSigningTime: toSigV4Date("2026-01-01T00:06:00Z"),
         },
       ],
@@ -235,7 +235,7 @@ describe("Clock Skew Integration Tests", () => {
         {
           sendMs: new Date("2026-01-01T00:00:00Z").getTime(),
           receiveMs: new Date("2026-01-01T00:00:02Z").getTime(),
-          response: stsErrorResponse("Thu, 01 Jan 2026 00:05:01 GMT", "RequestTimeTooSkewed"),
+          response: stsErrorResponse("Thu, 01 Jan 2026 00:05:02 GMT", "RequestTimeTooSkewed"),
           expectedSigningTime: toSigV4Date("2026-01-01T00:00:00Z"),
         },
       ],
@@ -282,7 +282,7 @@ describe("Clock Skew Integration Tests", () => {
         {
           sendMs: new Date("2026-01-01T00:17:00Z").getTime(),
           receiveMs: new Date("2026-01-01T00:17:02Z").getTime(),
-          response: stsSuccessResponse("Thu, 01 Jan 2026 00:22:01 GMT"),
+          response: stsSuccessResponse("Thu, 01 Jan 2026 00:22:02 GMT"),
           expectedSigningTime: toSigV4Date("2026-01-01T00:17:00Z"),
         },
       ],
@@ -302,7 +302,7 @@ describe("Clock Skew Integration Tests", () => {
         {
           sendMs: new Date("2026-01-01T00:00:00Z").getTime(),
           receiveMs: new Date("2026-01-01T00:00:02Z").getTime(),
-          response: stsSuccessResponse("Thu, 01 Jan 2026 00:00:01 GMT"),
+          response: stsSuccessResponse("Thu, 01 Jan 2026 00:00:02 GMT"),
           expectedSigningTime: toSigV4Date("2026-01-01T00:05:00Z"), // 00:00:00 + 300s stale offset
         },
       ],
@@ -325,7 +325,7 @@ describe("Clock Skew Integration Tests", () => {
         {
           sendMs: new Date("2026-01-01T00:00:00Z").getTime(),
           receiveMs: new Date("2026-01-01T00:00:02Z").getTime(),
-          response: stsErrorResponse("Thu, 01 Jan 2026 00:02:01 GMT", "InvalidSignatureException", 400),
+          response: stsErrorResponse("Thu, 01 Jan 2026 00:02:02 GMT", "InvalidSignatureException", 400),
           expectedSigningTime: toSigV4Date("2026-01-01T00:00:00Z"),
         },
       ],
@@ -352,13 +352,13 @@ describe("Clock Skew Integration Tests", () => {
         {
           sendMs: new Date("2026-01-01T00:00:00Z").getTime(),
           receiveMs: new Date("2026-01-01T00:00:02Z").getTime(),
-          response: stsErrorResponse("Thu, 01 Jan 2026 00:05:01 GMT", "InvalidSignatureException", 400),
+          response: stsErrorResponse("Thu, 01 Jan 2026 00:05:02 GMT", "InvalidSignatureException", 400),
           expectedSigningTime: toSigV4Date("2026-01-01T00:00:00Z"),
         },
         {
           sendMs: new Date("2026-01-01T00:00:02Z").getTime(),
           receiveMs: new Date("2026-01-01T00:00:04Z").getTime(),
-          response: stsSuccessResponse("Thu, 01 Jan 2026 00:05:03 GMT"),
+          response: stsSuccessResponse("Thu, 01 Jan 2026 00:05:04 GMT"),
           expectedSigningTime: toSigV4Date("2026-01-01T00:05:02Z"),
         },
       ],
@@ -424,7 +424,7 @@ describe("Clock Skew Integration Tests", () => {
         {
           sendMs: new Date("2026-01-01T16:51:10Z").getTime(),
           receiveMs: new Date("2026-01-01T16:51:12Z").getTime(),
-          response: stsSuccessResponse("Thu, 01 Jan 2026 16:56:11 GMT"),
+          response: stsSuccessResponse("Thu, 01 Jan 2026 16:56:12 GMT"),
           expectedSigningTime: toSigV4Date("2026-01-01T16:51:10Z"),
         },
       ],
@@ -464,7 +464,7 @@ describe("Clock Skew Integration Tests", () => {
         {
           sendMs: new Date("2026-01-01T16:51:10Z").getTime(),
           receiveMs: new Date("2026-01-01T16:51:12Z").getTime(),
-          response: stsSuccessResponse("Thu, 01 Jan 2026 16:51:11 GMT"),
+          response: stsSuccessResponse("Thu, 01 Jan 2026 16:51:12 GMT"),
           expectedSigningTime: toSigV4Date("2026-01-01T16:51:10Z"),
         },
       ],

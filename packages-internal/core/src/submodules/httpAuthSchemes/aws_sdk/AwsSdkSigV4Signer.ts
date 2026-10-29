@@ -143,7 +143,7 @@ export class AwsSdkSigV4Signer implements HttpSigner {
     if (!skipSkewSampling) {
       // Capture the clock offset before signing so errorHandler can detect concurrent corrections.
       signingProperties._preRequestSystemClockOffset = config.systemClockOffset;
-      // Capture the raw send time (no skew applied) for the midpoint skew formula.
+      // Capture the raw send time (no skew applied) for the request duration guard.
       signingProperties._requestSentAt = Date.now();
     }
 
