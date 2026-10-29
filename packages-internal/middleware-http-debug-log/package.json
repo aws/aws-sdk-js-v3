@@ -39,7 +39,7 @@
     "test:watch": "yarn g:vitest watch"
   },
   "dependencies": {
-    "@smithy/core": "^3.37.0",
+    "@smithy/core": "^3.38.0",
     "@smithy/types": "^4.19.0",
     "tslib": "^2.6.2"
   },

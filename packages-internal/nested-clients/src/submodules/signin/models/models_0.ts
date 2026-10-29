@@ -1,77 +1,73 @@
 // smithy-typescript generated code
 /**
- * AWS credentials structure containing temporary access credentials
- *
- * Scoped, temporary AWS credentials with a 15-minute duration.
+ * Contains the scoped, temporary AWS credentials used to sign requests with SigV4. Valid for 15 minutes.
  * @public
  */
 export interface AccessToken {
   /**
-   * AWS access key ID for temporary credentials
+   * The AWS access key ID for the temporary credentials.
    * @public
    */
   accessKeyId: string | undefined;
 
   /**
-   * AWS secret access key for temporary credentials
+   * The AWS secret access key used to sign requests.
    * @public
    */
   secretAccessKey: string | undefined;
 
   /**
-   * AWS session token for temporary credentials
+   * The session token that validates the temporary security credentials.
    * @public
    */
   sessionToken: string | undefined;
 }
 
 /**
- * Request body payload for CreateOAuth2Token operation
- *
- * The operation type is determined by the grant_type parameter:
- * - grant_type=authorization_code: Requires code, redirect_uri, code_verifier
- * - grant_type=refresh_token: Requires refresh_token
+ * The request body for creating an OAuth 2.0 token. Supports both the authorization code and
+ * refresh token flows, selected by the "grant_type" parameter.
  * @public
  */
 export interface CreateOAuth2TokenRequestBody {
   /**
-   * The client identifier (ARN) used during Sign-In onboarding
-   * Required for both authorization code and refresh token flows
+   * The OAuth 2.0 client identifier. Expected values: "arn:aws:signin:::devtools/same-device"
+   * or "arn:aws:signin:::devtools/cross-device".
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * OAuth 2.0 grant type - determines which flow is used
-   * Must be "authorization_code" or "refresh_token"
+   * The OAuth 2.0 grant type. Supported values:
+   * - "authorization_code" - Exchange an authorization code for tokens.
+   * - "refresh_token" - Use a refresh token to obtain a new access token.
    * @public
    */
   grantType: string | undefined;
 
   /**
-   * The authorization code received from /v1/authorize
-   * Required only when grant_type=authorization_code
+   * The authorization code received from the "/v1/authorize" endpoint.
+   * Required when "grant_type=authorization_code".
    * @public
    */
   code?: string | undefined;
 
   /**
-   * The redirect URI that must match the original authorization request
-   * Required only when grant_type=authorization_code
+   * The redirect URI that was used in the original authorization request. Must match exactly.
+   * Required when "grant_type=authorization_code".
    * @public
    */
   redirectUri?: string | undefined;
 
   /**
-   * PKCE code verifier to prove possession of the original code challenge
-   * Required only when grant_type=authorization_code
+   * The PKCE code verifier that proves possession of the original code challenge.
+   * Required when "grant_type=authorization_code".
    * @public
    */
   codeVerifier?: string | undefined;
 
   /**
-   * The refresh token returned from auth_code redemption
-   * Required only when grant_type=refresh_token
+   * The refresh token issued by a previous token response.
+   * Required when "grant_type=refresh_token".
    * @public
    */
   refreshToken?: string | undefined;
@@ -86,54 +82,46 @@ export interface CreateOAuth2TokenRequestBody {
  */
 export interface CreateOAuth2TokenRequest {
   /**
-   * Flattened token operation inputs
-   * The specific operation is determined by grant_type in the request body
+   * Flattened token operation inputs. The "grant_type" in the request body determines the specific operation.
    * @public
    */
   tokenInput: CreateOAuth2TokenRequestBody | undefined;
 }
 
 /**
- * Response body payload for CreateOAuth2Token operation
- *
- * The response content depends on the grant_type from the request:
- * - grant_type=authorization_code: Returns all fields including refresh_token and id_token
- * - grant_type=refresh_token: Returns access_token, token_type, expires_in, refresh_token (no id_token)
+ * The response body for an OAuth 2.0 token request. The fields returned depend on the "grant_type".
+ * The authorization code flow returns "refresh_token" and "id_token". The refresh token flow omits "id_token".
  * @public
  */
 export interface CreateOAuth2TokenResponseBody {
   /**
-   * Scoped-down AWS credentials (15 minute duration)
-   * Present for both authorization code redemption and token refresh
+   * The access token issued by the authorization server. The token contains temporary
+   * AWS security credentials that you use to sign requests with SigV4.
    * @public
    */
   accessToken: AccessToken | undefined;
 
   /**
-   * Token type indicating this is AWS SigV4 credentials
-   * Value is "aws_sigv4" for both flows
+   * The type of token issued. Value is "aws_sigv4".
    * @public
    */
   tokenType: string | undefined;
 
   /**
-   * Time to expiry in seconds (maximum 900)
-   * Present for both authorization code redemption and token refresh
+   * The number of seconds until the access token expires. Maximum value is 900 seconds (15 minutes).
    * @public
    */
   expiresIn: number | undefined;
 
   /**
-   * Encrypted refresh token with cnf.jkt (SHA-256 thumbprint of presented jwk)
-   * Always present in responses (required for both flows)
+   * A refresh token that can be used to obtain new access tokens without re-authenticating.
    * @public
    */
   refreshToken: string | undefined;
 
   /**
-   * ID token containing user identity information
-   * Present only in authorization code redemption response (grant_type=authorization_code)
-   * Not included in token refresh responses
+   * A JSON Web Token (JWT) containing user identity claims. Present only when
+   * "grant_type=authorization_code". Not included in refresh token responses.
    * @public
    */
   idToken?: string | undefined;
@@ -148,8 +136,8 @@ export interface CreateOAuth2TokenResponseBody {
  */
 export interface CreateOAuth2TokenResponse {
   /**
-   * Flattened token operation outputs
-   * The specific response fields depend on the grant_type used in the request
+   * Flattened token operation outputs.
+   * The specific response fields depend on the grant_type used in the request.
    * @public
    */
   tokenOutput: CreateOAuth2TokenResponseBody | undefined;
@@ -161,7 +149,7 @@ export interface CreateOAuth2TokenResponse {
  */
 export interface CreateOAuth2TokenWithIAMRequest {
   /**
-   * OAuth 2.0 grant type. Must be "client_credentials".
+   * The OAuth 2.0 grant type. Must be "client_credentials".
    * @public
    */
   grantType: string | undefined;
@@ -177,24 +165,24 @@ export interface CreateOAuth2TokenWithIAMRequest {
 /**
  * Output structure for CreateOAuth2TokenWithIAM operation
  *
- * Contains the JWT access token, token type, and expiration per RFC 6749 §5.1.
+ * Contains the access token, token type, and expiration as defined in RFC 6749 §5.1.
  * @public
  */
 export interface CreateOAuth2TokenWithIAMResponse {
   /**
-   * JWT access token containing principal identity, resource scope, and session metadata
+   * Access token containing principal identity, resource scope, and session metadata.
    * @public
    */
   accessToken: string | undefined;
 
   /**
-   * Always "Bearer" per OAuth 2.1 specification
+   * The token type. Always "Bearer" as defined in RFC 6749.
    * @public
    */
   tokenType: string | undefined;
 
   /**
-   * Token lifetime in seconds. Value is the minimum of session validity and 1 hour.
+   * Token lifetime in seconds. Value is the minimum of the caller's session validity and 1 hour (3600 seconds).
    * @public
    */
   expiresIn: number | undefined;
