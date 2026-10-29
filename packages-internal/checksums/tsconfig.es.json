@@ -8,7 +8,8 @@
       "@aws-sdk/checksums/crc": ["./src/submodules/crc/index.ts"],
       "@aws-sdk/checksums/flexible-checksums": ["./src/submodules/flexible-checksums/index.ts"],
       "@aws-sdk/checksums/sha": ["./src/submodules/sha/index.ts"],
-      "@aws-sdk/checksums/md5": ["./src/submodules/md5/index.ts"]
+      "@aws-sdk/checksums/md5": ["./src/submodules/md5/index.ts"],
+      "@aws-sdk/checksums/xxh": ["./src/submodules/xxh/index.ts"]
     }
   },
   "extends": "../../tsconfig.es.json",
