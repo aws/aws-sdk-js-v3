@@ -626,6 +626,12 @@ export interface InvokeAgentRuntimeResponse {
   runtimeSessionId?: string | undefined;
 
   /**
+   * <p>The HTTPS endpoint that addresses this runtime session directly. This value is returned only when the agent runtime is configured with allowed ports and direct runtime access is available for the session. If this value is not present, use <code>InvokeAgentRuntime</code> to communicate with the session.</p>
+   * @public
+   */
+  sessionEndpointUrl?: string | undefined;
+
+  /**
    * <p>The identifier of the MCP session.</p>
    * @public
    */

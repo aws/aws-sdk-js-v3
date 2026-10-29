@@ -599,6 +599,7 @@ const _VRL = "VariantResultList";
 const _WITT = "WorkloadIdentityTokenType";
 const _XABAPAN = "X-Amzn-Bedrock-AgentCore-Payments-Agent-Name";
 const _XABAPUI = "X-Amzn-Bedrock-AgentCore-Payments-User-Id";
+const _XABARSEU = "X-Amzn-Bedrock-AgentCore-Runtime-Session-Endpoint-Url";
 const _XABARSI = "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id";
 const _XABARUI = "X-Amzn-Bedrock-AgentCore-Runtime-User-Id";
 const _XATI = "X-Amzn-Trace-Id";
@@ -1021,6 +1022,7 @@ const _sCt = "statusCode";
 const _sCu = "subCategories";
 const _sD = "skillDefinition";
 const _sE = "streamEndpoint";
+const _sEU = "sessionEndpointUrl";
 const _sF = "suggestedFix";
 const _sFC = "s3FilesConfiguration";
 const _sFt = "statusFilter";
@@ -2259,8 +2261,8 @@ export var InvokeAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _IARR,
 ];
 export var InvokeAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _IARRn,
   0,
-  [_cTon, _rSI, _mSI, _mPV, _tI, _tPr, _tS, _ba, _resp, _sCt],
-  [[0, { [_hH]: _CT }], [0, { [_hH]: _XABARSI }], [0, { [_hH]: _MSI }], [0, { [_hH]: _MPV }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [() => ResponseStream, 16], [1, 32]], 1
+  [_cTon, _rSI, _sEU, _mSI, _mPV, _tI, _tPr, _tS, _ba, _resp, _sCt],
+  [[0, { [_hH]: _CT }], [0, { [_hH]: _XABARSI }], [0, { [_hH]: _XABARSEU }], [0, { [_hH]: _MSI }], [0, { [_hH]: _MPV }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [() => ResponseStream, 16], [1, 32]], 1
 ];
 export var InvokeBrowserRequest$: StaticStructureSchema = [3, n0, _IBR,
   0,
