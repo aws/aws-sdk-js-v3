@@ -205,6 +205,34 @@ export type SsmParameterDataType = (typeof SsmParameterDataType)[keyof typeof Ss
  * @public
  * @enum
  */
+export const ImageScanningType = {
+  ON_DEMAND_AMI_CVE: "ON_DEMAND_AMI_CVE",
+  TEST_INSTANCE_CVE: "TEST_INSTANCE_CVE",
+} as const;
+/**
+ * @public
+ */
+export type ImageScanningType = (typeof ImageScanningType)[keyof typeof ImageScanningType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MaximumSeverityLabel = {
+  HIGH: "HIGH",
+  INFORMATIONAL: "INFORMATIONAL",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+/**
+ * @public
+ */
+export type MaximumSeverityLabel = (typeof MaximumSeverityLabel)[keyof typeof MaximumSeverityLabel];
+
+/**
+ * @public
+ * @enum
+ */
 export const OnWorkflowFailure = {
   ABORT: "ABORT",
   CONTINUE: "CONTINUE",

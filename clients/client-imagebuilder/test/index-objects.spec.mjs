@@ -219,6 +219,7 @@ import {
   ImageScanFindingAggregation$,
   ImageScanFindingsFilter$,
   ImageScanningConfiguration$,
+  ImageScanningType,
   ImageScanState$,
   ImageScanStatus,
   ImageSource,
@@ -377,6 +378,7 @@ import {
   ListWorkflowStepExecutionsResponse$,
   Logging$,
   MarketplaceResourceType,
+  MaximumSeverityLabel,
   OnWorkflowFailure,
   OutputResources$,
   Ownership,
@@ -449,6 +451,7 @@ import {
   RetryImageResponse$,
   S3ExportConfiguration$,
   S3Logs$,
+  ScanResultCondition$,
   Schedule$,
   SendWorkflowStepAction$,
   SendWorkflowStepActionCommand,
@@ -908,6 +911,7 @@ assert(typeof RetryImageRequest$ === "object");
 assert(typeof RetryImageResponse$ === "object");
 assert(typeof S3ExportConfiguration$ === "object");
 assert(typeof S3Logs$ === "object");
+assert(typeof ScanResultCondition$ === "object");
 assert(typeof Schedule$ === "object");
 assert(typeof SendWorkflowStepActionRequest$ === "object");
 assert(typeof SendWorkflowStepActionResponse$ === "object");
@@ -954,6 +958,7 @@ assert(typeof ContainerType === "object");
 assert(typeof DiskImageFormat === "object");
 assert(typeof EbsVolumeType === "object");
 assert(typeof ImageConfigurationStep === "object");
+assert(typeof ImageScanningType === "object");
 assert(typeof ImageScanStatus === "object");
 assert(typeof ImageSource === "object");
 assert(typeof ImageStatus === "object");
@@ -967,6 +972,7 @@ assert(typeof LifecyclePolicyResourceType === "object");
 assert(typeof LifecyclePolicyStatus === "object");
 assert(typeof LifecyclePolicyTimeUnit === "object");
 assert(typeof MarketplaceResourceType === "object");
+assert(typeof MaximumSeverityLabel === "object");
 assert(typeof OnWorkflowFailure === "object");
 assert(typeof Ownership === "object");
 assert(typeof PipelineExecutionStartCondition === "object");

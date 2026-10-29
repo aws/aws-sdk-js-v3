@@ -71,6 +71,13 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     imageScanningTypes: [ // ImageScanningTypeList
+ *       "TEST_INSTANCE_CVE" || "ON_DEMAND_AMI_CVE",
+ *     ],
+ *     scanResultCondition: { // ScanResultCondition
+ *       maximumSeverityLabel: "INFORMATIONAL" || "LOW" || "MEDIUM" || "HIGH", // required
+ *       fixAvailable: true || false,
+ *     },
  *   },
  *   workflows: [ // WorkflowConfigurationList
  *     { // WorkflowConfiguration

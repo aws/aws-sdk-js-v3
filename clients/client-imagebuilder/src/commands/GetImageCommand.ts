@@ -390,6 +390,13 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //         repositoryName: "STRING_VALUE",
  * //         containerTags: "<StringList>",
  * //       },
+ * //       imageScanningTypes: [ // ImageScanningTypeList
+ * //         "TEST_INSTANCE_CVE" || "ON_DEMAND_AMI_CVE",
+ * //       ],
+ * //       scanResultCondition: { // ScanResultCondition
+ * //         maximumSeverityLabel: "INFORMATIONAL" || "LOW" || "MEDIUM" || "HIGH", // required
+ * //         fixAvailable: true || false,
+ * //       },
  * //     },
  * //     deprecationTime: new Date("TIMESTAMP"),
  * //     lifecycleExecutionId: "STRING_VALUE",

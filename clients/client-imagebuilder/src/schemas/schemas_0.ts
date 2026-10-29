@@ -353,6 +353,7 @@ const _SMA = "SystemsManagerAgent";
 const _SPC = "SsmParameterConfiguration";
 const _SPCL = "SsmParameterConfigurationList";
 const _SQEE = "ServiceQuotaExceededException";
+const _SRC = "ScanResultCondition";
 const _SRSU = "StartResourceStateUpdate";
 const _SRSUR = "StartResourceStateUpdateRequest";
 const _SRSURt = "StartResourceStateUpdateResponse";
@@ -532,6 +533,7 @@ const _iSC = "imageScanningConfiguration";
 const _iSD = "inspectorScoreDetails";
 const _iSE = "imageScanningEnabled";
 const _iSL = "imageSummaryList";
+const _iST = "imageScanningTypes";
 const _iSm = "imageStatus";
 const _iSn = "inspectorScore";
 const _iT = "imageTags";
@@ -573,6 +575,7 @@ const _m = "message";
 const _mA = "maxAttempts";
 const _mPL = "maxParallelLaunches";
 const _mR = "maxResults";
+const _mSL = "maximumSeverityLabel";
 const _me = "metric";
 const _med = "medium";
 const _n = "name";
@@ -659,6 +662,7 @@ const _sP = "s3Prefix";
 const _sPA = "sourcePipelineArn";
 const _sPC = "ssmParameterConfigurations";
 const _sPN = "sourcePipelineName";
+const _sRC = "scanResultCondition";
 const _sS = "scoreSource";
 const _sSc = "scanState";
 const _sT = "startTime";
@@ -1498,8 +1502,8 @@ export var ImageScanFindingsFilter$: StaticStructureSchema = [3, n0, _ISFF,
 ];
 export var ImageScanningConfiguration$: StaticStructureSchema = [3, n0, _ISC,
   0,
-  [_iSE, _eC],
-  [2, () => EcrConfiguration$]
+  [_iSE, _eC, _iST, _sRC],
+  [2, () => EcrConfiguration$, 64 | 0, () => ScanResultCondition$]
 ];
 export var ImageScanState$: StaticStructureSchema = [3, n0, _ISS,
   0,
@@ -2041,6 +2045,11 @@ export var S3Logs$: StaticStructureSchema = [3, n0, _SL,
   [_sBN, _sKP],
   [0, 0]
 ];
+export var ScanResultCondition$: StaticStructureSchema = [3, n0, _SRC,
+  0,
+  [_mSL, _fA],
+  [0, 2], 1
+];
 export var Schedule$: StaticStructureSchema = [3, n0, _S,
   0,
   [_sE, _tim, _pESC, _aDP],
@@ -2286,6 +2295,7 @@ var ImageScanFindingsFilterValues = 64 | 0;
 var ImageScanFindingsList: StaticListSchema = [1, n0, _ISFL,
   0, () => ImageScanFinding$
 ];
+var ImageScanningTypeList = 64 | 0;
 var ImageSummaryList: StaticListSchema = [1, n0, _ISL,
   0, () => ImageSummary$
 ];

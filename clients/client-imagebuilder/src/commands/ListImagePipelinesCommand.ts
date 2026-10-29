@@ -88,6 +88,13 @@ export interface ListImagePipelinesCommandOutput extends ListImagePipelinesRespo
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //         imageScanningTypes: [ // ImageScanningTypeList
+ * //           "TEST_INSTANCE_CVE" || "ON_DEMAND_AMI_CVE",
+ * //         ],
+ * //         scanResultCondition: { // ScanResultCondition
+ * //           maximumSeverityLabel: "INFORMATIONAL" || "LOW" || "MEDIUM" || "HIGH", // required
+ * //           fixAvailable: true || false,
+ * //         },
  * //       },
  * //       imageTags: {
  * //         "<keys>": "STRING_VALUE",
