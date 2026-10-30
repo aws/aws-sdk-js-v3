@@ -999,6 +999,13 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                 },
  * //               ],
  * //             },
+ * //             AcceleratorPartitionLayouts: [ // AcceleratorPartitionLayouts
+ * //               { // AcceleratorPartitionLayout
+ * //                 AcceleratorPartitionTypes: [ // AcceleratorPartitionTypeList
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             ],
  * //           },
  * //         ],
  * //         DataCaptureConfig: { // DataCaptureConfigSummary
@@ -1209,6 +1216,13 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                 },
  * //               ],
  * //             },
+ * //             AcceleratorPartitionLayouts: [
+ * //               {
+ * //                 AcceleratorPartitionTypes: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             ],
  * //           },
  * //         ],
  * //       },

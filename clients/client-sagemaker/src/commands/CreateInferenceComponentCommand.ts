@@ -63,6 +63,7 @@ export interface CreateInferenceComponentCommandOutput extends CreateInferenceCo
  *       NumberOfAcceleratorDevicesRequired: Number("float"),
  *       MinMemoryRequiredInMb: Number("int"), // required
  *       MaxMemoryRequiredInMb: Number("int"),
+ *       AcceleratorPartitionType: "STRING_VALUE",
  *     },
  *     BaseInferenceComponentName: "STRING_VALUE",
  *     DataCacheConfig: { // InferenceComponentDataCacheConfig
@@ -104,6 +105,7 @@ export interface CreateInferenceComponentCommandOutput extends CreateInferenceCo
  *         NumberOfAcceleratorDevicesRequired: Number("float"),
  *         MinMemoryRequiredInMb: Number("int"), // required
  *         MaxMemoryRequiredInMb: Number("int"),
+ *         AcceleratorPartitionType: "STRING_VALUE",
  *       },
  *       BaseInferenceComponentName: "STRING_VALUE",
  *       DataCacheConfig: {

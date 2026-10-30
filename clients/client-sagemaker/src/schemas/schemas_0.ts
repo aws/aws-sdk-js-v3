@@ -184,6 +184,10 @@ const _AOm = "AmiOverride";
 const _AP = "AutoParameter";
 const _APC = "AcceleratorPartitionConfig";
 const _APCu = "AutoPatchConfig";
+const _APL = "AcceleratorPartitionLayout";
+const _APLc = "AcceleratorPartitionLayouts";
+const _APT = "AcceleratorPartitionTypes";
+const _APTc = "AcceleratorPartitionType";
 const _APc = "AcceleratorPartition";
 const _APu = "AutoParameters";
 const _AQS = "AmazonQSettings";
@@ -3884,6 +3888,11 @@ export var AcceleratorPartitionConfig$: StaticStructureSchema = [3, n0, _APC,
   0,
   [_T, _C],
   [0, 1], 2
+];
+export var AcceleratorPartitionLayout$: StaticStructureSchema = [3, n0, _APL,
+  0,
+  [_APT],
+  [64 | 0]
 ];
 export var ActionSource$: StaticStructureSchema = [3, n0, _AS,
   0,
@@ -7847,8 +7856,8 @@ export var InferenceComponentCapacitySize$: StaticStructureSchema = [3, n0, _ICC
 ];
 export var InferenceComponentComputeResourceRequirements$: StaticStructureSchema = [3, n0, _ICCRR,
   0,
-  [_MMRIM, _NOCCR, _NOADR, _MMRIMa],
-  [1, 1, 1, 1], 1
+  [_MMRIM, _NOCCR, _NOADR, _MMRIMa, _APTc],
+  [1, 1, 1, 1, 0], 1
 ];
 export var InferenceComponentContainerSpecification$: StaticStructureSchema = [3, n0, _ICCSn,
   0,
@@ -9832,8 +9841,8 @@ export var PendingDeploymentSummary$: StaticStructureSchema = [3, n0, _PDS,
 ];
 export var PendingProductionVariantSummary$: StaticStructureSchema = [3, n0, _PPVS,
   0,
-  [_VN, _DIep, _CW, _DW, _CICu, _DIC, _ITn, _IPns, _ATcc, _VSar, _CSCu, _DSCes, _MIS, _RCo],
-  [0, () => DeployedImages, 1, 1, 1, 1, 0, () => InstancePoolSummaryList, 0, () => ProductionVariantStatusList, () => ProductionVariantServerlessConfig$, () => ProductionVariantServerlessConfig$, () => ProductionVariantManagedInstanceScaling$, () => ProductionVariantRoutingConfig$], 1
+  [_VN, _DIep, _CW, _DW, _CICu, _DIC, _ITn, _IPns, _ATcc, _VSar, _CSCu, _DSCes, _MIS, _RCo, _APLc],
+  [0, () => DeployedImages, 1, 1, 1, 1, 0, () => InstancePoolSummaryList, 0, () => ProductionVariantStatusList, () => ProductionVariantServerlessConfig$, () => ProductionVariantServerlessConfig$, () => ProductionVariantManagedInstanceScaling$, () => ProductionVariantRoutingConfig$, () => AcceleratorPartitionLayouts], 1
 ];
 export var Phase$: StaticStructureSchema = [3, n0, _Ph,
   0,
@@ -9982,8 +9991,8 @@ export var ProcessingStoppingCondition$: StaticStructureSchema = [3, n0, _PSC,
 ];
 export var ProductionVariant$: StaticStructureSchema = [3, n0, _PVr,
   0,
-  [_VN, _MNod, _IIC, _ITn, _IPns, _VIPTIS, _IVW, _ATcc, _CDCo, _SCe, _VSIGB, _MDDTIS, _CSHCTIS, _ESSMA, _MIS, _RCo, _IAV, _CRC],
-  [0, 0, 1, 0, () => InstancePoolList, 1, 1, 0, () => ProductionVariantCoreDumpConfig$, () => ProductionVariantServerlessConfig$, 1, 1, 1, 2, () => ProductionVariantManagedInstanceScaling$, () => ProductionVariantRoutingConfig$, 0, () => ProductionVariantCapacityReservationConfig$], 1
+  [_VN, _MNod, _IIC, _ITn, _IPns, _VIPTIS, _IVW, _ATcc, _CDCo, _SCe, _VSIGB, _MDDTIS, _CSHCTIS, _ESSMA, _MIS, _RCo, _IAV, _CRC, _APLc],
+  [0, 0, 1, 0, () => InstancePoolList, 1, 1, 0, () => ProductionVariantCoreDumpConfig$, () => ProductionVariantServerlessConfig$, 1, 1, 1, 2, () => ProductionVariantManagedInstanceScaling$, () => ProductionVariantRoutingConfig$, 0, () => ProductionVariantCapacityReservationConfig$, () => AcceleratorPartitionLayouts], 1
 ];
 export var ProductionVariantCapacityReservationConfig$: StaticStructureSchema = [3, n0, _PVCRC,
   0,
@@ -10032,8 +10041,8 @@ export var ProductionVariantStatus$: StaticStructureSchema = [3, n0, _PVSr,
 ];
 export var ProductionVariantSummary$: StaticStructureSchema = [3, n0, _PVSro,
   0,
-  [_VN, _DIep, _CW, _DW, _CICu, _DIC, _IPns, _VSar, _CSCu, _DSCes, _MIS, _RCo, _CRC],
-  [0, () => DeployedImages, 1, 1, 1, 1, () => InstancePoolSummaryList, () => ProductionVariantStatusList, () => ProductionVariantServerlessConfig$, () => ProductionVariantServerlessConfig$, () => ProductionVariantManagedInstanceScaling$, () => ProductionVariantRoutingConfig$, () => ProductionVariantCapacityReservationSummary$], 1
+  [_VN, _DIep, _CW, _DW, _CICu, _DIC, _IPns, _VSar, _CSCu, _DSCes, _MIS, _RCo, _CRC, _APLc],
+  [0, () => DeployedImages, 1, 1, 1, 1, () => InstancePoolSummaryList, () => ProductionVariantStatusList, () => ProductionVariantServerlessConfig$, () => ProductionVariantServerlessConfig$, () => ProductionVariantManagedInstanceScaling$, () => ProductionVariantRoutingConfig$, () => ProductionVariantCapacityReservationSummary$, () => AcceleratorPartitionLayouts], 1
 ];
 export var ProfilerConfig$: StaticStructureSchema = [3, n0, _PCr,
   0,
@@ -11684,6 +11693,10 @@ var __Unit = "unit" as const;
 var AbsoluteBorrowLimitResourceList: StaticListSchema = [1, n0, _ABLRL,
   0, () => ComputeQuotaResourceConfig$
 ];
+var AcceleratorPartitionLayouts: StaticListSchema = [1, n0, _APLc,
+  0, () => AcceleratorPartitionLayout$
+];
+var AcceleratorPartitionTypeList = 64 | 0;
 var ActionSummaries: StaticListSchema = [1, n0, _AScti,
   0, () => ActionSummary$
 ];

@@ -53,7 +53,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "PrefixAwareRoutingConfig": {}
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
-      "CapacityReservationConfig": {}
+      "CapacityReservationConfig": {},
+      "AcceleratorPartitionLayouts": [
+        {},
+        {},
+        {}
+      ]
     },
     {
       "VariantName": "__VariantName__",
@@ -99,7 +104,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "PrefixAwareRoutingConfig": {}
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
-      "CapacityReservationConfig": {}
+      "CapacityReservationConfig": {},
+      "AcceleratorPartitionLayouts": [
+        {},
+        {},
+        {}
+      ]
     },
     {
       "VariantName": "__VariantName__",
@@ -145,7 +155,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "PrefixAwareRoutingConfig": {}
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
-      "CapacityReservationConfig": {}
+      "CapacityReservationConfig": {},
+      "AcceleratorPartitionLayouts": [
+        {},
+        {},
+        {}
+      ]
     }
   ],
   "CreationTime": 946702799.999,
@@ -218,7 +233,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "PrefixAwareRoutingConfig": {}
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
-      "CapacityReservationConfig": {}
+      "CapacityReservationConfig": {},
+      "AcceleratorPartitionLayouts": [
+        {},
+        {},
+        {}
+      ]
     },
     {
       "VariantName": "__VariantName__",
@@ -264,7 +284,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "PrefixAwareRoutingConfig": {}
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
-      "CapacityReservationConfig": {}
+      "CapacityReservationConfig": {},
+      "AcceleratorPartitionLayouts": [
+        {},
+        {},
+        {}
+      ]
     },
     {
       "VariantName": "__VariantName__",
@@ -310,7 +335,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "PrefixAwareRoutingConfig": {}
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
-      "CapacityReservationConfig": {}
+      "CapacityReservationConfig": {},
+      "AcceleratorPartitionLayouts": [
+        {},
+        {},
+        {}
+      ]
     }
   ],
   "ExecutionRoleArn": "__ExecutionRoleArn__",
@@ -380,7 +410,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         PrefixAwareRoutingConfig: {}
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
-      CapacityReservationConfig: {}
+      CapacityReservationConfig: {},
+      AcceleratorPartitionLayouts: [
+        {},
+        {},
+        {}
+      ]
     },
     {
       VariantName: "__VariantName__",
@@ -426,7 +461,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         PrefixAwareRoutingConfig: {}
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
-      CapacityReservationConfig: {}
+      CapacityReservationConfig: {},
+      AcceleratorPartitionLayouts: [
+        {},
+        {},
+        {}
+      ]
     },
     {
       VariantName: "__VariantName__",
@@ -472,7 +512,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         PrefixAwareRoutingConfig: {}
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
-      CapacityReservationConfig: {}
+      CapacityReservationConfig: {},
+      AcceleratorPartitionLayouts: [
+        {},
+        {},
+        {}
+      ]
     }
   ],
   CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
@@ -545,7 +590,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         PrefixAwareRoutingConfig: {}
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
-      CapacityReservationConfig: {}
+      CapacityReservationConfig: {},
+      AcceleratorPartitionLayouts: [
+        {},
+        {},
+        {}
+      ]
     },
     {
       VariantName: "__VariantName__",
@@ -591,7 +641,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         PrefixAwareRoutingConfig: {}
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
-      CapacityReservationConfig: {}
+      CapacityReservationConfig: {},
+      AcceleratorPartitionLayouts: [
+        {},
+        {},
+        {}
+      ]
     },
     {
       VariantName: "__VariantName__",
@@ -637,7 +692,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         PrefixAwareRoutingConfig: {}
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
-      CapacityReservationConfig: {}
+      CapacityReservationConfig: {},
+      AcceleratorPartitionLayouts: [
+        {},
+        {},
+        {}
+      ]
     }
   ],
   ExecutionRoleArn: "__ExecutionRoleArn__",
@@ -735,7 +795,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "CapacityReservationConfig": {
         "CapacityReservationPreference": "__CapacityReservationPreference__",
         "MlReservationArn": "__MlReservationArn__"
-      }
+      },
+      "AcceleratorPartitionLayouts": [
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ]
     },
     {
       "VariantName": "__VariantName__",
@@ -796,7 +879,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "CapacityReservationConfig": {
         "CapacityReservationPreference": "__CapacityReservationPreference__",
         "MlReservationArn": "__MlReservationArn__"
-      }
+      },
+      "AcceleratorPartitionLayouts": [
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ]
     },
     {
       "VariantName": "__VariantName__",
@@ -857,7 +963,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "CapacityReservationConfig": {
         "CapacityReservationPreference": "__CapacityReservationPreference__",
         "MlReservationArn": "__MlReservationArn__"
-      }
+      },
+      "AcceleratorPartitionLayouts": [
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ]
     }
   ],
   "CreationTime": 946702799.999,
@@ -1014,7 +1143,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "CapacityReservationConfig": {
         "CapacityReservationPreference": "__CapacityReservationPreference__",
         "MlReservationArn": "__MlReservationArn__"
-      }
+      },
+      "AcceleratorPartitionLayouts": [
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ]
     },
     {
       "VariantName": "__VariantName__",
@@ -1075,7 +1227,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "CapacityReservationConfig": {
         "CapacityReservationPreference": "__CapacityReservationPreference__",
         "MlReservationArn": "__MlReservationArn__"
-      }
+      },
+      "AcceleratorPartitionLayouts": [
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ]
     },
     {
       "VariantName": "__VariantName__",
@@ -1136,7 +1311,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "CapacityReservationConfig": {
         "CapacityReservationPreference": "__CapacityReservationPreference__",
         "MlReservationArn": "__MlReservationArn__"
-      }
+      },
+      "AcceleratorPartitionLayouts": [
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "AcceleratorPartitionTypes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ]
     }
   ],
   "ExecutionRoleArn": "__ExecutionRoleArn__",
@@ -1225,7 +1423,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       CapacityReservationConfig: {
         CapacityReservationPreference: "__CapacityReservationPreference__",
         MlReservationArn: "__MlReservationArn__"
-      }
+      },
+      AcceleratorPartitionLayouts: [
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ]
     },
     {
       VariantName: "__VariantName__",
@@ -1286,7 +1507,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       CapacityReservationConfig: {
         CapacityReservationPreference: "__CapacityReservationPreference__",
         MlReservationArn: "__MlReservationArn__"
-      }
+      },
+      AcceleratorPartitionLayouts: [
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ]
     },
     {
       VariantName: "__VariantName__",
@@ -1347,7 +1591,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       CapacityReservationConfig: {
         CapacityReservationPreference: "__CapacityReservationPreference__",
         MlReservationArn: "__MlReservationArn__"
-      }
+      },
+      AcceleratorPartitionLayouts: [
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ]
     }
   ],
   CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
@@ -1504,7 +1771,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       CapacityReservationConfig: {
         CapacityReservationPreference: "__CapacityReservationPreference__",
         MlReservationArn: "__MlReservationArn__"
-      }
+      },
+      AcceleratorPartitionLayouts: [
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ]
     },
     {
       VariantName: "__VariantName__",
@@ -1565,7 +1855,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       CapacityReservationConfig: {
         CapacityReservationPreference: "__CapacityReservationPreference__",
         MlReservationArn: "__MlReservationArn__"
-      }
+      },
+      AcceleratorPartitionLayouts: [
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ]
     },
     {
       VariantName: "__VariantName__",
@@ -1626,7 +1939,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       CapacityReservationConfig: {
         CapacityReservationPreference: "__CapacityReservationPreference__",
         MlReservationArn: "__MlReservationArn__"
-      }
+      },
+      AcceleratorPartitionLayouts: [
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          AcceleratorPartitionTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ]
     }
   ],
   ExecutionRoleArn: "__ExecutionRoleArn__",

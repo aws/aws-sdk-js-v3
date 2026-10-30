@@ -103,6 +103,7 @@ import type {
   VendorGuidance,
 } from "./enums";
 import type {
+  AcceleratorPartitionLayout,
   ActionSource,
   AdditionalInferenceSpecificationDefinition,
   AdditionalModelDataSource,
@@ -157,6 +158,7 @@ import type {
   ClusterInstanceStorageConfig,
   ClusterOrchestrator,
   ClusterRestrictedInstanceGroupsConfig,
+  ClusterSharedEnvironmentConfigDetails,
   CodeEditorAppImageConfig,
   ComputeQuotaResourceConfig,
   FSxLustreConfig,
@@ -175,6 +177,18 @@ import type {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>The output configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterRestrictedInstanceGroupsConfigOutput {
+  /**
+   * <p>The shared environment configuration details for the restricted instance groups (RIG).</p>
+   * @public
+   */
+  SharedEnvironmentConfig: ClusterSharedEnvironmentConfigDetails | undefined;
+}
 
 /**
  * <p>The configuration for the restricted instance groups (RIG) environment.</p>
@@ -4275,13 +4289,13 @@ export interface ProductionVariantManagedInstanceScaling {
  */
 export interface PrefixAwareRoutingConfig {
   /**
-   * <p>The maximum length of the prefix used for routing decisions. Required when <code>RoutingStrategy</code> is <code>PREFIX_AWARE</code>.</p> <ul> <li> <p>For the SageMaker Runtime <code>InvokeEndpoint</code> and <code>InvokeEndpointWithResponseStream</code> APIs, this value specifies the number of bytes from the beginning of the request body.</p> </li> <li> <p>For OpenAI-compatible API, this value specifies the number of characters from the text content of the messages array.</p> </li> </ul> <p>The endpoint routes requests that share the same prefix to the same instance. Set this value to cover shared content (such as system prompts) plus enough unique content to distribute workloads across instances.</p>
+   * <p>The maximum length of the prefix used for routing decisions. Required when <code>RoutingStrategy</code> is <code>PREFIX_AWARE</code>.</p> <ul> <li> <p>For the SageMaker Runtime <code>InvokeEndpoint</code> and <code>InvokeEndpointWithResponseStream</code> APIs, this value specifies the number of bytes from the beginning of the request body.</p> </li> <li> <p>For OpenAI-compatible API, this value specifies the number of characters from the text content of the messages array.</p> </li> </ul> <p>The endpoint routes requests that share the same prefix to the same instance and, when that instance hosts more than one copy of the invoked inference component, to the same copy. Set this value to cover shared content (such as system prompts) plus enough unique content to distribute workloads across instances and copies.</p>
    * @public
    */
   PrefixLength?: number | undefined;
 
   /**
-   * <p>The maximum number of in-flight requests on the target instance before the endpoint routes to another instance. Required when <code>RoutingStrategy</code> is <code>PREFIX_AWARE</code>. When in-flight requests on the prefix-selected instance reach this threshold, the endpoint routes the request to an instance with more available capacity.</p>
+   * <p>The number of in-flight requests on the selected instance or inference component copy at which the endpoint routes a request to another copy or instance. Required when <code>RoutingStrategy</code> is <code>PREFIX_AWARE</code>.</p> <p>On an endpoint without inference components, the endpoint compares this threshold with the number of in-flight requests on the selected instance. When that number reaches the threshold, the endpoint routes the request to another instance.</p> <p>On an endpoint with inference components, the endpoint compares this threshold with the number of in-flight requests on the selected copy of the invoked inference component. Requests to other inference components on the same instance don't count. When the instance hosts more than one copy of the inference component, the endpoint routes requests that share a prefix to the same copy and, while that copy has reached the threshold, to another copy on the instance that is under the threshold. When every copy on the instance has reached the threshold, the endpoint routes the request to another instance.</p> <p>The threshold applies to every instance and every copy of every inference component in the production variant, so choose a value that suits the instance or copy that can serve the fewest concurrent requests.</p>
    * @public
    */
   ConcurrencyThreshold?: number | undefined;
@@ -4293,7 +4307,7 @@ export interface PrefixAwareRoutingConfig {
  */
 export interface ProductionVariantRoutingConfig {
   /**
-   * <p>Sets how the endpoint routes incoming traffic:</p> <ul> <li> <p> <code>LEAST_OUTSTANDING_REQUESTS</code>: The endpoint routes requests to the specific instances that have more capacity to process them.</p> </li> <li> <p> <code>RANDOM</code>: The endpoint routes each request to a randomly chosen instance.</p> </li> <li> <p> <code>PREFIX_AWARE</code>: The endpoint routes requests that share the same prompt prefix to the same instance. When the number of in-flight requests on the selected instance reaches the configured threshold, the endpoint routes the request to an instance with more available capacity.</p> </li> </ul>
+   * <p>Sets how the endpoint routes incoming traffic:</p> <ul> <li> <p> <code>LEAST_OUTSTANDING_REQUESTS</code>: The endpoint routes requests to the specific instances that have more capacity to process them.</p> </li> <li> <p> <code>RANDOM</code>: The endpoint routes each request to a randomly chosen instance.</p> </li> <li> <p> <code>PREFIX_AWARE</code>: The endpoint routes requests that share the same prompt prefix to the same instance and, when that instance hosts more than one copy of the invoked inference component, to the same copy. When the number of in-flight requests on the selected instance or copy reaches the <code>ConcurrencyThreshold</code> value, the endpoint routes the request to another copy on that instance or to another instance. The endpoint applies prefix-aware routing only when two or more instances can serve the request.</p> </li> </ul>
    * @public
    */
   RoutingStrategy: RoutingStrategy | undefined;
@@ -4441,6 +4455,12 @@ export interface ProductionVariant {
    * @public
    */
   CapacityReservationConfig?: ProductionVariantCapacityReservationConfig | undefined;
+
+  /**
+   * <p>The accelerator partition layout for the accelerators backing this production variant. A layout lists the partition profiles to carve on the accelerators it applies to; on NVIDIA GPUs these are Multi-Instance GPU (MIG) profiles such as <code>mig-3g.40gb</code>. Specify a single layout: SageMaker applies it uniformly to every accelerator on the variant's instance type, and you place one inference component on each partition. Omit this field to use whole, unpartitioned accelerators.</p>
+   * @public
+   */
+  AcceleratorPartitionLayouts?: AcceleratorPartitionLayout[] | undefined;
 }
 
 /**
@@ -5961,6 +5981,12 @@ export interface InferenceComponentComputeResourceRequirements {
    * @public
    */
   MaxMemoryRequiredInMb?: number | undefined;
+
+  /**
+   * <p>The accelerator partition profile this inference component occupies; on NVIDIA GPUs this is a Multi-Instance GPU (MIG) profile such as <code>mig-3g.40gb</code>. It must be one of the partition profiles declared in the target endpoint's accelerator partition layout, and when set, <code>NumberOfAcceleratorDevicesRequired</code> must be <code>1</code>. This field is required when the endpoint's production variant has an accelerator partition layout. For endpoints without a layout, omit this field to place the inference component on a whole accelerator.</p>
+   * @public
+   */
+  AcceleratorPartitionType?: string | undefined;
 }
 
 /**
@@ -8554,15 +8580,4 @@ export interface CreateModelQualityJobDefinitionRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateModelQualityJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model quality monitoring job.</p>
-   * @public
-   */
-  JobDefinitionArn: string | undefined;
 }

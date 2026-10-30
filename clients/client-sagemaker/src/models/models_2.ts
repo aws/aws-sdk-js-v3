@@ -75,6 +75,7 @@ import type {
   WorkforceIpAddressType,
 } from "./enums";
 import type {
+  AcceleratorPartitionLayout,
   ActionSource,
   AIAdapterSource,
   AIBenchmarkNetworkConfig,
@@ -120,7 +121,6 @@ import type {
   ClusterNodeDetails,
   ClusterOrchestrator,
   ClusterRestrictedInstanceGroupDetails,
-  ClusterRestrictedInstanceGroupsConfigOutput,
   CodeEditorAppImageConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
@@ -137,6 +137,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  ClusterRestrictedInstanceGroupsConfigOutput,
   ClusterTieredStorageConfig,
   CodeRepository,
   CognitoConfig,
@@ -182,6 +183,17 @@ import type {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateModelQualityJobDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model quality monitoring job.</p>
+   * @public
+   */
+  JobDefinitionArn: string | undefined;
+}
 
 /**
  * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.</p>
@@ -2649,7 +2661,7 @@ export interface ServerlessJobConfig {
   EvaluatorArn?: string | undefined;
 
   /**
-   * <p> The maximum sequence length, in tokens, that the customization job supports. SageMaker uses this value to select a training configuration for the base model that you specify. The parameter supports the following values: </p> <ul> <li> <p> <code>1K</code> </p> </li> <li> <p> <code>2K</code> </p> </li> <li> <p> <code>4K</code> </p> </li> <li> <p> <code>8K</code> </p> </li> <li> <p> <code>16K</code> </p> </li> <li> <p> <code>32K</code> </p> </li> <li> <p> <code>64K</code> </p> </li> <li> <p> <code>128K</code> </p> </li> </ul> <p> If you don't specify a value, SageMaker selects a training configuration based on the other values that you specify. The selection is not restricted to a particular sequence length. </p>
+   * <p> The maximum sequence length, in tokens, that the customization job supports. SageMaker uses this value to select a training configuration for the base model that you specify. The value must be an integer value from <code>1K</code> to <code>1024K</code> (for example, <code>32K</code>). </p> <p> If you don't specify a value, SageMaker selects a training configuration based on the other values that you specify. The selection is not restricted to a particular sequence length. </p>
    * @public
    */
   SequenceLength?: string | undefined;
@@ -7610,6 +7622,12 @@ export interface PendingProductionVariantSummary {
    * @public
    */
   RoutingConfig?: ProductionVariantRoutingConfig | undefined;
+
+  /**
+   * <p>The accelerator partition layout that SageMaker is applying to this production variant. On NVIDIA GPUs, the profiles are Multi-Instance GPU (MIG) profiles. SageMaker returns the accelerator partition layout as you provided it in the pending deployment configuration, without normalization.</p>
+   * @public
+   */
+  AcceleratorPartitionLayouts?: AcceleratorPartitionLayout[] | undefined;
 }
 
 /**
@@ -7796,6 +7814,12 @@ export interface ProductionVariantSummary {
    * @public
    */
   CapacityReservationConfig?: ProductionVariantCapacityReservationSummary | undefined;
+
+  /**
+   * <p>The accelerator partition layout that SageMaker applies to this production variant. On NVIDIA GPUs, the profiles are Multi-Instance GPU (MIG) profiles. SageMaker returns the accelerator partition layout as you provided it when you created the variant, without normalization.</p>
+   * @public
+   */
+  AcceleratorPartitionLayouts?: AcceleratorPartitionLayout[] | undefined;
 }
 
 /**
@@ -7996,22 +8020,4 @@ export interface DescribeExperimentRequest {
    * @public
    */
   ExperimentName: string | undefined;
-}
-
-/**
- * <p>The source of the experiment.</p>
- * @public
- */
-export interface ExperimentSource {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source.</p>
-   * @public
-   */
-  SourceArn: string | undefined;
-
-  /**
-   * <p>The source type.</p>
-   * @public
-   */
-  SourceType?: string | undefined;
 }

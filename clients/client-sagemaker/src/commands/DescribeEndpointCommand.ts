@@ -110,6 +110,13 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //           },
  * //         ],
  * //       },
+ * //       AcceleratorPartitionLayouts: [ // AcceleratorPartitionLayouts
+ * //         { // AcceleratorPartitionLayout
+ * //           AcceleratorPartitionTypes: [ // AcceleratorPartitionTypeList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   DataCaptureConfig: { // DataCaptureConfigSummary
@@ -235,6 +242,13 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //             ConcurrencyThreshold: Number("int"),
  * //           },
  * //         },
+ * //         AcceleratorPartitionLayouts: [
+ * //           {
+ * //             AcceleratorPartitionTypes: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     StartTime: new Date("TIMESTAMP"),
@@ -290,6 +304,13 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //             ConcurrencyThreshold: Number("int"),
  * //           },
  * //         },
+ * //         AcceleratorPartitionLayouts: [
+ * //           {
+ * //             AcceleratorPartitionTypes: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //   },
@@ -392,6 +413,13 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //           },
  * //         ],
  * //       },
+ * //       AcceleratorPartitionLayouts: [
+ * //         {
+ * //           AcceleratorPartitionTypes: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   MetricsConfig: { // MetricsConfig

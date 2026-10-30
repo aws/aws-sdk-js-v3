@@ -290,6 +290,23 @@ import type {
 /**
  * @public
  */
+export interface ListDataQualityJobDefinitionsResponse {
+  /**
+   * <p>A list of data quality monitoring job definitions.</p>
+   * @public
+   */
+  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListDataQualityJobDefinitions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of data quality monitoring job definitions, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListDeviceFleetsRequest {
   /**
    * <p>The response from the last list when returning a list large enough to need tokening.</p>
@@ -10777,33 +10794,4 @@ export interface UpdateComputeQuotaResponse {
    * @public
    */
   ComputeQuotaVersion: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateContextRequest {
-  /**
-   * <p>The name of the context to update.</p>
-   * @public
-   */
-  ContextName: string | undefined;
-
-  /**
-   * <p>The new description for the context.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The new list of properties. Overwrites the current property list.</p>
-   * @public
-   */
-  Properties?: Record<string, string> | undefined;
-
-  /**
-   * <p>A list of properties to remove.</p>
-   * @public
-   */
-  PropertiesToRemove?: string[] | undefined;
 }

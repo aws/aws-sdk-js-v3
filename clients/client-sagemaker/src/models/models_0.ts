@@ -163,6 +163,18 @@ export interface ComputeQuotaResourceConfig {
 }
 
 /**
+ * <p>A layout of accelerator partitions for a production variant. On NVIDIA GPUs, the partitions are Multi-Instance GPU (MIG) instances. SageMaker applies the layout to every accelerator on the variant's instance type. You can't change the layout of a running endpoint. To use a different layout, create a new endpoint.</p>
+ * @public
+ */
+export interface AcceleratorPartitionLayout {
+  /**
+   * <p>The list of partition profiles to carve on each accelerator that this layout applies to. On NVIDIA GPUs these are Multi-Instance GPU (MIG) profiles, for example <code>["mig-3g.40gb", "mig-4g.40gb"]</code>. The order of the profiles doesn't change how the accelerator is partitioned. However, when you update an endpoint, a layout with the same profiles in a different order counts as a different layout, and the update is rejected. Repeat a profile to request more than one partition of that size: for example, <code>["mig-3g.40gb", "mig-3g.40gb"]</code> requests two <code>mig-3g.40gb</code> partitions.</p>
+   * @public
+   */
+  AcceleratorPartitionTypes?: string[] | undefined;
+}
+
+/**
  * <p>A structure describing the source of an action.</p>
  * @public
  */
@@ -8189,16 +8201,4 @@ export interface ClusterSharedEnvironmentConfigDetails {
    * @public
    */
   DesiredFSxLustreDeletionPolicy?: ClusterFSxLustreDeletionPolicy | undefined;
-}
-
-/**
- * <p>The output configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>
- * @public
- */
-export interface ClusterRestrictedInstanceGroupsConfigOutput {
-  /**
-   * <p>The shared environment configuration details for the restricted instance groups (RIG).</p>
-   * @public
-   */
-  SharedEnvironmentConfig: ClusterSharedEnvironmentConfigDetails | undefined;
 }

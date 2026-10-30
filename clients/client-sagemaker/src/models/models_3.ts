@@ -250,7 +250,6 @@ import type {
   DeployedImage,
   DeploymentRecommendation,
   ExperimentConfig,
-  ExperimentSource,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
   LoraConfig,
@@ -292,6 +291,24 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * <p>The source of the experiment.</p>
+ * @public
+ */
+export interface ExperimentSource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source.</p>
+   * @public
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>The source type.</p>
+   * @public
+   */
+  SourceType?: string | undefined;
+}
 
 /**
  * @public
@@ -11929,21 +11946,4 @@ export interface MonitoringJobDefinitionSummary {
    * @public
    */
   EndpointName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDataQualityJobDefinitionsResponse {
-  /**
-   * <p>A list of data quality monitoring job definitions.</p>
-   * @public
-   */
-  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListDataQualityJobDefinitions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of data quality monitoring job definitions, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

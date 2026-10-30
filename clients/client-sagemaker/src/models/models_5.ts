@@ -93,6 +93,35 @@ import type {
 /**
  * @public
  */
+export interface UpdateContextRequest {
+  /**
+   * <p>The name of the context to update.</p>
+   * @public
+   */
+  ContextName: string | undefined;
+
+  /**
+   * <p>The new description for the context.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The new list of properties. Overwrites the current property list.</p>
+   * @public
+   */
+  Properties?: Record<string, string> | undefined;
+
+  /**
+   * <p>A list of properties to remove.</p>
+   * @public
+   */
+  PropertiesToRemove?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateContextResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the context.</p>

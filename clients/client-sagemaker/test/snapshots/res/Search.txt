@@ -1707,7 +1707,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             "VariantName": "__VariantName__",
@@ -1816,7 +1839,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             "VariantName": "__VariantName__",
@@ -1925,7 +1971,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           }
         ],
         "DataCaptureConfig": {
@@ -2735,7 +2804,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             "VariantName": "__VariantName__",
@@ -2844,7 +2936,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             "VariantName": "__VariantName__",
@@ -2953,7 +3068,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           }
         ]
       },
@@ -10052,7 +10190,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             "VariantName": "__VariantName__",
@@ -10161,7 +10322,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             "VariantName": "__VariantName__",
@@ -10270,7 +10454,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           }
         ],
         "DataCaptureConfig": {
@@ -11080,7 +11287,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             "VariantName": "__VariantName__",
@@ -11189,7 +11419,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             "VariantName": "__VariantName__",
@@ -11298,7 +11551,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           }
         ]
       },
@@ -18397,7 +18673,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             "VariantName": "__VariantName__",
@@ -18506,7 +18805,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             "VariantName": "__VariantName__",
@@ -18615,7 +18937,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           }
         ],
         "DataCaptureConfig": {
@@ -19425,7 +19770,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             "VariantName": "__VariantName__",
@@ -19534,7 +19902,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             "VariantName": "__VariantName__",
@@ -19643,7 +20034,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   "UsedByCurrentEndpoint": 0
                 }
               ]
-            }
+            },
+            "AcceleratorPartitionLayouts": [
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                "AcceleratorPartitionTypes": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           }
         ]
       },
@@ -26754,7 +27168,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             VariantName: "__VariantName__",
@@ -26863,7 +27300,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             VariantName: "__VariantName__",
@@ -26972,7 +27432,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           }
         ],
         DataCaptureConfig: {
@@ -27782,7 +28265,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             VariantName: "__VariantName__",
@@ -27891,7 +28397,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             VariantName: "__VariantName__",
@@ -28000,7 +28529,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           }
         ]
       },
@@ -35099,7 +35651,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             VariantName: "__VariantName__",
@@ -35208,7 +35783,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             VariantName: "__VariantName__",
@@ -35317,7 +35915,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           }
         ],
         DataCaptureConfig: {
@@ -36127,7 +36748,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             VariantName: "__VariantName__",
@@ -36236,7 +36880,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             VariantName: "__VariantName__",
@@ -36345,7 +37012,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           }
         ]
       },
@@ -43444,7 +44134,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             VariantName: "__VariantName__",
@@ -43553,7 +44266,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             VariantName: "__VariantName__",
@@ -43662,7 +44398,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           }
         ],
         DataCaptureConfig: {
@@ -44472,7 +45231,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             VariantName: "__VariantName__",
@@ -44581,7 +45363,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           },
           {
             VariantName: "__VariantName__",
@@ -44690,7 +45495,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   UsedByCurrentEndpoint: (number) 0
                 }
               ]
-            }
+            },
+            AcceleratorPartitionLayouts: [
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              },
+              {
+                AcceleratorPartitionTypes: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            ]
           }
         ]
       },

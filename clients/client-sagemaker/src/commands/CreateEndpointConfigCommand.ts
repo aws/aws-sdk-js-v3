@@ -85,6 +85,13 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  *         CapacityReservationPreference: "capacity-reservations-only",
  *         MlReservationArn: "STRING_VALUE",
  *       },
+ *       AcceleratorPartitionLayouts: [ // AcceleratorPartitionLayouts
+ *         { // AcceleratorPartitionLayout
+ *           AcceleratorPartitionTypes: [ // AcceleratorPartitionTypeList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
  *     },
  *   ],
  *   DataCaptureConfig: { // DataCaptureConfig
@@ -219,6 +226,13 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  *         CapacityReservationPreference: "capacity-reservations-only",
  *         MlReservationArn: "STRING_VALUE",
  *       },
+ *       AcceleratorPartitionLayouts: [
+ *         {
+ *           AcceleratorPartitionTypes: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
  *     },
  *   ],
  *   ExecutionRoleArn: "STRING_VALUE",

@@ -1,6 +1,7 @@
 import {
   _InstanceType,
   AcceleratorPartitionConfig$,
+  AcceleratorPartitionLayout$,
   AccountDefaultStatus,
   ActionSource$,
   ActionStatus,
@@ -3722,6 +3723,7 @@ assert(typeof UpdateWorkteamCommand === "function");
 assert(typeof UpdateWorkteam$ === "object");
 // structural schemas
 assert(typeof AcceleratorPartitionConfig$ === "object");
+assert(typeof AcceleratorPartitionLayout$ === "object");
 assert(typeof ActionSource$ === "object");
 assert(typeof ActionSummary$ === "object");
 assert(typeof AddAssociationRequest$ === "object");

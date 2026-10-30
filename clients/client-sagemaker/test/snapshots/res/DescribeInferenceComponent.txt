@@ -139,7 +139,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "MinMemoryRequiredInMb": 0,
       "NumberOfCpuCoresRequired": 0,
       "NumberOfAcceleratorDevicesRequired": 0,
-      "MaxMemoryRequiredInMb": 0
+      "MaxMemoryRequiredInMb": 0,
+      "AcceleratorPartitionType": "__AcceleratorPartitionType__"
     },
     "BaseInferenceComponentName": "__BaseInferenceComponentName__",
     "DataCacheConfig": {
@@ -194,7 +195,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "MinMemoryRequiredInMb": 0,
         "NumberOfCpuCoresRequired": 0,
         "NumberOfAcceleratorDevicesRequired": 0,
-        "MaxMemoryRequiredInMb": 0
+        "MaxMemoryRequiredInMb": 0,
+        "AcceleratorPartitionType": "__AcceleratorPartitionType__"
       },
       "BaseInferenceComponentName": "__BaseInferenceComponentName__",
       "DataCacheConfig": {
@@ -248,7 +250,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "MinMemoryRequiredInMb": 0,
         "NumberOfCpuCoresRequired": 0,
         "NumberOfAcceleratorDevicesRequired": 0,
-        "MaxMemoryRequiredInMb": 0
+        "MaxMemoryRequiredInMb": 0,
+        "AcceleratorPartitionType": "__AcceleratorPartitionType__"
       },
       "BaseInferenceComponentName": "__BaseInferenceComponentName__",
       "DataCacheConfig": {
@@ -302,7 +305,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "MinMemoryRequiredInMb": 0,
         "NumberOfCpuCoresRequired": 0,
         "NumberOfAcceleratorDevicesRequired": 0,
-        "MaxMemoryRequiredInMb": 0
+        "MaxMemoryRequiredInMb": 0,
+        "AcceleratorPartitionType": "__AcceleratorPartitionType__"
       },
       "BaseInferenceComponentName": "__BaseInferenceComponentName__",
       "DataCacheConfig": {
@@ -416,7 +420,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       MinMemoryRequiredInMb: (number) 0,
       NumberOfCpuCoresRequired: (number) 0,
       NumberOfAcceleratorDevicesRequired: (number) 0,
-      MaxMemoryRequiredInMb: (number) 0
+      MaxMemoryRequiredInMb: (number) 0,
+      AcceleratorPartitionType: "__AcceleratorPartitionType__"
     },
     BaseInferenceComponentName: "__BaseInferenceComponentName__",
     DataCacheConfig: {
@@ -471,7 +476,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         MinMemoryRequiredInMb: (number) 0,
         NumberOfCpuCoresRequired: (number) 0,
         NumberOfAcceleratorDevicesRequired: (number) 0,
-        MaxMemoryRequiredInMb: (number) 0
+        MaxMemoryRequiredInMb: (number) 0,
+        AcceleratorPartitionType: "__AcceleratorPartitionType__"
       },
       BaseInferenceComponentName: "__BaseInferenceComponentName__",
       DataCacheConfig: {
@@ -525,7 +531,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         MinMemoryRequiredInMb: (number) 0,
         NumberOfCpuCoresRequired: (number) 0,
         NumberOfAcceleratorDevicesRequired: (number) 0,
-        MaxMemoryRequiredInMb: (number) 0
+        MaxMemoryRequiredInMb: (number) 0,
+        AcceleratorPartitionType: "__AcceleratorPartitionType__"
       },
       BaseInferenceComponentName: "__BaseInferenceComponentName__",
       DataCacheConfig: {
@@ -579,7 +586,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         MinMemoryRequiredInMb: (number) 0,
         NumberOfCpuCoresRequired: (number) 0,
         NumberOfAcceleratorDevicesRequired: (number) 0,
-        MaxMemoryRequiredInMb: (number) 0
+        MaxMemoryRequiredInMb: (number) 0,
+        AcceleratorPartitionType: "__AcceleratorPartitionType__"
       },
       BaseInferenceComponentName: "__BaseInferenceComponentName__",
       DataCacheConfig: {

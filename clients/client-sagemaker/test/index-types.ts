@@ -1604,6 +1604,7 @@ export type {
   WorkforceIpAddressType,
   WorkforceStatus,
   AcceleratorPartitionConfig,
+  AcceleratorPartitionLayout,
   ActionSource,
   ActionSummary,
   AddAssociationRequest,

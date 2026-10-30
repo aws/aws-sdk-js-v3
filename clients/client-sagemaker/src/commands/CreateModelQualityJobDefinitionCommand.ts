@@ -2,10 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type {
-  CreateModelQualityJobDefinitionRequest,
-  CreateModelQualityJobDefinitionResponse,
-} from "../models/models_1";
+import type { CreateModelQualityJobDefinitionRequest } from "../models/models_1";
+import type { CreateModelQualityJobDefinitionResponse } from "../models/models_2";
 import { CreateModelQualityJobDefinition$ } from "../schemas/schemas_0";
 
 /**
