@@ -478,6 +478,7 @@ import {
   RunListItem$,
   RunLogLevel,
   RunLogLocation$,
+  RunOutputUriPrefixMode,
   RunRetentionMode,
   RunStatus,
   RunSummary$,
@@ -1190,6 +1191,7 @@ assert(typeof ResourceOwner === "object");
 assert(typeof RunCacheStatus === "object");
 assert(typeof RunExport === "object");
 assert(typeof RunLogLevel === "object");
+assert(typeof RunOutputUriPrefixMode === "object");
 assert(typeof RunRetentionMode === "object");
 assert(typeof RunStatus === "object");
 assert(typeof SchemaValueType === "object");

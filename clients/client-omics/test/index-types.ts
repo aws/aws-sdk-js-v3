@@ -354,6 +354,7 @@ export type {
   RunCacheStatus,
   RunExport,
   RunLogLevel,
+  RunOutputUriPrefixMode,
   RunRetentionMode,
   RunStatus,
   SchemaValueType,

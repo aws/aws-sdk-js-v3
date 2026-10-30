@@ -799,6 +799,19 @@ export type RunExport = (typeof RunExport)[keyof typeof RunExport];
  * @public
  * @enum
  */
+export const RunOutputUriPrefixMode = {
+  NONE_WITH_OVERWRITE: "NONE_WITH_OVERWRITE",
+  SERVICE_DEFINED: "SERVICE_DEFINED",
+} as const;
+/**
+ * @public
+ */
+export type RunOutputUriPrefixMode = (typeof RunOutputUriPrefixMode)[keyof typeof RunOutputUriPrefixMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const RunStatus = {
   CANCELLED: "CANCELLED",
   COMPLETED: "COMPLETED",

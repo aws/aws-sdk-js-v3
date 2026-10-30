@@ -34,6 +34,7 @@ import type {
   RunCacheStatus,
   RunExport,
   RunLogLevel,
+  RunOutputUriPrefixMode,
   RunRetentionMode,
   RunStatus,
   SchemaValueType,
@@ -2385,7 +2386,7 @@ export interface ImageMapping {
 }
 
 /**
- * <p>If you are using the ECR pull through cache feature, the registry mapping maps between the ECR repository and the upstream registry where container images are pulled and synchronized.</p>
+ * <p>Maps an upstream container registry to a repository prefix in your Amazon Elastic Container Registry (Amazon ECR) private registry. For registries that Amazon ECR pull through cache supports, you create a pull through cache rule that synchronizes the upstream repositories with your private repositories. You can also use some registries that pull through cache doesn't support. For these registries, specify <code>credentialArn</code>, and Amazon Web Services HealthOmics copies each image into a private Amazon ECR repository the first time a task needs it.</p>
  * @public
  */
 export interface RegistryMapping {
@@ -2426,7 +2427,7 @@ export interface RegistryMapping {
  */
 export interface ContainerRegistryMap {
   /**
-   * <p>Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.</p>
+   * <p>The mappings between upstream container registries and repository prefixes in your Amazon Elastic Container Registry (Amazon ECR) private registry. The list can include both pull through cache mappings and mappings for registries that Amazon Web Services HealthOmics copies images from.</p>
    * @public
    */
   registryMappings?: RegistryMapping[] | undefined;
@@ -5412,6 +5413,12 @@ export interface GetRunResponse {
    * @public
    */
   sessionPolicy?: string | undefined;
+
+  /**
+   * <p>The service returns the value that the <code>StartRun</code> request specified for <code>outputUriPrefixMode</code>. The service returns <code>SERVICE_DEFINED</code> if the request did not specify a value.</p>
+   * @public
+   */
+  outputUriPrefixMode?: RunOutputUriPrefixMode | undefined;
 }
 
 /**
@@ -9221,6 +9228,12 @@ export interface StartRunRequest {
    * @public
    */
   engineSettings?: __DocumentType | undefined;
+
+  /**
+   * <p>You can control the path prefixes that the service adds beneath <code>outputUri</code>. If you don't specify a value, the service uses <code>SERVICE_DEFINED</code>, which adds a run-specific prefix.</p>
+   * @public
+   */
+  outputUriPrefixMode?: RunOutputUriPrefixMode | undefined;
 }
 
 /**
