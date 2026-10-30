@@ -291,7 +291,6 @@
     "HostHeaderResolvedConfig": "type(interface)",
     "isIpAddress": "function",
     "isVirtualHostableS3Bucket": "function",
-    "lazyLog": "function",
     "loggerMiddleware": "function",
     "loggerMiddlewareOptions": "object",
     "NODE_APP_ID_CONFIG_OPTIONS": "object(node-only)",

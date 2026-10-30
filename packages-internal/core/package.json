@@ -34,7 +34,6 @@
   "module": "./dist-es/index.js",
   "browser": {
     "./dist-es/submodules/client/index.js": "./dist-es/submodules/client/index.browser.js",
-    "./dist-es/submodules/client/middleware-logger/lazyLog.js": "./dist-es/submodules/client/middleware-logger/lazyLog.browser.js",
     "./dist-es/submodules/httpAuthSchemes/index.js": "./dist-es/submodules/httpAuthSchemes/index.browser.js"
   },
   "types": "./dist-types/index.d.ts",
@@ -50,7 +49,6 @@
   },
   "react-native": {
     "./dist-es/submodules/client/index.js": "./dist-es/submodules/client/index.native.js",
-    "./dist-es/submodules/client/middleware-logger/lazyLog.js": "./dist-es/submodules/client/middleware-logger/lazyLog.browser.js",
     "./dist-es/submodules/httpAuthSchemes/index.js": "./dist-es/submodules/httpAuthSchemes/index.browser.js"
   },
   "exports": {

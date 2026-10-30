@@ -9,9 +9,10 @@ import type {
   Pluggable,
 } from "@smithy/types";
 
-import { lazyLog } from "./lazyLog";
+type LazyLog = <T extends object>(value: T) => T;
 
-export const loggerMiddleware =
+export const bindLoggerMiddleware =
+  (lazyLog: LazyLog) =>
   () =>
   <Output extends MetadataBearer = MetadataBearer>(
     next: InitializeHandler<any, Output>,
@@ -47,23 +48,17 @@ export const loggerMiddleware =
       );
       return response;
     } catch (error) {
-      const { clientName, commandName, logger } = context;
+      const { clientName, commandName, logger, dynamoDbDocumentClientOptions = {} } = context;
+      const inputFilterSensitiveLog =
+        dynamoDbDocumentClientOptions.overrideInputFilterSensitiveLog ?? context.inputFilterSensitiveLog;
 
-      logger?.error?.(
-        lazyLog({
-          clientName,
-          commandName,
-          get input() {
-            const input = (
-              context.dynamoDbDocumentClientOptions?.overrideInputFilterSensitiveLog ?? context.inputFilterSensitiveLog
-            )(args.input);
-            Object.defineProperty(this, "input", { enumerable: true, value: input });
-            return input;
-          },
-          error,
-          metadata: (error as any).$metadata,
-        })
-      );
+      logger?.error?.({
+        clientName,
+        commandName,
+        input: inputFilterSensitiveLog(args.input),
+        error,
+        metadata: (error as any).$metadata,
+      });
       throw error;
     }
   };
@@ -75,9 +70,11 @@ export const loggerMiddlewareOptions: InitializeHandlerOptions & AbsoluteLocatio
   override: true,
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const getLoggerPlugin = (options: any): Pluggable<any, any> => ({
-  applyToStack: (clientStack) => {
-    clientStack.add(loggerMiddleware(), loggerMiddlewareOptions);
-  },
-});
+export const bindGetLoggerPlugin =
+  (loggerMiddleware: ReturnType<typeof bindLoggerMiddleware>) =>
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  (options: any): Pluggable<any, any> => ({
+    applyToStack: (clientStack) => {
+      clientStack.add(loggerMiddleware(), loggerMiddlewareOptions);
+    },
+  });

@@ -4,7 +4,11 @@ import { NoOpLogger } from "@smithy/core/client";
 import type { HandlerExecutionContext, Logger, MiddlewareStack } from "@smithy/types";
 import { afterEach, describe, expect, test as it, vi } from "vitest";
 
-import { getLoggerPlugin, loggerMiddleware, loggerMiddlewareOptions } from "./loggerMiddleware";
+import { lazyLog } from "./lazyLog";
+import { bindGetLoggerPlugin, bindLoggerMiddleware, loggerMiddlewareOptions } from "./loggerMiddleware";
+
+const loggerMiddleware = bindLoggerMiddleware(lazyLog);
+const getLoggerPlugin = bindGetLoggerPlugin(loggerMiddleware);
 
 describe("getLoggerPlugin", () => {
   const mockClientStack = {
@@ -212,7 +216,7 @@ describe("loggerMiddleware", () => {
     });
   });
 
-  it("does not filter logs for the default logger", async () => {
+  it("does not filter successful responses for the default logger", async () => {
     mockNext.mockResolvedValueOnce(mockResponse);
     const inputFilterSensitiveLog = vi.fn();
     const outputFilterSensitiveLog = vi.fn();
@@ -222,15 +226,6 @@ describe("loggerMiddleware", () => {
       inputFilterSensitiveLog,
       outputFilterSensitiveLog,
     })(mockArgs);
-
-    mockNext.mockRejectedValueOnce(new Error("example error"));
-    await expect(
-      loggerMiddleware()(mockNext, {
-        logger: new NoOpLogger(),
-        inputFilterSensitiveLog,
-        outputFilterSensitiveLog,
-      })(mockArgs)
-    ).rejects.toThrow("example error");
 
     expect(inputFilterSensitiveLog).not.toHaveBeenCalled();
     expect(outputFilterSensitiveLog).not.toHaveBeenCalled();

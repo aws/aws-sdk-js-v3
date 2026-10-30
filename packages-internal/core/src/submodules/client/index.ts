@@ -1,3 +1,6 @@
+import { lazyLog } from "./middleware-logger/lazyLog";
+import { bindGetLoggerPlugin, bindLoggerMiddleware } from "./middleware-logger/loggerMiddleware";
+
 // original client submodule exports
 export { emitWarningIfUnsupportedVersion, state } from "./emitWarningIfUnsupportedVersion";
 export { getLongPollPlugin } from "./longPollMiddleware";
@@ -15,8 +18,9 @@ export {
 export type { HostHeaderInputConfig, HostHeaderResolvedConfig } from "./middleware-host-header/hostHeaderMiddleware";
 
 // middleware-logger
-export { loggerMiddleware, loggerMiddlewareOptions, getLoggerPlugin } from "./middleware-logger/loggerMiddleware";
-export { lazyLog } from "./middleware-logger/lazyLog";
+export { loggerMiddlewareOptions } from "./middleware-logger/loggerMiddleware";
+export const loggerMiddleware = bindLoggerMiddleware(lazyLog);
+export const getLoggerPlugin = bindGetLoggerPlugin(loggerMiddleware);
 
 // middleware-recursion-detection
 export { recursionDetectionMiddlewareOptions } from "./middleware-recursion-detection/configuration";

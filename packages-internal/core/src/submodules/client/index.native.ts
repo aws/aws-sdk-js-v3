@@ -1,3 +1,6 @@
+import { lazyLog } from "./middleware-logger/lazyLog.browser";
+import { bindGetLoggerPlugin, bindLoggerMiddleware } from "./middleware-logger/loggerMiddleware";
+
 const no = Symbol.for("node-only");
 
 // original client submodule exports
@@ -18,8 +21,9 @@ export {
 export type { HostHeaderInputConfig, HostHeaderResolvedConfig } from "./middleware-host-header/hostHeaderMiddleware";
 
 // middleware-logger
-export { loggerMiddleware, loggerMiddlewareOptions, getLoggerPlugin } from "./middleware-logger/loggerMiddleware";
-export { lazyLog } from "./middleware-logger/lazyLog.browser";
+export { loggerMiddlewareOptions } from "./middleware-logger/loggerMiddleware";
+export const loggerMiddleware = bindLoggerMiddleware(lazyLog);
+export const getLoggerPlugin = bindGetLoggerPlugin(loggerMiddleware);
 
 // middleware-recursion-detection
 export { recursionDetectionMiddlewareOptions } from "./middleware-recursion-detection/configuration";
