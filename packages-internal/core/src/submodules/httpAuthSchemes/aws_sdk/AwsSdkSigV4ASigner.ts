@@ -34,7 +34,7 @@ export class AwsSdkSigV4ASigner extends AwsSdkSigV4Signer {
 
     if (!noSkewCorrection) {
       signingProperties._preRequestSystemClockOffset = config.systemClockOffset;
-      // Capture the raw send time (no skew applied) for the midpoint skew formula.
+      // Capture the raw send time (no skew applied) for the request duration guard.
       signingProperties._requestSentAt = Date.now();
     }
 
