@@ -1751,6 +1751,116 @@ export interface DeleteAccountPolicyRequest {
    * @public
    */
   policyType: PolicyType | undefined;
+
+  /**
+   * <p>Specifies whether to preview the impact of deleting the policy without deleting it. If
+   *       you specify <code>true</code>, CloudWatch Logs does not delete the policy and
+   *       returns the estimated impact in <code>dryRunResult</code>. The default is
+   *       <code>false</code>.</p>
+   *          <p>Specifying <code>dryRun</code> is valid only when you specify
+   *       <code>RETENTION_POLICY</code> for <code>policyType</code>. Only one dry run can be in
+   *       progress for an account at a time.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the estimated effect of an account-level retention policy change on one log
+ *       group.</p>
+ * @public
+ */
+export interface LogGroupImpact {
+  /**
+   * <p>The name of the log group.</p>
+   * @public
+   */
+  logGroupName?: string | undefined;
+
+  /**
+   * <p>The current effective retention period of the log group, in days. A value of
+   *       <code>NEVER_EXPIRE</code> indicates that log events in the log group never expire.</p>
+   * @public
+   */
+  currentRetention?: string | undefined;
+
+  /**
+   * <p>The effective retention period of the log group, in days, after the change. A value of
+   *       <code>NEVER_EXPIRE</code> indicates that log events in the log group would never
+   *       expire.</p>
+   * @public
+   */
+  proposedRetention?: string | undefined;
+
+  /**
+   * <p>The number of bytes stored in the log group.</p>
+   * @public
+   */
+  storedBytes?: number | undefined;
+}
+
+/**
+ * <p>Contains the estimated impact of creating, updating, or deleting an account-level
+ *       retention policy. The analysis compares the effective retention period of each log group,
+ *       which accounts for all account-level retention policies that apply to it, before and after
+ *       the change. Log groups in the Delivery class are not included.</p>
+ * @public
+ */
+export interface DryRunResult {
+  /**
+   * <p>The number of log groups in the scope of the policy that were analyzed. This value is
+   *       the sum of <code>increasedRetentionLogGroupCount</code>,
+   *       <code>decreasedRetentionLogGroupCount</code>, and
+   *       <code>unchangedRetentionLogGroupCount</code>, and does not include log groups that could not
+   *       be analyzed.</p>
+   * @public
+   */
+  totalMatchedLogGroups?: number | undefined;
+
+  /**
+   * <p>The number of log groups whose effective retention period would become longer.</p>
+   * @public
+   */
+  increasedRetentionLogGroupCount?: number | undefined;
+
+  /**
+   * <p>The number of log groups whose effective retention period would become shorter.</p>
+   * @public
+   */
+  decreasedRetentionLogGroupCount?: number | undefined;
+
+  /**
+   * <p>The number of log groups whose effective retention period would not change.</p>
+   * @public
+   */
+  unchangedRetentionLogGroupCount?: number | undefined;
+
+  /**
+   * <p>The number of log groups in the scope of the policy that could not be analyzed. These
+   *       log groups are not included in <code>totalMatchedLogGroups</code>.</p>
+   * @public
+   */
+  failedAnalysisCount?: number | undefined;
+
+  /**
+   * <p>Up to 20 log groups in the scope of the policy, sorted by stored bytes in descending
+   *       order. This list can include log groups whose effective retention period would not
+   *       change.</p>
+   * @public
+   */
+  topLogGroupsImpacted?: LogGroupImpact[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccountPolicyResponse {
+  /**
+   * <p>The estimated impact of deleting the policy. This field is returned only when the request
+   *       specifies <code>dryRun</code> as <code>true</code>.</p>
+   * @public
+   */
+  dryRunResult?: DryRunResult | undefined;
 }
 
 /**
@@ -3409,6 +3519,16 @@ export interface LogGroup {
    * @public
    */
   bearerTokenAuthenticationEnabled?: boolean | undefined;
+
+  /**
+   * <p>The name of the account-level retention policy that determines the retention period of
+   *       this log group. This field is returned only when an account-level retention policy applies to
+   *       the log group. When it is returned, <code>retentionInDays</code> shows the retention period
+   *       from that policy instead of the retention period set on the log group. If the policy specifies
+   *       that log events never expire, <code>retentionInDays</code> is not returned.</p>
+   * @public
+   */
+  retentionPolicyName?: string | undefined;
 }
 
 /**
@@ -8073,6 +8193,18 @@ export interface PutAccountPolicyRequest {
    * @public
    */
   selectionCriteria?: string | undefined;
+
+  /**
+   * <p>Specifies whether to preview the impact of the policy without creating or updating it.
+   *       If you specify <code>true</code>, CloudWatch Logs validates the request,
+   *       does not save the policy, and returns the estimated impact in <code>dryRunResult</code>
+   *       instead of <code>accountPolicy</code>. The default is <code>false</code>.</p>
+   *          <p>Specifying <code>dryRun</code> is valid only when you specify
+   *       <code>RETENTION_POLICY</code> for <code>policyType</code>. Only one dry run can be in
+   *       progress for an account at a time.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -8084,6 +8216,13 @@ export interface PutAccountPolicyResponse {
    * @public
    */
   accountPolicy?: AccountPolicy | undefined;
+
+  /**
+   * <p>The estimated impact of the policy on log groups in the account. This field is returned
+   *       only when the request specifies <code>dryRun</code> as <code>true</code>.</p>
+   * @public
+   */
+  dryRunResult?: DryRunResult | undefined;
 }
 
 /**
@@ -9620,68 +9759,4 @@ export interface StopQueryResponse {
    * @public
    */
   success?: boolean | undefined;
-}
-
-/**
- * @deprecated Please use the generic tagging API model TagResourceRequest.
- * @public
- */
-export interface TagLogGroupRequest {
-  /**
-   * <p>The name of the log group.</p>
-   * @public
-   */
-  logGroupName: string | undefined;
-
-  /**
-   * <p>The key-value pairs to use for the tags.</p>
-   * @public
-   */
-  tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The ARN of the resource that you're adding tags to.</p>
-   *          <p>The ARN format of a log group is
-   *           <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i>
-   *             </code>
-   *          </p>
-   *          <p>The ARN format of a destination is
-   *           <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i>
-   *             </code>
-   *          </p>
-   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
-   *         resources and operations</a>.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The list of key-value pairs to associate with the resource.</p>
-   * @public
-   */
-  tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TestMetricFilterRequest {
-  /**
-   * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
-   *       event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You
-   *       use the filter pattern to specify what to look for in the log event message.</p>
-   * @public
-   */
-  filterPattern: string | undefined;
-
-  /**
-   * <p>The log event messages to test.</p>
-   * @public
-   */
-  logEventMessages: string[] | undefined;
 }

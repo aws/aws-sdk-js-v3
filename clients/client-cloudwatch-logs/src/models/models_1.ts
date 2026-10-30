@@ -11,6 +11,70 @@ import type {
 import type { DestinationConfiguration, Processor, S3DeliveryConfiguration } from "./models_0";
 
 /**
+ * @deprecated Please use the generic tagging API model TagResourceRequest.
+ * @public
+ */
+export interface TagLogGroupRequest {
+  /**
+   * <p>The name of the log group.</p>
+   * @public
+   */
+  logGroupName: string | undefined;
+
+  /**
+   * <p>The key-value pairs to use for the tags.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The ARN of the resource that you're adding tags to.</p>
+   *          <p>The ARN format of a log group is
+   *           <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i>
+   *             </code>
+   *          </p>
+   *          <p>The ARN format of a destination is
+   *           <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i>
+   *             </code>
+   *          </p>
+   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
+   *         resources and operations</a>.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The list of key-value pairs to associate with the resource.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TestMetricFilterRequest {
+  /**
+   * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
+   *       event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You
+   *       use the filter pattern to specify what to look for in the log event message.</p>
+   * @public
+   */
+  filterPattern: string | undefined;
+
+  /**
+   * <p>The log event messages to test.</p>
+   * @public
+   */
+  logEventMessages: string[] | undefined;
+}
+
+/**
  * <p>Represents a matched event.</p>
  * @public
  */

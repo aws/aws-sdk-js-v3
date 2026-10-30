@@ -497,9 +497,10 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  * const input = { // PutAccountPolicyRequest
  *   policyName: "STRING_VALUE", // required
  *   policyDocument: "STRING_VALUE", // required
- *   policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY" || "METRIC_EXTRACTION_POLICY", // required
+ *   policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY" || "METRIC_EXTRACTION_POLICY" || "RETENTION_POLICY", // required
  *   scope: "ALL",
  *   selectionCriteria: "STRING_VALUE",
+ *   dryRun: true || false,
  * };
  * const command = new PutAccountPolicyCommand(input);
  * const response = await client.send(command);
@@ -508,10 +509,25 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  * //     policyName: "STRING_VALUE",
  * //     policyDocument: "STRING_VALUE",
  * //     lastUpdatedTime: Number("long"),
- * //     policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY" || "METRIC_EXTRACTION_POLICY",
+ * //     policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY" || "METRIC_EXTRACTION_POLICY" || "RETENTION_POLICY",
  * //     scope: "ALL",
  * //     selectionCriteria: "STRING_VALUE",
  * //     accountId: "STRING_VALUE",
+ * //   },
+ * //   dryRunResult: { // DryRunResult
+ * //     totalMatchedLogGroups: Number("int"),
+ * //     increasedRetentionLogGroupCount: Number("int"),
+ * //     decreasedRetentionLogGroupCount: Number("int"),
+ * //     unchangedRetentionLogGroupCount: Number("int"),
+ * //     failedAnalysisCount: Number("int"),
+ * //     topLogGroupsImpacted: [ // LogGroupImpacts
+ * //       { // LogGroupImpact
+ * //         logGroupName: "STRING_VALUE",
+ * //         currentRetention: "STRING_VALUE",
+ * //         proposedRetention: "STRING_VALUE",
+ * //         storedBytes: Number("long"),
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

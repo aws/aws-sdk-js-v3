@@ -80,6 +80,7 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * //       logGroupArn: "STRING_VALUE",
  * //       deletionProtectionEnabled: true || false,
  * //       bearerTokenAuthenticationEnabled: true || false,
+ * //       retentionPolicyName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

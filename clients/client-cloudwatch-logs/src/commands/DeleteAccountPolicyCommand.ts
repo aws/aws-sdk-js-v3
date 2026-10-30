@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DeleteAccountPolicyRequest } from "../models/models_0";
+import type { DeleteAccountPolicyRequest, DeleteAccountPolicyResponse } from "../models/models_0";
 import { DeleteAccountPolicy$ } from "../schemas/schemas_0";
 
 /**
@@ -20,7 +20,7 @@ export interface DeleteAccountPolicyCommandInput extends DeleteAccountPolicyRequ
  *
  * The output of {@link DeleteAccountPolicyCommand}.
  */
-export interface DeleteAccountPolicyCommandOutput extends __MetadataBearer {}
+export interface DeleteAccountPolicyCommandOutput extends DeleteAccountPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a CloudWatch Logs account policy. This stops the account-wide policy from
@@ -66,11 +66,28 @@ export interface DeleteAccountPolicyCommandOutput extends __MetadataBearer {}
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DeleteAccountPolicyRequest
  *   policyName: "STRING_VALUE", // required
- *   policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY" || "METRIC_EXTRACTION_POLICY", // required
+ *   policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY" || "METRIC_EXTRACTION_POLICY" || "RETENTION_POLICY", // required
+ *   dryRun: true || false,
  * };
  * const command = new DeleteAccountPolicyCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DeleteAccountPolicyResponse
+ * //   dryRunResult: { // DryRunResult
+ * //     totalMatchedLogGroups: Number("int"),
+ * //     increasedRetentionLogGroupCount: Number("int"),
+ * //     decreasedRetentionLogGroupCount: Number("int"),
+ * //     unchangedRetentionLogGroupCount: Number("int"),
+ * //     failedAnalysisCount: Number("int"),
+ * //     topLogGroupsImpacted: [ // LogGroupImpacts
+ * //       { // LogGroupImpact
+ * //         logGroupName: "STRING_VALUE",
+ * //         currentRetention: "STRING_VALUE",
+ * //         proposedRetention: "STRING_VALUE",
+ * //         storedBytes: Number("long"),
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *
@@ -108,7 +125,7 @@ export class DeleteAccountPolicyCommand extends command<DeleteAccountPolicyComma
   protected declare static __types: {
     api: {
       input: DeleteAccountPolicyRequest;
-      output: {};
+      output: DeleteAccountPolicyResponse;
     };
     sdk: {
       input: DeleteAccountPolicyCommandInput;

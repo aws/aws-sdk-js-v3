@@ -72,6 +72,7 @@ import {
   DeleteAccountPolicy$,
   DeleteAccountPolicyCommand,
   DeleteAccountPolicyRequest$,
+  DeleteAccountPolicyResponse$,
   DeleteDataProtectionPolicy$,
   DeleteDataProtectionPolicyCommand,
   DeleteDataProtectionPolicyRequest$,
@@ -232,6 +233,7 @@ import {
   DisassociateSourceFromS3TableIntegrationRequest$,
   DisassociateSourceFromS3TableIntegrationResponse$,
   Distribution,
+  DryRunResult$,
   Entity$,
   EntityRejectionErrorType,
   EvaluationFrequency,
@@ -407,6 +409,7 @@ import {
   LogGroup$,
   LogGroupClass,
   LogGroupField$,
+  LogGroupImpact$,
   LogGroupSummary$,
   LogStream$,
   LookupTable$,
@@ -939,6 +942,7 @@ assert(typeof DataSource$ === "object");
 assert(typeof DataSourceFilter$ === "object");
 assert(typeof DateTimeConverter$ === "object");
 assert(typeof DeleteAccountPolicyRequest$ === "object");
+assert(typeof DeleteAccountPolicyResponse$ === "object");
 assert(typeof DeleteDataProtectionPolicyRequest$ === "object");
 assert(typeof DeleteDeliveryDestinationPolicyRequest$ === "object");
 assert(typeof DeleteDeliveryDestinationRequest$ === "object");
@@ -1012,6 +1016,7 @@ assert(typeof DestinationConfiguration$ === "object");
 assert(typeof DisassociateKmsKeyRequest$ === "object");
 assert(typeof DisassociateSourceFromS3TableIntegrationRequest$ === "object");
 assert(typeof DisassociateSourceFromS3TableIntegrationResponse$ === "object");
+assert(typeof DryRunResult$ === "object");
 assert(typeof Entity$ === "object");
 assert(typeof ExportTask$ === "object");
 assert(typeof ExportTaskExecutionInfo$ === "object");
@@ -1100,6 +1105,7 @@ assert(typeof LogFieldsListItem$ === "object");
 assert(typeof LogFieldType$ === "object");
 assert(typeof LogGroup$ === "object");
 assert(typeof LogGroupField$ === "object");
+assert(typeof LogGroupImpact$ === "object");
 assert(typeof LogGroupSummary$ === "object");
 assert(typeof LogStream$ === "object");
 assert(typeof LookupTable$ === "object");

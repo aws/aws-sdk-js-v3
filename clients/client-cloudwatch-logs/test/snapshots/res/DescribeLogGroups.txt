@@ -46,7 +46,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "logGroupClass": "__logGroupClass__",
       "logGroupArn": "__logGroupArn__",
       "deletionProtectionEnabled": false,
-      "bearerTokenAuthenticationEnabled": false
+      "bearerTokenAuthenticationEnabled": false,
+      "retentionPolicyName": "__retentionPolicyName__"
     },
     {
       "logGroupName": "__logGroupName__",
@@ -65,7 +66,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "logGroupClass": "__logGroupClass__",
       "logGroupArn": "__logGroupArn__",
       "deletionProtectionEnabled": false,
-      "bearerTokenAuthenticationEnabled": false
+      "bearerTokenAuthenticationEnabled": false,
+      "retentionPolicyName": "__retentionPolicyName__"
     },
     {
       "logGroupName": "__logGroupName__",
@@ -84,7 +86,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "logGroupClass": "__logGroupClass__",
       "logGroupArn": "__logGroupArn__",
       "deletionProtectionEnabled": false,
-      "bearerTokenAuthenticationEnabled": false
+      "bearerTokenAuthenticationEnabled": false,
+      "retentionPolicyName": "__retentionPolicyName__"
     }
   ],
   "nextToken": "__nextToken__"
@@ -111,7 +114,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       logGroupClass: "__logGroupClass__",
       logGroupArn: "__logGroupArn__",
       deletionProtectionEnabled: (boolean) false,
-      bearerTokenAuthenticationEnabled: (boolean) false
+      bearerTokenAuthenticationEnabled: (boolean) false,
+      retentionPolicyName: "__retentionPolicyName__"
     },
     {
       logGroupName: "__logGroupName__",
@@ -130,7 +134,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       logGroupClass: "__logGroupClass__",
       logGroupArn: "__logGroupArn__",
       deletionProtectionEnabled: (boolean) false,
-      bearerTokenAuthenticationEnabled: (boolean) false
+      bearerTokenAuthenticationEnabled: (boolean) false,
+      retentionPolicyName: "__retentionPolicyName__"
     },
     {
       logGroupName: "__logGroupName__",
@@ -149,7 +154,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       logGroupClass: "__logGroupClass__",
       logGroupArn: "__logGroupArn__",
       deletionProtectionEnabled: (boolean) false,
-      bearerTokenAuthenticationEnabled: (boolean) false
+      bearerTokenAuthenticationEnabled: (boolean) false,
+      retentionPolicyName: "__retentionPolicyName__"
     }
   ],
   nextToken: "__nextToken__",

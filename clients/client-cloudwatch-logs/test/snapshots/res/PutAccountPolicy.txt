@@ -36,6 +36,33 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "scope": "__scope__",
     "selectionCriteria": "__selectionCriteria__",
     "accountId": "123456789012"
+  },
+  "dryRunResult": {
+    "totalMatchedLogGroups": 0,
+    "increasedRetentionLogGroupCount": 0,
+    "decreasedRetentionLogGroupCount": 0,
+    "unchangedRetentionLogGroupCount": 0,
+    "failedAnalysisCount": 0,
+    "topLogGroupsImpacted": [
+      {
+        "logGroupName": "__logGroupName__",
+        "currentRetention": "__currentRetention__",
+        "proposedRetention": "__proposedRetention__",
+        "storedBytes": 0
+      },
+      {
+        "logGroupName": "__logGroupName__",
+        "currentRetention": "__currentRetention__",
+        "proposedRetention": "__proposedRetention__",
+        "storedBytes": 0
+      },
+      {
+        "logGroupName": "__logGroupName__",
+        "currentRetention": "__currentRetention__",
+        "proposedRetention": "__proposedRetention__",
+        "storedBytes": 0
+      }
+    ]
   }
 }
 
@@ -50,6 +77,33 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     scope: "__scope__",
     selectionCriteria: "__selectionCriteria__",
     accountId: "123456789012"
+  },
+  dryRunResult: {
+    totalMatchedLogGroups: (number) 0,
+    increasedRetentionLogGroupCount: (number) 0,
+    decreasedRetentionLogGroupCount: (number) 0,
+    unchangedRetentionLogGroupCount: (number) 0,
+    failedAnalysisCount: (number) 0,
+    topLogGroupsImpacted: [
+      {
+        logGroupName: "__logGroupName__",
+        currentRetention: "__currentRetention__",
+        proposedRetention: "__proposedRetention__",
+        storedBytes: (number) 0
+      },
+      {
+        logGroupName: "__logGroupName__",
+        currentRetention: "__currentRetention__",
+        proposedRetention: "__proposedRetention__",
+        storedBytes: (number) 0
+      },
+      {
+        logGroupName: "__logGroupName__",
+        currentRetention: "__currentRetention__",
+        proposedRetention: "__proposedRetention__",
+        storedBytes: (number) 0
+      }
+    ]
   },
   $metadata: {
     httpStatusCode: (number) 200,

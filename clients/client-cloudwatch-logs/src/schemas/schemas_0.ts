@@ -55,8 +55,9 @@ const _D = "Delivery";
 const _DAAE = "DataAlreadyAcceptedException";
 const _DAP = "DeleteAccountPolicy";
 const _DAPR = "DeleteAccountPolicyRequest";
-const _DAPRe = "DescribeAccountPoliciesRequest";
-const _DAPRes = "DescribeAccountPoliciesResponse";
+const _DAPRe = "DeleteAccountPolicyResponse";
+const _DAPRes = "DescribeAccountPoliciesRequest";
+const _DAPResc = "DescribeAccountPoliciesResponse";
 const _DAPe = "DescribeAccountPolicies";
 const _DC = "DestinationConfiguration";
 const _DCT = "DescribeConfigurationTemplates";
@@ -152,6 +153,7 @@ const _DRPRes = "DescribeResourcePoliciesRequest";
 const _DRPResc = "DescribeResourcePoliciesResponse";
 const _DRPe = "DeleteRetentionPolicy";
 const _DRPes = "DescribeResourcePolicies";
+const _DRR = "DryRunResult";
 const _DS = "DataSource";
 const _DSC = "DeleteSyslogConfiguration";
 const _DSCR = "DeleteSyslogConfigurationRequest";
@@ -282,6 +284,8 @@ const _LFT = "LogFieldType";
 const _LG = "LogGroup";
 const _LGF = "LogGroupField";
 const _LGFL = "LogGroupFieldList";
+const _LGI = "LogGroupImpact";
+const _LGIo = "LogGroupImpacts";
 const _LGS = "LogGroupSummary";
 const _LGSo = "LogGroupSummaries";
 const _LGo = "LogGroups";
@@ -550,6 +554,7 @@ const _c = "client";
 const _cA = "createdAt";
 const _cAo = "collectionArn";
 const _cE = "collectionEndpoint";
+const _cR = "currentRetention";
 const _cT = "creationTime";
 const _cTS = "creationTimeStamp";
 const _cTSr = "createdTimeStamp";
@@ -582,7 +587,10 @@ const _dNe = "destinationName";
 const _dP = "destinationPrefix";
 const _dPE = "deletionProtectionEnabled";
 const _dPS = "dataProtectionStatus";
+const _dR = "dryRun";
 const _dRA = "destinationResourceArn";
+const _dRLGC = "decreasedRetentionLogGroupCount";
+const _dRR = "dryRunResult";
 const _dS = "dataSource";
 const _dSC = "deliverySourceConfiguration";
 const _dSN = "deliverySourceName";
@@ -644,6 +652,7 @@ const _ent = "entity";
 const _enu = "enumerations";
 const _ev = "events";
 const _f = "from";
+const _fAC = "failedAnalysisCount";
 const _fD = "fieldDelimiter";
 const _fE = "flattenedElement";
 const _fET = "firstEventTime";
@@ -686,6 +695,7 @@ const _iPLS = "isPatternLevelSuppression";
 const _iPn = "inheritedProperties";
 const _iPnd = "indexPolicy";
 const _iRA = "importRoleArn";
+const _iRLGC = "increasedRetentionLogGroupCount";
 const _iS = "importStatistics";
 const _iSA = "importSourceArn";
 const _iSm = "importStatus";
@@ -801,6 +811,7 @@ const _pN = "policyName";
 const _pP = "parsePostgres";
 const _pR = "patternRegex";
 const _pRa = "parseRoute53";
+const _pRr = "proposedRetention";
 const _pS = "patternString";
 const _pSI = "parentSourceIdentifier";
 const _pSo = "policyScope";
@@ -841,6 +852,7 @@ const _rLEI = "rejectedLogEventsInfo";
 const _rM = "recordsMatched";
 const _rN = "resourceName";
 const _rP = "resourcePolicies";
+const _rPN = "retentionPolicyName";
 const _rPe = "resourcePolicy";
 const _rS = "recordsScanned";
 const _rSe = "responseStream";
@@ -915,6 +927,8 @@ const _tH = "triggerHistory";
 const _tI = "taskId";
 const _tK = "tagKeys";
 const _tL = "transformedLogs";
+const _tLGI = "topLogGroupsImpacted";
+const _tMLG = "totalMatchedLogGroups";
 const _tN = "taskName";
 const _tNLESI = "tooNewLogEventStartIndex";
 const _tNa = "tableName";
@@ -932,6 +946,7 @@ const _ty = "type";
 const _u = "unmask";
 const _uCS = "upperCaseString";
 const _uI = "userIdentity";
+const _uRLGC = "unchangedRetentionLogGroupCount";
 const _uST = "uploadSequenceToken";
 const _un = "unit";
 const _v = "value";
@@ -1292,8 +1307,13 @@ export var DateTimeConverter$: StaticStructureSchema = [3, n0, _DTC,
 ];
 export var DeleteAccountPolicyRequest$: StaticStructureSchema = [3, n0, _DAPR,
   0,
-  [_pN, _pT],
-  [0, 0], 2
+  [_pN, _pT, _dR],
+  [0, 0, 2], 2
+];
+export var DeleteAccountPolicyResponse$: StaticStructureSchema = [3, n0, _DAPRe,
+  0,
+  [_dRR],
+  [() => DryRunResult$]
 ];
 export var DeleteDataProtectionPolicyRequest$: StaticStructureSchema = [3, n0, _DDPPR,
   0,
@@ -1445,12 +1465,12 @@ export var DeliverySourceConfigurationSchema$: StaticStructureSchema = [3, n0, _
   [_kN, _vT, _dV, _sV, _mV, _mVa],
   [0, 0, 0, 64 | 0, 1, 1], 3
 ];
-export var DescribeAccountPoliciesRequest$: StaticStructureSchema = [3, n0, _DAPRe,
+export var DescribeAccountPoliciesRequest$: StaticStructureSchema = [3, n0, _DAPRes,
   0,
   [_pT, _pN, _aIc, _nT],
   [0, 0, 64 | 0, 0], 1
 ];
-export var DescribeAccountPoliciesResponse$: StaticStructureSchema = [3, n0, _DAPRes,
+export var DescribeAccountPoliciesResponse$: StaticStructureSchema = [3, n0, _DAPResc,
   0,
   [_aP, _nT],
   [() => AccountPolicies, 0]
@@ -1659,6 +1679,11 @@ export var DisassociateSourceFromS3TableIntegrationResponse$: StaticStructureSch
   0,
   [_i],
   [0]
+];
+export var DryRunResult$: StaticStructureSchema = [3, n0, _DRR,
+  0,
+  [_tMLG, _iRLGC, _dRLGC, _uRLGC, _fAC, _tLGI],
+  [1, 1, 1, 1, 1, () => LogGroupImpacts]
 ];
 export var Entity$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -2082,13 +2107,18 @@ export var LogFieldType$: StaticStructureSchema = [3, n0, _LFT,
 ];
 export var LogGroup$: StaticStructureSchema = [3, n0, _LG,
   0,
-  [_lGN, _cT, _rID, _mFC, _ar, _sBt, _kKI, _dPS, _iPn, _lGCo, _lGA, _dPE, _bTAE],
-  [0, 1, 1, 1, 0, 1, 0, 0, 64 | 0, 0, 0, 2, 2]
+  [_lGN, _cT, _rID, _mFC, _ar, _sBt, _kKI, _dPS, _iPn, _lGCo, _lGA, _dPE, _bTAE, _rPN],
+  [0, 1, 1, 1, 0, 1, 0, 0, 64 | 0, 0, 0, 2, 2, 0]
 ];
 export var LogGroupField$: StaticStructureSchema = [3, n0, _LGF,
   0,
   [_n, _pe],
   [0, 1]
+];
+export var LogGroupImpact$: StaticStructureSchema = [3, n0, _LGI,
+  0,
+  [_lGN, _cR, _pRr, _sBt],
+  [0, 0, 0, 1]
 ];
 export var LogGroupSummary$: StaticStructureSchema = [3, n0, _LGS,
   0,
@@ -2257,13 +2287,13 @@ export var Processor$: StaticStructureSchema = [3, n0, _Pr,
 ];
 export var PutAccountPolicyRequest$: StaticStructureSchema = [3, n0, _PAPR,
   0,
-  [_pN, _pD, _pT, _sc, _sC],
-  [0, 0, 0, 0, 0], 3
+  [_pN, _pD, _pT, _sc, _sC, _dR],
+  [0, 0, 0, 0, 0, 2], 3
 ];
 export var PutAccountPolicyResponse$: StaticStructureSchema = [3, n0, _PAPRu,
   0,
-  [_aPcc],
-  [() => AccountPolicy$]
+  [_aPcc, _dRR],
+  [() => AccountPolicy$, () => DryRunResult$]
 ];
 export var PutBearerTokenAuthenticationRequest$: StaticStructureSchema = [3, n0, _PBTAR,
   0,
@@ -2796,6 +2826,9 @@ var LogGroupFieldList: StaticListSchema = [1, n0, _LGFL,
   0, () => LogGroupField$
 ];
 var LogGroupIdentifiers = 64 | 0;
+var LogGroupImpacts: StaticListSchema = [1, n0, _LGIo,
+  0, () => LogGroupImpact$
+];
 var LogGroupNames = 64 | 0;
 var LogGroups: StaticListSchema = [1, n0, _LGo,
   0, () => LogGroup$
@@ -2972,7 +3005,7 @@ export var CreateScheduledQuery$: StaticOperationSchema = [9, n0, _CSQ,
   0, () => CreateScheduledQueryRequest$, () => CreateScheduledQueryResponse$
 ];
 export var DeleteAccountPolicy$: StaticOperationSchema = [9, n0, _DAP,
-  0, () => DeleteAccountPolicyRequest$, () => __Unit
+  0, () => DeleteAccountPolicyRequest$, () => DeleteAccountPolicyResponse$
 ];
 export var DeleteDataProtectionPolicy$: StaticOperationSchema = [9, n0, _DDPP,
   0, () => DeleteDataProtectionPolicyRequest$, () => __Unit
