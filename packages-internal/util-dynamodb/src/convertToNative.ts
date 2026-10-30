@@ -15,8 +15,10 @@ export const convertToNative = (data: AttributeValue, options?: unmarshallOption
     if (value !== undefined) {
       switch (key) {
         case "NULL":
+        case "Nul":
           return null;
         case "BOOL":
+        case "Bool":
           return Boolean(value);
         case "N":
           return convertNumber(value as string, options);
