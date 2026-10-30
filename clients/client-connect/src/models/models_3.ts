@@ -49,7 +49,6 @@ import type {
   OverrideType,
   ParticipantRole,
   ParticipantTimerAction,
-  ParticipantTimerType,
   PerformanceCategoryName,
   PhoneNumberCountryCode,
   PhoneNumberType,
@@ -68,10 +67,10 @@ import type {
   SummaryMode,
   TargetListType,
   TestCaseExecutionStatus,
-  TimerEligibleParticipantRoles,
   TrafficType,
   TrendIndicator,
   UpdateOutboundEmailMessageSourceType,
+  ViewStatus,
   ViewType,
   Visibility,
   VocabularyLanguageCode,
@@ -129,7 +128,98 @@ import type {
   View,
   VoiceEnhancementConfig,
 } from "./models_1";
-import type { ViewSummary } from "./models_2";
+import type { UserSummary } from "./models_2";
+
+/**
+ * @public
+ */
+export interface ListUsersResponse {
+  /**
+   * <p>Information about the users.</p>
+   * @public
+   */
+  UserSummaryList?: UserSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListViewsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
+   *    instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The type of the view.</p>
+   * @public
+   */
+  Type?: ViewType | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>A summary of a view's metadata.</p>
+ * @public
+ */
+export interface ViewSummary {
+  /**
+   * <p>The identifier of the view.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the view.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the view.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The type of the view.</p>
+   * @public
+   */
+  Type?: ViewType | undefined;
+
+  /**
+   * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The <code>PUBLISHED</code>
+   *    status will initiate validation on the content.</p>
+   * @public
+   */
+  Status?: ViewStatus | undefined;
+
+  /**
+   * <p>The description of the view.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
 
 /**
  * @public
@@ -7689,88 +7779,6 @@ export namespace ParticipantTimerValue {
   export interface Visitor<T> {
     ParticipantTimerAction: (value: ParticipantTimerAction) => T;
     ParticipantTimerDurationInMinutes: (value: number) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Configuration information for the timer. After the timer configuration is set, it persists for the duration of
- *    the chat. It persists across new contacts in the chain, for example, transfer contacts.</p>
- *          <p>For more information about how chat timeouts work, see
- *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
- * @public
- */
-export interface ParticipantTimerConfiguration {
-  /**
-   * <p>The role of the participant in the chat conversation.</p>
-   * @public
-   */
-  ParticipantRole: TimerEligibleParticipantRoles | undefined;
-
-  /**
-   * <p>The type of timer. <code>IDLE</code> indicates the timer applies for considering a human chat participant as
-   *    idle. <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to automatically disconnecting a chat
-   *    participant due to idleness.</p>
-   * @public
-   */
-  TimerType: ParticipantTimerType | undefined;
-
-  /**
-   * <p>The value of the timer. Either the timer action (Unset to delete the timer), or the duration of the timer in
-   *    minutes. Only one value can be set.</p>
-   * @public
-   */
-  TimerValue: ParticipantTimerValue | undefined;
-}
-
-/**
- * <p>Configuration information for the chat participant role.</p>
- * @public
- */
-export interface ChatParticipantRoleConfig {
-  /**
-   * <p>A list of participant timers. You can specify any unique combination of role and timer type. Duplicate entries
-   *    error out the request with a 400.</p>
-   * @public
-   */
-  ParticipantTimerConfigList: ParticipantTimerConfiguration[] | undefined;
-}
-
-/**
- * <p>Configuration information for the chat participant role.</p>
- * @public
- */
-export type UpdateParticipantRoleConfigChannelInfo =
-  | UpdateParticipantRoleConfigChannelInfo.ChatMember
-  | UpdateParticipantRoleConfigChannelInfo.$UnknownMember;
-
-/**
- * @public
- */
-export namespace UpdateParticipantRoleConfigChannelInfo {
-  /**
-   * <p>Configuration information for the chat participant role.</p>
-   * @public
-   */
-  export interface ChatMember {
-    Chat: ChatParticipantRoleConfig;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    Chat?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    Chat: (value: ChatParticipantRoleConfig) => T;
     _: (name: string, value: any) => T;
   }
 }

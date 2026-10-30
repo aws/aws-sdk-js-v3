@@ -318,19 +318,22 @@ const _Ba = "Background";
 const _Be = "Behavior";
 const _C = "Channel";
 const _CA = "ContactArn";
-const _CAAC = "CommonAttributeAndCondition";
+const _CAAC = "CategoriesAttributeAndCondition";
+const _CAACo = "CommonAttributeAndCondition";
 const _CAC = "CreateAuthCode";
 const _CACR = "CreateAuthCodeRequest";
 const _CACRr = "CreateAuthCodeResponse";
-const _CAF = "CreateAttachedFile";
+const _CAF = "CategoriesAttributeFilter";
 const _CAFR = "CreateAttachedFileRequest";
 const _CAFRr = "CreateAttachedFileResponse";
 const _CAFU = "CompleteAttachedFileUpload";
 const _CAFUR = "CompleteAttachedFileUploadRequest";
 const _CAFURo = "CompleteAttachedFileUploadResponse";
+const _CAFr = "CreateAttachedFile";
 const _CAI = "ContactAssociationId";
 const _CAIo = "ContactAgentId";
-const _CAOCL = "CommonAttributeOrConditionList";
+const _CAOCL = "CategoriesAttributeOrConditionList";
+const _CAOCLo = "CommonAttributeOrConditionList";
 const _CAR = "ContactAnalysisReference";
 const _CAS = "CreateAgentStatus";
 const _CASR = "CreateAgentStatusRequest";
@@ -1559,6 +1562,7 @@ const _LFARi = "ListFlowAssociationsResponse";
 const _LFT = "LastFailoverTime";
 const _LFa = "LambdaFunctions";
 const _LFe = "LevelFive";
+const _LFi = "ListFilter";
 const _LHOO = "ListHoursOfOperations";
 const _LHOOO = "ListHoursOfOperationOverrides";
 const _LHOOOR = "ListHoursOfOperationOverridesRequest";
@@ -2238,6 +2242,7 @@ const _RTCASA = "RealTimeContactAnalysisSegmentAttachments";
 const _RTCASC = "RealTimeContactAnalysisSegmentCategories";
 const _RTCASE = "RealTimeContactAnalysisSegmentEvent";
 const _RTCASEI = "RealTimeContactAnalysisSegmentExtractedInformation";
+const _RTCASF = "RealTimeContactAnalysisSegmentsFilter";
 const _RTCASI = "RealTimeContactAnalysisSegmentIssues";
 const _RTCASPCS = "RealTimeContactAnalysisSegmentPostContactSummary";
 const _RTCAST = "RealTimeContactAnalysisSegmentTranscript";
@@ -3959,6 +3964,16 @@ export var CaseSlaConfiguration$: StaticStructureSchema = [3, n0, _CSC,
   [_N, _T, _TSM, _FIie, _TFV],
   [0, 0, 1, 0, () => SlaFieldValueUnionList], 3
 ];
+export var CategoriesAttributeAndCondition$: StaticStructureSchema = [3, n0, _CAAC,
+  0,
+  [_TC],
+  [() => TagAndConditionList]
+];
+export var CategoriesAttributeFilter$: StaticStructureSchema = [3, n0, _CAF,
+  0,
+  [_OC, _ACnd, _TCa],
+  [() => CategoriesAttributeOrConditionList, () => CategoriesAttributeAndCondition$, () => TagCondition$]
+];
 export var ChatContactMetrics$: StaticStructureSchema = [3, n0, _CCM,
   0,
   [_MP, _TM, _TBM, _TBMLIC, _CCTIM, _CTC, _AFRT, _AFRTIM],
@@ -4009,7 +4024,7 @@ export var ClaimPhoneNumberResponse$: StaticStructureSchema = [3, n0, _CPNRl,
   [_PNI, _PNA],
   [0, 0]
 ];
-export var CommonAttributeAndCondition$: StaticStructureSchema = [3, n0, _CAAC,
+export var CommonAttributeAndCondition$: StaticStructureSchema = [3, n0, _CAACo,
   0,
   [_TC],
   [() => TagAndConditionList]
@@ -7061,8 +7076,8 @@ export var ListQuickConnectsResponse$: StaticStructureSchema = [3, n0, _LQCRi,
 ];
 export var ListRealtimeContactAnalysisSegmentsV2Request$: StaticStructureSchema = [3, n0, _LRCASVR,
   0,
-  [_II, _CI, _OTu, _STeg, _MR, _NT],
-  [[0, 1], [0, 1], 0, 64 | 0, 1, 0], 4
+  [_II, _CI, _OTu, _STeg, _MR, _NT, _LFi],
+  [[0, 1], [0, 1], 0, 64 | 0, 1, 0, () => RealTimeContactAnalysisSegmentsFilter$], 4
 ];
 export var ListRealtimeContactAnalysisSegmentsV2Response$: StaticStructureSchema = [3, n0, _LRCASVRi,
   0,
@@ -7886,8 +7901,8 @@ export var RealTimeContactAnalysisAttachment$: StaticStructureSchema = [3, n0, _
 ];
 export var RealTimeContactAnalysisCategoryDetails$: StaticStructureSchema = [3, n0, _RTCACD,
   0,
-  [_POI],
-  [() => RealTimeContactAnalysisPointsOfInterest], 1
+  [_POI, _RIu],
+  [() => RealTimeContactAnalysisPointsOfInterest, 0], 1
 ];
 export var RealTimeContactAnalysisCharacterInterval$: StaticStructureSchema = [3, n0, _RTCACI,
   0,
@@ -7938,6 +7953,11 @@ export var RealTimeContactAnalysisSegmentPostContactSummary$: StaticStructureSch
   0,
   [_St, _Con, _FCa],
   [0, 0, 0], 1
+];
+export var RealTimeContactAnalysisSegmentsFilter$: StaticStructureSchema = [3, n0, _RTCASF,
+  0,
+  [_CAF],
+  [() => CategoriesAttributeFilter$]
 ];
 export var RealTimeContactAnalysisSegmentTranscript$: StaticStructureSchema = [3, n0, _RTCAST,
   0,
@@ -10066,12 +10086,15 @@ var BatchUpdateDataTableValueSuccessResultList: StaticListSchema = [1, n0, _BUDT
 var CalculationComponentList: StaticListSchema = [1, n0, _CCL,
   0, () => CalculationComponent$
 ];
+var CategoriesAttributeOrConditionList: StaticListSchema = [1, n0, _CAOCL,
+  0, () => CategoriesAttributeAndCondition$
+];
 var ChannelList = 64 | 0;
 var Channels = 64 | 0;
 var ChildHoursOfOperationsList: StaticListSchema = [1, n0, _CHOOL,
   0, () => HoursOfOperationsIdentifier$
 ];
-var CommonAttributeOrConditionList: StaticListSchema = [1, n0, _CAOCL,
+var CommonAttributeOrConditionList: StaticListSchema = [1, n0, _CAOCLo,
   0, () => CommonAttributeAndCondition$
 ];
 var Conditions: StaticListSchema = [1, n0, _Condi,
@@ -11074,7 +11097,7 @@ export var CompleteAttachedFileUpload$: StaticOperationSchema = [9, n0, _CAFU,
 export var CreateAgentStatus$: StaticOperationSchema = [9, n0, _CAS,
   { [_h]: ["PUT", "/agent-status/{InstanceId}", 200] }, () => CreateAgentStatusRequest$, () => CreateAgentStatusResponse$
 ];
-export var CreateAttachedFile$: StaticOperationSchema = [9, n0, _CAF,
+export var CreateAttachedFile$: StaticOperationSchema = [9, n0, _CAFr,
   { [_h]: ["PUT", "/attached-files/{InstanceId}/files", 200] }, () => CreateAttachedFileRequest$, () => CreateAttachedFileResponse$
 ];
 export var CreateAuthCode$: StaticOperationSchema = [9, n0, _CAC,

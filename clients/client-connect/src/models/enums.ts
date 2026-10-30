@@ -1361,6 +1361,7 @@ export type PreEvaluationFilterOperator =
  */
 export const PreEvaluationFilterResourceType = {
   CONTACT: "CONTACT",
+  CONTACT_EVALUATION: "CONTACT_EVALUATION",
 } as const;
 /**
  * @public

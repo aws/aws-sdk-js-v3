@@ -168,7 +168,7 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *   PreEvaluationFilters: { // PreEvaluationFilters
  *     AndConditions: [ // PreEvaluationFilterList
  *       { // PreEvaluationFilter
- *         ResourceType: "CONTACT", // required
+ *         ResourceType: "CONTACT" || "CONTACT_EVALUATION", // required
  *         FilterType: "TAG", // required
  *         FilterKey: "STRING_VALUE", // required
  *         FilterValue: "STRING_VALUE", // required

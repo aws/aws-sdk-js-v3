@@ -18,12 +18,14 @@ import type {
   EvaluationFormVersionStatus,
   InitiateAs,
   NotificationStatus,
+  ParticipantTimerType,
   QueueStatus,
   RoutingCriteriaStepStatus,
   RulePublishStatus,
   SearchableQueueType,
   TaskTemplateStatus,
   TestCaseStatus,
+  TimerEligibleParticipantRoles,
   ViewStatus,
   ViewType,
   Visibility,
@@ -129,6 +131,7 @@ import type {
   NumberCondition,
   ParticipantConfiguration,
   ParticipantDetails,
+  ParticipantTimerValue,
   PersistentChat,
   PromptSearchFilter,
   QueueInfoInput,
@@ -141,13 +144,94 @@ import type {
   TaskAttachment,
   TemplatedMessageConfig,
   TestCaseSearchFilter,
-  UpdateParticipantRoleConfigChannelInfo,
   UserHierarchyGroupSearchFilter,
   UserSearchFilter,
   ViewSearchFilter,
   WorkspaceAssociationSearchFilter,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * <p>Configuration information for the timer. After the timer configuration is set, it persists for the duration of
+ *    the chat. It persists across new contacts in the chain, for example, transfer contacts.</p>
+ *          <p>For more information about how chat timeouts work, see
+ *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+ * @public
+ */
+export interface ParticipantTimerConfiguration {
+  /**
+   * <p>The role of the participant in the chat conversation.</p>
+   * @public
+   */
+  ParticipantRole: TimerEligibleParticipantRoles | undefined;
+
+  /**
+   * <p>The type of timer. <code>IDLE</code> indicates the timer applies for considering a human chat participant as
+   *    idle. <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to automatically disconnecting a chat
+   *    participant due to idleness.</p>
+   * @public
+   */
+  TimerType: ParticipantTimerType | undefined;
+
+  /**
+   * <p>The value of the timer. Either the timer action (Unset to delete the timer), or the duration of the timer in
+   *    minutes. Only one value can be set.</p>
+   * @public
+   */
+  TimerValue: ParticipantTimerValue | undefined;
+}
+
+/**
+ * <p>Configuration information for the chat participant role.</p>
+ * @public
+ */
+export interface ChatParticipantRoleConfig {
+  /**
+   * <p>A list of participant timers. You can specify any unique combination of role and timer type. Duplicate entries
+   *    error out the request with a 400.</p>
+   * @public
+   */
+  ParticipantTimerConfigList: ParticipantTimerConfiguration[] | undefined;
+}
+
+/**
+ * <p>Configuration information for the chat participant role.</p>
+ * @public
+ */
+export type UpdateParticipantRoleConfigChannelInfo =
+  | UpdateParticipantRoleConfigChannelInfo.ChatMember
+  | UpdateParticipantRoleConfigChannelInfo.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UpdateParticipantRoleConfigChannelInfo {
+  /**
+   * <p>Configuration information for the chat participant role.</p>
+   * @public
+   */
+  export interface ChatMember {
+    Chat: ChatParticipantRoleConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Chat?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Chat: (value: ChatParticipantRoleConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * @public

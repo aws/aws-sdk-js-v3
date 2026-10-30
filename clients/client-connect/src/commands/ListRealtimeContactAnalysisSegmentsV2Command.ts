@@ -49,6 +49,29 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput extends List
  *   SegmentTypes: [ // RealTimeContactAnalysisSegmentTypes // required
  *     "Transcript" || "Categories" || "Issues" || "Event" || "Attachments" || "PostContactSummary" || "ExtractedInformation",
  *   ],
+ *   ListFilter: { // RealTimeContactAnalysisSegmentsFilter
+ *     CategoriesAttributeFilter: { // CategoriesAttributeFilter
+ *       OrConditions: [ // CategoriesAttributeOrConditionList
+ *         { // CategoriesAttributeAndCondition
+ *           TagConditions: [ // TagAndConditionList
+ *             { // TagCondition
+ *               TagKey: "STRING_VALUE",
+ *               TagValue: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       AndCondition: {
+ *         TagConditions: [
+ *           {
+ *             TagKey: "STRING_VALUE",
+ *             TagValue: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       TagCondition: "<TagCondition>",
+ *     },
+ *   },
  * };
  * const command = new ListRealtimeContactAnalysisSegmentsV2Command(input);
  * const response = await client.send(command);
@@ -80,6 +103,7 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput extends List
  * //       Categories: { // RealTimeContactAnalysisSegmentCategories
  * //         MatchedDetails: { // RealTimeContactAnalysisMatchedDetails // required
  * //           "<keys>": { // RealTimeContactAnalysisCategoryDetails
+ * //             RuleId: "STRING_VALUE",
  * //             PointsOfInterest: [ // RealTimeContactAnalysisPointsOfInterest // required
  * //               { // RealTimeContactAnalysisPointOfInterest
  * //                 TranscriptItems: [ // RealTimeContactAnalysisTranscriptItemsWithCharacterOffsets

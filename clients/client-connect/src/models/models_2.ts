@@ -75,8 +75,6 @@ import type {
   TrafficDistributionGroupStatus,
   Unit,
   UseCaseType,
-  ViewStatus,
-  ViewType,
   VocabularyLanguageCode,
 } from "./enums";
 import type {
@@ -102,6 +100,7 @@ import type {
   PrimaryValueResponse,
   QueueReference,
   SecurityProfileItem,
+  TagCondition,
   UserProficiency,
 } from "./models_0";
 import type {
@@ -2902,6 +2901,14 @@ export interface GetMetricDataV2Request {
    *        score</a>
    *                </p>
    *             </dd>
+   *             <dt>AVG_EVALUATION_SCORE_BY_SUBMIT_TIME</dt>
+   *             <dd>
+   *                <p>Unit: Percent</p>
+   *                <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID, Evaluation Source, Form Version, Queue, Routing Profile</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-evaluation-score-by-submit-time">Average evaluation
+   *        score (Submit time)</a>
+   *                </p>
+   *             </dd>
    *             <dt>AVG_FIRST_RESPONSE_TIME_AGENT</dt>
    *             <dd>
    *                <p>Unit: Seconds</p>
@@ -3868,6 +3875,15 @@ export interface GetMetricDataV2Request {
    *       Routing Profile</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#evaluations-performed">Evaluations
    *       performed</a>
+   *                </p>
+   *             </dd>
+   *             <dt>EVALUATIONS_PERFORMED_BY_SUBMIT_TIME</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID, Evaluation Source, Form Version, Queue,
+   *       Routing Profile</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#evaluations-performed-by-submit-time">Evaluations
+   *       performed (Submit time)</a>
    *                </p>
    *             </dd>
    *             <dt>FLOWS_OUTCOME</dt>
@@ -8890,6 +8906,66 @@ export interface ListQuickConnectsResponse {
 }
 
 /**
+ * <p>A list of tag conditions that the filter evaluates together using AND logic. A category
+ *    segment matches only when the tags on its rule satisfy every tag condition in the list.</p>
+ * @public
+ */
+export interface CategoriesAttributeAndCondition {
+  /**
+   * <p>A list of tag conditions. All of the tag conditions must be met for the condition to
+   *    match.</p>
+   * @public
+   */
+  TagConditions?: TagCondition[] | undefined;
+}
+
+/**
+ * <p>A filter that matches category segments based on the tags assigned to the rules that create
+ *    the categories. Provide exactly one of <code>OrConditions</code>, <code>AndCondition</code>, or
+ *     <code>TagCondition</code>.</p>
+ * @public
+ */
+export interface CategoriesAttributeFilter {
+  /**
+   * <p>A list of conditions that the filter evaluates using OR logic. A category segment matches
+   *    when at least one of the conditions in the list is met.</p>
+   * @public
+   */
+  OrConditions?: CategoriesAttributeAndCondition[] | undefined;
+
+  /**
+   * <p>A condition that the filter evaluates using AND logic. A category segment matches only when
+   *    all of the tag conditions in the condition are met.</p>
+   * @public
+   */
+  AndCondition?: CategoriesAttributeAndCondition | undefined;
+
+  /**
+   * <p>A single tag condition that a category segment must match. The category's rule must have the
+   *    specified tag key and value.</p>
+   * @public
+   */
+  TagCondition?: TagCondition | undefined;
+}
+
+/**
+ * <p>A filter that restricts the segments returned by
+ *     <code>ListRealtimeContactAnalysisSegmentsV2</code>. It currently supports filtering category
+ *    segments by the tags on the rules that create them, which enforces tag-based access control on
+ *    the categories a caller can view.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisSegmentsFilter {
+  /**
+   * <p>A filter applied to category segments based on the tags of the rules that create the
+   *    matched categories. This filter applies only when <code>SegmentTypes</code> includes
+   *     <code>Categories</code>.</p>
+   * @public
+   */
+  CategoriesAttributeFilter?: CategoriesAttributeFilter | undefined;
+}
+
+/**
  * @public
  */
 export interface ListRealtimeContactAnalysisSegmentsV2Request {
@@ -8931,6 +9007,15 @@ export interface ListRealtimeContactAnalysisSegmentsV2Request {
    * @public
    */
   SegmentTypes: RealTimeContactAnalysisSegmentType[] | undefined;
+
+  /**
+   * <p>A filter that restricts the segments returned by the API. When <code>SegmentTypes</code> includes
+   *     <code>Categories</code>, use <code>CategoriesAttributeFilter</code> to return only the category segments whose
+   *    rules have tags that match the filter. This enforces tag-based access control on the categories a caller can
+   *    view.</p>
+   * @public
+   */
+  ListFilter?: RealTimeContactAnalysisSegmentsFilter | undefined;
 }
 
 /**
@@ -9102,6 +9187,12 @@ export interface RealTimeContactAnalysisPointOfInterest {
  * @public
  */
 export interface RealTimeContactAnalysisCategoryDetails {
+  /**
+   * <p>The unique identifier of the rule that created the matched category.</p>
+   * @public
+   */
+  RuleId?: string | undefined;
+
   /**
    * <p>List of PointOfInterest - objects describing a single match of a rule.</p>
    * @public
@@ -11501,95 +11592,4 @@ export interface UserSummary {
    * @public
    */
   LastModifiedRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUsersResponse {
-  /**
-   * <p>Information about the users.</p>
-   * @public
-   */
-  UserSummaryList?: UserSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListViewsRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
-   *    instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The type of the view.</p>
-   * @public
-   */
-  Type?: ViewType | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>A summary of a view's metadata.</p>
- * @public
- */
-export interface ViewSummary {
-  /**
-   * <p>The identifier of the view.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the view.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the view.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The type of the view.</p>
-   * @public
-   */
-  Type?: ViewType | undefined;
-
-  /**
-   * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The <code>PUBLISHED</code>
-   *    status will initiate validation on the content.</p>
-   * @public
-   */
-  Status?: ViewStatus | undefined;
-
-  /**
-   * <p>The description of the view.</p>
-   * @public
-   */
-  Description?: string | undefined;
 }

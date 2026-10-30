@@ -198,6 +198,8 @@ import {
   CalculationComponent$,
   Campaign$,
   CaseSlaConfiguration$,
+  CategoriesAttributeAndCondition$,
+  CategoriesAttributeFilter$,
   Channel,
   ChannelWorkloadBehaviorType,
   ChatContactMetrics$,
@@ -1759,6 +1761,7 @@ import {
   RealTimeContactAnalysisSegmentExtractedInformation$,
   RealTimeContactAnalysisSegmentIssues$,
   RealTimeContactAnalysisSegmentPostContactSummary$,
+  RealTimeContactAnalysisSegmentsFilter$,
   RealTimeContactAnalysisSegmentTranscript$,
   RealTimeContactAnalysisSegmentType,
   RealTimeContactAnalysisSentimentLabel,
@@ -3434,6 +3437,8 @@ assert(typeof BooleanCondition$ === "object");
 assert(typeof CalculationComponent$ === "object");
 assert(typeof Campaign$ === "object");
 assert(typeof CaseSlaConfiguration$ === "object");
+assert(typeof CategoriesAttributeAndCondition$ === "object");
+assert(typeof CategoriesAttributeFilter$ === "object");
 assert(typeof ChatContactMetrics$ === "object");
 assert(typeof ChatEntryPointParameters$ === "object");
 assert(typeof ChatEvent$ === "object");
@@ -4246,6 +4251,7 @@ assert(typeof RealTimeContactAnalysisSegmentEvent$ === "object");
 assert(typeof RealTimeContactAnalysisSegmentExtractedInformation$ === "object");
 assert(typeof RealTimeContactAnalysisSegmentIssues$ === "object");
 assert(typeof RealTimeContactAnalysisSegmentPostContactSummary$ === "object");
+assert(typeof RealTimeContactAnalysisSegmentsFilter$ === "object");
 assert(typeof RealTimeContactAnalysisSegmentTranscript$ === "object");
 assert(typeof RealTimeContactAnalysisTimeData$ === "object");
 assert(typeof RealTimeContactAnalysisTranscriptItemRedaction$ === "object");
