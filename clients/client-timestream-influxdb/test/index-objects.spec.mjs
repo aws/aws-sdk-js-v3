@@ -48,6 +48,7 @@ import {
   DeleteDbInstanceCommand,
   DeleteDbInstanceInput$,
   DeleteDbInstanceOutput$,
+  DeploymentConfiguration$,
   DeploymentType,
   Duration$,
   DurationType,
@@ -71,6 +72,7 @@ import {
   GetDbParameterGroupOutput$,
   InfluxDBv2Parameters$,
   InfluxDBv3CoreParameters$,
+  InfluxDBv3EnterpriseDeploymentConfiguration$,
   InfluxDBv3EnterpriseParameters$,
   InstanceMode,
   InternalServerException,
@@ -104,6 +106,7 @@ import {
   LogLevel,
   MaintenanceSchedule$,
   NetworkType,
+  NodeGroup$,
   paginateListDbBackups,
   paginateListDbClusters,
   paginateListDbInstances,
@@ -232,6 +235,7 @@ assert(typeof DeleteDbClusterInput$ === "object");
 assert(typeof DeleteDbClusterOutput$ === "object");
 assert(typeof DeleteDbInstanceInput$ === "object");
 assert(typeof DeleteDbInstanceOutput$ === "object");
+assert(typeof DeploymentConfiguration$ === "object");
 assert(typeof Duration$ === "object");
 assert(typeof GetDbBackupInput$ === "object");
 assert(typeof GetDbBackupOutput$ === "object");
@@ -243,6 +247,7 @@ assert(typeof GetDbParameterGroupInput$ === "object");
 assert(typeof GetDbParameterGroupOutput$ === "object");
 assert(typeof InfluxDBv2Parameters$ === "object");
 assert(typeof InfluxDBv3CoreParameters$ === "object");
+assert(typeof InfluxDBv3EnterpriseDeploymentConfiguration$ === "object");
 assert(typeof InfluxDBv3EnterpriseParameters$ === "object");
 assert(typeof ListDbBackupsInput$ === "object");
 assert(typeof ListDbBackupsOutput$ === "object");
@@ -258,6 +263,7 @@ assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof LogDeliveryConfiguration$ === "object");
 assert(typeof MaintenanceSchedule$ === "object");
+assert(typeof NodeGroup$ === "object");
 assert(typeof _Parameters$ === "object");
 assert(typeof PercentOrAbsoluteLong$ === "object");
 assert(typeof RebootDbClusterInput$ === "object");

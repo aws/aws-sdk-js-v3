@@ -37,6 +37,24 @@ export type DbStorageType = (typeof DbStorageType)[keyof typeof DbStorageType];
  * @public
  * @enum
  */
+export const InstanceMode = {
+  COMPACT: "COMPACT",
+  INGEST: "INGEST",
+  PRIMARY: "PRIMARY",
+  PROCESS: "PROCESS",
+  QUERY: "QUERY",
+  REPLICA: "REPLICA",
+  STANDBY: "STANDBY",
+} as const;
+/**
+ * @public
+ */
+export type InstanceMode = (typeof InstanceMode)[keyof typeof InstanceMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResourceDeploymentType = {
   MULTI_NODE_READ_REPLICAS: "MULTI_NODE_READ_REPLICAS",
   SINGLE_AZ: "SINGLE_AZ",
@@ -237,24 +255,6 @@ export const DeploymentType = {
  * @public
  */
 export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType];
-
-/**
- * @public
- * @enum
- */
-export const InstanceMode = {
-  COMPACT: "COMPACT",
-  INGEST: "INGEST",
-  PRIMARY: "PRIMARY",
-  PROCESS: "PROCESS",
-  QUERY: "QUERY",
-  REPLICA: "REPLICA",
-  STANDBY: "STANDBY",
-} as const;
-/**
- * @public
- */
-export type InstanceMode = (typeof InstanceMode)[keyof typeof InstanceMode];
 
 /**
  * @public

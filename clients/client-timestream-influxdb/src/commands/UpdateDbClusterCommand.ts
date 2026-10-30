@@ -43,6 +43,19 @@ export interface UpdateDbClusterCommandOutput extends UpdateDbClusterOutput, __M
  *   dbParameterGroupIdentifier: "STRING_VALUE",
  *   port: Number("int"),
  *   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge" || "db.influx.24xlarge",
+ *   deploymentConfiguration: { // DeploymentConfiguration Union: only one key present
+ *     InfluxDBv3Enterprise: { // InfluxDBv3EnterpriseDeploymentConfiguration
+ *       nodeGroups: [ // NodeGroupList // required
+ *         { // NodeGroup
+ *           instanceModes: [ // InstanceModeList // required
+ *             "PRIMARY" || "STANDBY" || "REPLICA" || "INGEST" || "QUERY" || "COMPACT" || "PROCESS",
+ *           ],
+ *           instanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge" || "db.influx.24xlarge", // required
+ *           count: Number("int"), // required
+ *         },
+ *       ],
+ *     },
+ *   },
  *   failoverMode: "AUTOMATIC" || "NO_FAILOVER",
  *   maintenanceSchedule: { // MaintenanceSchedule
  *     timezone: "STRING_VALUE", // required

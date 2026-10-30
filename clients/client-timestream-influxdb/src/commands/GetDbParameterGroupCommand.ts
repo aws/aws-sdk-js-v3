@@ -194,9 +194,9 @@ export interface GetDbParameterGroupCommandOutput extends GetDbParameterGroupOut
  * //       hardDeleteDefaultDuration: "<Duration>",
  * //       pluginRepositoryUrl: "STRING_VALUE",
  * //       pluginRepositorySecretArn: "STRING_VALUE",
- * //       ingestQueryInstances: Number("int"), // required
- * //       queryOnlyInstances: Number("int"), // required
- * //       dedicatedCompactor: true || false, // required
+ * //       ingestQueryInstances: Number("int"),
+ * //       queryOnlyInstances: Number("int"),
+ * //       dedicatedCompactor: true || false,
  * //       compactionRowLimit: Number("int"),
  * //       compactionMaxNumFilesPerPlan: Number("int"),
  * //       compactionGen2Duration: "<Duration>",

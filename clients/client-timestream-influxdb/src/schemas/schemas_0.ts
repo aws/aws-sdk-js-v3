@@ -20,6 +20,7 @@ const _DBCO = "DbBackupConfigurationOutput";
 const _DBCOL = "DbBackupConfigurationOutputList";
 const _DBS = "DbBackupSummary";
 const _DBSL = "DbBackupSummaryList";
+const _DC = "DeploymentConfiguration";
 const _DCS = "DbClusterSummary";
 const _DCSL = "DbClusterSummaryList";
 const _DDB = "DeleteDbBackup";
@@ -53,6 +54,7 @@ const _IDB = "InfluxDBv2";
 const _IDBC = "InfluxDBv3Core";
 const _IDBCP = "InfluxDBv3CoreParameters";
 const _IDBE = "InfluxDBv3Enterprise";
+const _IDBEDC = "InfluxDBv3EnterpriseDeploymentConfiguration";
 const _IDBEP = "InfluxDBv3EnterpriseParameters";
 const _IDBP = "InfluxDBv2Parameters";
 const _ISE = "InternalServerException";
@@ -76,6 +78,8 @@ const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _MS = "MaintenanceSchedule";
+const _NG = "NodeGroup";
+const _NGL = "NodeGroupList";
 const _P = "Password";
 const _POAL = "PercentOrAbsoluteLong";
 const _Pa = "Parameters";
@@ -122,6 +126,7 @@ const _cMNFPP = "compactionMaxNumFilesPerPlan";
 const _cRL = "compactionRowLimit";
 const _cS = "customSchedule";
 const _cSI = "catalogSyncInterval";
+const _co = "count";
 const _d = "description";
 const _dBC = "dbBackupConfigurations";
 const _dBI = "dbBackupId";
@@ -129,6 +134,7 @@ const _dC = "dedicatedCompactor";
 const _dCEI = "distinctCacheEvictionInterval";
 const _dCI = "dbClusterId";
 const _dCS = "dbClusterStatus";
+const _dCe = "deploymentConfiguration";
 const _dFC = "dataFusionConfig";
 const _dFMPF = "dataFusionMaxParquetFanout";
 const _dFNT = "dataFusionNumThreads";
@@ -179,6 +185,7 @@ const _iMSP = "influxqlMaxSelectPoint";
 const _iMSS = "influxqlMaxSelectSeries";
 const _iMn = "instanceModes";
 const _iQI = "ingestQueryInstances";
+const _iT = "instanceType";
 const _id = "identifier";
 const _it = "items";
 const _kKI = "kmsKeyId";
@@ -196,6 +203,7 @@ const _mR = "maxResults";
 const _mS = "maintenanceSchedule";
 const _n = "name";
 const _nABT = "nextAutomatedBackupTime";
+const _nG = "nodeGroups";
 const _nMT = "nextMaintenanceTime";
 const _nT = "networkType";
 const _nTe = "nextToken";
@@ -373,13 +381,13 @@ export var CreateDbBackupInput$: StaticStructureSchema = [3, n0, _CDBI,
 ];
 export var CreateDbBackupOutput$: StaticStructureSchema = [3, n0, _CDBO,
   0,
-  [_i, _a, _n, _st, _cA, _eA, _dRI, _ty, _eT, _dT, _kKI, _cC, _dPGI, _dIT, _lDC, _fM, _dST, _aS, _vSI, _vSGI, _pA, _p, _nT, _iAPSA, _mS],
-  [0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, () => ClusterConfiguration$, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 1, 64 | 0, 64 | 0, 2, 1, 0, 0, () => MaintenanceSchedule$], 2
+  [_i, _a, _n, _st, _cA, _eA, _dRI, _ty, _eT, _dT, _kKI, _cC, _dCe, _dPGI, _dIT, _lDC, _fM, _dST, _aS, _vSI, _vSGI, _pA, _p, _nT, _iAPSA, _mS],
+  [0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, () => ClusterConfiguration$, () => DeploymentConfiguration$, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 1, 64 | 0, 64 | 0, 2, 1, 0, 0, () => MaintenanceSchedule$], 2
 ];
 export var CreateDbClusterInput$: StaticStructureSchema = [3, n0, _CDCI,
   0,
-  [_n, _dIT, _vSI, _vSGI, _u, _pa, _o, _b, _p, _dPGIb, _dST, _aS, _nT, _pA, _dT, _fM, _lDC, _mS, _dBC, _kKI, _t],
-  [0, 0, 64 | 0, 64 | 0, [() => Username, 0], [() => Password, 0], 0, 0, 1, 0, 0, 1, 0, 2, 0, 0, () => LogDeliveryConfiguration$, () => MaintenanceSchedule$, () => DbBackupConfigurationInputList, 0, 128 | 0], 4
+  [_n, _vSI, _vSGI, _u, _pa, _o, _b, _p, _dPGIb, _dIT, _dST, _aS, _nT, _pA, _dT, _dCe, _fM, _lDC, _mS, _dBC, _kKI, _t],
+  [0, 64 | 0, 64 | 0, [() => Username, 0], [() => Password, 0], 0, 0, 1, 0, 0, 0, 1, 0, 2, 0, () => DeploymentConfiguration$, 0, () => LogDeliveryConfiguration$, () => MaintenanceSchedule$, () => DbBackupConfigurationInputList, 0, 128 | 0], 3
 ];
 export var CreateDbClusterOutput$: StaticStructureSchema = [3, n0, _CDCO,
   0,
@@ -448,8 +456,8 @@ export var DeleteDbBackupInput$: StaticStructureSchema = [3, n0, _DDBI,
 ];
 export var DeleteDbBackupOutput$: StaticStructureSchema = [3, n0, _DDBO,
   0,
-  [_i, _a, _n, _st, _cA, _eA, _dRI, _ty, _eT, _dT, _kKI, _cC, _dPGI, _dIT, _lDC, _fM, _dST, _aS, _vSI, _vSGI, _pA, _p, _nT, _iAPSA, _mS],
-  [0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, () => ClusterConfiguration$, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 1, 64 | 0, 64 | 0, 2, 1, 0, 0, () => MaintenanceSchedule$], 2
+  [_i, _a, _n, _st, _cA, _eA, _dRI, _ty, _eT, _dT, _kKI, _cC, _dCe, _dPGI, _dIT, _lDC, _fM, _dST, _aS, _vSI, _vSGI, _pA, _p, _nT, _iAPSA, _mS],
+  [0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, () => ClusterConfiguration$, () => DeploymentConfiguration$, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 1, 64 | 0, 64 | 0, 2, 1, 0, 0, () => MaintenanceSchedule$], 2
 ];
 export var DeleteDbClusterInput$: StaticStructureSchema = [3, n0, _DDCI,
   0,
@@ -483,8 +491,8 @@ export var GetDbBackupInput$: StaticStructureSchema = [3, n0, _GDBI,
 ];
 export var GetDbBackupOutput$: StaticStructureSchema = [3, n0, _GDBO,
   0,
-  [_i, _a, _n, _st, _cA, _eA, _dRI, _ty, _eT, _dT, _kKI, _cC, _dPGI, _dIT, _lDC, _fM, _dST, _aS, _vSI, _vSGI, _pA, _p, _nT, _iAPSA, _mS],
-  [0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, () => ClusterConfiguration$, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 1, 64 | 0, 64 | 0, 2, 1, 0, 0, () => MaintenanceSchedule$], 2
+  [_i, _a, _n, _st, _cA, _eA, _dRI, _ty, _eT, _dT, _kKI, _cC, _dCe, _dPGI, _dIT, _lDC, _fM, _dST, _aS, _vSI, _vSGI, _pA, _p, _nT, _iAPSA, _mS],
+  [0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, () => ClusterConfiguration$, () => DeploymentConfiguration$, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 1, 64 | 0, 64 | 0, 2, 1, 0, 0, () => MaintenanceSchedule$], 2
 ];
 export var GetDbClusterInput$: StaticStructureSchema = [3, n0, _GDCI,
   0,
@@ -493,8 +501,8 @@ export var GetDbClusterInput$: StaticStructureSchema = [3, n0, _GDCI,
 ];
 export var GetDbClusterOutput$: StaticStructureSchema = [3, n0, _GDCO,
   0,
-  [_i, _n, _a, _st, _en, _rE, _p, _dT, _dIT, _nT, _dST, _aS, _eT, _pA, _dPGIb, _eDPGI, _lDC, _mS, _lMT, _nMT, _iAPSA, _vSI, _vSGI, _fM, _cC, _dBC, _kKI],
-  [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2, 0, 0, () => LogDeliveryConfiguration$, () => MaintenanceSchedule$, 5, 5, 0, 64 | 0, 64 | 0, 0, () => ClusterConfiguration$, () => DbBackupConfigurationOutputList, 0], 3
+  [_i, _n, _a, _st, _en, _rE, _p, _dT, _dIT, _nT, _dST, _aS, _eT, _pA, _dPGIb, _eDPGI, _lDC, _mS, _lMT, _nMT, _iAPSA, _vSI, _vSGI, _fM, _cC, _dCe, _dBC, _kKI],
+  [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2, 0, 0, () => LogDeliveryConfiguration$, () => MaintenanceSchedule$, 5, 5, 0, 64 | 0, 64 | 0, 0, () => ClusterConfiguration$, () => DeploymentConfiguration$, () => DbBackupConfigurationOutputList, 0], 3
 ];
 export var GetDbInstanceInput$: StaticStructureSchema = [3, n0, _GDII,
   0,
@@ -526,10 +534,15 @@ export var InfluxDBv3CoreParameters$: StaticStructureSchema = [3, n0, _IDBCP,
   [_qFL, _qLS, _lF, _lFo, _dFNT, _dFRT, _dFRDLS, _dFREI, _dFRGQI, _dFRMBT, _dFRMIEPT, _dFRTKA, _dFRTP, _dFMPF, _dFUCPL, _dFC, _mHRS, _fSMT, _wSS, _wMWBS, _sWFTK, _pCA, _pMCPP, _pMCPI, _dPMC, _pMCQPD, _lCEI, _dCEI, _gD, _eMPB, _pMCS, _wRFOE, _wRCL, _tICME, _tICCL, _gLD, _rCI, _dGP, _hDDD, _pRU, _pRSA],
   [1, 1, 0, 0, 1, 0, 2, 1, 1, 1, 1, () => Duration$, 1, 1, 2, 0, 1, () => PercentOrAbsoluteLong$, 1, 1, 1, () => Duration$, 1, () => Duration$, 2, () => Duration$, () => Duration$, () => Duration$, () => Duration$, () => PercentOrAbsoluteLong$, () => PercentOrAbsoluteLong$, 2, 1, 1, 1, () => Duration$, () => Duration$, () => Duration$, () => Duration$, 0, 0]
 ];
+export var InfluxDBv3EnterpriseDeploymentConfiguration$: StaticStructureSchema = [3, n0, _IDBEDC,
+  0,
+  [_nG],
+  [() => NodeGroupList], 1
+];
 export var InfluxDBv3EnterpriseParameters$: StaticStructureSchema = [3, n0, _IDBEP,
   0,
-  [_iQI, _qOI, _dC, _qFL, _qLS, _lF, _lFo, _dFNT, _dFRT, _dFRDLS, _dFREI, _dFRGQI, _dFRMBT, _dFRMIEPT, _dFRTKA, _dFRTP, _dFMPF, _dFUCPL, _dFC, _mHRS, _fSMT, _wSS, _wMWBS, _sWFTK, _pCA, _pMCPP, _pMCPI, _dPMC, _pMCQPD, _lCEI, _dCEI, _gD, _eMPB, _pMCS, _wRFOE, _wRCL, _tICME, _tICCL, _gLD, _rCI, _dGP, _hDDD, _pRU, _pRSA, _cRL, _cMNFPP, _cGD, _cM, _cCW, _cCI, _lVCDFH, _dVCDFH, _rIe, _cSI, _uPT, _wBS, _sS, _sD],
-  [1, 1, 2, 1, 1, 0, 0, 1, 0, 2, 1, 1, 1, 1, () => Duration$, 1, 1, 2, 0, 1, () => PercentOrAbsoluteLong$, 1, 1, 1, () => Duration$, 1, () => Duration$, 2, () => Duration$, () => Duration$, () => Duration$, () => Duration$, () => PercentOrAbsoluteLong$, () => PercentOrAbsoluteLong$, 2, 1, 1, 1, () => Duration$, () => Duration$, () => Duration$, () => Duration$, 0, 0, 1, 1, () => Duration$, 0, () => Duration$, () => Duration$, 2, 2, () => Duration$, () => Duration$, 2, 1, () => PercentOrAbsoluteLong$, () => Duration$], 3
+  [_qFL, _qLS, _lF, _lFo, _dFNT, _dFRT, _dFRDLS, _dFREI, _dFRGQI, _dFRMBT, _dFRMIEPT, _dFRTKA, _dFRTP, _dFMPF, _dFUCPL, _dFC, _mHRS, _fSMT, _wSS, _wMWBS, _sWFTK, _pCA, _pMCPP, _pMCPI, _dPMC, _pMCQPD, _lCEI, _dCEI, _gD, _eMPB, _pMCS, _wRFOE, _wRCL, _tICME, _tICCL, _gLD, _rCI, _dGP, _hDDD, _pRU, _pRSA, _iQI, _qOI, _dC, _cRL, _cMNFPP, _cGD, _cM, _cCW, _cCI, _lVCDFH, _dVCDFH, _rIe, _cSI, _uPT, _wBS, _sS, _sD],
+  [1, 1, 0, 0, 1, 0, 2, 1, 1, 1, 1, () => Duration$, 1, 1, 2, 0, 1, () => PercentOrAbsoluteLong$, 1, 1, 1, () => Duration$, 1, () => Duration$, 2, () => Duration$, () => Duration$, () => Duration$, () => Duration$, () => PercentOrAbsoluteLong$, () => PercentOrAbsoluteLong$, 2, 1, 1, 1, () => Duration$, () => Duration$, () => Duration$, () => Duration$, 0, 0, 1, 1, 2, 1, 1, () => Duration$, 0, () => Duration$, () => Duration$, 2, 2, () => Duration$, () => Duration$, 2, 1, () => PercentOrAbsoluteLong$, () => Duration$]
 ];
 export var ListDbBackupsInput$: StaticStructureSchema = [3, n0, _LDBI,
   0,
@@ -601,6 +614,11 @@ export var MaintenanceSchedule$: StaticStructureSchema = [3, n0, _MS,
   [_ti, _pMW],
   [0, 0], 2
 ];
+export var NodeGroup$: StaticStructureSchema = [3, n0, _NG,
+  0,
+  [_iMn, _iT, _co],
+  [64 | 0, 0, 1], 3
+];
 export var RebootDbClusterInput$: StaticStructureSchema = [3, n0, _RDCI,
   0,
   [_dCI, _iI],
@@ -648,8 +666,8 @@ export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
 ];
 export var UpdateDbClusterInput$: StaticStructureSchema = [3, n0, _UDCI,
   0,
-  [_dCI, _lDC, _dPGIb, _p, _dIT, _fM, _mS, _dBC],
-  [0, () => LogDeliveryConfiguration$, 0, 1, 0, 0, () => MaintenanceSchedule$, () => DbBackupConfigurationInputList], 1
+  [_dCI, _lDC, _dPGIb, _p, _dIT, _dCe, _fM, _mS, _dBC],
+  [0, () => LogDeliveryConfiguration$, 0, 1, 0, () => DeploymentConfiguration$, 0, () => MaintenanceSchedule$, () => DbBackupConfigurationInputList], 1
 ];
 export var UpdateDbClusterOutput$: StaticStructureSchema = [3, n0, _UDCO,
   0,
@@ -690,11 +708,19 @@ var DbParameterGroupSummaryList: StaticListSchema = [1, n0, _DPGSL,
   0, () => DbParameterGroupSummary$
 ];
 var InstanceModeList = 64 | 0;
+var NodeGroupList: StaticListSchema = [1, n0, _NGL,
+  0, () => NodeGroup$
+];
 var TagKeys = 64 | 0;
 var VpcSecurityGroupIdList = 64 | 0;
 var VpcSubnetIdList = 64 | 0;
 var RequestTagMap = 128 | 0;
 var ResponseTagMap = 128 | 0;
+export var DeploymentConfiguration$: StaticUnionSchema = [4, n0, _DC,
+  0,
+  [_IDBE],
+  [() => InfluxDBv3EnterpriseDeploymentConfiguration$]
+];
 export var _Parameters$: StaticUnionSchema = [4, n0, _Pa,
   0,
   [_IDB, _IDBC, _IDBE],

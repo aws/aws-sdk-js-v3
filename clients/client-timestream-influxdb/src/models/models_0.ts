@@ -55,6 +55,7 @@ export interface CreateDbBackupInput {
 
 /**
  * <p>Configuration for node modes in the DbCluster.</p>
+ *          <p>Deprecated. Use deploymentConfiguration to define the cluster topology instead.</p>
  * @public
  */
 export interface ClusterConfiguration {
@@ -75,6 +76,95 @@ export interface ClusterConfiguration {
    * @public
    */
   dedicatedCompactor?: boolean | undefined;
+}
+
+/**
+ * <p>A group of one or more nodes in a Timestream for InfluxDB cluster that share the same instance modes and instance type. A cluster's compute topology is defined as a list of node groups.</p>
+ * @public
+ */
+export interface NodeGroup {
+  /**
+   * <p>The functions that the nodes in this group perform. Provide from 1 to 4 unique modes. Valid modes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>INGEST – Nodes in this mode ingest data. Across all node groups, INGEST nodes must total between 1 and 4.</p>
+   *             </li>
+   *             <li>
+   *                <p>QUERY – Nodes in this mode query data. Across all node groups, QUERY nodes must total between 0 and 14.</p>
+   *             </li>
+   *             <li>
+   *                <p>COMPACT – Nodes in this mode compact data. Exactly one node across all node groups must have this mode. If the cluster has more than three non-compaction nodes, place the COMPACT node in its own dedicated node group.</p>
+   *             </li>
+   *             <li>
+   *                <p>PROCESS – Nodes in this mode process data with the processing engine.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  instanceModes: InstanceMode[] | undefined;
+
+  /**
+   * <p>The Timestream for InfluxDB DB instance type to run InfluxDB on for the nodes in this group.</p>
+   * @public
+   */
+  instanceType: DbInstanceType | undefined;
+
+  /**
+   * <p>The number of nodes in this group. Valid values are 1 to 13.</p>
+   * @public
+   */
+  count: number | undefined;
+}
+
+/**
+ * <p>The compute topology for an InfluxDB 3 Enterprise cluster, expressed as a list of node groups.</p>
+ * @public
+ */
+export interface InfluxDBv3EnterpriseDeploymentConfiguration {
+  /**
+   * <p>The node groups that make up the cluster. Across all node groups, the cluster must include 1 to 4 nodes with the INGEST mode, 0 to 14 nodes with the QUERY mode, and exactly one node with the COMPACT mode.</p>
+   * @public
+   */
+  nodeGroups: NodeGroup[] | undefined;
+}
+
+/**
+ * <p>Defines the compute topology of a Timestream for InfluxDB cluster as a set of node groups for a specific database engine. For InfluxDB 3 Enterprise, use the InfluxDBv3Enterprise member to allocate compute per function: ingest, query, compaction, and processing.</p>
+ * @public
+ */
+export type DeploymentConfiguration =
+  | DeploymentConfiguration.InfluxDBv3EnterpriseMember
+  | DeploymentConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DeploymentConfiguration {
+  /**
+   * <p>The deployment configuration for an InfluxDB 3 Enterprise cluster.</p>
+   * @public
+   */
+  export interface InfluxDBv3EnterpriseMember {
+    InfluxDBv3Enterprise: InfluxDBv3EnterpriseDeploymentConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    InfluxDBv3Enterprise?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    InfluxDBv3Enterprise: (value: InfluxDBv3EnterpriseDeploymentConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
@@ -197,9 +287,18 @@ export interface CreateDbBackupOutput {
 
   /**
    * <p>The cluster configuration of the resource at the time of backup.</p>
+   *          <p>Deprecated. Use deploymentConfiguration to view the cluster topology instead.</p>
+   *
+   * @deprecated (since 2026-09-28) Use deploymentConfiguration instead.
    * @public
    */
   clusterConfiguration?: ClusterConfiguration | undefined;
+
+  /**
+   * <p>The deployment configuration of the resource at the time of backup.</p>
+   * @public
+   */
+  deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
    * <p>The identifier of the DB parameter group associated with the backup.</p>
@@ -363,9 +462,18 @@ export interface DeleteDbBackupOutput {
 
   /**
    * <p>The cluster configuration of the resource at the time of backup.</p>
+   *          <p>Deprecated. Use deploymentConfiguration to view the cluster topology instead.</p>
+   *
+   * @deprecated (since 2026-09-28) Use deploymentConfiguration instead.
    * @public
    */
   clusterConfiguration?: ClusterConfiguration | undefined;
+
+  /**
+   * <p>The deployment configuration of the resource at the time of backup.</p>
+   * @public
+   */
+  deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
    * <p>The identifier of the DB parameter group associated with the backup.</p>
@@ -529,9 +637,18 @@ export interface GetDbBackupOutput {
 
   /**
    * <p>The cluster configuration of the resource at the time of backup.</p>
+   *          <p>Deprecated. Use deploymentConfiguration to view the cluster topology instead.</p>
+   *
+   * @deprecated (since 2026-09-28) Use deploymentConfiguration instead.
    * @public
    */
   clusterConfiguration?: ClusterConfiguration | undefined;
+
+  /**
+   * <p>The deployment configuration of the resource at the time of backup.</p>
+   * @public
+   */
+  deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
    * <p>The identifier of the DB parameter group associated with the backup.</p>
@@ -937,9 +1054,10 @@ export interface CreateDbClusterInput {
 
   /**
    * <p>The Timestream for InfluxDB DB instance type to run InfluxDB on.</p>
+   *          <p>Optional when you define the cluster topology with deploymentConfiguration, because the instance type is then specified per node group.</p>
    * @public
    */
-  dbInstanceType: DbInstanceType | undefined;
+  dbInstanceType?: DbInstanceType | undefined;
 
   /**
    * <p>The Timestream for InfluxDB DB storage type to read and write InfluxDB data.</p>
@@ -994,6 +1112,12 @@ export interface CreateDbClusterInput {
    * @public
    */
   deploymentType?: ClusterDeploymentType | undefined;
+
+  /**
+   * <p>The compute topology for the cluster, defined as a set of node groups. Use deploymentConfiguration to allocate compute per function: ingest, query, compaction, and processing. A deployment configuration becomes the source of truth for the cluster's topology. Timestream for InfluxDB then ignores any node-count parameters in the associated DB parameter group.</p>
+   * @public
+   */
+  deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
    * <p>Specifies the behavior of failure recovery when the primary node of the cluster fails.</p>
@@ -1274,9 +1398,18 @@ export interface GetDbClusterOutput {
 
   /**
    * <p>Configuration for node modes in the DbCluster.</p>
+   *          <p>Deprecated. Use deploymentConfiguration to view the cluster topology instead.</p>
+   *
+   * @deprecated (since 2026-09-28) Use deploymentConfiguration instead.
    * @public
    */
   clusterConfiguration?: ClusterConfiguration | undefined;
+
+  /**
+   * <p>The current compute topology of the cluster, as a set of node groups. The returned topology reflects the cluster's actual provisioned nodes.</p>
+   * @public
+   */
+  deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
    * <p>The backup configurations for the DB cluster.</p>
@@ -1593,9 +1726,16 @@ export interface UpdateDbClusterInput {
 
   /**
    * <p>Update the DB cluster to use the specified DB instance Type.</p>
+   *          <p>You can't specify both dbInstanceType and deploymentConfiguration in the same request. When you use deploymentConfiguration, the instance type is specified per node group.</p>
    * @public
    */
   dbInstanceType?: DbInstanceType | undefined;
+
+  /**
+   * <p>The updated compute topology for the cluster, defined as a set of node groups. Use deploymentConfiguration to change the cluster's topology or scale its compute in a single call. You can't specify both deploymentConfiguration and dbInstanceType in the same request. When you provide a deployment configuration, Timestream for InfluxDB ignores any node-count parameters in the associated DB parameter group.</p>
+   * @public
+   */
+  deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
    * <p>Update the DB cluster's failover behavior.</p>
@@ -3697,21 +3837,30 @@ export interface InfluxDBv3EnterpriseParameters {
 
   /**
    * <p>Specifies number of instances in the DbCluster which can both ingest and query.</p>
+   *          <p>Deprecated. Use deploymentConfiguration on CreateDbCluster or UpdateDbCluster to define the cluster topology instead. When you supply a deployment configuration, Timestream for InfluxDB ignores this parameter.</p>
+   *
+   * @deprecated (since 2026-09-28) Use deploymentConfiguration instead.
    * @public
    */
-  ingestQueryInstances: number | undefined;
+  ingestQueryInstances?: number | undefined;
 
   /**
    * <p>Specifies number of instances in the DbCluster which can only query.</p>
+   *          <p>Deprecated. Use deploymentConfiguration on CreateDbCluster or UpdateDbCluster to define the cluster topology instead. When you supply a deployment configuration, Timestream for InfluxDB ignores this parameter.</p>
+   *
+   * @deprecated (since 2026-09-28) Use deploymentConfiguration instead.
    * @public
    */
-  queryOnlyInstances: number | undefined;
+  queryOnlyInstances?: number | undefined;
 
   /**
    * <p>Specifies if the compactor instance should be a standalone instance or not.</p>
+   *          <p>Deprecated. Use deploymentConfiguration on CreateDbCluster or UpdateDbCluster to define the cluster topology instead. When you supply a deployment configuration, Timestream for InfluxDB ignores this parameter.</p>
+   *
+   * @deprecated (since 2026-09-28) Use deploymentConfiguration instead.
    * @public
    */
-  dedicatedCompactor: boolean | undefined;
+  dedicatedCompactor?: boolean | undefined;
 
   /**
    * <p>Specifies the soft limit for the number of rows per file that the compactor writes. The compactor may write more rows than this limit.</p>

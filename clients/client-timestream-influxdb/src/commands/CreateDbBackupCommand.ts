@@ -59,6 +59,19 @@ export interface CreateDbBackupCommandOutput extends CreateDbBackupOutput, __Met
  * //     queryOnlyInstances: Number("int"),
  * //     dedicatedCompactor: true || false,
  * //   },
+ * //   deploymentConfiguration: { // DeploymentConfiguration Union: only one key present
+ * //     InfluxDBv3Enterprise: { // InfluxDBv3EnterpriseDeploymentConfiguration
+ * //       nodeGroups: [ // NodeGroupList // required
+ * //         { // NodeGroup
+ * //           instanceModes: [ // InstanceModeList // required
+ * //             "PRIMARY" || "STANDBY" || "REPLICA" || "INGEST" || "QUERY" || "COMPACT" || "PROCESS",
+ * //           ],
+ * //           instanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge" || "db.influx.24xlarge", // required
+ * //           count: Number("int"), // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
  * //   dbParameterGroupId: "STRING_VALUE",
  * //   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge" || "db.influx.24xlarge",
  * //   logDeliveryConfiguration: { // LogDeliveryConfiguration
