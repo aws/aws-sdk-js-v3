@@ -16,6 +16,7 @@ export type { HostHeaderInputConfig, HostHeaderResolvedConfig } from "./middlewa
 
 // middleware-logger
 export { loggerMiddleware, loggerMiddlewareOptions, getLoggerPlugin } from "./middleware-logger/loggerMiddleware";
+export { lazyLog } from "./middleware-logger/lazyLog";
 
 // middleware-recursion-detection
 export { recursionDetectionMiddlewareOptions } from "./middleware-recursion-detection/configuration";
