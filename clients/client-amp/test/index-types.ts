@@ -207,6 +207,7 @@ export type {
   GetDefaultScraperConfigurationRequest,
   GetDefaultScraperConfigurationResponse,
   IgnoreNearExpected,
+  KafkaExporterConfiguration,
   LimitsPerLabelSet,
   LimitsPerLabelSetEntry,
   ListAnomalyDetectorsRequest,

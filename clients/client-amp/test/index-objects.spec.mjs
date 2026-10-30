@@ -125,6 +125,7 @@ import {
   IgnoreNearExpected$,
   InternalServerException,
   InternalServerException$,
+  KafkaExporterConfiguration$,
   LimitsPerLabelSet$,
   LimitsPerLabelSetEntry$,
   ListAnomalyDetectors$,
@@ -411,6 +412,7 @@ assert(typeof ExporterConfiguration$ === "object");
 assert(typeof GetDefaultScraperConfigurationRequest$ === "object");
 assert(typeof GetDefaultScraperConfigurationResponse$ === "object");
 assert(typeof IgnoreNearExpected$ === "object");
+assert(typeof KafkaExporterConfiguration$ === "object");
 assert(typeof LimitsPerLabelSet$ === "object");
 assert(typeof LimitsPerLabelSetEntry$ === "object");
 assert(typeof ListAnomalyDetectorsRequest$ === "object");

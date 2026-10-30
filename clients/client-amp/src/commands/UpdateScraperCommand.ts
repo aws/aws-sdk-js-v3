@@ -56,6 +56,11 @@ export interface UpdateScraperCommandOutput extends UpdateScraperResponse, __Met
  *       openSearchConfiguration: { // OpenSearchExporterConfiguration
  *         domainArn: "STRING_VALUE", // required
  *       },
+ *       kafkaConfiguration: { // KafkaExporterConfiguration
+ *         clusterArn: "STRING_VALUE", // required
+ *         topicFilter: "STRING_VALUE",
+ *         consumerGroupFilter: "STRING_VALUE",
+ *       },
  *     },
  *   ],
  * };

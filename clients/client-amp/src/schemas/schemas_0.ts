@@ -91,6 +91,7 @@ const _GDSCR = "GetDefaultScraperConfigurationRequest";
 const _GDSCRe = "GetDefaultScraperConfigurationResponse";
 const _INE = "IgnoreNearExpected";
 const _ISE = "InternalServerException";
+const _KEC = "KafkaExporterConfiguration";
 const _LAD = "ListAnomalyDetectors";
 const _LADR = "ListAnomalyDetectorsRequest";
 const _LADRi = "ListAnomalyDetectorsResponse";
@@ -195,6 +196,7 @@ const _c = "client";
 const _cA = "createdAt";
 const _cAl = "clusterArn";
 const _cB = "configurationBlob";
+const _cGF = "consumerGroupFilter";
 const _cT = "clientToken";
 const _cWC = "cloudWatchConfiguration";
 const _cWL = "cloudWatchLogs";
@@ -218,6 +220,7 @@ const _hQ = "httpQuery";
 const _iNEFA = "ignoreNearExpectedFromAbove";
 const _iNEFB = "ignoreNearExpectedFromBelow";
 const _iT = "idempotencyToken";
+const _kC = "kafkaConfiguration";
 const _kKA = "kmsKeyArn";
 const _l = "labels";
 const _lC = "loggingConfiguration";
@@ -278,6 +281,7 @@ const _sk = "skip";
 const _so = "source";
 const _st = "status";
 const _t = "tags";
+const _tF = "topicFilter";
 const _tK = "tagKeys";
 const _tRA = "targetRoleArn";
 const _ty = "type";
@@ -647,6 +651,11 @@ export var GetDefaultScraperConfigurationResponse$: StaticStructureSchema = [3, 
   [_co],
   [21], 1
 ];
+export var KafkaExporterConfiguration$: StaticStructureSchema = [3, n0, _KEC,
+  0,
+  [_cAl, _tF, _cGF],
+  [0, 0, 0], 1
+];
 export var LimitsPerLabelSet$: StaticStructureSchema = [3, n0, _LPLS,
   0,
   [_li, _lS],
@@ -998,8 +1007,8 @@ export var Destination$: StaticUnionSchema = [4, n0, _D,
 ];
 export var ExporterConfiguration$: StaticUnionSchema = [4, n0, _ECx,
   0,
-  [_oSC],
-  [() => OpenSearchExporterConfiguration$]
+  [_oSC, _kC],
+  [() => OpenSearchExporterConfiguration$, () => KafkaExporterConfiguration$]
 ];
 export var IgnoreNearExpected$: StaticUnionSchema = [4, n0, _INE,
   0,

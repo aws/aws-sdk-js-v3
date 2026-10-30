@@ -91,6 +91,11 @@ export interface DescribeScraperCommandOutput extends DescribeScraperResponse, _
  * //         openSearchConfiguration: { // OpenSearchExporterConfiguration
  * //           domainArn: "STRING_VALUE", // required
  * //         },
+ * //         kafkaConfiguration: { // KafkaExporterConfiguration
+ * //           clusterArn: "STRING_VALUE", // required
+ * //           topicFilter: "STRING_VALUE",
+ * //           consumerGroupFilter: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //   },

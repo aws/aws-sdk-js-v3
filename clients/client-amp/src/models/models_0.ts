@@ -311,6 +311,30 @@ export namespace Destination {
 }
 
 /**
+ * <p>The configuration for collecting broker, topic, and consumer-group metrics from an Amazon MSK cluster through a managed Kafka exporter. The cluster must be active, have IAM authentication enabled, and be in the same account and Region as the scraper. Provisioned clusters with Standard brokers are supported. MSK Serverless clusters are not supported.</p> <p>Use a VPC source that can connect to the cluster's IAM bootstrap brokers. The exporter authenticates with the scraper's service-linked role. Metrics can be sent to an Amazon Managed Service for Prometheus workspace or a CloudWatch dataset.</p> <p>You must have an Amazon MSK cluster policy that grants the scraper's service-linked role access to the cluster. Without this policy, the scraper collects no Kafka metrics. For the required actions and example policies, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/prom-msk-kafka-exporter.html#prom-msk-kafka-exporter-access">Grant the scraper access to the cluster</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>.</p>
+ * @public
+ */
+export interface KafkaExporterConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon MSK cluster.</p>
+   * @public
+   */
+  clusterArn: string | undefined;
+
+  /**
+   * <p>An anchored RE2 regular expression that selects the Kafka topics to monitor. The expression must start with <code>^</code> and end with <code>$</code>. If omitted, the default is <code>^.*$</code>, which selects all topics.</p>
+   * @public
+   */
+  topicFilter?: string | undefined;
+
+  /**
+   * <p>An anchored RE2 regular expression that selects the Kafka consumer groups to monitor. The expression must start with <code>^</code> and end with <code>$</code>. If omitted, the default is <code>^.*$</code>, which selects all consumer groups.</p>
+   * @public
+   */
+  consumerGroupFilter?: string | undefined;
+}
+
+/**
  * <p>The configuration for exporting metrics to an Amazon OpenSearch Service domain.</p>
  * @public
  */
@@ -327,6 +351,7 @@ export interface OpenSearchExporterConfiguration {
  * @public
  */
 export type ExporterConfiguration =
+  | ExporterConfiguration.KafkaConfigurationMember
   | ExporterConfiguration.OpenSearchConfigurationMember
   | ExporterConfiguration.$UnknownMember;
 
@@ -340,6 +365,17 @@ export namespace ExporterConfiguration {
    */
   export interface OpenSearchConfigurationMember {
     openSearchConfiguration: OpenSearchExporterConfiguration;
+    kafkaConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration that the scraper uses to collect metrics from an Amazon MSK cluster through a managed Kafka exporter.</p>
+   * @public
+   */
+  export interface KafkaConfigurationMember {
+    openSearchConfiguration?: never;
+    kafkaConfiguration: KafkaExporterConfiguration;
     $unknown?: never;
   }
 
@@ -348,6 +384,7 @@ export namespace ExporterConfiguration {
    */
   export interface $UnknownMember {
     openSearchConfiguration?: never;
+    kafkaConfiguration?: never;
     $unknown: [string, any];
   }
 
@@ -357,6 +394,7 @@ export namespace ExporterConfiguration {
    */
   export interface Visitor<T> {
     openSearchConfiguration: (value: OpenSearchExporterConfiguration) => T;
+    kafkaConfiguration: (value: KafkaExporterConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -561,7 +599,7 @@ export interface CreateScraperRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The exporter configurations for the scraper. You can configure at most one Amazon OpenSearch Service domain. If you don't specify a value, the scraper is created without an exporter configuration.</p>
+   * <p>The exporter configurations for the scraper. You can configure at most one exporter, for either an Amazon OpenSearch Service domain or an Amazon MSK cluster. If you don't specify a value, the scraper is created without an exporter configuration.</p>
    * @public
    */
   exporters?: ExporterConfiguration[] | undefined;
@@ -741,7 +779,7 @@ export interface ScraperDescription {
   roleConfiguration?: RoleConfiguration | undefined;
 
   /**
-   * <p>The exporter configurations for the scraper, if configured. The list contains at most one configuration for an Amazon OpenSearch Service domain.</p>
+   * <p>The exporter configurations for the scraper, if configured. The list contains at most one configuration, for either an Amazon OpenSearch Service domain or an Amazon MSK cluster.</p>
    * @public
    */
   exporters?: ExporterConfiguration[] | undefined;
@@ -861,7 +899,7 @@ export interface ScraperSummary {
   roleConfiguration?: RoleConfiguration | undefined;
 
   /**
-   * <p>The exporter configurations for the scraper, if configured. The list contains at most one configuration for an Amazon OpenSearch Service domain.</p>
+   * <p>The exporter configurations for the scraper, if configured. The list contains at most one configuration, for either an Amazon OpenSearch Service domain or an Amazon MSK cluster.</p>
    * @public
    */
   exporters?: ExporterConfiguration[] | undefined;
@@ -1122,7 +1160,7 @@ export interface UpdateScraperRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>The exporter configurations for the scraper. You can configure at most one Amazon OpenSearch Service domain. If you don't specify a value, the existing exporter configuration remains unchanged.</p>
+   * <p>The exporter configurations for the scraper. You can configure at most one exporter, for either an Amazon OpenSearch Service domain or an Amazon MSK cluster. If you don't specify a value, the existing exporter configuration remains unchanged. Specify an empty list to remove the exporter.</p>
    * @public
    */
   exporters?: ExporterConfiguration[] | undefined;
