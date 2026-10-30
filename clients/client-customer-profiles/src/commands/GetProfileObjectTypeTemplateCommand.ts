@@ -45,6 +45,9 @@ export interface GetProfileObjectTypeTemplateCommandOutput extends GetProfileObj
  * //   TemplateId: "STRING_VALUE",
  * //   SourceName: "STRING_VALUE",
  * //   SourceObject: "STRING_VALUE",
+ * //   DefaultMaxProfileObjectCount: Number("int"),
+ * //   DefaultMaxProfileObjectCountEffectiveAfter: new Date("TIMESTAMP"),
+ * //   StoreOnly: true || false,
  * //   AllowProfileCreation: true || false,
  * //   SourceLastUpdatedTimestampFormat: "STRING_VALUE",
  * //   Fields: { // FieldMap

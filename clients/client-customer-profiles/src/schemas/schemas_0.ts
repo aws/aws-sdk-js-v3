@@ -189,6 +189,8 @@ const _DIRe = "DeleteIntegrationResponse";
 const _DL = "DimensionList";
 const _DLQU = "DeadLetterQueueUrl";
 const _DLo = "DomainList";
+const _DMPOC = "DefaultMaxProfileObjectCount";
+const _DMPOCEA = "DefaultMaxProfileObjectCountEffectiveAfter";
 const _DN = "DomainName";
 const _DNi = "DisplayName";
 const _DOTF = "DomainObjectTypeField";
@@ -765,6 +767,7 @@ const _SNe = "ServiceNow";
 const _SNo = "SourceName";
 const _SO = "SourceObject";
 const _SOc = "ScheduleOffset";
+const _SOt = "StoreOnly";
 const _SP = "SourcePriority";
 const _SPR = "SearchProfilesRequest";
 const _SPRe = "SearchProfilesResponse";
@@ -1826,8 +1829,8 @@ export var GetProfileObjectTypeTemplateRequest$: StaticStructureSchema = [3, n0,
 ];
 export var GetProfileObjectTypeTemplateResponse$: StaticStructureSchema = [3, n0, _GPOTTRe,
   0,
-  [_TI, _SNo, _SO, _APC, _SLUTF, _Fie, _K],
-  [0, 0, 0, 2, 0, [() => FieldMap, 0], [() => KeyMap, 0]]
+  [_TI, _SNo, _SO, _DMPOC, _DMPOCEA, _SOt, _APC, _SLUTF, _Fie, _K],
+  [0, 0, 0, 1, 4, 2, 2, 0, [() => FieldMap, 0], [() => KeyMap, 0]]
 ];
 export var GetProfileRecommendationsRequest$: StaticStructureSchema = [3, n0, _GPRR,
   0,

@@ -6392,6 +6392,30 @@ export interface GetProfileObjectTypeTemplateResponse {
   SourceObject?: string | undefined;
 
   /**
+   * <p>The default maximum number of objects of this object type that can be stored per
+   *          profile. This default applies when you don't set <code>MaxProfileObjectCount</code> on an
+   *          object type created from this template. If this value isn't present, no default limit
+   *          applies.</p>
+   * @public
+   */
+  DefaultMaxProfileObjectCount?: number | undefined;
+
+  /**
+   * <p>The timestamp after which <code>DefaultMaxProfileObjectCount</code> takes effect. The
+   *          default limit applies only to domains created after this time.</p>
+   * @public
+   */
+  DefaultMaxProfileObjectCountEffectiveAfter?: Date | undefined;
+
+  /**
+   * <p>Indicates whether the template is store-only. Objects of an object type created from a
+   *          store-only template are ingested and stored, but the object type can't be used by
+   *          calculated attributes or event triggers.</p>
+   * @public
+   */
+  StoreOnly?: boolean | undefined;
+
+  /**
    * <p>Indicates whether a profile should be created when data is received if one doesn’t exist
    *          for an object of this type. The default is <code>FALSE</code>. If the AllowProfileCreation
    *          flag is set to <code>FALSE</code>, then the service tries to fetch a standard profile and
