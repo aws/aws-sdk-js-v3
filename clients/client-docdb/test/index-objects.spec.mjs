@@ -192,6 +192,9 @@ import {
   DescribePendingMaintenanceActions$,
   DescribePendingMaintenanceActionsCommand,
   DescribePendingMaintenanceActionsMessage$,
+  DescribeServerlessV2PlatformVersions$,
+  DescribeServerlessV2PlatformVersionsCommand,
+  DescribeServerlessV2PlatformVersionsMessage$,
   DocDB,
   DocDBClient,
   DocDBServiceException,
@@ -309,6 +312,7 @@ import {
   paginateDescribeGlobalClusters,
   paginateDescribeOrderableDBInstanceOptions,
   paginateDescribePendingMaintenanceActions,
+  paginateDescribeServerlessV2PlatformVersions,
   Parameter$,
   PendingCloudwatchLogsExports$,
   PendingMaintenanceAction$,
@@ -344,6 +348,8 @@ import {
   RestoreDBClusterToPointInTimeMessage$,
   RestoreDBClusterToPointInTimeResult$,
   ServerlessV2FeaturesSupport$,
+  ServerlessV2PlatformVersionInfo$,
+  ServerlessV2PlatformVersionsMessage$,
   ServerlessV2ScalingConfiguration$,
   ServerlessV2ScalingConfigurationInfo$,
   SharedSnapshotQuotaExceededFault,
@@ -468,6 +474,8 @@ assert(typeof DescribeOrderableDBInstanceOptionsCommand === "function");
 assert(typeof DescribeOrderableDBInstanceOptions$ === "object");
 assert(typeof DescribePendingMaintenanceActionsCommand === "function");
 assert(typeof DescribePendingMaintenanceActions$ === "object");
+assert(typeof DescribeServerlessV2PlatformVersionsCommand === "function");
+assert(typeof DescribeServerlessV2PlatformVersions$ === "object");
 assert(typeof FailoverDBClusterCommand === "function");
 assert(typeof FailoverDBCluster$ === "object");
 assert(typeof FailoverGlobalClusterCommand === "function");
@@ -587,6 +595,7 @@ assert(typeof DescribeEventSubscriptionsMessage$ === "object");
 assert(typeof DescribeGlobalClustersMessage$ === "object");
 assert(typeof DescribeOrderableDBInstanceOptionsMessage$ === "object");
 assert(typeof DescribePendingMaintenanceActionsMessage$ === "object");
+assert(typeof DescribeServerlessV2PlatformVersionsMessage$ === "object");
 assert(typeof Endpoint$ === "object");
 assert(typeof EngineDefaults$ === "object");
 assert(typeof Event$ === "object");
@@ -639,6 +648,8 @@ assert(typeof RestoreDBClusterFromSnapshotResult$ === "object");
 assert(typeof RestoreDBClusterToPointInTimeMessage$ === "object");
 assert(typeof RestoreDBClusterToPointInTimeResult$ === "object");
 assert(typeof ServerlessV2FeaturesSupport$ === "object");
+assert(typeof ServerlessV2PlatformVersionInfo$ === "object");
+assert(typeof ServerlessV2PlatformVersionsMessage$ === "object");
 assert(typeof ServerlessV2ScalingConfiguration$ === "object");
 assert(typeof ServerlessV2ScalingConfigurationInfo$ === "object");
 assert(typeof StartDBClusterMessage$ === "object");
@@ -794,4 +805,5 @@ assert(typeof paginateDescribeEvents === "function");
 assert(typeof paginateDescribeGlobalClusters === "function");
 assert(typeof paginateDescribeOrderableDBInstanceOptions === "function");
 assert(typeof paginateDescribePendingMaintenanceActions === "function");
+assert(typeof paginateDescribeServerlessV2PlatformVersions === "function");
 console.log(`DocDB index test passed.`);

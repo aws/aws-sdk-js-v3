@@ -1344,6 +1344,12 @@ export interface DBCluster {
   ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfigurationInfo | undefined;
 
   /**
+   * <p>The version of the Amazon DocumentDB Serverless platform used by the cluster.</p>
+   * @public
+   */
+  ServerlessV2PlatformVersion?: string | undefined;
+
+  /**
    * <p>The secret managed by Amazon DocumentDB in Amazon Web Services Secrets Manager for the master user password.</p>
    * @public
    */
@@ -4242,6 +4248,141 @@ export interface PendingMaintenanceActionsMessage {
    * @public
    */
   Marker?: string | undefined;
+}
+
+/**
+ * <p>The input for the <code>DescribeServerlessV2PlatformVersions</code> operation.</p>
+ * @public
+ */
+export interface DescribeServerlessV2PlatformVersionsMessage {
+  /**
+   * <p>A specific platform version to return details for.</p>
+   *          <p>Example: <code>3</code>
+   *          </p>
+   * @public
+   */
+  ServerlessV2PlatformVersion?: string | undefined;
+
+  /**
+   * <p>The database engine to return platform version details for.</p>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Specifies whether to return only the default platform versions for each engine. The default platform
+   *             version is the version used for new DB clusters.</p>
+   * @public
+   */
+  DefaultOnly?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to also include platform versions that are no longer in use.
+   *             If you don't specify a value, the response includes only active platform versions.</p>
+   * @public
+   */
+  IncludeAll?: boolean | undefined;
+
+  /**
+   * <p> The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
+   *          in the response so that the remaining results can be retrieved.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Contains details about a specific Amazon DocumentDB Serverless platform version, including its version number, status, engine, and supported features.</p>
+ * @public
+ */
+export interface ServerlessV2PlatformVersionInfo {
+  /**
+   * <p>The version number of the serverless platform.</p>
+   * @public
+   */
+  ServerlessV2PlatformVersion?: string | undefined;
+
+  /**
+   * <p>The description of the serverless platform.</p>
+   * @public
+   */
+  ServerlessV2PlatformVersionDescription?: string | undefined;
+
+  /**
+   * <p>The name of the database engine.</p>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>Specifies any Amazon DocumentDB Serverless v2 properties or limits that differ between platform versions.
+   *             You can retrieve the platform version of an existing cluster and check whether it supports
+   *             specific features before you use them.</p>
+   * @public
+   */
+  ServerlessV2FeaturesSupport?: ServerlessV2FeaturesSupport | undefined;
+
+  /**
+   * <p>The status of the serverless platform. Valid statuses are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>enabled</code> - The platform version is in use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disabled</code> - The platform version is not in use.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>Specifies whether this platform version is the default version for the engine. The default platform
+   *             version is the version used for new DB clusters.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeServerlessV2PlatformVersions</code> operation.</p>
+ * @public
+ */
+export interface ServerlessV2PlatformVersionsMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>ServerlessV2PlatformVersionInfo</code> elements.</p>
+   * @public
+   */
+  ServerlessV2PlatformVersions?: ServerlessV2PlatformVersionInfo[] | undefined;
 }
 
 /**

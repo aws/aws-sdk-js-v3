@@ -103,6 +103,7 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * //       MinCapacity: Number("double"),
  * //       MaxCapacity: Number("double"),
  * //     },
+ * //     ServerlessV2PlatformVersion: "STRING_VALUE",
  * //     MasterUserSecret: { // ClusterMasterUserSecret
  * //       SecretArn: "STRING_VALUE",
  * //       SecretStatus: "STRING_VALUE",

@@ -102,6 +102,7 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * //       MinCapacity: Number("double"),
  * //       MaxCapacity: Number("double"),
  * //     },
+ * //     ServerlessV2PlatformVersion: "STRING_VALUE",
  * //     MasterUserSecret: { // ClusterMasterUserSecret
  * //       SecretArn: "STRING_VALUE",
  * //       SecretStatus: "STRING_VALUE",

@@ -13,3 +13,4 @@ export * from "./DescribeEventSubscriptionsPaginator";
 export * from "./DescribeGlobalClustersPaginator";
 export * from "./DescribeOrderableDBInstanceOptionsPaginator";
 export * from "./DescribePendingMaintenanceActionsPaginator";
+export * from "./DescribeServerlessV2PlatformVersionsPaginator";

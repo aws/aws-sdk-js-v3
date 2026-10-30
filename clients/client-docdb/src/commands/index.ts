@@ -34,6 +34,7 @@ export * from "./DescribeEventsCommand";
 export * from "./DescribeGlobalClustersCommand";
 export * from "./DescribeOrderableDBInstanceOptionsCommand";
 export * from "./DescribePendingMaintenanceActionsCommand";
+export * from "./DescribeServerlessV2PlatformVersionsCommand";
 export * from "./FailoverDBClusterCommand";
 export * from "./FailoverGlobalClusterCommand";
 export * from "./ListTagsForResourceCommand";

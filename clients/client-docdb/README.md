@@ -428,6 +428,13 @@ DescribePendingMaintenanceActions
 </details>
 <details>
 <summary>
+DescribeServerlessV2PlatformVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb/command/DescribeServerlessV2PlatformVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb/Interface/DescribeServerlessV2PlatformVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb/Interface/DescribeServerlessV2PlatformVersionsCommandOutput/)
+</details>
+<details>
+<summary>
 FailoverDBCluster
 </summary>
 

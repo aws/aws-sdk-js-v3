@@ -139,6 +139,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       MinCapacity: Number("double"),
  * //       MaxCapacity: Number("double"),
  * //     },
+ * //     ServerlessV2PlatformVersion: "STRING_VALUE",
  * //     MasterUserSecret: { // ClusterMasterUserSecret
  * //       SecretArn: "STRING_VALUE",
  * //       SecretStatus: "STRING_VALUE",

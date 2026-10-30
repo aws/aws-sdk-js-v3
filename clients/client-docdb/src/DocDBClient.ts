@@ -180,6 +180,10 @@ import type {
   DescribePendingMaintenanceActionsCommandOutput,
 } from "./commands/DescribePendingMaintenanceActionsCommand";
 import type {
+  DescribeServerlessV2PlatformVersionsCommandInput,
+  DescribeServerlessV2PlatformVersionsCommandOutput,
+} from "./commands/DescribeServerlessV2PlatformVersionsCommand";
+import type {
   FailoverDBClusterCommandInput,
   FailoverDBClusterCommandOutput,
 } from "./commands/FailoverDBClusterCommand";
@@ -294,6 +298,7 @@ export type ServiceInputTypes =
   | DescribeGlobalClustersCommandInput
   | DescribeOrderableDBInstanceOptionsCommandInput
   | DescribePendingMaintenanceActionsCommandInput
+  | DescribeServerlessV2PlatformVersionsCommandInput
   | FailoverDBClusterCommandInput
   | FailoverGlobalClusterCommandInput
   | ListTagsForResourceCommandInput
@@ -354,6 +359,7 @@ export type ServiceOutputTypes =
   | DescribeGlobalClustersCommandOutput
   | DescribeOrderableDBInstanceOptionsCommandOutput
   | DescribePendingMaintenanceActionsCommandOutput
+  | DescribeServerlessV2PlatformVersionsCommandOutput
   | FailoverDBClusterCommandOutput
   | FailoverGlobalClusterCommandOutput
   | ListTagsForResourceCommandOutput
