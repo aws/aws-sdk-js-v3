@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { createPaginator } from "@smithy/core";
+import { createItemsPaginator, createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import { type QueryCommandInput, type QueryCommandOutput, QueryCommand } from "../commands/QueryCommand";
@@ -22,3 +22,16 @@ export const paginateQuery: (
   QueryCommandInput,
   QueryCommandOutput
 >(DynamoDBDocumentClient, QueryCommand, "ExclusiveStartKey", "LastEvaluatedKey", "Limit");
+
+/**
+ * @public
+ */
+export const paginateQueryItems: (
+  config: DynamoDBDocumentPaginationConfiguration,
+  input: QueryCommandInput,
+  ...additionalArguments: any
+) => Paginator<NonNullable<QueryCommandOutput["Items"]>[number]> = createItemsPaginator<
+  DynamoDBDocumentPaginationConfiguration,
+  QueryCommandInput,
+  NonNullable<QueryCommandOutput["Items"]>[number]
+>(paginateQuery, "Items");
