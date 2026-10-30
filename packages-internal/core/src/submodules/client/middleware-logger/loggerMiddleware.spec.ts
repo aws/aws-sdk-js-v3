@@ -1,3 +1,6 @@
+import { inspect as nodeInspect } from "node:util";
+
+import { NoOpLogger } from "@smithy/core/client";
 import type { HandlerExecutionContext, Logger, MiddlewareStack } from "@smithy/types";
 import { afterEach, describe, expect, test as it, vi } from "vitest";
 
@@ -106,21 +109,21 @@ describe("loggerMiddleware", () => {
       expect(mockNext).toHaveBeenCalledTimes(1);
       expect(response).toStrictEqual(mockResponse);
 
-      expect(inputFilterSensitiveLog).toHaveBeenCalledTimes(1);
-      expect(inputFilterSensitiveLog).toHaveBeenCalledWith(mockArgs.input);
-
       const { $metadata, ...outputWithoutMetadata } = mockOutput;
-      expect(outputFilterSensitiveLog).toHaveBeenCalledTimes(1);
-      expect(outputFilterSensitiveLog).toHaveBeenCalledWith(outputWithoutMetadata);
-
       expect(logger.info).toHaveBeenCalledTimes(1);
-      expect(logger.info).toHaveBeenCalledWith({
+      expect(inputFilterSensitiveLog).not.toHaveBeenCalled();
+      expect(outputFilterSensitiveLog).not.toHaveBeenCalled();
+      expect(JSON.parse(JSON.stringify(vi.mocked(logger.info!).mock.calls[0][0]))).toEqual({
         clientName,
         commandName,
         input: mockInputLog,
         output: mockOutputLog,
         metadata: $metadata,
       });
+      expect(inputFilterSensitiveLog).toHaveBeenCalledWith(mockArgs.input);
+      expect(outputFilterSensitiveLog).toHaveBeenCalledWith(outputWithoutMetadata);
+      expect(inputFilterSensitiveLog).toHaveBeenCalledTimes(1);
+      expect(outputFilterSensitiveLog).toHaveBeenCalledTimes(1);
     });
 
     it("should use override log filters for DynamoDBDocumentClient if present", async () => {
@@ -155,14 +158,11 @@ describe("loggerMiddleware", () => {
       expect(mockNext).toHaveBeenCalledTimes(1);
       expect(response).toStrictEqual(mockResponse);
 
-      expect(inputFilterSensitiveLog).toHaveBeenCalledTimes(1);
-      expect(inputFilterSensitiveLog).toHaveBeenCalledWith(mockArgs.input);
-
       const { $metadata, ...outputWithoutMetadata } = mockOutput;
-      expect(outputFilterSensitiveLog).toHaveBeenCalledTimes(1);
-      expect(outputFilterSensitiveLog).toHaveBeenCalledWith(outputWithoutMetadata);
-
       expect(logger.info).toHaveBeenCalledTimes(1);
+      expect(inputFilterSensitiveLog).not.toHaveBeenCalled();
+      expect(outputFilterSensitiveLog).not.toHaveBeenCalled();
+      expect(nodeInspect(vi.mocked(logger.info!).mock.calls[0][0])).not.toContain("[Getter]");
       expect(logger.info).toHaveBeenCalledWith({
         clientName,
         commandName,
@@ -170,6 +170,10 @@ describe("loggerMiddleware", () => {
         output: mockOutputLog,
         metadata: $metadata,
       });
+      expect(inputFilterSensitiveLog).toHaveBeenCalledWith(mockArgs.input);
+      expect(outputFilterSensitiveLog).toHaveBeenCalledWith(outputWithoutMetadata);
+      expect(inputFilterSensitiveLog).toHaveBeenCalledTimes(1);
+      expect(outputFilterSensitiveLog).toHaveBeenCalledTimes(1);
     });
 
     it("header x-amzn-request-id as requestId if x-amzn-requestid is not present", async () => {
@@ -206,6 +210,30 @@ describe("loggerMiddleware", () => {
         metadata: $metadata,
       });
     });
+  });
+
+  it("does not filter logs for the default logger", async () => {
+    mockNext.mockResolvedValueOnce(mockResponse);
+    const inputFilterSensitiveLog = vi.fn();
+    const outputFilterSensitiveLog = vi.fn();
+
+    await loggerMiddleware()(mockNext, {
+      logger: new NoOpLogger(),
+      inputFilterSensitiveLog,
+      outputFilterSensitiveLog,
+    })(mockArgs);
+
+    mockNext.mockRejectedValueOnce(new Error("example error"));
+    await expect(
+      loggerMiddleware()(mockNext, {
+        logger: new NoOpLogger(),
+        inputFilterSensitiveLog,
+        outputFilterSensitiveLog,
+      })(mockArgs)
+    ).rejects.toThrow("example error");
+
+    expect(inputFilterSensitiveLog).not.toHaveBeenCalled();
+    expect(outputFilterSensitiveLog).not.toHaveBeenCalled();
   });
 
   describe("logs if context.logger has error function", () => {
