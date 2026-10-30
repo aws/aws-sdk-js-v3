@@ -204,6 +204,8 @@ export type {
   AgenticRetrieveBedrockRerankingModelConfiguration,
   AgenticRetrieveCitation,
   AgenticRetrieveCitationReference,
+  AgenticRetrieveCodeExecutionDetails,
+  AgenticRetrieveCodeExecutionDocument,
   AgenticRetrieveConfiguration,
   AgenticRetrieveFailure,
   AgenticRetrieveFullDocExpansionDetails,

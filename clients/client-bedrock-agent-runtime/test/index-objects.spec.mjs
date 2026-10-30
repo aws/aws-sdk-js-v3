@@ -20,6 +20,8 @@ import {
   AgenticRetrieveBedrockRerankingModelConfiguration$,
   AgenticRetrieveCitation$,
   AgenticRetrieveCitationReference$,
+  AgenticRetrieveCodeExecutionDetails$,
+  AgenticRetrieveCodeExecutionDocument$,
   AgenticRetrieveConfiguration$,
   AgenticRetrieveFailure$,
   AgenticRetrieveFullDocExpansionDetails$,
@@ -642,6 +644,8 @@ assert(typeof AgenticRetrieveBedrockRerankingConfiguration$ === "object");
 assert(typeof AgenticRetrieveBedrockRerankingModelConfiguration$ === "object");
 assert(typeof AgenticRetrieveCitation$ === "object");
 assert(typeof AgenticRetrieveCitationReference$ === "object");
+assert(typeof AgenticRetrieveCodeExecutionDetails$ === "object");
+assert(typeof AgenticRetrieveCodeExecutionDocument$ === "object");
 assert(typeof AgenticRetrieveConfiguration$ === "object");
 assert(typeof AgenticRetrieveFailure$ === "object");
 assert(typeof AgenticRetrieveFullDocExpansionDetails$ === "object");

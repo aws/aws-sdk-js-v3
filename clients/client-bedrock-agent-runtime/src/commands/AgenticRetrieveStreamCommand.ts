@@ -223,7 +223,7 @@ export interface AgenticRetrieveStreamCommandOutput extends AgenticRetrieveStrea
  * //       id: "STRING_VALUE", // required
  * //       timestamp: Number("long"), // required
  * //       attributes: { // AgenticRetrieveTraceEventAttributes
- * //         step: "Planning" || "Retrieval" || "SpeculativeRetrieval" || "FullDocumentExpansion" || "SessionHistoryLoad", // required
+ * //         step: "Planning" || "Retrieval" || "SpeculativeRetrieval" || "FullDocumentExpansion" || "SessionHistoryLoad" || "CodeExecution", // required
  * //         status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED", // required
  * //         message: "STRING_VALUE", // required
  * //         actions: [ // AgenticRetrieveActions
@@ -250,6 +250,14 @@ export interface AgenticRetrieveStreamCommandOutput extends AgenticRetrieveStrea
  * //               namespace: "STRING_VALUE",
  * //               namespacePath: "STRING_VALUE",
  * //               strategyId: "STRING_VALUE",
+ * //             },
+ * //             codeExecution: { // AgenticRetrieveCodeExecutionDetails
+ * //               documents: [ // AgenticRetrieveCodeExecutionDocumentList
+ * //                 { // AgenticRetrieveCodeExecutionDocument
+ * //                   documentId: "STRING_VALUE",
+ * //                   sourceRetriever: "<AgenticRetrieveSourceRetriever>",
+ * //                 },
+ * //               ],
  * //             },
  * //           },
  * //         ],

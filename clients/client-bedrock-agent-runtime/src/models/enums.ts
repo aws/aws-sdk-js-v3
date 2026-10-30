@@ -352,6 +352,10 @@ export type AgenticRetrieveStatus = (typeof AgenticRetrieveStatus)[keyof typeof 
  */
 export const AgenticRetrieveStep = {
   /**
+   * <p>The phase that runs agent-generated code in an isolated sandbox. The code can read documents retrieved earlier in the same request.</p>
+   */
+  CODE_EXECUTION: "CodeExecution",
+  /**
    * <p>The full document expansion phase.</p>
    */
   FULL_DOCUMENT_EXPANSION: "FullDocumentExpansion",

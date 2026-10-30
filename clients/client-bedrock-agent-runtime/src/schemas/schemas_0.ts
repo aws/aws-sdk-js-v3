@@ -29,6 +29,9 @@ const _ARBGC = "AgenticRetrieveBedrockGuardrailConfiguration";
 const _ARBRC = "AgenticRetrieveBedrockRerankingConfiguration";
 const _ARBRMC = "AgenticRetrieveBedrockRerankingModelConfiguration";
 const _ARC = "AgenticRetrieveCitation";
+const _ARCED = "AgenticRetrieveCodeExecutionDetails";
+const _ARCEDL = "AgenticRetrieveCodeExecutionDocumentList";
+const _ARCEDg = "AgenticRetrieveCodeExecutionDocument";
 const _ARCL = "AgenticRetrieveCitationList";
 const _ARCR = "AgenticRetrieveCitationReference";
 const _ARCRL = "AgenticRetrieveCitationReferenceList";
@@ -574,8 +577,9 @@ const _cC = "collaboratorConfigurations";
 const _cCa = "callerChain";
 const _cCu = "customControl";
 const _cDL = "customDocumentLocation";
-const _cE = "conflictException";
+const _cE = "codeExecution";
 const _cEKA = "customerEncryptionKeyArn";
+const _cEo = "conflictException";
 const _cH = "conversationHistory";
 const _cI = "collaboratorInstruction";
 const _cIII = "codeInterpreterInvocationInput";
@@ -617,7 +621,8 @@ const _dSI = "dataSourceId";
 const _dTV = "dateTimeValue";
 const _da = "data";
 const _de = "definition";
-const _do = "document";
+const _do = "documents";
+const _doc = "document";
 const _e = "error";
 const _eA = "executionArn";
 const _eAn = "endedAt";
@@ -1182,8 +1187,8 @@ export var AgentCollaboratorOutputPayload$: StaticStructureSchema = [3, n0, _ACO
 ];
 export var AgenticRetrieveAction$: StaticStructureSchema = [3, n0, _ARA,
   0,
-  [_re, _fDE, _mR],
-  [[() => AgenticRetrieveActionDetails$, 0], () => AgenticRetrieveFullDocExpansionDetails$, [() => AgenticRetrieveMemoryRetrieveDetails$, 0]]
+  [_re, _fDE, _mR, _cE],
+  [[() => AgenticRetrieveActionDetails$, 0], () => AgenticRetrieveFullDocExpansionDetails$, [() => AgenticRetrieveMemoryRetrieveDetails$, 0], () => AgenticRetrieveCodeExecutionDetails$]
 ];
 export var AgenticRetrieveActionDetails$: StaticStructureSchema = [3, n0, _ARAD,
   0,
@@ -1219,6 +1224,16 @@ export var AgenticRetrieveCitationReference$: StaticStructureSchema = [3, n0, _A
   0,
   [_rI],
   [1], 1
+];
+export var AgenticRetrieveCodeExecutionDetails$: StaticStructureSchema = [3, n0, _ARCED,
+  0,
+  [_do],
+  [() => AgenticRetrieveCodeExecutionDocumentList]
+];
+export var AgenticRetrieveCodeExecutionDocument$: StaticStructureSchema = [3, n0, _ARCEDg,
+  0,
+  [_dI, _sRo],
+  [0, () => AgenticRetrieveSourceRetriever$]
 ];
 export var AgenticRetrieveConfiguration$: StaticStructureSchema = [3, n0, _ARCg,
   0,
@@ -2437,7 +2452,7 @@ export var RerankResponse$: StaticStructureSchema = [3, n0, _RRera,
 ];
 export var RerankResult$: StaticStructureSchema = [3, n0, _RReran,
   0,
-  [_ind, _rSel, _do],
+  [_ind, _rSel, _doc],
   [1, 1, [() => RerankDocument$, 0]], 2
 ];
 export var RerankSource$: StaticStructureSchema = [3, n0, _RSe,
@@ -2774,6 +2789,9 @@ var AgenticRetrieveCitationList: StaticListSchema = [1, n0, _ARCL,
 var AgenticRetrieveCitationReferenceList: StaticListSchema = [1, n0, _ARCRL,
   0, () => AgenticRetrieveCitationReference$
 ];
+var AgenticRetrieveCodeExecutionDocumentList: StaticListSchema = [1, n0, _ARCEDL,
+  0, () => AgenticRetrieveCodeExecutionDocument$
+];
 var AgenticRetrieveFailures: StaticListSchema = [1, n0, _ARFg,
   0, () => AgenticRetrieveFailure$
 ];
@@ -3086,7 +3104,7 @@ export var AgenticRetrieveMemoryMetadataValue$: StaticUnionSchema = [4, n0, _ARM
 ];
 export var AgenticRetrieveStreamResponseOutput$: StaticUnionSchema = [4, n0, _ARSRO,
   { [_str]: 1 },
-  [_resu, _tEr, _rE, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cE, _dFE, _bGE],
+  [_resu, _tEr, _rE, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cEo, _dFE, _bGE],
   [() => AgenticRetrieveResultEvent$, [() => AgenticRetrieveTraceEvent$, 0], () => AgenticRetrieveResponseEvent$, [() => InternalServerException$, 0], [() => ValidationException$, 0], [() => ResourceNotFoundException$, 0], [() => ServiceQuotaExceededException$, 0], [() => ThrottlingException$, 0], [() => AccessDeniedException$, 0], [() => ConflictException$, 0], [() => DependencyFailedException$, 0], [() => BadGatewayException$, 0]]
 ];
 export var AgenticRetrieveWarning$: StaticUnionSchema = [4, n0, _ARWg,
@@ -3116,7 +3134,7 @@ export var ContentBlock$: StaticUnionSchema = [4, n0, _CBon,
 ];
 export var FlowExecutionContent$: StaticUnionSchema = [4, n0, _FEC,
   8,
-  [_do],
+  [_doc],
   [15]
 ];
 export var FlowExecutionEvent$: StaticUnionSchema = [4, n0, _FEElow,
@@ -3126,22 +3144,22 @@ export var FlowExecutionEvent$: StaticUnionSchema = [4, n0, _FEElow,
 ];
 export var FlowInputContent$: StaticUnionSchema = [4, n0, _FIC,
   8,
-  [_do],
+  [_doc],
   [15]
 ];
 export var FlowMultiTurnInputContent$: StaticUnionSchema = [4, n0, _FMTIC,
   0,
-  [_do],
+  [_doc],
   [15]
 ];
 export var FlowOutputContent$: StaticUnionSchema = [4, n0, _FOC,
   0,
-  [_do],
+  [_doc],
   [15]
 ];
 export var FlowResponseStream$: StaticUnionSchema = [4, n0, _FRSl,
   { [_str]: 1 },
-  [_fOE, _fCE, _fTE, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cE, _dFE, _bGE, _fMTIRE],
+  [_fOE, _fCE, _fTE, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cEo, _dFE, _bGE, _fMTIRE],
   [[() => FlowOutputEvent$, 0], [() => FlowCompletionEvent$, 0], [() => FlowTraceEvent$, 0], [() => InternalServerException$, 0], [() => ValidationException$, 0], [() => ResourceNotFoundException$, 0], [() => ServiceQuotaExceededException$, 0], [() => ThrottlingException$, 0], [() => AccessDeniedException$, 0], [() => ConflictException$, 0], [() => DependencyFailedException$, 0], [() => BadGatewayException$, 0], [() => FlowMultiTurnInputRequestEvent$, 0]]
 ];
 export var FlowTrace$: StaticUnionSchema = [4, n0, _FTl,
@@ -3151,12 +3169,12 @@ export var FlowTrace$: StaticUnionSchema = [4, n0, _FTl,
 ];
 export var FlowTraceNodeInputContent$: StaticUnionSchema = [4, n0, _FTNIC,
   8,
-  [_do],
+  [_doc],
   [15]
 ];
 export var FlowTraceNodeOutputContent$: StaticUnionSchema = [4, n0, _FTNOC,
   0,
-  [_do],
+  [_doc],
   [15]
 ];
 export var FunctionSchema$: StaticUnionSchema = [4, n0, _FSu,
@@ -3176,7 +3194,7 @@ export var ImageSource$: StaticUnionSchema = [4, n0, _ISm,
 ];
 export var InlineAgentResponseStream$: StaticUnionSchema = [4, n0, _IARS,
   { [_str]: 1 },
-  [_ch, _tra, _rCetu, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cE, _dFE, _bGE, _fi],
+  [_ch, _tra, _rCetu, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cEo, _dFE, _bGE, _fi],
   [[() => InlineAgentPayloadPart$, 0], [() => InlineAgentTracePart$, 0], [() => InlineAgentReturnControlPayload$, 0], [() => InternalServerException$, 0], [() => ValidationException$, 0], [() => ResourceNotFoundException$, 0], [() => ServiceQuotaExceededException$, 0], [() => ThrottlingException$, 0], [() => AccessDeniedException$, 0], [() => ConflictException$, 0], [() => DependencyFailedException$, 0], [() => BadGatewayException$, 0], [() => InlineAgentFilePart$, 0]]
 ];
 export var InputPrompt$: StaticUnionSchema = [4, n0, _IP,
@@ -3206,7 +3224,7 @@ export var Memory$: StaticUnionSchema = [4, n0, _Memo,
 ];
 export var NodeExecutionContent$: StaticUnionSchema = [4, n0, _NEC,
   8,
-  [_do],
+  [_doc],
   [15]
 ];
 export var NodeTraceElements$: StaticUnionSchema = [4, n0, _NTE,
@@ -3256,7 +3274,7 @@ export var RerankingMetadataSelectiveModeConfiguration$: StaticUnionSchema = [4,
 ];
 export var ResponseStream$: StaticUnionSchema = [4, n0, _RSes,
   { [_str]: 1 },
-  [_ch, _tra, _rCetu, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cE, _dFE, _bGE, _mNRE, _fi],
+  [_ch, _tra, _rCetu, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cEo, _dFE, _bGE, _mNRE, _fi],
   [[() => PayloadPart$, 0], [() => TracePart$, 0], [() => ReturnControlPayload$, 0], [() => InternalServerException$, 0], [() => ValidationException$, 0], [() => ResourceNotFoundException$, 0], [() => ServiceQuotaExceededException$, 0], [() => ThrottlingException$, 0], [() => AccessDeniedException$, 0], [() => ConflictException$, 0], [() => DependencyFailedException$, 0], [() => BadGatewayException$, 0], [() => ModelNotReadyException$, 0], [() => FilePart$, 0]]
 ];
 export var RetrievalFilter$: StaticUnionSchema = [4, n0, _RF,
@@ -3266,7 +3284,7 @@ export var RetrievalFilter$: StaticUnionSchema = [4, n0, _RF,
 ];
 export var RetrieveAndGenerateStreamResponseOutput$: StaticUnionSchema = [4, n0, _RAGSRO,
   { [_str]: 1 },
-  [_o, _cit, _gu, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cE, _dFE, _bGE],
+  [_o, _cit, _gu, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cEo, _dFE, _bGE],
   [[() => RetrieveAndGenerateOutputEvent$, 0], [() => CitationEvent$, 0], () => GuardrailEvent$, [() => InternalServerException$, 0], [() => ValidationException$, 0], [() => ResourceNotFoundException$, 0], [() => ServiceQuotaExceededException$, 0], [() => ThrottlingException$, 0], [() => AccessDeniedException$, 0], [() => ConflictException$, 0], [() => DependencyFailedException$, 0], [() => BadGatewayException$, 0]]
 ];
 export var RetrieverConfiguration$: StaticUnionSchema = [4, n0, _RCet,

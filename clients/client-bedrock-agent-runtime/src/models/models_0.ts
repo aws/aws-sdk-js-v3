@@ -1116,6 +1116,36 @@ export interface AgenticRetrieveSourceRetriever {
 }
 
 /**
+ * <p>A document that a code execution action reads.</p>
+ * @public
+ */
+export interface AgenticRetrieveCodeExecutionDocument {
+  /**
+   * <p>The identifier of the document.</p>
+   * @public
+   */
+  documentId?: string | undefined;
+
+  /**
+   * <p>The source retriever associated with the document.</p>
+   * @public
+   */
+  sourceRetriever?: AgenticRetrieveSourceRetriever | undefined;
+}
+
+/**
+ * <p>The details of code that the agent chose to run in an isolated sandbox. The record includes the documents that the code reads. The corresponding CodeExecution step reports the outcome.</p>
+ * @public
+ */
+export interface AgenticRetrieveCodeExecutionDetails {
+  /**
+   * <p>The documents that the code reads. This field is present when the code reads documents.</p>
+   * @public
+   */
+  documents?: AgenticRetrieveCodeExecutionDocument[] | undefined;
+}
+
+/**
  * <p>Details of a full document expansion action.</p>
  * @public
  */
@@ -1221,6 +1251,12 @@ export interface AgenticRetrieveAction {
    * @public
    */
   memoryRetrieve?: AgenticRetrieveMemoryRetrieveDetails | undefined;
+
+  /**
+   * <p>The details of code that the agent chose to run.</p>
+   * @public
+   */
+  codeExecution?: AgenticRetrieveCodeExecutionDetails | undefined;
 }
 
 /**
@@ -9448,52 +9484,4 @@ export interface QueryTransformationConfiguration {
    * @public
    */
   type: QueryTransformationType | undefined;
-}
-
-/**
- * <p>Settings for how the model processes the prompt prior to retrieval and generation.</p>
- * @public
- */
-export interface OrchestrationConfiguration {
-  /**
-   * <p>Contains the template for the prompt that's sent to the model. Orchestration prompts must include the <code>$conversation_history$</code> and <code>$output_format_instructions$</code> variables. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Use placeholder variables</a> in the user guide.</p>
-   * @public
-   */
-  promptTemplate?: PromptTemplate | undefined;
-
-  /**
-   * <p> Configuration settings for inference when using RetrieveAndGenerate to generate responses while using a knowledge base as a source. </p>
-   * @public
-   */
-  inferenceConfig?: InferenceConfig | undefined;
-
-  /**
-   * <p> Additional model parameters and corresponding values not included in the textInferenceConfig structure for a knowledge base. This allows users to provide custom model parameters specific to the language model being used. </p>
-   * @public
-   */
-  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
-
-  /**
-   * <p>To split up the prompt and retrieve multiple sources, set the transformation type to <code>QUERY_DECOMPOSITION</code>.</p>
-   * @public
-   */
-  queryTransformationConfiguration?: QueryTransformationConfiguration | undefined;
-
-  /**
-   * <p>The latency configuration for the model.</p>
-   * @public
-   */
-  performanceConfig?: PerformanceConfiguration | undefined;
-}
-
-/**
- * <p>Contains configuration about the session with the knowledge base.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>sessionConfiguration</code> field</p> </li> </ul>
- * @public
- */
-export interface RetrieveAndGenerateSessionConfiguration {
-  /**
-   * <p>The ARN of the KMS key encrypting the session.</p>
-   * @public
-   */
-  kmsKeyArn: string | undefined;
 }
