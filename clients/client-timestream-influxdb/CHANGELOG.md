@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1160.0...v3.1161.0) (2026-10-30)
+
+
+### Features
+
+* **client-timestream-influxdb:** Add DeploymentConfiguration field to CreateDbCluster and UpdateDbCluster APIs to support creation of heterogenous InfluxDB v3 Enterprise clusters. ([493e1ac](https://github.com/aws/aws-sdk-js-v3/commit/493e1ac80b0c587b41a31858c756bc56841cfd81))
+
+
+
+
+
 # [3.1160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1159.0...v3.1160.0) (2026-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-timestream-influxdb

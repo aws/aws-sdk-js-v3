@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1160.0...v3.1161.0) (2026-10-30)
+
+
+### Features
+
+* **client-amp:** Managed Prometheus collectors now support Amazon MSK consumer-group metrics for Amazon Managed Service for Prometheus and CloudWatch. ([5f5dc77](https://github.com/aws/aws-sdk-js-v3/commit/5f5dc778cf932f958cbdd944ddc7127325daf5e5))
+
+
+
+
+
 # [3.1160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1159.0...v3.1160.0) (2026-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-amp

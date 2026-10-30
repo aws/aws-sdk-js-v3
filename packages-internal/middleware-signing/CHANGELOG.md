@@ -38,6 +38,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.11 (2026-10-29)
+### Chores
+* **codegen:** sync to new smithy handler changes ([#8390](https://github.com/aws/aws-sdk-js-v3/issues/8390)) ([f393101](https://github.com/aws/aws-sdk-js-v3/commit/f393101c0e651bd0c9fda6ff24b7ede3b5e96869))
+
+
+
 # 3.973.10 (2026-10-28)
 ### Chores
 * readability, require braces for control flow ([#8389](https://github.com/aws/aws-sdk-js-v3/issues/8389)) ([2a16014](https://github.com/aws/aws-sdk-js-v3/commit/2a160140cbf5822f1a33bf93145d288ecf734597))

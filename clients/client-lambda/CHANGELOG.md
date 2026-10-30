@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1160.0...v3.1161.0) (2026-10-30)
+
+
+### Features
+
+* **client-lambda:** Adds ConsumptionMode to SelfManagedKafkaEventSourceConfig, letting Lambda event source mappings consume self-managed Apache Kafka topics as a queue. Set ConsumptionMode to Queue when creating an event source mapping. ([b7dde40](https://github.com/aws/aws-sdk-js-v3/commit/b7dde4047fd49176084ff85d83d3563a091747a9))
+
+
+
+
+
 # [3.1160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1159.0...v3.1160.0) (2026-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda

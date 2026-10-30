@@ -42,6 +42,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.40 (2026-10-29)
+### Chores
+* **codegen:** sync to new smithy handler changes ([#8390](https://github.com/aws/aws-sdk-js-v3/issues/8390)) ([f393101](https://github.com/aws/aws-sdk-js-v3/commit/f393101c0e651bd0c9fda6ff24b7ede3b5e96869))
+
+
+
 # 3.972.39 (2026-10-26)
 ### Chores
 * **codegen:** sync for service default socket timeout and RPC v2 JSON ([#8378](https://github.com/aws/aws-sdk-js-v3/issues/8378)) ([f9d9119](https://github.com/aws/aws-sdk-js-v3/commit/f9d9119f02ea9ed0e0c2ab486b308cac15139651))

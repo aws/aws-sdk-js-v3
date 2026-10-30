@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1160.0...v3.1161.0) (2026-10-30)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Adds support for account-level retention policies in Amazon CloudWatch Logs. Customers can now use PutAccountPolicy with the new RETENTION POLICY type to set default log retention across all log groups in an account. Includes dry-run mode to preview the impact of policy changes before applying them. ([7b968f1](https://github.com/aws/aws-sdk-js-v3/commit/7b968f16b24546e32fc659215e76e3c8362c391b))
+
+
+
+
+
 # [3.1160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1159.0...v3.1160.0) (2026-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs

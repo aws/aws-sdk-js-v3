@@ -16,6 +16,13 @@
 
 
 
+
+# 3.0.10 (2026-10-29)
+### Chores
+* **codegen:** sync to new smithy handler changes ([#8390](https://github.com/aws/aws-sdk-js-v3/issues/8390)) ([f393101](https://github.com/aws/aws-sdk-js-v3/commit/f393101c0e651bd0c9fda6ff24b7ede3b5e96869))
+
+
+
 # 3.0.9 (2026-09-29)
 ### Tests
 * **undici-http-handler:** temporarily skip e2e test ([#8320](https://github.com/aws/aws-sdk-js-v3/issues/8320)) ([2c59e39](https://github.com/aws/aws-sdk-js-v3/commit/2c59e39469a7c32c1aca8b82d908b8abc7a7a7e4))

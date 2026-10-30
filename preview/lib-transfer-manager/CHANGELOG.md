@@ -16,6 +16,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 0.2.4 (2026-10-29)
+### Chores
+* **codegen:** sync to new smithy handler changes ([#8390](https://github.com/aws/aws-sdk-js-v3/issues/8390)) ([f393101](https://github.com/aws/aws-sdk-js-v3/commit/f393101c0e651bd0c9fda6ff24b7ede3b5e96869))
+
+
+
 # 0.2.3 (2026-10-29)
 ### Chores
 * **lib-transfer-manager:** update dependencies.

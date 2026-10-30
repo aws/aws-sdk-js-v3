@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1160.0...v3.1161.0) (2026-10-30)
+
+
+### Bug Fixes
+
+* **clock-skew:** exclude server processing time from skew correction ([#8391](https://github.com/aws/aws-sdk-js-v3/issues/8391)) ([2dd7086](https://github.com/aws/aws-sdk-js-v3/commit/2dd708685af5c3b3dde3695062758b72b762a392))
+
+
+### Features
+
+* **client-amp:** Managed Prometheus collectors now support Amazon MSK consumer-group metrics for Amazon Managed Service for Prometheus and CloudWatch. ([5f5dc77](https://github.com/aws/aws-sdk-js-v3/commit/5f5dc778cf932f958cbdd944ddc7127325daf5e5))
+* **client-bedrock-agent-runtime:** Adds the CodeExecution step and codeExecution action to AgenticRetrieveStream trace events, showing when the agent runs code and which documents it reads. ([f8e4c27](https://github.com/aws/aws-sdk-js-v3/commit/f8e4c279ff75188109291e44672fd19c3844098a))
+* **client-cloudwatch-logs:** Adds support for account-level retention policies in Amazon CloudWatch Logs. Customers can now use PutAccountPolicy with the new RETENTION POLICY type to set default log retention across all log groups in an account. Includes dry-run mode to preview the impact of policy changes before applying them. ([7b968f1](https://github.com/aws/aws-sdk-js-v3/commit/7b968f16b24546e32fc659215e76e3c8362c391b))
+* **client-connect:** Amazon Connect adds tag-based access control for Contact Lens rules. ListRealtimeContactAnalysisSegmentsV2 adds a ListFilter to return only category segments whose rules match given tags. PreEvaluationFilter now supports contact evaluation resources for OnContactEvaluationSubmit rules. ([186beac](https://github.com/aws/aws-sdk-js-v3/commit/186beac8c6971543ac9045cefc48272fe7f7784f))
+* **client-customer-profiles:** Adds support for template ingestion controls in the GetProfileObjectTypeTemplate API response. ([214bd94](https://github.com/aws/aws-sdk-js-v3/commit/214bd946412d8e117a695bc0e1503606eeca555a))
+* **client-docdb:** Amazon DocumentDB now returns ServerlessV2PlatformVersion in DBCluster API responses and adds the DescribeServerlessV2PlatformVersions API to discover available platform versions and their capabilities. ([d6c69cd](https://github.com/aws/aws-sdk-js-v3/commit/d6c69cd9ef4d1a65201b72991850546343986566))
+* **client-lambda:** Adds ConsumptionMode to SelfManagedKafkaEventSourceConfig, letting Lambda event source mappings consume self-managed Apache Kafka topics as a queue. Set ConsumptionMode to Queue when creating an event source mapping. ([b7dde40](https://github.com/aws/aws-sdk-js-v3/commit/b7dde4047fd49176084ff85d83d3563a091747a9))
+* **client-omics:** Adds the outputUriPrefixMode parameter to StartRun and GetRun. You can now write run outputs directly under outputUri, without the prefixes the service adds by default. When you opt in, outputs overwrite existing objects at the same keys. ([f51a1dd](https://github.com/aws/aws-sdk-js-v3/commit/f51a1ddd5ac4409a7429af67166f9c25b8063ed4))
+* **client-sagemaker:** Create endpoints with AcceleratorPartitionLayouts on ProductionVariant and deploy inference components with AcceleratorPartitionType in ComputeResourceRequirements to divide accelerators into hardware-isolated NVIDIA MIG partitions, running multiple models per GPU. P4d, P5, G7, G7e. ([ec1b181](https://github.com/aws/aws-sdk-js-v3/commit/ec1b1811a27957b83a2ad63c8292cc5aa3371f44))
+* **client-timestream-influxdb:** Add DeploymentConfiguration field to CreateDbCluster and UpdateDbCluster APIs to support creation of heterogenous InfluxDB v3 Enterprise clusters. ([493e1ac](https://github.com/aws/aws-sdk-js-v3/commit/493e1ac80b0c587b41a31858c756bc56841cfd81))
+* **clients:** update client endpoints as of 2026-10-30 ([757e025](https://github.com/aws/aws-sdk-js-v3/commit/757e025574cd936082a4edc188ef573abf7174a2))
+
+
+
+
+
 # [3.1160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1159.0...v3.1160.0) (2026-10-29)
 
 

@@ -86,6 +86,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.84 (2026-10-30)
+### Chores
+* **middleware-user-agent:** update dependencies.
+
+
+
 # 3.972.83 (2026-10-29)
 ### Chores
 * **middleware-user-agent:** update dependencies.

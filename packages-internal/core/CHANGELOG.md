@@ -85,6 +85,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.979.1 (2026-10-30)
+### Bug Fixes
+* **clock-skew:** exclude server processing time from skew correction ([#8391](https://github.com/aws/aws-sdk-js-v3/issues/8391)) ([2dd7086](https://github.com/aws/aws-sdk-js-v3/commit/2dd708685af5c3b3dde3695062758b72b762a392))
+### Chores
+* **codegen:** sync to new smithy handler changes ([#8390](https://github.com/aws/aws-sdk-js-v3/issues/8390)) ([f393101](https://github.com/aws/aws-sdk-js-v3/commit/f393101c0e651bd0c9fda6ff24b7ede3b5e96869))
+
+
+
 # 3.979.0 (2026-10-29)
 ### Features
 * **codegen:** add Smithy RPCv2 JSON protocol ([#8386](https://github.com/aws/aws-sdk-js-v3/issues/8386)) ([ee519d0](https://github.com/aws/aws-sdk-js-v3/commit/ee519d0224f58085db4fe4b0c5458fd6ee514525))
