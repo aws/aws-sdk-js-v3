@@ -383,6 +383,20 @@ export type EndPointType = (typeof EndPointType)[keyof typeof EndPointType];
  * @public
  * @enum
  */
+export const KafkaEventSourceMappingConsumptionMode = {
+  Queue: "Queue",
+  Stream: "Stream",
+} as const;
+/**
+ * @public
+ */
+export type KafkaEventSourceMappingConsumptionMode =
+  (typeof KafkaEventSourceMappingConsumptionMode)[keyof typeof KafkaEventSourceMappingConsumptionMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const SourceAccessType = {
   BASIC_AUTH: "BASIC_AUTH",
   CLIENT_CERTIFICATE_TLS_AUTH: "CLIENT_CERTIFICATE_TLS_AUTH",

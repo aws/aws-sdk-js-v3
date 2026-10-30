@@ -148,6 +148,7 @@ export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMap
  * //             },
  * //           ],
  * //         },
+ * //         ConsumptionMode: "Stream" || "Queue",
  * //       },
  * //       DocumentDBEventSourceConfig: { // DocumentDBEventSourceConfig
  * //         DatabaseName: "STRING_VALUE",

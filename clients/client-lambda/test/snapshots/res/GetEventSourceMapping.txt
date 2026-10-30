@@ -183,7 +183,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "Attribute": "__Attribute__"
         }
       ]
-    }
+    },
+    "ConsumptionMode": "__ConsumptionMode__"
   },
   "DocumentDBEventSourceConfig": {
     "DatabaseName": "__DatabaseName__",
@@ -356,7 +357,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Attribute: "__Attribute__"
         }
       ]
-    }
+    },
+    ConsumptionMode: "__ConsumptionMode__"
   },
   DocumentDBEventSourceConfig: {
     DatabaseName: "__DatabaseName__",

@@ -78,6 +78,7 @@ const _CISD = "ChainedInvokeStartedDetails";
 const _CISDh = "ChainedInvokeStoppedDetails";
 const _CISDha = "ChainedInvokeSucceededDetails";
 const _CITOD = "ChainedInvokeTimedOutDetails";
+const _CM = "ConsumptionMode";
 const _CN = "CollectionName";
 const _CO = "CallbackOptions";
 const _COo = "ContextOptions";
@@ -2325,8 +2326,8 @@ export var SelfManagedEventSource$: StaticStructureSchema = [3, n0, _SMES,
 ];
 export var SelfManagedKafkaEventSourceConfig$: StaticStructureSchema = [3, n0, _SMKESC,
   0,
-  [_CGI, _SRC],
-  [0, () => KafkaSchemaRegistryConfig$]
+  [_CGI, _SRC, _CM],
+  [0, () => KafkaSchemaRegistryConfig$, 0]
 ];
 export var SendDurableExecutionCallbackFailureRequest$: StaticStructureSchema = [3, n0, _SDECFR,
   0,

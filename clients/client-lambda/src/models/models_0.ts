@@ -22,6 +22,7 @@ import type {
   FunctionVersionLatestPublished,
   InvocationType,
   InvokeMode,
+  KafkaEventSourceMappingConsumptionMode,
   KafkaSchemaRegistryAuthType,
   KafkaSchemaValidationAttribute,
   LastUpdateStatus,
@@ -1212,7 +1213,7 @@ export interface ChainedInvokeOptions {
   TenantId?: string | undefined;
 
   /**
-   * <p>The optional X-Ray trace header to use when starting the chained invocation. If you omit this value, the child invocation inherits the parent durable execution's trace header.</p> <p>Specify this value on the <code>START</code> update for the chained invocation operation. For more information about the header format, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader">Tracing header</a> in the <i>X-Ray Developer Guide</i>.</p>
+   * <p>The X-Ray trace header to use when starting the chained invocation. This parameter is optional. If you omit this value, the child invocation inherits the parent durable execution's trace header.</p> <p>Specify this value on the <code>START</code> update for the chained invocation operation. For more information about the header format, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader">Tracing header</a> in the <i>X-Ray Developer Guide</i>.</p>
    * @public
    */
   XAmznTraceId?: string | undefined;
@@ -2704,6 +2705,12 @@ export interface SelfManagedKafkaEventSourceConfig {
    * @public
    */
   SchemaRegistryConfig?: KafkaSchemaRegistryConfig | undefined;
+
+  /**
+   * <p>The mode that Lambda uses to consume records from your self-managed Apache Kafka topic. The default is <code>Stream</code>.</p> <ul> <li> <p> <code>Stream</code> – Lambda consumes records using a Kafka consumer group and preserves the order of records within each partition. This is the default when you omit <code>ConsumptionMode</code>.</p> </li> <li> <p> <code>Queue</code> – Lambda consumes records using a Kafka share group. Multiple consumers can process records from the same partitions concurrently. Queue mode does not preserve per-partition order. Queue mode requires an Apache Kafka cluster running version 4.2 or later with share groups enabled.</p> </li> </ul> <p>You cannot change <code>ConsumptionMode</code> after you create the event source mapping. To use a different consumption mode, create a new event source mapping.</p> <p>When <code>ConsumptionMode</code> is <code>Queue</code>, the <code>StartingPosition</code>, <code>StartingPositionTimestamp</code>, and <code>MaximumBatchingWindowInSeconds</code> parameters are not supported.</p>
+   * @public
+   */
+  ConsumptionMode?: KafkaEventSourceMappingConsumptionMode | undefined;
 }
 
 /**
@@ -2783,7 +2790,7 @@ export interface CreateEventSourceMappingRequest {
   ScalingConfig?: ScalingConfig | undefined;
 
   /**
-   * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
+   * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p> <p>Not supported for Kafka event source mappings when <code>ConsumptionMode</code> is <code>Queue</code>.</p>
    * @public
    */
   MaximumBatchingWindowInSeconds?: number | undefined;
@@ -2795,13 +2802,13 @@ export interface CreateEventSourceMappingRequest {
   ParallelizationFactor?: number | undefined;
 
   /**
-   * <p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Stream event sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</p>
+   * <p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Stream event sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</p> <p>Not supported for Kafka event source mappings when <code>ConsumptionMode</code> is <code>Queue</code>.</p>
    * @public
    */
   StartingPosition?: EventSourcePosition | undefined;
 
   /**
-   * <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading. <code>StartingPositionTimestamp</code> cannot be in the future.</p>
+   * <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading. <code>StartingPositionTimestamp</code> cannot be in the future.</p> <p>Not supported for Kafka event source mappings when <code>ConsumptionMode</code> is <code>Queue</code>.</p>
    * @public
    */
   StartingPositionTimestamp?: Date | undefined;
@@ -2825,7 +2832,7 @@ export interface CreateEventSourceMappingRequest {
   BisectBatchOnFunctionError?: boolean | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> <p>For Kafka <code>Stream</code> consumption mode, the default is <code>-1</code> (infinite retries; capped at 10 when an on-failure destination is configured). For Kafka <code>Queue</code> consumption mode, the default is <code>0</code>, and if no on-failure destination is configured the Kafka broker performs retries.</p>
    * @public
    */
   MaximumRetryAttempts?: number | undefined;
@@ -3246,7 +3253,7 @@ export interface UpdateEventSourceMappingRequest {
   ScalingConfig?: ScalingConfig | undefined;
 
   /**
-   * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
+   * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p> <p>Not supported for Kafka event source mappings when <code>ConsumptionMode</code> is <code>Queue</code>.</p>
    * @public
    */
   MaximumBatchingWindowInSeconds?: number | undefined;
@@ -3276,7 +3283,7 @@ export interface UpdateEventSourceMappingRequest {
   BisectBatchOnFunctionError?: boolean | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> <p>For Kafka <code>Stream</code> consumption mode, the default is <code>-1</code> (infinite retries; capped at 10 when an on-failure destination is configured). For Kafka <code>Queue</code> consumption mode, the default is <code>0</code>, and if no on-failure destination is configured the Kafka broker performs retries.</p>
    * @public
    */
   MaximumRetryAttempts?: number | undefined;

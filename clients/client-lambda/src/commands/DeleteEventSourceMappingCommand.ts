@@ -142,6 +142,7 @@ export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappin
  * //         },
  * //       ],
  * //     },
+ * //     ConsumptionMode: "Stream" || "Queue",
  * //   },
  * //   DocumentDBEventSourceConfig: { // DocumentDBEventSourceConfig
  * //     DatabaseName: "STRING_VALUE",

@@ -323,6 +323,7 @@ import {
   InvokeWithResponseStreamRequest$,
   InvokeWithResponseStreamResponse$,
   InvokeWithResponseStreamResponseEvent$,
+  KafkaEventSourceMappingConsumptionMode,
   KafkaSchemaRegistryAccessConfig$,
   KafkaSchemaRegistryAuthType,
   KafkaSchemaRegistryConfig$,
@@ -1113,6 +1114,7 @@ assert(typeof FunctionVersion === "object");
 assert(typeof FunctionVersionLatestPublished === "object");
 assert(typeof InvocationType === "object");
 assert(typeof InvokeMode === "object");
+assert(typeof KafkaEventSourceMappingConsumptionMode === "object");
 assert(typeof KafkaSchemaRegistryAuthType === "object");
 assert(typeof KafkaSchemaValidationAttribute === "object");
 assert(typeof LastUpdateStatus === "object");

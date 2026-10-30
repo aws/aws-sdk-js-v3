@@ -23,7 +23,7 @@ export interface ListFunctionEventInvokeConfigsCommandInput extends ListFunction
 export interface ListFunctionEventInvokeConfigsCommandOutput extends ListFunctionEventInvokeConfigsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of configurations for asynchronous invocation for a function.</p> <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
+ * <p>Retrieves a list of configurations for asynchronous invocation for a Lambda Event Function. To retrieve more configurations, use the <code>Marker</code> parameter.</p> <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

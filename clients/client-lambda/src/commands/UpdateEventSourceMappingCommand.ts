@@ -114,6 +114,7 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *         },
  *       ],
  *     },
+ *     ConsumptionMode: "Stream" || "Queue",
  *   },
  *   DocumentDBEventSourceConfig: { // DocumentDBEventSourceConfig
  *     DatabaseName: "STRING_VALUE",
@@ -233,6 +234,7 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * //         },
  * //       ],
  * //     },
+ * //     ConsumptionMode: "Stream" || "Queue",
  * //   },
  * //   DocumentDBEventSourceConfig: { // DocumentDBEventSourceConfig
  * //     DatabaseName: "STRING_VALUE",

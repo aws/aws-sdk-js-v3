@@ -142,6 +142,7 @@ export interface GetEventSourceMappingCommandOutput extends EventSourceMappingCo
  * //         },
  * //       ],
  * //     },
+ * //     ConsumptionMode: "Stream" || "Queue",
  * //   },
  * //   DocumentDBEventSourceConfig: { // DocumentDBEventSourceConfig
  * //     DatabaseName: "STRING_VALUE",

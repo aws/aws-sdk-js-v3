@@ -2,14 +2,14 @@ POST https://lambda.us-east-1.amazonaws.com
 /2015-03-31/event-source-mappings
 
 content-type: application/json
-content-length: 2347
+content-length: 2387
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/lambda#_.__ m/E,e
 host: lambda.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 34d506ff4259db0492cc802b3df2d50b81f6c55ef0616f623317df08d91fbd09
+x-amz-content-sha256: a6c4d6313c526f95f6dd0186828282011c43d9b49127502f9ab1a9320632f681
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [Uint8Array (json)]
@@ -166,7 +166,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_re
           "Attribute": "__Attribute__"
         }
       ]
-    }
+    },
+    "ConsumptionMode": "__ConsumptionMode__"
   },
   "DocumentDBEventSourceConfig": {
     "DatabaseName": "__DatabaseName__",

@@ -23,7 +23,7 @@ export interface DeleteFunctionConcurrencyCommandInput extends DeleteFunctionCon
 export interface DeleteFunctionConcurrencyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes a concurrent execution limit from a function.</p>
+ * <p>Removes a concurrent execution limit from a Lambda Event Function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

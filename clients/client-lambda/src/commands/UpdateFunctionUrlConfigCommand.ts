@@ -23,7 +23,7 @@ export interface UpdateFunctionUrlConfigCommandInput extends UpdateFunctionUrlCo
 export interface UpdateFunctionUrlConfigCommandOutput extends UpdateFunctionUrlConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration for a Lambda function URL.</p>
+ * <p>Updates the configuration for a function URL of a Lambda Event Function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

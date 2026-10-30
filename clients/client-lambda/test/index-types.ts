@@ -286,6 +286,7 @@ export type {
   FunctionVersionLatestPublished,
   InvocationType,
   InvokeMode,
+  KafkaEventSourceMappingConsumptionMode,
   KafkaSchemaRegistryAuthType,
   KafkaSchemaValidationAttribute,
   LastUpdateStatus,
