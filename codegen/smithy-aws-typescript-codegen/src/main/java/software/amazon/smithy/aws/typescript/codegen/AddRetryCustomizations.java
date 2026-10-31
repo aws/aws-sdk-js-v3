@@ -69,13 +69,9 @@ public class AddRetryCustomizations implements TypeScriptIntegration {
                             if (service != null && isDynamoDB(service)) {
                                 return Map.of(
                                     "defaultMaxAttempts",
-                                    Symbol.builder()
-                                        .name("Retry.v2026 ? 4 : undefined")
-                                        .build(),
+                                    Symbol.builder().name("4").build(),
                                     "defaultBaseDelay",
-                                    Symbol.builder()
-                                        .name("Retry.v2026 ? 25 : undefined")
-                                        .build()
+                                    Symbol.builder().name("25").build()
                                 );
                             }
                             return Collections.emptyMap();
@@ -84,19 +80,6 @@ public class AddRetryCustomizations implements TypeScriptIntegration {
                 );
                 break;
             }
-        }
-    }
-
-    @Override
-    public void addConfigInterfaceFields(
-        TypeScriptSettings settings,
-        Model model,
-        SymbolProvider symbolProvider,
-        TypeScriptWriter writer
-    ) {
-        ServiceShape service = settings.getService(model);
-        if (isDynamoDB(service)) {
-            writer.addImportSubmodule("Retry", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.RETRY);
         }
     }
 
@@ -118,34 +101,10 @@ public class AddRetryCustomizations implements TypeScriptIntegration {
                         TypeScriptDependency.SMITHY_CORE,
                         SmithyCoreSubmodules.RETRY
                     );
-                    writer.addImportSubmodule(
-                        "Retry",
-                        null,
-                        TypeScriptDependency.SMITHY_CORE,
-                        SmithyCoreSubmodules.RETRY
-                    );
-                    writer.write(
-                        "loadNodeConfig("
-                            + "Retry.v2026 ? { ...NODE_MAX_ATTEMPT_CONFIG_OPTIONS, default: 4 }"
-                            + " : NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config)"
-                    );
+                    writer.write("loadNodeConfig({ ...NODE_MAX_ATTEMPT_CONFIG_OPTIONS, default: 4 }, config)");
                 });
             } else if (target.equals(LanguageTarget.BROWSER)) {
-                configs.put("maxAttempts", writer -> {
-                    writer.addImportSubmodule(
-                        "Retry",
-                        null,
-                        TypeScriptDependency.SMITHY_CORE,
-                        SmithyCoreSubmodules.RETRY
-                    );
-                    writer.addImportSubmodule(
-                        "DEFAULT_MAX_ATTEMPTS",
-                        null,
-                        TypeScriptDependency.SMITHY_CORE,
-                        SmithyCoreSubmodules.RETRY
-                    );
-                    writer.write("(Retry.v2026 ? 4 : DEFAULT_MAX_ATTEMPTS)");
-                });
+                configs.put("maxAttempts", writer -> writer.write("4"));
             }
             return configs;
         }
