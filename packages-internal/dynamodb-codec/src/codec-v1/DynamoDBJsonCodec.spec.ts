@@ -125,4 +125,20 @@ describe(DynamoDBJsonCodec.name, () => {
     const baseDeserialization = await baseDeserializer.read(AttributeValue, JSON.stringify(canonicalSerialization));
     expect(baseDeserialization).toEqual(avInput);
   });
+
+  it("preserves __proto__ map keys", async () => {
+    const input = JSON.parse(`{"M":{"__proto__":{"S":"value"}}}`);
+
+    serializer.write(AttributeValue, input);
+    const serialization = JSON.parse(serializer.flush());
+    expect(Object.getPrototypeOf(serialization.M)).toBe(Object.prototype);
+    expect(Object.prototype.hasOwnProperty.call(serialization.M, "__proto__")).toBe(true);
+    expect(serialization.M.__proto__).toEqual({ S: "value" });
+
+    const deserialization = await deserializer.read(AttributeValue, JSON.stringify(input));
+    expect(Object.getPrototypeOf(deserialization.M)).toBe(Object.prototype);
+    expect(Object.prototype.hasOwnProperty.call(deserialization.M, "__proto__")).toBe(true);
+    expect(deserialization.M.__proto__).toEqual({ S: "value" });
+    expect(({} as any).value).toBeUndefined();
+  });
 });

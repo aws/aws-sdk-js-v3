@@ -307,3 +307,32 @@ describe("object with function property", () => {
     });
   });
 });
+
+describe("__proto__ attributes", () => {
+  const keyNodes = { Parent: { "*": {} } };
+
+  it("preserves keys while marshalling", () => {
+    const input = JSON.parse(`{"__proto__":{"unmodeled":true},"Parent":{"__proto__":{"id":1}}}`);
+    const output = marshallInput(input, keyNodes, { convertTopLevelContainer: true });
+
+    expect(Object.getPrototypeOf(output)).toBe(Object.prototype);
+    expect(Object.prototype.hasOwnProperty.call(output, "__proto__")).toBe(true);
+    expect(Object.getPrototypeOf(output.Parent)).toBe(Object.prototype);
+    expect(Object.prototype.hasOwnProperty.call(output.Parent, "__proto__")).toBe(true);
+    expect(output.Parent.__proto__).toEqual({ id: { N: "1" } });
+    expect(output.Parent.id).toBeUndefined();
+  });
+
+  it("preserves keys while unmarshalling", () => {
+    const input = JSON.parse(`{"__proto__":{"unmodeled":true},"Parent":{"__proto__":{"id":{"N":"1"}}}}`);
+    const output = unmarshallOutput(input, keyNodes, { convertWithoutMapWrapper: true });
+
+    expect(Object.getPrototypeOf(output)).toBe(Object.prototype);
+    expect(Object.prototype.hasOwnProperty.call(output, "__proto__")).toBe(true);
+    expect(Object.getPrototypeOf(output.Parent)).toBe(Object.prototype);
+    expect(Object.prototype.hasOwnProperty.call(output.Parent, "__proto__")).toBe(true);
+    expect(output.Parent.__proto__).toEqual({ id: 1 });
+    expect(output.Parent.id).toBeUndefined();
+    expect(({} as any).unmodeled).toBeUndefined();
+  });
+});
