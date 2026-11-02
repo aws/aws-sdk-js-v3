@@ -506,6 +506,69 @@ describe(Upload.name, () => {
         expect(PutObjectCommand).toHaveBeenCalledTimes(0);
       });
     });
+
+    it("should not forward PUT-only or object-level Checksum* params to UploadPart", async () => {
+      const largeBuffer = Buffer.from("#".repeat(MOCK_PART_SIZE + 10));
+      const upload = new Upload({
+        params: {
+          ...params,
+          Body: largeBuffer,
+          IfNoneMatch: "*",
+          ContentType: "application/json",
+          ContentMD5: "object-level-md5-base64==",
+          ChecksumSHA256: "object-level-sha256-base64==",
+          SSECustomerAlgorithm: "AES256",
+        },
+        partSize: MOCK_PART_SIZE,
+        client: new S3({}),
+      });
+
+      await upload.done();
+
+      expect(UploadPartCommand).toHaveBeenCalledTimes(2);
+
+      // PUT-only fields S3 rejects on UploadPart (501 NotImplemented).
+      expect(UploadPartCommand).not.toHaveBeenCalledWith(expect.objectContaining({ IfNoneMatch: "*" }));
+      expect(UploadPartCommand).not.toHaveBeenCalledWith(expect.objectContaining({ ContentType: "application/json" }));
+
+      // Object-level checksums: forwarding them as per-part values causes BadDigest (#6742).
+      expect(UploadPartCommand).not.toHaveBeenCalledWith(
+        expect.objectContaining({ ContentMD5: "object-level-md5-base64==" })
+      );
+      expect(UploadPartCommand).not.toHaveBeenCalledWith(
+        expect.objectContaining({ ChecksumSHA256: "object-level-sha256-base64==" })
+      );
+
+      // UploadPart-valid fields still flow through.
+      expect(UploadPartCommand).toHaveBeenCalledWith(expect.objectContaining({ SSECustomerAlgorithm: "AES256" }));
+
+      // CompleteMultipartUpload still receives IfNoneMatch (valid there per the S3 API).
+      expect(CompleteMultipartUploadCommand).toHaveBeenCalledWith(expect.objectContaining({ IfNoneMatch: "*" }));
+    });
+
+    it("should preserve object-level params on the single-part PUT path", async () => {
+      const upload = new Upload({
+        params: {
+          ...params,
+          IfNoneMatch: "*",
+          ContentMD5: "object-level-md5-base64==",
+          ChecksumSHA256: "object-level-sha256-base64==",
+        },
+        client: new S3({}),
+      });
+
+      await upload.done();
+
+      expect(PutObjectCommand).toHaveBeenCalledTimes(1);
+      expect(PutObjectCommand).toHaveBeenCalledWith(
+        expect.objectContaining({
+          IfNoneMatch: "*",
+          ContentMD5: "object-level-md5-base64==",
+          ChecksumSHA256: "object-level-sha256-base64==",
+        })
+      );
+      expect(UploadPartCommand).toHaveBeenCalledTimes(0);
+    });
   });
 
   it("should add tags to the object if tags have been added PUT", async () => {
