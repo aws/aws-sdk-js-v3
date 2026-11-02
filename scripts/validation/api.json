@@ -278,6 +278,7 @@
     "FunctionObject": "type(object)",
     "FunctionReturn": "type(union)",
     "getAwsRegionExtensionConfiguration": "function",
+    "getDefaultSocketTimeout": "function(node-only)",
     "getHostHeaderPlugin": "function",
     "getLoggerPlugin": "function",
     "getLongPollPlugin": "function",

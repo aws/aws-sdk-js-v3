@@ -7,6 +7,7 @@ export { getLongPollPlugin } from "./longPollMiddleware";
 export { setCredentialFeature } from "./setCredentialFeature";
 export { setFeature } from "./setFeature";
 export { setTokenFeature } from "./setTokenFeature";
+export const getDefaultSocketTimeout = no;
 
 // middleware-host-header
 export {
