@@ -138,6 +138,36 @@ describe(XhrHttpHandler.name, () => {
     ]);
   });
 
+  it.each([{ bytes: [] }, { bytes: [0, 128, 255] }])(
+    "should handle arraybuffer responses with bytes $bytes without reading responseText",
+    async ({ bytes }) => {
+      const handler = new XhrHttpHandler();
+      const buffer = new Uint8Array(bytes).buffer;
+      const responseText = vi.fn(() => {
+        throw new DOMException("responseText is unavailable for arraybuffer responses", "InvalidStateError");
+      });
+
+      handler.on(XhrHttpHandler.EVENTS.BEFORE_XHR_SEND, (xhr) => {
+        xhr.responseType = "arraybuffer";
+        Object.defineProperty(xhr, "responseText", { get: responseText });
+        xhr.response = null;
+        for (const readyState of [2, 3]) {
+          xhr.readyState = readyState;
+          xhr.eventListeners.readystatechange[0]();
+        }
+        xhr.readyState = XMLHttpRequest.DONE;
+        xhr.response = buffer;
+      });
+
+      const { response } = await handler.handle(new HttpRequest({ hostname: "localhost" }));
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toBeInstanceOf(Blob);
+      expect(new Uint8Array(await response.body.arrayBuffer())).toEqual(new Uint8Array(bytes));
+      expect(responseText).not.toHaveBeenCalled();
+    }
+  );
+
   it("should respond to AbortSignal", async () => {
     const handler = new XhrHttpHandler();
     const abortController = new AbortController();
