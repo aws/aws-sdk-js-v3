@@ -801,6 +801,62 @@ describe(Upload.name, () => {
     }
   });
 
+  it("should pass abortSignal to client.send for single-part (PutObject) uploads (#5109)", async () => {
+    const sendMock = vi.fn().mockImplementation(async (command) => command);
+    vi.mocked(S3Client).prototype.send = sendMock as any;
+
+    const abortController = new AbortController();
+    const upload = new Upload({
+      params,
+      client: new S3Client({}),
+      abortController,
+    });
+
+    await upload.done();
+
+    // Find the PutObjectCommand send call.
+    const putCall = sendMock.mock.calls.find(
+      (call) => (call[0] as any) instanceof PutObjectCommand || (call[0] as any)?.ETag === "mockEtag"
+    );
+    expect(putCall).toBeDefined();
+    // Second arg must be options object containing abortSignal.
+    expect(putCall![1]).toBeDefined();
+    expect(putCall![1].abortSignal).toBe(abortController.signal);
+  });
+
+  it("should abort an in-flight single-part (PutObject) upload (#5109)", async () => {
+    // Mock send to never resolve unless aborted - this simulates an in-flight request.
+    vi.mocked(S3Client).prototype.send = vi.fn().mockImplementation((command, options) => {
+      return new Promise((_resolve, reject) => {
+        const signal: AbortSignal | undefined = options?.abortSignal;
+        if (signal?.aborted) {
+          const err = new Error("Request aborted");
+          err.name = "AbortError";
+          reject(err);
+          return;
+        }
+        signal?.addEventListener?.("abort", () => {
+          const err = new Error("Request aborted");
+          err.name = "AbortError";
+          reject(err);
+        });
+      });
+    }) as any;
+
+    const abortController = new AbortController();
+    const upload = new Upload({
+      params,
+      client: new S3Client({}),
+      abortController,
+    });
+
+    const donePromise = upload.done();
+    // Trigger abort while the single-part PutObject is "in-flight".
+    setTimeout(() => abortController.abort(), 5);
+
+    await expect(donePromise).rejects.toMatchObject({ name: "AbortError" });
+  });
+
   it("should reject calling .done() more than once on an instance", async () => {
     const upload = new Upload({
       params,
