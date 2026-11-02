@@ -1,0 +1,23 @@
+Run: 20261014-021410-e2b419
+
+  Engine:     js-tm  node v20.20.2
+  Instance:   m8ib.48xlarge (us-west-2b)
+  Workload:   smilkuri-new-tm-benchmarks/{bench/1TiB.run1, bench/1TiB.run2, bench/1TiB.run3, bench/1TiB.run4, bench/1TiB.run5} (download, disk, 5 obj parallel)
+  Mode:       O_DIRECT (TM_O_DIRECT=1)  concurrency=128  partSize=8MiB  uvpool=128  cores=192
+  Dest:       /data/bench
+
+  Iter      Steady St.            Peak       Effective    Duration    Peak Mem     Avg CPU
+     1    110.35 Gbps     182.24 Gbps    113.86 Gbps    386.28s    31.7 GiB    5192%
+     2    109.81 Gbps     170.08 Gbps    113.49 Gbps    387.51s    31.7 GiB    4981%
+     3   FAILED: ENOSPC: no space left on device, write
+
+  Throughput:
+    Median steady state: 110.08 Gbps
+    Median peak:         176.16 Gbps
+    Median effective:    113.49 Gbps  [bytes/duration]
+    Cold iteration 1:    113.86 Gbps effective, 386.28s
+
+  Disk I/O:
+    Write:  14.21 GB/s (mean)
+
+  Results: /data/bench/results/20261014-021410-e2b419
