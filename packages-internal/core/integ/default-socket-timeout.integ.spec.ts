@@ -40,10 +40,10 @@ describe("default socket timeout", () => {
   };
 
   beforeAll(async () => {
-    net.Socket.prototype.setTimeout = function (ms: number, ...rest: any[]) {
+    net.Socket.prototype.setTimeout = function (this: net.Socket, ms: number, ...rest: any[]) {
       return socketSetTimeout.call(this, scale(ms), ...rest);
     } as typeof socketSetTimeout;
-    http.ClientRequest.prototype.setTimeout = function (ms: number, ...rest: any[]) {
+    http.ClientRequest.prototype.setTimeout = function (this: http.ClientRequest, ms: number, ...rest: any[]) {
       return requestSetTimeout.call(this, scale(ms), ...rest);
     } as typeof requestSetTimeout;
     http2.connect = ((...args: Parameters<typeof http2.connect>) => {
