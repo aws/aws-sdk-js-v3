@@ -479,7 +479,7 @@ const client = new FooClient({
 });
 ```
 
-If not provided in the JavaScript code, the following process envrionment variables will
+If not provided in the JavaScript code, the following process environment variables will
 be read:
 
 ```

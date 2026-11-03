@@ -99,7 +99,7 @@ await client.send(new GetObjectCommand(/*...*/));
 ##### Accessing the `XMLHttpRequest` object.
 
 You can access the `XMLHttpRequest` object to inspect it or to
-attach addiional event listeners.
+attach additional event listeners.
 
 ```javascript
 import { XhrHttpHandler } from "@aws-sdk/xhr-http-handler";
