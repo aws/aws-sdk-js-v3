@@ -16,16 +16,14 @@ const _X_AMZN_TRACE_ID = "_X_AMZN_TRACE_ID";
 
 // headers
 const X_AMZN_TRACE_ID = "X-Amzn-Trace-Id";
-const TRACEPARENT = "traceparent";
-const TRACESTATE = "tracestate";
 const BAGGAGE = "baggage";
 
 /**
  * Used for two Lambda-related responsibilities:
  * - Inject to trace ID to request header to detect recursion invocation in Lambda.
- * - Propagate W3C trace context headers from
- *   the Lambda InvokeStore onto outbound requests, enabling distributed trace
- *   context to flow to downstream calls without creating any spans.
+ * - Propagate the W3C `baggage` header from the Lambda InvokeStore onto
+ *   outbound requests, so caller-scoped context flows to downstream calls
+ *   without creating any spans.
  * @internal
  */
 export const recursionDetectionMiddleware =
@@ -61,25 +59,16 @@ export const recursionDetectionMiddleware =
     }
 
     {
-      // block: w3c tracing headers
+      // block: w3c baggage propagation
 
       sanitizeTraceHeaders(request.headers);
 
-      const existingTraceparent = request.headers[TRACEPARENT];
+      const existingBaggage = request.headers[BAGGAGE];
 
-      if (!existingTraceparent) {
-        const traceparent = (invokeStore ??= await InvokeStore.getInstanceAsync())?.getTraceparent?.();
-        if (traceparent) {
-          request.headers[TRACEPARENT] = traceparent;
-
-          const tracestate = invokeStore?.getTracestate?.();
-          if (tracestate) {
-            request.headers[TRACESTATE] = tracestate;
-          }
-          const baggage = invokeStore?.getBaggage?.();
-          if (baggage) {
-            request.headers[BAGGAGE] = baggage;
-          }
+      if (!existingBaggage) {
+        const baggage = (invokeStore ??= await InvokeStore.getInstanceAsync())?.getBaggage?.();
+        if (baggage) {
+          request.headers[BAGGAGE] = baggage;
         }
       }
     }
@@ -88,13 +77,13 @@ export const recursionDetectionMiddleware =
   };
 
 /**
- * Rewrites any trace context header that is present under a non-canonical casing
- * (e.g. "TraceParent") to its lowercase canonical name, in place.
+ * Rewrites the `baggage` header to its lowercase canonical name when
+ * it is present under a non-canonical casing (e.g. "Baggage"), in place.
  */
 function sanitizeTraceHeaders(headers: HeaderBag): void {
   for (const header of Object.keys(headers)) {
     const lower = header.toLowerCase();
-    if (header !== lower && (lower === TRACEPARENT || lower === TRACESTATE || lower === BAGGAGE)) {
+    if (header !== lower && lower === BAGGAGE) {
       headers[lower] = headers[header];
       delete headers[header];
     }
