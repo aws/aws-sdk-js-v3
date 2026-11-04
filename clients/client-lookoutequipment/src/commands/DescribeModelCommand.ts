@@ -26,6 +26,8 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * <p>Provides a JSON containing the overall information about a specific machine learning
  *          model, including model name and ARN, dataset, training and evaluation information, status,
  *          and so on. </p>
+ *
+ * @deprecated (since 2026-10-07) End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

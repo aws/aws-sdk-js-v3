@@ -25,6 +25,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
 /**
  * <p>Lists all datasets currently available in your account, filtering on the dataset name.
  *       </p>
+ *
+ * @deprecated (since 2026-10-07) End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

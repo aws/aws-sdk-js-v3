@@ -28,6 +28,8 @@ export interface CreateInferenceSchedulerCommandOutput extends CreateInferenceSc
  *          provide an S3 bucket location for the input data, assign it a delimiter between separate
  *          entries in the data, set an offset delay if desired, and set the frequency of inferencing.
  *          You must also provide an S3 bucket location for the output data. </p>
+ *
+ * @deprecated (since 2026-10-07) End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

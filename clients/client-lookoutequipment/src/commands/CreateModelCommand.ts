@@ -32,6 +32,8 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  *          <p>Your model is trained using a portion of the data from your dataset and uses that data
  *          to learn patterns of normal behavior and abnormal patterns that lead to equipment failure.
  *          Another portion of the data is used to evaluate the model's accuracy. </p>
+ *
+ * @deprecated (since 2026-10-07) End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

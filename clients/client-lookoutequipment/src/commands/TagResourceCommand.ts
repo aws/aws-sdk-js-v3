@@ -28,6 +28,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *          resources as well as helping you to search and filter by tag. Multiple tags can be added to
  *          a resource, either when you create it, or later. Up to 50 tags can be associated with each
  *          resource. </p>
+ *
+ * @deprecated (since 2026-10-07) End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

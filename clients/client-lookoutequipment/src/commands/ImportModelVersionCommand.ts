@@ -24,6 +24,8 @@ export interface ImportModelVersionCommandOutput extends ImportModelVersionRespo
 
 /**
  * <p>Imports a model that has been trained successfully.</p>
+ *
+ * @deprecated (since 2026-10-07) End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
