@@ -68,7 +68,7 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
             return;
         }
 
-        writer.addImport("type Readable", "Readable", "node:stream");
+        writer.addImport("type Readable", null, "node:stream");
         writer.addTypeImport("StreamHasher", "__StreamHasher", TypeScriptDependency.SMITHY_TYPES);
         writer.writeDocs(
             "A function that, given a hash constructor and a stream, calculates the \n"

@@ -72,7 +72,7 @@ import type {
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
-import type { Readable as Readable } from "node:stream";
+import type { Readable } from "node:stream";
 
 import {
   type HttpAuthSchemeInputConfig,

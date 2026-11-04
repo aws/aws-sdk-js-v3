@@ -178,12 +178,6 @@
       "rules": {
         "unicorn/prefer-node-protocol": "off"
       }
-    },
-    {
-      "files": ["clients/client-s3/src/S3Client.ts"],
-      "rules": {
-        "no-useless-rename": "off"
-      }
     }
   ],
   "ignorePatterns": [
