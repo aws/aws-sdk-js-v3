@@ -1558,7 +1558,7 @@ export interface WorkspaceProperties {
    *                   <p>Only available for WorkSpaces created with PCoIP bundles.</p>
    *                </li>
    *                <li>
-   *                   <p>The <code>Protocols</code> property is case sensitive. Ensure you use <code>PCOIP</code> or <code>DCV</code> (formerly WSP).</p>
+   *                   <p>The <code>Protocols</code> property is case sensitive. Make sure you specify <code>PCOIP</code> or <code>WSP</code>. To use DCV, specify <code>WSP</code>.</p>
    *                </li>
    *                <li>
    *                   <p>Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based bundles

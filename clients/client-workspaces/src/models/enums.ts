@@ -508,11 +508,17 @@ export type WorkspaceImageState = (typeof WorkspaceImageState)[keyof typeof Work
  */
 export const OperatingSystemName = {
   AMAZON_LINUX_2: "AMAZON_LINUX_2",
+  RHEL_10: "RHEL_10",
   RHEL_8: "RHEL_8",
+  RHEL_9: "RHEL_9",
+  ROCKY_10: "ROCKY_10",
   ROCKY_8: "ROCKY_8",
+  ROCKY_9: "ROCKY_9",
   UBUNTU_18_04: "UBUNTU_18_04",
   UBUNTU_20_04: "UBUNTU_20_04",
   UBUNTU_22_04: "UBUNTU_22_04",
+  UBUNTU_24_04: "UBUNTU_24_04",
+  UBUNTU_26_04: "UBUNTU_26_04",
   UNKNOWN: "UNKNOWN",
   WINDOWS_10: "WINDOWS_10",
   WINDOWS_11: "WINDOWS_11",
