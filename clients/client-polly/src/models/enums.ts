@@ -272,6 +272,33 @@ export type TextType = (typeof TextType)[keyof typeof TextType];
  * @public
  * @enum
  */
+export const ResourceType = {
+  LEXICON: "lexicon",
+} as const;
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  INVALID_INBOUND_EVENT: "invalidInboundEvent",
+  OTHER: "other",
+  UNSUPPORTED_OPERATION: "unsupportedOperation",
+} as const;
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
 export const QuotaCode = {
   INPUT_STREAM_INBOUND_EVENT_TIMEOUT: "input-stream-inbound-event-timeout",
   INPUT_STREAM_TIMEOUT: "input-stream-timeout",
@@ -292,18 +319,3 @@ export const ServiceCode = {
  * @public
  */
 export type ServiceCode = (typeof ServiceCode)[keyof typeof ServiceCode];
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  INVALID_INBOUND_EVENT: "invalidInboundEvent",
-  OTHER: "other",
-  UNSUPPORTED_OPERATION: "unsupportedOperation",
-} as const;
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];

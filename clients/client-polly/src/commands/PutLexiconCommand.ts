@@ -28,6 +28,11 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  *       overwritten by the new lexicon. Lexicon operations have eventual
  *       consistency, therefore, it might take some time before the lexicon is
  *       available to the SynthesizeSpeech operation.</p>
+ *          <p>Overwriting a lexicon keeps its existing tags. You can specify tags
+ *       only when you create a lexicon. If you specify tags for a lexicon that
+ *       already exists, the request fails with a <code>ValidationException</code>.
+ *       To change the tags of an existing lexicon, use <code>TagResource</code>
+ *       and <code>UntagResource</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,6 +45,9 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  * const input = { // PutLexiconInput
  *   Name: "STRING_VALUE", // required
  *   Content: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new PutLexiconCommand(input);
  * const response = await client.send(command);
@@ -57,6 +65,13 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  *  <p>Amazon Polly can't find the specified lexicon. Verify that the lexicon's
  *       name is spelled correctly, and then try again.</p>
  *
+ * @throws {@link InvalidTagParameterException} (client fault)
+ *  <p>The resource ARN or a tag in the request isn't valid. Specify the ARN
+ *       of a supported resource in the Amazon Web Services account and Region of the request.
+ *       Tag keys can have a maximum length of 128 characters, and tag values can
+ *       have a maximum length of 256 characters. Correct the ARN or the tags, and
+ *       then try again.</p>
+ *
  * @throws {@link LexiconSizeExceededException} (client fault)
  *  <p>The maximum size of the specified lexicon would be exceeded by this
  *       operation.</p>
@@ -72,6 +87,11 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  * @throws {@link ServiceFailureException} (server fault)
  *  <p>An unknown condition has caused a service failure.</p>
  *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The list of tags on the resource is over the limit. The maximum number
+ *       of tags that can be applied to a resource is 50. Remove unused tags or
+ *       reduce the number of tags in the request, and then try again.</p>
+ *
  * @throws {@link UnsupportedPlsAlphabetException} (client fault)
  *  <p>The alphabet specified by the lexicon is not a supported alphabet.
  *       Valid values are <code>ipa</code>, <code>x-sampa</code>,
@@ -83,6 +103,9 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  * @throws {@link UnsupportedPlsLanguageException} (client fault)
  *  <p>The language specified in the lexicon is unsupported. For a list of
  *       supported languages, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html">Lexicon Attributes</a>.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by the service.</p>
  *
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>

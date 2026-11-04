@@ -531,9 +531,69 @@ export interface ListSpeechSynthesisTasksOutput {
 /**
  * @public
  */
+export interface ListTagsForResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the resource for which
+   *       to list the tags. Currently, the only supported resource is an Amazon Polly
+   *       lexicon.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceOutput {
+  /**
+   * <p>The tags for the resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Provides information about a specific throttling reason.</p>
+ * @public
+ */
+export interface ThrottlingReason {
+  /**
+   * <p>The reason code explaining why the request was throttled.</p>
+   * @public
+   */
+  reason?: string | undefined;
+
+  /**
+   * <p>The resource that caused the throttling.</p>
+   * @public
+   */
+  resource?: string | undefined;
+}
+
+/**
+ * <p>Information about a field that failed validation.</p>
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the field that failed validation.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A message describing why the field failed validation.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface PutLexiconInput {
   /**
-   * <p>Name of the lexicon. The name must follow the regular express
+   * <p>Name of the lexicon. The name must follow the regular expression
    *       format [0-9A-Za-z]\{1,20\}. That is, the name is a case-sensitive
    *       alphanumeric string up to 20 characters long. </p>
    * @public
@@ -545,6 +605,17 @@ export interface PutLexiconInput {
    * @public
    */
   Content: string | undefined;
+
+  /**
+   * <p>The metadata that you apply to the lexicon to help you categorize and
+   *       organize it. Each tag consists of a key and an optional value, both of
+   *       which you define. Tag keys can have a maximum character length of 128
+   *       characters, and tag values can have a maximum length of 256
+   *       characters. You can't replace the tags of an existing lexicon by
+   *       overwriting it with PutLexicon.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -692,42 +763,6 @@ export interface StreamClosedEvent {
    * @public
    */
   RequestCharacters?: number | undefined;
-}
-
-/**
- * <p>Provides information about a specific throttling reason.</p>
- * @public
- */
-export interface ThrottlingReason {
-  /**
-   * <p>The reason code explaining why the request was throttled.</p>
-   * @public
-   */
-  reason?: string | undefined;
-
-  /**
-   * <p>The resource that caused the throttling.</p>
-   * @public
-   */
-  resource?: string | undefined;
-}
-
-/**
- * <p>Information about a field that failed validation.</p>
- * @public
- */
-export interface ValidationExceptionField {
-  /**
-   * <p>The name of the field that failed validation.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A message describing why the field failed validation.</p>
-   * @public
-   */
-  message: string | undefined;
 }
 
 /**
@@ -1139,3 +1174,51 @@ export interface SynthesizeSpeechOutput {
    */
   RequestCharacters?: number | undefined;
 }
+
+/**
+ * @public
+ */
+export interface TagResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to which to add tags.
+   *       Currently, the only supported resource is an Amazon Polly lexicon.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The tags to add to the resource, as key-value pairs. Tag keys can have
+   *       a maximum character length of 128 characters, and tag values can have a
+   *       maximum length of 256 characters.</p>
+   * @public
+   */
+  Tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceOutput {}
+
+/**
+ * @public
+ */
+export interface UntagResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource from which to remove
+   *       tags. Currently, the only supported resource is an Amazon Polly lexicon.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The keys of the tags to be removed.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceOutput {}

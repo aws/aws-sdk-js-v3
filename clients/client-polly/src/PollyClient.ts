@@ -79,6 +79,10 @@ import type {
   ListSpeechSynthesisTasksCommandInput,
   ListSpeechSynthesisTasksCommandOutput,
 } from "./commands/ListSpeechSynthesisTasksCommand";
+import type {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import type { PutLexiconCommandInput, PutLexiconCommandOutput } from "./commands/PutLexiconCommand";
 import type {
   StartSpeechSynthesisStreamCommandInput,
@@ -89,6 +93,8 @@ import type {
   StartSpeechSynthesisTaskCommandOutput,
 } from "./commands/StartSpeechSynthesisTaskCommand";
 import type { SynthesizeSpeechCommandInput, SynthesizeSpeechCommandOutput } from "./commands/SynthesizeSpeechCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -110,10 +116,13 @@ export type ServiceInputTypes =
   | GetSpeechSynthesisTaskCommandInput
   | ListLexiconsCommandInput
   | ListSpeechSynthesisTasksCommandInput
+  | ListTagsForResourceCommandInput
   | PutLexiconCommandInput
   | StartSpeechSynthesisStreamCommandInput
   | StartSpeechSynthesisTaskCommandInput
-  | SynthesizeSpeechCommandInput;
+  | SynthesizeSpeechCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 /**
  * @public
@@ -125,10 +134,13 @@ export type ServiceOutputTypes =
   | GetSpeechSynthesisTaskCommandOutput
   | ListLexiconsCommandOutput
   | ListSpeechSynthesisTasksCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutLexiconCommandOutput
   | StartSpeechSynthesisStreamCommandOutput
   | StartSpeechSynthesisTaskCommandOutput
-  | SynthesizeSpeechCommandOutput;
+  | SynthesizeSpeechCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 /**
  * @public

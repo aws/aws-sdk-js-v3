@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
-import type { QuotaCode, ServiceCode, ValidationExceptionReason } from "./enums";
+import type { QuotaCode, ResourceType, ServiceCode, ValidationExceptionReason } from "./enums";
 import type { ThrottlingReason, ValidationExceptionField } from "./models_0";
 import { PollyServiceException as __BaseException } from "./PollyServiceException";
 
@@ -272,6 +272,31 @@ export class InvalidSsmlException extends __BaseException {
 }
 
 /**
+ * <p>The resource ARN or a tag in the request isn't valid. Specify the ARN
+ *       of a supported resource in the Amazon Web Services account and Region of the request.
+ *       Tag keys can have a maximum length of 128 characters, and tag values can
+ *       have a maximum length of 256 characters. Correct the ARN or the tags, and
+ *       then try again.</p>
+ * @public
+ */
+export class InvalidTagParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#InvalidTagParameterException";
+  readonly name = "InvalidTagParameterException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTagParameterException, __BaseException>) {
+    super({
+      name: "InvalidTagParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTagParameterException.prototype);
+  }
+}
+
+/**
  * <p>The language specified is not currently supported by Amazon Polly in this
  *       capacity.</p>
  * @public
@@ -312,6 +337,106 @@ export class LexiconSizeExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, LexiconSizeExceededException.prototype);
+  }
+}
+
+/**
+ * <p>Amazon Polly can't find the specified resource. Verify that the resource
+ *       exists in the Amazon Web Services account and Region of the request and that its ARN is
+ *       spelled correctly, and then try again.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#ResourceNotFoundException";
+  readonly name = "ResourceNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The identifier of the resource that wasn't found.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource that wasn't found.</p>
+   * @public
+   */
+  resourceType: ResourceType | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
+ * <p>The request was denied because of request throttling.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#ThrottlingException";
+  readonly name = "ThrottlingException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A list of reasons explaining why the request was throttled.</p>
+   * @public
+   */
+  throttlingReasons?: ThrottlingReason[] | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.throttlingReasons = opts.throttlingReasons;
+  }
+}
+
+/**
+ * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#ValidationException";
+  readonly name = "ValidationException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The reason the request failed validation.</p>
+   * @public
+   */
+  reason: ValidationExceptionReason | undefined;
+
+  /**
+   * <p>The fields that caused the validation error.</p>
+   * @public
+   */
+  fields?: ValidationExceptionField[] | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+    this.fields = opts.fields;
   }
 }
 
@@ -379,6 +504,29 @@ export class MaxLexiconsNumberExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, MaxLexiconsNumberExceededException.prototype);
+  }
+}
+
+/**
+ * <p>The list of tags on the resource is over the limit. The maximum number
+ *       of tags that can be applied to a resource is 50. Remove unused tags or
+ *       reduce the number of tags in the request, and then try again.</p>
+ * @public
+ */
+export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#TooManyTagsException";
+  readonly name = "TooManyTagsException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
   }
 }
 
@@ -462,69 +610,6 @@ export class ServiceQuotaExceededException extends __BaseException {
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
     this.quotaCode = opts.quotaCode;
     this.serviceCode = opts.serviceCode;
-  }
-}
-
-/**
- * <p>The request was denied because of request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.polly#ThrottlingException";
-  readonly name = "ThrottlingException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>A list of reasons explaining why the request was throttled.</p>
-   * @public
-   */
-  throttlingReasons?: ThrottlingReason[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.throttlingReasons = opts.throttlingReasons;
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by the service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.polly#ValidationException";
-  readonly name = "ValidationException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>The reason the request failed validation.</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The fields that caused the validation error.</p>
-   * @public
-   */
-  fields?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fields = opts.fields;
   }
 }
 

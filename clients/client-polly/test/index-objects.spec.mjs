@@ -36,6 +36,8 @@ import {
   InvalidSnsTopicArnException$,
   InvalidSsmlException,
   InvalidSsmlException$,
+  InvalidTagParameterException,
+  InvalidTagParameterException$,
   InvalidTaskIdException,
   InvalidTaskIdException$,
   LanguageCode,
@@ -56,6 +58,10 @@ import {
   ListSpeechSynthesisTasksCommand,
   ListSpeechSynthesisTasksInput$,
   ListSpeechSynthesisTasksOutput$,
+  ListTagsForResource$,
+  ListTagsForResourceCommand,
+  ListTagsForResourceInput$,
+  ListTagsForResourceOutput$,
   MarksNotSupportedForFormatException,
   MarksNotSupportedForFormatException$,
   MaxLexemeLengthExceededException,
@@ -72,6 +78,9 @@ import {
   PutLexiconInput$,
   PutLexiconOutput$,
   QuotaCode,
+  ResourceNotFoundException,
+  ResourceNotFoundException$,
+  ResourceType,
   ServiceCode,
   ServiceFailureException,
   ServiceFailureException$,
@@ -98,6 +107,10 @@ import {
   SynthesizeSpeechCommand,
   SynthesizeSpeechInput$,
   SynthesizeSpeechOutput$,
+  TagResource$,
+  TagResourceCommand,
+  TagResourceInput$,
+  TagResourceOutput$,
   TaskStatus,
   TextEvent$,
   TextLengthExceededException,
@@ -106,10 +119,16 @@ import {
   ThrottlingException,
   ThrottlingException$,
   ThrottlingReason$,
+  TooManyTagsException,
+  TooManyTagsException$,
   UnsupportedPlsAlphabetException,
   UnsupportedPlsAlphabetException$,
   UnsupportedPlsLanguageException,
   UnsupportedPlsLanguageException$,
+  UntagResource$,
+  UntagResourceCommand,
+  UntagResourceInput$,
+  UntagResourceOutput$,
   ValidationException,
   ValidationException$,
   ValidationExceptionField$,
@@ -134,6 +153,8 @@ assert(typeof ListLexiconsCommand === "function");
 assert(typeof ListLexicons$ === "object");
 assert(typeof ListSpeechSynthesisTasksCommand === "function");
 assert(typeof ListSpeechSynthesisTasks$ === "object");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof ListTagsForResource$ === "object");
 assert(typeof PutLexiconCommand === "function");
 assert(typeof PutLexicon$ === "object");
 assert(typeof StartSpeechSynthesisStreamCommand === "function");
@@ -142,6 +163,10 @@ assert(typeof StartSpeechSynthesisTaskCommand === "function");
 assert(typeof StartSpeechSynthesisTask$ === "object");
 assert(typeof SynthesizeSpeechCommand === "function");
 assert(typeof SynthesizeSpeech$ === "object");
+assert(typeof TagResourceCommand === "function");
+assert(typeof TagResource$ === "object");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UntagResource$ === "object");
 // structural schemas
 assert(typeof AudioEvent$ === "object");
 assert(typeof CloseStreamEvent$ === "object");
@@ -161,6 +186,8 @@ assert(typeof ListLexiconsInput$ === "object");
 assert(typeof ListLexiconsOutput$ === "object");
 assert(typeof ListSpeechSynthesisTasksInput$ === "object");
 assert(typeof ListSpeechSynthesisTasksOutput$ === "object");
+assert(typeof ListTagsForResourceInput$ === "object");
+assert(typeof ListTagsForResourceOutput$ === "object");
 assert(typeof PutLexiconInput$ === "object");
 assert(typeof PutLexiconOutput$ === "object");
 assert(typeof StartSpeechSynthesisStreamActionStream$ === "object");
@@ -173,8 +200,12 @@ assert(typeof StreamClosedEvent$ === "object");
 assert(typeof SynthesisTask$ === "object");
 assert(typeof SynthesizeSpeechInput$ === "object");
 assert(typeof SynthesizeSpeechOutput$ === "object");
+assert(typeof TagResourceInput$ === "object");
+assert(typeof TagResourceOutput$ === "object");
 assert(typeof TextEvent$ === "object");
 assert(typeof ThrottlingReason$ === "object");
+assert(typeof UntagResourceInput$ === "object");
+assert(typeof UntagResourceOutput$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 assert(typeof Voice$ === "object");
 // enums
@@ -183,6 +214,7 @@ assert(typeof Gender === "object");
 assert(typeof LanguageCode === "object");
 assert(typeof OutputFormat === "object");
 assert(typeof QuotaCode === "object");
+assert(typeof ResourceType === "object");
 assert(typeof ServiceCode === "object");
 assert(typeof SpeechMarkType === "object");
 assert(typeof TaskStatus === "object");
@@ -206,6 +238,8 @@ assert(InvalidSnsTopicArnException.prototype instanceof PollyServiceException);
 assert(typeof InvalidSnsTopicArnException$ === "object");
 assert(InvalidSsmlException.prototype instanceof PollyServiceException);
 assert(typeof InvalidSsmlException$ === "object");
+assert(InvalidTagParameterException.prototype instanceof PollyServiceException);
+assert(typeof InvalidTagParameterException$ === "object");
 assert(InvalidTaskIdException.prototype instanceof PollyServiceException);
 assert(typeof InvalidTaskIdException$ === "object");
 assert(LanguageNotSupportedException.prototype instanceof PollyServiceException);
@@ -220,6 +254,8 @@ assert(MaxLexemeLengthExceededException.prototype instanceof PollyServiceExcepti
 assert(typeof MaxLexemeLengthExceededException$ === "object");
 assert(MaxLexiconsNumberExceededException.prototype instanceof PollyServiceException);
 assert(typeof MaxLexiconsNumberExceededException$ === "object");
+assert(ResourceNotFoundException.prototype instanceof PollyServiceException);
+assert(typeof ResourceNotFoundException$ === "object");
 assert(ServiceFailureException.prototype instanceof PollyServiceException);
 assert(typeof ServiceFailureException$ === "object");
 assert(ServiceQuotaExceededException.prototype instanceof PollyServiceException);
@@ -232,6 +268,8 @@ assert(TextLengthExceededException.prototype instanceof PollyServiceException);
 assert(typeof TextLengthExceededException$ === "object");
 assert(ThrottlingException.prototype instanceof PollyServiceException);
 assert(typeof ThrottlingException$ === "object");
+assert(TooManyTagsException.prototype instanceof PollyServiceException);
+assert(typeof TooManyTagsException$ === "object");
 assert(UnsupportedPlsAlphabetException.prototype instanceof PollyServiceException);
 assert(typeof UnsupportedPlsAlphabetException$ === "object");
 assert(UnsupportedPlsLanguageException.prototype instanceof PollyServiceException);

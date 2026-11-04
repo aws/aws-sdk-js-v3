@@ -38,6 +38,7 @@ const _ISKE = "InvalidS3KeyException";
 const _ISRE = "InvalidSampleRateException";
 const _ISTAE = "InvalidSnsTopicArnException";
 const _ITIE = "InvalidTaskIdException";
+const _ITPE = "InvalidTagParameterException";
 const _L = "Lexicon";
 const _LA = "LexiconAttributes";
 const _LAe = "LexiconArn";
@@ -58,6 +59,9 @@ const _LSEE = "LexiconSizeExceededException";
 const _LSST = "ListSpeechSynthesisTasks";
 const _LSSTI = "ListSpeechSynthesisTasksInput";
 const _LSSTO = "ListSpeechSynthesisTasksOutput";
+const _LTFR = "ListTagsForResource";
+const _LTFRI = "ListTagsForResourceInput";
+const _LTFRO = "ListTagsForResourceOutput";
 const _Le = "Lexicons";
 const _MLLEE = "MaxLexemeLengthExceededException";
 const _MLNEE = "MaxLexiconsNumberExceededException";
@@ -72,7 +76,9 @@ const _OU = "OutputUri";
 const _PL = "PutLexicon";
 const _PLI = "PutLexiconInput";
 const _PLO = "PutLexiconOutput";
+const _RA = "ResourceArn";
 const _RC = "RequestCharacters";
+const _RNFE = "ResourceNotFoundException";
 const _S = "Size";
 const _SCE = "StreamClosedEvent";
 const _SE = "SupportedEngines";
@@ -97,18 +103,27 @@ const _STA = "SnsTopicArn";
 const _STNFE = "SynthesisTaskNotFoundException";
 const _STy = "SynthesisTasks";
 const _St = "Status";
-const _T = "Text";
+const _T = "Tags";
 const _TE = "ThrottlingException";
 const _TEe = "TextEvent";
 const _TI = "TaskId";
+const _TK = "TagKeys";
 const _TLEE = "TextLengthExceededException";
+const _TMTE = "TooManyTagsException";
 const _TR = "ThrottlingReason";
+const _TRI = "TagResourceInput";
 const _TRL = "ThrottlingReasonList";
+const _TRO = "TagResourceOutput";
+const _TRa = "TagResource";
 const _TS = "TaskStatus";
 const _TSR = "TaskStatusReason";
 const _TT = "TextType";
+const _Te = "Text";
 const _UPAE = "UnsupportedPlsAlphabetException";
 const _UPLE = "UnsupportedPlsLanguageException";
+const _UR = "UntagResource";
+const _URI = "UntagResourceInput";
+const _URO = "UntagResourceOutput";
 const _V = "Voices";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
@@ -116,6 +131,7 @@ const _VEFL = "ValidationExceptionFieldList";
 const _VI = "VoiceId";
 const _VL = "VoiceList";
 const _Vo = "Voice";
+const _a = "arn";
 const _aQE = "awsQueryError";
 const _c = "client";
 const _e = "error";
@@ -129,6 +145,8 @@ const _m = "message";
 const _n = "name";
 const _qC = "quotaCode";
 const _r = "reason";
+const _rI = "resourceId";
+const _rT = "resourceType";
 const _re = "resource";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.polly";
 const _sC = "serviceCode";
@@ -149,6 +167,7 @@ import { TypeRegistry } from "@smithy/core/schema";
 import type {
   StaticErrorSchema,
   StaticListSchema,
+  StaticMapSchema,
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
@@ -164,6 +183,7 @@ import {
   InvalidSampleRateException,
   InvalidSnsTopicArnException,
   InvalidSsmlException,
+  InvalidTagParameterException,
   InvalidTaskIdException,
   LanguageNotSupportedException,
   LexiconNotFoundException,
@@ -171,12 +191,14 @@ import {
   MarksNotSupportedForFormatException,
   MaxLexemeLengthExceededException,
   MaxLexiconsNumberExceededException,
+  ResourceNotFoundException,
   ServiceFailureException,
   ServiceQuotaExceededException,
   SsmlMarksNotSupportedForTextTypeException,
   SynthesisTaskNotFoundException,
   TextLengthExceededException,
   ThrottlingException,
+  TooManyTagsException,
   UnsupportedPlsAlphabetException,
   UnsupportedPlsLanguageException,
   ValidationException,
@@ -236,6 +258,12 @@ export var InvalidSsmlException$: StaticErrorSchema = [-3, n0, _ISE,
   [0]
 ];
 n0_registry.registerError(InvalidSsmlException$, InvalidSsmlException);
+export var InvalidTagParameterException$: StaticErrorSchema = [-3, n0, _ITPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTagParameterException$, InvalidTagParameterException);
 export var InvalidTaskIdException$: StaticErrorSchema = [-3, n0, _ITIE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
@@ -278,6 +306,12 @@ export var MaxLexiconsNumberExceededException$: StaticErrorSchema = [-3, n0, _ML
   [0]
 ];
 n0_registry.registerError(MaxLexiconsNumberExceededException$, MaxLexiconsNumberExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE,
   { [_e]: _se, [_hE]: 500 },
   [_m],
@@ -314,6 +348,12 @@ export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   [0, () => ThrottlingReasonList]
 ];
 n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
 export var UnsupportedPlsAlphabetException$: StaticErrorSchema = [-3, n0, _UPAE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
@@ -433,10 +473,20 @@ export var ListSpeechSynthesisTasksOutput$: StaticStructureSchema = [3, n0, _LSS
   [_NT, _STy],
   [0, () => SynthesisTasks]
 ];
+export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
+  0,
+  [_RA],
+  [[0, { [_hQ]: _a }]], 1
+];
+export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
+  0,
+  [_T],
+  [128 | 0]
+];
 export var PutLexiconInput$: StaticStructureSchema = [3, n0, _PLI,
   0,
-  [_N, _C],
-  [[0, 1], [() => LexiconContent, 0]], 2
+  [_N, _C, _T],
+  [[0, 1], [() => LexiconContent, 0], 128 | 0], 2
 ];
 export var PutLexiconOutput$: StaticStructureSchema = [3, n0, _PLO,
   0,
@@ -455,7 +505,7 @@ export var StartSpeechSynthesisStreamOutput$: StaticStructureSchema = [3, n0, _S
 ];
 export var StartSpeechSynthesisTaskInput$: StaticStructureSchema = [3, n0, _SSSTI,
   0,
-  [_OF, _OSBN, _T, _VI, _E, _LCa, _LN, _OSKP, _SR, _STA, _SMT, _TT],
+  [_OF, _OSBN, _Te, _VI, _E, _LCa, _LN, _OSKP, _SR, _STA, _SMT, _TT],
   [0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 64 | 0, 0], 4
 ];
 export var StartSpeechSynthesisTaskOutput$: StaticStructureSchema = [3, n0, _SSSTO,
@@ -475,7 +525,7 @@ export var SynthesisTask$: StaticStructureSchema = [3, n0, _ST,
 ];
 export var SynthesizeSpeechInput$: StaticStructureSchema = [3, n0, _SSI,
   0,
-  [_OF, _T, _VI, _E, _LCa, _LN, _SR, _SMT, _TT],
+  [_OF, _Te, _VI, _E, _LCa, _LN, _SR, _SMT, _TT],
   [0, 0, 0, 0, 0, 64 | 0, 0, 64 | 0, 0], 3
 ];
 export var SynthesizeSpeechOutput$: StaticStructureSchema = [3, n0, _SSO,
@@ -483,15 +533,35 @@ export var SynthesizeSpeechOutput$: StaticStructureSchema = [3, n0, _SSO,
   [_AS, _CTo, _RC],
   [[() => AudioStream, 16], [0, { [_hH]: _CT_ }], [1, { [_hH]: _xaR }]]
 ];
+export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
+  0,
+  [_RA, _T],
+  [0, 128 | 0], 2
+];
+export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
+  0,
+  [],
+  []
+];
 export var TextEvent$: StaticStructureSchema = [3, n0, _TEe,
   0,
-  [_T, _TT, _FSC],
+  [_Te, _TT, _FSC],
   [0, 0, () => FlushStreamConfiguration$], 1
 ];
 export var ThrottlingReason$: StaticStructureSchema = [3, n0, _TR,
   0,
   [_r, _re],
   [0, 0]
+];
+export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
+  0,
+  [_RA, _TK],
+  [0, 64 | 0], 2
+];
+export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
+  0,
+  [],
+  []
 ];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
@@ -513,6 +583,7 @@ var SpeechMarkTypeList = 64 | 0;
 var SynthesisTasks: StaticListSchema = [1, n0, _STy,
   0, () => SynthesisTask$
 ];
+var TagKeyList = 64 | 0;
 var ThrottlingReasonList: StaticListSchema = [1, n0, _TRL,
   0, () => ThrottlingReason$
 ];
@@ -522,6 +593,7 @@ var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
 var VoiceList: StaticListSchema = [1, n0, _VL,
   0, () => Voice$
 ];
+var TagMap = 128 | 0;
 export var StartSpeechSynthesisStreamActionStream$: StaticUnionSchema = [4, n0, _SSSSAS,
   { [_st]: 1 },
   [_TEe, _CSE],
@@ -550,6 +622,9 @@ export var ListLexicons$: StaticOperationSchema = [9, n0, _LL,
 export var ListSpeechSynthesisTasks$: StaticOperationSchema = [9, n0, _LSST,
   { [_h]: ["GET", "/v1/synthesisTasks", 200] }, () => ListSpeechSynthesisTasksInput$, () => ListSpeechSynthesisTasksOutput$
 ];
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  { [_h]: ["GET", "/v1/listTagsForResource", 200] }, () => ListTagsForResourceInput$, () => ListTagsForResourceOutput$
+];
 export var PutLexicon$: StaticOperationSchema = [9, n0, _PL,
   { [_h]: ["PUT", "/v1/lexicons/{Name}", 200] }, () => PutLexiconInput$, () => PutLexiconOutput$
 ];
@@ -561,4 +636,10 @@ export var StartSpeechSynthesisTask$: StaticOperationSchema = [9, n0, _SSST,
 ];
 export var SynthesizeSpeech$: StaticOperationSchema = [9, n0, _SS,
   { [_h]: ["POST", "/v1/speech", 200] }, () => SynthesizeSpeechInput$, () => SynthesizeSpeechOutput$
+];
+export var TagResource$: StaticOperationSchema = [9, n0, _TRa,
+  { [_h]: ["POST", "/v1/tagResource", 200] }, () => TagResourceInput$, () => TagResourceOutput$
+];
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  { [_h]: ["POST", "/v1/untagResource", 200] }, () => UntagResourceInput$, () => UntagResourceOutput$
 ];

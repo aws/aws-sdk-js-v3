@@ -38,6 +38,11 @@ import {
   ListSpeechSynthesisTasksCommand,
 } from "./commands/ListSpeechSynthesisTasksCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommand,
+} from "./commands/ListTagsForResourceCommand";
+import {
   type PutLexiconCommandInput,
   type PutLexiconCommandOutput,
   PutLexiconCommand,
@@ -57,6 +62,16 @@ import {
   type SynthesizeSpeechCommandOutput,
   SynthesizeSpeechCommand,
 } from "./commands/SynthesizeSpeechCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
+  UntagResourceCommand,
+} from "./commands/UntagResourceCommand";
 import { paginateListSpeechSynthesisTasks } from "./pagination/ListSpeechSynthesisTasksPaginator";
 import { PollyClient } from "./PollyClient";
 
@@ -67,10 +82,13 @@ const commands = {
   GetSpeechSynthesisTaskCommand,
   ListLexiconsCommand,
   ListSpeechSynthesisTasksCommand,
+  ListTagsForResourceCommand,
   PutLexiconCommand,
   StartSpeechSynthesisStreamCommand,
   StartSpeechSynthesisTaskCommand,
   SynthesizeSpeechCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
 };
 const paginators = {
   paginateListSpeechSynthesisTasks,
@@ -190,6 +208,23 @@ export interface Polly {
   ): void;
 
   /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: PollyRequestOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: PollyRequestOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutLexiconCommand}
    */
   putLexicon(
@@ -255,6 +290,40 @@ export interface Polly {
     args: SynthesizeSpeechCommandInput,
     options: PollyRequestOptions,
     cb: (err: any, data?: SynthesizeSpeechCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: PollyRequestOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: PollyRequestOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: PollyRequestOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: PollyRequestOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
   /**
