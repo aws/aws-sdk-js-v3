@@ -55,7 +55,7 @@ export const getRuntimeConfig = (config: DynamoDBClientConfig) => {
     authSchemePreference: config?.authSchemePreference ?? loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig),
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
-    defaultSocketTimeout: getDefaultSocketTimeout(config?.requestHandler, 300000),
+    defaultSocketTimeout: getDefaultSocketTimeout(config?.requestHandler, 300_000),
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
     endpointDiscoveryEnabledProvider: config?.endpointDiscoveryEnabledProvider ?? loadNodeConfig(NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS, loaderConfig),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(Retry.v2026 ? { ...NODE_MAX_ATTEMPT_CONFIG_OPTIONS, default: 4 } : NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),

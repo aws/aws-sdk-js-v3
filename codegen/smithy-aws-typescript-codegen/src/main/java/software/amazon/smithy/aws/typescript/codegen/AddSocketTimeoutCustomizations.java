@@ -5,6 +5,7 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Collections;
+import java.util.Locale;
 import java.util.Map;
 import java.util.function.Consumer;
 import software.amazon.smithy.aws.traits.ServiceTrait;
@@ -55,8 +56,13 @@ public class AddSocketTimeoutCustomizations implements TypeScriptIntegration {
     static Consumer<TypeScriptWriter> defaultSocketTimeoutWriter(int timeoutMs) {
         return writer -> {
             writer.addImportSubmodule("getDefaultSocketTimeout", null, AwsDependency.AWS_SDK_CORE, "/client");
-            writer.write("getDefaultSocketTimeout(config?.requestHandler, $L)", timeoutMs);
+            writer.write("getDefaultSocketTimeout(config?.requestHandler, $L)", withNumericSeparators(timeoutMs));
         };
+    }
+
+    /** Formats a millisecond count with numeric separators, e.g. 300000 as 300_000. */
+    static String withNumericSeparators(int value) {
+        return String.format(Locale.ROOT, "%,d", value).replace(',', '_');
     }
 
     /**

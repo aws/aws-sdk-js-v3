@@ -38,7 +38,7 @@ export const getRuntimeConfig = (config: RpcV2ProtocolClientConfig) => {
     runtime: "node",
     defaultsMode,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
-    defaultSocketTimeout: getDefaultSocketTimeout(config?.requestHandler, 300000),
+    defaultSocketTimeout: getDefaultSocketTimeout(config?.requestHandler, 300_000),
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({clientVersion: packageInfo.version}),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),

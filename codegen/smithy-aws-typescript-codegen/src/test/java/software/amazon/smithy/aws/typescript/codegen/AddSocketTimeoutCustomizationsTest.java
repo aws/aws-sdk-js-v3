@@ -133,6 +133,13 @@ public class AddSocketTimeoutCustomizationsTest {
     public void nodeWriterPassesInputToGatedHelper() {
         String output = render(AddSocketTimeoutCustomizations.defaultSocketTimeoutWriter(900_000));
         assertThat(output, containsString("getDefaultSocketTimeout } from \"@aws-sdk/core/client\""));
-        assertThat(output, containsString("getDefaultSocketTimeout(config?.requestHandler, 900000)"));
+        assertThat(output, containsString("getDefaultSocketTimeout(config?.requestHandler, 900_000)"));
+    }
+
+    @Test
+    public void formatsTimeoutWithNumericSeparators() {
+        assertThat(AddSocketTimeoutCustomizations.withNumericSeparators(300_000), equalTo("300_000"));
+        assertThat(AddSocketTimeoutCustomizations.withNumericSeparators(1_800_000), equalTo("1_800_000"));
+        assertThat(AddSocketTimeoutCustomizations.withNumericSeparators(500), equalTo("500"));
     }
 }

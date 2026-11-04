@@ -1,5 +1,5 @@
 const isDefaultSocketTimeoutEnabled = (): boolean =>
-  typeof process === "object" && process.env?.AWS_ENABLE_DEFAULT_SOCKET_TIMEOUT_2026 === "true";
+  typeof process === "object" && process?.env?.AWS_ENABLE_DEFAULT_SOCKET_TIMEOUT_2026 === "true";
 
 /**
  * When AWS_ENABLE_DEFAULT_SOCKET_TIMEOUT_2026 is "true", returns the service's

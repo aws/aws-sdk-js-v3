@@ -58,7 +58,7 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
     authSchemePreference: config?.authSchemePreference ?? loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig),
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     
-    defaultSocketTimeout: getDefaultSocketTimeout(config?.requestHandler, 300000),
+    defaultSocketTimeout: getDefaultSocketTimeout(config?.requestHandler, 300_000),
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
