@@ -1,7 +1,7 @@
 import { createSign, generateKeyPairSync, type KeyObject } from "node:crypto";
 import { beforeAll, describe, expect, it, vi } from "vitest";
 
-import { SIGNABLE_KEYS_BY_TYPE } from "./constants";
+import { DEFAULT_HOST_PATTERN, SIGNABLE_KEYS_BY_TYPE } from "./constants";
 import { MessageValidator } from "./MessageValidator";
 import type { SNSMessage } from "./types";
 
@@ -64,29 +64,29 @@ const multilineMessage: SNSMessage = {
   Subject: "first\nsecond",
 };
 
-const forgedMessage: SNSMessage = {
+const shiftedMessage: SNSMessage = {
   Type:
-    "MessageId\nattacker-message-id" +
+    "MessageId\nmessage-id-1" +
     "\nTimestamp\n2015-10-05T06:41:38.000Z" +
-    "\nTopicArn\narn:aws:sns:us-east-1:999999999999:attacker" +
+    "\nTopicArn\narn:aws:sns:us-east-1:222222222222:topic-b" +
     "\nType\nNotification",
-  MessageId: "forged-message-id",
-  TopicArn: "arn:aws:sns:us-east-1:111111111111:victim",
-  Message: "perform protected action",
+  MessageId: "message-id-2",
+  TopicArn: "arn:aws:sns:us-east-1:111111111111:topic-a",
+  Message: "hello",
   Timestamp: "2015-10-05T06:40:38.000Z",
   SignatureVersion: "2",
   SigningCertURL: "https://localhost:56789/cert.pem",
 };
 
-const collisionMessage: SNSMessage = {
+const delimitedMessage: SNSMessage = {
   Type: "Notification",
-  MessageId: "attacker-message-id",
-  TopicArn: "arn:aws:sns:us-east-1:999999999999:attacker",
+  MessageId: "message-id-1",
+  TopicArn: "arn:aws:sns:us-east-1:222222222222:topic-b",
   Message:
-    "perform protected action" +
-    "\nMessageId\nforged-message-id" +
+    "hello" +
+    "\nMessageId\nmessage-id-2" +
     "\nTimestamp\n2015-10-05T06:40:38.000Z" +
-    "\nTopicArn\narn:aws:sns:us-east-1:111111111111:victim" +
+    "\nTopicArn\narn:aws:sns:us-east-1:111111111111:topic-a" +
     "\nType",
   Timestamp: "2015-10-05T06:41:38.000Z",
   SignatureVersion: "2",
@@ -140,12 +140,12 @@ beforeAll(() => {
     validUnsubscriptionControlMessage,
     utf8Message,
     multilineMessage,
-    collisionMessage,
+    delimitedMessage,
   ]) {
     sign(message);
   }
-  // Forged message reuses the collision message's bytes (and thus signature).
-  forgedMessage.Signature = collisionMessage.Signature;
+  // shiftedMessage has the same signed bytes as delimitedMessage.
+  shiftedMessage.Signature = delimitedMessage.Signature;
 });
 
 describe("validator interface", () => {
@@ -173,13 +173,11 @@ describe("message validation", () => {
     await expect(new MessageValidator().validate(invalidMessage)).rejects.toThrow("Message missing required keys.");
   });
 
-  it("rejects canonical string collisions", async () => {
-    // The collision and forged messages share identical signed bytes...
-    expect(buildStringToSign(collisionMessage, SIGNABLE_KEYS_BY_TYPE.Notification)).toEqual(
-      buildStringToSign(forgedMessage, SIGNABLE_KEYS_BY_TYPE.Notification)
+  it("rejects an unsupported Type with embedded field names", async () => {
+    expect(buildStringToSign(delimitedMessage, SIGNABLE_KEYS_BY_TYPE.Notification)).toEqual(
+      buildStringToSign(shiftedMessage, SIGNABLE_KEYS_BY_TYPE.Notification)
     );
-    // ...but the forged Type is not a supported type, so it is rejected first.
-    await expect(validator().validate(forgedMessage)).rejects.toThrow("The message Type is not supported.");
+    await expect(validator().validate(shiftedMessage)).rejects.toThrow("The message Type is not supported.");
   });
 
   it('accepts Lambda payloads with improper "Url" casing', async () => {
@@ -191,6 +189,41 @@ describe("message validation", () => {
     await expect(new MessageValidator().validate(validMessage)).rejects.toThrow(
       "The certificate is located on an invalid domain."
     );
+  });
+
+  it.each([
+    "http://localhost:56789/cert.pem",
+    "https://localhost:56789/cert.txt",
+    "https://localhost:56789/cert.pem?v=1",
+    "https://localhost:56789/cert.pem#v1",
+    "https://user@localhost:56789/cert.pem",
+    "https://user:pass@localhost:56789/cert.pem",
+  ])("rejects the certificate URL %s", async (SigningCertURL) => {
+    await expect(validator().validate({ ...validMessage, SigningCertURL })).rejects.toThrow(
+      "The certificate is located on an invalid domain."
+    );
+  });
+
+  describe("default host pattern", () => {
+    it.each([
+      "sns.us-east-1.amazonaws.com",
+      "sns.ap-southeast-7.amazonaws.com",
+      "sns.mx-central-1.amazonaws.com",
+      "sns.us-gov-west-1.amazonaws.com",
+      "sns.cn-north-1.amazonaws.com.cn",
+    ])("matches %s", (host) => {
+      expect(DEFAULT_HOST_PATTERN.test(host)).toBe(true);
+    });
+
+    it.each([
+      "sns.amazonaws.com",
+      "sns.us-east.amazonaws.com",
+      "sns.foo-bar.amazonaws.com",
+      "sns.us-east-1.amazonaws.com.cn",
+      "sns.cn-north-1.amazonaws.com",
+    ])("does not match %s", (host) => {
+      expect(DEFAULT_HOST_PATTERN.test(host)).toBe(false);
+    });
   });
 
   it("rejects hashes with an invalid signature type", async () => {
@@ -236,6 +269,46 @@ describe("message validation", () => {
 
   it("rejects invalid JSON strings", async () => {
     await expect(validator().validate("{not json")).rejects.toThrow("Unexpected error while parsing the message.");
+  });
+
+  it.each(["null", "42", "true", '"str"', "[]"])("rejects non-object JSON %s", async (json) => {
+    await expect(validator().validate(json)).rejects.toThrow("The message must be a JSON object.");
+  });
+
+  it("rejects a non-object message passed directly", async () => {
+    await expect(validator().validate(null as unknown as SNSMessage)).rejects.toThrow(
+      "The message must be a JSON object."
+    );
+  });
+
+  it.each([
+    ["Message", { nested: true }],
+    ["MessageId", 1],
+    ["Subject", 5],
+    ["Timestamp", ["2015-10-05T06:41:38.000Z"]],
+    ["TopicArn", false],
+  ])("rejects a non-string signed field %s", async (field, value) => {
+    await expect(validator().validate({ ...validMessage, [field]: value })).rejects.toThrow(
+      `The message field "${field}" must be a string.`
+    );
+  });
+});
+
+describe("certificate timeout", () => {
+  it("passes the default timeout to the certificate fetcher", async () => {
+    const spy = vi.fn(fetcher);
+    await new MessageValidator(/^localhost:56789$/, undefined, spy).validate(validMessage);
+    expect(spy).toHaveBeenCalledWith(validMessage.SigningCertURL, 10_000);
+  });
+
+  it("passes a configured timeout to the certificate fetcher", async () => {
+    const spy = vi.fn(fetcher);
+    await new MessageValidator(
+      { hostPattern: /^localhost:56789$/, certificateTimeoutMs: 250 },
+      undefined,
+      spy
+    ).validate(validMessage);
+    expect(spy).toHaveBeenCalledWith(validMessage.SigningCertURL, 250);
   });
 });
 

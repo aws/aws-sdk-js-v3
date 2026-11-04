@@ -3,9 +3,12 @@ import type { SNSMessageType } from "./types";
 /**
  * Trusted SNS certificate host, e.g. sns.us-east-1.amazonaws.com.
  */
-export const DEFAULT_HOST_PATTERN = /^sns\.[a-zA-Z0-9\-]{3,}\.amazonaws\.com(\.cn)?$/;
+export const DEFAULT_HOST_PATTERN =
+  /^sns\.(?:(?:us|eu|ap|sa|ca|me|af|il|mx)-\w+-\d+|us-gov-\w+-\d+)\.amazonaws\.com$|^sns\.cn-\w+-\d+\.amazonaws\.com\.cn$/;
 
 export const DEFAULT_ENCODING: BufferEncoding = "utf8";
+
+export const DEFAULT_CERTIFICATE_TIMEOUT_MS = 10_000;
 
 export const SUPPORTED_MESSAGE_TYPES: SNSMessageType[] = [
   "Notification",

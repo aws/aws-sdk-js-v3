@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/lib-sns",
-  "version": "3.1161.0",
+  "version": "3.1162.0",
   "description": "Standalone validator for inbound HTTP(S) Amazon SNS messages",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-sns",
   "license": "Apache-2.0",
