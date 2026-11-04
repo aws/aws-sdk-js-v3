@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1161.0...v3.1162.0) (2026-11-04)
+
+
+### Features
+
+* **client-connect-contact-lens:** Rules TBAC GA (Contact Lens V1) - Adds an optional ListFilter (CategoriesAttributeFilter with OrConditions, AndCondition and TagCondition) to ListRealtimeContactAnalysisSegments. This filters matched categories by rule tags. It also adds an optional RuleId to CategoryDetails in the response. ([c09702f](https://github.com/aws/aws-sdk-js-v3/commit/c09702f107043ee0014ac610fb78fec6b72c7c7f))
+* **codegen:** add a default socket timeout per service ([#8396](https://github.com/aws/aws-sdk-js-v3/issues/8396)) ([8f62478](https://github.com/aws/aws-sdk-js-v3/commit/8f62478cf179dc3e0807dae1721a669e08d98074))
+
+
+
+
+
 # [3.1161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1160.0...v3.1161.0) (2026-10-30)
 
 **Note:** Version bump only for package @aws-sdk/client-connect-contact-lens

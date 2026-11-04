@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1161.0...v3.1162.0) (2026-11-04)
+
+
+### Features
+
+* **client-emr:** Added StepAdditionalInfo on DescribeStep and ListSteps to surface YARN application IDs for steps. ([03e285e](https://github.com/aws/aws-sdk-js-v3/commit/03e285ec2dd427709d668f6cb2deba58ab5c626b))
+* **codegen:** add a default socket timeout per service ([#8396](https://github.com/aws/aws-sdk-js-v3/issues/8396)) ([8f62478](https://github.com/aws/aws-sdk-js-v3/commit/8f62478cf179dc3e0807dae1721a669e08d98074))
+
+
+
+
+
 # [3.1161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1160.0...v3.1161.0) (2026-10-30)
 
 **Note:** Version bump only for package @aws-sdk/client-emr

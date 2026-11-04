@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1161.0...v3.1162.0) (2026-11-04)
+
+
+### Bug Fixes
+
+* **codegen:** drop redundant alias from node:stream Readable type import ([#8402](https://github.com/aws/aws-sdk-js-v3/issues/8402)) ([4e5ce5a](https://github.com/aws/aws-sdk-js-v3/commit/4e5ce5ae6fdea469285040adf8abd284fafea822))
+
+
+### Features
+
+* **client-connect-contact-lens:** Rules TBAC GA (Contact Lens V1) - Adds an optional ListFilter (CategoriesAttributeFilter with OrConditions, AndCondition and TagCondition) to ListRealtimeContactAnalysisSegments. This filters matched categories by rule tags. It also adds an optional RuleId to CategoryDetails in the response. ([c09702f](https://github.com/aws/aws-sdk-js-v3/commit/c09702f107043ee0014ac610fb78fec6b72c7c7f))
+* **client-connect:** Adds support for retrieving associated cases in contact responses. The Contact object now includes a Cases field containing case IDs and reference numbers linked to the contact. ([fb1c399](https://github.com/aws/aws-sdk-js-v3/commit/fb1c3998b60de1ac44f2852ddb193c72366a3318))
+* **client-dynamodb:** Adds StartBulkPutItems, DescribeBulkOperation, ListBulkOperations, and CancelBulkOperation for asynchronously loading Amazon S3 datasets into existing DynamoDB tables. ([a083a88](https://github.com/aws/aws-sdk-js-v3/commit/a083a88e8ff5585425b8728625fca6d5d47e96c1))
+* **client-ec2:** Add the Unsupported SupportabilityScore to GetCapacityManagerSupportabilityScores. ([e8a84dc](https://github.com/aws/aws-sdk-js-v3/commit/e8a84dc8f593404bfb3344342d2b73daf9d46e1d))
+* **client-ecs:** Amazon ECS Managed Instances now supports the json-file log driver in task definitions. Daemon task definition volumes also support logDriverVolumeConfiguration, letting managed daemons read those logs. ([5f4cd8d](https://github.com/aws/aws-sdk-js-v3/commit/5f4cd8d700a09a1b3d6d6510a13a698371ab330f))
+* **client-elastic-beanstalk:** Adds DefaultAmiList to DescribePlatformVersion to return the default AMI for each processor architecture that a platform version supports. ([a7dfafc](https://github.com/aws/aws-sdk-js-v3/commit/a7dfafce6d42acdf5549fcef5dcd356fc7a32a68))
+* **client-emr:** Added StepAdditionalInfo on DescribeStep and ListSteps to surface YARN application IDs for steps. ([03e285e](https://github.com/aws/aws-sdk-js-v3/commit/03e285ec2dd427709d668f6cb2deba58ab5c626b))
+* **client-iotsitewise:** Adds support for an optional jobName on CreateDatasetExportJob. The jobName is returned by DescribeDatasetExportJob and ListDatasetExportJobs, making dataset export jobs easier to identify and track. If jobName is omitted, a default name is generated automatically. ([33a8bf0](https://github.com/aws/aws-sdk-js-v3/commit/33a8bf052e397bc42e1cb2e8a69540e1bf720115))
+* **client-lookoutequipment:** Amazon Lookout for Equipment reached end of support on October 7, 2026. All Lookout for Equipment APIs are now marked as deprecated. ([9a4a688](https://github.com/aws/aws-sdk-js-v3/commit/9a4a6882371e75f079bd5bc25cacac31fb889a14))
+* **client-marketplace-discovery:** GetListing and SearchListings APIs now return G2 and PeerSpot review sources in review summaries. ([cb49279](https://github.com/aws/aws-sdk-js-v3/commit/cb49279d0ede39ac2976ecd9823b5726a4d1e52d))
+* **client-mgn:** This release adds Migration Planning artifacts as a source environment for network migration definitions, and an optional clientToken on CreateNetworkMigrationDefinition so that retried requests don't create duplicate definitions. ([79e9a5d](https://github.com/aws/aws-sdk-js-v3/commit/79e9a5d6e831e705bd4b33f62424ab65c6c614ca))
+* **client-mwaa-serverless:** Adding support to Environment Variables in MWAA Serverless ([0711d44](https://github.com/aws/aws-sdk-js-v3/commit/0711d44dc1e6a0ec47d9f97a20d0c65b0727bd16))
+* **client-polly:** Amazon Polly now supports tagging lexicons. Use the new TagResource, UntagResource and ListTagsForResource APIs, or add tags when creating a lexicon with PutLexicon, to organize lexicons and control access with tag-based (ABAC) IAM policies. ([b563b28](https://github.com/aws/aws-sdk-js-v3/commit/b563b28438effe41d90980ba1b4670bb070a6378))
+* **client-rds:** Adding support for copying and tagging option groups with cross-Region DB snapshot copies, in the same account or across accounts. ([bf1c62a](https://github.com/aws/aws-sdk-js-v3/commit/bf1c62aa7da29ab20111fdfc6daceb3cbc3be516))
+* **client-rolesanywhere:** Adds the crlDpRevocationEnabled field to enable automatic revocation checking using CRL distribution points in X.509 certificates. ([5c3071c](https://github.com/aws/aws-sdk-js-v3/commit/5c3071ce06390788bbfd72dbfbb8a206e081d42f))
+* **client-s3tables:** Amazon S3 Tables now supports migrating AWS Glue Data Catalog tables into S3 Table buckets. This release adds the StartTableMigration, SyncTableMigration, UpdateTableMigration, CompleteTableMigration, GetTableMigration, and ListTableMigrations APIs. ([235b2d6](https://github.com/aws/aws-sdk-js-v3/commit/235b2d6838ad77c23f4cad0da15978080ef5cf58))
+* **client-securityhub:** Release Software APIs- GetSoftwareV2, GetSoftwareStatisticsV2 and GetSoftwareResourcesV2 to list software packages with aggregated resource count, get aggregated software statistics, and find the resources that contain a specific software package. ([e6a212f](https://github.com/aws/aws-sdk-js-v3/commit/e6a212fd030299cdbc6fcc452491c0390eb88a81))
+* **client-taxsettings:** Adds Colombia additional information (responsibility codes, taxpayer type code, and RUT issue date) and a rejection reason (statusReason) to tax registration responses, and adds Argentina and Uruguay tax registration types. ([582f0ce](https://github.com/aws/aws-sdk-js-v3/commit/582f0ce2044a2f05e37391e40e1128569568a835))
+* **client-workspaces:** Add Ubuntu 24.04, Ubuntu 26.04, RHEL 9, RHEL10, Rocky 9 and Rocky 10 to OperatingSystemName and documentation update for WorkspaceProperties Protocols. ([f91e0bd](https://github.com/aws/aws-sdk-js-v3/commit/f91e0bd8e525e9bb73c357c1184bbaf42d3dba57))
+* **clients:** update client endpoints as of 2026-11-04 ([7b30cd3](https://github.com/aws/aws-sdk-js-v3/commit/7b30cd3533c7b733d0cc6685a95e386853bb50bb))
+* **codegen:** add a default socket timeout per service ([#8396](https://github.com/aws/aws-sdk-js-v3/issues/8396)) ([8f62478](https://github.com/aws/aws-sdk-js-v3/commit/8f62478cf179dc3e0807dae1721a669e08d98074))
+
+
+
+
+
 # [3.1161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1160.0...v3.1161.0) (2026-10-30)
 
 

@@ -79,6 +79,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.998.0 (2026-11-04)
+### Features
+* **codegen:** add a default socket timeout per service ([#8396](https://github.com/aws/aws-sdk-js-v3/issues/8396)) ([8f62478](https://github.com/aws/aws-sdk-js-v3/commit/8f62478cf179dc3e0807dae1721a669e08d98074))
+
+
+
 # 3.997.54 (2026-10-29)
 ### Chores
 * **codegen:** sync to new smithy handler changes ([#8390](https://github.com/aws/aws-sdk-js-v3/issues/8390)) ([f393101](https://github.com/aws/aws-sdk-js-v3/commit/f393101c0e651bd0c9fda6ff24b7ede3b5e96869))

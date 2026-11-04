@@ -66,6 +66,13 @@
 
 
 
+
+# 3.0.67 (2026-11-04)
+### Chores
+* **snapshot-testing:** update dependencies.
+
+
+
 # 3.0.66 (2026-10-29)
 ### Chores
 * **codegen:** sync to new smithy handler changes ([#8390](https://github.com/aws/aws-sdk-js-v3/issues/8390)) ([f393101](https://github.com/aws/aws-sdk-js-v3/commit/f393101c0e651bd0c9fda6ff24b7ede3b5e96869))

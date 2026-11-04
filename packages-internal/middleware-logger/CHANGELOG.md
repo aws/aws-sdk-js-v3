@@ -57,6 +57,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.55 (2026-11-04)
+### Chores
+* **middleware-logger:** update dependencies.
+
+
+
 # 3.972.54 (2026-10-30)
 ### Chores
 * **middleware-logger:** update dependencies.

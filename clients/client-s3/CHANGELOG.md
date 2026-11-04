@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1161.0...v3.1162.0) (2026-11-04)
+
+
+### Bug Fixes
+
+* **codegen:** drop redundant alias from node:stream Readable type import ([#8402](https://github.com/aws/aws-sdk-js-v3/issues/8402)) ([4e5ce5a](https://github.com/aws/aws-sdk-js-v3/commit/4e5ce5ae6fdea469285040adf8abd284fafea822))
+
+
+
+
+
 # [3.1161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1160.0...v3.1161.0) (2026-10-30)
 
 **Note:** Version bump only for package @aws-sdk/client-s3

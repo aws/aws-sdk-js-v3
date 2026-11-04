@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1161.0...v3.1162.0) (2026-11-04)
+
+
+### Features
+
+* **client-polly:** Amazon Polly now supports tagging lexicons. Use the new TagResource, UntagResource and ListTagsForResource APIs, or add tags when creating a lexicon with PutLexicon, to organize lexicons and control access with tag-based (ABAC) IAM policies. ([b563b28](https://github.com/aws/aws-sdk-js-v3/commit/b563b28438effe41d90980ba1b4670bb070a6378))
+
+
+
+
+
 # [3.1161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1160.0...v3.1161.0) (2026-10-30)
 
 **Note:** Version bump only for package @aws-sdk/client-polly
