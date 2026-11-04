@@ -146,12 +146,12 @@ export interface GetCapacityManagerSupportabilityScoresCommandOutput extends Get
  * const command = new GetCapacityManagerSupportabilityScoresCommand(input);
  * const response = await client.send(command);
  * // { // GetCapacityManagerSupportabilityScoresResult
- * //   AggregateScore: "high" || "medium" || "low",
+ * //   AggregateScore: "high" || "medium" || "low" || "unsupported",
  * //   CapacityManagerSupportabilityScores: [ // CapacityManagerSupportabilityScoreSet
  * //     { // CapacityManagerSupportabilityScore
  * //       InstanceType: "STRING_VALUE",
  * //       AvailabilityZoneId: "STRING_VALUE",
- * //       Score: "high" || "medium" || "low",
+ * //       Score: "high" || "medium" || "low" || "unsupported",
  * //     },
  * //   ],
  * // };

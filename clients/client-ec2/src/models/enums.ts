@@ -8196,6 +8196,7 @@ export const SupportabilityScore = {
   HIGH: "high",
   LOW: "low",
   MEDIUM: "medium",
+  UNSUPPORTED: "unsupported",
 } as const;
 /**
  * @public
