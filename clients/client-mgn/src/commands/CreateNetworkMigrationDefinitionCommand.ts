@@ -33,6 +33,7 @@ export interface CreateNetworkMigrationDefinitionCommandOutput extends NetworkMi
  * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // CreateNetworkMigrationDefinitionRequest
+ *   clientToken: "STRING_VALUE",
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   sourceConfigurations: [ // SourceConfigurationList

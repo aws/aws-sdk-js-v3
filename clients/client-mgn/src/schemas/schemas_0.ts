@@ -943,8 +943,8 @@ export var CreateLaunchConfigurationTemplateRequest$: StaticStructureSchema = [3
 ];
 export var CreateNetworkMigrationDefinitionRequest$: StaticStructureSchema = [3, n0, _CNMDR,
   0,
-  [_n, _tSC, _tN, _d, _sCo, _tD, _vPS, _cM, _t, _sT],
-  [0, () => TargetS3Configuration$, () => TargetNetwork$, 0, () => SourceConfigurationList, 0, 0, () => CidrMappingsList, [() => TagsMap, 0], [() => ScopeTagsMap, 0]], 3
+  [_n, _tSC, _tN, _cTl, _d, _sCo, _tD, _vPS, _cM, _t, _sT],
+  [0, () => TargetS3Configuration$, () => TargetNetwork$, [0, 4], 0, () => SourceConfigurationList, 0, 0, () => CidrMappingsList, [() => TagsMap, 0], [() => ScopeTagsMap, 0]], 3
 ];
 export var CreateReplicationConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _CRCTR,
   0,

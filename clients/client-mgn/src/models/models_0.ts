@@ -2755,6 +2755,12 @@ export interface TargetS3Configuration {
  */
 export interface CreateNetworkMigrationDefinitionRequest {
   /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
    * <p>The name of the network migration definition.</p>
    * @public
    */
