@@ -1,0 +1,28 @@
+POST https://s3tables.us-east-1.amazonaws.com 
+/sync-table-migration
+
+content-type: application/json
+content-length: 304
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/s3tables#_.__ m/E,e
+host: s3tables.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: e501202bcb1d4b9e77a07d3253bec675f4232f4e589268a06bec7cc938386793
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3tables/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[Uint8Array (json)]
+{
+  "roleARN": "__roleARN__",
+  "tableARN": "__tableARN__",
+  "migrationOutput": {
+    "bucket": "__bucket__",
+    "prefixes": {
+      "tableCompatibilityReport": "__tableCompatibilityReport__",
+      "objectCompatibilityReport": "__objectCompatibilityReport__",
+      "objectMigrationReport": "__objectMigrationReport__"
+    }
+  },
+  "reviewMigrationPlan": false
+}

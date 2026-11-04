@@ -1,0 +1,272 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "migrationId": "__migrationId__",
+  "tableBucketARN": "__tableBucketARN__",
+  "namespace": "__namespace__",
+  "name": "__name__",
+  "type": "__type__",
+  "state": "__state__",
+  "roleARN": "__roleARN__",
+  "reviewMigrationPlan": false,
+  "createdAt": "2000-01-01T04:59:59.999Z",
+  "stateUpdatedAt": "2000-01-01T04:59:59.999Z",
+  "sourceType": "__sourceType__",
+  "source": {},
+  "dataMigration": {
+    "maintenanceSettings": {},
+    "migrationPolicies": {}
+  },
+  "migrationOutput": {
+    "bucket": "__bucket__",
+    "tableCompatibilityReport": {},
+    "objectCompatibilityReport": {},
+    "objectMigrationReport": {}
+  },
+  "tableARN": "__tableARN__",
+  "hasValidPlan": false,
+  "failureReason": {
+    "code": "__code__",
+    "detail": "__detail__"
+  },
+  "planningStats": {},
+  "migrationStats": {}
+}
+
+
+--- [output object] ---
+{
+  migrationId: "__migrationId__",
+  tableBucketARN: "__tableBucketARN__",
+  namespace: "__namespace__",
+  name: "__name__",
+  type: "__type__",
+  state: "__state__",
+  roleARN: "__roleARN__",
+  reviewMigrationPlan: (boolean) false,
+  createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  stateUpdatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  sourceType: "__sourceType__",
+  source: {},
+  dataMigration: {
+    maintenanceSettings: {},
+    migrationPolicies: {}
+  },
+  migrationOutput: {
+    bucket: "__bucket__",
+    tableCompatibilityReport: {},
+    objectCompatibilityReport: {},
+    objectMigrationReport: {}
+  },
+  tableARN: "__tableARN__",
+  hasValidPlan: (boolean) false,
+  failureReason: {
+    code: "__code__",
+    detail: "__detail__"
+  },
+  planningStats: {},
+  migrationStats: {},
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "migrationId": "__migrationId__",
+  "tableBucketARN": "__tableBucketARN__",
+  "namespace": "__namespace__",
+  "name": "__name__",
+  "type": "__type__",
+  "state": "__state__",
+  "roleARN": "__roleARN__",
+  "reviewMigrationPlan": false,
+  "createdAt": "2000-01-01T04:59:59.999Z",
+  "stateUpdatedAt": "2000-01-01T04:59:59.999Z",
+  "sourceType": "__sourceType__",
+  "source": {
+    "glueTable": {
+      "catalogId": "__catalogId__",
+      "databaseName": "__databaseName__",
+      "tableName": "__tableName__"
+    }
+  },
+  "dataMigration": {
+    "maintenanceSettings": {
+      "icebergCompaction": {
+        "targetFileSizeMB": 0,
+        "strategy": "__strategy__"
+      },
+      "icebergSnapshotManagement": {
+        "minSnapshotsToKeep": 0,
+        "maxSnapshotAgeHours": 0
+      }
+    },
+    "migrationPolicies": {
+      "unmatchedSourceFieldsPolicy": "__unmatchedSourceFieldsPolicy__",
+      "incompatibleValuesPolicy": "__incompatibleValuesPolicy__"
+    }
+  },
+  "migrationOutput": {
+    "bucket": "__bucket__",
+    "tableCompatibilityReport": {
+      "prefix": "__prefix__",
+      "key": "__key__",
+      "checksumCRC64NVME": "__checksumCRC64NVME__",
+      "invalidFindings": {
+        "key1": 0,
+        "key2": 0,
+        "key3": 0
+      }
+    },
+    "objectCompatibilityReport": {
+      "prefix": "__prefix__",
+      "key": "__key__",
+      "checksumCRC64NVME": "__checksumCRC64NVME__",
+      "invalidFindings": {
+        "key1": 0,
+        "key2": 0,
+        "key3": 0
+      }
+    },
+    "objectMigrationReport": {
+      "prefix": "__prefix__",
+      "key": "__key__",
+      "checksumCRC64NVME": "__checksumCRC64NVME__",
+      "invalidFindings": {
+        "key1": 0,
+        "key2": 0,
+        "key3": 0
+      }
+    }
+  },
+  "tableARN": "__tableARN__",
+  "hasValidPlan": false,
+  "failureReason": {
+    "code": "__code__",
+    "detail": "__detail__"
+  },
+  "planningStats": {
+    "objectsScanned": 0,
+    "objectsPlanned": 0,
+    "partitionCount": 0
+  },
+  "migrationStats": {
+    "objectsMigrated": 0,
+    "objectsFailedMigration": 0,
+    "objectsPendingMigration": 0
+  }
+}
+
+
+--- [output object] ---
+{
+  migrationId: "__migrationId__",
+  tableBucketARN: "__tableBucketARN__",
+  namespace: "__namespace__",
+  name: "__name__",
+  type: "__type__",
+  state: "__state__",
+  roleARN: "__roleARN__",
+  reviewMigrationPlan: (boolean) false,
+  createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  stateUpdatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  sourceType: "__sourceType__",
+  source: {
+    glueTable: {
+      catalogId: "__catalogId__",
+      databaseName: "__databaseName__",
+      tableName: "__tableName__"
+    }
+  },
+  dataMigration: {
+    maintenanceSettings: {
+      icebergCompaction: {
+        targetFileSizeMB: (number) 0,
+        strategy: "__strategy__"
+      },
+      icebergSnapshotManagement: {
+        minSnapshotsToKeep: (number) 0,
+        maxSnapshotAgeHours: (number) 0
+      }
+    },
+    migrationPolicies: {
+      unmatchedSourceFieldsPolicy: "__unmatchedSourceFieldsPolicy__",
+      incompatibleValuesPolicy: "__incompatibleValuesPolicy__"
+    }
+  },
+  migrationOutput: {
+    bucket: "__bucket__",
+    tableCompatibilityReport: {
+      prefix: "__prefix__",
+      key: "__key__",
+      checksumCRC64NVME: "__checksumCRC64NVME__",
+      invalidFindings: {
+        key1: (number) 0,
+        key2: (number) 0,
+        key3: (number) 0
+      }
+    },
+    objectCompatibilityReport: {
+      prefix: "__prefix__",
+      key: "__key__",
+      checksumCRC64NVME: "__checksumCRC64NVME__",
+      invalidFindings: {
+        key1: (number) 0,
+        key2: (number) 0,
+        key3: (number) 0
+      }
+    },
+    objectMigrationReport: {
+      prefix: "__prefix__",
+      key: "__key__",
+      checksumCRC64NVME: "__checksumCRC64NVME__",
+      invalidFindings: {
+        key1: (number) 0,
+        key2: (number) 0,
+        key3: (number) 0
+      }
+    }
+  },
+  tableARN: "__tableARN__",
+  hasValidPlan: (boolean) false,
+  failureReason: {
+    code: "__code__",
+    detail: "__detail__"
+  },
+  planningStats: {
+    objectsScanned: (number) 0,
+    objectsPlanned: (number) 0,
+    partitionCount: (number) 0
+  },
+  migrationStats: {
+    objectsMigrated: (number) 0,
+    objectsFailedMigration: (number) 0,
+    objectsPendingMigration: (number) 0
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,162 @@
+POST https://s3tables.us-east-1.amazonaws.com 
+/start-table-migration
+
+content-type: application/json
+content-length: 2173
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/s3tables#_.__ m/E,e
+host: s3tables.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 25f1a52df4a6751026aa8d7c24a0f238ac41720b79cf10f05521eb4b8d182640
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3tables/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[Uint8Array (json)]
+{
+  "roleARN": "__roleARN__",
+  "destinationTable": {
+    "tableBucketARN": "__tableBucketARN__",
+    "namespace": "__namespace__",
+    "name": "__name__",
+    "encryptionConfiguration": {
+      "sseAlgorithm": "__sseAlgorithm__",
+      "kmsKeyArn": "__kmsKeyArn__"
+    },
+    "storageClassConfiguration": {
+      "storageClass": "__storageClass__"
+    },
+    "tags": {
+      "key1": "__value__",
+      "key2": "__value__",
+      "key3": "__value__"
+    },
+    "properties": {
+      "writeFormat": "__writeFormat__",
+      "icebergFormatVersion": 0,
+      "compressionCodec": "__compressionCodec__",
+      "dictionaryEncoding": false
+    },
+    "schema": {
+      "type": "__type__",
+      "fields": [
+        {
+          "id": 0,
+          "name": "__name__",
+          "type": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          },
+          "required": false,
+          "doc": "__doc__"
+        },
+        {
+          "id": 0,
+          "name": "__name__",
+          "type": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          },
+          "required": false,
+          "doc": "__doc__"
+        },
+        {
+          "id": 0,
+          "name": "__name__",
+          "type": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          },
+          "required": false,
+          "doc": "__doc__"
+        }
+      ],
+      "schema-id": 0,
+      "identifier-field-ids": [
+        0,
+        0,
+        0
+      ]
+    },
+    "icebergSortOrder": {
+      "order-id": 0,
+      "fields": [
+        {
+          "source-id": 0,
+          "transform": "__transform__",
+          "direction": "__direction__",
+          "null-order": "__nullOrder__"
+        },
+        {
+          "source-id": 0,
+          "transform": "__transform__",
+          "direction": "__direction__",
+          "null-order": "__nullOrder__"
+        },
+        {
+          "source-id": 0,
+          "transform": "__transform__",
+          "direction": "__direction__",
+          "null-order": "__nullOrder__"
+        }
+      ]
+    }
+  },
+  "sourceType": "__sourceType__",
+  "source": {
+    "glueTable": {
+      "catalogId": "__catalogId__",
+      "databaseName": "__databaseName__",
+      "tableName": "__tableName__"
+    }
+  },
+  "migrationOutput": {
+    "bucket": "__bucket__",
+    "prefixes": {
+      "tableCompatibilityReport": "__tableCompatibilityReport__",
+      "objectCompatibilityReport": "__objectCompatibilityReport__",
+      "objectMigrationReport": "__objectMigrationReport__"
+    }
+  },
+  "dataMigration": {
+    "maintenanceSettings": {
+      "icebergCompaction": {
+        "targetFileSizeMB": 0,
+        "strategy": "__strategy__"
+      },
+      "icebergSnapshotManagement": {
+        "minSnapshotsToKeep": 0,
+        "maxSnapshotAgeHours": 0
+      }
+    },
+    "migrationPolicies": {
+      "unmatchedSourceFieldsPolicy": "__unmatchedSourceFieldsPolicy__",
+      "incompatibleValuesPolicy": "__incompatibleValuesPolicy__"
+    }
+  },
+  "reviewMigrationPlan": false
+}

@@ -2,11 +2,20 @@
 import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
+  CompressionCodec,
+  DataFileFormat,
+  FindingCategory,
   IcebergCompactionStrategy,
   IcebergNullOrder,
   IcebergSortDirection,
+  IncompatibleValuesPolicy,
   JobStatus,
   MaintenanceStatus,
+  MigrationFailureCode,
+  MigrationRequestedState,
+  MigrationSourceType,
+  MigrationState,
+  MigrationType,
   OpenTableFormat,
   ReplicationStatus,
   SchemaV2FieldType,
@@ -19,7 +28,19 @@ import type {
   TableRecordExpirationJobStatus,
   TableRecordExpirationStatus,
   TableType,
+  UnmatchedSourceFieldsPolicy,
 } from "./enums";
+
+/**
+ * @public
+ */
+export interface CompleteTableMigrationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the migrated table to complete the migration of.</p>
+   * @public
+   */
+  tableARN: string | undefined;
+}
 
 /**
  * @public
@@ -475,6 +496,114 @@ export interface CreateTableBucketResponse {
 }
 
 /**
+ * <p>The compaction settings that a migration applies to the destination table.</p>
+ * @public
+ */
+export interface MigrationCompactionSettings {
+  /**
+   * <p>The target size, from 64 to 512 MB, of the data files that the migration writes, and of the files that compaction writes after you complete the migration. The default is 512.</p>
+   * @public
+   */
+  targetFileSizeMB?: number | undefined;
+
+  /**
+   * <p>The compaction strategy. The only valid value is <code>binpack</code>, which is the default.</p>
+   * @public
+   */
+  strategy?: IcebergCompactionStrategy | undefined;
+}
+
+/**
+ * <p>The snapshot management settings that a migration applies to the destination table.</p>
+ * @public
+ */
+export interface MigrationSnapshotManagementSettings {
+  /**
+   * <p>The minimum number of snapshots to keep. The value must be 3 or more. The default is 3.</p>
+   * @public
+   */
+  minSnapshotsToKeep?: number | undefined;
+
+  /**
+   * <p>The maximum age, in hours, of a snapshot before it can be expired. The default is 120.</p>
+   * @public
+   */
+  maxSnapshotAgeHours?: number | undefined;
+}
+
+/**
+ * <p>The maintenance settings for the destination table. The migration applies them when it creates the table: snapshot management starts then, and compaction starts after you complete the migration. If you don't specify a setting, the migration uses its default: a target file size of 512 MB, the binpack compaction strategy, at least 3 snapshots, and a maximum snapshot age of 120 hours. Unreferenced file removal follows the table bucket's configuration after you complete the migration.</p>
+ * @public
+ */
+export interface MaintenanceSettings {
+  /**
+   * <p>The compaction settings.</p>
+   * @public
+   */
+  icebergCompaction?: MigrationCompactionSettings | undefined;
+
+  /**
+   * <p>The snapshot management settings.</p>
+   * @public
+   */
+  icebergSnapshotManagement?: MigrationSnapshotManagementSettings | undefined;
+}
+
+/**
+ * <p>The policies for source data that doesn't fit the destination schema.</p>
+ * @public
+ */
+export interface MigrationPolicies {
+  /**
+   * <p>The migration policy for a source field that has no matching column in the destination schema. Valid values:</p> <ul> <li> <p> <code>fail</code> - Fails the migration. This is the default.</p> </li> <li> <p> <code>drop</code> - Leaves source columns that the destination schema doesn't have out of the destination table, and doesn't migrate source objects outside the Amazon Web Services Glue table's partition locations.</p> </li> </ul> <p>A destination schema that leaves out a partition column or a field of a struct column fails the migration under either value.</p>
+   * @public
+   */
+  unmatchedSourceFieldsPolicy?: UnmatchedSourceFieldsPolicy | undefined;
+
+  /**
+   * <p>The migration policy for a source value that the destination column's type can't hold. Valid values:</p> <ul> <li> <p> <code>fail</code> - Fails the migration. This is the default.</p> </li> <li> <p> <code>setNull</code> - Writes null for a value that the destination column's type can't hold. If a column's type in a source object is incompatible with the destination column's type, the column is null for that whole object.</p> </li> </ul> <p>A required column, or a type that migration doesn't support, fails the migration under either value.</p>
+   * @public
+   */
+  incompatibleValuesPolicy?: IncompatibleValuesPolicy | undefined;
+}
+
+/**
+ * <p>The maintenance settings and migration policies for the destination table.</p>
+ * @public
+ */
+export interface DataMigrationOverview {
+  /**
+   * <p>The maintenance settings for the destination table. The migration applies them when it creates the table: snapshot management starts then, and compaction starts after you complete the migration. If you don't specify a setting, the migration uses its default: a target file size of 512 MB, the binpack compaction strategy, at least 3 snapshots, and a maximum snapshot age of 120 hours. Unreferenced file removal follows the table bucket's configuration after you complete the migration.</p>
+   * @public
+   */
+  maintenanceSettings: MaintenanceSettings | undefined;
+
+  /**
+   * <p>The policies for source data that doesn't fit the destination schema.</p>
+   * @public
+   */
+  migrationPolicies: MigrationPolicies | undefined;
+}
+
+/**
+ * <p>The maintenance settings and migration policies for the destination table.</p>
+ * @public
+ */
+export interface DataMigrationSettings {
+  /**
+   * <p>The maintenance settings for the destination table. The migration applies them when it creates the table: snapshot management starts then, and compaction starts after you complete the migration. If you don't specify a setting, the migration uses its default: a target file size of 512 MB, the binpack compaction strategy, at least 3 snapshots, and a maximum snapshot age of 120 hours. Unreferenced file removal follows the table bucket's configuration after you complete the migration.</p>
+   * @public
+   */
+  maintenanceSettings?: MaintenanceSettings | undefined;
+
+  /**
+   * <p>The policies for source data that doesn't fit the destination schema.</p>
+   * @public
+   */
+  migrationPolicies?: MigrationPolicies | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteNamespaceRequest {
@@ -619,6 +748,96 @@ export interface DeleteTableReplicationRequest {
    * @public
    */
   versionToken: string | undefined;
+}
+
+/**
+ * <p>The properties of the data files that a migration writes. The migration also sets the compression codec and dictionary encoding as the destination table's write properties, so they remain the table's defaults after you complete the migration.</p>
+ * @public
+ */
+export interface MigrationTableProperties {
+  /**
+   * <p>The file format of the data files. The only supported format is <code>parquet</code>, the default.</p>
+   * @public
+   */
+  writeFormat?: DataFileFormat | undefined;
+
+  /**
+   * <p>The Iceberg format version of the destination table. Valid values are <code>2</code> and <code>3</code>. The default is <code>2</code>.</p>
+   * @public
+   */
+  icebergFormatVersion?: number | undefined;
+
+  /**
+   * <p>The compression codec of the data files. The default is <code>zstd</code>.</p>
+   * @public
+   */
+  compressionCodec?: CompressionCodec | undefined;
+
+  /**
+   * <p>Specifies whether the data files use dictionary encoding. The default is <code>true</code>.</p>
+   * @public
+   */
+  dictionaryEncoding?: boolean | undefined;
+}
+
+/**
+ * <p>The table that a migration creates in a table bucket and migrates the source into.</p>
+ * @public
+ */
+export interface DestinationTable {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table bucket to create the table in.</p>
+   * @public
+   */
+  tableBucketARN: string | undefined;
+
+  /**
+   * <p>The namespace to create the table in.</p>
+   * @public
+   */
+  namespace: string | undefined;
+
+  /**
+   * <p>The name of the table to create.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The encryption configuration for the table. If you don't specify one, the table uses the default encryption configuration of its table bucket. If you specify an encryption configuration, the migration role must have the <code>s3tables:PutTableEncryption</code> permission. If you choose SSE-KMS, the migration role must have the <code>kms:DescribeKey</code>, <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions on the KMS key, and the S3 Tables maintenance principal must have access to it. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html">Permissions requirements for S3 Tables SSE-KMS encryption</a>.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>The storage class configuration for the table. If you don't specify one, the table inherits the storage class configuration of its table bucket. If you specify a storage class configuration, the migration role must have the <code>s3tables:PutTableStorageClass</code> permission.</p>
+   * @public
+   */
+  storageClassConfiguration?: StorageClassConfiguration | undefined;
+
+  /**
+   * <p>The tags to add to the table. A tag is a key-value pair that you apply to your resources. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>. If you specify tags, the migration role must have the <code>s3tables:TagResource</code> permission.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The properties of the destination table, such as its Iceberg format version and the format of its data files.</p>
+   * @public
+   */
+  properties?: MigrationTableProperties | undefined;
+
+  /**
+   * <p>The schema of the table to create. If you don't specify a schema, the migration infers it from the source table, with every column optional. A schema that you specify must include every partition column of the source table. It can leave out other columns only if <code>unmatchedSourceFieldsPolicy</code> is <code>drop</code>. A struct column must have the same fields as the source column. Column default values aren't supported. If you mark a column as required, every source object must have a value for it: an object with a null value in a required column fails to migrate. The destination table is partitioned in the same way as the source table. To specify fields in <code>icebergSortOrder</code>, you must specify a schema.</p>
+   * @public
+   */
+  schema?: IcebergSchemaV2 | undefined;
+
+  /**
+   * <p>The sort order of the rows within each data file that the migration writes. A sort order can have up to five fields, each naming a column of the schema that you specify by its field ID, so to use a sort order you must specify a schema. <code>StartTableMigration</code> rejects a field that names no column of the schema, or whose transform doesn't fit the column's type.</p>
+   * @public
+   */
+  icebergSortOrder?: IcebergSortOrder | undefined;
 }
 
 /**
@@ -1452,6 +1671,331 @@ export interface GetTableMetadataLocationResponse {
 /**
  * @public
  */
+export interface GetTableMigrationRequest {
+  /**
+   * <p>The ID of the migration to get. Specify either <code>migrationId</code> or <code>tableARN</code>, not both.</p>
+   * @public
+   */
+  migrationId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination table. Gets the table's most recent migration. Specify either <code>tableARN</code> or <code>migrationId</code>, not both.</p>
+   * @public
+   */
+  tableARN?: string | undefined;
+}
+
+/**
+ * <p>The reason that a migration failed: a code and, when there is one, the resource or reason it applies to. This value is returned only when the migration is in the <code>failed</code> state.</p>
+ * @public
+ */
+export interface MigrationFailureReason {
+  /**
+   * <p>The failure code. It names the cause or the report that lists the findings. Valid values:</p> <ul> <li> <p> <code>rolePermissions</code> - S3 Tables couldn't assume the migration role, or the role doesn't have a permission that the migration needs. <code>detail</code> is the role ARN.</p> </li> <li> <p> <code>sourcePermissions</code> - The migration role couldn't read the Amazon Web Services Glue table or the source objects. <code>detail</code> names the table (<code>database.table</code>) or the source bucket.</p> </li> <li> <p> <code>destinationPermissions</code> - The migration role couldn't write to the table bucket or the report bucket. <code>detail</code> names the bucket.</p> </li> <li> <p> <code>resourceNotFound</code> - A resource that you specified doesn't exist, such as the Amazon Web Services Glue table or the source bucket. <code>detail</code> names it.</p> </li> <li> <p> <code>sourceNotSupported</code> - The source table can't be migrated, for example because it is empty, has too many objects, or has columns or partitions that can't be migrated. The table compatibility report lists the findings.</p> </li> <li> <p> <code>tableCompatibilityReport</code> - The migration couldn't create the destination table, for example because a table with that name already exists or the KMS key can't be used. For a sync, the destination table changed after the previous migration. The table compatibility report lists the finding.</p> </li> <li> <p> <code>objectCompatibilityReport</code> - Some source objects can't be migrated, for example because they are archived, or because they were overwritten after an earlier migration migrated them. The object compatibility report lists them.</p> </li> <li> <p> <code>objectMigrationReport</code> - Some source objects failed to migrate. The object migration report lists them and the cause for each.</p> </li> <li> <p> <code>reportBucketNotSupported</code> - The report bucket can't receive the migration's reports, for example because it is in a different Region than the table bucket.</p> </li> <li> <p> <code>internalError</code> - S3 Tables encountered an internal error. Retry the migration, and contact Amazon Web Services Support if the error persists.</p> </li> </ul>
+   * @public
+   */
+  code: MigrationFailureCode | undefined;
+
+  /**
+   * <p>The resource that the failure applies to, such as the role ARN, the Amazon Web Services Glue table (<code>database.table</code>) or a bucket. For <code>sourceNotSupported</code>, the reason that the source isn't supported, such as <code>EMPTY_TABLE</code>. This value isn't returned for the report codes or for <code>internalError</code>.</p>
+   * @public
+   */
+  detail?: string | undefined;
+}
+
+/**
+ * <p>A report of a migration: the prefix it is written under and, once it is written, its key, its checksum and, for the compatibility reports, the number of blocking findings in each category.</p>
+ * @public
+ */
+export interface ReportOverview {
+  /**
+   * <p>The key prefix that the report is written under.</p>
+   * @public
+   */
+  prefix?: string | undefined;
+
+  /**
+   * <p>The key of the report object in the bucket. For the object compatibility and object migration reports, this is the report's manifest; for the table compatibility report, it is the report itself. This value is returned after the migration writes the report. A migration doesn't always write every report. For example, a migration that fails during planning doesn't write the object migration report.</p>
+   * @public
+   */
+  key?: string | undefined;
+
+  /**
+   * <p>The Base64-encoded CRC64NVME checksum of the object that <code>key</code> names. For a report that has a manifest, the manifest lists the checksum of each report file. This value is returned after the migration writes the report.</p>
+   * @public
+   */
+  checksumCRC64NVME?: string | undefined;
+
+  /**
+   * <p>For the compatibility reports, the number of blocking findings in each category. The object compatibility report counts each blocked object once, under its most severe finding. Categories with no blocking findings are left out.</p>
+   * @public
+   */
+  invalidFindings?: Partial<Record<FindingCategory, number>> | undefined;
+}
+
+/**
+ * <p>Where a migration writes its reports, and the location of each report once it is written.</p>
+ * @public
+ */
+export interface MigrationOutputOverview {
+  /**
+   * <p>The general purpose bucket that the migration writes every report to.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The table compatibility report: the sample object that the schema is inferred from, the table-level findings, and one row for each destination column with its type change and how the migration policies apply to it. The migration writes it when planning finishes, before any data migrates. If planning fails, the report might not be written.</p>
+   * @public
+   */
+  tableCompatibilityReport: ReportOverview | undefined;
+
+  /**
+   * <p>The object compatibility report: one row for each source object under the source table's location, with whether the migration includes the object and its most severe finding. The migration writes it when planning finishes. If planning fails, the report might not be written.</p>
+   * @public
+   */
+  objectCompatibilityReport: ReportOverview | undefined;
+
+  /**
+   * <p>The object migration report: one row for each source object that the migration tried to migrate, with whether it migrated, how it was transformed, and why it failed. The migration writes it once, when the migration ends. It isn't written if planning fails or if a sync has nothing to migrate.</p>
+   * @public
+   */
+  objectMigrationReport: ReportOverview | undefined;
+}
+
+/**
+ * <p>The number of source objects that migrated, failed or are pending. For a sync, the counts cover every object of the table after the sync, including objects that earlier migrations migrated. The counts are set when planning finishes and updated when the migration ends.</p>
+ * @public
+ */
+export interface MigrationStats {
+  /**
+   * <p>The number of source objects whose data the migration wrote to the destination table. Migrated data can be queried after the migration commits it. If the migration fails or is cancelled, some migrated objects might not be committed.</p>
+   * @public
+   */
+  objectsMigrated?: number | undefined;
+
+  /**
+   * <p>The number of source objects that didn't migrate, because they failed or because another object, such as an object in the same partition, failed. The object migration report lists the cause for each object.</p>
+   * @public
+   */
+  objectsFailedMigration?: number | undefined;
+
+  /**
+   * <p>The number of source objects that haven't migrated or failed yet. When a migration fails or is cancelled, these are the objects that it didn't migrate.</p>
+   * @public
+   */
+  objectsPendingMigration?: number | undefined;
+}
+
+/**
+ * <p>Statistics about the source and the partitions in a migration.</p>
+ * @public
+ */
+export interface PlanningStats {
+  /**
+   * <p>The number of source objects that the migration found under the source table's location, whether or not it migrates them. The object compatibility report has one row for each.</p>
+   * @public
+   */
+  objectsScanned?: number | undefined;
+
+  /**
+   * <p>The number of source objects in the migration. For a start, these are the data files in the Amazon Web Services Glue table's partitions, or under the table's location if the table isn't partitioned. For a sync, these are all the data files of the table after the sync, including files that earlier migrations migrated.</p>
+   * @public
+   */
+  objectsPlanned?: number | undefined;
+
+  /**
+   * <p>The number of partitions in the destination table after this migration, or 0 if the source table isn't partitioned. This value is returned when planning produces a valid plan.</p>
+   * @public
+   */
+  partitionCount?: number | undefined;
+}
+
+/**
+ * <p>An Amazon Web Services Glue Data Catalog table to migrate. The table must be an external Apache Hive table whose data is stored as Parquet in a general purpose bucket in the same account and Region as the table bucket. Views, transactional (ACID) tables, tables in an open table format such as Apache Iceberg, and tables registered with Amazon Web Services Lake Formation can't be migrated. If the table can't be migrated, the migration fails, and the table compatibility report lists the reason.</p>
+ * @public
+ */
+export interface GlueTableSource {
+  /**
+   * <p>The ID of the Data Catalog that contains the table. It must be your account ID.</p>
+   * @public
+   */
+  catalogId: string | undefined;
+
+  /**
+   * <p>The name of the database that contains the table.</p>
+   * @public
+   */
+  databaseName: string | undefined;
+
+  /**
+   * <p>The name of the table.</p>
+   * @public
+   */
+  tableName: string | undefined;
+}
+
+/**
+ * <p>The source to migrate from. Set exactly one member, and set <code>sourceType</code> to match it.</p>
+ * @public
+ */
+export type SourceConfiguration =
+  | SourceConfiguration.GlueTableMember
+  | SourceConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SourceConfiguration {
+  /**
+   * <p>An Amazon Web Services Glue Data Catalog table to migrate. The table must be an external Apache Hive table whose data is stored as Parquet in a general purpose bucket in the same account and Region as the table bucket. Views, transactional (ACID) tables, tables in an open table format such as Apache Iceberg, and tables registered with Amazon Web Services Lake Formation can't be migrated. If the table can't be migrated, the migration fails, and the table compatibility report lists the reason.</p>
+   * @public
+   */
+  export interface GlueTableMember {
+    glueTable: GlueTableSource;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    glueTable?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    glueTable: (value: GlueTableSource) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface GetTableMigrationResponse {
+  /**
+   * <p>The ID of the migration.</p>
+   * @public
+   */
+  migrationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table bucket that contains the destination table.</p>
+   * @public
+   */
+  tableBucketARN: string | undefined;
+
+  /**
+   * <p>The namespace of the destination table.</p>
+   * @public
+   */
+  namespace: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination table, once the migration creates it.</p>
+   * @public
+   */
+  tableARN?: string | undefined;
+
+  /**
+   * <p>The name of the destination table.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the migration. Valid values:</p> <ul> <li> <p> <code>start</code> - A migration that <code>StartTableMigration</code> started.</p> </li> <li> <p> <code>sync</code> - A migration that <code>SyncTableMigration</code> started.</p> </li> </ul>
+   * @public
+   */
+  type: MigrationType | undefined;
+
+  /**
+   * <p>The state of the migration. Valid values:</p> <ul> <li> <p> <code>new</code> - S3 Tables accepted the request.</p> </li> <li> <p> <code>planning</code> - The migration is checking the source table, its objects and the destination for compatibility, and writing the compatibility reports.</p> </li> <li> <p> <code>pendingReview</code> - Planning finished, and the migration waits for you to continue or cancel it with <code>UpdateTableMigration</code>.</p> </li> <li> <p> <code>queued</code> - The migration is waiting to start migrating data.</p> </li> <li> <p> <code>migrating</code> - The migration is running the plan from the <code>planning</code> state: it copies data and commits it to the destination table. A migration reaches this state only if <code>hasValidPlan</code> is <code>true</code>.</p> </li> <li> <p> <code>succeeded</code> - Every planned object migrated.</p> </li> <li> <p> <code>failed</code> - The migration failed. Check <code>failureReason</code> for the cause.</p> </li> <li> <p> <code>cancelling</code> - You cancelled the migration, and it is finishing the work in progress.</p> </li> <li> <p> <code>cancelled</code> - The migration is cancelled.</p> </li> </ul> <p>A migration ends in the <code>succeeded</code>, <code>failed</code> or <code>cancelled</code> state. You can cancel it until it ends.</p>
+   * @public
+   */
+  state: MigrationState | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the migration uses.</p>
+   * @public
+   */
+  roleARN: string | undefined;
+
+  /**
+   * <p>A Boolean value that specifies whether the migration waits in the <code>pendingReview</code> state, so that you can review the compatibility reports before it migrates any data.</p>
+   * @public
+   */
+  reviewMigrationPlan: boolean | undefined;
+
+  /**
+   * <p>A Boolean value that specifies whether planning produced a plan that the migration can run. If planning hasn't finished, this value isn't returned.</p>
+   * @public
+   */
+  hasValidPlan?: boolean | undefined;
+
+  /**
+   * <p>The date and time that the migration was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time that the migration's state last changed.</p>
+   * @public
+   */
+  stateUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The reason that the migration failed. The code names the cause, such as a migration role that S3 Tables can't assume or an Amazon Web Services Glue table that doesn't exist, or the report that lists the findings. This value is returned only when the migration is in the <code>failed</code> state.</p>
+   * @public
+   */
+  failureReason?: MigrationFailureReason | undefined;
+
+  /**
+   * <p>Statistics about the source and the partitions in the migration. This value is returned after planning finishes.</p>
+   * @public
+   */
+  planningStats?: PlanningStats | undefined;
+
+  /**
+   * <p>The number of objects that migrated, failed or are pending. These counts are set when planning finishes and updated when the migration ends.</p>
+   * @public
+   */
+  migrationStats?: MigrationStats | undefined;
+
+  /**
+   * <p>The type of the migration's source.</p>
+   * @public
+   */
+  sourceType: MigrationSourceType | undefined;
+
+  /**
+   * <p>The source table of the migration.</p>
+   * @public
+   */
+  source: SourceConfiguration | undefined;
+
+  /**
+   * <p>The maintenance settings and migration policies for the destination table.</p>
+   * @public
+   */
+  dataMigration: DataMigrationOverview | undefined;
+
+  /**
+   * <p>The bucket and prefixes for the migration's reports, and the location of each report once it is written.</p>
+   * @public
+   */
+  migrationOutput: MigrationOutputOverview | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetTablePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
@@ -1952,6 +2496,142 @@ export interface ListTableBucketsResponse {
 /**
  * @public
  */
+export interface ListTableMigrationsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table bucket to list migrations for.</p>
+   * @public
+   */
+  tableBucketARN?: string | undefined;
+
+  /**
+   * <p>The namespace to list migrations for. Requires <code>tableBucketARN</code>.</p>
+   * @public
+   */
+  namespace?: string | undefined;
+
+  /**
+   * <p>The name of the table to list migrations for. Requires <code>tableBucketARN</code> and <code>namespace</code>.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table to list migrations for. The list includes the migrations into this table. To also list migrations into an earlier table of the same name, specify <code>tableBucketARN</code>, <code>namespace</code> and <code>name</code> instead. Specify either <code>tableARN</code> or <code>tableBucketARN</code>, not both.</p>
+   * @public
+   */
+  tableARN?: string | undefined;
+
+  /**
+   * <p>The state to filter the list by. For the valid values, see the <code>state</code> member of <code>GetTableMigration</code>.</p>
+   * @public
+   */
+  state?: MigrationState | undefined;
+
+  /**
+   * <p>The <code>hasValidPlan</code> value to filter the list by. Migrations that are still planning aren't listed, whichever value you specify.</p>
+   * @public
+   */
+  hasValidPlan?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of migrations to return, from 1 to 1,000. If you don't specify a value, the default is 100.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> from a previous response, to get the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A summary of a migration.</p>
+ * @public
+ */
+export interface MigrationSummary {
+  /**
+   * <p>The ID of the migration.</p>
+   * @public
+   */
+  migrationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table bucket that contains the destination table.</p>
+   * @public
+   */
+  tableBucketARN: string | undefined;
+
+  /**
+   * <p>The namespace of the destination table.</p>
+   * @public
+   */
+  namespace: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination table, once the migration creates it.</p>
+   * @public
+   */
+  tableARN?: string | undefined;
+
+  /**
+   * <p>The name of the destination table.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the migration. Valid values:</p> <ul> <li> <p> <code>start</code> - A migration that <code>StartTableMigration</code> started.</p> </li> <li> <p> <code>sync</code> - A migration that <code>SyncTableMigration</code> started.</p> </li> </ul>
+   * @public
+   */
+  type: MigrationType | undefined;
+
+  /**
+   * <p>The state of the migration. Valid values:</p> <ul> <li> <p> <code>new</code> - S3 Tables accepted the request.</p> </li> <li> <p> <code>planning</code> - The migration is checking the source table, its objects and the destination for compatibility, and writing the compatibility reports.</p> </li> <li> <p> <code>pendingReview</code> - Planning finished, and the migration waits for you to continue or cancel it with <code>UpdateTableMigration</code>.</p> </li> <li> <p> <code>queued</code> - The migration is waiting to start migrating data.</p> </li> <li> <p> <code>migrating</code> - The migration is running the plan from the <code>planning</code> state: it copies data and commits it to the destination table. A migration reaches this state only if <code>hasValidPlan</code> is <code>true</code>.</p> </li> <li> <p> <code>succeeded</code> - Every planned object migrated.</p> </li> <li> <p> <code>failed</code> - The migration failed. Check <code>failureReason</code> for the cause.</p> </li> <li> <p> <code>cancelling</code> - You cancelled the migration, and it is finishing the work in progress.</p> </li> <li> <p> <code>cancelled</code> - The migration is cancelled.</p> </li> </ul>
+   * @public
+   */
+  state: MigrationState | undefined;
+
+  /**
+   * <p>A Boolean value that specifies whether planning produced a plan that the migration can run. If planning hasn't finished, this value isn't returned.</p>
+   * @public
+   */
+  hasValidPlan?: boolean | undefined;
+
+  /**
+   * <p>The date and time that the migration was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time that the migration's state last changed.</p>
+   * @public
+   */
+  stateUpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTableMigrationsResponse {
+  /**
+   * <p>The migrations, newest first.</p>
+   * @public
+   */
+  migrations: MigrationSummary[] | undefined;
+
+  /**
+   * <p>A token to pass as <code>nextToken</code> to get the next page of results. If there are no more results, this value isn't returned.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTablesRequest {
   /**
    * <p>The Amazon resource Name (ARN) of the table bucket.</p>
@@ -2081,6 +2761,48 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The key prefix for each report. If you don't specify a prefix for a report, its keys start at the root of the bucket.</p>
+ * @public
+ */
+export interface MigrationReportPrefixes {
+  /**
+   * <p>The key prefix for the table compatibility report, up to 512 bytes. If not specified, the report's keys start at the root of the bucket.</p>
+   * @public
+   */
+  tableCompatibilityReport?: string | undefined;
+
+  /**
+   * <p>The key prefix for the object compatibility report, up to 512 bytes. If not specified, the report's keys start at the root of the bucket.</p>
+   * @public
+   */
+  objectCompatibilityReport?: string | undefined;
+
+  /**
+   * <p>The key prefix for the object migration report, up to 512 bytes. If not specified, the report's keys start at the root of the bucket.</p>
+   * @public
+   */
+  objectMigrationReport?: string | undefined;
+}
+
+/**
+ * <p>The bucket and prefixes that a migration writes its reports to. Every report goes to one bucket, each under its own prefix.</p>
+ * @public
+ */
+export interface MigrationOutputConfiguration {
+  /**
+   * <p>The general purpose bucket that the migration writes every report to.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The key prefix for each report.</p>
+   * @public
+   */
+  prefixes?: MigrationReportPrefixes | undefined;
 }
 
 /**
@@ -2373,6 +3095,116 @@ export interface RenameTableRequest {
 /**
  * @public
  */
+export interface StartTableMigrationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the migration uses to read the source table and its data and to write the destination table and the reports. The role must be in your account, and its trust policy must allow <code>migration.s3tables.amazonaws.com</code> to assume it. You can limit the trust policy to the destination table bucket with the <code>aws:SourceArn</code> and <code>aws:SourceAccount</code> condition keys.</p>
+   * @public
+   */
+  roleARN: string | undefined;
+
+  /**
+   * <p>The table to create and migrate the source into.</p>
+   * @public
+   */
+  destinationTable: DestinationTable | undefined;
+
+  /**
+   * <p>The type of the source. It must match the member that you set in <code>source</code>.</p>
+   * @public
+   */
+  sourceType: MigrationSourceType | undefined;
+
+  /**
+   * <p>The source table to migrate.</p>
+   * @public
+   */
+  source: SourceConfiguration | undefined;
+
+  /**
+   * <p>The maintenance settings and migration policies for the destination table.</p>
+   * @public
+   */
+  dataMigration?: DataMigrationSettings | undefined;
+
+  /**
+   * <p>Specifies whether the migration waits in the <code>pendingReview</code> state, so that you can review the compatibility reports before it migrates any data. If <code>true</code>, the migration continues when you call <code>UpdateTableMigration</code> with <code>requestedState</code> set to <code>queued</code>. If you don't continue or cancel the migration within 30 days, the migration fails. The default is <code>false</code>.</p>
+   * @public
+   */
+  reviewMigrationPlan?: boolean | undefined;
+
+  /**
+   * <p>The bucket and prefixes that the migration writes its reports to. The bucket must be a general purpose bucket in your account and in the same Region as the table bucket, and the migration role must be able to write objects to it. Otherwise, the migration fails when it writes its first report.</p>
+   * @public
+   */
+  migrationOutput: MigrationOutputConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartTableMigrationResponse {
+  /**
+   * <p>The ID of the migration.</p>
+   * @public
+   */
+  migrationId: string | undefined;
+
+  /**
+   * <p>The state of the migration when the request is accepted, such as <code>planning</code>.</p>
+   * @public
+   */
+  state: MigrationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SyncTableMigrationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the sync uses to read the source table and its data and to write the destination table and the reports. The role must be in your account, and its trust policy must allow <code>migration.s3tables.amazonaws.com</code> to assume it. You can limit the trust policy to the destination table bucket with the <code>aws:SourceArn</code> and <code>aws:SourceAccount</code> condition keys.</p>
+   * @public
+   */
+  roleARN: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination table to sync. The table must have a migration, and you must not have called <code>CompleteTableMigration</code> for it.</p>
+   * @public
+   */
+  tableARN: string | undefined;
+
+  /**
+   * <p>Specifies whether the sync waits in the <code>pendingReview</code> state, so that you can review the compatibility reports before it migrates any data. If <code>true</code>, the migration continues when you call <code>UpdateTableMigration</code> with <code>requestedState</code> set to <code>queued</code>. If you don't continue or cancel the migration within 30 days, the migration fails. The default is <code>false</code>.</p>
+   * @public
+   */
+  reviewMigrationPlan?: boolean | undefined;
+
+  /**
+   * <p>The bucket and prefixes that the sync writes its reports to. The bucket must be a general purpose bucket in your account and in the same Region as the table bucket, and the migration role must be able to write objects to it. Otherwise, the migration fails when it writes its first report.</p>
+   * @public
+   */
+  migrationOutput: MigrationOutputConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SyncTableMigrationResponse {
+  /**
+   * <p>The migration ID of the sync.</p>
+   * @public
+   */
+  migrationId: string | undefined;
+
+  /**
+   * <p>The state of the migration when the request is accepted, such as <code>planning</code>.</p>
+   * @public
+   */
+  state: MigrationState | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateTableMetadataLocationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the table bucket. </p>
@@ -2438,6 +3270,58 @@ export interface UpdateTableMetadataLocationResponse {
    * @public
    */
   metadataLocation: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTableMigrationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination table. Updates the table's most recent migration. Until the migration creates the destination table, specify <code>migrationId</code>. Specify either <code>tableARN</code> or <code>migrationId</code>, not both.</p>
+   * @public
+   */
+  tableARN?: string | undefined;
+
+  /**
+   * <p>The ID of the migration to update. Specify either <code>migrationId</code> or <code>tableARN</code>, not both.</p>
+   * @public
+   */
+  migrationId?: string | undefined;
+
+  /**
+   * <p>The state to move the migration to: <code>queued</code> to continue a migration in the <code>pendingReview</code> state, or <code>cancelled</code> to cancel a migration in the <code>new</code>, <code>planning</code>, <code>pendingReview</code>, <code>queued</code> or <code>migrating</code> state.</p>
+   * @public
+   */
+  requestedState: MigrationRequestedState | undefined;
+
+  /**
+   * <p>A description of the update, up to 1,024 characters, with no control characters. <code>GetTableMigration</code> doesn't return it.</p>
+   * @public
+   */
+  updateDescription?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTableMigrationResponse {
+  /**
+   * <p>The ID of the migration.</p>
+   * @public
+   */
+  migrationId: string | undefined;
+
+  /**
+   * <p>The state of the migration after the update, such as <code>queued</code>, <code>migrating</code> or <code>cancelling</code>.</p>
+   * @public
+   */
+  state: MigrationState | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination table.</p>
+   * @public
+   */
+  tableARN?: string | undefined;
 }
 
 /**

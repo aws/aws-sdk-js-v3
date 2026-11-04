@@ -6,6 +6,8 @@ import { describe, expect, test as it, vi } from "vitest";
 import {
   AccessDeniedException$,
   BadRequestException$,
+  CompleteTableMigration$,
+  CompleteTableMigrationCommand,
   ConflictException$,
   CreateNamespace$,
   CreateNamespaceCommand,
@@ -58,6 +60,8 @@ import {
   GetTableMaintenanceJobStatusCommand,
   GetTableMetadataLocation$,
   GetTableMetadataLocationCommand,
+  GetTableMigration$,
+  GetTableMigrationCommand,
   GetTablePolicy$,
   GetTablePolicyCommand,
   GetTableRecordExpirationConfiguration$,
@@ -75,6 +79,8 @@ import {
   ListNamespacesCommand,
   ListTableBuckets$,
   ListTableBucketsCommand,
+  ListTableMigrations$,
+  ListTableMigrationsCommand,
   ListTables$,
   ListTablesCommand,
   ListTagsForResource$,
@@ -104,6 +110,10 @@ import {
   RenameTable$,
   RenameTableCommand,
   S3TablesClient,
+  StartTableMigration$,
+  StartTableMigrationCommand,
+  SyncTableMigration$,
+  SyncTableMigrationCommand,
   TagResource$,
   TagResourceCommand,
   TooManyRequestsException$,
@@ -111,6 +121,8 @@ import {
   UntagResourceCommand,
   UpdateTableMetadataLocation$,
   UpdateTableMetadataLocationCommand,
+  UpdateTableMigration$,
+  UpdateTableMigrationCommand,
 } from "../src";
 
 vi.setSystemTime(new Date(946702799999));
@@ -131,6 +143,7 @@ describe("S3TablesClient" + ` (${mode})`, () => {
       return Promise.resolve();
     },
     schemas: new Map<any, any>([
+      [CompleteTableMigration$, CompleteTableMigrationCommand],
       [CreateNamespace$, CreateNamespaceCommand],
       [CreateTable$, CreateTableCommand],
       [CreateTableBucket$, CreateTableBucketCommand],
@@ -156,6 +169,7 @@ describe("S3TablesClient" + ` (${mode})`, () => {
       [GetTableMaintenanceConfiguration$, GetTableMaintenanceConfigurationCommand],
       [GetTableMaintenanceJobStatus$, GetTableMaintenanceJobStatusCommand],
       [GetTableMetadataLocation$, GetTableMetadataLocationCommand],
+      [GetTableMigration$, GetTableMigrationCommand],
       [GetTablePolicy$, GetTablePolicyCommand],
       [GetTableRecordExpirationConfiguration$, GetTableRecordExpirationConfigurationCommand],
       [GetTableRecordExpirationJobStatus$, GetTableRecordExpirationJobStatusCommand],
@@ -164,6 +178,7 @@ describe("S3TablesClient" + ` (${mode})`, () => {
       [GetTableStorageClass$, GetTableStorageClassCommand],
       [ListNamespaces$, ListNamespacesCommand],
       [ListTableBuckets$, ListTableBucketsCommand],
+      [ListTableMigrations$, ListTableMigrationsCommand],
       [ListTables$, ListTablesCommand],
       [ListTagsForResource$, ListTagsForResourceCommand],
       [PutTableBucketEncryption$, PutTableBucketEncryptionCommand],
@@ -177,9 +192,12 @@ describe("S3TablesClient" + ` (${mode})`, () => {
       [PutTableRecordExpirationConfiguration$, PutTableRecordExpirationConfigurationCommand],
       [PutTableReplication$, PutTableReplicationCommand],
       [RenameTable$, RenameTableCommand],
+      [StartTableMigration$, StartTableMigrationCommand],
+      [SyncTableMigration$, SyncTableMigrationCommand],
       [TagResource$, TagResourceCommand],
       [UntagResource$, UntagResourceCommand],
       [UpdateTableMetadataLocation$, UpdateTableMetadataLocationCommand],
+      [UpdateTableMigration$, UpdateTableMigrationCommand],
     ]),
     errors: [
       AccessDeniedException$,

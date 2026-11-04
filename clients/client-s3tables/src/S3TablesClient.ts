@@ -54,6 +54,10 @@ import {
   defaultS3TablesHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import type {
+  CompleteTableMigrationCommandInput,
+  CompleteTableMigrationCommandOutput,
+} from "./commands/CompleteTableMigrationCommand";
 import type { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "./commands/CreateNamespaceCommand";
 import type {
   CreateTableBucketCommandInput,
@@ -133,6 +137,10 @@ import type {
   GetTableMetadataLocationCommandInput,
   GetTableMetadataLocationCommandOutput,
 } from "./commands/GetTableMetadataLocationCommand";
+import type {
+  GetTableMigrationCommandInput,
+  GetTableMigrationCommandOutput,
+} from "./commands/GetTableMigrationCommand";
 import type { GetTablePolicyCommandInput, GetTablePolicyCommandOutput } from "./commands/GetTablePolicyCommand";
 import type {
   GetTableRecordExpirationConfigurationCommandInput,
@@ -156,6 +164,10 @@ import type {
 } from "./commands/GetTableStorageClassCommand";
 import type { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import type { ListTableBucketsCommandInput, ListTableBucketsCommandOutput } from "./commands/ListTableBucketsCommand";
+import type {
+  ListTableMigrationsCommandInput,
+  ListTableMigrationsCommandOutput,
+} from "./commands/ListTableMigrationsCommand";
 import type { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
 import type {
   ListTagsForResourceCommandInput,
@@ -199,12 +211,24 @@ import type {
   PutTableReplicationCommandOutput,
 } from "./commands/PutTableReplicationCommand";
 import type { RenameTableCommandInput, RenameTableCommandOutput } from "./commands/RenameTableCommand";
+import type {
+  StartTableMigrationCommandInput,
+  StartTableMigrationCommandOutput,
+} from "./commands/StartTableMigrationCommand";
+import type {
+  SyncTableMigrationCommandInput,
+  SyncTableMigrationCommandOutput,
+} from "./commands/SyncTableMigrationCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
   UpdateTableMetadataLocationCommandInput,
   UpdateTableMetadataLocationCommandOutput,
 } from "./commands/UpdateTableMetadataLocationCommand";
+import type {
+  UpdateTableMigrationCommandInput,
+  UpdateTableMigrationCommandOutput,
+} from "./commands/UpdateTableMigrationCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -220,6 +244,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CompleteTableMigrationCommandInput
   | CreateNamespaceCommandInput
   | CreateTableBucketCommandInput
   | CreateTableCommandInput
@@ -245,6 +270,7 @@ export type ServiceInputTypes =
   | GetTableMaintenanceConfigurationCommandInput
   | GetTableMaintenanceJobStatusCommandInput
   | GetTableMetadataLocationCommandInput
+  | GetTableMigrationCommandInput
   | GetTablePolicyCommandInput
   | GetTableRecordExpirationConfigurationCommandInput
   | GetTableRecordExpirationJobStatusCommandInput
@@ -253,6 +279,7 @@ export type ServiceInputTypes =
   | GetTableStorageClassCommandInput
   | ListNamespacesCommandInput
   | ListTableBucketsCommandInput
+  | ListTableMigrationsCommandInput
   | ListTablesCommandInput
   | ListTagsForResourceCommandInput
   | PutTableBucketEncryptionCommandInput
@@ -266,14 +293,18 @@ export type ServiceInputTypes =
   | PutTableRecordExpirationConfigurationCommandInput
   | PutTableReplicationCommandInput
   | RenameTableCommandInput
+  | StartTableMigrationCommandInput
+  | SyncTableMigrationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateTableMetadataLocationCommandInput;
+  | UpdateTableMetadataLocationCommandInput
+  | UpdateTableMigrationCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | CompleteTableMigrationCommandOutput
   | CreateNamespaceCommandOutput
   | CreateTableBucketCommandOutput
   | CreateTableCommandOutput
@@ -299,6 +330,7 @@ export type ServiceOutputTypes =
   | GetTableMaintenanceConfigurationCommandOutput
   | GetTableMaintenanceJobStatusCommandOutput
   | GetTableMetadataLocationCommandOutput
+  | GetTableMigrationCommandOutput
   | GetTablePolicyCommandOutput
   | GetTableRecordExpirationConfigurationCommandOutput
   | GetTableRecordExpirationJobStatusCommandOutput
@@ -307,6 +339,7 @@ export type ServiceOutputTypes =
   | GetTableStorageClassCommandOutput
   | ListNamespacesCommandOutput
   | ListTableBucketsCommandOutput
+  | ListTableMigrationsCommandOutput
   | ListTablesCommandOutput
   | ListTagsForResourceCommandOutput
   | PutTableBucketEncryptionCommandOutput
@@ -320,9 +353,12 @@ export type ServiceOutputTypes =
   | PutTableRecordExpirationConfigurationCommandOutput
   | PutTableReplicationCommandOutput
   | RenameTableCommandOutput
+  | StartTableMigrationCommandOutput
+  | SyncTableMigrationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateTableMetadataLocationCommandOutput;
+  | UpdateTableMetadataLocationCommandOutput
+  | UpdateTableMigrationCommandOutput;
 
 /**
  * @public
@@ -516,7 +552,7 @@ export type S3TablesClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface S3TablesClientResolvedConfig extends S3TablesClientResolvedConfigType {}
 
 /**
- * <p>An Amazon S3 table represents a structured dataset consisting of tabular data in <a href="https://parquet.apache.org/docs/">Apache Parquet</a> format and related metadata. This data is stored inside an S3 table as a subresource. All tables in a table bucket are stored in the <a href="https://iceberg.apache.org/docs/latest/">Apache Iceberg</a> table format. Through integration with the <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html">Amazon Web Services Glue Data Catalog</a> you can interact with your tables using Amazon Web Services analytics services, such as <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/athena/">Amazon Athena</a> and <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/redshift/">Amazon Redshift</a>. Amazon S3 manages maintenance of your tables through automatic file compaction and snapshot management. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html">Amazon S3 table buckets</a>.</p>
+ * <p>An Amazon S3 table represents a structured dataset consisting of tabular data in <a href="https://parquet.apache.org/docs/">Apache Parquet</a> format and related metadata. This data is stored inside an S3 table as a subresource. All tables in a table bucket are stored in the <a href="https://iceberg.apache.org/docs/latest/">Apache Iceberg</a> table format. Through integration with the <a href="https://docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html">Amazon Web Services Glue Data Catalog</a> you can interact with your tables using Amazon Web Services analytics services, such as <a href="https://docs.aws.amazon.com/athena/">Amazon Athena</a> and <a href="https://docs.aws.amazon.com/redshift/">Amazon Redshift</a>. Amazon S3 manages maintenance of your tables through automatic file compaction and snapshot management. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html">Amazon S3 table buckets</a>.</p>
  * @public
  */
 export class S3TablesClient extends __Client<

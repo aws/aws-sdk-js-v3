@@ -3,6 +3,10 @@ import {
   AccessDeniedException$,
   BadRequestException,
   BadRequestException$,
+  CompleteTableMigration$,
+  CompleteTableMigrationCommand,
+  CompleteTableMigrationRequest$,
+  CompressionCodec,
   ConflictException,
   ConflictException$,
   CreateNamespace$,
@@ -17,6 +21,9 @@ import {
   CreateTableCommand,
   CreateTableRequest$,
   CreateTableResponse$,
+  DataFileFormat,
+  DataMigrationOverview$,
+  DataMigrationSettings$,
   DeleteNamespace$,
   DeleteNamespaceCommand,
   DeleteNamespaceRequest$,
@@ -44,7 +51,9 @@ import {
   DeleteTableReplicationCommand,
   DeleteTableReplicationRequest$,
   DeleteTableRequest$,
+  DestinationTable$,
   EncryptionConfiguration$,
+  FindingCategory,
   ForbiddenException,
   ForbiddenException$,
   GetNamespace$,
@@ -97,6 +106,10 @@ import {
   GetTableMetadataLocationCommand,
   GetTableMetadataLocationRequest$,
   GetTableMetadataLocationResponse$,
+  GetTableMigration$,
+  GetTableMigrationCommand,
+  GetTableMigrationRequest$,
+  GetTableMigrationResponse$,
   GetTablePolicy$,
   GetTablePolicyCommand,
   GetTablePolicyRequest$,
@@ -123,6 +136,7 @@ import {
   GetTableStorageClassCommand,
   GetTableStorageClassRequest$,
   GetTableStorageClassResponse$,
+  GlueTableSource$,
   IcebergCompactionSettings$,
   IcebergCompactionStrategy,
   IcebergMetadata$,
@@ -136,6 +150,7 @@ import {
   IcebergSortField$,
   IcebergSortOrder$,
   IcebergUnreferencedFileRemovalSettings$,
+  IncompatibleValuesPolicy,
   InternalServerErrorException,
   InternalServerErrorException$,
   JobStatus,
@@ -148,6 +163,10 @@ import {
   ListTableBucketsCommand,
   ListTableBucketsRequest$,
   ListTableBucketsResponse$,
+  ListTableMigrations$,
+  ListTableMigrationsCommand,
+  ListTableMigrationsRequest$,
+  ListTableMigrationsResponse$,
   ListTables$,
   ListTablesCommand,
   ListTablesRequest$,
@@ -156,17 +175,35 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  MaintenanceSettings$,
   MaintenanceStatus,
   ManagedTableInformation$,
   MethodNotAllowedException,
   MethodNotAllowedException$,
+  MigrationCompactionSettings$,
+  MigrationFailureCode,
+  MigrationFailureReason$,
+  MigrationOutputConfiguration$,
+  MigrationOutputOverview$,
+  MigrationPolicies$,
+  MigrationReportPrefixes$,
+  MigrationRequestedState,
+  MigrationSnapshotManagementSettings$,
+  MigrationSourceType,
+  MigrationState,
+  MigrationStats$,
+  MigrationSummary$,
+  MigrationTableProperties$,
+  MigrationType,
   NamespaceSummary$,
   NotFoundException,
   NotFoundException$,
   OpenTableFormat,
   paginateListNamespaces,
   paginateListTableBuckets,
+  paginateListTableMigrations,
   paginateListTables,
+  PlanningStats$,
   PutTableBucketEncryption$,
   PutTableBucketEncryptionCommand,
   PutTableBucketEncryptionRequest$,
@@ -206,15 +243,25 @@ import {
   ReplicationDestinationStatusModel$,
   ReplicationInformation$,
   ReplicationStatus,
+  ReportOverview$,
   S3Tables,
   S3TablesClient,
   S3TablesServiceException,
   SchemaField$,
   SchemaV2Field$,
   SchemaV2FieldType,
+  SourceConfiguration$,
   SSEAlgorithm,
+  StartTableMigration$,
+  StartTableMigrationCommand,
+  StartTableMigrationRequest$,
+  StartTableMigrationResponse$,
   StorageClass,
   StorageClassConfiguration$,
+  SyncTableMigration$,
+  SyncTableMigrationCommand,
+  SyncTableMigrationRequest$,
+  SyncTableMigrationResponse$,
   TableBucketMaintenanceConfigurationValue$,
   TableBucketMaintenanceSettings$,
   TableBucketMaintenanceType,
@@ -243,6 +290,7 @@ import {
   TagResourceResponse$,
   TooManyRequestsException,
   TooManyRequestsException$,
+  UnmatchedSourceFieldsPolicy,
   UntagResource$,
   UntagResourceCommand,
   UntagResourceRequest$,
@@ -251,12 +299,18 @@ import {
   UpdateTableMetadataLocationCommand,
   UpdateTableMetadataLocationRequest$,
   UpdateTableMetadataLocationResponse$,
+  UpdateTableMigration$,
+  UpdateTableMigrationCommand,
+  UpdateTableMigrationRequest$,
+  UpdateTableMigrationResponse$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
 assert(typeof S3TablesClient === "function");
 assert(typeof S3Tables === "function");
 // commands
+assert(typeof CompleteTableMigrationCommand === "function");
+assert(typeof CompleteTableMigration$ === "object");
 assert(typeof CreateNamespaceCommand === "function");
 assert(typeof CreateNamespace$ === "object");
 assert(typeof CreateTableCommand === "function");
@@ -307,6 +361,8 @@ assert(typeof GetTableMaintenanceJobStatusCommand === "function");
 assert(typeof GetTableMaintenanceJobStatus$ === "object");
 assert(typeof GetTableMetadataLocationCommand === "function");
 assert(typeof GetTableMetadataLocation$ === "object");
+assert(typeof GetTableMigrationCommand === "function");
+assert(typeof GetTableMigration$ === "object");
 assert(typeof GetTablePolicyCommand === "function");
 assert(typeof GetTablePolicy$ === "object");
 assert(typeof GetTableRecordExpirationConfigurationCommand === "function");
@@ -323,6 +379,8 @@ assert(typeof ListNamespacesCommand === "function");
 assert(typeof ListNamespaces$ === "object");
 assert(typeof ListTableBucketsCommand === "function");
 assert(typeof ListTableBuckets$ === "object");
+assert(typeof ListTableMigrationsCommand === "function");
+assert(typeof ListTableMigrations$ === "object");
 assert(typeof ListTablesCommand === "function");
 assert(typeof ListTables$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
@@ -349,19 +407,28 @@ assert(typeof PutTableReplicationCommand === "function");
 assert(typeof PutTableReplication$ === "object");
 assert(typeof RenameTableCommand === "function");
 assert(typeof RenameTable$ === "object");
+assert(typeof StartTableMigrationCommand === "function");
+assert(typeof StartTableMigration$ === "object");
+assert(typeof SyncTableMigrationCommand === "function");
+assert(typeof SyncTableMigration$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateTableMetadataLocationCommand === "function");
 assert(typeof UpdateTableMetadataLocation$ === "object");
+assert(typeof UpdateTableMigrationCommand === "function");
+assert(typeof UpdateTableMigration$ === "object");
 // structural schemas
+assert(typeof CompleteTableMigrationRequest$ === "object");
 assert(typeof CreateNamespaceRequest$ === "object");
 assert(typeof CreateNamespaceResponse$ === "object");
 assert(typeof CreateTableBucketRequest$ === "object");
 assert(typeof CreateTableBucketResponse$ === "object");
 assert(typeof CreateTableRequest$ === "object");
 assert(typeof CreateTableResponse$ === "object");
+assert(typeof DataMigrationOverview$ === "object");
+assert(typeof DataMigrationSettings$ === "object");
 assert(typeof DeleteNamespaceRequest$ === "object");
 assert(typeof DeleteTableBucketEncryptionRequest$ === "object");
 assert(typeof DeleteTableBucketMetricsConfigurationRequest$ === "object");
@@ -371,6 +438,7 @@ assert(typeof DeleteTableBucketRequest$ === "object");
 assert(typeof DeleteTablePolicyRequest$ === "object");
 assert(typeof DeleteTableReplicationRequest$ === "object");
 assert(typeof DeleteTableRequest$ === "object");
+assert(typeof DestinationTable$ === "object");
 assert(typeof EncryptionConfiguration$ === "object");
 assert(typeof GetNamespaceRequest$ === "object");
 assert(typeof GetNamespaceResponse$ === "object");
@@ -396,6 +464,8 @@ assert(typeof GetTableMaintenanceJobStatusRequest$ === "object");
 assert(typeof GetTableMaintenanceJobStatusResponse$ === "object");
 assert(typeof GetTableMetadataLocationRequest$ === "object");
 assert(typeof GetTableMetadataLocationResponse$ === "object");
+assert(typeof GetTableMigrationRequest$ === "object");
+assert(typeof GetTableMigrationResponse$ === "object");
 assert(typeof GetTablePolicyRequest$ === "object");
 assert(typeof GetTablePolicyResponse$ === "object");
 assert(typeof GetTableRecordExpirationConfigurationRequest$ === "object");
@@ -410,6 +480,7 @@ assert(typeof GetTableRequest$ === "object");
 assert(typeof GetTableResponse$ === "object");
 assert(typeof GetTableStorageClassRequest$ === "object");
 assert(typeof GetTableStorageClassResponse$ === "object");
+assert(typeof GlueTableSource$ === "object");
 assert(typeof IcebergCompactionSettings$ === "object");
 assert(typeof IcebergMetadata$ === "object");
 assert(typeof IcebergPartitionField$ === "object");
@@ -425,12 +496,26 @@ assert(typeof ListNamespacesRequest$ === "object");
 assert(typeof ListNamespacesResponse$ === "object");
 assert(typeof ListTableBucketsRequest$ === "object");
 assert(typeof ListTableBucketsResponse$ === "object");
+assert(typeof ListTableMigrationsRequest$ === "object");
+assert(typeof ListTableMigrationsResponse$ === "object");
 assert(typeof ListTablesRequest$ === "object");
 assert(typeof ListTablesResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof MaintenanceSettings$ === "object");
 assert(typeof ManagedTableInformation$ === "object");
+assert(typeof MigrationCompactionSettings$ === "object");
+assert(typeof MigrationFailureReason$ === "object");
+assert(typeof MigrationOutputConfiguration$ === "object");
+assert(typeof MigrationOutputOverview$ === "object");
+assert(typeof MigrationPolicies$ === "object");
+assert(typeof MigrationReportPrefixes$ === "object");
+assert(typeof MigrationSnapshotManagementSettings$ === "object");
+assert(typeof MigrationStats$ === "object");
+assert(typeof MigrationSummary$ === "object");
+assert(typeof MigrationTableProperties$ === "object");
 assert(typeof NamespaceSummary$ === "object");
+assert(typeof PlanningStats$ === "object");
 assert(typeof PutTableBucketEncryptionRequest$ === "object");
 assert(typeof PutTableBucketMaintenanceConfigurationRequest$ === "object");
 assert(typeof PutTableBucketMetricsConfigurationRequest$ === "object");
@@ -447,9 +532,15 @@ assert(typeof RenameTableRequest$ === "object");
 assert(typeof ReplicationDestination$ === "object");
 assert(typeof ReplicationDestinationStatusModel$ === "object");
 assert(typeof ReplicationInformation$ === "object");
+assert(typeof ReportOverview$ === "object");
 assert(typeof SchemaField$ === "object");
 assert(typeof SchemaV2Field$ === "object");
+assert(typeof SourceConfiguration$ === "object");
+assert(typeof StartTableMigrationRequest$ === "object");
+assert(typeof StartTableMigrationResponse$ === "object");
 assert(typeof StorageClassConfiguration$ === "object");
+assert(typeof SyncTableMigrationRequest$ === "object");
+assert(typeof SyncTableMigrationResponse$ === "object");
 assert(typeof TableBucketMaintenanceConfigurationValue$ === "object");
 assert(typeof TableBucketMaintenanceSettings$ === "object");
 assert(typeof TableBucketReplicationConfiguration$ === "object");
@@ -471,12 +562,23 @@ assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateTableMetadataLocationRequest$ === "object");
 assert(typeof UpdateTableMetadataLocationResponse$ === "object");
+assert(typeof UpdateTableMigrationRequest$ === "object");
+assert(typeof UpdateTableMigrationResponse$ === "object");
 // enums
+assert(typeof CompressionCodec === "object");
+assert(typeof DataFileFormat === "object");
+assert(typeof FindingCategory === "object");
 assert(typeof IcebergCompactionStrategy === "object");
 assert(typeof IcebergNullOrder === "object");
 assert(typeof IcebergSortDirection === "object");
+assert(typeof IncompatibleValuesPolicy === "object");
 assert(typeof JobStatus === "object");
 assert(typeof MaintenanceStatus === "object");
+assert(typeof MigrationFailureCode === "object");
+assert(typeof MigrationRequestedState === "object");
+assert(typeof MigrationSourceType === "object");
+assert(typeof MigrationState === "object");
+assert(typeof MigrationType === "object");
 assert(typeof OpenTableFormat === "object");
 assert(typeof ReplicationStatus === "object");
 assert(typeof SchemaV2FieldType === "object");
@@ -489,6 +591,7 @@ assert(typeof TableMaintenanceType === "object");
 assert(typeof TableRecordExpirationJobStatus === "object");
 assert(typeof TableRecordExpirationStatus === "object");
 assert(typeof TableType === "object");
+assert(typeof UnmatchedSourceFieldsPolicy === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof S3TablesServiceException);
 assert(typeof AccessDeniedException$ === "object");
@@ -510,5 +613,6 @@ assert(S3TablesServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListNamespaces === "function");
 assert(typeof paginateListTableBuckets === "function");
+assert(typeof paginateListTableMigrations === "function");
 assert(typeof paginateListTables === "function");
 console.log(`S3Tables index test passed.`);

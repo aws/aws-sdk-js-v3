@@ -8,11 +8,15 @@ const _CT = "CreateTable";
 const _CTB = "CreateTableBucket";
 const _CTBR = "CreateTableBucketRequest";
 const _CTBRr = "CreateTableBucketResponse";
+const _CTM = "CompleteTableMigration";
+const _CTMR = "CompleteTableMigrationRequest";
 const _CTR = "CreateTableRequest";
 const _CTRr = "CreateTableResponse";
+const _DMO = "DataMigrationOverview";
+const _DMS = "DataMigrationSettings";
 const _DN = "DeleteNamespace";
 const _DNR = "DeleteNamespaceRequest";
-const _DT = "DeleteTable";
+const _DT = "DestinationTable";
 const _DTB = "DeleteTableBucket";
 const _DTBE = "DeleteTableBucketEncryption";
 const _DTBER = "DeleteTableBucketEncryptionRequest";
@@ -28,6 +32,7 @@ const _DTPR = "DeleteTablePolicyRequest";
 const _DTR = "DeleteTableRequest";
 const _DTRR = "DeleteTableReplicationRequest";
 const _DTRe = "DeleteTableReplication";
+const _DTe = "DeleteTable";
 const _EC = "EncryptionConfiguration";
 const _FE = "ForbiddenException";
 const _GN = "GetNamespace";
@@ -58,6 +63,7 @@ const _GTBSCRe = "GetTableBucketStorageClassResponse";
 const _GTE = "GetTableEncryption";
 const _GTER = "GetTableEncryptionRequest";
 const _GTERe = "GetTableEncryptionResponse";
+const _GTM = "GetTableMigration";
 const _GTMC = "GetTableMaintenanceConfiguration";
 const _GTMCR = "GetTableMaintenanceConfigurationRequest";
 const _GTMCRe = "GetTableMaintenanceConfigurationResponse";
@@ -67,6 +73,8 @@ const _GTMJSRe = "GetTableMaintenanceJobStatusResponse";
 const _GTML = "GetTableMetadataLocation";
 const _GTMLR = "GetTableMetadataLocationRequest";
 const _GTMLRe = "GetTableMetadataLocationResponse";
+const _GTMR = "GetTableMigrationRequest";
+const _GTMRe = "GetTableMigrationResponse";
 const _GTP = "GetTablePolicy";
 const _GTPR = "GetTablePolicyRequest";
 const _GTPRe = "GetTablePolicyResponse";
@@ -84,6 +92,7 @@ const _GTRSR = "GetTableReplicationStatusRequest";
 const _GTRSRe = "GetTableReplicationStatusResponse";
 const _GTRe = "GetTableResponse";
 const _GTRet = "GetTableReplication";
+const _GTS = "GlueTableSource";
 const _GTSC = "GetTableStorageClass";
 const _GTSCR = "GetTableStorageClassRequest";
 const _GTSCRe = "GetTableStorageClassResponse";
@@ -111,13 +120,29 @@ const _LTBRi = "ListTableBucketsResponse";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
+const _LTM = "ListTableMigrations";
+const _LTMR = "ListTableMigrationsRequest";
+const _LTMRi = "ListTableMigrationsResponse";
 const _LTR = "ListTablesRequest";
 const _LTRi = "ListTablesResponse";
+const _MCS = "MigrationCompactionSettings";
+const _MFR = "MigrationFailureReason";
 const _MNAE = "MethodNotAllowedException";
+const _MOC = "MigrationOutputConfiguration";
+const _MOO = "MigrationOutputOverview";
+const _MP = "MigrationPolicies";
+const _MRP = "MigrationReportPrefixes";
+const _MS = "MaintenanceSettings";
+const _MSL = "MigrationSummaryList";
+const _MSMS = "MigrationSnapshotManagementSettings";
+const _MSi = "MigrationStats";
+const _MSig = "MigrationSummary";
 const _MTI = "ManagedTableInformation";
+const _MTP = "MigrationTableProperties";
 const _NFE = "NotFoundException";
 const _NS = "NamespaceSummary";
 const _NSL = "NamespaceSummaryList";
+const _PS = "PlanningStats";
 const _PTBE = "PutTableBucketEncryption";
 const _PTBER = "PutTableBucketEncryptionRequest";
 const _PTBMC = "PutTableBucketMaintenanceConfiguration";
@@ -145,11 +170,19 @@ const _RDS = "ReplicationDestinationStatuses";
 const _RDSM = "ReplicationDestinationStatusModel";
 const _RDe = "ReplicationDestinations";
 const _RI = "ReplicationInformation";
+const _RO = "ReportOverview";
 const _RT = "RenameTable";
 const _RTR = "RenameTableRequest";
+const _SC = "SourceConfiguration";
 const _SCC = "StorageClassConfiguration";
 const _SF = "SchemaField";
 const _SFL = "SchemaFieldList";
+const _STM = "StartTableMigration";
+const _STMR = "StartTableMigrationRequest";
+const _STMRt = "StartTableMigrationResponse";
+const _STMRy = "SyncTableMigrationRequest";
+const _STMRyn = "SyncTableMigrationResponse";
+const _STMy = "SyncTableMigration";
 const _SVF = "SchemaV2Field";
 const _SVFL = "SchemaV2FieldList";
 const _TBMC = "TableBucketMaintenanceConfiguration";
@@ -181,22 +214,35 @@ const _TSL = "TableSummaryList";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
+const _UTM = "UpdateTableMigration";
 const _UTML = "UpdateTableMetadataLocation";
 const _UTMLR = "UpdateTableMetadataLocationRequest";
 const _UTMLRp = "UpdateTableMetadataLocationResponse";
+const _UTMR = "UpdateTableMigrationRequest";
+const _UTMRp = "UpdateTableMigrationResponse";
 const _a = "arn";
+const _b = "bucket";
 const _c = "client";
 const _cA = "createdAt";
 const _cB = "createdBy";
+const _cC = "compressionCodec";
+const _cCRCNVME = "checksumCRC64NVME";
+const _cI = "catalogId";
 const _cT = "continuationToken";
 const _co = "configuration";
+const _cod = "code";
 const _d = "destinations";
 const _dDF = "deletedDataFiles";
+const _dE = "dictionaryEncoding";
+const _dM = "dataMigration";
+const _dN = "databaseName";
 const _dR = "deletedRecords";
+const _dT = "destinationTable";
 const _dTA = "destinationTableArn";
 const _dTBA = "destinationTableBucketArn";
 const _dTBARN = "destinationTableBucketARN";
 const _da = "days";
+const _de = "detail";
 const _di = "direction";
 const _do = "doc";
 const _e = "error";
@@ -204,19 +250,27 @@ const _eC = "encryptionConfiguration";
 const _f = "format";
 const _fI = "fieldId";
 const _fM = "failureMessage";
+const _fR = "failureReason";
 const _fi = "field-id";
 const _fie = "fields";
+const _gT = "glueTable";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
+const _hVP = "hasValidPlan";
 const _i = "id";
 const _iC = "icebergCompaction";
+const _iF = "invalidFindings";
 const _iFI = "identifierFieldIds";
+const _iFV = "icebergFormatVersion";
 const _iSM = "icebergSnapshotManagement";
+const _iSO = "icebergSortOrder";
 const _iUFR = "icebergUnreferencedFileRemoval";
+const _iVP = "incompatibleValuesPolicy";
 const _ic = "iceberg";
 const _ifi = "identifier-field-ids";
 const _jN = "jsonName";
+const _k = "key";
 const _kKA = "kmsKeyArn";
 const _lRT = "lastRunTimestamp";
 const _lSRU = "lastSuccessfulReplicatedUpdate";
@@ -225,35 +279,56 @@ const _mA = "modifiedAt";
 const _mB = "modifiedBy";
 const _mBS = "managedByService";
 const _mBa = "maxBuckets";
+const _mI = "migrationId";
 const _mL = "metadataLocation";
 const _mN = "maxNamespaces";
+const _mO = "migrationOutput";
+const _mP = "migrationPolicies";
+const _mR = "maxResults";
+const _mS = "maintenanceSettings";
 const _mSAH = "maxSnapshotAgeHours";
 const _mSTK = "minSnapshotsToKeep";
+const _mSi = "migrationStats";
 const _mT = "maxTables";
 const _mTI = "managedTableInformation";
 const _me = "metadata";
 const _met = "metrics";
+const _mi = "migrations";
 const _n = "namespace";
 const _nCD = "nonCurrentDays";
 const _nI = "namespaceId";
 const _nN = "newName";
 const _nNN = "newNamespaceName";
 const _nO = "nullOrder";
+const _nT = "nextToken";
 const _na = "name";
 const _nam = "namespaces";
 const _no = "null-order";
 const _oAI = "ownerAccountId";
+const _oCR = "objectCompatibilityReport";
+const _oFM = "objectsFailedMigration";
 const _oI = "orderId";
+const _oM = "objectsMigrated";
+const _oMR = "objectMigrationReport";
+const _oP = "objectsPlanned";
+const _oPM = "objectsPendingMigration";
+const _oS = "objectsScanned";
 const _oi = "order-id";
 const _p = "properties";
-const _pS = "partitionSpec";
+const _pC = "partitionCount";
+const _pS = "planningStats";
+const _pSa = "partitionSpec";
 const _pr = "prefix";
+const _pre = "prefixes";
 const _r = "required";
 const _rA = "resourceArn";
+const _rARN = "roleARN";
 const _rFS = "removedFilesSize";
 const _rI = "replicationInformation";
+const _rMP = "reviewMigrationPlan";
 const _rP = "resourcePolicy";
 const _rS = "replicationStatus";
+const _rSe = "requestedState";
 const _ro = "role";
 const _ru = "rules";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.s3tables";
@@ -263,8 +338,10 @@ const _sCC = "storageClassConfiguration";
 const _sI = "sourceId";
 const _sIc = "schemaId";
 const _sIp = "specId";
+const _sT = "sourceType";
 const _sTA = "sourceTableArn";
 const _sTARN = "sourceTableARN";
+const _sUA = "stateUpdatedAt";
 const _sV = "schemaV2";
 const _sc = "schema";
 const _se = "server";
@@ -272,7 +349,9 @@ const _set = "settings";
 const _si = "source-id";
 const _si_ = "spec-id";
 const _si__ = "schema-id";
+const _so = "source";
 const _st = "status";
+const _sta = "state";
 const _str = "strategy";
 const _t = "tags";
 const _tA = "tableArn";
@@ -280,15 +359,20 @@ const _tARN = "tableARN";
 const _tB = "tableBuckets";
 const _tBARN = "tableBucketARN";
 const _tBI = "tableBucketId";
+const _tCR = "tableCompatibilityReport";
 const _tFSMB = "targetFileSizeMB";
 const _tK = "tagKeys";
+const _tN = "tableName";
 const _ta = "tables";
 const _ti = "timestamp";
 const _tr = "transform";
 const _ty = "type";
 const _uD = "unreferencedDays";
+const _uDp = "updateDescription";
+const _uSFP = "unmatchedSourceFieldsPolicy";
 const _v = "value";
 const _vT = "versionToken";
+const _wF = "writeFormat";
 const _wL = "warehouseLocation";
 const _wO = "writeOrder";
 const n0 = "com.amazonaws.s3tables";
@@ -378,6 +462,11 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+export var CompleteTableMigrationRequest$: StaticStructureSchema = [3, n0, _CTMR,
+  0,
+  [_tARN],
+  [[0, { [_hQ]: _tARN }]], 1
+];
 export var CreateNamespaceRequest$: StaticStructureSchema = [3, n0, _CNR,
   0,
   [_tBARN, _n],
@@ -407,6 +496,16 @@ export var CreateTableResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
   [_tARN, _vT],
   [0, 0], 2
+];
+export var DataMigrationOverview$: StaticStructureSchema = [3, n0, _DMO,
+  0,
+  [_mS, _mP],
+  [() => MaintenanceSettings$, () => MigrationPolicies$], 2
+];
+export var DataMigrationSettings$: StaticStructureSchema = [3, n0, _DMS,
+  0,
+  [_mS, _mP],
+  [() => MaintenanceSettings$, () => MigrationPolicies$]
 ];
 export var DeleteNamespaceRequest$: StaticStructureSchema = [3, n0, _DNR,
   0,
@@ -452,6 +551,11 @@ export var DeleteTableRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_tBARN, _n, _na, _vT],
   [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _vT }]], 3
+];
+export var DestinationTable$: StaticStructureSchema = [3, n0, _DT,
+  0,
+  [_tBARN, _n, _na, _eC, _sCC, _t, _p, _sc, _iSO],
+  [0, 0, 0, () => EncryptionConfiguration$, () => StorageClassConfiguration$, 128 | 0, () => MigrationTableProperties$, [() => IcebergSchemaV2$, 0], [() => IcebergSortOrder$, 0]], 3
 ];
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
@@ -578,6 +682,16 @@ export var GetTableMetadataLocationResponse$: StaticStructureSchema = [3, n0, _G
   [_vT, _wL, _mL],
   [0, 0, 0], 2
 ];
+export var GetTableMigrationRequest$: StaticStructureSchema = [3, n0, _GTMR,
+  0,
+  [_mI, _tARN],
+  [[0, { [_hQ]: _mI }], [0, { [_hQ]: _tARN }]]
+];
+export var GetTableMigrationResponse$: StaticStructureSchema = [3, n0, _GTMRe,
+  0,
+  [_mI, _tBARN, _n, _na, _ty, _sta, _rARN, _rMP, _cA, _sUA, _sT, _so, _dM, _mO, _tARN, _hVP, _fR, _pS, _mSi],
+  [0, 0, 0, 0, 0, 0, 0, 2, 5, 5, 0, () => SourceConfiguration$, () => DataMigrationOverview$, () => MigrationOutputOverview$, 0, 2, () => MigrationFailureReason$, () => PlanningStats$, () => MigrationStats$], 14
+];
 export var GetTablePolicyRequest$: StaticStructureSchema = [3, n0, _GTPR,
   0,
   [_tBARN, _n, _na],
@@ -648,6 +762,11 @@ export var GetTableStorageClassResponse$: StaticStructureSchema = [3, n0, _GTSCR
   [_sCC],
   [() => StorageClassConfiguration$], 1
 ];
+export var GlueTableSource$: StaticStructureSchema = [3, n0, _GTS,
+  0,
+  [_cI, _dN, _tN],
+  [0, 0, 0], 3
+];
 export var IcebergCompactionSettings$: StaticStructureSchema = [3, n0, _ICS,
   0,
   [_tFSMB, _str],
@@ -655,7 +774,7 @@ export var IcebergCompactionSettings$: StaticStructureSchema = [3, n0, _ICS,
 ];
 export var IcebergMetadata$: StaticStructureSchema = [3, n0, _IM,
   0,
-  [_sc, _sV, _pS, _wO, _p],
+  [_sc, _sV, _pSa, _wO, _p],
   [() => IcebergSchema$, [() => IcebergSchemaV2$, 0], [() => IcebergPartitionSpec$, 0], [() => IcebergSortOrder$, 0], 128 | 0]
 ];
 export var IcebergPartitionField$: StaticStructureSchema = [3, n0, _IPF,
@@ -723,6 +842,16 @@ export var ListTableBucketsResponse$: StaticStructureSchema = [3, n0, _LTBRi,
   [_tB, _cT],
   [() => TableBucketSummaryList, 0], 1
 ];
+export var ListTableMigrationsRequest$: StaticStructureSchema = [3, n0, _LTMR,
+  0,
+  [_tBARN, _n, _na, _tARN, _sta, _hVP, _mR, _nT],
+  [[0, { [_hQ]: _tBARN }], [0, { [_hQ]: _n }], [0, { [_hQ]: _na }], [0, { [_hQ]: _tARN }], [0, { [_hQ]: _sta }], [2, { [_hQ]: _hVP }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+];
+export var ListTableMigrationsResponse$: StaticStructureSchema = [3, n0, _LTMRi,
+  0,
+  [_mi, _nT],
+  [() => MigrationSummaryList, 0], 1
+];
 export var ListTablesRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
   [_tBARN, _n, _pr, _cT, _mT],
@@ -743,15 +872,75 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_t],
   [128 | 0]
 ];
+export var MaintenanceSettings$: StaticStructureSchema = [3, n0, _MS,
+  0,
+  [_iC, _iSM],
+  [() => MigrationCompactionSettings$, () => MigrationSnapshotManagementSettings$]
+];
 export var ManagedTableInformation$: StaticStructureSchema = [3, n0, _MTI,
   0,
   [_rI],
   [() => ReplicationInformation$]
 ];
+export var MigrationCompactionSettings$: StaticStructureSchema = [3, n0, _MCS,
+  0,
+  [_tFSMB, _str],
+  [1, 0]
+];
+export var MigrationFailureReason$: StaticStructureSchema = [3, n0, _MFR,
+  0,
+  [_cod, _de],
+  [0, 0], 1
+];
+export var MigrationOutputConfiguration$: StaticStructureSchema = [3, n0, _MOC,
+  0,
+  [_b, _pre],
+  [0, () => MigrationReportPrefixes$], 1
+];
+export var MigrationOutputOverview$: StaticStructureSchema = [3, n0, _MOO,
+  0,
+  [_b, _tCR, _oCR, _oMR],
+  [0, () => ReportOverview$, () => ReportOverview$, () => ReportOverview$], 4
+];
+export var MigrationPolicies$: StaticStructureSchema = [3, n0, _MP,
+  0,
+  [_uSFP, _iVP],
+  [0, 0]
+];
+export var MigrationReportPrefixes$: StaticStructureSchema = [3, n0, _MRP,
+  0,
+  [_tCR, _oCR, _oMR],
+  [0, 0, 0]
+];
+export var MigrationSnapshotManagementSettings$: StaticStructureSchema = [3, n0, _MSMS,
+  0,
+  [_mSTK, _mSAH],
+  [1, 1]
+];
+export var MigrationStats$: StaticStructureSchema = [3, n0, _MSi,
+  0,
+  [_oM, _oFM, _oPM],
+  [1, 1, 1]
+];
+export var MigrationSummary$: StaticStructureSchema = [3, n0, _MSig,
+  0,
+  [_mI, _tBARN, _n, _na, _ty, _sta, _cA, _sUA, _tARN, _hVP],
+  [0, 0, 0, 0, 0, 0, 5, 5, 0, 2], 8
+];
+export var MigrationTableProperties$: StaticStructureSchema = [3, n0, _MTP,
+  0,
+  [_wF, _iFV, _cC, _dE],
+  [0, 1, 0, 2]
+];
 export var NamespaceSummary$: StaticStructureSchema = [3, n0, _NS,
   0,
   [_n, _cA, _cB, _oAI, _nI, _tBI],
   [64 | 0, 5, 0, 0, 0, 0], 4
+];
+export var PlanningStats$: StaticStructureSchema = [3, n0, _PS,
+  0,
+  [_oS, _oP, _pC],
+  [1, 1, 1]
 ];
 export var PutTableBucketEncryptionRequest$: StaticStructureSchema = [3, n0, _PTBER,
   0,
@@ -833,6 +1022,11 @@ export var ReplicationInformation$: StaticStructureSchema = [3, n0, _RI,
   [_sTARN],
   [0], 1
 ];
+export var ReportOverview$: StaticStructureSchema = [3, n0, _RO,
+  0,
+  [_pr, _k, _cCRCNVME, _iF],
+  [0, 0, 0, 128 | 1]
+];
 export var SchemaField$: StaticStructureSchema = [3, n0, _SF,
   0,
   [_na, _ty, _i, _r],
@@ -843,10 +1037,30 @@ export var SchemaV2Field$: StaticStructureSchema = [3, n0, _SVF,
   [_i, _na, _ty, _r, _do],
   [1, 0, 15, 2, 0], 4
 ];
+export var StartTableMigrationRequest$: StaticStructureSchema = [3, n0, _STMR,
+  0,
+  [_rARN, _dT, _sT, _so, _mO, _dM, _rMP],
+  [0, [() => DestinationTable$, 0], 0, () => SourceConfiguration$, () => MigrationOutputConfiguration$, () => DataMigrationSettings$, 2], 5
+];
+export var StartTableMigrationResponse$: StaticStructureSchema = [3, n0, _STMRt,
+  0,
+  [_mI, _sta],
+  [0, 0], 2
+];
 export var StorageClassConfiguration$: StaticStructureSchema = [3, n0, _SCC,
   0,
   [_sC],
   [0], 1
+];
+export var SyncTableMigrationRequest$: StaticStructureSchema = [3, n0, _STMRy,
+  0,
+  [_rARN, _tARN, _mO, _rMP],
+  [0, 0, () => MigrationOutputConfiguration$, 2], 3
+];
+export var SyncTableMigrationResponse$: StaticStructureSchema = [3, n0, _STMRyn,
+  0,
+  [_mI, _sta],
+  [0, 0], 2
 ];
 export var TableBucketMaintenanceConfigurationValue$: StaticStructureSchema = [3, n0, _TBMCV,
   0,
@@ -938,6 +1152,16 @@ export var UpdateTableMetadataLocationResponse$: StaticStructureSchema = [3, n0,
   [_na, _tARN, _n, _vT, _mL],
   [0, 0, 64 | 0, 0, 0], 5
 ];
+export var UpdateTableMigrationRequest$: StaticStructureSchema = [3, n0, _UTMR,
+  0,
+  [_rSe, _tARN, _mI, _uDp],
+  [0, [0, { [_hQ]: _tARN }], [0, { [_hQ]: _mI }], 0], 1
+];
+export var UpdateTableMigrationResponse$: StaticStructureSchema = [3, n0, _UTMRp,
+  0,
+  [_mI, _sta, _tARN],
+  [0, 0, 0], 2
+];
 var __Unit = "unit" as const;
 var IcebergPartitionFieldList: StaticListSchema = [1, n0, _IPFL,
   0, [() => IcebergPartitionField$,
@@ -948,6 +1172,9 @@ var IcebergSortFieldList: StaticListSchema = [1, n0, _ISFL,
     0]
 ];
 var IntegerList = 64 | 1;
+var MigrationSummaryList: StaticListSchema = [1, n0, _MSL,
+  0, () => MigrationSummary$
+];
 var NamespaceList = 64 | 0;
 var NamespaceSummaryList: StaticListSchema = [1, n0, _NSL,
   0, () => NamespaceSummary$
@@ -977,6 +1204,7 @@ var TableSummaryList: StaticListSchema = [1, n0, _TSL,
   0, () => TableSummary$
 ];
 var TagKeyList = 64 | 0;
+var FindingCategoryCounts = 128 | 1;
 var TableBucketMaintenanceConfiguration: StaticMapSchema = [2, n0, _TBMC,
   0, 0, () => TableBucketMaintenanceConfigurationValue$
 ];
@@ -988,6 +1216,11 @@ var TableMaintenanceJobStatus: StaticMapSchema = [2, n0, _TMJS,
 ];
 var TableProperties = 128 | 0;
 var Tags = 128 | 0;
+export var SourceConfiguration$: StaticUnionSchema = [4, n0, _SC,
+  0,
+  [_gT],
+  [() => GlueTableSource$]
+];
 export var TableBucketMaintenanceSettings$: StaticUnionSchema = [4, n0, _TBMS,
   0,
   [_iUFR],
@@ -1003,6 +1236,9 @@ export var TableMetadata$: StaticUnionSchema = [4, n0, _TM,
   [_ic],
   [[() => IcebergMetadata$, 0]]
 ];
+export var CompleteTableMigration$: StaticOperationSchema = [9, n0, _CTM,
+  { [_h]: ["POST", "/complete-table-migration", 204] }, () => CompleteTableMigrationRequest$, () => __Unit
+];
 export var CreateNamespace$: StaticOperationSchema = [9, n0, _CN,
   { [_h]: ["PUT", "/namespaces/{tableBucketARN}", 200] }, () => CreateNamespaceRequest$, () => CreateNamespaceResponse$
 ];
@@ -1015,7 +1251,7 @@ export var CreateTableBucket$: StaticOperationSchema = [9, n0, _CTB,
 export var DeleteNamespace$: StaticOperationSchema = [9, n0, _DN,
   { [_h]: ["DELETE", "/namespaces/{tableBucketARN}/{namespace}", 204] }, () => DeleteNamespaceRequest$, () => __Unit
 ];
-export var DeleteTable$: StaticOperationSchema = [9, n0, _DT,
+export var DeleteTable$: StaticOperationSchema = [9, n0, _DTe,
   { [_h]: ["DELETE", "/tables/{tableBucketARN}/{namespace}/{name}", 204] }, () => DeleteTableRequest$, () => __Unit
 ];
 export var DeleteTableBucket$: StaticOperationSchema = [9, n0, _DTB,
@@ -1078,6 +1314,9 @@ export var GetTableMaintenanceJobStatus$: StaticOperationSchema = [9, n0, _GTMJS
 export var GetTableMetadataLocation$: StaticOperationSchema = [9, n0, _GTML,
   { [_h]: ["GET", "/tables/{tableBucketARN}/{namespace}/{name}/metadata-location", 200] }, () => GetTableMetadataLocationRequest$, () => GetTableMetadataLocationResponse$
 ];
+export var GetTableMigration$: StaticOperationSchema = [9, n0, _GTM,
+  { [_h]: ["GET", "/get-table-migration", 200] }, () => GetTableMigrationRequest$, () => GetTableMigrationResponse$
+];
 export var GetTablePolicy$: StaticOperationSchema = [9, n0, _GTP,
   { [_h]: ["GET", "/tables/{tableBucketARN}/{namespace}/{name}/policy", 200] }, () => GetTablePolicyRequest$, () => GetTablePolicyResponse$
 ];
@@ -1101,6 +1340,9 @@ export var ListNamespaces$: StaticOperationSchema = [9, n0, _LN,
 ];
 export var ListTableBuckets$: StaticOperationSchema = [9, n0, _LTB,
   { [_h]: ["GET", "/buckets", 200] }, () => ListTableBucketsRequest$, () => ListTableBucketsResponse$
+];
+export var ListTableMigrations$: StaticOperationSchema = [9, n0, _LTM,
+  { [_h]: ["GET", "/list-table-migrations", 200] }, () => ListTableMigrationsRequest$, () => ListTableMigrationsResponse$
 ];
 export var ListTables$: StaticOperationSchema = [9, n0, _LT,
   { [_h]: ["GET", "/tables/{tableBucketARN}", 200] }, () => ListTablesRequest$, () => ListTablesResponse$
@@ -1141,6 +1383,12 @@ export var PutTableReplication$: StaticOperationSchema = [9, n0, _PTR,
 export var RenameTable$: StaticOperationSchema = [9, n0, _RT,
   { [_h]: ["PUT", "/tables/{tableBucketARN}/{namespace}/{name}/rename", 204] }, () => RenameTableRequest$, () => __Unit
 ];
+export var StartTableMigration$: StaticOperationSchema = [9, n0, _STM,
+  { [_h]: ["POST", "/start-table-migration", 202] }, () => StartTableMigrationRequest$, () => StartTableMigrationResponse$
+];
+export var SyncTableMigration$: StaticOperationSchema = [9, n0, _STMy,
+  { [_h]: ["POST", "/sync-table-migration", 202] }, () => SyncTableMigrationRequest$, () => SyncTableMigrationResponse$
+];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   { [_h]: ["POST", "/tag/{resourceArn}", 200] }, () => TagResourceRequest$, () => TagResourceResponse$
 ];
@@ -1149,4 +1397,7 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
 ];
 export var UpdateTableMetadataLocation$: StaticOperationSchema = [9, n0, _UTML,
   { [_h]: ["PUT", "/tables/{tableBucketARN}/{namespace}/{name}/metadata-location", 200] }, () => UpdateTableMetadataLocationRequest$, () => UpdateTableMetadataLocationResponse$
+];
+export var UpdateTableMigration$: StaticOperationSchema = [9, n0, _UTM,
+  { [_h]: ["POST", "/update-table-migration", 200] }, () => UpdateTableMigrationRequest$, () => UpdateTableMigrationResponse$
 ];

@@ -8,6 +8,11 @@ import type {
 } from "@smithy/types";
 
 import {
+  type CompleteTableMigrationCommandInput,
+  type CompleteTableMigrationCommandOutput,
+  CompleteTableMigrationCommand,
+} from "./commands/CompleteTableMigrationCommand";
+import {
   type CreateNamespaceCommandInput,
   type CreateNamespaceCommandOutput,
   CreateNamespaceCommand,
@@ -129,6 +134,11 @@ import {
   GetTableMetadataLocationCommand,
 } from "./commands/GetTableMetadataLocationCommand";
 import {
+  type GetTableMigrationCommandInput,
+  type GetTableMigrationCommandOutput,
+  GetTableMigrationCommand,
+} from "./commands/GetTableMigrationCommand";
+import {
   type GetTablePolicyCommandInput,
   type GetTablePolicyCommandOutput,
   GetTablePolicyCommand,
@@ -168,6 +178,11 @@ import {
   type ListTableBucketsCommandOutput,
   ListTableBucketsCommand,
 } from "./commands/ListTableBucketsCommand";
+import {
+  type ListTableMigrationsCommandInput,
+  type ListTableMigrationsCommandOutput,
+  ListTableMigrationsCommand,
+} from "./commands/ListTableMigrationsCommand";
 import {
   type ListTablesCommandInput,
   type ListTablesCommandOutput,
@@ -234,6 +249,16 @@ import {
   RenameTableCommand,
 } from "./commands/RenameTableCommand";
 import {
+  type StartTableMigrationCommandInput,
+  type StartTableMigrationCommandOutput,
+  StartTableMigrationCommand,
+} from "./commands/StartTableMigrationCommand";
+import {
+  type SyncTableMigrationCommandInput,
+  type SyncTableMigrationCommandOutput,
+  SyncTableMigrationCommand,
+} from "./commands/SyncTableMigrationCommand";
+import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
   TagResourceCommand,
@@ -248,12 +273,19 @@ import {
   type UpdateTableMetadataLocationCommandOutput,
   UpdateTableMetadataLocationCommand,
 } from "./commands/UpdateTableMetadataLocationCommand";
+import {
+  type UpdateTableMigrationCommandInput,
+  type UpdateTableMigrationCommandOutput,
+  UpdateTableMigrationCommand,
+} from "./commands/UpdateTableMigrationCommand";
 import { paginateListNamespaces } from "./pagination/ListNamespacesPaginator";
 import { paginateListTableBuckets } from "./pagination/ListTableBucketsPaginator";
+import { paginateListTableMigrations } from "./pagination/ListTableMigrationsPaginator";
 import { paginateListTables } from "./pagination/ListTablesPaginator";
 import { S3TablesClient } from "./S3TablesClient";
 
 const commands = {
+  CompleteTableMigrationCommand,
   CreateNamespaceCommand,
   CreateTableCommand,
   CreateTableBucketCommand,
@@ -279,6 +311,7 @@ const commands = {
   GetTableMaintenanceConfigurationCommand,
   GetTableMaintenanceJobStatusCommand,
   GetTableMetadataLocationCommand,
+  GetTableMigrationCommand,
   GetTablePolicyCommand,
   GetTableRecordExpirationConfigurationCommand,
   GetTableRecordExpirationJobStatusCommand,
@@ -287,6 +320,7 @@ const commands = {
   GetTableStorageClassCommand,
   ListNamespacesCommand,
   ListTableBucketsCommand,
+  ListTableMigrationsCommand,
   ListTablesCommand,
   ListTagsForResourceCommand,
   PutTableBucketEncryptionCommand,
@@ -300,13 +334,17 @@ const commands = {
   PutTableRecordExpirationConfigurationCommand,
   PutTableReplicationCommand,
   RenameTableCommand,
+  StartTableMigrationCommand,
+  SyncTableMigrationCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateTableMetadataLocationCommand,
+  UpdateTableMigrationCommand,
 };
 const paginators = {
   paginateListNamespaces,
   paginateListTableBuckets,
+  paginateListTableMigrations,
   paginateListTables,
 };
 
@@ -318,6 +356,23 @@ export interface S3TablesRequestOptions extends __HttpHandlerOptions {
 }
 
 export interface S3Tables {
+  /**
+   * @see {@link CompleteTableMigrationCommand}
+   */
+  completeTableMigration(
+    args: CompleteTableMigrationCommandInput,
+    options?: S3TablesRequestOptions
+  ): Promise<CompleteTableMigrationCommandOutput>;
+  completeTableMigration(
+    args: CompleteTableMigrationCommandInput,
+    cb: (err: any, data?: CompleteTableMigrationCommandOutput) => void
+  ): void;
+  completeTableMigration(
+    args: CompleteTableMigrationCommandInput,
+    options: S3TablesRequestOptions,
+    cb: (err: any, data?: CompleteTableMigrationCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateNamespaceCommand}
    */
@@ -745,6 +800,24 @@ export interface S3Tables {
   ): void;
 
   /**
+   * @see {@link GetTableMigrationCommand}
+   */
+  getTableMigration(): Promise<GetTableMigrationCommandOutput>;
+  getTableMigration(
+    args: GetTableMigrationCommandInput,
+    options?: S3TablesRequestOptions
+  ): Promise<GetTableMigrationCommandOutput>;
+  getTableMigration(
+    args: GetTableMigrationCommandInput,
+    cb: (err: any, data?: GetTableMigrationCommandOutput) => void
+  ): void;
+  getTableMigration(
+    args: GetTableMigrationCommandInput,
+    options: S3TablesRequestOptions,
+    cb: (err: any, data?: GetTableMigrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTablePolicyCommand}
    */
   getTablePolicy(
@@ -879,6 +952,24 @@ export interface S3Tables {
     args: ListTableBucketsCommandInput,
     options: S3TablesRequestOptions,
     cb: (err: any, data?: ListTableBucketsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTableMigrationsCommand}
+   */
+  listTableMigrations(): Promise<ListTableMigrationsCommandOutput>;
+  listTableMigrations(
+    args: ListTableMigrationsCommandInput,
+    options?: S3TablesRequestOptions
+  ): Promise<ListTableMigrationsCommandOutput>;
+  listTableMigrations(
+    args: ListTableMigrationsCommandInput,
+    cb: (err: any, data?: ListTableMigrationsCommandOutput) => void
+  ): void;
+  listTableMigrations(
+    args: ListTableMigrationsCommandInput,
+    options: S3TablesRequestOptions,
+    cb: (err: any, data?: ListTableMigrationsCommandOutput) => void
   ): void;
 
   /**
@@ -1103,6 +1194,40 @@ export interface S3Tables {
   ): void;
 
   /**
+   * @see {@link StartTableMigrationCommand}
+   */
+  startTableMigration(
+    args: StartTableMigrationCommandInput,
+    options?: S3TablesRequestOptions
+  ): Promise<StartTableMigrationCommandOutput>;
+  startTableMigration(
+    args: StartTableMigrationCommandInput,
+    cb: (err: any, data?: StartTableMigrationCommandOutput) => void
+  ): void;
+  startTableMigration(
+    args: StartTableMigrationCommandInput,
+    options: S3TablesRequestOptions,
+    cb: (err: any, data?: StartTableMigrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SyncTableMigrationCommand}
+   */
+  syncTableMigration(
+    args: SyncTableMigrationCommandInput,
+    options?: S3TablesRequestOptions
+  ): Promise<SyncTableMigrationCommandOutput>;
+  syncTableMigration(
+    args: SyncTableMigrationCommandInput,
+    cb: (err: any, data?: SyncTableMigrationCommandOutput) => void
+  ): void;
+  syncTableMigration(
+    args: SyncTableMigrationCommandInput,
+    options: S3TablesRequestOptions,
+    cb: (err: any, data?: SyncTableMigrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(
@@ -1154,6 +1279,23 @@ export interface S3Tables {
   ): void;
 
   /**
+   * @see {@link UpdateTableMigrationCommand}
+   */
+  updateTableMigration(
+    args: UpdateTableMigrationCommandInput,
+    options?: S3TablesRequestOptions
+  ): Promise<UpdateTableMigrationCommandOutput>;
+  updateTableMigration(
+    args: UpdateTableMigrationCommandInput,
+    cb: (err: any, data?: UpdateTableMigrationCommandOutput) => void
+  ): void;
+  updateTableMigration(
+    args: UpdateTableMigrationCommandInput,
+    options: S3TablesRequestOptions,
+    cb: (err: any, data?: UpdateTableMigrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListNamespacesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1176,6 +1318,17 @@ export interface S3Tables {
   ): Paginator<ListTableBucketsCommandOutput>;
 
   /**
+   * @see {@link ListTableMigrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTableMigrationsCommandOutput}.
+   */
+  paginateListTableMigrations(
+    args?: ListTableMigrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTableMigrationsCommandOutput>;
+
+  /**
    * @see {@link ListTablesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1188,7 +1341,7 @@ export interface S3Tables {
 }
 
 /**
- * <p>An Amazon S3 table represents a structured dataset consisting of tabular data in <a href="https://parquet.apache.org/docs/">Apache Parquet</a> format and related metadata. This data is stored inside an S3 table as a subresource. All tables in a table bucket are stored in the <a href="https://iceberg.apache.org/docs/latest/">Apache Iceberg</a> table format. Through integration with the <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html">Amazon Web Services Glue Data Catalog</a> you can interact with your tables using Amazon Web Services analytics services, such as <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/athena/">Amazon Athena</a> and <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/redshift/">Amazon Redshift</a>. Amazon S3 manages maintenance of your tables through automatic file compaction and snapshot management. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html">Amazon S3 table buckets</a>.</p>
+ * <p>An Amazon S3 table represents a structured dataset consisting of tabular data in <a href="https://parquet.apache.org/docs/">Apache Parquet</a> format and related metadata. This data is stored inside an S3 table as a subresource. All tables in a table bucket are stored in the <a href="https://iceberg.apache.org/docs/latest/">Apache Iceberg</a> table format. Through integration with the <a href="https://docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html">Amazon Web Services Glue Data Catalog</a> you can interact with your tables using Amazon Web Services analytics services, such as <a href="https://docs.aws.amazon.com/athena/">Amazon Athena</a> and <a href="https://docs.aws.amazon.com/redshift/">Amazon Redshift</a>. Amazon S3 manages maintenance of your tables through automatic file compaction and snapshot management. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html">Amazon S3 table buckets</a>.</p>
  * @public
  */
 export class S3Tables extends S3TablesClient implements S3Tables {}

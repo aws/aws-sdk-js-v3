@@ -1,0 +1,107 @@
+// smithy-typescript generated code
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { _ep0, _mw0, command } from "../commandBuilder";
+import type { SyncTableMigrationRequest, SyncTableMigrationResponse } from "../models/models_0";
+import { SyncTableMigration$ } from "../schemas/schemas_0";
+
+/**
+ * @public
+ */
+export type { __MetadataBearer };
+/**
+ * @public
+ *
+ * The input for {@link SyncTableMigrationCommand}.
+ */
+export interface SyncTableMigrationCommandInput extends SyncTableMigrationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SyncTableMigrationCommand}.
+ */
+export interface SyncTableMigrationCommandOutput extends SyncTableMigrationResponse, __MetadataBearer {}
+
+/**
+ * <p>Migrates the changes in the source table since the previous start or sync, such as added and deleted source objects, into the destination table. The sync runs asynchronously: this operation returns the migration ID of the sync and its initial state, and you track progress with <code>GetTableMigration</code>.</p> <p>A sync uses the source, destination and data migration settings of the table's migration, and plans the work and writes its reports in the same way as <code>StartTableMigration</code>. You can sync after a start or sync that succeeded, failed or was cancelled, if an earlier start or sync of the table has a valid plan (<code>hasValidPlan</code>). You can't sync a table while a start or sync is in progress for it, and you can sync a table until you call <code>CompleteTableMigration</code> for it. If a source object that an earlier migration migrated has since been overwritten, the sync fails.</p> <dl> <dt>Permissions</dt> <dd> <ul> <li> <p>You must have the <code>s3tables:SyncTableMigration</code> permission to use this operation.</p> </li> <li> <p>You must have the <code>iam:PassRole</code> permission on the role that you specify in <code>roleARN</code>, with a condition that allows passing it to <code>migration.s3tables.amazonaws.com</code>. The associated resource is the table.</p> </li> </ul> </dd> </dl>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3TablesClient, SyncTableMigrationCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
+ * // const { S3TablesClient, SyncTableMigrationCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
+ * // import type { S3TablesClientConfig } from "@aws-sdk/client-s3tables";
+ * const config = {}; // type is S3TablesClientConfig
+ * const client = new S3TablesClient(config);
+ * const input = { // SyncTableMigrationRequest
+ *   roleARN: "STRING_VALUE", // required
+ *   tableARN: "STRING_VALUE", // required
+ *   reviewMigrationPlan: true || false,
+ *   migrationOutput: { // MigrationOutputConfiguration
+ *     bucket: "STRING_VALUE", // required
+ *     prefixes: { // MigrationReportPrefixes
+ *       tableCompatibilityReport: "STRING_VALUE",
+ *       objectCompatibilityReport: "STRING_VALUE",
+ *       objectMigrationReport: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ * const command = new SyncTableMigrationCommand(input);
+ * const response = await client.send(command);
+ * // { // SyncTableMigrationResponse
+ * //   migrationId: "STRING_VALUE", // required
+ * //   state: "new" || "planning" || "pendingReview" || "queued" || "migrating" || "succeeded" || "failed" || "cancelling" || "cancelled", // required
+ * // };
+ *
+ * ```
+ *
+ * @param SyncTableMigrationCommandInput - {@link SyncTableMigrationCommandInput}
+ * @returns {@link SyncTableMigrationCommandOutput}
+ * @see {@link SyncTableMigrationCommandInput} for command's `input` shape.
+ * @see {@link SyncTableMigrationCommandOutput} for command's `response` shape.
+ * @see {@link S3TablesClientResolvedConfig | config} for S3TablesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The action cannot be performed because you do not have the required permission.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is invalid or malformed.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The caller isn't authorized to make the request.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The request failed due to an internal server error.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified resource could not be found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * @throws {@link S3TablesServiceException}
+ * <p>Base exception class for all service exceptions from S3Tables service.</p>
+ *
+ *
+ * @public
+ */
+export class SyncTableMigrationCommand extends command<SyncTableMigrationCommandInput, SyncTableMigrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "SyncTableMigration",
+  SyncTableMigration$
+) {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SyncTableMigrationRequest;
+      output: SyncTableMigrationResponse;
+    };
+    sdk: {
+      input: SyncTableMigrationCommandInput;
+      output: SyncTableMigrationCommandOutput;
+    };
+  };
+}
