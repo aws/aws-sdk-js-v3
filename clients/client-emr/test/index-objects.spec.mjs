@@ -396,6 +396,7 @@ import {
   StartSessionOutput$,
   Statistic,
   Step$,
+  StepAdditionalInfo$,
   StepCancellationOption,
   StepConfig$,
   StepDetail$,
@@ -786,6 +787,7 @@ assert(typeof StartNotebookExecutionOutput$ === "object");
 assert(typeof StartSessionInput$ === "object");
 assert(typeof StartSessionOutput$ === "object");
 assert(typeof Step$ === "object");
+assert(typeof StepAdditionalInfo$ === "object");
 assert(typeof StepConfig$ === "object");
 assert(typeof StepDetail$ === "object");
 assert(typeof StepExecutionStatusDetail$ === "object");

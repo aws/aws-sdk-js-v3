@@ -84,6 +84,12 @@ export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBeare
  * //       },
  * //       LogUri: "STRING_VALUE",
  * //       EncryptionKeyArn: "STRING_VALUE",
+ * //       AdditionalInfo: { // StepAdditionalInfo
+ * //         ResourceManagerApplicationIds: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ResourceManager: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",

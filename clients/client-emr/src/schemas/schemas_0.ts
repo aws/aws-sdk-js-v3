@@ -501,6 +501,8 @@ const _RJFO = "RunJobFlowOutput";
 const _RL = "ReleaseLabel";
 const _RLF = "ReleaseLabelFilter";
 const _RLe = "ReleaseLabels";
+const _RM = "ResourceManager";
+const _RMAI = "ResourceManagerApplicationIds";
 const _RMSP = "RemoveManagedScalingPolicy";
 const _RMSPI = "RemoveManagedScalingPolicyInput";
 const _RMSPO = "RemoveManagedScalingPolicyOutput";
@@ -516,6 +518,7 @@ const _Re = "Reason";
 const _Rea = "Realm";
 const _S = "Steps";
 const _SA = "ScalingAction";
+const _SAI = "StepAdditionalInfo";
 const _SAL = "SimplifiedApplicationList";
 const _SASG = "ServiceAccessSecurityGroup";
 const _SAc = "ScalingAdjustment";
@@ -1768,8 +1771,13 @@ export var StartSessionOutput$: StaticStructureSchema = [3, n0, _SSO,
 ];
 export var Step$: StaticStructureSchema = [3, n0, _Ste,
   0,
-  [_I, _N, _Confi, _AOF, _St, _ERA, _LU, _EKA],
-  [0, 0, () => HadoopStepConfig$, 0, () => StepStatus$, 0, 0, 0]
+  [_I, _N, _Confi, _AOF, _St, _ERA, _LU, _EKA, _AI],
+  [0, 0, () => HadoopStepConfig$, 0, () => StepStatus$, 0, 0, 0, () => StepAdditionalInfo$]
+];
+export var StepAdditionalInfo$: StaticStructureSchema = [3, n0, _SAI,
+  0,
+  [_RMAI, _RM],
+  [64 | 0, 0]
 ];
 export var StepConfig$: StaticStructureSchema = [3, n0, _SCt,
   0,
@@ -1803,8 +1811,8 @@ export var StepStatus$: StaticStructureSchema = [3, n0, _SSte,
 ];
 export var StepSummary$: StaticStructureSchema = [3, n0, _SStep,
   0,
-  [_I, _N, _Confi, _AOF, _St, _LU, _EKA],
-  [0, 0, () => HadoopStepConfig$, 0, () => StepStatus$, 0, 0]
+  [_I, _N, _Confi, _AOF, _St, _LU, _EKA, _AI],
+  [0, 0, () => HadoopStepConfig$, 0, () => StepStatus$, 0, 0, () => StepAdditionalInfo$]
 ];
 export var StepTimeline$: StaticStructureSchema = [3, n0, _STt,
   0,

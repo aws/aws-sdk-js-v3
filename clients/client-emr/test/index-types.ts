@@ -457,6 +457,7 @@ export type {
   StartSessionInput,
   StartSessionOutput,
   Step,
+  StepAdditionalInfo,
   StepConfig,
   StepDetail,
   StepExecutionStatusDetail,

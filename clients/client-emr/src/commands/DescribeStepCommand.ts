@@ -73,6 +73,12 @@ export interface DescribeStepCommandOutput extends DescribeStepOutput, __Metadat
  * //     ExecutionRoleArn: "STRING_VALUE",
  * //     LogUri: "STRING_VALUE",
  * //     EncryptionKeyArn: "STRING_VALUE",
+ * //     AdditionalInfo: { // StepAdditionalInfo
+ * //       ResourceManagerApplicationIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ResourceManager: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

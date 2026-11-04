@@ -3102,6 +3102,24 @@ export interface DescribeStepInput {
 }
 
 /**
+ * <p>Additional information about a step's execution, available after the step has started running.</p>
+ * @public
+ */
+export interface StepAdditionalInfo {
+  /**
+   * <p>The YARN application IDs associated with the step.</p>
+   * @public
+   */
+  ResourceManagerApplicationIds?: string[] | undefined;
+
+  /**
+   * <p>The address of the YARN resource manager that processed the step.</p>
+   * @public
+   */
+  ResourceManager?: string | undefined;
+}
+
+/**
  * <p>A cluster step consisting of a JAR file whose main function will be executed. The main
  *          function submits a job for Hadoop to execute and waits for the job to finish or
  *          fail.</p>
@@ -3311,6 +3329,12 @@ export interface Step {
    * @public
    */
   EncryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>Additional information about the step, including the YARN application IDs associated with the step and the resource manager that processed it.</p>
+   * @public
+   */
+  AdditionalInfo?: StepAdditionalInfo | undefined;
 }
 
 /**
@@ -5044,6 +5068,12 @@ export interface StepSummary {
    * @public
    */
   EncryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>Additional information about the step, including the YARN application IDs associated with the step and the resource manager that processed it.</p>
+   * @public
+   */
+  AdditionalInfo?: StepAdditionalInfo | undefined;
 }
 
 /**
